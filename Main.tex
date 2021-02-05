@@ -1,0 +1,135 @@
+%Formattazione
+%Scelgo report al posto di article per poter dividere l'elaborato in 3 capitoli
+\documentclass[a4paper,10pt,titlepage]{report}% use option titlepage to get the title on a page of its own.
+\usepackage[utf8]{inputenc}
+
+%Font
+\usepackage{crimson}
+\usepackage[T1]{fontenc}
+
+%Pacchetti che avevo già in altri file
+%\usepackage{ucs}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{centernot}
+
+%Pacchetti aggiunti dall'internet:
+%Questo Pacchetto serve per modificare le impostazioni del line spacing inline
+\usepackage{setspace}
+\usepackage{graphicx}
+%Per le liste nelle descrizioni degli algoritmi
+\usepackage{enumitem}
+%Per la sfera di Bloch
+\usepackage{tikz}
+%Per i diagrammini commutativi
+\usetikzlibrary{cd}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.pathmorphing} %For squiggly lines
+% To use some colours
+\usepackage{xcolor}
+
+%Per le appendici
+\usepackage[title]{appendix}
+
+%Per il Frontespizio
+\usepackage{tabularx}
+\usepackage{geometry}
+
+%Dal Darione
+%Modifies the margins and aspect ratio
+\usepackage{layaureo}
+%Allows to load subfiles which can be compiled on their own
+\usepackage{subfiles}
+
+\usepackage{mathtools}
+\setlist[description]{leftmargin=3.2em,labelindent=3.2em}
+
+%New useful operators:
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\ima}{im}
+\DeclareMathOperator{\coim}{coim}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\fct}{Fct}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+\newtheoremstyle{example}
+{1.7em}%〈Space above〉
+{1em}%〈Space below〉
+{}%〈Body font〉
+{}%〈Indent amount〉
+{\bfseries}%〈Theorem head font〉
+{}%〈Punctuation after theorem head〉
+{.5em}%〈Space after theorem head〉
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head spec(can be left empty, meaning ‘normal’)〉
+
+\newtheoremstyle{definition}
+{1.0em}
+{0.7em}
+{}
+{}
+{\bfseries}
+{}
+{1.0em}
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3. \\*}}
+
+
+\theoremstyle{example}
+\newtheorem*{ex}{Example}
+\newtheorem{exr}{Exercise}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ntt}[thm]{Notation}
+\newtheorem{rem}[thm]{Remark}
+
+\numberwithin{equation}{section}
+
+%Simbolo QED
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+\usepackage{hyperref}
+
+%Bibliografia
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=alphabetic,
+doi=false,
+url=false,
+isbn=false,
+eprint=false
+]{biblatex}
+\usepackage{hyperref}
+\addbibresource{Bibliography.bib}
+
+%Stuff for the mock title
+\usepackage{blindtext}
+\title{$p$-adic Hodge Theory}
+\author{Andrea Panontin}
+%opening
+
+\begin{document}
+
+%Frontespizio
+%\include{Chapters/Frontespizio}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+%\subfile{Chapters/Abstract}
+%\subfile{Chapters/Preambolo}
+
+\subfile{Chapters/Chapter1}
+
+\nocite{*}
+\printbibliography
+\end{document}
