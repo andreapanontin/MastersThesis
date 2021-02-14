@@ -1,46 +1,65 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
 \chapter{Affine group schemes}
-In the following we denote by $\mathsf{Sch}_{S}$ the category of schemes over $S$,
-by $\mathsf{Gp}$ the category of groups.
-\begin{defn}[Group scheme]
+In the following we will use these notations for important categories:
+$\mathsf{Sch}_{S}$ for the category of schemes over $S$,
+$\mathsf{Gp}$ for that of groups,
+$\mathsf{Ab}$ for that of abelian groups
+and $\mathsf{Sets}$ for that of sets.
+Moreover, by {\em ring} or {\em algebra}, we will mean one which is commutative and with unity.
+Finally we will often denote an object $X \in \mathrm{Ob} \left(\mathsf{C}\right)$ 
+of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
+\begin{defn}[$S$-Group scheme]
 	Let $F\colon \mathsf{Sch}_S^{op} \to \mathsf{Gp}$ be a functor.
-	If $F$ is representable by $G \in \mathsf{Sch}_{ S }$, i.e.
+	Assume that $F$ is representable by $G \in \mathsf{Sch}_{ S }$, i.e. such that, 
+	functorially in $T \in \mathsf{Sch}_{ S }$,
 	\begin{equation}
-		F(X) \simeq \mathrm{Hom}_{\mathsf{Sch}_S} \left( X, G \right)
-	\end{equation} 
-	functorially in $X$, then we call $G$ a {\em group scheme} over $S$.
+		\iota F(T) \simeq \mathrm{Hom}_{\mathsf{Sch}_S} \left( T, G \right)
+	,\end{equation} 
+	for $\iota\colon \mathsf{Gp} \to \mathsf{Sets}$ the forgetful functor.
+	Then we call $G$ a {\em group scheme} over $S$
+	or $S$-group scheme.
+\end{defn}
+
+\begin{rem}[$T$-points of an $S$-scheme]
+	Let's recall the standard notation: let $T \in \mathsf{Sch}_{ S }$, one defines
+	the $T$-points of $G \in \mathsf{Sch}_{ S }$ as
+	\begin{equation}
+		G(T) := \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
+	.\end{equation} 
+	If, in particular, $G$ is a {\em group scheme} then, by definition,
+	$G(T)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
+\end{rem}
+
+\begin{defn}[Commutative $S$-group scheme]
+	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
+	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
 \end{defn}
 
 \begin{rem}[]
-	By definition a group is a set $|G|$, endowed with an operation
-	\begin{align}
-		m\colon G \cross G &\longrightarrow G \\
-		(g,h) &\longmapsto g \cdot h \nonumber
-	,\end{align} 
-	an inverse map 
-	\begin{align}
-		\mathrm{inv}\colon G &\longrightarrow G \\
-		g &\longmapsto g^{-1} \nonumber
-	\end{align}
-	and an identity element $e \in G$.
-	The above are characterized by the following properties:
-	\begin{align}
-		g \cdot (h \cdot k) &= (g \cdot h) \cdot k,\\
-		g \cdot g^{-1} &= g^{-1} \cdot g = e,\\
-		e \cdot g &= g \cdot e = g
-	\end{align} 
-	for all $g,h,k \in G$.
-	These propertiese can be rewritten in terms of the commutativity of some diagrams,
-	recalling the definitions of $m, \mathrm{inv}$ and $e$.
-	In fact one can view the identity element as a map
-	$\varepsilon\colon \left\{ e \right\} \to G$, 
+	By definition, a group is a set $G \in \mathsf{Sets}$, endowed with an operation,
+	an inverse map, and an identity element satisfying the usual properties.
+	These can be rewritten in terms of commutative diagrams.
+	At first one writes the above three (respectively) as the following maps:
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		m\colon G \cross G \arrow[r, "", rightarrow] &
+		G \\
+		\mathrm{inv} \colon G \arrow[r, "", rightarrow] &
+		G \\
+		\varepsilon \colon \left\{ e \right\} \arrow[r, "", rightarrow] &
+		G,
+	\end{tikzcd}
+	\end{equation} 
 	for $\left\{ e \right\}$ the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
 	as the unique arrow in the terminal object
-	and $\Delta\colon G \to G \cross G$ the diagonal morphism,
-	then the above can be rewritten as
-	\begin{align}
+	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
+	Then, associativity of product, inverse element and
+	identity are characterized by: (tk: check these are indeed correct)
+	\begin{align}\label{eq:GroupAxioms}
 		m \circ (id_G \cross m) &= m \circ (m \cross id_G),\\
 		m \circ (id_G \cross \mathrm{inv}) \circ \Delta &=
 		m \circ (\mathrm{inv} \cross id_G) \circ \Delta = \varepsilon \circ \pi,\\
@@ -49,24 +68,29 @@ by $\mathsf{Gp}$ the category of groups.
 	.\end{align} 
 \end{rem}
 
-
 \begin{rem}[]
-	tk: this construction works in any category admitting finite products (if I'm not mistaken),
-	moreover one should stress the fact that fibered product in $\mathsf{Sch}_{ S }$
-	are just products, since $S$ is the final object of the category.
-	Notice that Yoneda allows us to define, starting from the morphisms in $\mathsf{Gp}$ of $F(X)$,
-	the following morphisms in $\mathsf{Sch}_{ S }$:
-	\begin{align}
-		m\colon G \cross_{ S } G &\longrightarrow G \\
-		\varepsilon \colon S &\longrightarrow G \\
-		\mathrm{inv}\colon G &\longrightarrow G 
-	.\end{align} 
-	As done above, one can translate the properties of associativity, identity element
-	and inverse into relations among those three maps.
-	These maps inherit those properties from the maps of groups, by Yoneda.
-	Let's write them down for completeness' sake:
+	Given a group scheme $G \in \mathsf{Sch}_{ S }$, Yoneda's lemma allows to translate
+	the group structure of $G(T)$, for $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
+	In particular one obtains that there exist unique maps
+	\begin{equation}
+			\begin{tikzcd}[row sep = 0ex
+         ,/tikz/column 1/.append style={anchor=base east}
+         ,/tikz/column 2/.append style={anchor=base west}
+         ,/tikz/column 3/.append style={anchor=base east}]
+			m\colon G \cross_{ S } G \arrow[r, "", rightarrow] &
+			G & \text{(product)} \\
+			\varepsilon \colon S \arrow[r, "", rightarrow] &
+			G & \text{(unit)} \\
+			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
+			G & \text{(inverse)}
+		\end{tikzcd}
+	\end{equation} 
+	inducing the group structure on $G(T)$ via Yoneda embedding.
+	Then, again by Yoneda's lemma, also the above maps have satisfy the properties written in 
+	\eqref{eq:GroupAxioms}.
+	More explicitly:
 	\begin{enumerate}
-		\item Associativity of the product is equivalent to the commutativity of
+		\item Associativity of the product
 			\begin{equation}
 			\begin{tikzcd}[column sep=4.5em]
 				G \cross_{ S } G \cross_{ S } G 
@@ -77,8 +101,7 @@ by $\mathsf{Gp}$ the category of groups.
 				G.
 			\end{tikzcd}
 			\end{equation} 
-		\item The identity element is characterized by the following two diagrams
-			(one for the left identity and one for the right identity, which coincide)
+		\item Identity element 
 			\begin{equation}
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
@@ -96,9 +119,7 @@ by $\mathsf{Gp}$ the category of groups.
 				G. \arrow[u, "id_G"', rightarrow] 
 			\end{tikzcd}
 			\end{equation} 
-		\item Finally the inverse morphism is characterized by the following
-			commutative diagrams (again, one for being the left inverse, 
-			the other one for the left inverse, and they coincide)
+		\item Inverse morphism 
 			\begin{equation*}
 			\begin{tikzcd}[column sep=2.7em]
 				G \cross_{ S } G \arrow[rr, "id_G \cross_S \mathrm{inv}", rightarrow] & &
@@ -121,67 +142,85 @@ by $\mathsf{Gp}$ the category of groups.
 	\end{enumerate}
 \end{rem}
 
-\begin{prop}[]\leavevmode\vspace{-.2\baselineskip}
-	\begin{enumerate}
-		\item 
-	Consider a pullback diagram in $\mathsf{Sch}_{ S }$
-	\begin{equation}
-	\begin{tikzcd}
-		P \arrow[r, "p_1", rightarrow] \arrow[d, "p_2"', rightarrow] &
-		Y \arrow[d, "g", rightarrow] \\
-		X \arrow[r, "f", rightarrow] &
-		Z
-	\end{tikzcd}
-	.\end{equation} 
-	Assume that $g$ is an open (resp. closed) immersion, then $p_2$ is.
-	\item Let $f\colon X \to Y$ be a separated morphism of schemes.
-		Consider $s\colon Y \to X$ a section of $f$.
-		Then $s$ is a closed immersion.
-	\item An $S$-group scheme $G$ is separated iff the unit section $\varepsilon$
-		is a closed immersion.
-	\end{enumerate}
-\end{prop}
-\begin{proof}\leavevmode\vspace{-.2\baselineskip}
-\begin{enumerate}
-\item Notice that, by definition of pullback and fiber product, a pullback is just
-		a diagram like:
-	\begin{equation}
-	\begin{tikzcd}
-		X \cross_{ Z } Y \arrow[r, "p_1", rightarrow] \arrow[d, "p_2"', rightarrow] &
-		Y \arrow[d, "g", rightarrow] \\
-		X \arrow[r, "f", rightarrow] &
-		Z
-	\end{tikzcd}
-	,\end{equation}
-	where $p_1$ and $p_2$ are the projection morphisms.
-	Then the claim follows from stability of open and closed immersions under base change, 
-	since one can notice that $p_2$ is just $g$ base changed to $f\colon X \to Z$.
+\begin{rem}[]
+	The definition of group object is not tied to the category of $S$-schemes.
+	In fact it can be carried out in any category with finite products 
+	(hence with fianl object given by the empty product) in the same manner as above.
+	In fact, being $S$ the final object in $\mathsf{Sch}_{ S }$, one sees
+	that fiber products over $S$ (seen in the category of schemes)
+	are just products in $\mathsf{Sch}_{ S }$.
+\end{rem}
 
-\item By the above it is enough to show that the following diagram is a pullback
+\begin{defn}[Morphism of group schemes]
+	Let $G, G'$ be group schemes, a {\em homomorphism of group schemes}
 	\begin{equation}
-	\begin{tikzcd}[column sep=4.6em]
-		X \arrow[r, "s", rightarrow] \arrow[d, "s"', rightarrow] &
-		Y \arrow[d, "\Delta_{Y/X}", rightarrow] \\
-		Y \arrow[r, "id_{Y} \cross {(s \circ f)}"', rightarrow] &
-		Y \cross_{ X } Y
-	\end{tikzcd}
-	.\end{equation} 
-	One can use Yoneda to prove this.
-	tk: do it.
-
-\item Point $2.$ shows the direct implication.
-	Moreover, still using Yoneda and proving the statement for $T$ points,
-	one can show that the following is a pullback, and conclude by $1.$:
-	\begin{equation}
-	\begin{tikzcd}[column sep=5.4em]
-		G \arrow[r, "\pi", rightarrow] \arrow[d, "\Delta_{G/S}"', rightarrow] &
-		S \arrow[d, "\varepsilon", rightarrow] \\
-		G \cross_{ S } G \arrow[r, "m \circ {(id_G \cross \mathrm{inv})}"', rightarrow] &
-		G.
-	\end{tikzcd}\qedhere
+		\begin{tikzcd}
+			\alpha\colon G \arrow[r, "", rightarrow] &
+			G'
+		\end{tikzcd}
 	\end{equation} 
-\end{enumerate}
-\end{proof}
+	is a morphism $G \to G'$ in $\mathsf{Sch}_{ S }$ s.t., for all
+	$T \in \mathsf{Sch}_{ S }$, the corresponding morphism at the level of $T$-points
+	is a group homomorphism
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\alpha(T)\colon G(T) \arrow[r, "", rightarrow] &
+		G'(T) \\
+		g \arrow[r, "", mapsto] & \alpha \circ g.
+	\end{tikzcd}
+	\end{equation} 
+\end{defn}
+
+\begin{rem}[Morphism of group schemes]
+	Let $G, G'$ be group schemes, representing the functors $F,F'$.
+	Then, by Yoneda's lemma, giving a homomorphism $\alpha\colon G \to G'$
+	is equivalent to giving a morphism between the functors they represent.
+
+	Again by Yoneda's lemma, one sees that a morphism $\alpha\colon G \to G'$
+	in $\mathsf{Sch}_{ S }$ is a morphism of group schemes iff
+	it preserves products, i.e. iff
+	\begin{equation}
+		\alpha \circ m = m' \circ (\alpha, \alpha)
+	,\end{equation} 
+	for $m, m'$ the product morphisms of $G$ and $G'$ respectively.
+\end{rem}
+
+\begin{defn}[Category of group schemes]
+	Combining all of the definitions so far, one can define the category of
+	{\em $S$-group schemes}, or more simply {\em $S$-groups}, denoted by
+	$\mathsf{Gp}_S$, as the category whose objects are $S$-group schemes,
+	and morphisms are homomorphisms of $S$-group schemes.
+\end{defn}
+
+
+\begin{rem}[Kernels and cokernels]
+	As with any category, one can define kernels and cokernels 
+	in $\mathsf{Gp}_S$ via the usual universal properties.
+	With reagrds to kernels, one can easily check that, given a morphism
+	$\alpha\colon G \to G'$ of $S$-groups, then 
+	\begin{equation}
+	\begin{tikzcd}
+		G \cross_{ G' } S \arrow[r, "i", rightarrow] &
+		G,
+	\end{tikzcd}
+	\end{equation} 
+	where $i$ is the projection on the first factor, is a kernel for $\alpha$.
+	Hence kernels exist in $\mathsf{Gp}_S$.
+	
+	When it comes to cokernels, instead, one finds difficulties, much like
+	for sheaves of abelian groups.
+	In fact, given a morphism $\alpha\colon G \to G'$, one cannot always find an
+	element $H \in \mathsf{Gp}_S$ representing the functor
+	\begin{equation}
+	\begin{tikzcd}
+		T \arrow[r, "", mapsto] &
+		\coker (\alpha_T) =
+		G(T)/G'(T).
+	\end{tikzcd}
+	\end{equation}
+\end{rem}
 
 In the following we'll tend to focus on {\em separated} groups schemes over $S$.
 Notice that in that case, since $\varepsilon$ is a closed immersion, it is also an affine morphism,
@@ -231,7 +270,7 @@ hence as soon as $G$ is affine, also $S$ is.
 			\qquad
 			\begin{tikzcd}
 				A \arrow[r, "i_A", rightarrow] &
-				A \otimes_R R \\
+				R \otimes_R A \\
 				A \arrow[r, "\widetilde{m}"', rightarrow] 
 				\arrow[u, "id_A", rightarrow] &
 				A, \otimes_R A \arrow[u, "\widetilde{\varepsilon} \otimes_R id_A"', rightarrow]
