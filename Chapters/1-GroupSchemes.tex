@@ -1,6 +1,7 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
-\chapter{Affine group schemes}
+\chapter{Preliminaries}
+\section{Affine group schemes}
 In the following we will use these notations for important categories:
 $\mathsf{Sch}_{S}$ for the category of schemes over $S$,
 $\mathsf{Gp}$ for that of groups,
@@ -25,7 +26,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	Let's recall the standard notation: let $T \in \mathsf{Sch}_{ S }$, one defines
 	the $T$-points of $G \in \mathsf{Sch}_{ S }$ as
 	\begin{equation}
-		G(T) := \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
+		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
 	.\end{equation} 
 	If, in particular, $G$ is a {\em group scheme} then, by definition,
 	$G(T)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
@@ -42,23 +43,24 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	These can be rewritten in terms of commutative diagrams.
 	At first one writes the above three (respectively) as the following maps:
 	\begin{equation}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		m\colon G \cross G \arrow[r, "", rightarrow] &
-		G \\
-		\mathrm{inv} \colon G \arrow[r, "", rightarrow] &
-		G \\
-		\varepsilon \colon \left\{ e \right\} \arrow[r, "", rightarrow] &
-		G,
-	\end{tikzcd}
+			\begin{tikzcd}[row sep = 0ex
+         ,/tikz/column 1/.append style={anchor=base east}
+         ,/tikz/column 2/.append style={anchor=base west}
+         ,/tikz/column 3/.append style={anchor=base east}]
+			m\colon G \cross G \arrow[r, "", rightarrow] &
+			G & \text{(multiplication)} \\
+			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
+			G & \text{(inverse)} \\
+			\varepsilon \colon S \arrow[r, "", rightarrow] &
+			G & \text{(unit)} 
+		\end{tikzcd}
 	\end{equation} 
 	for $\left\{ e \right\}$ the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
 	as the unique arrow in the terminal object
 	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
 	Then, associativity of product, inverse element and
-	identity are characterized by: (tk: check these are indeed correct)
+	identity are characterized by: 
 	\begin{align}\label{eq:GroupAxioms}
 		m \circ (id_G \cross m) &= m \circ (m \cross id_G),\\
 		m \circ (id_G \cross \mathrm{inv}) \circ \Delta &=
@@ -68,7 +70,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	.\end{align} 
 \end{rem}
 
-\begin{rem}[]
+\begin{rem}[]\label{rem:StructuralMorphisms}
 	Given a group scheme $G \in \mathsf{Sch}_{ S }$, Yoneda's lemma allows to translate
 	the group structure of $G(T)$, for $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
 	In particular one obtains that there exist unique maps
@@ -78,15 +80,16 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
          ,/tikz/column 2/.append style={anchor=base west}
          ,/tikz/column 3/.append style={anchor=base east}]
 			m\colon G \cross_{ S } G \arrow[r, "", rightarrow] &
-			G & \text{(product)} \\
-			\varepsilon \colon S \arrow[r, "", rightarrow] &
-			G & \text{(unit)} \\
+			G & \text{(multiplication)} \\
 			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
-			G & \text{(inverse)}
+			G & \text{(inverse)} \\
+			\varepsilon \colon S \arrow[r, "", rightarrow] &
+			G & \text{(unit)} 
 		\end{tikzcd}
 	\end{equation} 
 	inducing the group structure on $G(T)$ via Yoneda embedding.
-	Then, again by Yoneda's lemma, also the above maps have satisfy the properties written in 
+	Then, again by Yoneda's lemma, also the above maps have to
+	satisfy the properties written in 
 	\eqref{eq:GroupAxioms}.
 	More explicitly:
 	\begin{enumerate}
@@ -99,24 +102,6 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
 				G \cross_{ S } G \arrow[r, "m"', rightarrow] &
 				G.
-			\end{tikzcd}
-			\end{equation} 
-		\item Identity element 
-			\begin{equation}
-			\begin{tikzcd}
-				G \cross_{ S } G \arrow[r, "m", rightarrow] &
-				G \\
-				S \cross_{ S } G \arrow[r, "id_G", rightarrow] 
-				\arrow[u, "\varepsilon \cross_S id_G", rightarrow] &
-				G \arrow[u, "id_G"', rightarrow] 
-			\end{tikzcd}
-			\qquad
-			\begin{tikzcd}
-				G \cross_{ S } G \arrow[r, "m", rightarrow] &
-				G \\
-				G \cross_{ S } S \arrow[r, "id_G", rightarrow] 
-				\arrow[u, "id_G \cross_S \varepsilon", rightarrow] &
-				G. \arrow[u, "id_G"', rightarrow] 
 			\end{tikzcd}
 			\end{equation} 
 		\item Inverse morphism 
@@ -139,12 +124,30 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 				G
 			\end{tikzcd}
 			\end{equation*} 
+		\item Identity element 
+			\begin{equation}
+			\begin{tikzcd}
+				G \cross_{ S } G \arrow[r, "m", rightarrow] &
+				G \\
+				S \cross_{ S } G \arrow[r, "id_G", rightarrow] 
+				\arrow[u, "\varepsilon \cross_S id_G", rightarrow] &
+				G \arrow[u, "id_G"', rightarrow] 
+			\end{tikzcd}
+			\qquad
+			\begin{tikzcd}
+				G \cross_{ S } G \arrow[r, "m", rightarrow] &
+				G \\
+				G \cross_{ S } S \arrow[r, "id_G", rightarrow] 
+				\arrow[u, "id_G \cross_S \varepsilon", rightarrow] &
+				G. \arrow[u, "id_G"', rightarrow] 
+			\end{tikzcd}
+			\end{equation} 
 	\end{enumerate}
 \end{rem}
 
 \begin{rem}[]
-	The definition of group object is not tied to the category of $S$-schemes.
-	In fact it can be carried out in any category with finite products 
+	One can generalize the definition of group object, from the category
+	of $S$-schemes, to any category $\mathsf{C}$ admitting finite products
 	(hence with fianl object given by the empty product) in the same manner as above.
 	In fact, being $S$ the final object in $\mathsf{Sch}_{ S }$, one sees
 	that fiber products over $S$ (seen in the category of schemes)
@@ -188,12 +191,11 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 \end{rem}
 
 \begin{defn}[Category of group schemes]
-	Combining all of the definitions so far, one can define the category of
-	{\em $S$-group schemes}, or more simply {\em $S$-groups}, denoted by
-	$\mathsf{Gp}_S$, as the category whose objects are $S$-group schemes,
+	Combining all of the definitions so far, one can define the category $\mathsf{Gp}_S$
+	of {\em $S$-group schemes}, or more simply {\em $S$-groups},
+	as the category whose objects are $S$-group schemes
 	and morphisms are homomorphisms of $S$-group schemes.
 \end{defn}
-
 
 \begin{rem}[Kernels and cokernels]
 	As with any category, one can define kernels and cokernels 
@@ -210,7 +212,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	Hence kernels exist in $\mathsf{Gp}_S$.
 	
 	When it comes to cokernels, instead, one finds difficulties, much like
-	for sheaves of abelian groups.
+	with sheaves of abelian groups.
 	In fact, given a morphism $\alpha\colon G \to G'$, one cannot always find an
 	element $H \in \mathsf{Gp}_S$ representing the functor
 	\begin{equation}
@@ -222,9 +224,10 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	\end{equation}
 \end{rem}
 
-In the following we'll tend to focus on {\em separated} groups schemes over $S$.
-Notice that in that case, since $\varepsilon$ is a closed immersion, it is also an affine morphism,
-hence as soon as $G$ is affine, also $S$ is.
+%tk: decide what to do of this remark
+%In the following we'll tend to focus on {\em separated} groups schemes over $S$.
+%Notice that in that case, since $\varepsilon$ is a closed immersion, it is also an affine morphism,
+%hence as soon as $G$ is affine, also $S$ is.
 \begin{rem}[]
 	Then, if we assume that $G = \mathrm{Spec}(A)$ is affine, we can translate the above $S$-scheme
 	morphisms, for $S = \mathrm{Spec}(R)$ affine, into $R$-algebra morphisms.
@@ -233,109 +236,56 @@ hence as soon as $G$ is affine, also $S$ is.
 	Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
 	morphism $R \to A$ making $A$ into an $R$-algebra.
 	Moreover the diagonal morphism $\Delta\colon G \to G \cross_{ S } G$ corresponds
-	to the codiagonal morphism of $R$-algebras:
-	\begin{align}
-		\widetilde{\Delta}\colon A \otimes_R A &\longrightarrow A \\
-		a \otimes_R b &\longmapsto a \cdot b \nonumber
-	.\end{align} 
-	Then, one defines the comultiplication, the coinverse, and counit, as the morphisms
-	\begin{align}
-		\widetilde{m}\colon A &\longrightarrow A \otimes_R A \\
-		\widetilde{\mathrm{inv}}\colon A &\longrightarrow A \\
-		\widetilde{\varepsilon}\colon A &\longrightarrow R
-	.\end{align} 
-	Using the contravariant equialence of categories between affine schemes and
-	rings, we can translate the properties satisfied by $m, \varepsilon$ and $\mathrm{inv}$
-	into analogous for $\widetilde{m}, \widetilde{\varepsilon}$ and $\widetilde{\mathrm{inv}}$:
-	\begin{enumerate}
-		\item Associativity of the product induces
-			\begin{equation}
-			\begin{tikzcd}[column sep=4em]
-				A \arrow[r, "\widetilde{m}", rightarrow] 
-				\arrow[d, "\widetilde{m}"', rightarrow] &
-				A \otimes_R A \arrow[d, "\widetilde{m} \otimes_R id_A", rightarrow] \\
-				A \otimes_R A \arrow[r, "id_A \otimes_R \widetilde{m}"', rightarrow] &
-				A \otimes_R A \otimes_R A.
-			\end{tikzcd}
-			\end{equation} 
-		\item The diagram for the identity induces the following two diagrams
-			\begin{equation}
-			\begin{tikzcd}
-				A \arrow[r, "i_A", rightarrow] &
-				A \otimes_R R \\
-				A \arrow[r, "\widetilde{m}"', rightarrow] 
-				\arrow[u, "id_A", rightarrow] &
-				A \otimes_R A \arrow[u, "id_A \otimes_R \widetilde{\varepsilon}"', rightarrow]
-			\end{tikzcd}
-			\qquad
-			\begin{tikzcd}
-				A \arrow[r, "i_A", rightarrow] &
-				R \otimes_R A \\
-				A \arrow[r, "\widetilde{m}"', rightarrow] 
-				\arrow[u, "id_A", rightarrow] &
-				A, \otimes_R A \arrow[u, "\widetilde{\varepsilon} \otimes_R id_A"', rightarrow]
-			\end{tikzcd}
-			\end{equation} 
-			where the maps $id_A \otimes_R \widetilde{\varepsilon}$
-			is induced by dualizing the diagram
-			\begin{equation}
-			\begin{tikzcd}
-				G \arrow[r, "id_G", rightarrow] &
-				G\\
-				G \cross_{ S } S
-				\arrow[u, "p_1", rightarrow] 
-				\arrow[d, "p_2"', rightarrow] 
-				\arrow[r, "\exists !\, ", dashrightarrow] &
-				G \cross_{ S } G
-				\arrow[u, "p_1"', rightarrow] 
-				\arrow[d, "p_2", rightarrow] \\
-				S \arrow[r, "\varepsilon", rightarrow] &
-				G.
-			\end{tikzcd}
-			\end{equation} 
-			This gives rise to the commutative diagram
-			\begin{equation}
-			\begin{tikzcd}
-				A \arrow[r, "id_A", rightarrow] 
-				\arrow[d, "i_1"', rightarrow] &
-				A \arrow[d, "i_1", rightarrow] \\
-				A \otimes_R A \arrow[r, "\exists !\, ", dashrightarrow] &
-				A \otimes_R R\\
-				A \arrow[u, "i_2", rightarrow] 
-				\arrow[r, "\widetilde{\varepsilon}", rightarrow] &
-				R. \arrow[u, "i_2"', rightarrow] 
-			\end{tikzcd}
-			\end{equation} 
-			In both diagrams the dashed arrows are defined by universal property
-			of (co)product in the respective categories (i.e. $\mathsf{Sch}_{ S }$
-			and $R$-$\mathsf{Alg}$, the category of $R$-algebras).
-		\item Finally the coinverse morphism is characterized by the following:
-			\begin{equation}
-			\begin{tikzcd}[column sep=5em]
-				A \arrow[rr, "\widetilde{\varepsilon}", rightarrow] 
-				\arrow[d, "\widetilde{m}"', rightarrow] & &
-				R \arrow[d, "", rightarrow] \\
-				A \otimes_R A 
-				\arrow[r, "id_A \otimes_R \widetilde{\mathrm{inv}}"', rightarrow] &
-				A \otimes_R A \arrow[r, "\widetilde{\Delta}"', rightarrow] &
-				A,
-			\end{tikzcd}
-			\end{equation} 
-			with an obvious analogue for the left inverse.
-			Again, the map $id_A \otimes_R \widetilde{\mathrm{inv}}$
-			is defined as in the previous point.
-	\end{enumerate}
+	to the multiplication morphism of $R$-algebras:
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\widetilde{\Delta}\colon A \otimes_R A \arrow[r, "", rightarrow] &
+		A \\
+		a \otimes_R b \arrow[r, "", mapsto] & a \cdot b
+	.\end{tikzcd}
+	\end{equation} 
+	Then, thanks to the arrow-reversing equivalence of categories between
+	affine $R$-schemes and commutative $R$-algebras, one translates the structural morphisms
+	of schemes defined in \ref{rem:StructuralMorphisms} into the following $R$-algebras morphisms:
+	\begin{equation}
+			\begin{tikzcd}[row sep = 0ex
+         ,/tikz/column 1/.append style={anchor=base east}
+         ,/tikz/column 2/.append style={anchor=base west}
+         ,/tikz/column 3/.append style={anchor=base east}]
+			\widetilde{m}\colon A \arrow[r, "", rightarrow] &
+			A \otimes_R A & \text{(comultiplication)} \\
+			\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
+			A & \text{(antipode)} \\
+			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
+			R & \text{(counit/augmentation)} 
+		\end{tikzcd}
+	\end{equation} 
+	Using the contravariant equialence of categories, then,
+	one can translate the properties satisfied by $m, \varepsilon$ and $\mathrm{inv}$
+	into analogous for $\widetilde{m}, \widetilde{\varepsilon}$ and $\widetilde{\mathrm{inv}}$.
 \end{rem}
 
 \begin{defn}[Hopf algebra]
 	An {\em Hopf algebra} is an $R$-algebra $A$,
-	endowed with a comultiplication, a couint and a coinverse
-	\begin{align}
-		\widetilde{m}\colon A &\longrightarrow A \otimes_R A \\
-		\widetilde{\mathrm{inv}}\colon A &\longrightarrow A \nonumber\\
-		\widetilde{\varepsilon}\colon A &\longrightarrow R \nonumber
-	,\end{align} 
-	satisfying the conditions given by the three commutative diagrams above, i.e.
+	endowed with a comultiplication, a couint and an antipode map,
+	respectively:
+	\begin{equation}
+			\begin{tikzcd}[row sep = 0ex
+         ,/tikz/column 1/.append style={anchor=base east}
+         ,/tikz/column 2/.append style={anchor=base west}
+         ,/tikz/column 3/.append style={anchor=base east}]
+			\widetilde{m}\colon A \arrow[r, "", rightarrow] &
+			A \otimes_R A \\
+			\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
+			A \\
+			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
+			R,
+		\end{tikzcd}
+	\end{equation} 
+	satisfying the conditions obtained by dualizing those
+	of remark \ref{rem:StructuralMorphisms}, more explicitly:
 	\begin{align}
 		( \widetilde{m} \otimes_R id_A ) \circ \widetilde{m} &=
 		( id_A \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
@@ -401,10 +351,10 @@ hence as soon as $G$ is affine, also $S$ is.
 			Then we define $f + g$ to be the morphism of schemes corresponding
 			to $\varphi + \psi$, i.e. the morphism given by 
 			\begin{equation}
-				\left( \varphi + \psi \right)(x) :=
+				\left( \varphi + \psi \right)(x) \coloneqq
 				\varphi (x) + \psi(x)
 			.\end{equation} 
-			Now, by definition $f + g := m \circ (f,g)$.
+			Now, by definition $f + g \coloneqq m \circ (f,g)$.
 			Then we want to define $\widetilde{m}$ in such a way that
 			\begin{equation}
 			(\varphi, \psi) \circ \widetilde{m} = \varphi + \psi
@@ -413,7 +363,7 @@ hence as soon as $G$ is affine, also $S$ is.
 			moreover as soon as we identify a morphism satisfying the above condition,
 			$\widetilde{m}$ has to coincide with it by the bijectivity of the correspondance
 			between morphism of $R$-algebras and $S$-schemes.
-			We can easily check that $\widetilde{m}(x) := x \otimes_R 1 + 1 \otimes_R x$
+			We can easily check that $\widetilde{m}(x) \coloneqq x \otimes_R 1 + 1 \otimes_R x$
 			does the job, in fact:
 			\begin{equation}
 				(\varphi, \psi) \circ \widetilde{m} (x) =
@@ -425,7 +375,7 @@ hence as soon as $G$ is affine, also $S$ is.
 			to $f$.
 			Then, from the above we obtain that $\widetilde{\mathrm{inv}}$
 			must satisfy $-\varphi = \varphi \circ \widetilde{\mathrm{inv}}$.
-			And, by linearity, we see that $\widetilde{\mathrm{inv}}(x) := -x$ does the job.
+			And, by linearity, we see that $\widetilde{\mathrm{inv}}(x) \coloneqq -x$ does the job.
 
 			Analogously for the zero element, we know that $m \circ (f, \varepsilon) = f$
 			for all $f$.
@@ -483,7 +433,7 @@ hence as soon as $G$ is affine, also $S$ is.
 			Their product is the function $\varphi \cdot \psi$
 			corresponding to the product of the matrices, i.e. acting on generators as
 			\begin{equation}
-				x_{i,j} \longmapsto c_{i,j} := 
+				x_{i,j} \longmapsto c_{i,j} \coloneqq 
 				\sum_{l=1}^{n} a_{i,l} b_{l,j}
 			.\end{equation} 
 			As before we want $\varphi \cdot \psi = (\varphi, \psi) \circ \widetilde{m}$.
@@ -496,5 +446,6 @@ hence as soon as $G$ is affine, also $S$ is.
 	\end{enumerate}
 \end{ex}
 
-
+tk: you have to add the part on duality, on exact sequence, on etale groups and separated algebras,
+on the canonical short exact sequence with the connected component of the identity.
 \end{document}
