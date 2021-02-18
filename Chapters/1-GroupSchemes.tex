@@ -22,6 +22,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	or $S$-group scheme.
 \end{defn}
 
+
 \begin{rem}[$T$-points of an $S$-scheme]
 	Let's recall the standard notation: let $T \in \mathsf{Sch}_{ S }$, one defines
 	the $T$-points of $G \in \mathsf{Sch}_{ S }$ as
@@ -32,10 +33,6 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	$G(T)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
 \end{rem}
 
-\begin{defn}[Commutative $S$-group scheme]
-	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
-	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
-\end{defn}
 
 \begin{rem}[]
 	By definition, a group is a set $G \in \mathsf{Sets}$, endowed with an operation,
@@ -70,10 +67,13 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	.\end{align} 
 \end{rem}
 
+
 \begin{rem}[]\label{rem:StructuralMorphisms}
 	Given a group scheme $G \in \mathsf{Sch}_{ S }$, Yoneda's lemma allows to translate
 	the group structure of $G(T)$, for $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
-	In particular one obtains that there exist unique maps
+	In fact, since the universal property of
+	fiber product gives $\left( G \cross_{ S } G \right)(T) = G(T) \cross G(T)$,
+	one obtains that there exist unique maps
 	\begin{equation}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
@@ -145,6 +145,24 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	\end{enumerate}
 \end{rem}
 
+
+\begin{defn}[Commutative $S$-group scheme]
+	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
+	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
+	As before, this is equivalent to asking that the following diagram commutes
+	\begin{equation}
+	\begin{tikzcd}
+		G \cross_S G \arrow[rr, "{ \left(\mathrm{pr}_2, \mathrm{pr}_1\right)}", rightarrow] 
+		\arrow[rd, "m"', rightarrow] & &
+		G \cross_{ S } G
+		\arrow[ld, "m", rightarrow] \\
+					     &
+		G
+	.\end{tikzcd}
+	\end{equation}
+\end{defn}
+
+
 \begin{rem}[]
 	One can generalize the definition of group object, from the category
 	of $S$-schemes, to any category $\mathsf{C}$ admitting finite products
@@ -153,6 +171,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	that fiber products over $S$ (seen in the category of schemes)
 	are just products in $\mathsf{Sch}_{ S }$.
 \end{rem}
+
 
 \begin{defn}[Morphism of group schemes]
 	Let $G, G'$ be group schemes, a {\em homomorphism of group schemes}
@@ -176,7 +195,8 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	\end{equation} 
 \end{defn}
 
-\begin{rem}[Morphism of group schemes]
+
+\begin{rem}
 	Let $G, G'$ be group schemes, representing the functors $F,F'$.
 	Then, by Yoneda's lemma, giving a homomorphism $\alpha\colon G \to G'$
 	is equivalent to giving a morphism between the functors they represent.
@@ -190,12 +210,14 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	for $m, m'$ the product morphisms of $G$ and $G'$ respectively.
 \end{rem}
 
+
 \begin{defn}[Category of group schemes]
 	Combining all of the definitions so far, one can define the category $\mathsf{Gp}_S$
 	of {\em $S$-group schemes}, or more simply {\em $S$-groups},
 	as the category whose objects are $S$-group schemes
 	and morphisms are homomorphisms of $S$-group schemes.
 \end{defn}
+
 
 \begin{rem}[Kernels and cokernels]
 	As with any category, one can define kernels and cokernels 
@@ -224,15 +246,16 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	\end{equation}
 \end{rem}
 
+
 %tk: decide what to do of this remark
 %In the following we'll tend to focus on {\em separated} groups schemes over $S$.
 %Notice that in that case, since $\varepsilon$ is a closed immersion, it is also an affine morphism,
 %hence as soon as $G$ is affine, also $S$ is.
-\begin{rem}[]
-	Then, if we assume that $G = \mathrm{Spec}(A)$ is affine, we can translate the above $S$-scheme
+\begin{rem}[Affine group schemes]
+	If we assume that $G = \mathrm{Spec}(A)$ is affine, we can translate the above $S$-scheme
 	morphisms, for $S = \mathrm{Spec}(R)$ affine, into $R$-algebra morphisms.
-	Then the properties defined by diagrams (tk: references) will translate into properties
-	for these new morphisms.
+	Then the properties defined by the diagrams in remark \ref{rem:StructuralMorphisms}
+	will translate into properties for these new morphisms.
 	Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
 	morphism $R \to A$ making $A$ into an $R$-algebra.
 	Moreover the diagonal morphism $\Delta\colon G \to G \cross_{ S } G$ corresponds
@@ -267,8 +290,9 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	into analogous for $\widetilde{m}, \widetilde{\varepsilon}$ and $\widetilde{\mathrm{inv}}$.
 \end{rem}
 
-\begin{defn}[Hopf algebra]
-	An {\em Hopf algebra} is an $R$-algebra $A$,
+
+\begin{defn}[Hopf algebra]\label{defn:HopfAlgebra}
+	An {\em Hopf algebra over $R$} is an $R$-algebra $A$,
 	endowed with a comultiplication, a couint and an antipode map,
 	respectively:
 	\begin{equation}
@@ -298,154 +322,279 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 		\circ \widetilde{m} =
 		(R \to A) \circ \widetilde{\varepsilon}
 	.\end{align} 
+	Moreover one defines a morphism of Hopf algebras to be an $R$-algebra
+	morphism preserving the just defined morphisms.
+	Actually, as is the case for groups, it is enough to check that an $R$ algebra
+	morphism commutes with $\widetilde{m}$, in order for it to be a Hopf algebra morphism.
+
+	Finally we call $I \coloneqq \ker \widetilde{\varepsilon}$ the 
+	{\em augmentation ideal} of $A$.
 \end{defn}
 
-\begin{rem}[]
-	tk: add a remark/proposition on how to translate the group defining morphisms
-	into Hopf algebra morphism and viceversa.
+
+\begin{rem}[Equivalence of categories]
+	Clearly, then, any Hopf algebra over $R$ gives rise
+	to an affine $R$-group via the aforementioned equivalence of categories.
+	This actually is an equivalence of categories between affine
+	$R$-group schemes and Hopf algebras over $R$, since 
+	product in a group scheme corresponds to comultiplication in its 
+	associated Hopf algebra, and morphism in the two categories are defined
+	to preserve such operation.
 \end{rem}
 
 
-\begin{ex}[Some interesting examples]
-	In all of the following examples we assume, for simplicity, that $S = \mathrm{Spec}(R)$
-	and $G = \mathrm{Spec}(A)$ are affine schemes.
+\begin{defn}[Augmentation ideal]
+	Since the structure morphism $R \to A$, of the Hopf algebra $A$ over $R$,
+	splits the following short exact sequence
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		I \arrow[r, "", rightarrow] &
+		A \arrow[r, "\widetilde{\varepsilon}", rightarrow] &
+		R \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation}
+	we have $A = R \cdot 1 \oplus I$.
+	Then one obtain $A \otimes A = R \oplus \left( I \otimes 1 \right) \oplus
+	\left( 1 \otimes I \right) \oplus \left( I \otimes I \right)$,
+	and the following fact about comultiplication:
+	for all $f \in I$,
+	\begin{equation}
+		\widetilde{m}(f) - f \otimes 1 - 1 \otimes f \in I \otimes I
+	.\end{equation} 
+\end{defn}
+
+
+In order to compute a few useful examples, let's make explicit the relation between
+multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
+$R$, for $S = \mathrm{Spec}(R)$.
+\begin{rem}\label{rem:ExplicitComult}
+	Yoneda tells us that the multiplication map 
+	$m\colon G \cross G \to G$ can be expressed, using the group law
+	on $G(G \cross G)$, as the product $\mathrm{pr}_1 \mathrm{pr}_2$
+	of the two projection morphisms.
+	Then, in the case of affine schemes $S = \mathrm{Spec}(R)$
+	and $G = \mathrm{Spec}(A)$, one can translate the above to the corresponding
+	Hopf algebra morphism, using the equivalence of categories.
+	More explicitly one can describe the comultiplication map
+	$\widetilde{m}$ as the product in 
+	$\mathrm{Hom}_{R\text{-}\mathsf{Alg}} \left( A, A \otimes_R A \right)$ 
+	(which has the same group structure as $G(G \cross G)$)
+	of the embedding morphisms
+	\begin{equation}
+	\begin{tikzcd}
+		\widetilde{\mathrm{pr}}_1: a \arrow[r, "", mapsto] &
+		a \otimes_R 1 &
+		\text{and} &
+		\widetilde{\mathrm{pr}}_2: a \arrow[r, "", mapsto] &
+		1 \otimes_R a
+	.\end{tikzcd}
+	\end{equation}
+\end{rem}
+
+
+\begin{ex}
+	In all of the following examples we will denote $S \coloneqq \mathrm{Spec}(R)$
+	and $G \coloneqq \mathrm{Spec}(A)$.\nopagebreak[4]
 	\begin{enumerate}
-		\item The {\em additive group scheme}, denoted by $\mathbb{G}_a$, is defined by
-			\begin{align}
-				\mathbb{G}_a\colon \mathsf{Sch}_{ S } &\longrightarrow \mathsf{Gp} \\
-				X &\longmapsto \Gamma \left( X , \mathcal{O}_{ X } \right) \nonumber
-			,\end{align} 
+		\item The {\em additive group scheme}, given by 
+			$\mathbb{G}_a \coloneqq \mathrm{Spec}(R[x])$.
+			It acts on $R$-schemes by
+			\begin{equation}
+			\begin{tikzcd}[row sep = 0ex
+				,/tikz/column 1/.append style={anchor=base east}
+				,/tikz/column 2/.append style={anchor=base west}]
+%				\mathbb{G}_a\colon \mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
+%				\mathsf{Gp} \\
+				X \arrow[r, "", mapsto] & 
+				\Gamma \left( X , \mathcal{O}_{ X } \right)
+			,\end{tikzcd}
+			\end{equation} 
 			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)$ is viewed
 			as an additive group.
-			Then $\mathbb{G}_a$ is represented by 
-			\begin{equation}
-				G = \mathrm{Spec}(R[x])
-			.\end{equation} 
+		%	Then $\mathbb{G}_a$ is represented by 
+		%	\begin{equation}
+		%		G = \mathrm{Spec}(R[x])
+		%	.\end{equation} 
 			In fact, from the characterization of morphisms into affine schemes,
 			we obtain that
 			\begin{equation}
-			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, G \right) \simeq
+			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, \mathbb{G}_a \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
 			\left( R[x], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
 			\Gamma \left( X , \mathcal{O}_{ X } \right)
 			,\end{equation} 
 			functorially in $X$.
-			But then an $R$-algebra morphism 
-			$R[x] \to \Gamma \left( X , \mathcal{O}_{ X } \right)$
-			is determined by the image of $x$, hence
-			the last isomorphism above.
-
-			Now we can work to translate the morphisms $m, \varepsilon$ and $\mathrm{inv}$
-			into Hopf algebra morphisms.
-			Let's start by $m$:
-			given $f,g \in \mathrm{Hom}_{\mathsf{Sch}_S} \left( X, G \right)$,
-			they correspond to 
+			The last isomorphism is determined by 
+			$(x \mapsto a) \mapsto a$.
+			The hom set 
+			$\mathrm{Hom}_{R \text{-}\mathsf{Alg}} \left( R[x], A \right)$
+			inherits the additive group structure from $A$, and the embeddings
+			of $R[x]$ in $R[x] \otimes_R R[x]$ are given by
 			\begin{equation}
-			\varphi, \psi \in
+				\widetilde{\mathrm{pr}}_1(x) = x \otimes_R 1
+				\qquad \text{ and } \qquad
+				\widetilde{\mathrm{pr}}_2(x) = 1 \otimes_R x
+			.\end{equation} 
+			Then, thanks to remark \ref{rem:ExplicitComult},
+			we desume that
+			\begin{equation}
+				\widetilde{m}(x) =
+				\left( \widetilde{\mathrm{pr}}_1(x) \right) +
+				\left( \widetilde{\mathrm{pr}}_2(x) \right) =
+				x \otimes_R 1 + 1 \otimes_R x
+			.\end{equation} 
+			Then, from the properties (see \ref{defn:HopfAlgebra})
+			of counit and antipode, one easily checks that 
+			\begin{equation}
+				\widetilde{\varepsilon}(x) = 0
+				\qquad \text{ and } \qquad
+				\widetilde{\mathrm{inv}}(x) = -x
+			.\end{equation} 
+
+
+		\item The {\em multiplicative group scheme} 
+			$\mathbb{G}_m \coloneqq \mathrm{Spec}(R[x,x^{-1}])$.
+			It acts on $R$-schemes by
+			\begin{equation}
+			\begin{tikzcd}[row sep = 0ex
+				,/tikz/column 1/.append style={anchor=base east}
+				,/tikz/column 2/.append style={anchor=base west}]
+				X \arrow[r, "", mapsto] & 
+				\Gamma \left( X , \mathcal{O}_{ X } \right)^*
+			,\end{tikzcd}
+			\end{equation} 
+			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)^*$ is viewed
+			as a multiplicative group.
+			In fact one checks that
+			\begin{equation}
+			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, G \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
-			\left( R[x], \Gamma \left( X , \mathcal{O}_{ X } \right) \right)
-			.\end{equation} 
-			In particular each of the two can be identified to the element 
-			$s \in \Gamma \left( X , \mathcal{O}_{ X } \right)$ to which
-			it maps $x \in R[x]$.
-			Then we define $f + g$ to be the morphism of schemes corresponding
-			to $\varphi + \psi$, i.e. the morphism given by 
+			\left( R[x, x^{-1}], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
+			\Gamma \left( X , \mathcal{O}_{ X } \right)^*
+			,\end{equation} 
+			functorially in $X$.
+			Then, reasoning as before, one obtains
 			\begin{equation}
-				\left( \varphi + \psi \right)(x) \coloneqq
-				\varphi (x) + \psi(x)
+				\widetilde{m}(x) =
+				\left( \widetilde{\mathrm{pr}}_1(x) \right) \cdot
+				\left( \widetilde{\mathrm{pr}}_2(x) \right) =
+				(x \otimes_R 1) \cdot (1 \otimes_R x) = 
+				x \otimes_R x
 			.\end{equation} 
-			Now, by definition $f + g \coloneqq m \circ (f,g)$.
-			Then we want to define $\widetilde{m}$ in such a way that
+			Finally, from the properties  of counit and antipode map
+			(see \ref{defn:HopfAlgebra}) one desumes
 			\begin{equation}
-			(\varphi, \psi) \circ \widetilde{m} = \varphi + \psi
+				\widetilde{\varepsilon}(x) = 1
+				\qquad \text{ and } \qquad
+				\widetilde{\mathrm{inv}}(x) = x^{-1}
 			.\end{equation} 
-			In particular we need only specify $\widetilde{m}(x)$ to identify our morphism,
-			moreover as soon as we identify a morphism satisfying the above condition,
-			$\widetilde{m}$ has to coincide with it by the bijectivity of the correspondance
-			between morphism of $R$-algebras and $S$-schemes.
-			We can easily check that $\widetilde{m}(x) \coloneqq x \otimes_R 1 + 1 \otimes_R x$
-			does the job, in fact:
-			\begin{equation}
-				(\varphi, \psi) \circ \widetilde{m} (x) =
-				\varphi(x) \cdot 1 + 1 \cdot \psi(x)
-			.\end{equation} 
-			If we concentrate on $\mathrm{inv}$ now, we see that
-			$\mathrm{inv}\, f$ is the morphism of schemes associated to
-			$-\varphi$, where $\varphi$ is the morphism of $R$-algebras associated
-			to $f$.
-			Then, from the above we obtain that $\widetilde{\mathrm{inv}}$
-			must satisfy $-\varphi = \varphi \circ \widetilde{\mathrm{inv}}$.
-			And, by linearity, we see that $\widetilde{\mathrm{inv}}(x) \coloneqq -x$ does the job.
 
-			Analogously for the zero element, we know that $m \circ (f, \varepsilon) = f$
-			for all $f$.
-			Then, $\widetilde{m}$ has to satisfy $(\varphi, \widetilde{\varepsilon}) \circ
-			\widetilde{m} = \varphi$ for all $\varphi$.
-			But then, on $x$, it acts by
-			\begin{equation}
-				(\varphi, \widetilde{\varepsilon}) \circ \widetilde{m} (x) =
-				\varphi(x) + \widetilde{\varepsilon}(x)
-			.\end{equation} 
-			And this can happen for all $\varphi$ iff $\widetilde{\varepsilon}(x) = 0$.
 
-			Then we have obtained the explicit description of the {\em Hopf algebra}
-			morphisms:
-			\begin{align}
-				\widetilde{m}(x) &= x \otimes_R 1 + 1 \otimes_R x,\\
-				\widetilde{\varepsilon}(x) &= 0, \nonumber\\
-				\widetilde{\mathrm{inv}}(x) &= -x \nonumber
-			.\end{align} 
-
-		\item The {\em general linear group scheme}, denoted by $\mathbb{GL}_n$,
-			is defined by
-			\begin{align}
-				\mathbb{GL}_n\colon \mathsf{Sch}_{ S } &\longrightarrow \mathsf{Gp} \\
-				X &\longmapsto \mathbb{GL}(n)(X) \nonumber
-			,\end{align} 
-			where $\mathbb{GL}(n)(X)$ is the set of invertible $n \cross n$
-			matrices with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$,
-			viewed as a multiplicative group.
-			Let's recall that, given $\left( x_{i,j} \right)_{i,j = 1}^n, 
-			\left( y_{i,j} \right)_{i,j = 1}^n \in \mathbb{GL}(n)(X)$,
-			their product is given by $\left( c_{i,j} \right)_{i,j = 1}^n$,
+		\item The {\em general linear group scheme} $\mathrm{GL}_n \coloneqq 
+			\mathrm{Spec}(R[\mathrm{x},\mathrm{y}]/J)$,
 			where
 			\begin{equation}
-			c_{i,j} = \sum_{l=1}^{n} x_{i,l} y_{l,j}
-			.\end{equation} 
-			Then $\mathbb{GL}_n$ is represented by the $S$-scheme
-			$\mathrm{Spec}(A)$, where
-			\begin{equation}
-				A = \frac{R[x_{i,j},y]_{i,j = 1}^n}{(y \cdot D(x_{1,1}, \ldots, x_{n,n})-1)}
+				R[\mathrm{x},\mathrm{y}] \coloneqq
+				R[x_{11}, x_{12}, \ldots, x_{nn},
+				y_{11}, \ldots, y_{nn}]
 			\end{equation} 
-			and $D(x_{1,1}, \ldots, x_{n,n})$ is the polynomial for the determinant
-			of a $n \cross n$ matrix.
-			Reasoning as before, any $f \in \mathrm{Hom}_{\mathsf{Sch}_S}
-			\left( X, G \right)$ is just the data of an invertible $n \cross n$ matrix
-			with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$
-			(invertibility is granted by adding the indeterminate $y$).
-			Then, considered two such functions $f,g$, with associated functions
-			$\varphi, \psi$ acting on hte generators of the $R$-algebra
-			respectively as
-			\begin{align}
-				x_{i,j} &\longmapsto a_{i,j}\\
-				x_{i,j} &\longmapsto b_{i,j}\nonumber
-			.\end{align} 
-			Their product is the function $\varphi \cdot \psi$
-			corresponding to the product of the matrices, i.e. acting on generators as
+			and $J$ is the ideal generated by the $n^2$ entries of the matrix
+			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n - I$,
+			for $I$ the identity matrix.
+			It acts on $R$-schemes by
 			\begin{equation}
-				x_{i,j} \longmapsto c_{i,j} \coloneqq 
-				\sum_{l=1}^{n} a_{i,l} b_{l,j}
-			.\end{equation} 
-			As before we want $\varphi \cdot \psi = (\varphi, \psi) \circ \widetilde{m}$.
-			And it is clear that the map
-			\begin{equation}
-				\widetilde{m}\colon x_{i,j} \longmapsto 
-				\sum_{l=1}^{n} x_{i,l} \otimes_R x_{l,j}
+			\begin{tikzcd}[row sep = 0ex
+				,/tikz/column 1/.append style={anchor=base east}
+				,/tikz/column 2/.append style={anchor=base west}]
+				X \arrow[r, "", mapsto] & \mathrm{GL}_n(X)
+			,\end{tikzcd}
 			\end{equation} 
-			satisfies our request.
+			where $\mathrm{GL}(n)(X)$ is the set of invertible $n \cross n$
+			matrices with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$,
+			viewed as a multiplicative group.
+			Let's recall that, in $\mathrm{GL}_n(X)$, the product
+			$\left( x_{i,j} \right)_{i,j = 1}^n \cdot 
+			\left( y_{i,j} \right)_{i,j = 1}^n$
+			is given by $\left( c_{i,j} \right)_{i,j = 1}^n$, where
+			\begin{equation}
+			c_{i,j} = \sum_{l=1}^{n} x_{i,l} \cdot y_{l,j}
+			.\end{equation} 
+			Then, reasoning like before, we can explicitly write the Hopf algebra maps.
+			In fact we see they are
+			\begin{equation*}
+				\widetilde{m}(x_{i,j})_{i,j=1}^n = \sum_{l=1}^{n} x_{i,l} \otimes_R x_{l,j},
+				\quad
+				\widetilde{\varepsilon}(x_{i,j})_{i,j=1}^n = 1,
+				\quad
+				\widetilde{\mathrm{inv}}(x_{i,j})_{i,j=1}^n = (y_{i,j})_{i,j=1}^n
+			,\end{equation*} 
+			where $\left( y_{i,j} \right)_{i,j}$ satisfies 
+			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n = I$.
+
+
+		\item The {\em group scheme of $n$-th roots of unity}, denoted by $\mu_n$,
+			is defined to be $\mu_n \coloneqq \ker \alpha$,
+			for $\mathbb{G}_m \to \mathbb{G}_m$
+			the $n$-th power, corresponding to the $R$-algebra morphism
+			$\alpha\colon x \mapsto x^n$.
+			Then $\mu_n$ is represented by $\mathrm{Spec}(\coker \alpha)$,
+			and the morphism $\mu_n \hookrightarrow \mathbb{G}_m$ is given by the projection
+			\begin{equation}
+			\begin{tikzcd}
+				R[x,x^{-1}] \arrow[r, "", twoheadrightarrow] &
+				R[x,x^{-1}] / (x^n - 1)
+			,\end{tikzcd}
+			\end{equation}
+			which is surjective, finite and flat, making $\mu_n$
+			a closed finite flat subgroup scheme of $\mathbb{G}_m$.
+
+
+		\item The {\em diagonalizable group schemes}. Let $X$ be an ordinary
+			commutative group, and denote by $R[X] \coloneqq \bigoplus_{x \in X} Rx$
+			its associated group $R$-algebra.
+			This is a Hopf algebra, whose structural morphism
+			are given, for every $x \in X$, by
+			\begin{equation}
+				\widetilde{m}(x) = x \otimes_R x,
+				\quad
+				\widetilde{\varepsilon}(x) = 1,
+				\quad
+				\widetilde{\mathrm{inv}}(x) = x^{-1}
+			.\end{equation} 
+			The above can be checked directly, since we have
+			the identifications, for $G = \mathrm{Spec}(A)$:
+			\begin{equation}
+				\left( D(X) \right)(G) \coloneqq
+				\mathrm{Hom}_{R \text{-alg}} \left( R[X], A \right) \simeq
+				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^* \right)
+			,\end{equation} 
+			where the last hom set has a natural structure of abelian
+			group, since $\mathsf{Ab}$ is an abelian category.
+			Then we define the {\em diagonalizable group scheme} $D(X)$
+			as the commutative $R$-group $\mathrm{Spec}(R[X])$.
+
+			Two important cases are given by $\mathbb{G}_m \simeq D(\mathbb{Z})$
+			and $\mu_n \simeq D(\mathbb{Z}/n\mathbb{Z})$.
+			Moreover, if $X$ is finite, $R[X]$ is a free $R$-module of rank $n$,
+			making $D(X)$ finite and flat over $R$.
+			More generally, for $X$ finitely generated, 
+			from the structure theorem for finitely generated abelian groups, 
+			$X$ is isomorphic to a finite product of cyclic groups.
+			Hence $D(X)$ is a finite product of copies of $\mathbb{G}_m$
+			and $\mu_n$, for various $n$.
+			It is then a closed subgroup scheme of $\mathbb{G}_m^r$, for some $r$,
+			which again can be seen as the closed subgroup scheme of diagonal
+			matrices of $\mathrm{GL}_r$, explaining the name 
+			{\em diagonalizable}.
 	\end{enumerate}
+	tk: $p$-th roots in char $p$
 \end{ex}
 
+In order to approach duality
 tk: you have to add the part on duality, on exact sequence, on etale groups and separated algebras,
 on the canonical short exact sequence with the connected component of the identity.
+
+tk: add base change remarks
 \end{document}
