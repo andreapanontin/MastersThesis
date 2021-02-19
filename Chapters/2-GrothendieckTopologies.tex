@@ -1,4 +1,95 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
 \section{Grothendieck topologies}
+tk: The aim of this section is to introduce
+the concept of Grothendieck topology on a category,
+in order to describe sheaves on such category.
+
+
+\begin{defn}[Site]
+	Let $\mathsf{C}$ be a category. 
+	A {\em pretopology} on $\mathsf{C}$ is the assignement, to each object $U \in \mathsf{C}$
+	of a collection of sets of arrows $\left\{ U_{ i } \to U \right\}_{ i \in I }$,
+	called {\em covering} of $U$, such that the following conditions are satisfied:
+	\begin{enumerate}
+		\item Given an isomorphism $V \to U$, the set $\left\{ V \to U \right\}$
+			is a covering.
+		\item Given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+			of $U$ and a morphism $V \to U$, then the fiber products
+			$\left\{ U_i \cross_{ U } V \right\}_{i \in I}$ exist
+			and the set of projections
+			$\left\{ U_i \cross_{ U } V \to V \right\}_{ i \in I }$
+			is a covering of $V$.
+		\item Given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+			and, for each index $i \in I$, a covering 
+			$\left\{ V_{ ij } \to V_i \right\}_{ j \in J_i }$ of $V_i$,
+			the set of composite morphisms
+			$\left\{ V_{ ij } \to U \right\}_{ i \in I, j \in J_i }$
+			is a covering of $U$.
+	\end{enumerate}
+	A catogory with a Grothendieck pretopology is called a {\em site}.
+\end{defn}
+
+
+\begin{rem}[]
+	From properties $2.$ and $3.$ above it follows that, given 
+	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ and $\left\{ V_{ i } \to U \right\}_{ j \in J }$,
+	two coverings of the same object, then also
+	$\left\{ U_{ i } \cross_U V_j \to U \right\}_{ (i,j) \in I \cross J }$
+	is a covering of $U$.
+\end{rem}
+
+Let's now give some examples.
+In particular, in sets or schemes, we will say that a family of morphisms
+$\left\{ U_{ i } \to U \right\}_{ i \in I }$ is {\em jointly surjective} iff
+the set-theoretic union of the images is $U$.
+\begin{ex}\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item The {\em site of a topological space}.
+		Let $X$ be a topological space, and $\mathsf{Op}(X)$ denote the category of
+		open subsets of $X$.
+		Then, to each $U \in \mathsf{Op}(X)$, we associate it the family of all
+		open coverings of $U$.
+		Noting that, for $U_1 \to U$ and $U_2 \to U$, $U_1 \cross_{ U } U_2 = U_1 \cap U_2$,
+		one easily checks that this defines a pretopology on $\mathsf{Op}(X)$.
+
+
+	\item The {\em global classical topology} on $\mathsf{Top}$.
+		Given $U \in \mathsf{Top}$, its coverings are all families of jointly surjective
+		collections of open embeddings $U_i \to U$.
+		Here open embedding means open, continuous, injective map and not
+		only the set theoretic inclusion of a subspace.
+
+
+%	\item The {\em small {\'e}tale site of a scheme}.
+%		Let $X$ be a scheme and $X_{\mathrm{ét}}$ be the full subcategory
+%		of $\mathsf{Sch}_{ X }$, with objects $U \in X_{\mathrm{ét}}$ s.t.
+%		the structure morphism $U \to X$ is étale, of finite presentation.
+%		Then a covering of $U \in X_{\mathrm{ét}}$ is a jointly surjective
+%		collection of morphisms $U_i \to U$.
+
+\end{enumerate}
+Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme $S$.
+\begin{enumerate}[resume]
+	\item The {\em global Zariski topology}.
+		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
+		jointly surjective collection of 
+		open embeddings.
+		
+
+	\item The {\em global étale topology}.
+		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
+		jointly surjective collection of 
+		étale maps locally of finite presentation.
+
+	\item The {\em fppf topology}.
+		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
+		jointly surjective collection of 
+		flat maps locally of finite presentation.
+		The acronym fppf stands for 
+		"fidèlement plat et de présentation finie".
+\end{enumerate}
+\end{ex}
+
+
 \end{document}

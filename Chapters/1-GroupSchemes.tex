@@ -214,7 +214,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 \end{rem}
 
 
-\begin{defn}[Category of group schemes]
+\begin{defn}[Category of $S$-group schemes]
 	Hence, combining all of the definitions so far, 
 	one can define $\mathsf{Gp}_S$, the subcategory of $\mathsf{Sch}_{ S }$,
 	of {\em $S$-group schemes}, or more simply {\em $S$-groups},
@@ -596,11 +596,96 @@ $R$, for $S = \mathrm{Spec}(R)$.
 	tk: $p$-th roots in char $p$
 \end{ex}
 
-In order to approach duality
+
 tk: you have to add the part on duality, on exact sequence, on etale groups and separated algebras,
 on the canonical short exact sequence with the connected component of the identity.
 
-tk: add base change remarks
-
 tk: If you need to type group scheme actions on functors see Vistoli, page 22-23
+
+\subsection{Duality}
+Let's now approach the topic of duality.
+We first need a remark about base change:
+
+
+\begin{rem}[Base change]
+	Let $U, T \in \mathsf{Sch}_{ S }$ be two $S$-schemes.
+	We use the notation $U_T$ for the base change $U \cross_{ S } T$.
+	It is important to notice that, for $V \in \mathsf{Sch}_{ T }$, we 
+	have $U_T(V) = U(V)$, where in the last expression
+	we considered $V$ as an $S$ scheme, by $V \to T \to S$.
+
+	In particular the examples we have developed so far (tk: check when you add $\alpha_p$)
+	are all $\mathbb{Z}$-group schemes.
+	Then we will use the above notation to mean the group scheme over $\mathbb{Z}$
+	and take their base change when working in $\mathsf{Sch}_{ S }$.
+\end{rem}
+
+
+\begin{defn}[Characters of $\mathrm{S}$-groups]
+	Let $G$ be an $S$-group scheme.
+	A {\em character} of $G$ is a homomorphism of $S$-groups
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\chi\colon G \arrow[r, "", rightarrow] &
+		(\mathbb{G}_m)_S
+	.\end{tikzcd}
+	\end{equation} 
+\end{defn}
+
+
+\begin{rem}[]
+	Characters form a subgroup of the set of morphism of $S$-schemes
+	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
+	\begin{equation}
+		\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
+		\subset
+		\mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( G, (\mathbb{G}_m)_S \right)
+	.\end{equation} 
+	Then one can introduce the contravariant sheaf hom functor,
+	from $\mathsf{Sch}_{ S }$ to $\mathsf{Ab}$
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+%		\mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)\colon
+%		\mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
+%		\mathsf{Ab} \\
+		T \arrow[r, "", mapsto] & 
+		\mathrm{Hom}_{\mathsf{Gr}_T} \left( G_T, (\mathbb{G}_m)_T \right)
+	.\end{tikzcd}
+	\end{equation} 
+\end{rem}
+
+\begin{defn}[Cartier dual]
+	Given an $S$-group scheme $G$, we define its {\em Cartier dual}
+	as the group scheme
+	\begin{equation}
+		G' \coloneqq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
+	.\end{equation} 
+\end{defn}
+
+
+\begin{rem}[Affine case]
+	In the affine case one can easily check that, for $S = \mathrm{Spec}(R)$
+	and $G = \mathrm{Spec}(A)$, the Cartier dual $G'$ is given by
+	the $R$-algebra 
+	\begin{equation}
+	A' \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
+	.\end{equation} 
+	Its Hopf algebra structure is obtained dualizing the Hopf algebra
+	structure of $A$.
+	In particular product and coproduct of $A$ become, respectively,
+	coproduct and product of $A'$, by tk.
+\end{rem}
+
+
+The following will be a particularly relevant definition in what follows:
+\begin{defn}[Finite $S$-group]
+	For $S = \mathrm{Spec}(R)$, we say that an $S$-group $G$
+	is finite of order $m$ over $R$ iff it is locally free of rank $m$ over $R$.
+	In other words if it is defined by a locally free sheaf of algebras of rank $m$
+	over $R$.
+\end{defn}
 \end{document}
