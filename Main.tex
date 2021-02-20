@@ -56,6 +56,25 @@
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\fct}{Fct}
 
+
+%Simbolo QED
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+
+%Bibliografia
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=alphabetic,
+doi=false,
+url=false,
+isbn=false,
+eprint=false
+]{biblatex}
+\usepackage{cleveref}
+\addbibresource{Bibliography.bib}
+
+%Theorem environments
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
@@ -92,24 +111,6 @@
 \newtheorem{rem}[thm]{Remark}
 
 \numberwithin{equation}{section}
-
-%Simbolo QED
-\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
-\usepackage{hyperref}
-
-%Bibliografia
-\usepackage{csquotes}
-\usepackage[
-backend=biber,
-style=alphabetic,
-citestyle=alphabetic,
-doi=false,
-url=false,
-isbn=false,
-eprint=false
-]{biblatex}
-\usepackage{hyperref}
-\addbibresource{Bibliography.bib}
 
 %Stuff for the mock title
 \usepackage{blindtext}

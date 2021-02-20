@@ -90,7 +90,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	inducing the group structure on $G(T)$ via Yoneda embedding.
 	Then, again by Yoneda's lemma, also the above maps have to
 	satisfy the properties written in 
-	\eqref{eq:GroupAxioms}.
+	\cref{eq:GroupAxioms}.
 	More explicitly:
 	\begin{enumerate}
 		\item Associativity of the product
@@ -258,7 +258,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 \begin{rem}[Affine group schemes]
 	If we assume that $G = \mathrm{Spec}(A)$ is affine, we can translate the above $S$-scheme
 	morphisms, for $S = \mathrm{Spec}(R)$ affine, into $R$-algebra morphisms.
-	Then the properties defined by the diagrams in remark \ref{rem:StructuralMorphisms}
+	Then the properties defined by the diagrams in \cref{rem:StructuralMorphisms}
 	will translate into properties for these new morphisms.
 	Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
 	morphism $R \to A$ making $A$ into an $R$-algebra.
@@ -275,7 +275,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	\end{equation} 
 	Then, thanks to the arrow-reversing equivalence of categories between
 	affine $R$-schemes and commutative $R$-algebras, one translates the structural morphisms
-	of schemes defined in \ref{rem:StructuralMorphisms} into the following $R$-algebras morphisms:
+	of schemes defined in \cref{rem:StructuralMorphisms} into the following $R$-algebras morphisms:
 	\begin{equation}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
@@ -313,7 +313,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 		\end{tikzcd}
 	\end{equation} 
 	satisfying the conditions obtained by dualizing those
-	of remark \ref{rem:StructuralMorphisms}, more explicitly:
+	of \cref{rem:StructuralMorphisms}, more explicitly:
 	\begin{align}
 		( \widetilde{m} \otimes_R id_A ) \circ \widetilde{m} &=
 		( id_A \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
@@ -421,8 +421,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 		%	\begin{equation}
 		%		G = \mathrm{Spec}(R[x])
 		%	.\end{equation} 
-			In fact, from the characterization of morphisms into affine schemes,
-			we obtain that
+			In fact	we know that
 			\begin{equation}
 			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, \mathbb{G}_a \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
@@ -441,7 +440,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				\qquad \text{ and } \qquad
 				\widetilde{\mathrm{pr}}_2(x) = 1 \otimes_R x
 			.\end{equation} 
-			Then, thanks to remark \ref{rem:ExplicitComult},
+			Then, thanks to \cref{rem:ExplicitComult},
 			we desume that
 			\begin{equation}
 				\widetilde{m}(x) =
@@ -449,7 +448,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				\left( \widetilde{\mathrm{pr}}_2(x) \right) =
 				x \otimes_R 1 + 1 \otimes_R x
 			.\end{equation} 
-			Then, from the properties (see \ref{defn:HopfAlgebra})
+			Then, from the properties (see \cref{defn:HopfAlgebra})
 			of counit and antipode, one easily checks that 
 			\begin{equation}
 				\widetilde{\varepsilon}(x) = 0
@@ -488,7 +487,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				x \otimes_R x
 			.\end{equation} 
 			Finally, from the properties  of counit and antipode map
-			(see \ref{defn:HopfAlgebra}) one desumes
+			(see \cref{defn:HopfAlgebra}) one desumes
 			\begin{equation}
 				\widetilde{\varepsilon}(x) = 1
 				\qquad \text{ and } \qquad
@@ -538,12 +537,12 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n = I$.
 
 
-		\item The {\em group scheme of $n$-th roots of unity}, denoted by $\mu_n$,
-			is defined to be $\mu_n \coloneqq \ker \alpha$,
-			for $\mathbb{G}_m \to \mathbb{G}_m$
-			the $n$-th power, corresponding to the $R$-algebra morphism
-			$\alpha\colon x \mapsto x^n$.
-			Then $\mu_n$ is represented by $\mathrm{Spec}(\coker \alpha)$,
+		\item The {\em group scheme of $n$-th roots of unity}, denoted by $\mu_n$.
+			Is defined to be the kernel of the $n$-th power morphism
+			$\mathbb{G}_m \to \mathbb{G}_m$,
+			corresponding to the $R$-algebra morphism
+			$\mu\colon x \mapsto x^n$.
+			Then $\mu_n$ is represented by $\mathrm{Spec}(\coker \mu)$,
 			and the morphism $\mu_n \hookrightarrow \mathbb{G}_m$ is given by the projection
 			\begin{equation}
 			\begin{tikzcd}
@@ -571,7 +570,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			the identifications, for $G = \mathrm{Spec}(A)$:
 			\begin{equation}
 				\left( D(X) \right)(G) \coloneqq
-				\mathrm{Hom}_{R \text{-alg}} \left( R[X], A \right) \simeq
+				\mathrm{Hom}_{R \text{-Alg}} \left( R[X], A \right) \simeq
 				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^* \right)
 			,\end{equation} 
 			where the last hom set has a natural structure of abelian
@@ -592,10 +591,20 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			which again can be seen as the closed subgroup scheme of diagonal
 			matrices of $\mathrm{GL}_r$, explaining the name 
 			{\em diagonalizable}.
-	\end{enumerate}
-	tk: $p$-th roots in char $p$
-\end{ex}
 
+
+		\item The {\em group scheme of $p^r$-th roots of zero},
+			if $\mathrm{char}\, R = p$, denoted by $\alpha_{p^r}$. 
+			It is defined to be the kernel of the $p^r$-th power
+			morphism $\mathbb{G}_a \to \mathbb{G}_a$,
+			corresponding to the $R$-algebra morphism
+			$\alpha\colon x \mapsto x^{p^r}$.
+			Then $\alpha_{p^r}$ is represented by $\mathrm{Spec}(\coker \alpha)$.
+			Moreover this is an additive subgroup scheme, since $\mathrm{char}\, R = p$.
+			As for $\mu_n$, it is a closed finite flat subgroup scheme of 
+			$\mathbb{G}_a$.
+	\end{enumerate}
+\end{ex}
 
 tk: you have to add the part on duality, on exact sequence, on etale groups and separated algebras,
 on the canonical short exact sequence with the connected component of the identity.
@@ -649,7 +658,7 @@ We first need a remark about base change:
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-%		\mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)\colon
+		\mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)\colon
 %		\mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
 %		\mathsf{Ab} \\
 		T \arrow[r, "", mapsto] & 
@@ -662,30 +671,116 @@ We first need a remark about base change:
 	Given an $S$-group scheme $G$, we define its {\em Cartier dual}
 	as the group scheme
 	\begin{equation}
-		G' \coloneqq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
+		G^D \coloneqq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
 	.\end{equation} 
 \end{defn}
 
 
 \begin{rem}[Affine case]
-	In the affine case one can easily check that, for $S = \mathrm{Spec}(R)$
-	and $G = \mathrm{Spec}(A)$, the Cartier dual $G'$ is given by
+	In the affine case one can check that, for $S = \mathrm{Spec}(R)$
+	and $G = \mathrm{Spec}(A)$, the Cartier dual $G^D$ is given by
 	the $R$-algebra 
 	\begin{equation}
-	A' \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
+	A^D \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
 	.\end{equation} 
 	Its Hopf algebra structure is obtained dualizing the Hopf algebra
 	structure of $A$.
 	In particular product and coproduct of $A$ become, respectively,
-	coproduct and product of $A'$, by tk.
+	coproduct and product of $A'$, as
+	\begin{equation*}
+	\begin{tikzcd}
+		(\widetilde{\Delta})^*\colon
+		A^D \arrow[r, "", rightarrow] &
+		A^D \otimes_R A^D &
+		\text{\text{and}} &
+		(\widetilde{m})^*\colon
+		A^D \otimes_R A^D \arrow[r, "", rightarrow] &
+		A^D 
+	.\end{tikzcd}
+	\end{equation*}
+	
 \end{rem}
 
 
-The following will be a particularly relevant definition in what follows:
-\begin{defn}[Finite $S$-group]
-	For $S = \mathrm{Spec}(R)$, we say that an $S$-group $G$
-	is finite of order $m$ over $R$ iff it is locally free of rank $m$ over $R$.
-	In other words if it is defined by a locally free sheaf of algebras of rank $m$
-	over $R$.
+In the following we'll assume that $S$ is a locally noehterian base scheme.
+Let's now start from a particularly relevant definition:
+\begin{rem}[Finite $S$-group]
+	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
+	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
+	More explicitly this means that there exists a cover of $S$ by affine open subschemes
+	$V_i$ s.t. for all $i$ the restriction of the structure morphism is of the form
+	$\mathrm{Spec}(A) \to \mathrm{Spec}(R)$, for $A$ an $R$-module of finite rank over $R$. 
+\end{rem}
+
+\begin{defn}[Order of a finite flat $S$-scheme]
+	Given a finite flat $S$-group scheme $G$, the rank of $\mathcal{O}_X$ as
+	and $\mathcal{O}_S$-module is a locally constant function, with integer values.
+	We call such a function the order of $G$ over $S$ and denote it by $[G:S]$.
+	Moreover we'll use the notation $[G:S] = n$ to state that $G$ is finite flat of
+	constant rank $n$ over $S$.
 \end{defn}
+
+\begin{prop}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item Consider the morphism of schemes $X \to Y \to S$, with $[X:Y] = m$.
+		Then $X$ is finite and flat over $S$ iff $Y$ is, in which case
+		$[X:S] = [X:Y] [Y:S]$ as functions on $Y$.
+		
+	\item If $[X_i:S] = n_i$ for $i=1,2$, then
+		$[X_1 \cross_{ S } X_2 : S] = n_1n_2$.
+
+	\item If $[X:S] = n$, then $[X \cross_{ S } T : T] = n$
+		for all $T \in \mathsf{Sch}_{ T }$.
+\end{enumerate}
+\end{prop}
+
+
+
+tk: might be useful later
+\begin{prop}[\cite{Shatz}, \textsection $4$]
+	Let $R$ be a complete local ring with separably closed residue field
+	(or $R$ a strict Hensel local ring), such that the characteristic of the
+	residue field is $p > 0$.
+	Then a connected finite group scheme over $R$ has order $p^t$ for some $t$.
+\end{prop}
+
+
+\subsection{Separable algebras}
+The study of {\'e}tale group schemes is stricly related to that of
+separable algebras, so here a few interesting results for the latter:
+
+\begin{thm}[\cite{Waterhouse}, \textsection $6.2$]
+	`\label{thm:SeparableAlgebrasCharacterization}
+	Let $k$ be a field, and denote by $\overline{k}$ and $k^s$ respectively
+	an algebraic and separable closure of $k$.
+	Let $A$ be a finite dimensional $k$-lagebra.
+	The following are equivalent:
+\begin{enumerate}
+	\item $A \otimes_k \overline{k}$ is reduced.
+	\item $A \otimes_k \overline{k} \simeq \overline{k} \cross \cdots \cross \overline{k}$.
+	\item The number of $k$-algebra homomorphisms $A \to  \overline{k}$
+		equals the dimension of $A$ over $k$.
+	\item $A$ is a product of separable field extensions of $k$.
+	\item $A \otimes_k k^s \simeq k^s \cross \cdots \cross k^s$.
+\end{enumerate}
+If, moreover, $k$ is a prefect field, all of the above are equivalent to
+\begin{enumerate}[resume]
+	\item $A$ is reduced.
+\end{enumerate}
+\end{thm}
+
+
+\begin{defn}[Separable algebra]
+	A $k$-algebra $A$ satisfying the equivalent conditions of
+	\cref{thm:SeparableAlgebrasCharacterization}
+	is called {\em separable}.
+\end{defn}
+
+
+\begin{cor}[\cite{Waterhouse}, \textsection $6.2$]
+	Subalgebras, quotients, products and tensor products of separable algebras
+	are separable.
+\end{cor} 
+
+
 \end{document}
