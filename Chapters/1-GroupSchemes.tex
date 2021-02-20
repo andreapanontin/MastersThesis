@@ -701,8 +701,10 @@ We first need a remark about base change:
 	
 \end{rem}
 
+\subsection{Quotients and exactness}
+tK: For quotients see section 3.3-3.4, for exactness 1.7-1.8 (the quotient map is faithuflly flat)
 
-In the following we'll assume that $S$ is a locally noehterian base scheme.
+In this section we'll assume that $S$ is a locally noehterian base scheme.
 Let's now start from a particularly relevant definition:
 \begin{rem}[Finite $S$-group]
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
@@ -735,14 +737,101 @@ Let's now start from a particularly relevant definition:
 \end{prop}
 
 
+\begin{defn}[Right action]
+	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}_{ S }$.
+	A {\em right action} of $H$ on $X$ is a morphism
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		a\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		X
+	\end{tikzcd}
+	\end{equation} 
+	such that, for all $T \in \mathsf{Sch}_{ S }$, the induced map
+	$H(T) \cross X(T) \to  X(T)$ is a right action of the
+	group $H(T)$ on the set $X(T)$.
+	We say that the action is {\em strictly free} iff the morphism
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		(id, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		X \cross_{ S } X
+	\end{tikzcd}
+	\end{equation} 
+	is a closed immersion.
+\end{defn}
 
-tk: might be useful later
-\begin{prop}[\cite{Shatz}, \textsection $4$]
-	Let $R$ be a complete local ring with separably closed residue field
-	(or $R$ a strict Hensel local ring), such that the characteristic of the
-	residue field is $p > 0$.
-	Then a connected finite group scheme over $R$ has order $p^t$ for some $t$.
+The next theorem will allow us to construct quotients of
+$S$-group schemes over finite, flat closed subgroup schemes.
+It is a more general result, due to Grothendieck.
+\begin{thm}[\cite{TateMF}, \textsection $3.4$]
+	Suppose $H$, finite flat over $S$, acts strictly freely on $X$
+	of finite typer over $S$ in such a way that every orbit is contained in an affine open set.
+	Then there exists $Y \in \mathsf{Sch}_{ S }$ and a morphism $u\colon X \to Y$,
+	constant on orbits, s.t. for every morphism $v\colon X \to Z$ constant on orbits,
+	there is a unique morphism $f\colon Y \to Z$ s.t. $v = f \circ u$.
+	We denote $Y$ by $X/H$, and notice that $u$ has the following properties:
+\begin{enumerate}
+	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
+		
+	\item For every $T \in \mathsf{Sch}_{ S }$, the following map is injective
+		\begin{equation}
+		\begin{tikzcd}
+			X(T)/H(T) \arrow[r, "", rightarrowtail] &
+			(X/H)(T)
+		.\end{tikzcd}
+		\end{equation}
+\end{enumerate}
+\end{thm}
+
+
+As a consequence, we obtain the following result for quotient group schemes
+\begin{prop}[\cite{TateMF}, \textsection $3.5$]\label{thm:QuotientGroupScheme}
+	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
+	subgroup scheme.
+	Define the action $a\colon G \cross_{ S } H \to G$ as the restriction of the
+	group law $m$ on $G$.
+	Then $G/H$ is the scheme of {\em left cosets} of $H$ in $G$.
+
+	Assume, moreover, that $G/H$ is finite and flat over $S$,
+	with order $[(G/H):S]$. We will call this the order of $H$ in $G$
+	and denote it by $[G:H]$.
+	Then $G$ is finite and flat over $S$ iff $G/H$ is, and we have
+	\begin{equation}
+		[G:H][H:S] = [G:S]
+	.\end{equation} 
 \end{prop}
+
+\begin{rem}[Short exact sequence]
+	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
+	{\em normal} in $G$, i.e. that is acts trivially on $G/H$.
+	Then multiplication on $G$ induces a multiplication on $G/H$, making it
+	an $S$-group scheme, and $u\colon G \to G/H$
+	is an $S$-group homomorphism.
+	In particular this gives rise to a short exact sequence of group schemes
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		H \arrow[r, "i", rightarrow] &
+		G \arrow[r, "u", rightarrow] &
+		G/H \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation}
+	where short exactness also means that $i$ is a closed immersion
+	and $u$ is faithfully flat.
+\end{rem}
+
+
+%tk: might be useful later
+%\begin{prop}[\cite{Shatz}, \textsection $4$]
+%	Let $R$ be a complete local ring with separably closed residue field
+%	(or $R$ a strict Hensel local ring), such that the characteristic of the
+%	residue field is $p > 0$.
+%	Then a connected finite group scheme over $R$ has order $p^t$ for some $t$.
+%\end{prop}
 
 
 \subsection{Separable algebras}
@@ -781,6 +870,57 @@ If, moreover, $k$ is a prefect field, all of the above are equivalent to
 	Subalgebras, quotients, products and tensor products of separable algebras
 	are separable.
 \end{cor} 
+
+
+\subsection{Connected-étale exact equence}
+In the following section we will always assume that 
+$S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
+We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
+its residue field, and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
+Finally by $G$ we will denote a finite and flat $S$-group scheme.
+
+\begin{thm}[Connected-étale exact sequence, \cite{TateMF}, \textsection $3.7$]
+	Let $G^0$ be the connected component of the identity in $G$.
+	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
+	and it is a flat, closed normal subgroup scheme of $G$.
+	Moreover the quotient $G^{et} \coloneqq G/G^0$,
+	constructed as in \cref{thm:QuotientGroupScheme},
+	is étale and gives rise to the short exact sequence
+	\begin{equation}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G^0 \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		G^{et} \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation}
+	called the {\em connected-étale sequence} for $G$.
+	In particular it can be characterized by the fact that every homomorphism
+	from $G$ to an étale $S$-group factorizes through $G \to G^{et}$,
+	and $G^0$ is the kernel of that homomorphism.
+\end{thm}
+
+
+\begin{prop}[\cite{TateMF}, \textsection $3.7$]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
+		and $G = G^{et}$.
+		If, instead, $\mathrm{char}\, k = p > 0$, the order
+		$[G^0:S] = p^t$ for some $t$.
+		As a consequence if $[G:S]$ is invertible in $S$, then
+		$G$ is étale over $S$.
+
+	\item If $R = k$ is a field and $n = [G:S]$, then $x^n = 1$
+		for all $x \in G(B)$ for any $k$-algebra $B$.
+		We say that $G$ is killed by its order.
+
+	\item If $R$ is a perfect field, then the homomorphism
+		$G \to  G^{et}$ admits a section. 
+		As a consequence $G = G^0 \rtimes G^{et}$
+		can be expressed as a semidirect product.
+\end{enumerate}
+\end{prop}
 
 
 \end{document}
