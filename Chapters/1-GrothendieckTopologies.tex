@@ -1,28 +1,27 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
-\section{Preliminaries}
-\subsection{Grothendieck topologies}
+\section{Grothendieck topologies}
 The aim of this section is to introduce
 the concept of Grothendieck topology on a category,
 in order to describe sheaves on such category.
 The main ideas behind these construction is that one can reduce
-the definition of open coverings to a few formal axioms, traducing
+the definition of open coverings to a few formal axioms, translating
 inclusions with arrows in a category and
-intersections with fiber products.
+intersections with fibered products.
 It is in fact true that, in $\mathsf{Op}(X)$, the category of open subsets
-of the topological space $X$, fiber products correspond to intersections of subsets.
+of the topological space $X$, fibered products correspond to intersections of subsets.
 
 
 \begin{defn}[Site]
 	Let $\mathsf{C}$ be a category. 
-	A {\em pretopology} on $\mathsf{C}$ is the assignement, to each object $U \in \mathsf{C}$
+	A {\em pretopology} on $\mathsf{C}$ is the assignment, to each object $U \in \mathsf{C}$,
 	of a collection of sets of arrows $\left\{ U_{ i } \to U \right\}_{ i \in I }$,
-	called {\em covering} of $U$, such that the following conditions are satisfied:
+	called {\em coverings} of $U$, such that the following conditions are satisfied:
 	\begin{enumerate}
-		\item Given an isomorphism $V \to U$, the set $\left\{ V \to U \right\}$
+		\item Given an isomorphism $V \xrightarrow{\sim} U$, the set $\left\{ V \to U \right\}$
 			is a covering.
 		\item Given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
-			of $U$ and a morphism $V \to U$, then the fiber products
+			of $U$ and a morphism $V \to U$, then the fibered products
 			$\left\{ U_i \cross_{ U } V \right\}_{i \in I}$ exist
 			and the set of projections
 			$\left\{ U_i \cross_{ U } V \to V \right\}_{ i \in I }$
@@ -34,22 +33,31 @@ of the topological space $X$, fiber products correspond to intersections of subs
 			$\left\{ V_{ ij } \to U \right\}_{ i \in I, j \in J_i }$
 			is a covering of $U$.
 	\end{enumerate}
-	A catogory with a Grothendieck pretopology is called a {\em site}.
+	A category with a Grothendieck pretopology is called a {\em site}.
 \end{defn}
 
 
 \begin{rem}[]
 	From properties $2.$ and $3.$ above it follows that, given 
-	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ and $\left\{ V_{ i } \to U \right\}_{ j \in J }$,
-	two coverings of the same object, then also
+	two coverings of the same object $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+	and $\left\{ V_{ i } \to U \right\}_{ j \in J }$, also
 	$\left\{ U_{ i } \cross_U V_j \to U \right\}_{ (i,j) \in I \cross J }$
 	is a covering of $U$.
 \end{rem}
 
-Let's now give some examples.
-In particular, in sets or schemes, we will say that a family of morphisms
+
+Before moving on to some examples, we should introduce a
+definition which plays an important role in the definition of
+some important pretopologies.
+\begin{defn}[Jointly surjective family of morphisms]
+For $\mathsf{C} = \mathsf{Sets}$ or $\mathsf{C} = \mathsf{Sch}_{ S }$, for some scheme $S$,
+we will say that a family of morphisms
 $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is {\em jointly surjective} iff
 the set-theoretic union of the images is $U$.
+\end{defn}
+
+
+Let's now give some examples.
 \begin{ex}\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item The {\em site of a topological space}.
@@ -57,7 +65,9 @@ the set-theoretic union of the images is $U$.
 		open subsets of $X$.
 		Then, to each $U \in \mathsf{Op}(X)$, we associate it the family of all
 		open coverings of $U$.
-		Noting that, for $U_1 \to U$ and $U_2 \to U$, $U_1 \cross_{ U } U_2 = U_1 \cap U_2$,
+		Noting that, for $U_1 \to U$ and $U_2 \to U$, 
+		their fibered product is just their intersection, i.e. 
+		$U_1 \cross_{ U } U_2 = U_1 \cap U_2$,
 		one easily checks that this defines a pretopology on $\mathsf{Op}(X)$.
 
 
@@ -104,14 +114,14 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 	\item Every quasi-compact open subset of $Y$ is the image of a quasi-compact
 		open subset of $X$.
 	\item There exists a covering $\left\{ V_i \right\}_{i \in I}$ of $Y$ by open affine 
-		subschemes, such that $V_i$ is the image of a quasi-compact
-		open subset of $X$, for all $i$.
+		subschemes, such that each $V_i$ is the image of a quasi-compact
+		open subset of $X$.
 	\item Given a point $x \in X$, there exists an open neighbourhood $U$ of $x$
-		in $X$, such that the image $F(U)$ is open in $Y$ and the restriction
+		in $X$, such that the image $f(U)$ is open in $Y$ and the restriction
 		$\left.f\right|_{U}$ is a quasi-compact morphism of schemes, i.e.
-		the inverse image of any quasi-compact open subset of $F(U)$ is
+		the inverse image of any quasi-compact open subset of $f(U)$ is
 		quasi-compact in $U$.
-	\item Given a point $x \in X$, there exista an open neighbourhood $U$ of $x$
+	\item Given a point $x \in X$, there exists an open neighbourhood $U$ of $x$
 		in $X$ such that the image $f(U)$ is open and affine in $Y$.
 \end{enumerate}
 \end{prop}
@@ -120,11 +130,13 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 \begin{defn}[fpqc morphism]
 	An {\em fpqc morphism of schemes} is a faithfully flat morphism
 	that satisfies the equivalent conditions of \cref{prop:Conditionsfpqc}.
-	Th acronym $fpqc$ stand for "fidèlement plat et quasi-compact".
+	The acronym {\em fpqc} stand for "fidèlement plat et quasi-compact".
 \end{defn}
 
+
 \begin{rem}[]
-	It can be shown, see \cite{Vistoli}, that on $\mathsf{Sch}_{ S }$, the data
+	It can be shown, see \cite{Vistoli} \textsection $2.3.2$,
+	that on $\mathsf{Sch}_{ S }$, the data
 	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}_{ S }$,
 	s.t. the induced morphism $\coprod_i U_i \to U$ is {\em fpqc},
 	is a pretopology on $\mathsf{Sch}_{ S }$.
@@ -132,11 +144,54 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 \end{rem}
 
 
+Let's now investigate the relations between different topologies:
+\begin{defn}[Refinement of a covering and subordinate pretopologies]\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+\item Let $\mathsf{C}$ be a category and $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+	a set of arrows in $\mathsf{C}$.
+	A {\em refinement} of $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is
+	another set of arrows $\left\{ V_{ a } \to U \right\}_{ a \in A }$,
+	such that, for all $a \in A$, there is some $i \in I$ s.t.
+	$V_a \to U$ factors through $U_i \to U$.
+
+
+\item Let now $\tau$ and $\tau'$ be two pretopologies on $\mathsf{C}$.
+	We say that $\tau'$ is {\em subordinate} to $\tau$ iff
+	every covering in $\tau'$ has a refinement which is
+	a covering in $\tau$.
+\end{enumerate}
+\end{defn}
+
+
+The topologies we just introduced are in strong relation between them.
+In fact each is subordinate to the one we defined afterwards:
+
+\pagebreak
+\begin{rem}[\cite{SP}, \href{https://stacks.math.columbia.edu/tag/020K}{Chapter 020K}]
+	\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+\item Any Zariski covering is an étale covering, 
+	\cite[\href{https://stacks.math.columbia.edu/tag/0216}{Lemma 0216}]{SP}.
+	Hence the Zariski topology is subordinate to the étale one.
+
+
+\item Any étale covering is an {\em fppf} covering, 
+	\cite[\href{https://stacks.math.columbia.edu/tag/021N}{Lemma 021N}]{SP}.
+	Hence the étale topology is subordinate to the {\em fppf} one.
+
+
+\item Any {\em fppf} covering is an {\em fpqc} covering, 
+	\cite[\href{https://stacks.math.columbia.edu/tag/022C}{Lemma 022C}]{SP}.
+	Hence the {\em fppf} topology is subordinate to the {\em fpqc} one.
+\end{enumerate}
+\end{rem}
+
+
 \subsection{Sheaves}
-The definition of Sheaf on a topological space actually only
-depends on the detum of possible open coverings for a given object of
-the catogory $\mathsf{Op}(X)$.
-Then the introduction of pretopologies allows one to define Sheaves on sites.
+The definition of sheaves on a topological space only
+depends on the datum of possible open coverings for a given object of
+the category $\mathsf{Op}(X)$.
+Then the introduction of pretopologies allows one to define sheaves on sites.
 
 \begin{defn}[Sheaf]
 	Let $\mathsf{C}$ be a category.
@@ -162,7 +217,7 @@ Then the introduction of pretopologies allows one to define Sheaves on sites.
 		$a_i \in F(U_i)$.
 		Denote by 
 		\begin{equation*}
-		\mathrm{pr}^{i,j}_k\colon U_{i_1} \cross_{ U } U_{i_2} \to U_{i_k}
+		\mathrm{pr}^{i_1,i_2}_k\colon U_{i_1} \cross_{ U } U_{i_2} \to U_{i_k}
 		\end{equation*} 
 		the projection on the $k$-th component.
 		Assume that $(\mathrm{pr}^{i,j}_1)^* a_i = 
@@ -175,8 +230,8 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 
 
 \begin{rem}[]
-	Let's give an equivalent definition of sheaf, for a functor 
-	$F\colon \mathsf{C}^{op} \to \mathsf{Sets}$, on a site $\mathsf{C}$.
+	Let's give an equivalent definition of sheaf, for a presheaf
+	$F$ on a site $\mathsf{C}$.
 	Choose $U \in \mathsf{C}$ and a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$.
 	We denote by $F \to \prod_{i \in I} F(U_i)$ the map induced by the
 	restriction morphisms $F(U) \to F(U_i)$.
@@ -190,7 +245,7 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 	\end{tikzcd}
 	\end{equation*} 
 	as the map sending $(a_i) \in \prod_i F(U_i)$ to
-	$\mathrm{pr}_i^*(a_i) \in \prod_{i,j} F( U_i \cross_{ U } U_j )$,
+	$\mathrm{pr}_1^*(a_i) \in \prod_{i,j} F( U_i \cross_{ U } U_j )$,
 	whose component in $F( U_i \cross_{ U } U_j )$ is given by $\mathrm{pr}_1^*(a_i)$,
 	where $\mathrm{pr}_1\colon U_i \cross_{ U } U_j \to U_i$ is the projection on the first
 	component.
@@ -209,7 +264,16 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 		\prod_{i,j \in I \cross I} F( U_i \cross_{ U } U_j )
 	.\end{tikzcd}
 	\end{equation*}
-	
+\end{rem}
+
+
+Before stating the main result of this section, let's notice
+a simple fact:
+\begin{rem}[]
+	If $\tau'$ is subordinate to $\tau$, as pretopologies on $\mathsf{C}$,
+	then any sheaf in $\tau$ is also a sheaf in $\tau'$.
+	As a consequence, for $\mathsf{C} = \mathsf{Sch}_{ S }$ for some scheme $S$,
+	any sheaf in {\em fpqc} is also a sheaf in {\em fppf}, étale and Zariski topologies.
 \end{rem}
 
 
