@@ -1,6 +1,5 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
-\chapter{Preliminaries}
 \section{Affine group schemes}
 In the following we will use these notations for important categories:
 $\mathsf{Sch}_{S}$ for the category of schemes over $S$,
@@ -14,9 +13,9 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	Let $F\colon \mathsf{Sch}_S^{op} \to \mathsf{Gp}$ be a functor.
 	Assume that $F$ is representable by $G \in \mathsf{Sch}_{ S }$, i.e. such that, 
 	functorially in $T \in \mathsf{Sch}_{ S }$,
-	\begin{equation}
+	\begin{equation*}
 		\iota F(T) \simeq \mathrm{Hom}_{\mathsf{Sch}_S} \left( T, G \right)
-	,\end{equation} 
+	,\end{equation*} 
 	for $\iota\colon \mathsf{Gp} \to \mathsf{Sets}$ the forgetful functor.
 	Then we call $G$ a {\em group scheme} over $S$
 	or $S$-group scheme.
@@ -26,9 +25,9 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 \begin{rem}[$T$-points of an $S$-scheme]
 	Let's recall the standard notation: let $T \in \mathsf{Sch}_{ S }$, one defines
 	the $T$-points of $G \in \mathsf{Sch}_{ S }$ as
-	\begin{equation}
+	\begin{equation*}
 		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
-	.\end{equation} 
+	.\end{equation*} 
 	If, in particular, $G$ is a {\em group scheme} then, by definition,
 	$G(T)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
 \end{rem}
@@ -39,7 +38,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	an inverse map, and an identity element satisfying the usual properties.
 	These can be rewritten in terms of commutative diagrams.
 	At first one writes the above three (respectively) as the following maps:
-	\begin{equation}
+	\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
@@ -51,7 +50,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 			\varepsilon \colon S \arrow[r, "", rightarrow] &
 			G & \text{(unit)} 
 		\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	for $\left\{ e \right\}$ the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
 	as the unique arrow in the terminal object
@@ -59,11 +58,11 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	Then, associativity of product, inverse element and
 	identity are characterized by: 
 	\begin{align}\label{eq:GroupAxioms}
-		m \circ (id_G \cross m) &= m \circ (m \cross id_G),\\
+		m \circ (id_G \cross m) &= m \circ (m \cross id_G),\nonumber\\
 		m \circ (id_G \cross \mathrm{inv}) \circ \Delta &=
 		m \circ (\mathrm{inv} \cross id_G) \circ \Delta = \varepsilon \circ \pi,\\
 		m \circ (\varepsilon \cross id_G) &=
-		m \circ (id_G \cross \varepsilon) = id_G
+		m \circ (id_G \cross \varepsilon) = id_G\nonumber
 	.\end{align} 
 \end{rem}
 
@@ -74,7 +73,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	In fact, since the universal property of
 	fiber product gives $\left( G \cross_{ S } G \right)(T) = G(T) \cross G(T)$,
 	one obtains that there exist unique maps
-	\begin{equation}
+	\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
@@ -86,7 +85,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 			\varepsilon \colon S \arrow[r, "", rightarrow] &
 			G & \text{(unit)} 
 		\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	inducing the group structure on $G(T)$ via Yoneda embedding.
 	Then, again by Yoneda's lemma, also the above maps have to
 	satisfy the properties written in 
@@ -94,7 +93,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	More explicitly:
 	\begin{enumerate}
 		\item Associativity of the product
-			\begin{equation}
+			\begin{equation*}
 			\begin{tikzcd}[column sep=4.5em]
 				G \cross_{ S } G \cross_{ S } G 
 				\arrow[r, "id_G \cross_S m", rightarrow] 
@@ -103,7 +102,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 				G \cross_{ S } G \arrow[r, "m"', rightarrow] &
 				G.
 			\end{tikzcd}
-			\end{equation} 
+			\end{equation*} 
 		\item Inverse morphism 
 			\begin{equation*}
 			\begin{tikzcd}[column sep=2.7em]
@@ -125,7 +124,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 			\end{tikzcd}
 			\end{equation*} 
 		\item Identity element 
-			\begin{equation}
+			\begin{equation*}
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
@@ -141,7 +140,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 				\arrow[u, "id_G \cross_S \varepsilon", rightarrow] &
 				G. \arrow[u, "id_G"', rightarrow] 
 			\end{tikzcd}
-			\end{equation} 
+			\end{equation*} 
 	\end{enumerate}
 \end{rem}
 
@@ -150,7 +149,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
 	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
 	As before, this is equivalent to asking that the following diagram commutes
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		G \cross_S G \arrow[rr, "{ \left(\mathrm{pr}_2, \mathrm{pr}_1\right)}", rightarrow] 
 		\arrow[rd, "m"', rightarrow] & &
@@ -159,7 +158,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 					     &
 		G
 	.\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 \end{defn}
 
 
@@ -175,16 +174,16 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 
 \begin{defn}[Morphism of group schemes]
 	Let $G, G'$ be group schemes, a {\em homomorphism of group schemes}
-	\begin{equation}
+	\begin{equation*}
 		\begin{tikzcd}
 			\alpha\colon G \arrow[r, "", rightarrow] &
 			G'
 		\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	is a morphism $G \to G'$ in $\mathsf{Sch}_{ S }$ s.t., for all
 	$T \in \mathsf{Sch}_{ S }$, the corresponding morphism at the level of $T$-points
 	is a group homomorphism
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
@@ -192,7 +191,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 		G'(T) \\
 		g \arrow[r, "", mapsto] & \alpha \circ g.
 	\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	Notice that the identity of a group scheme is clearly a homomorphism of group
 	schemes and compositions of group schemes homomorphisms are still
 	group scheme homomorphisms.
@@ -207,9 +206,9 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	Again by Yoneda's lemma, one sees that a morphism $\alpha\colon G \to G'$
 	in $\mathsf{Sch}_{ S }$ is a morphism of group schemes iff
 	it preserves products, i.e. iff
-	\begin{equation}
+	\begin{equation*}
 		\alpha \circ m = m' \circ (\alpha, \alpha)
-	,\end{equation} 
+	,\end{equation*} 
 	for $m, m'$ the product morphisms of $G$ and $G'$ respectively.
 \end{rem}
 
@@ -228,12 +227,12 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	in $\mathsf{Gp}_S$ via the usual universal properties.
 	With reagrds to kernels, one can easily check that, given a morphism
 	$\alpha\colon G \to G'$ of $S$-groups, then 
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		G \cross_{ G' } S \arrow[r, "i", rightarrow] &
 		G,
 	\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	where $i$ is the projection on the first factor, is a kernel for $\alpha$.
 	Hence kernels exist in $\mathsf{Gp}_S$.
 	
@@ -241,13 +240,13 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	with sheaves of abelian groups.
 	In fact, given a morphism $\alpha\colon G \to G'$, one cannot always find an
 	element $H \in \mathsf{Gp}_S$ representing the functor
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		T \arrow[r, "", mapsto] &
 		\coker (\alpha_T) =
 		G(T)/G'(T).
 	\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 \end{rem}
 
 
@@ -264,7 +263,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	morphism $R \to A$ making $A$ into an $R$-algebra.
 	Moreover the diagonal morphism $\Delta\colon G \to G \cross_{ S } G$ corresponds
 	to the multiplication morphism of $R$-algebras:
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
@@ -272,11 +271,11 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 		A \\
 		a \otimes_R b \arrow[r, "", mapsto] & a \cdot b
 	.\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	Then, thanks to the arrow-reversing equivalence of categories between
 	affine $R$-schemes and commutative $R$-algebras, one translates the structural morphisms
 	of schemes defined in \cref{rem:StructuralMorphisms} into the following $R$-algebras morphisms:
-	\begin{equation}
+	\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
@@ -288,7 +287,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
 			R & \text{(counit/augmentation)} 
 		\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	Using the contravariant equialence of categories, then,
 	one can translate the properties satisfied by $m, \varepsilon$ and $\mathrm{inv}$
 	into analogous for $\widetilde{m}, \widetilde{\varepsilon}$ and $\widetilde{\mathrm{inv}}$.
@@ -299,7 +298,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 	An {\em Hopf algebra over $R$} is an $R$-algebra $A$,
 	endowed with a comultiplication, a couint and an antipode map,
 	respectively:
-	\begin{equation}
+	\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
@@ -311,10 +310,10 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
 			R,
 		\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	satisfying the conditions obtained by dualizing those
 	of \cref{rem:StructuralMorphisms}, more explicitly:
-	\begin{align}
+	\begin{align*}
 		( \widetilde{m} \otimes_R id_A ) \circ \widetilde{m} &=
 		( id_A \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
 		( id_A \otimes_R \widetilde{\varepsilon} ) \circ \widetilde{m} &=
@@ -325,7 +324,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 		\widetilde{\Delta} \circ ( \widetilde{\mathrm{inv}} \otimes_R id_A ) 
 		\circ \widetilde{m} =
 		(R \to A) \circ \widetilde{\varepsilon}
-	.\end{align} 
+	.\end{align*} 
 	Moreover one defines a morphism of Hopf algebras to be an $R$-algebra
 	morphism preserving the just defined morphisms.
 	Actually, as is the case for groups, it is enough to check that an $R$ algebra
@@ -350,7 +349,7 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 \begin{defn}[Augmentation ideal]
 	Since the structure morphism $R \to A$, of the Hopf algebra $A$ over $R$,
 	splits the following short exact sequence
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		I \arrow[r, "", rightarrow] &
@@ -358,15 +357,15 @@ of a category $\mathsf{C}$ simply by $X \in \mathsf{C}$.
 		R \arrow[r, "", rightarrow] &
 		0
 	\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 	we have $A = R \cdot 1 \oplus I$.
 	Then one obtain $A \otimes A = R \oplus \left( I \otimes 1 \right) \oplus
 	\left( 1 \otimes I \right) \oplus \left( I \otimes I \right)$,
 	and the following fact about comultiplication:
 	for all $f \in I$,
-	\begin{equation}
+	\begin{equation*}
 		\widetilde{m}(f) - f \otimes 1 - 1 \otimes f \in I \otimes I
-	.\end{equation} 
+	.\end{equation*} 
 \end{defn}
 
 
@@ -386,7 +385,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 	$\mathrm{Hom}_{R\text{-}\mathsf{Alg}} \left( A, A \otimes_R A \right)$ 
 	(which has the same group structure as $G(G \cross G)$)
 	of the embedding morphisms
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		\widetilde{\mathrm{pr}}_1: a \arrow[r, "", mapsto] &
 		a \otimes_R 1 &
@@ -394,7 +393,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 		\widetilde{\mathrm{pr}}_2: a \arrow[r, "", mapsto] &
 		1 \otimes_R a
 	.\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 \end{rem}
 
 
@@ -405,7 +404,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 		\item The {\em additive group scheme}, given by 
 			$\mathbb{G}_a \coloneqq \mathrm{Spec}(R[x])$.
 			It acts on $R$-schemes by
-			\begin{equation}
+			\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
 				,/tikz/column 1/.append style={anchor=base east}
 				,/tikz/column 2/.append style={anchor=base west}]
@@ -414,20 +413,20 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				X \arrow[r, "", mapsto] & 
 				\Gamma \left( X , \mathcal{O}_{ X } \right)
 			,\end{tikzcd}
-			\end{equation} 
+			\end{equation*} 
 			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)$ is viewed
 			as an additive group.
 		%	Then $\mathbb{G}_a$ is represented by 
-		%	\begin{equation}
+		%	\begin{equation*}
 		%		G = \mathrm{Spec}(R[x])
-		%	.\end{equation} 
+		%	.\end{equation*} 
 			In fact	we know that
-			\begin{equation}
+			\begin{equation*}
 			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, \mathbb{G}_a \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
 			\left( R[x], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
 			\Gamma \left( X , \mathcal{O}_{ X } \right)
-			,\end{equation} 
+			,\end{equation*} 
 			functorially in $X$.
 			The last isomorphism is determined by 
 			$(x \mapsto a) \mapsto a$.
@@ -435,85 +434,85 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			$\mathrm{Hom}_{R \text{-}\mathsf{Alg}} \left( R[x], A \right)$
 			inherits the additive group structure from $A$, and the embeddings
 			of $R[x]$ in $R[x] \otimes_R R[x]$ are given by
-			\begin{equation}
+			\begin{equation*}
 				\widetilde{\mathrm{pr}}_1(x) = x \otimes_R 1
 				\qquad \text{ and } \qquad
 				\widetilde{\mathrm{pr}}_2(x) = 1 \otimes_R x
-			.\end{equation} 
+			.\end{equation*} 
 			Then, thanks to \cref{rem:ExplicitComult},
 			we desume that
-			\begin{equation}
+			\begin{equation*}
 				\widetilde{m}(x) =
 				\left( \widetilde{\mathrm{pr}}_1(x) \right) +
 				\left( \widetilde{\mathrm{pr}}_2(x) \right) =
 				x \otimes_R 1 + 1 \otimes_R x
-			.\end{equation} 
+			.\end{equation*} 
 			Then, from the properties (see \cref{defn:HopfAlgebra})
 			of counit and antipode, one easily checks that 
-			\begin{equation}
+			\begin{equation*}
 				\widetilde{\varepsilon}(x) = 0
 				\qquad \text{ and } \qquad
 				\widetilde{\mathrm{inv}}(x) = -x
-			.\end{equation} 
+			.\end{equation*} 
 
 
 		\item The {\em multiplicative group scheme} 
 			$\mathbb{G}_m \coloneqq \mathrm{Spec}(R[x,x^{-1}])$.
 			It acts on $R$-schemes by
-			\begin{equation}
+			\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
 				,/tikz/column 1/.append style={anchor=base east}
 				,/tikz/column 2/.append style={anchor=base west}]
 				X \arrow[r, "", mapsto] & 
 				\Gamma \left( X , \mathcal{O}_{ X } \right)^*
 			,\end{tikzcd}
-			\end{equation} 
+			\end{equation*} 
 			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)^*$ is viewed
 			as a multiplicative group.
 			In fact one checks that
-			\begin{equation}
+			\begin{equation*}
 			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, G \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
 			\left( R[x, x^{-1}], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
 			\Gamma \left( X , \mathcal{O}_{ X } \right)^*
-			,\end{equation} 
+			,\end{equation*} 
 			functorially in $X$.
 			Then, reasoning as before, one obtains
-			\begin{equation}
+			\begin{equation*}
 				\widetilde{m}(x) =
 				\left( \widetilde{\mathrm{pr}}_1(x) \right) \cdot
 				\left( \widetilde{\mathrm{pr}}_2(x) \right) =
 				(x \otimes_R 1) \cdot (1 \otimes_R x) = 
 				x \otimes_R x
-			.\end{equation} 
+			.\end{equation*} 
 			Finally, from the properties  of counit and antipode map
 			(see \cref{defn:HopfAlgebra}) one desumes
-			\begin{equation}
+			\begin{equation*}
 				\widetilde{\varepsilon}(x) = 1
 				\qquad \text{ and } \qquad
 				\widetilde{\mathrm{inv}}(x) = x^{-1}
-			.\end{equation} 
+			.\end{equation*} 
 
 
 		\item The {\em general linear group scheme} $\mathrm{GL}_n \coloneqq 
 			\mathrm{Spec}(R[\mathrm{x},\mathrm{y}]/J)$,
 			where
-			\begin{equation}
+			\begin{equation*}
 				R[\mathrm{x},\mathrm{y}] \coloneqq
 				R[x_{11}, x_{12}, \ldots, x_{nn},
 				y_{11}, \ldots, y_{nn}]
-			\end{equation} 
+			\end{equation*} 
 			and $J$ is the ideal generated by the $n^2$ entries of the matrix
 			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n - I$,
 			for $I$ the identity matrix.
 			It acts on $R$-schemes by
-			\begin{equation}
+			\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
 				,/tikz/column 1/.append style={anchor=base east}
 				,/tikz/column 2/.append style={anchor=base west}]
 				X \arrow[r, "", mapsto] & \mathrm{GL}_n(X)
 			,\end{tikzcd}
-			\end{equation} 
+			\end{equation*} 
 			where $\mathrm{GL}(n)(X)$ is the set of invertible $n \cross n$
 			matrices with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$,
 			viewed as a multiplicative group.
@@ -521,9 +520,9 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			$\left( x_{i,j} \right)_{i,j = 1}^n \cdot 
 			\left( y_{i,j} \right)_{i,j = 1}^n$
 			is given by $\left( c_{i,j} \right)_{i,j = 1}^n$, where
-			\begin{equation}
+			\begin{equation*}
 			c_{i,j} = \sum_{l=1}^{n} x_{i,l} \cdot y_{l,j}
-			.\end{equation} 
+			.\end{equation*} 
 			Then, reasoning like before, we can explicitly write the Hopf algebra maps.
 			In fact we see they are
 			\begin{equation*}
@@ -544,12 +543,12 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			$\mu\colon x \mapsto x^n$.
 			Then $\mu_n$ is represented by $\mathrm{Spec}(\coker \mu)$,
 			and the morphism $\mu_n \hookrightarrow \mathbb{G}_m$ is given by the projection
-			\begin{equation}
+			\begin{equation*}
 			\begin{tikzcd}
 				R[x,x^{-1}] \arrow[r, "", twoheadrightarrow] &
 				R[x,x^{-1}] / (x^n - 1)
 			,\end{tikzcd}
-			\end{equation}
+			\end{equation*}
 			which is surjective, finite and flat, making $\mu_n$
 			a closed finite flat subgroup scheme of $\mathbb{G}_m$.
 
@@ -559,20 +558,20 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			its associated group $R$-algebra.
 			This is a Hopf algebra, whose structural morphism
 			are given, for every $x \in X$, by
-			\begin{equation}
+			\begin{equation*}
 				\widetilde{m}(x) = x \otimes_R x,
 				\quad
 				\widetilde{\varepsilon}(x) = 1,
 				\quad
 				\widetilde{\mathrm{inv}}(x) = x^{-1}
-			.\end{equation} 
+			.\end{equation*} 
 			The above can be checked directly, since we have
 			the identifications, for $G = \mathrm{Spec}(A)$:
-			\begin{equation}
+			\begin{equation*}
 				\left( D(X) \right)(G) \coloneqq
 				\mathrm{Hom}_{R \text{-Alg}} \left( R[X], A \right) \simeq
 				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^* \right)
-			,\end{equation} 
+			,\end{equation*} 
 			where the last hom set has a natural structure of abelian
 			group, since $\mathsf{Ab}$ is an abelian category.
 			Then we define the {\em diagonalizable group scheme} $D(X)$
@@ -612,6 +611,10 @@ on the canonical short exact sequence with the connected component of the identi
 tk: If you need to type group scheme actions on functors see Vistoli, page 22-23
 
 \subsection{Duality}
+tk: we are working with finite groups over their base.
+You can restrict to the affine case (hence quote Waterhouse)
+Moreover add something about base change.
+
 Let's now approach the topic of duality.
 We first need a remark about base change:
 
@@ -633,28 +636,28 @@ We first need a remark about base change:
 \begin{defn}[Characters of $\mathrm{S}$-groups]
 	Let $G$ be an $S$-group scheme.
 	A {\em character} of $G$ is a homomorphism of $S$-groups
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\chi\colon G \arrow[r, "", rightarrow] &
 		(\mathbb{G}_m)_S
 	.\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 \end{defn}
 
 
 \begin{rem}[]
 	Characters form a subgroup of the set of morphism of $S$-schemes
 	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
-	\begin{equation}
+	\begin{equation*}
 		\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
 		\subset
 		\mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( G, (\mathbb{G}_m)_S \right)
-	.\end{equation} 
+	.\end{equation*} 
 	Then one can introduce the contravariant sheaf hom functor,
 	from $\mathsf{Sch}_{ S }$ to $\mathsf{Ab}$
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
@@ -664,15 +667,15 @@ We first need a remark about base change:
 		T \arrow[r, "", mapsto] & 
 		\mathrm{Hom}_{\mathsf{Gr}_T} \left( G_T, (\mathbb{G}_m)_T \right)
 	.\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 \end{rem}
 
 \begin{defn}[Cartier dual]
 	Given an $S$-group scheme $G$, we define its {\em Cartier dual}
 	as the group scheme
-	\begin{equation}
+	\begin{equation*}
 		G^D \coloneqq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
-	.\end{equation} 
+	.\end{equation*} 
 \end{defn}
 
 
@@ -680,9 +683,9 @@ We first need a remark about base change:
 	In the affine case one can check that, for $S = \mathrm{Spec}(R)$
 	and $G = \mathrm{Spec}(A)$, the Cartier dual $G^D$ is given by
 	the $R$-algebra 
-	\begin{equation}
+	\begin{equation*}
 	A^D \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
-	.\end{equation} 
+	.\end{equation*} 
 	Its Hopf algebra structure is obtained dualizing the Hopf algebra
 	structure of $A$.
 	In particular product and coproduct of $A$ become, respectively,
@@ -740,26 +743,26 @@ Let's now start from a particularly relevant definition:
 \begin{defn}[Right action]
 	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}_{ S }$.
 	A {\em right action} of $H$ on $X$ is a morphism
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		a\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
 		X
 	\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	such that, for all $T \in \mathsf{Sch}_{ S }$, the induced map
 	$H(T) \cross X(T) \to  X(T)$ is a right action of the
 	group $H(T)$ on the set $X(T)$.
 	We say that the action is {\em strictly free} iff the morphism
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		(id, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
 		X \cross_{ S } X
 	\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	is a closed immersion.
 \end{defn}
 
@@ -777,12 +780,12 @@ It is a more general result, due to Grothendieck.
 	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
 		
 	\item For every $T \in \mathsf{Sch}_{ S }$, the following map is injective
-		\begin{equation}
+		\begin{equation*}
 		\begin{tikzcd}
 			X(T)/H(T) \arrow[r, "", rightarrowtail] &
 			(X/H)(T)
 		.\end{tikzcd}
-		\end{equation}
+		\end{equation*}
 \end{enumerate}
 \end{thm}
 
@@ -799,9 +802,9 @@ As a consequence, we obtain the following result for quotient group schemes
 	with order $[(G/H):S]$. We will call this the order of $H$ in $G$
 	and denote it by $[G:H]$.
 	Then $G$ is finite and flat over $S$ iff $G/H$ is, and we have
-	\begin{equation}
+	\begin{equation*}
 		[G:H][H:S] = [G:S]
-	.\end{equation} 
+	.\end{equation*} 
 \end{prop}
 
 \begin{rem}[Short exact sequence]
@@ -811,7 +814,7 @@ As a consequence, we obtain the following result for quotient group schemes
 	an $S$-group scheme, and $u\colon G \to G/H$
 	is an $S$-group homomorphism.
 	In particular this gives rise to a short exact sequence of group schemes
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		H \arrow[r, "i", rightarrow] &
@@ -819,7 +822,7 @@ As a consequence, we obtain the following result for quotient group schemes
 		G/H \arrow[r, "", rightarrow] &
 		0
 	,\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 	where short exactness also means that $i$ is a closed immersion
 	and $u$ is faithfully flat.
 \end{rem}
@@ -839,7 +842,7 @@ The study of {\'e}tale group schemes is stricly related to that of
 separable algebras, so here a few interesting results for the latter:
 
 \begin{thm}[\cite{Waterhouse}, \textsection $6.2$]
-	`\label{thm:SeparableAlgebrasCharacterization}
+	\label{thm:SeparableAlgebrasCharacterization}
 	Let $k$ be a field, and denote by $\overline{k}$ and $k^s$ respectively
 	an algebraic and separable closure of $k$.
 	Let $A$ be a finite dimensional $k$-lagebra.
@@ -876,7 +879,7 @@ If, moreover, $k$ is a prefect field, all of the above are equivalent to
 In the following section we will always assume that 
 $S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
 We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
-its residue field, and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
+its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
 Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
 \begin{thm}[Connected-étale exact sequence, \cite{TateMF}, \textsection $3.7$]
@@ -886,7 +889,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 	Moreover the quotient $G^{et} \coloneqq G/G^0$,
 	constructed as in \cref{thm:QuotientGroupScheme},
 	is étale and gives rise to the short exact sequence
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
@@ -894,7 +897,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 		G^{et} \arrow[r, "", rightarrow] &
 		0
 	,\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 	called the {\em connected-étale sequence} for $G$.
 	In particular it can be characterized by the fact that every homomorphism
 	from $G$ to an étale $S$-group factorizes through $G \to G^{et}$,

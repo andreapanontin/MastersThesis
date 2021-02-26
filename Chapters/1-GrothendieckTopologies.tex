@@ -1,9 +1,16 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
-\section{Grothendieck topologies}
-tk: The aim of this section is to introduce
+\section{Preliminaries}
+\subsection{Grothendieck topologies}
+The aim of this section is to introduce
 the concept of Grothendieck topology on a category,
 in order to describe sheaves on such category.
+The main ideas behind these construction is that one can reduce
+the definition of open coverings to a few formal axioms, traducing
+inclusions with arrows in a category and
+intersections with fiber products.
+It is in fact true that, in $\mathsf{Op}(X)$, the category of open subsets
+of the topological space $X$, fiber products correspond to intersections of subsets.
 
 
 \begin{defn}[Site]
@@ -90,6 +97,127 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 		"fidèlement plat et de présentation finie".
 \end{enumerate}
 \end{ex}
+
+\begin{prop}[\cite{Vistoli}, \textsection $2.3.2$]\label{prop:Conditionsfpqc}
+	Let $f\colon X \to Y$ be a surjective morphism of schemes. The following are equivalent.
+\begin{enumerate}
+	\item Every quasi-compact open subset of $Y$ is the image of a quasi-compact
+		open subset of $X$.
+	\item There exists a covering $\left\{ V_i \right\}_{i \in I}$ of $Y$ by open affine 
+		subschemes, such that $V_i$ is the image of a quasi-compact
+		open subset of $X$, for all $i$.
+	\item Given a point $x \in X$, there exists an open neighbourhood $U$ of $x$
+		in $X$, such that the image $F(U)$ is open in $Y$ and the restriction
+		$\left.f\right|_{U}$ is a quasi-compact morphism of schemes, i.e.
+		the inverse image of any quasi-compact open subset of $F(U)$ is
+		quasi-compact in $U$.
+	\item Given a point $x \in X$, there exista an open neighbourhood $U$ of $x$
+		in $X$ such that the image $f(U)$ is open and affine in $Y$.
+\end{enumerate}
+\end{prop}
+
+
+\begin{defn}[fpqc morphism]
+	An {\em fpqc morphism of schemes} is a faithfully flat morphism
+	that satisfies the equivalent conditions of \cref{prop:Conditionsfpqc}.
+	Th acronym $fpqc$ stand for "fidèlement plat et quasi-compact".
+\end{defn}
+
+\begin{rem}[]
+	It can be shown, see \cite{Vistoli}, that on $\mathsf{Sch}_{ S }$, the data
+	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}_{ S }$,
+	s.t. the induced morphism $\coprod_i U_i \to U$ is {\em fpqc},
+	is a pretopology on $\mathsf{Sch}_{ S }$.
+	This pretopology is called the {\em fpqc topology}.
+\end{rem}
+
+
+\subsection{Sheaves}
+The definition of Sheaf on a topological space actually only
+depends on the detum of possible open coverings for a given object of
+the catogory $\mathsf{Op}(X)$.
+Then the introduction of pretopologies allows one to define Sheaves on sites.
+
+\begin{defn}[Sheaf]
+	Let $\mathsf{C}$ be a category.
+	A {\em presheaf} on $\mathsf{C}$ is just a contravariant functor with
+	values in sets:
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		F\colon \mathsf{C}^{op} \arrow[r, "", rightarrow] &
+		\mathsf{Sets}
+	.\end{tikzcd}
+	\end{equation*} 
+	If, moreover, $\mathsf{C}$ is a {\em site}, i.e. it is given a pretopology,
+	we say that
+\begin{enumerate}
+	\item $F$ is {\em separated} iff, given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+		and two sections $a,b \in F(U)$ whose pullbacks to each $F(U_i)$ coincide,
+		then $a = b$;
+	\item $F$ is a {\em sheaf} iff it satisfies the following condition.
+		Consider any $U \in \mathsf{C}$, any covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+		of $U$ in $\mathsf{C}$ and any family $\left\{ a_i \right\}_{i \in I}$ s.t.
+		$a_i \in F(U_i)$.
+		Denote by 
+		\begin{equation*}
+		\mathrm{pr}^{i,j}_k\colon U_{i_1} \cross_{ U } U_{i_2} \to U_{i_k}
+		\end{equation*} 
+		the projection on the $k$-th component.
+		Assume that $(\mathrm{pr}^{i,j}_1)^* a_i = 
+		(\mathrm{pr}^{i,j}_2)^* a_j \in F( U_i \cross_{ U } U_j )$
+		for all $i, j$, then there exists a unique section $a \in F(U)$
+		whose pullback to $F(U_i)$ is $a_i$ for all $i \in I$.
+\end{enumerate}
+\end{defn}
+Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
+
+
+\begin{rem}[]
+	Let's give an equivalent definition of sheaf, for a functor 
+	$F\colon \mathsf{C}^{op} \to \mathsf{Sets}$, on a site $\mathsf{C}$.
+	Choose $U \in \mathsf{C}$ and a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$.
+	We denote by $F \to \prod_{i \in I} F(U_i)$ the map induced by the
+	restriction morphisms $F(U) \to F(U_i)$.
+	Then we define
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{pr}_1^*\colon \prod_{i \in I} F(U_i) \arrow[r, "", rightarrow] &
+		\prod_{i,j \in I \cross I} F( U_i \cross_{ U } U_j )
+	\end{tikzcd}
+	\end{equation*} 
+	as the map sending $(a_i) \in \prod_i F(U_i)$ to
+	$\mathrm{pr}_i^*(a_i) \in \prod_{i,j} F( U_i \cross_{ U } U_j )$,
+	whose component in $F( U_i \cross_{ U } U_j )$ is given by $\mathrm{pr}_1^*(a_i)$,
+	where $\mathrm{pr}_1\colon U_i \cross_{ U } U_j \to U_i$ is the projection on the first
+	component.
+	Analogously we define a morphism $\mathrm{pr}_2^*\colon \prod_i F(U_i) \to 
+	\prod_{i,j} F( U_i \cross_{ U } U_j )$.
+	Then the presheaf $F$ is a sheaf iff, for all $U \in \mathsf{C}$ and all coverings
+	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ in $\mathsf{C}$,
+	the following diagram is an equalizer:
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		F(U) \arrow[r, "", rightarrow] &
+		\prod_{i \in I} F(U_i) 
+		\arrow[r, "\mathrm{pr}_1^*", rightarrow, shift left = 0.5ex] 
+		\arrow[r, "\mathrm{pr}_2^*"', rightarrow, shift right = 0.5ex] &
+		\prod_{i,j \in I \cross I} F( U_i \cross_{ U } U_j )
+	.\end{tikzcd}
+	\end{equation*}
+	
+\end{rem}
+
+
+Finally we can state a very important result due to Groehtendieck:
+\begin{thm}[Grothendieck]
+	A representable functor on $\mathsf{Sch}_{ S }$ is a sheaf in the {\em fpqc} topology.
+	In particular it is also a sheaf in the étale and {\em fppf} topologies.
+\end{thm}
 
 
 \end{document}
