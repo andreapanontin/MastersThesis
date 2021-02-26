@@ -1,6 +1,13 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
-\section{Affine group schemes}
+\section{Group schemes}
+In this section we introduce the notion of {\em group object}
+in a category, stating all of the results in the category
+of $S$-schemes, for a fixed scheme $S$.
+We will then state a few results which will play an important role
+in what follows.
+
+
 \begin{defn}[$S$-Group scheme]
 	Let $F\colon \mathsf{Sch}_S^{op} \to \mathsf{Gp}$ be a functor.
 	Assume that $F$ is representable by $G \in \mathsf{Sch}_{ S }$, i.e. such that, 
@@ -39,13 +46,13 @@
 			G & \text{(multiplication)} \\
 			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
 			G & \text{(inverse)} \\
-			\varepsilon \colon S \arrow[r, "", rightarrow] &
+			\varepsilon \colon \left\{ e \right\} \arrow[r, "", rightarrow] &
 			G & \text{(unit)} 
 		\end{tikzcd}
 	\end{equation*} 
 	for $\left\{ e \right\}$ the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
-	as the unique arrow in the terminal object
+	as the unique arrow in the terminal object of $\mathsf{Gp}$
 	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
 	Then, associativity of product, inverse element and
 	identity are characterized by: 
@@ -56,6 +63,8 @@
 		m \circ (\varepsilon \cross id_G) &=
 		m \circ (id_G \cross \varepsilon) = id_G\nonumber
 	.\end{align} 
+	Notice that in this last equality we implicitly use the isomorphism
+	$\left\{ e \right\} \cross G \simeq G \simeq G \cross \left\{ e \right\}$.
 \end{rem}
 
 
@@ -115,7 +124,9 @@
 				G
 			\end{tikzcd}
 			\end{equation*} 
-		\item Identity element 
+		\item Identity element (again, as with groups, in the following diagrams
+			we will implicitly use the iso
+			$S \cross_{ S } G \simeq G \simeq G \cross_{ S } S$)
 			\begin{equation*}
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
@@ -140,7 +151,8 @@
 \begin{defn}[Commutative $S$-group scheme]
 	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
 	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
-	As before, this is equivalent to asking that the following diagram commutes
+	Arguing with Yoneda as before,
+	this is equivalent to asking that the following diagram commutes
 	\begin{equation*}
 	\begin{tikzcd}
 		G \cross_S G \arrow[rr, "{ \left(\mathrm{pr}_2, \mathrm{pr}_1\right)}", rightarrow] 
@@ -157,7 +169,7 @@
 \begin{rem}[]
 	One can generalize the definition of group object, from the category
 	of $S$-schemes, to any category $\mathsf{C}$ admitting finite products
-	(hence with fianl object given by the empty product) in the same manner as above.
+	(hence with final object given by the empty product) in the same manner as above.
 	In fact, being $S$ the final object in $\mathsf{Sch}_{ S }$, one sees
 	that fibered products over $S$ (seen in the category of schemes)
 	are just products in $\mathsf{Sch}_{ S }$.
@@ -217,7 +229,7 @@
 \begin{rem}[Kernels and cokernels]
 	As with any category, one can define kernels and cokernels 
 	in $\mathsf{Gp}_S$ via the usual universal properties.
-	With reagrds to kernels, one can easily check that, given a morphism
+	With regards to kernels, one can easily check that, given a morphism
 	$\alpha\colon G \to G'$ of $S$-groups, then 
 	\begin{equation*}
 	\begin{tikzcd}
@@ -246,43 +258,56 @@
 %In the following we'll tend to focus on {\em separated} groups schemes over $S$.
 %Notice that in that case, since $\varepsilon$ is a closed immersion, it is also an affine morphism,
 %hence as soon as $G$ is affine, also $S$ is.
-\begin{rem}[Affine group schemes]
-	If we assume that $G = \mathrm{Spec}(A)$ is affine, we can translate the above $S$-scheme
-	morphisms, for $S = \mathrm{Spec}(R)$ affine, into $R$-algebra morphisms.
-	Then the properties defined by the diagrams in \cref{rem:StructuralMorphisms}
-	will translate into properties for these new morphisms.
-	Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
-	morphism $R \to A$ making $A$ into an $R$-algebra.
-	Moreover the diagonal morphism $\Delta\colon G \to G \cross_{ S } G$ corresponds
-	to the multiplication morphism of $R$-algebras:
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\widetilde{\Delta}\colon A \otimes_R A \arrow[r, "", rightarrow] &
-		A \\
-		a \otimes_R b \arrow[r, "", mapsto] & a \cdot b
-	.\end{tikzcd}
-	\end{equation*} 
-	Then, thanks to the arrow-reversing equivalence of categories between
-	affine $R$-schemes and commutative $R$-algebras, one translates the structural morphisms
-	of schemes defined in \cref{rem:StructuralMorphisms} into the following $R$-algebras morphisms:
-	\begin{equation*}
-			\begin{tikzcd}[row sep = 0ex
-         ,/tikz/column 1/.append style={anchor=base east}
-         ,/tikz/column 2/.append style={anchor=base west}
-         ,/tikz/column 3/.append style={anchor=base east}]
-			\widetilde{m}\colon A \arrow[r, "", rightarrow] &
-			A \otimes_R A & \text{(comultiplication)} \\
-			\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
-			A & \text{(antipode)} \\
-			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
-			R & \text{(counit/augmentation)} 
-		\end{tikzcd}
-	\end{equation*} 
-	Using the contravariant equialence of categories, then,
-	one can translate the properties satisfied by $m, \varepsilon$ and $\mathrm{inv}$
-	into analogous for $\widetilde{m}, \widetilde{\varepsilon}$ and $\widetilde{\mathrm{inv}}$.
+
+
+
+\subsection{Affine group schemes}
+The above definitions have a dual interpretation in the affine case,
+which we want to show in this section.
+Moreover, in the following, we will mostly concentrate on affine
+group schemes, hence in the rest of the discussion about group schemes
+we will concentrate on them, even though most of the
+results can be proved in a more general setting.
+
+
+\begin{rem}[]
+If we assume that $G = \mathrm{Spec}(A)$ is affine, 
+the arrow-reversing equivalence of categories between
+affine $R$-schemes and commutative $R$-algebras, 
+allows us to translate the structural morphisms
+of schemes defined in \cref{rem:StructuralMorphisms} into
+appropriate $R$-algebra morphisms.
+Then the properties defined by the diagrams in \cref{rem:StructuralMorphisms}
+will translate into properties for these new morphisms.
+
+Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
+morphism $R \to A$ making $A$ into an $R$-algebra.
+Moreover the diagonal morphism $\Delta\colon G \to G \cross_{ S } G$ corresponds
+to the multiplication morphism of the $R$-algebra $A$:
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	\widetilde{\Delta}\colon A \otimes_R A \arrow[r, "", rightarrow] &
+	A \\
+	a \otimes_R b \arrow[r, "", mapsto] & a \cdot b
+.\end{tikzcd}
+\end{equation*} 
+With this in mind we obtain the following $3$ $R$-algebra morphisms:
+\begin{equation*}
+		\begin{tikzcd}[row sep = 0ex
+ ,/tikz/column 1/.append style={anchor=base east}
+ ,/tikz/column 2/.append style={anchor=base west}
+ ,/tikz/column 3/.append style={anchor=base east}]
+		\widetilde{m}\colon A \arrow[r, "", rightarrow] &
+		A \otimes_R A & \text{(comultiplication)} \\
+		\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
+		A & \text{(antipode)} \\
+		\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
+		R & \text{(counit/augmentation),}
+	\end{tikzcd}
+\end{equation*} 
+satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 \end{rem}
 
 
@@ -319,27 +344,28 @@
 	.\end{align*} 
 	Moreover one defines a morphism of Hopf algebras to be an $R$-algebra
 	morphism preserving the just defined morphisms.
-	Actually, as is the case for groups, it is enough to check that an $R$ algebra
-	morphism commutes with $\widetilde{m}$, in order for it to be a Hopf algebra morphism.
-
 	Finally we call $I \coloneqq \ker \widetilde{\varepsilon}$ the 
 	{\em augmentation ideal} of $A$.
 \end{defn}
+Actually, as is the case for groups, it is enough to check that an $R$ algebra
+morphism commutes with $\widetilde{m}$, in order for it to be a Hopf algebra morphism.
 
 
 \begin{rem}[Equivalence of categories]
 	Clearly, then, any Hopf algebra over $R$ gives rise
 	to an affine $R$-group via the aforementioned equivalence of categories.
 	This actually is an equivalence of categories between affine
-	$R$-group schemes and Hopf algebras over $R$, since 
-	product in a group scheme corresponds to comultiplication in its 
+	$R$-group schemes and Hopf algebras over $R$.
+	In fact	the multiplication morphism in a group scheme
+	corresponds to the comultiplication morphism in its 
 	associated Hopf algebra, and morphism in the two categories are defined
 	to preserve such operation.
 \end{rem}
 
 
 \begin{defn}[Augmentation ideal]
-	Since the structure morphism $R \to A$, of the Hopf algebra $A$ over $R$,
+	For a Hopf algebra $A$ over $R$,
+	the structure morphism $R \to A$
 	splits the following short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
@@ -347,28 +373,75 @@
 		I \arrow[r, "", rightarrow] &
 		A \arrow[r, "\widetilde{\varepsilon}", rightarrow] &
 		R \arrow[r, "", rightarrow] &
-		0
+		0.
 	\end{tikzcd}
 	\end{equation*}
-	we have $A = R \cdot 1 \oplus I$.
-	Then one obtain $A \otimes A = R \oplus \left( I \otimes 1 \right) \oplus
-	\left( 1 \otimes I \right) \oplus \left( I \otimes I \right)$,
-	and the following fact about comultiplication:
-	for all $f \in I$,
+	Hence we have $A = R \cdot 1 \oplus I$,
+	from which we desume that $A \otimes A = R \oplus \left( I \otimes 1 \right) \oplus
+	\left( 1 \otimes I \right) \oplus \left( I \otimes I \right)$.
+	Finally it is easy to show that, for all $f \in I$,
 	\begin{equation*}
 		\widetilde{m}(f) - f \otimes 1 - 1 \otimes f \in I \otimes I
 	.\end{equation*} 
 \end{defn}
 
 
+For these last results we'll assume that $S$ is a locally Noetherian base scheme.
+\begin{rem}[Finite $S$-group]
+	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
+	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
+	More explicitly this means that there exists a cover of $S$ by affine open subschemes
+	$V_i$ s.t. for all $i$ the restriction of the structure morphism is of the form
+	$\mathrm{Spec}(A) \to \mathrm{Spec}(R)$, for $A$ a free $R$-module of finite rank over $R$. 
+	This is going to our main interest what follows.
+
+	It is also true that finite flat group schemes over affine schemes
+	are themselves affine. 
+	We are going to be interested in the case of $S = \mathrm{Spec}(R)$,
+	for $R$ the ring of integers of a local field, mainly $\mathbb{Z}_p$,
+	and $G$ finite flat over $S$.
+	Hence we will mainly concentrate on the affine case in what follows.
+
+	Finally we can notice that, over an affine scheme $S = \mathrm{Spec}(R)$,
+	a finite flat scheme is just $\mathrm{Spec}(A)$, for a finite projective
+	$R$-module $A$ (see, for instance, 
+	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}).
+\end{rem}
+
+\begin{defn}[Order of a finite flat $S$-scheme]
+	Given a finite flat $S$-group scheme $G$, the rank of $\mathcal{O}_X$ as
+	and $\mathcal{O}_S$-module is a locally constant function with respect
+	to the Zariski topology, with integer values.
+	We call such a function the order of $G$ over $S$ and denote it by $[G:S]$.
+	Moreover we'll use the notation $[G:S] = n$ to state that $G$ is finite flat of
+	constant rank $n$ over $S$.
+\end{defn}
+
+\begin{prop}[\cite{TateMF}, \textsection $3$]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item Consider the morphisms of schemes $X \to Y \to S$, with $[X:Y] = m$.
+		Then $X$ is finite and flat over $S$ iff $Y$ is, in which case
+		$[X:S] = [X:Y] [Y:S]$ as functions on $Y$.
+		
+	\item If $[X_i:S] = n_i$ for $i=1,2$, then
+		$[X_1 \cross_{ S } X_2 : S] = n_1n_2$.
+
+	\item If $[X:S] = n$, then $[X \cross_{ S } T : T] = n$
+		for all $T \in \mathsf{Sch}_{ T }$.
+\end{enumerate}
+\end{prop}
+
+
+\subsection{Examples}
 In order to compute a few useful examples, let's make explicit the relation between
 multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
 $R$, for $S = \mathrm{Spec}(R)$.
 \begin{rem}\label{rem:ExplicitComult}
 	Yoneda tells us that the multiplication map 
-	$m\colon G \cross G \to G$ can be expressed, using the group law
-	on $G(G \cross G)$, as the product $\mathrm{pr}_1 \mathrm{pr}_2$
-	of the two projection morphisms.
+	$m\colon G \cross G \to G$ can be expressed
+	as the product $\mathrm{pr}_1 \mathrm{pr}_2$
+	of the two projection morphisms, using the group law
+	on $G(G \cross G)$.
 	Then, in the case of affine schemes $S = \mathrm{Spec}(R)$
 	and $G = \mathrm{Spec}(A)$, one can translate the above to the corresponding
 	Hopf algebra morphism, using the equivalence of categories.
@@ -597,6 +670,222 @@ $R$, for $S = \mathrm{Spec}(R)$.
 	\end{enumerate}
 \end{ex}
 
+
+\begin{rem}[Base change]\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+\item 	Let $U, T \in \mathsf{Sch}_{ S }$ be two $S$-schemes.
+	We use the notation $U_T$ for the base change $U \cross_{ S } T$.
+	It is important to notice that, for $V \in \mathsf{Sch}_{ T }$, we 
+	have $U_T(V) = U(V)$, where in the last expression
+	we considered $V$ as an $S$ scheme, by $V \to T \to S$.
+
+
+\item	In particular the examples we have developed so far 
+	can all be given for $\mathbb{Z}$-group schemes.
+	Then we will use the notation given in the examples
+	to mean the group scheme over $\mathbb{Z}$
+	and take their base change when working in $\mathsf{Sch}_{ S }$.
+\end{enumerate}
+\end{rem}
+
+
+\subsection{Quotients and exactness}
+%tK: For quotients see section 3.3-3.4, for exactness 1.7-1.8 (the quotient map is faithuflly flat)
+In order to construct some important short exact sequences
+we need to tackle the problem of the construction
+of cokernels, hence of quotient groups.
+In order to do so we have to start with the concept of group action.
+
+\begin{defn}[Right action]
+	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}_{ S }$.
+	A {\em right action} of $H$ on $X$ is a morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		a\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		X
+	\end{tikzcd}
+	\end{equation*} 
+	such that, for all $T \in \mathsf{Sch}_{ S }$, the induced map
+	$H(T) \cross X(T) \to  X(T)$ is a right action of the
+	group $H(T)$ on the set $X(T)$.
+	We say that the action is {\em strictly free} iff the morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		(id, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		X \cross_{ S } X
+	\end{tikzcd}
+	\end{equation*} 
+	is a closed immersion.
+\end{defn}
+
+The next theorem will allow us to construct quotients of
+$S$-group schemes over finite, flat closed subgroup schemes.
+It actually is a more general result, due to Grothendieck.
+\begin{thm}[\cite{TateMF}, \textsection $3.4$]
+	Suppose that $H$, finite flat over $S$, acts strictly freely on $X$
+	of finite type over $S$ in such a way that every orbit is contained in an affine open set.
+	Then there exists $Y \in \mathsf{Sch}_{ S }$ and a morphism $u\colon X \to Y$,
+	constant on orbits, such that for every morphism $v\colon X \to Z$ constant on orbits,
+	there is a unique morphism $f\colon Y \to Z$ s.t. $v = f \circ u$.
+	We denote $Y$ by $X/H$, and notice that $u$ has the following properties:
+\begin{enumerate}
+	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
+		
+	\item For every $T \in \mathsf{Sch}_{ S }$, the following map is injective
+		\begin{equation*}
+		\begin{tikzcd}
+			X(T)/H(T) \arrow[r, "", rightarrowtail] &
+			(X/H)(T)
+		.\end{tikzcd}
+		\end{equation*}
+\end{enumerate}
+\end{thm}
+
+
+As promised we obtain the following result for quotient group schemes.
+\begin{prop}[\cite{TateMF}, \textsection $3.5$]\label{thm:QuotientGroupScheme}
+	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
+	subgroup scheme.
+	Define the action $a\colon G \cross_{ S } H \to G$ as the restriction of the
+	group law $m$ on $G$.
+	Then $G/H$ is the scheme of {\em left cosets} of $H$ in $G$.
+
+	Assume, moreover, that $G/H$ is finite and flat over $S$,
+	with order $[(G/H):S]$. We will call this the order of $H$ in $G$
+	and denote it by $[G:H]$.
+	Then $G$ is finite and flat over $S$ and we have
+	\begin{equation*}
+		[G:H][H:S] = [G:S]
+	.\end{equation*} 
+\end{prop}
+
+\begin{rem}[Short exact sequence]
+	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
+	{\em normal} in $G$, i.e. that it acts trivially on $G/H$.
+	Then the multiplication on $G$ induces a multiplication 
+	morphism on $G/H$, making it an $S$-group scheme, and $u\colon G \to G/H$
+	an $S$-group homomorphism.
+	In particular this gives rise to the short exact sequence of group schemes
+	\begin{equation*}
+	\begin{tikzcd}
+		1 \arrow[r, "", rightarrow] &
+		H \arrow[r, "i", rightarrow] &
+		G \arrow[r, "u", rightarrow] &
+		G/H \arrow[r, "", rightarrow] &
+		1
+	,\end{tikzcd}
+	\end{equation*}
+	where short exactness also means that $i$ is a closed immersion
+	and $u$ is faithfully flat.
+	Moreover $1$ denotes the constant $S$-group scheme $1$, as
+	seen in tk: add reference + add example.
+\end{rem}
+
+
+%tk: might be useful later
+%\begin{prop}[\cite{Shatz}, \textsection $4$]
+%	Let $R$ be a complete local ring with separably closed residue field
+%	(or $R$ a strict Hensel local ring), such that the characteristic of the
+%	residue field is $p > 0$.
+%	Then a connected finite group scheme over $R$ has order $p^t$ for some $t$.
+%\end{prop}
+
+
+\subsection{Separable algebras and étale group schemes}
+The study of {\'e}tale group schemes is stricly related to that of
+separable algebras, so here a few interesting results for the latter:
+
+\begin{thm}[\cite{Waterhouse}, \textsection $6.2$]
+	\label{thm:SeparableAlgebrasCharacterization}
+	Let $k$ be a field, and denote by $\overline{k}$ and $k^s$ respectively
+	an algebraic and separable closure of $k$.
+	Let $A$ be a finite dimensional $k$-lagebra.
+	The following are equivalent:
+\begin{enumerate}
+	\item $A \otimes_k \overline{k}$ is reduced.
+	\item $A \otimes_k \overline{k} \simeq \overline{k} \cross \cdots \cross \overline{k}$.
+	\item The number of $k$-algebra homomorphisms $A \to  \overline{k}$
+		equals the dimension of $A$ over $k$.
+	\item $A$ is a product of separable field extensions of $k$.
+	\item $A \otimes_k k^s \simeq k^s \cross \cdots \cross k^s$.
+\end{enumerate}
+If, moreover, $k$ is a prefect field, all of the above are equivalent to
+\begin{enumerate}[resume]
+	\item $A$ is reduced.
+\end{enumerate}
+\end{thm}
+
+
+\begin{defn}[Separable algebra]
+	A $k$-algebra $A$ satisfying the equivalent conditions of
+	\cref{thm:SeparableAlgebrasCharacterization}
+	is called {\em separable}.
+\end{defn}
+
+
+\begin{cor}[\cite{Waterhouse}, \textsection $6.2$]
+	Subalgebras, quotients, products and tensor products of separable $k$-algebras
+	are separable.
+	Moreover, given $L/k$ a field extension, $A$ is separable over $k$
+	iff $A \otimes_k L$ is separable over $L$.
+\end{cor} 
+
+
+\subsection{Connected-étale exact equence}
+In the following section we will always assume that 
+$S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
+We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
+its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
+Finally by $G$ we will denote a finite and flat $S$-group scheme.
+
+\begin{thm}[Connected-étale exact sequence, \cite{TateMF}, \textsection $3.7$]
+	Let $G^0$ be the connected component of the identity in $G$.
+	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
+	and it is a flat, closed normal subgroup scheme of $G$.
+	Moreover the quotient $G^{et} \coloneqq G/G^0$,
+	constructed as in \cref{thm:QuotientGroupScheme},
+	is étale and gives rise to the short exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G^0 \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		G^{et} \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*}
+	called the {\em connected-étale sequence} for $G$.
+	In particular it can be characterized by the fact that every homomorphism
+	from $G$ to an étale $S$-group factorizes through $G \to G^{et}$,
+	and $G^0$ is the kernel of that homomorphism.
+\end{thm}
+
+
+\begin{prop}[\cite{TateMF}, \textsection $3.7$]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
+		and $G = G^{et}$.
+		If, instead, $\mathrm{char}\, k = p > 0$, the order
+		$[G^0:S] = p^t$ for some $t$.
+		As a consequence if $[G:S]$ is invertible in $S$, then
+		$G$ is étale over $S$.
+
+	\item If $R = k$ is a field and $n = [G:S]$, then $x^n = 1$
+		for all $x \in G(B)$ for any $k$-algebra $B$.
+		We say that $G$ is killed by its order.
+
+	\item If $R$ is a perfect field, then the homomorphism
+		$G \to  G^{et}$ admits a section. 
+		As a consequence $G = G^0 \rtimes G^{et}$
+		can be expressed as a semidirect product.
+\end{enumerate}
+\end{prop}
+
+
 tk: you have to add the part on duality, on exact sequence, on etale groups and separated algebras,
 on the canonical short exact sequence with the connected component of the identity.
 
@@ -609,20 +898,6 @@ Moreover add something about base change.
 
 Let's now approach the topic of duality.
 We first need a remark about base change:
-
-
-\begin{rem}[Base change]
-	Let $U, T \in \mathsf{Sch}_{ S }$ be two $S$-schemes.
-	We use the notation $U_T$ for the base change $U \cross_{ S } T$.
-	It is important to notice that, for $V \in \mathsf{Sch}_{ T }$, we 
-	have $U_T(V) = U(V)$, where in the last expression
-	we considered $V$ as an $S$ scheme, by $V \to T \to S$.
-
-	In particular the examples we have developed so far (tk: check when you add $\alpha_p$)
-	are all $\mathbb{Z}$-group schemes.
-	Then we will use the above notation to mean the group scheme over $\mathbb{Z}$
-	and take their base change when working in $\mathsf{Sch}_{ S }$.
-\end{rem}
 
 
 \begin{defn}[Characters of $\mathrm{S}$-groups]
@@ -695,227 +970,6 @@ We first need a remark about base change:
 	\end{equation*}
 	
 \end{rem}
-
-\subsection{Quotients and exactness}
-tK: For quotients see section 3.3-3.4, for exactness 1.7-1.8 (the quotient map is faithuflly flat)
-
-In this section we'll assume that $S$ is a locally noehterian base scheme.
-Let's now start from a particularly relevant definition:
-\begin{rem}[Finite $S$-group]
-	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
-	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
-	More explicitly this means that there exists a cover of $S$ by affine open subschemes
-	$V_i$ s.t. for all $i$ the restriction of the structure morphism is of the form
-	$\mathrm{Spec}(A) \to \mathrm{Spec}(R)$, for $A$ an $R$-module of finite rank over $R$. 
-\end{rem}
-
-\begin{defn}[Order of a finite flat $S$-scheme]
-	Given a finite flat $S$-group scheme $G$, the rank of $\mathcal{O}_X$ as
-	and $\mathcal{O}_S$-module is a locally constant function, with integer values.
-	We call such a function the order of $G$ over $S$ and denote it by $[G:S]$.
-	Moreover we'll use the notation $[G:S] = n$ to state that $G$ is finite flat of
-	constant rank $n$ over $S$.
-\end{defn}
-
-\begin{prop}[]\leavevmode\vspace{-.2\baselineskip}
-\begin{enumerate}
-	\item Consider the morphism of schemes $X \to Y \to S$, with $[X:Y] = m$.
-		Then $X$ is finite and flat over $S$ iff $Y$ is, in which case
-		$[X:S] = [X:Y] [Y:S]$ as functions on $Y$.
-		
-	\item If $[X_i:S] = n_i$ for $i=1,2$, then
-		$[X_1 \cross_{ S } X_2 : S] = n_1n_2$.
-
-	\item If $[X:S] = n$, then $[X \cross_{ S } T : T] = n$
-		for all $T \in \mathsf{Sch}_{ T }$.
-\end{enumerate}
-\end{prop}
-
-
-\begin{defn}[Right action]
-	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}_{ S }$.
-	A {\em right action} of $H$ on $X$ is a morphism
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		a\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
-		X
-	\end{tikzcd}
-	\end{equation*} 
-	such that, for all $T \in \mathsf{Sch}_{ S }$, the induced map
-	$H(T) \cross X(T) \to  X(T)$ is a right action of the
-	group $H(T)$ on the set $X(T)$.
-	We say that the action is {\em strictly free} iff the morphism
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		(id, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
-		X \cross_{ S } X
-	\end{tikzcd}
-	\end{equation*} 
-	is a closed immersion.
-\end{defn}
-
-The next theorem will allow us to construct quotients of
-$S$-group schemes over finite, flat closed subgroup schemes.
-It is a more general result, due to Grothendieck.
-\begin{thm}[\cite{TateMF}, \textsection $3.4$]
-	Suppose $H$, finite flat over $S$, acts strictly freely on $X$
-	of finite typer over $S$ in such a way that every orbit is contained in an affine open set.
-	Then there exists $Y \in \mathsf{Sch}_{ S }$ and a morphism $u\colon X \to Y$,
-	constant on orbits, s.t. for every morphism $v\colon X \to Z$ constant on orbits,
-	there is a unique morphism $f\colon Y \to Z$ s.t. $v = f \circ u$.
-	We denote $Y$ by $X/H$, and notice that $u$ has the following properties:
-\begin{enumerate}
-	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
-		
-	\item For every $T \in \mathsf{Sch}_{ S }$, the following map is injective
-		\begin{equation*}
-		\begin{tikzcd}
-			X(T)/H(T) \arrow[r, "", rightarrowtail] &
-			(X/H)(T)
-		.\end{tikzcd}
-		\end{equation*}
-\end{enumerate}
-\end{thm}
-
-
-As a consequence, we obtain the following result for quotient group schemes
-\begin{prop}[\cite{TateMF}, \textsection $3.5$]\label{thm:QuotientGroupScheme}
-	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
-	subgroup scheme.
-	Define the action $a\colon G \cross_{ S } H \to G$ as the restriction of the
-	group law $m$ on $G$.
-	Then $G/H$ is the scheme of {\em left cosets} of $H$ in $G$.
-
-	Assume, moreover, that $G/H$ is finite and flat over $S$,
-	with order $[(G/H):S]$. We will call this the order of $H$ in $G$
-	and denote it by $[G:H]$.
-	Then $G$ is finite and flat over $S$ iff $G/H$ is, and we have
-	\begin{equation*}
-		[G:H][H:S] = [G:S]
-	.\end{equation*} 
-\end{prop}
-
-\begin{rem}[Short exact sequence]
-	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
-	{\em normal} in $G$, i.e. that is acts trivially on $G/H$.
-	Then multiplication on $G$ induces a multiplication on $G/H$, making it
-	an $S$-group scheme, and $u\colon G \to G/H$
-	is an $S$-group homomorphism.
-	In particular this gives rise to a short exact sequence of group schemes
-	\begin{equation*}
-	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
-		H \arrow[r, "i", rightarrow] &
-		G \arrow[r, "u", rightarrow] &
-		G/H \arrow[r, "", rightarrow] &
-		0
-	,\end{tikzcd}
-	\end{equation*}
-	where short exactness also means that $i$ is a closed immersion
-	and $u$ is faithfully flat.
-\end{rem}
-
-
-%tk: might be useful later
-%\begin{prop}[\cite{Shatz}, \textsection $4$]
-%	Let $R$ be a complete local ring with separably closed residue field
-%	(or $R$ a strict Hensel local ring), such that the characteristic of the
-%	residue field is $p > 0$.
-%	Then a connected finite group scheme over $R$ has order $p^t$ for some $t$.
-%\end{prop}
-
-
-\subsection{Separable algebras}
-The study of {\'e}tale group schemes is stricly related to that of
-separable algebras, so here a few interesting results for the latter:
-
-\begin{thm}[\cite{Waterhouse}, \textsection $6.2$]
-	\label{thm:SeparableAlgebrasCharacterization}
-	Let $k$ be a field, and denote by $\overline{k}$ and $k^s$ respectively
-	an algebraic and separable closure of $k$.
-	Let $A$ be a finite dimensional $k$-lagebra.
-	The following are equivalent:
-\begin{enumerate}
-	\item $A \otimes_k \overline{k}$ is reduced.
-	\item $A \otimes_k \overline{k} \simeq \overline{k} \cross \cdots \cross \overline{k}$.
-	\item The number of $k$-algebra homomorphisms $A \to  \overline{k}$
-		equals the dimension of $A$ over $k$.
-	\item $A$ is a product of separable field extensions of $k$.
-	\item $A \otimes_k k^s \simeq k^s \cross \cdots \cross k^s$.
-\end{enumerate}
-If, moreover, $k$ is a prefect field, all of the above are equivalent to
-\begin{enumerate}[resume]
-	\item $A$ is reduced.
-\end{enumerate}
-\end{thm}
-
-
-\begin{defn}[Separable algebra]
-	A $k$-algebra $A$ satisfying the equivalent conditions of
-	\cref{thm:SeparableAlgebrasCharacterization}
-	is called {\em separable}.
-\end{defn}
-
-
-\begin{cor}[\cite{Waterhouse}, \textsection $6.2$]
-	Subalgebras, quotients, products and tensor products of separable algebras
-	are separable.
-\end{cor} 
-
-
-\subsection{Connected-étale exact equence}
-In the following section we will always assume that 
-$S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
-We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
-its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
-Finally by $G$ we will denote a finite and flat $S$-group scheme.
-
-\begin{thm}[Connected-étale exact sequence, \cite{TateMF}, \textsection $3.7$]
-	Let $G^0$ be the connected component of the identity in $G$.
-	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
-	and it is a flat, closed normal subgroup scheme of $G$.
-	Moreover the quotient $G^{et} \coloneqq G/G^0$,
-	constructed as in \cref{thm:QuotientGroupScheme},
-	is étale and gives rise to the short exact sequence
-	\begin{equation*}
-	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
-		G^0 \arrow[r, "", rightarrow] &
-		G \arrow[r, "", rightarrow] &
-		G^{et} \arrow[r, "", rightarrow] &
-		0
-	,\end{tikzcd}
-	\end{equation*}
-	called the {\em connected-étale sequence} for $G$.
-	In particular it can be characterized by the fact that every homomorphism
-	from $G$ to an étale $S$-group factorizes through $G \to G^{et}$,
-	and $G^0$ is the kernel of that homomorphism.
-\end{thm}
-
-
-\begin{prop}[\cite{TateMF}, \textsection $3.7$]\leavevmode\vspace{-.2\baselineskip}
-\begin{enumerate}
-	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
-		and $G = G^{et}$.
-		If, instead, $\mathrm{char}\, k = p > 0$, the order
-		$[G^0:S] = p^t$ for some $t$.
-		As a consequence if $[G:S]$ is invertible in $S$, then
-		$G$ is étale over $S$.
-
-	\item If $R = k$ is a field and $n = [G:S]$, then $x^n = 1$
-		for all $x \in G(B)$ for any $k$-algebra $B$.
-		We say that $G$ is killed by its order.
-
-	\item If $R$ is a perfect field, then the homomorphism
-		$G \to  G^{et}$ admits a section. 
-		As a consequence $G = G^0 \rtimes G^{et}$
-		can be expressed as a semidirect product.
-\end{enumerate}
-\end{prop}
 
 
 \end{document}
