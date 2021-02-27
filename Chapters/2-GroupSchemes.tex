@@ -254,13 +254,6 @@ in what follows.
 \end{rem}
 
 
-%tk: decide what to do of this remark
-%In the following we'll tend to focus on {\em separated} groups schemes over $S$.
-%Notice that in that case, since $\varepsilon$ is a closed immersion, it is also an affine morphism,
-%hence as soon as $G$ is affine, also $S$ is.
-
-
-
 \subsection{Affine group schemes}
 The above definitions have a dual interpretation in the affine case,
 which we want to show in this section.
@@ -657,6 +650,30 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			{\em diagonalizable}.
 
 
+		\item The {\em constant group scheme}\label{ex:ConstantGroups}.
+			Let $R$ be a ring and $\Gamma$ a finite commutative (usual) group.
+			We define $A$ to be the $R$-algebra $R^\Gamma$,
+			of functions from $\Gamma$ to $R$.
+			A basis for $A$ is given by $\left\{ e_\sigma \right\}_{\sigma \in \Gamma}$,
+			for $e_\sigma(\gamma) = \delta_{\gamma,\sigma}$, for the Kronecker delta.
+			Defining the Hopf algebra morphisms by
+			\begin{equation*}
+				\widetilde{m}(e_\rho) \coloneqq
+				\sum_{\gamma\tau = \rho}^{} e_\sigma \otimes_R e_\tau, 
+				\quad
+				\widetilde{\mathrm{inv}}(e_\sigma) \coloneqq e_{\sigma^{-1}}, 
+				\quad
+				\widetilde{\varepsilon}(e_\sigma) \coloneqq
+				\begin{cases}
+					1 & \text{if } \sigma = 1 \in \Gamma\\
+					0 & \text{otherwise}
+				\end{cases} 
+			\end{equation*}
+			we see that $A$ represents an $S = \mathrm{Spec}(R)$ group scheme,
+			called the constant group scheme for $\Gamma$,
+			and we denote it by $\underline{\Gamma}$.
+
+
 		\item The {\em group scheme of $p^r$-th roots of zero},
 			if $\mathrm{char}\, R = p$, denoted by $\alpha_{p^r}$. 
 			It is defined to be the kernel of the $p^r$-th power
@@ -689,8 +706,8 @@ $R$, for $S = \mathrm{Spec}(R)$.
 \end{rem}
 
 
-\subsection{Quotients and exactness}
-%tK: For quotients see section 3.3-3.4, for exactness 1.7-1.8 (the quotient map is faithuflly flat)
+\subsection{Connected-étale sequence}
+\subsubsection{Quotients and exactness}
 In order to construct some important short exact sequences
 we need to tackle the problem of the construction
 of cokernels, hence of quotient groups.
@@ -767,7 +784,8 @@ As promised we obtain the following result for quotient group schemes.
 	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
 	{\em normal} in $G$, i.e. that it acts trivially on $G/H$.
 	Then the multiplication on $G$ induces a multiplication 
-	morphism on $G/H$, making it an $S$-group scheme, and $u\colon G \to G/H$
+	morphism on $G/H$, making it an $S$-group scheme.
+	Moreover the map $u\colon G \to G/H$ is
 	an $S$-group homomorphism.
 	In particular this gives rise to the short exact sequence of group schemes
 	\begin{equation*}
@@ -782,28 +800,19 @@ As promised we obtain the following result for quotient group schemes.
 	where short exactness also means that $i$ is a closed immersion
 	and $u$ is faithfully flat.
 	Moreover $1$ denotes the constant $S$-group scheme $1$, as
-	seen in tk: add reference + add example.
+	seen in \cref{ex:ConstantGroups} of the examples.
 \end{rem}
 
 
-%tk: might be useful later
-%\begin{prop}[\cite{Shatz}, \textsection $4$]
-%	Let $R$ be a complete local ring with separably closed residue field
-%	(or $R$ a strict Hensel local ring), such that the characteristic of the
-%	residue field is $p > 0$.
-%	Then a connected finite group scheme over $R$ has order $p^t$ for some $t$.
-%\end{prop}
-
-
-\subsection{Separable algebras and étale group schemes}
-The study of {\'e}tale group schemes is stricly related to that of
-separable algebras, so here a few interesting results for the latter:
+\subsubsection{Separable algebras and étale group schemes}
+The study of étale group schemes is strictly related to that of
+separable algebras, so here are a few interesting results for the latter:
 
 \begin{thm}[\cite{Waterhouse}, \textsection $6.2$]
 	\label{thm:SeparableAlgebrasCharacterization}
-	Let $k$ be a field, and denote by $\overline{k}$ and $k^s$ respectively
+	Let $k$ be a field and denote by $\overline{k}$ and $k^s$ respectively
 	an algebraic and separable closure of $k$.
-	Let $A$ be a finite dimensional $k$-lagebra.
+	Let $A$ be a finite dimensional $k$-algebra.
 	The following are equivalent:
 \begin{enumerate}
 	\item $A \otimes_k \overline{k}$ is reduced.
@@ -813,7 +822,7 @@ separable algebras, so here a few interesting results for the latter:
 	\item $A$ is a product of separable field extensions of $k$.
 	\item $A \otimes_k k^s \simeq k^s \cross \cdots \cross k^s$.
 \end{enumerate}
-If, moreover, $k$ is a prefect field, all of the above are equivalent to
+If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \begin{enumerate}[resume]
 	\item $A$ is reduced.
 \end{enumerate}
@@ -835,7 +844,38 @@ If, moreover, $k$ is a prefect field, all of the above are equivalent to
 \end{cor} 
 
 
-\subsection{Connected-étale exact equence}
+\begin{defn}[Étale morphism of schemes]
+	Let $f\colon X \to S$ be a morphism of schemes.
+\begin{enumerate}
+	\item We say that $f$ is étale at $x \in X$ iff there exists an affine
+		open neighbourhood $\mathrm{Spec}(A) = U \subset X$ of $x$
+		and an affine open $\mathrm{Spec}(R) = V \subset S$,
+		with $f(U) \subset V$, such that the induced ring map
+		$R \to A$ is étale.
+
+	\item We say that $f$ is étale iff it is étale at every point of $X$.
+
+	\item We say that $X \in \mathsf{Sch}_{ S }$ is étale iff its structure
+		morphism is étale.
+\end{enumerate}
+\end{defn}
+
+
+In fact we can use this characterization in our context thanks to
+\begin{lem}[\cite{SP},
+	\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]
+	\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item A scheme $X$ is étale over a field $k$ iff $X = \mathrm{Spec}(A)$
+		for a {\em separable} $k$-algebra $A$.
+	\item If $f\colon X \to S$ is an étale morphism of schemes, then
+		for every $s \in S$, then the fiber at $s$ is given by $X_s = \mathrm{Spec}(A_s)$,
+		for a separable $\kappa(s)$-algebra $A_s$, where
+		$\kappa(s)$ denotes the residue field of $S$ at $s$.
+\end{enumerate}
+\end{lem} 
+
+\subsubsection{Connected-étale exact equence}
 In the following section we will always assume that 
 $S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
 We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
@@ -886,20 +926,61 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \end{prop}
 
 
-tk: you have to add the part on duality, on exact sequence, on etale groups and separated algebras,
-on the canonical short exact sequence with the connected component of the identity.
-
-tk: If you need to type group scheme actions on functors see Vistoli, page 22-23
-
 \subsection{Duality}
-tk: we are working with finite groups over their base.
-You can restrict to the affine case (hence quote Waterhouse)
-Moreover add something about base change.
-
-Let's now approach the topic of duality.
-We first need a remark about base change:
+In this section we'll mainly be concerned with $S = \mathrm{Spec}(R)$ affine
+and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(A)$.
 
 
+\begin{rem}[Dual algebra]
+	To the $R$-algebra $A$ we can associate the $R$-module
+	\begin{equation*}
+	A^D \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
+	.\end{equation*} 
+	In case $A$ is given with a cocommutative Hopf algebra structure, one
+	can dualize it to obtain a (cocommutative) Hopf algebra structure on $A^D$.
+	In particular product and coproduct of $A$ become, respectively,
+	coproduct and product of $A'$, as
+	\begin{equation*}
+	\begin{tikzcd}
+		(\widetilde{\Delta})^*\colon
+		A^D \arrow[r, "", rightarrow] &
+		A^D \otimes_R A^D &
+		\text{\text{and}} &
+		(\widetilde{m})^*\colon
+		A^D \otimes_R A^D \arrow[r, "", rightarrow] &
+		A^D 
+	.\end{tikzcd}
+	\end{equation*}
+\end{rem}
+
+\begin{defn}[Cartier dual]
+	Given a $S$ and $G$ as before, we define the {\em dual} of $G$ as the
+	group scheme defined by
+	\begin{equation*}
+	G^D \coloneqq \mathrm{Spec}(A^D)
+	.\end{equation*}
+\end{defn}
+
+
+\begin{thm}[Cartier duality, \cite{Waterhouse}, \textsection $2.4$]
+	Let $G$ be a finite, commutative $R$-group scheme.
+	Then $G^D$ is a finite commutative $S$-group scheme.
+	Moreover $( G^D )^D \simeq G$ and
+	\begin{equation*}
+	\mathrm{Hom}_{} \left( G, H \right) \simeq
+	\mathrm{Hom}_{} \left( H^D, G^D \right)
+	\end{equation*}
+	for all $H,G \in \mathsf{Gp}_S$ finite commutative.
+\end{thm}
+
+\begin{rem}[]
+	Duals of finite commutative group schemes inherit some other properties,
+	in fact $[G^D : S] = [G : S]$.
+	Moreover the dual of a short exact sequence is short exact.
+\end{rem}
+
+One can also interpret duality from a different point of view.
+Let's introduce the relevant notions:
 \begin{defn}[Characters of $\mathrm{S}$-groups]
 	Let $G$ be an $S$-group scheme.
 	A {\em character} of $G$ is a homomorphism of $S$-groups
@@ -914,7 +995,7 @@ We first need a remark about base change:
 \end{defn}
 
 
-\begin{rem}[]
+\begin{rem}[Dual as hom functor, \cite{Waterhouse}, \textsection $2.4$]
 	Characters form a subgroup of the set of morphism of $S$-schemes
 	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
 	\begin{equation*}
@@ -929,47 +1010,27 @@ We first need a remark about base change:
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)\colon
-%		\mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
-%		\mathsf{Ab} \\
 		T \arrow[r, "", mapsto] & 
 		\mathrm{Hom}_{\mathsf{Gr}_T} \left( G_T, (\mathbb{G}_m)_T \right)
 	.\end{tikzcd}
 	\end{equation*} 
-\end{rem}
-
-\begin{defn}[Cartier dual]
-	Given an $S$-group scheme $G$, we define its {\em Cartier dual}
-	as the group scheme
+	Then, for a finite, commutative $S$-group $S$ we have the isomorphism
 	\begin{equation*}
-		G^D \coloneqq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
+		G^D \simeq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
 	.\end{equation*} 
-\end{defn}
-
-
-\begin{rem}[Affine case]
-	In the affine case one can check that, for $S = \mathrm{Spec}(R)$
-	and $G = \mathrm{Spec}(A)$, the Cartier dual $G^D$ is given by
-	the $R$-algebra 
-	\begin{equation*}
-	A^D \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
-	.\end{equation*} 
-	Its Hopf algebra structure is obtained dualizing the Hopf algebra
-	structure of $A$.
-	In particular product and coproduct of $A$ become, respectively,
-	coproduct and product of $A'$, as
-	\begin{equation*}
-	\begin{tikzcd}
-		(\widetilde{\Delta})^*\colon
-		A^D \arrow[r, "", rightarrow] &
-		A^D \otimes_R A^D &
-		\text{\text{and}} &
-		(\widetilde{m})^*\colon
-		A^D \otimes_R A^D \arrow[r, "", rightarrow] &
-		A^D 
-	.\end{tikzcd}
-	\end{equation*}
-	
+	This is actually one of the cases in which the above hom functor
+	is representable.
 \end{rem}
 
 
+Let's now give a few examples of dual group schemes among the ones we introduced so far:
+\begin{ex}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item The dual algebra of $R^\Gamma$ is $R[\Gamma]$ and viceversa.
+		Hence diagonalizable group schemes are dual to constant group schemes.
+		In particular this yields that $\mu_n$ is dual to $\underline{\mathbb{Z}/n\mathbb{Z}}$.
+
+	\item One can show that $\left( \alpha_p \right)^D \simeq \alpha_p$.
+\end{enumerate}
+\end{ex}
 \end{document}
