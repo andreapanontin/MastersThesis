@@ -56,7 +56,7 @@
 \DeclareMathOperator{\fct}{Fct}
 
 
-%QED symbol
+%Simbolo QED
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
 
 %Bibliografia
@@ -75,15 +75,20 @@ eprint=false
 \addbibresource{Bibliography.bib}
 
 %Theorem environments
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
 \newtheoremstyle{example}
-{1.0em}%〈Space above〉
-{0.7em}%〈Space below〉
+{1.7em}%〈Space above〉
+{1em}%〈Space below〉
 {}%〈Body font〉
 {}%〈Indent amount〉
 {\bfseries}%〈Theorem head font〉
 {}%〈Punctuation after theorem head〉
 {.5em}%〈Space after theorem head〉
-{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head can be left empty, meaning ‘normal’)〉
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head spec(can be left empty, meaning ‘normal’)〉
 
 \newtheoremstyle{definition}
 {1.0em}
@@ -96,22 +101,14 @@ eprint=false
 {\thmname{#1}\thmnumber{ #2}\thmnote{: #3. \\*}}
 
 
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-
-
 \theoremstyle{example}
 \newtheorem*{ex}{Example}
 \newtheorem{exr}{Exercise}
-
 
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{ntt}[thm]{Notation}
 \newtheorem{rem}[thm]{Remark}
-
 
 \numberwithin{equation}{section}
 
@@ -120,13 +117,10 @@ eprint=false
 \title{Crystalline comparison theorem for $p$-divisible groups}
 \author{Andrea Panontin}
 
-
 \begin{document}
 
 \maketitle
 
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{2}
 \tableofcontents
 
 \newpage

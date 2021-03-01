@@ -638,7 +638,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			Two important cases are $\mathbb{G}_m \simeq D(\mathbb{Z})$
 			and $\mu_n \simeq D(\mathbb{Z}/n\mathbb{Z})$.
 			Moreover, if $X$ is finite, $R[X]$ is a free $R$-module of rank $n$,
-			making $D(X)$ finite and flat over $R$.
+			making $D(X)$ commutative, finite and flat over $R$.
 			More generally, for $X$ finitely generated, 
 			from the structure theorem for finitely generated abelian groups, 
 			$X$ is isomorphic to a finite product of cyclic groups.
@@ -651,7 +651,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 
 		\item The {\em constant group scheme}\label{ex:ConstantGroups}.
-			Let $R$ be a ring and $\Gamma$ an ordinary, finite commutative x`group.
+			Let $R$ be a ring and $\Gamma$ an ordinary, finite commutative group.
 			We define $A$ to be the $R$-algebra $R^\Gamma$,
 			of functions from $\Gamma$ to $R$.
 			A basis for $A$ is given by $\left\{ e_\sigma \right\}_{\sigma \in \Gamma}$,
@@ -981,7 +981,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \end{rem}
 
 One can also interpret duality from a different point of view.
-Let's introduce the relevant notions:
+Here the relevant notions:
 \begin{defn}[Characters of $\mathrm{S}$-groups]
 	Let $G$ be an $S$-group scheme.
 	A {\em character} of $G$ is a homomorphism of $S$-groups
@@ -1015,7 +1015,7 @@ Let's introduce the relevant notions:
 		\mathrm{Hom}_{\mathsf{Gr}_T} \left( G_T, (\mathbb{G}_m)_T \right)
 	.\end{tikzcd}
 	\end{equation*} 
-	Then, for a finite, commutative $S$-group $S$ we have the isomorphism
+	Then, for a finite, commutative $S$-group $G$ we have the isomorphism
 	\begin{equation*}
 		G^D \simeq \mathcal{H}\mathrm{om}_{\mathsf{Gr}_S} \left( G, (\mathbb{G}_m)_S \right)
 	.\end{equation*} 
@@ -1028,8 +1028,9 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 \begin{ex}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item The dual algebra of $R^\Gamma$ is $R[\Gamma]$ and viceversa.
-		Hence diagonalizable group schemes are dual to constant group schemes.
-		In particular this yields that $\mu_n$ is dual to $\underline{\mathbb{Z}/n\mathbb{Z}}$.
+		Hence diagonalizable finite group schemes are dual to constant commutative group schemes.
+		In particular this yields that $\mu_n$ is dual to $\underline{\mathbb{Z}/n\mathbb{Z}}$
+		and viceversa.
 
 	\item One can show that $\left( \alpha_p \right)^D \simeq \alpha_p$.
 \end{enumerate}
