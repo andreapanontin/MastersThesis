@@ -1035,4 +1035,99 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 	\item One can show that $\left( \alpha_p \right)^D \simeq \alpha_p$.
 \end{enumerate}
 \end{ex}
+
+
+\subsection{Frobenius and Verschiebung}
+Let's now study a few constructions in characteristic $p$:
+let $R$ be a ring with $\mathrm{char}\, R = p$.
+
+
+\begin{defn}[]
+	Denote by $\varphi_A\colon A \to A$, for any $R$-algebra $A$, the morphism
+	acting by $a \mapsto a^p$.
+	It induces $\mathrm{Spec}(\varphi_A)\colon \mathrm{Spec}(A) \to \mathrm{Spec}(A)$,
+	which is the identity at te level of topological spaces.
+
+	This map, moreover, can be glued for any $R$-scheme $X$, giving rise to a map
+	$\varphi_X\colon X \to X$ such that
+\begin{enumerate}
+	\item it is the identity at the level of topological spaces,
+	\item for any $U \subset X$ open, it induces the $p$-power map
+		as a ring homomorphism $\mathcal{O}_{X}(U) \to \mathcal{O}_{ X }(U)$.
+\end{enumerate}
+	We will denote by $X^{(p)}$ the fibered product
+	\begin{equation}
+	\begin{tikzcd}
+		X^{(p)} \coloneqq X \cross_{ R } \mathrm{Spec}(R) \arrow[r, "", rightarrow] 
+		\arrow[d, "", rightarrow] &
+		X \arrow[d, "", rightarrow] \\
+		\mathrm{Spec}(R) \arrow[r, "\varphi_R", rightarrow] &
+		\mathrm{Spec}(R)
+	.\end{tikzcd}
+	\end{equation}
+	Finally we can construct the map $F_X \colon X \to X^{(p)}$ as the unique map
+	making the following diagram commute:
+	\begin{equation}
+	\begin{tikzcd}
+		X \arrow[rrd, "\varphi_X", rightarrow, bend left] 
+		\arrow[rdd, "", rightarrow, bend right]
+		\arrow[rd, "F_X", dashrightarrow] & & \\
+		&
+		X^{(p)} \arrow[r, "", rightarrow] 
+		\arrow[d, "", rightarrow] &
+		X \arrow[d, "", rightarrow] \\
+		&
+		\mathrm{Spec}(R) \arrow[r, "\varphi_R", rightarrow] &
+		\mathrm{Spec}(R)
+	.\end{tikzcd}
+	\end{equation}
+\end{defn}
+
+
+\begin{defn}[Frobenius morphism]
+	For $R$ a ring of characteristic $p$, and $X$ an $R$-scheme, we define
+\begin{enumerate}
+	\item $\varphi_X\colon X \to X$ the {\em absolute Frobenius morphism} of $X$,
+	\item $F_X \colon X \to X^{(p)}$ the {\em relative Frobenius morphism} of $X$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that, by construction, the relative Frobenius $F_X$ is a
+	morphism of $R$-schemes, for all $X \in \mathsf{Sch}_{ R }$.
+	Instead the absolute Frobenius $\varphi_X$, in general, is not.
+\end{rem}
+
+
+\begin{defn}[Notation]
+	Given a morphism of $R$-schemes $f\colon X \to Y$,
+	we define the morphism $f^{(p)}$ as the morphism
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		f \cross id\colon X^{(p)} \arrow[r, "", rightarrow] &
+		Y^{(p)}
+	.\end{tikzcd}
+	\end{equation} 
+\end{defn}
+
+
+\begin{lem}
+	If $G$ is an $R$-group scheme, for $R$ a ring of characteristic $p$,
+	the relative Frobenius $F_G\colon G \to G^{(p)}$ is a 
+	homomorphism of $R$-group schemes.
+\end{lem} 
+
+
+\begin{prop}[]
+	Let $G$ be a finite $R$-group scheme.
+	The following are equivalent:
+\begin{enumerate}
+	\item $G$ is étale,
+	\item $\ker F_G = 1$,
+	\item $F_G$ is an isomorphism.
+\end{enumerate}
+\end{prop}
 \end{document}
