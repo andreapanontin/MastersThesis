@@ -23,9 +23,9 @@
 \usepackage{graphicx}
 %Per le liste nelle descrizioni degli algoritmi
 \usepackage{enumitem}
-%Per la sfera di Bloch
+
+%Commutative diagrams
 \usepackage{tikz}
-%Per i diagrammini commutativi
 \usetikzlibrary{cd}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{decorations.pathmorphing} %For squiggly lines
@@ -56,10 +56,10 @@
 \DeclareMathOperator{\fct}{Fct}
 
 
-%Simbolo QED
+%QED symbol
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
 
-%Bibliografia
+%Bibliography
 \usepackage{csquotes}
 \usepackage[
 backend=biber,
@@ -75,20 +75,15 @@ eprint=false
 \addbibresource{Bibliography.bib}
 
 %Theorem environments
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-
 \newtheoremstyle{example}
-{1.7em}%〈Space above〉
-{1em}%〈Space below〉
+{1.0em}%〈Space above〉
+{0.7em}%〈Space below〉
 {}%〈Body font〉
 {}%〈Indent amount〉
 {\bfseries}%〈Theorem head font〉
 {}%〈Punctuation after theorem head〉
 {.5em}%〈Space after theorem head〉
-{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head spec(can be left empty, meaning ‘normal’)〉
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head can be left empty, meaning ‘normal’)
 
 \newtheoremstyle{definition}
 {1.0em}
@@ -100,17 +95,26 @@ eprint=false
 {1.0em}
 {\thmname{#1}\thmnumber{ #2}\thmnote{: #3. \\*}}
 
+%Theorems-propositions
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
 
+%Examples-exercises
 \theoremstyle{example}
 \newtheorem*{ex}{Example}
 \newtheorem{exr}{Exercise}
 
+%Definitions-remarks
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{ntt}[thm]{Notation}
 \newtheorem{rem}[thm]{Remark}
 
+
 \numberwithin{equation}{section}
+
 
 %Stuff for the mock title
 \usepackage{blindtext}
@@ -121,6 +125,8 @@ eprint=false
 
 \maketitle
 
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
 \tableofcontents
 
 \newpage
