@@ -33,7 +33,7 @@ in what follows.
 
 
 \begin{rem}[]
-	By definition, a group is a set $G \in \mathsf{Sets}$, endowed with an operation,
+	By definition, an abstract group is a set $G \in \mathsf{Sets}$, endowed with an operation,
 	an inverse map, and an identity element satisfying the usual properties.
 	These can be rewritten in terms of commutative diagrams.
 	At first one writes the above three (respectively) as the following maps:
@@ -52,16 +52,15 @@ in what follows.
 	\end{equation*} 
 	for $\left\{ e \right\}$ the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
-	as the unique arrow in the terminal object of $\mathsf{Gp}$
+	as the unique arrow to the terminal object of $\mathsf{Gp}$
 	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
-	Then, associativity of product, inverse element and
-	identity are characterized by: 
+	Then the group axioms are equivalent to
 	\begin{align}\label{eq:GroupAxioms}
-		m \circ (id_G \cross m) &= m \circ (m \cross id_G),\nonumber\\
-		m \circ (id_G \cross \mathrm{inv}) \circ \Delta &=
-		m \circ (\mathrm{inv} \cross id_G) \circ \Delta = \varepsilon \circ \pi,\\
-		m \circ (\varepsilon \cross id_G) &=
-		m \circ (id_G \cross \varepsilon) = id_G\nonumber
+		m \circ (\mathrm{id}_{ G } \cross m) &= m \circ (m \cross \mathrm{id}_{ G }),\nonumber\\
+		m \circ (\mathrm{id}_{ G } \cross \mathrm{inv}) \circ \Delta &=
+		m \circ (\mathrm{inv} \cross \mathrm{id}_{ G }) \circ \Delta = \varepsilon \circ \pi,\\
+		m \circ (\varepsilon \cross \mathrm{id}_{ G }) &=
+		m \circ (\mathrm{id}_{ G } \cross \varepsilon) = \mathrm{id}_{ G }\nonumber
 	.\end{align} 
 	Notice that in this last equality we implicitly use the isomorphism
 	$\left\{ e \right\} \cross G \simeq G \simeq G \cross \left\{ e \right\}$.
@@ -70,7 +69,7 @@ in what follows.
 
 \begin{rem}[]\label{rem:StructuralMorphisms}
 	Given a group scheme $G \in \mathsf{Sch}_{ S }$, Yoneda's lemma allows to translate
-	the group structure of $G(T)$, for $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
+	the group structure of $G(T)$, for all $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
 	In fact, since the universal property of
 	fibered product gives $\left( G \cross_{ S } G \right)(T) = G(T) \cross G(T)$,
 	one obtains that there exist unique maps
@@ -97,8 +96,8 @@ in what follows.
 			\begin{equation*}
 			\begin{tikzcd}[column sep=4.5em]
 				G \cross_{ S } G \cross_{ S } G 
-				\arrow[r, "id_G \cross_S m", rightarrow] 
-				\arrow[d, "m \cross_S id_G"', rightarrow] &
+				\arrow[r, "\mathrm{id}_{ G } \cross_S m", rightarrow] 
+				\arrow[d, "m \cross_S \mathrm{id}_{ G }"', rightarrow] &
 				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
 				G \cross_{ S } G \arrow[r, "m"', rightarrow] &
 				G.
@@ -107,7 +106,8 @@ in what follows.
 		\item Inverse morphism 
 			\begin{equation*}
 			\begin{tikzcd}[column sep=2.7em]
-				G \cross_{ S } G \arrow[rr, "id_G \cross_S \mathrm{inv}", rightarrow] & &
+				G \cross_{ S } G
+				\arrow[rr, "\mathrm{id}_{ G } \cross_S \mathrm{inv}", rightarrow] & &
 				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
 				G \arrow[u, "\Delta", rightarrow] 
 				\arrow[r, "\pi", rightarrow] &
@@ -116,7 +116,8 @@ in what follows.
 			\end{tikzcd}
 			\qquad
 			\begin{tikzcd}[column sep=2.7em]
-				G \cross_{ S } G \arrow[rr, "\mathrm{inv} \cross_S id_G", rightarrow] & &
+				G \cross_{ S } G
+				\arrow[rr, "\mathrm{inv} \cross_S \mathrm{id}_{ G }", rightarrow] & &
 				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
 				G \arrow[u, "\Delta", rightarrow] 
 				\arrow[r, "\pi", rightarrow] &
@@ -125,23 +126,23 @@ in what follows.
 			\end{tikzcd}
 			\end{equation*} 
 		\item Identity element (again, as with groups, in the following diagrams
-			we will implicitly use the iso
+			we will implicitly use the isomorphism
 			$S \cross_{ S } G \simeq G \simeq G \cross_{ S } S$)
 			\begin{equation*}
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
-				S \cross_{ S } G \arrow[r, "id_G", rightarrow] 
-				\arrow[u, "\varepsilon \cross_S id_G", rightarrow] &
-				G \arrow[u, "id_G"', rightarrow] 
+				S \cross_{ S } G \arrow[r, "\mathrm{id}_{ G }", rightarrow] 
+				\arrow[u, "\varepsilon \cross_S \mathrm{id}_{ G }", rightarrow] &
+				G \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
 			\end{tikzcd}
 			\qquad
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
-				G \cross_{ S } S \arrow[r, "id_G", rightarrow] 
-				\arrow[u, "id_G \cross_S \varepsilon", rightarrow] &
-				G. \arrow[u, "id_G"', rightarrow] 
+				G \cross_{ S } S \arrow[r, "\mathrm{id}_{ G }", rightarrow] 
+				\arrow[u, "\mathrm{id}_{ G } \cross_S \varepsilon", rightarrow] &
+				G. \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
 			\end{tikzcd}
 			\end{equation*} 
 	\end{enumerate}
@@ -151,7 +152,7 @@ in what follows.
 \begin{defn}[Commutative $S$-group scheme]
 	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
 	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
-	Arguing with Yoneda as before,
+	Using Yoneda lemma as before,
 	this is equivalent to asking that the following diagram commutes
 	\begin{equation*}
 	\begin{tikzcd}
@@ -219,7 +220,7 @@ in what follows.
 
 \begin{defn}[Category of $S$-group schemes]
 	Hence, combining all of the definitions so far, 
-	one can define $\mathsf{Gp}_S$, the subcategory of $\mathsf{Sch}_{ S }$,
+	one can define the subcategory $\mathsf{Gp}_S$ of $\mathsf{Sch}_{ S }$,
 	of {\em $S$-group schemes}, or more simply {\em $S$-groups},
 	whose objects are $S$-group schemes
 	and morphisms are homomorphisms of $S$-group schemes.
@@ -239,11 +240,13 @@ in what follows.
 	\end{equation*} 
 	where $i$ is the projection on the first factor, is a kernel for $\alpha$.
 	Hence kernels exist in $\mathsf{Gp}_S$.
+
+	tk: add comment from Brinon here, plus write down your observations on kernels.
 	
 	When it comes to cokernels, instead, one finds difficulties, much like
 	with sheaves of abelian groups.
 	In fact, given a morphism $\alpha\colon G \to G'$, one cannot always find an
-	element $H \in \mathsf{Gp}_S$ representing the functor
+	object $H \in \mathsf{Gp}_S$ representing the functor
 	\begin{equation*}
 	\begin{tikzcd}
 		T \arrow[r, "", mapsto] &
@@ -261,6 +264,7 @@ Moreover, in the following, we will mostly concentrate on affine
 group schemes, hence in the rest of the discussion about group schemes
 we will concentrate on them, even though most of the
 results can be proved in a more general setting.
+tk: maybe state here that we will concentrate on $S = \mathrm{Spec}(R)$?
 
 
 \begin{rem}[]
@@ -324,14 +328,14 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 	satisfying the conditions obtained by dualizing those
 	of \cref{rem:StructuralMorphisms}, more explicitly:
 	\begin{align*}
-		( \widetilde{m} \otimes_R id_A ) \circ \widetilde{m} &=
-		( id_A \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
-		( id_A \otimes_R \widetilde{\varepsilon} ) \circ \widetilde{m} &=
-		( \widetilde{\varepsilon} \otimes_R id_A ) \circ \widetilde{m} =
-		id_A,\\
-		\widetilde{\Delta} \circ ( id_A \otimes_R \widetilde{\mathrm{inv}} ) 
+		( \widetilde{m} \otimes_R \mathrm{id}_{ A } ) \circ \widetilde{m} &=
+		( \mathrm{id}_{ A } \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
+		( \mathrm{id}_{ A } \otimes_R \widetilde{\varepsilon} ) \circ \widetilde{m} &=
+		( \widetilde{\varepsilon} \otimes_R \mathrm{id}_{ A } ) \circ \widetilde{m} =
+		\mathrm{id}_{ A },\\
+		\widetilde{\Delta} \circ ( \mathrm{id}_{ A } \otimes_R \widetilde{\mathrm{inv}} ) 
 		\circ \widetilde{m} &=
-		\widetilde{\Delta} \circ ( \widetilde{\mathrm{inv}} \otimes_R id_A ) 
+		\widetilde{\Delta} \circ ( \widetilde{\mathrm{inv}} \otimes_R \mathrm{id}_{ A } ) 
 		\circ \widetilde{m} =
 		(R \to A) \circ \widetilde{\varepsilon}
 	.\end{align*} 
@@ -410,7 +414,7 @@ For these last results we'll assume that $S$ is a locally Noetherian base scheme
 	constant rank $n$ over $S$.
 \end{defn}
 
-\begin{prop}[\cite{TateMF}, \textsection $3$]\leavevmode\vspace{-.2\baselineskip}
+\begin{prop}[{\cite[\S 3]{TateMF}}]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item Consider the morphisms of schemes $X \to Y \to S$, with $[X:Y] = m$.
 		Then $X$ is finite and flat over $S$ iff $Y$ is, in which case
@@ -726,14 +730,14 @@ In order to do so we have to start with the concept of group action.
 	\end{tikzcd}
 	\end{equation*} 
 	such that, for all $T \in \mathsf{Sch}_{ S }$, the induced map
-	$H(T) \cross X(T) \to  X(T)$ is a right action of the
+	$X(T) \cross H(T) \to  X(T)$ is a right action of the
 	group $H(T)$ on the set $X(T)$.
 	We say that the action is {\em strictly free} iff the morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		(id, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		(\mathrm{id}_{ X }, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
 		X \cross_{ S } X
 	\end{tikzcd}
 	\end{equation*} 
@@ -743,7 +747,7 @@ In order to do so we have to start with the concept of group action.
 The next theorem will allow us to construct quotients of
 $S$-group schemes over finite, flat closed subgroup schemes.
 It actually is a more general result, due to Grothendieck.
-\begin{thm}[\cite{TateMF}, \textsection $3.4$]
+\begin{thm}[{\cite[\S 3.4]{TateMF}}]
 	Suppose that $H$, finite flat over $S$, acts strictly freely on $X$
 	of finite type over $S$ in such a way that every orbit is contained in an affine open set.
 	Then there exists $Y \in \mathsf{Sch}_{ S }$ and a morphism $u\colon X \to Y$,
@@ -765,7 +769,7 @@ It actually is a more general result, due to Grothendieck.
 
 
 As promised we obtain the following result for quotient group schemes.
-\begin{prop}[\cite{TateMF}, \textsection $3.5$]\label{thm:QuotientGroupScheme}
+\begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{thm:QuotientGroupScheme}
 	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
 	subgroup scheme.
 	Define the action $a\colon G \cross_{ S } H \to G$ as the restriction of the
@@ -809,7 +813,7 @@ As promised we obtain the following result for quotient group schemes.
 The study of étale group schemes is strictly related to that of
 separable algebras, so here are a few interesting results for the latter:
 
-\begin{thm}[\cite{Waterhouse}, \textsection $6.2$]
+\begin{thm}[{\cite[\S 6.2]{Waterhouse}}]
 	\label{thm:SeparableAlgebrasCharacterization}
 	Let $k$ be a field and denote by $\overline{k}$ and $k^s$ respectively
 	an algebraic and separable closure of $k$.
@@ -837,7 +841,7 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \end{defn}
 
 
-\begin{cor}[\cite{Waterhouse}, \textsection $6.2$]
+\begin{cor}[{\cite[\S 6.2]{Waterhouse}}]
 	Subalgebras, quotients, products and tensor products of separable $k$-algebras
 	are separable.
 	Moreover, given $L/k$ a field extension, $A$ is separable over $k$
@@ -863,8 +867,7 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 
 
 In fact we can use this characterization in our context thanks to
-\begin{lem}[\cite{SP},
-	\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]
+\begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]{SP}}]
 	\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item A scheme $X$ is étale over a field $k$ iff $X = \mathrm{Spec}(A)$
@@ -883,7 +886,7 @@ We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{
 its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
 Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
-\begin{thm}[Connected-étale exact sequence, \cite{TateMF}, \textsection $3.7$]
+\begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]
 	Let $G^0$ be the connected component of the identity in $G$.
 	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
 	and it is a flat, closed normal subgroup scheme of $G$.
@@ -906,7 +909,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \end{thm}
 
 
-\begin{prop}[\cite{TateMF}, \textsection $3.7$]\leavevmode\vspace{-.2\baselineskip}
+\begin{prop}[{\cite[\S 3.7]{TateMF}}]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
 		and $G = G^{et}$.
@@ -963,7 +966,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \end{defn}
 
 
-\begin{thm}[Cartier duality, \cite{Waterhouse}, \textsection $2.4$]
+\begin{thm}[{\cite[\S 3.7]{Waterhouse}}, Cartier duality]
 	Let $G$ be a finite, commutative $R$-group scheme.
 	Then $G^D$ is a finite commutative $S$-group scheme.
 	Moreover $( G^D )^D \simeq G$ and
@@ -996,7 +999,7 @@ Here the relevant notions:
 \end{defn}
 
 
-\begin{rem}[Dual as hom functor, \cite{Waterhouse}, \textsection $2.4$]
+\begin{rem}[{\cite[\S 2.4]{Waterhouse}}, Dual as hom functor]
 	Characters form a subgroup of the set of morphism of $S$-schemes
 	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
 	\begin{equation*}
@@ -1061,23 +1064,23 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		X^{(p)} \coloneqq X \cross_{ R } \mathrm{Spec}(R) \arrow[r, "", rightarrow] 
 		\arrow[d, "", rightarrow] &
 		X \arrow[d, "", rightarrow] \\
-		\mathrm{Spec}(R) \arrow[r, "\varphi_R", rightarrow] &
+		\mathrm{Spec}(R) \arrow[r, "\varphi_R"', rightarrow] &
 		\mathrm{Spec}(R)
 	.\end{tikzcd}
 	\end{equation}
 	Finally we can construct the map $F_X \colon X \to X^{(p)}$ as the unique map
 	making the following diagram commute:
 	\begin{equation}
-	\begin{tikzcd}
+	\begin{tikzcd}[row sep=2.0em, column sep=1.2em]
 		X \arrow[rrd, "\varphi_X", rightarrow, bend left] 
-		\arrow[rdd, "", rightarrow, bend right]
+		\arrow[rdd, "", rightarrow, bend right, end anchor=north west]
 		\arrow[rd, "F_X", dashrightarrow] & & \\
 		&
 		X^{(p)} \arrow[r, "", rightarrow] 
 		\arrow[d, "", rightarrow] &
 		X \arrow[d, "", rightarrow] \\
 		&
-		\mathrm{Spec}(R) \arrow[r, "\varphi_R", rightarrow] &
+		\mathrm{Spec}(R) \arrow[r, "\varphi_R"', rightarrow] &
 		\mathrm{Spec}(R)
 	.\end{tikzcd}
 	\end{equation}

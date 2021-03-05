@@ -8,11 +8,27 @@ The main ideas behind these construction is that one can reduce
 the definition of open coverings to a few formal axioms, translating
 inclusions with arrows in a category and
 intersections with fibered products.
-It is in fact true that, in $\mathsf{Op}(X)$, the category of open subsets
-of the topological space $X$, fibered products correspond to intersections of subsets.
 
 
-\begin{defn}[Site]
+\begin{rem}[Open subsets of a topological space]
+	Let $X$ be a topological space. 
+	One can define the category $\mathsf{Op}(X)$ of open subsets of $X$, whose
+	objects are just open subsets $U \subset X$.
+	Arrows in this category, moreover, are given by:
+	\begin{equation*}
+	\mathrm{Hom}_{\mathsf{Op}(X)} \left( U, V \right) =
+	\begin{cases}
+		\left\{ * \right\} & \text{if } U \subset V\\
+		\emptyset & \text{otherwise}
+	\end{cases} 
+	.\end{equation*}
+	This is the motivating example for the following constructions.
+	In fact arrows in $\mathsf{Op}(X)$ are inclusions and
+	fibered products are given by intersections.
+\end{rem}
+
+
+\begin{defn}[Sites]
 	Let $\mathsf{C}$ be a category. 
 	A {\em pretopology} on $\mathsf{C}$ is the assignment, to each object $U \in \mathsf{C}$,
 	of a collection of sets of arrows $\left\{ U_{ i } \to U \right\}_{ i \in I }$,
@@ -65,7 +81,8 @@ Let's now give some examples.
 		open subsets of $X$.
 		Then, to each $U \in \mathsf{Op}(X)$, we associate it the family of all
 		open coverings of $U$.
-		Noting that, for $U_1 \to U$ and $U_2 \to U$, 
+		Recalling that, given two open subsets
+		$U_1 \hookrightarrow  U$ and $U_2 \hookrightarrow  U$, 
 		their fibered product is just their intersection, i.e. 
 		$U_1 \cross_{ U } U_2 = U_1 \cap U_2$,
 		one easily checks that this defines a pretopology on $\mathsf{Op}(X)$.
@@ -86,7 +103,7 @@ Let's now give some examples.
 %		collection of morphisms $U_i \to U$.
 
 \end{enumerate}
-Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme $S$.
+Let's now give a couple of examples on $\mathsf{Sch}_{ S }$, for a fixed scheme $S$.
 \begin{enumerate}[resume]
 	\item The {\em global Zariski topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
@@ -97,7 +114,7 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 	\item The {\em global étale topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
 		jointly surjective collection of 
-		étale maps locally of finite presentation.
+		étale maps.
 
 	\item The {\em fppf topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
@@ -108,7 +125,7 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 \end{enumerate}
 \end{ex}
 
-\begin{prop}[\cite{Vistoli}, \textsection $2.3.2$]\label{prop:Conditionsfpqc}
+\begin{prop}[{\cite[\S 2.3.2]{Vistoli}}]\label{prop:Conditionsfpqc}
 	Let $f\colon X \to Y$ be a surjective morphism of schemes. The following are equivalent.
 \begin{enumerate}
 	\item Every quasi-compact open subset of $Y$ is the image of a quasi-compact
@@ -135,7 +152,7 @@ Let's now give a couple of examples in $\mathsf{Sch}_{ S }$, for a fixed scheme 
 
 
 \begin{rem}[{\em fpqc} topology]
-	It can be shown, see \cite{Vistoli} \textsection $2.3.2$,
+	It can be shown, see \cite[\S 2.3.2]{Vistoli},
 	that on $\mathsf{Sch}_{ S }$, the data
 	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}_{ S }$,
 	s.t. the induced morphism $\coprod_i U_i \to U$ is {\em fpqc},
@@ -167,7 +184,7 @@ The topologies we just introduced are in strong relation between them.
 In fact each is subordinate to the one we defined afterwards:
 
 \pagebreak
-\begin{rem}[\cite{SP}, \href{https://stacks.math.columbia.edu/tag/020K}{Chapter 020K}]
+\begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/020K}{Chapter 020K}]{SP}}]
 	\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
 \item Any Zariski covering is an étale covering, 
@@ -193,7 +210,7 @@ depends on the datum of possible open coverings for a given object of
 the category $\mathsf{Op}(X)$.
 Then the introduction of pretopologies allows one to define sheaves on sites.
 
-\begin{defn}[Sheaf]
+\begin{defn}[Sheaves]
 	Let $\mathsf{C}$ be a category.
 	A {\em presheaf} on $\mathsf{C}$ is just a contravariant functor with
 	values in sets:
@@ -277,11 +294,9 @@ a simple fact:
 \end{rem}
 
 
-Finally we can state a very important result due to Groehtendieck:
-\begin{thm}[Grothendieck, \cite{Vistoli}, \textsection $2.3.6$]
+Finally we can state a very important result due to Grothendieck:
+\begin{thm}[{\cite[\S 2.3.6]{Vistoli}}, Grothendieck]
 	A representable functor on $\mathsf{Sch}_{ S }$ is a sheaf in the {\em fpqc} topology.
 	In particular it is also a sheaf in the étale and {\em fppf} topologies.
 \end{thm}
-
-
 \end{document}
