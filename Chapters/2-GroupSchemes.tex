@@ -228,20 +228,36 @@ in what follows.
 
 
 \begin{rem}[Kernels and cokernels]
-	As with any category, one can define kernels and cokernels 
+	As with any category, one defines kernels and cokernels 
 	in $\mathsf{Gp}_S$ via the usual universal properties.
-	With regards to kernels, one can easily check that, given a morphism
-	$\alpha\colon G \to G'$ of $S$-groups, then 
+
+	With regards to kernels, one can use the general construction 
+	in a category with zero object,
+	since for a morphism $\alpha\colon G \to G'$ its kernel
+	\begin{equation*}
+		\ker \alpha =
+		\varprojlim \Bigg(
+			\begin{tikzcd}[row sep=0.60em, column sep=1.2em]
+			&
+			0 \arrow[d, "", rightarrow] \\
+			G \arrow[r, "\alpha", rightarrow] &
+			G'
+		\end{tikzcd} \Bigg)
+		= G \cross_{G'} 0
+	\end{equation*}
+	is just the fibered product of $G$ and $0$ over $G'$.
+	In the case of $\mathsf{Sch}_{ S }$ we can construct fibered products.
+	In particular we have the zero object $S$, with unique morphism
+	$S \to G'$ given by the unit morphism of $G'$.
+	Then the following gives rise to a kernel for $\alpha$
 	\begin{equation*}
 	\begin{tikzcd}
 		G \cross_{ G' } S \arrow[r, "i", rightarrow] &
 		G,
 	\end{tikzcd}
 	\end{equation*} 
-	where $i$ is the projection on the first factor, is a kernel for $\alpha$.
+	where $i$ is the projection on the first factor.
 	Hence kernels exist in $\mathsf{Gp}_S$.
-
-	tk: add comment from Brinon here, plus write down your observations on kernels.
 	
 	When it comes to cokernels, instead, one finds difficulties, much like
 	with sheaves of abelian groups.
@@ -260,15 +276,16 @@ in what follows.
 \subsection{Affine group schemes}
 The above definitions have a dual interpretation in the affine case,
 which we want to show in this section.
-Moreover, in the following, we will mostly concentrate on affine
-group schemes, hence in the rest of the discussion about group schemes
-we will concentrate on them, even though most of the
-results can be proved in a more general setting.
-tk: maybe state here that we will concentrate on $S = \mathrm{Spec}(R)$?
+Moreover, in the rest of the discussion, we will mostly be concerned by
+affine group scheme, hence the choice to concentrate most on them.
+Many of the following results, though, are still valid in a more general setting.
+
+For most of the following section, then, we will fix an affine group scheme
+$S = \mathrm{Spec}(R)$, and focus on affine $S$-groups.
 
 
 \begin{rem}[]
-If we assume that $G = \mathrm{Spec}(A)$ is affine, 
+If we consider $G = \mathrm{Spec}(A)$ affine, 
 the arrow-reversing equivalence of categories between
 affine $R$-schemes and commutative $R$-algebras, 
 allows us to translate the structural morphisms
@@ -308,7 +325,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 \end{rem}
 
 
-\begin{defn}[Hopf algebra]\label{defn:HopfAlgebra}
+\begin{defn}[Hopf algebras]\label{defn:HopfAlgebra}
 	An {\em Hopf algebra over $R$} is an $R$-algebra $A$,
 	endowed with a comultiplication, a couint and an antipode map,
 	respectively:
@@ -340,18 +357,23 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 		(R \to A) \circ \widetilde{\varepsilon}
 	.\end{align*} 
 	Moreover one defines a morphism of Hopf algebras to be an $R$-algebra
-	morphism preserving the just defined morphisms.
+	morphism preserving the comultiplication morphism.
 	Finally we call $I \coloneqq \ker \widetilde{\varepsilon}$ the 
 	{\em augmentation ideal} of $A$.
 \end{defn}
-Actually, as is the case for groups, it is enough to check that an $R$ algebra
-morphism commutes with $\widetilde{m}$, in order for it to be a Hopf algebra morphism.
+
+
+\begin{rem}[]
+	Dualizing the result for groups, one can see that a Hopf algebra
+	homomorphism preserves not only comultiplication, but also
+	counit and antipode morphisms.
+\end{rem}
 
 
 \begin{rem}[Equivalence of categories]
 	Clearly, then, any Hopf algebra over $R$ gives rise
 	to an affine $R$-group via the aforementioned equivalence of categories.
-	This actually is an equivalence of categories between affine
+	This actually is an anti-equivalence of categories between affine
 	$R$-group schemes and Hopf algebras over $R$.
 	In fact	the multiplication morphism in a group scheme
 	corresponds to the comultiplication morphism in its 
@@ -374,7 +396,7 @@ morphism commutes with $\widetilde{m}$, in order for it to be a Hopf algebra mor
 	\end{tikzcd}
 	\end{equation*}
 	Hence we have $A = R \cdot 1 \oplus I$,
-	from which we desume that $A \otimes A = R \oplus \left( I \otimes 1 \right) \oplus
+	from which we deduce that $A \otimes A = R \oplus \left( I \otimes 1 \right) \oplus
 	\left( 1 \otimes I \right) \oplus \left( I \otimes I \right)$.
 	Finally it is easy to show that, for all $f \in I$,
 	\begin{equation*}
@@ -383,36 +405,37 @@ morphism commutes with $\widetilde{m}$, in order for it to be a Hopf algebra mor
 \end{defn}
 
 
-For these last results we'll assume that $S$ is a locally Noetherian base scheme.
-\begin{rem}[Finite $S$-group]
+The following results are valid in a more general setting, so let's change
+the assumption for $S$: we will assume it is a locally Noetherian scheme.
+\begin{rem}[Finite $S$-scheme]
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
 	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
 	More explicitly this means that there exists a cover of $S$ by affine open subschemes
-	$V_i$ s.t. for all $i$ the restriction of the structure morphism is of the form
+	$V_i$ such that, for all $i$, the restriction of the structure morphism is of the form
 	$\mathrm{Spec}(A) \to \mathrm{Spec}(R)$, for $A$ a free $R$-module of finite rank over $R$. 
-	This is going to our main interest what follows.
+	This is going to be our main interest what follows.
 
-	It is also true that finite flat group schemes over affine schemes
+	It is also true that finite flat schemes over affine schemes
 	are themselves affine. 
 	We are going to be interested in the case of $S = \mathrm{Spec}(R)$,
 	for $R$ the ring of integers of a local field, mainly $\mathbb{Z}_p$,
 	and $G$ finite flat over $S$.
-	Hence we will mainly concentrate on the affine case in what follows.
-
-	Finally we can notice that, over an affine scheme $S = \mathrm{Spec}(R)$,
-	a finite flat scheme is just $\mathrm{Spec}(A)$, for a finite projective
-	$R$-module $A$ (see, for instance, 
+	In particular $S$ and $G$ will be Noetherian schemes
+	and $G$, being finite flat over $S$, is just $\mathrm{Spec}(A)$,
+	for a finite projective $R$-module $A$ (see, for instance, 
 	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}).
 \end{rem}
 
+
 \begin{defn}[Order of a finite flat $S$-scheme]
-	Given a finite flat $S$-group scheme $G$, the rank of $\mathcal{O}_X$ as
-	and $\mathcal{O}_S$-module is a locally constant function with respect
+	Given a finite flat $S$-scheme $G$, the rank of $\mathcal{O}_X$ as
+	an $\mathcal{O}_S$-module is a locally constant function with respect
 	to the Zariski topology, with integer values.
 	We call such a function the order of $G$ over $S$ and denote it by $[G:S]$.
 	Moreover we'll use the notation $[G:S] = n$ to state that $G$ is finite flat of
 	constant rank $n$ over $S$.
 \end{defn}
+
 
 \begin{prop}[{\cite[\S 3]{TateMF}}]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
@@ -465,23 +488,17 @@ $R$, for $S = \mathrm{Spec}(R)$.
 	\begin{enumerate}
 		\item The {\em additive group scheme}, given by 
 			$\mathbb{G}_a \coloneqq \mathrm{Spec}(R[x])$.
-			It acts on $R$-schemes by
+			It is given on $R$-schemes by
 			\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
 				,/tikz/column 1/.append style={anchor=base east}
 				,/tikz/column 2/.append style={anchor=base west}]
-%				\mathbb{G}_a\colon \mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
-%				\mathsf{Gp} \\
 				X \arrow[r, "", mapsto] & 
 				\Gamma \left( X , \mathcal{O}_{ X } \right)
 			,\end{tikzcd}
 			\end{equation*} 
 			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)$ is viewed
 			as an additive group.
-		%	Then $\mathbb{G}_a$ is represented by 
-		%	\begin{equation*}
-		%		G = \mathrm{Spec}(R[x])
-		%	.\end{equation*} 
 			In fact	we know that
 			\begin{equation*}
 			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, \mathbb{G}_a \right) \simeq
@@ -570,13 +587,6 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			It acts on $R$-schemes by associating to
 			$X \in \mathsf{Sch}_{ S }$ the multiplicative group
 			$\mathrm{GL}_n(X)$ of invertible $n \cross n$
-%			\begin{equation*}
-%			\begin{tikzcd}[row sep = 0ex
-%				,/tikz/column 1/.append style={anchor=base east}
-%				,/tikz/column 2/.append style={anchor=base west}]
-%				X \arrow[r, "", mapsto] & \mathrm{GL}_n(X)
-%			,\end{tikzcd}
-%			\end{equation*} 
 			matrices with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$.
 			Let's recall that, in $\mathrm{GL}_n(X)$, the product
 			$\left( x_{i,j} \right)_{i,j = 1}^n \cdot 
@@ -613,6 +623,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			\end{equation*}
 			which is surjective, finite and flat, making $\mu_n$
 			a closed finite flat subgroup scheme of $\mathbb{G}_m$.
+			tk: fix it!
 
 
 		\item The {\em diagonalizable group schemes}. Let $X$ be an ordinary
@@ -621,7 +632,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			This is a Hopf algebra, whose structural morphism
 			are given, for every $x \in X$, by
 			\begin{equation*}
-				\widetilde{m}(x) = x \otimes_R x,
+				\widetilde{m}(x) = x \otimes x,
 				\quad
 				\widetilde{\varepsilon}(x) = 1,
 				\quad
@@ -667,7 +678,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			which we denote by $\underline{\Gamma}$.
 			\begin{equation*}
 				\widetilde{m}(e_\rho) \coloneqq
-				\sum_{\gamma\tau = \rho}^{} e_\sigma \otimes_R e_\tau, 
+				\sum_{\gamma\tau = \rho}^{} e_\sigma \otimes e_\tau, 
 				\quad
 				\widetilde{\mathrm{inv}}(e_\sigma) \coloneqq e_{\sigma^{-1}}, 
 				\quad
@@ -717,6 +728,8 @@ In order to construct some important short exact sequences
 we need to tackle the problem of the construction
 of cokernels, hence of quotient groups.
 In order to do so we have to start with the concept of group action.
+Moreover we keep the assumption, from the previous section, that $S$
+is a locally Noetherian scheme.
 
 \begin{defn}[Right action]
 	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}_{ S }$.
@@ -745,7 +758,7 @@ In order to do so we have to start with the concept of group action.
 \end{defn}
 
 The next theorem will allow us to construct quotients of
-$S$-group schemes over finite, flat closed subgroup schemes.
+$S$-group schemes by finite, flat closed subgroup schemes.
 It actually is a more general result, due to Grothendieck.
 \begin{thm}[{\cite[\S 3.4]{TateMF}}]
 	Suppose that $H$, finite flat over $S$, acts strictly freely on $X$
@@ -777,7 +790,7 @@ As promised we obtain the following result for quotient group schemes.
 	Then $G/H$ is the scheme of {\em left cosets} of $H$ in $G$.
 
 	Assume, moreover, that $G/H$ is finite and flat over $S$,
-	with order $[(G/H):S]$. We will call this the order of $H$ in $G$
+	with order $[(G/H):S]$. We will call this the {\em index} of $H$ in $G$
 	and denote it by $[G:H]$.
 	Then $G$ is finite and flat over $S$ and we have
 	\begin{equation*}
@@ -787,7 +800,8 @@ As promised we obtain the following result for quotient group schemes.
 
 \begin{rem}[Short exact sequence]
 	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
-	{\em normal} in $G$, i.e. that it acts trivially on $G/H$.
+	{\em normal} in $G$, i.e. that it acts trivially on $G/H$
+	tk: here a mistake, correct it!
 	Then the multiplication on $G$ induces a multiplication 
 	morphism on $G/H$, making it an $S$-group scheme.
 	Moreover the map $u\colon G \to G/H$ is
@@ -849,19 +863,34 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \end{cor} 
 
 
-\begin{defn}[Étale morphism of schemes]
-	Let $f\colon X \to S$ be a morphism of schemes.
+For the following definition we will not assume maximal generality, but
+we will restrict to a case which includes the situation we will be concerned with,
+i.e. finite schemes over a Noetherian affine base.
+\begin{defn}[Unramified and étale morphism of schemes]\label{defn:EtaleMorphismSheaves}
+	Let $f\colon X \to S$ be a morphism of finite type schemes between
+	locally Noetherian schemes.
+	We denote by $f^{\#}\colon \mathcal{O}_{ S } \to \mathcal{O}_{ X }$ the
+	associated morphism between structure sheaves and, given $s \coloneqq f(x)$,
+	by $f_s^{\#}\colon \mathcal{O}_{ S,s } \to \mathcal{O}_{ X,x }$ the induced morphism
+	at the level of stalks.
+	Finally we denote by $\mathfrak{m}_x$ the maximal ideal of the local ring
+	$\mathcal{O}_{ X,x }$ and by $\kappa(x) \coloneqq \mathcal{O}_{ X,x }/\mathfrak{m}_x$
+	the residue field at $x$.
 \begin{enumerate}
-	\item We say that $f$ is étale at $x \in X$ iff there exists an affine
-		open neighbourhood $\mathrm{Spec}(A) = U \subset X$ of $x$
-		and an affine open $\mathrm{Spec}(R) = V \subset S$,
-		with $f(U) \subset V$, such that the induced ring map
-		$R \to A$ is étale.
+	\item We say that $f$ is {\em unramified} at $x \in X$ iff, for any $s \coloneqq f(x)$,
+		the image $f^{\#}_s(\mathfrak{m}_s)$ generates
+		$\mathfrak{m}_x$ in $\mathcal{O}_{ X,x }$
+		and $\kappa(x)/\kappa(s)$ is a finite and separable field extension.
 
-	\item We say that $f$ is étale iff it is étale at every point of $X$.
+	\item We say that $f$ is {\em étale} at $x \in X$ iff it is
+		flat and unramified at $x$.
 
-	\item We say that $X \in \mathsf{Sch}_{ S }$ is étale iff its structure
-		morphism is étale.
+	\item We say that $f$ is unramified (resp$.$ étale) iff it is 
+		unramified (resp$.$ étale) at every point of $X$.
+
+	\item We say that $X \in \mathsf{Sch}_{ S }$ is unramified 
+		(resp$.$ étale) iff its structure
+		morphism is unramified (resp$.$ étale).
 \end{enumerate}
 \end{defn}
 
@@ -872,10 +901,9 @@ In fact we can use this characterization in our context thanks to
 \begin{enumerate}
 	\item A scheme $X$ is étale over a field $k$ iff $X = \mathrm{Spec}(A)$
 		for a {\em separable} $k$-algebra $A$.
-	\item If $f\colon X \to S$ is an étale morphism of schemes, then
+	\item If $f\colon X \to S$ is an étale morphism of schemes,
 		for every $s \in S$, then the fiber at $s$ is given by $X_s = \mathrm{Spec}(A_s)$,
-		for a separable $\kappa(s)$-algebra $A_s$, where
-		$\kappa(s)$ denotes the residue field of $S$ at $s$.
+		for a separable $\kappa(s)$-algebra $A_s$.
 \end{enumerate}
 \end{lem} 
 
@@ -913,7 +941,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \begin{enumerate}
 	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
 		and $G = G^{et}$.
-		If, instead, $\mathrm{char}\, k = p > 0$, the order
+		If, instead, $\mathrm{char}\, k = p > 0$, we have
 		$[G^0:S] = p^t$ for some $t$.
 		As a consequence if $[G:S]$ is invertible in $S$, then
 		$G$ is étale over $S$.
@@ -943,7 +971,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	In case $A$ is given with a cocommutative Hopf algebra structure, one
 	can dualize it to obtain a (cocommutative) Hopf algebra structure on $A^D$.
 	In particular product and coproduct of $A$ become, respectively,
-	coproduct and product of $A'$, as
+	coproduct and product of $A^D$, as
 	\begin{equation*}
 	\begin{tikzcd}
 		(\widetilde{\Delta})^*\colon
@@ -955,6 +983,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 		A^D 
 	.\end{tikzcd}
 	\end{equation*}
+	tk: add remarks from Brinon.
 \end{rem}
 
 \begin{defn}[Cartier dual]
@@ -1035,7 +1064,8 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 		In particular this yields that $\mu_n$ is dual to $\underline{\mathbb{Z}/n\mathbb{Z}}$
 		and viceversa.
 
-	\item One can show that $\left( \alpha_p \right)^D \simeq \alpha_p$.
+	\item One can show that $\left( \alpha_p \right)^D \simeq \alpha_p$
+		tk: elaborate a bit more.
 \end{enumerate}
 \end{ex}
 
