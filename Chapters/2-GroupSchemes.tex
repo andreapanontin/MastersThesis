@@ -307,7 +307,7 @@ to the multiplication morphism of the $R$-algebra $A$:
 	a \otimes_R b \arrow[r, "", mapsto] & a \cdot b
 .\end{tikzcd}
 \end{equation*} 
-With this in mind we obtain the following $3$ $R$-algebra morphisms:
+With this in mind we obtain the following $R$-algebra morphisms:
 \begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
  ,/tikz/column 1/.append style={anchor=base east}
@@ -407,7 +407,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 
 The following results are valid in a more general setting, so let's change
 the assumption for $S$: we will assume it is a locally Noetherian scheme.
-\begin{rem}[Finite $S$-scheme]
+\begin{rem}[Finite $S$-scheme]\label{rem:finiteGSMotivation}
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
 	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
 	More explicitly this means that there exists a cover of $S$ by affine open subschemes
@@ -902,7 +902,7 @@ In fact we can use this characterization in our context thanks to
 	\item A scheme $X$ is étale over a field $k$ iff $X = \mathrm{Spec}(A)$
 		for a {\em separable} $k$-algebra $A$.
 	\item If $f\colon X \to S$ is an étale morphism of schemes,
-		for every $s \in S$, then the fiber at $s$ is given by $X_s = \mathrm{Spec}(A_s)$,
+		for every $s \in S$, the fiber at $s$ is given by $X_s = \mathrm{Spec}(A_s)$,
 		for a separable $\kappa(s)$-algebra $A_s$.
 \end{enumerate}
 \end{lem} 
@@ -962,11 +962,31 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 In this section we'll mainly be concerned with $S = \mathrm{Spec}(R)$ affine
 and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(A)$.
 
+\begin{rem}[]
+	As of \cref{rem:finiteGSMotivation} $A$ is a finite projective $R$-module
+	(hence, still by 
+	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}),
+	$A$ is a finite and locally free $R$-module).
+	For an $R$-module $M$ we define its dual $R$-module to be
+	$\mathrm{Hom}_{R} \left( M, R \right)$.
+	Then, as seen in \cite[\S 3.8]{TateMF}, for any locally free
+	$R$-modules $M$ and $N$, one has the natural isomorphisms
+	\begin{equation}
+	\begin{tikzcd}
+		M \arrow[r, "\sim", rightarrow] &
+		M^D &
+		\text{and} &
+		M^D \otimes_R N \arrow[r, "\sim", rightarrow] &
+		\left( M \otimes_R N \right)^D
+	.\end{tikzcd}
+	\end{equation}
+\end{rem}
+
 
 \begin{rem}[Dual algebra]
-	To the $R$-algebra $A$ we can associate the $R$-module
+	To the $R$-algebra $A$ we can associate the $R$-module 
 	\begin{equation*}
-	A^D \coloneqq \mathrm{Hom}_{R\text{-}\mathsf{Mod}} \left( A, R \right)
+	A^D \coloneqq \mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
 	.\end{equation*} 
 	In case $A$ is given with a cocommutative Hopf algebra structure, one
 	can dualize it to obtain a (cocommutative) Hopf algebra structure on $A^D$.
@@ -974,16 +994,30 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	coproduct and product of $A^D$, as
 	\begin{equation*}
 	\begin{tikzcd}
-		(\widetilde{\Delta})^*\colon
+		(\widetilde{\Delta})^D\colon
 		A^D \arrow[r, "", rightarrow] &
 		A^D \otimes_R A^D &
 		\text{\text{and}} &
-		(\widetilde{m})^*\colon
+		(\widetilde{m})^D\colon
 		A^D \otimes_R A^D \arrow[r, "", rightarrow] &
 		A^D 
 	.\end{tikzcd}
 	\end{equation*}
-	tk: add remarks from Brinon.
+	More explicitly $(\widetilde{\Delta})^D$ and $(\widetilde{\mathrm{m}})^D$ are
+	the transpose maps of $\Delta$ and $\mathrm{m}$ respectively,
+	i.e. they are defined as
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		(\widetilde{\Delta})^D \coloneqq \mathrm{Hom}_{ R\text{-}\mathsf{Mod} }
+		( \widetilde{\Delta}, R )
+		\colon \mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right)\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A \otimes_R A, R \right)\\
+		f \arrow[r, "", mapsto] & f \circ \widetilde{\Delta}
+	\end{tikzcd}
+	\end{equation*} 
+	and analogously for $(\widetilde{\mathrm{m}})^D$.
 \end{rem}
 
 \begin{defn}[Cartier dual]
@@ -995,15 +1029,17 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \end{defn}
 
 
-\begin{thm}[{\cite[\S 3.7]{Waterhouse}}, Cartier duality]
+\begin{thm}[{\cite[\S 3.7]{Waterhouse}}, Cartier duality]\label{thm:CartierDuality}
 	Let $G$ be a finite, commutative $R$-group scheme.
-	Then $G^D$ is a finite commutative $S$-group scheme.
-	Moreover $( G^D )^D \simeq G$ and
-	\begin{equation*}
-	\mathrm{Hom}_{} \left( G, H \right) \simeq
-	\mathrm{Hom}_{} \left( H^D, G^D \right)
-	\end{equation*}
-	for all $H,G \in \mathsf{Gp}_S$ finite commutative.
+	Then the following facts hold.
+\begin{enumerate}
+	\item $G^D$ is a finite commutative $S$-group scheme.
+	\item $( G^D )^D \simeq G$.
+	\item For all $H,G \in \mathsf{Gp}_S$ finite commutative one has
+	$\mathrm{Hom}_{\mathsf{Gp}_S} \left( G, H \right) \simeq
+	\mathrm{Hom}_{\mathsf{Gp}_S} \left( H^D, G^D \right)$.
+	\item Forming $G^D$ commutes with base change.
+\end{enumerate}
 \end{thm}
 
 \begin{rem}[]
@@ -1073,6 +1109,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 \subsection{Frobenius and Verschiebung}
 Let's now study a few constructions in characteristic $p$:
 let $R$ be a ring with $\mathrm{char}\, R = p$.
+tk: for this section please add some references (not only the course from Essen).
 
 
 \begin{defn}[]
@@ -1080,7 +1117,6 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	acting by $a \mapsto a^p$.
 	It induces $\mathrm{Spec}(\varphi_A)\colon \mathrm{Spec}(A) \to \mathrm{Spec}(A)$,
 	which is the identity at te level of topological spaces.
-
 	This map, moreover, can be glued for any $R$-scheme $X$, giving rise to a map
 	$\varphi_X\colon X \to X$ such that
 \begin{enumerate}
@@ -1147,15 +1183,40 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 \end{defn}
 
 
-\begin{lem}
+\begin{lem}\label{lem:FrobeniusHomomorphism}
 	If $G$ is an $R$-group scheme, for $R$ a ring of characteristic $p$,
 	the relative Frobenius $F_G\colon G \to G^{(p)}$ is a 
 	homomorphism of $R$-group schemes.
 \end{lem} 
 
 
-\begin{prop}[]
-	Let $G$ be a finite $R$-group scheme.
+\begin{defn}[Nilpotent Frobenius]\leavevmode\vspace{-1.2\baselineskip}
+\begin{enumerate}
+\item We set, for any $X \in \mathsf{Sch}_{ S }$ and any integer $n \geq 0$,
+	$X^{(0)} \coloneqq X$ and $X^{(p^{n+1})} \coloneqq \left( X^{(p^{n})} \right)^{(p)}$.
+	Then we denote by $F^n_X\colon X \to X^{(p^n)}$
+	the $n$-fold composition
+	\begin{equation}
+	\begin{tikzcd}
+		X \arrow[r, "F_X", rightarrow] &
+		X^{(p)} \arrow[r, "F_{X^{(p)}}", rightarrow] &
+		\ldots \arrow[r, "", rightarrow] &
+		X^{(p^{n-1})} \arrow[r, "F_{X^{(p^{n-1})}}", rightarrow] &
+		X^{(p^n)}
+	.\end{tikzcd}
+	\end{equation}
+\item Assume now that $G \coloneqq X$ is an $S$-group scheme. 
+	By \cref{lem:FrobeniusHomomorphism} $F^n_G$ is a group scheme homomorphism.
+	We say that $F_G$ is {\em nilpotent} iff there is an integer $n \geq 1$ such that
+	$F^n_G$ is the trivial homomorphism.
+\end{enumerate}
+\end{defn}
+
+
+The following results hold for group schemes over field, hence we will replace
+$R$ by a field $k$ of characteristic $p > 0$.
+\begin{prop}[]\label{thm:FrobeniusChar1}
+	Let $G$ be a finite $k$-group scheme.
 	The following are equivalent:
 \begin{enumerate}
 	\item $G$ is étale,
@@ -1163,4 +1224,69 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	\item $F_G$ is an isomorphism.
 \end{enumerate}
 \end{prop}
+
+
+\begin{prop}[]\label{thm:FrobeniusChar2}
+	Let $G$ be a finite commutative $k$-group scheme.
+	Then $G$ is connected iff $F_G$ is nilpotent.
+\end{prop}
+
+
+\begin{defn}[Verschiebung]
+	Let $G$ be a finite, commutative $R$-group scheme.
+	By \cref{thm:CartierDuality} $(G^{(p)})^D \simeq (G^D)^{(p)}$.
+	One defines the {\em Verschiebung} homomorphism
+	\begin{equation}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		V_G \coloneqq F^D_{G^D}\colon G^{(p)} \arrow[r, "", rightarrow] &
+		G
+	\end{tikzcd}
+	\end{equation} 
+	as the dual to $F_{G^D}\colon G^D \to (G^D)^{(p)} \simeq (G^{(p)})^D$,
+	recalling that $((G^{(p)})^D)^D \simeq G^{(p)}$ and $(G^D)^D \simeq G$.
+\end{defn}
+
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item By Cartier duality one sees that $F^D_G = V_{G^D}$ and
+	$V^D_G = F_{G^D}$.
+\item One constructs $V^n_G$ by successive compositions as for $F^n_G$.
+	Moreover one says that $V_G$ is nilpotent iff there exists an integer $n \geq 1$
+	such that $V^n_G$ is the trivial homomorphism.
+\end{enumerate}
+\end{rem}
+
+
+Let's briefly quote a result, which acts as a dual to
+\cref{thm:FrobeniusChar1} and \cref{thm:FrobeniusChar2}.
+\begin{prop}[]
+	Let $G$ be a finite commutative $k$-group scheme. Then the following hold.
+\begin{enumerate}
+	\item $\coker V_G = 1$ iff $V_G$ is an isomorphism iff
+		$G^D$ is étale.
+	\item $V_G$ is nilpotent iff $G^D$ is connected.
+\end{enumerate}
+\end{prop}
+
+We will conclude this section with a famous and useful relation between
+Frobenius and Verschiebung:
+\begin{thm}[]\label{thm:FrobeniusVerschiebungRelation}
+	Let $G$ be a finite commutative $k$-group scheme. Then the following
+	diagram commutes
+	\begin{equation}
+	\begin{tikzcd}[column sep=1.5em]
+		G \arrow[rr, "p \cdot \mathrm{id}_{ G }", rightarrow] 
+		\arrow[rd, "F_G"', rightarrow] & &
+		G \arrow[rd, "F_G", rightarrow] & \\
+		&
+		G^{(p)} \arrow[ru, "V_G"', rightarrow] 
+		\arrow[rr, "p \cdot \mathrm{id}_{ G^{(p)} }"', rightarrow] & &
+		G^{(p)}
+	,\end{tikzcd}
+	\end{equation}
+	where $p \cdot \mathrm{id}_{ G }$ denotes the multiplication by $p$
+	on $G$.
+\end{thm}
 \end{document}
