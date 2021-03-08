@@ -621,9 +621,10 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				R[x,x^{-1}] / (x^n - 1)
 			,\end{tikzcd}
 			\end{equation*}
-			which is surjective, finite and flat, making $\mu_n$
-			a closed finite flat subgroup scheme of $\mathbb{G}_m$.
-			tk: fix it!
+			which is surjective, making $\mu_n$
+			a closed subgroup scheme of $\mathbb{G}_m$.
+			Moreover, since $R[x,x^{-1}]$ is finite and flat over $R$,
+			we can also see that $\mu_n$ is a finite and flat $S$-group scheme.
 
 
 		\item The {\em diagonalizable group schemes}. Let $X$ be an ordinary
@@ -800,8 +801,7 @@ As promised we obtain the following result for quotient group schemes.
 
 \begin{rem}[Short exact sequence]
 	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
-	{\em normal} in $G$, i.e. that it acts trivially on $G/H$
-	tk: here a mistake, correct it!
+	also {\em normal} in $G$.
 	Then the multiplication on $G$ induces a multiplication 
 	morphism on $G/H$, making it an $S$-group scheme.
 	Moreover the map $u\colon G \to G/H$ is
@@ -963,15 +963,15 @@ In this section we'll mainly be concerned with $S = \mathrm{Spec}(R)$ affine
 and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(A)$.
 
 \begin{rem}[]
-	As of \cref{rem:finiteGSMotivation} $A$ is a finite projective $R$-module
-	(hence, still by 
+	In \cref{rem:finiteGSMotivation} we recalled that $A$ is a finite projective $R$-module.
+	Then, still arguing by
 	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}),
-	$A$ is a finite and locally free $R$-module).
+	$A$ is a finite and locally free $R$-module.
 	For an $R$-module $M$ we define its dual $R$-module to be
-	$\mathrm{Hom}_{R} \left( M, R \right)$.
-	Then, as seen in \cite[\S 3.8]{TateMF}, for any locally free
-	$R$-modules $M$ and $N$, one has the natural isomorphisms
-	\begin{equation}
+	$M^D \coloneqq \mathrm{Hom}_{R} \left( M, R \right)$.
+	Hence, for any locally free $R$-modules $M$ and $N$,
+	one has the natural isomorphisms
+	\begin{equation*}
 	\begin{tikzcd}
 		M \arrow[r, "\sim", rightarrow] &
 		M^D &
@@ -979,7 +979,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 		M^D \otimes_R N \arrow[r, "\sim", rightarrow] &
 		\left( M \otimes_R N \right)^D
 	.\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 \end{rem}
 
 
@@ -1005,7 +1005,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	\end{equation*}
 	More explicitly $(\widetilde{\Delta})^D$ and $(\widetilde{\mathrm{m}})^D$ are
 	the transpose maps of $\Delta$ and $\mathrm{m}$ respectively,
-	i.e. they are defined as
+	i.e. they are defined by
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
