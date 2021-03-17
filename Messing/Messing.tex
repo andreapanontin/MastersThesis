@@ -1,0 +1,271 @@
+\documentclass[../Main]{subfiles}
+\begin{document}
+\section{Definitions and examples}
+In the following part we will always write groups over $S$, or $S$-group, to mean
+an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
+\begin{lem}[{\cite[\S 1]{Messing}}]
+	The following conditions are equivalent:
+\begin{enumerate}
+	\item $G$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module,
+
+	\item $\ker(p^{n-1}) = \ima (p^i)$, for $i=0, \ldots, n$.
+\end{enumerate}
+\end{lem} 
+
+
+\begin{defn}[Truncated Barsotti-Tate group of level $n$]
+	Consider $n \geq 2$, a {\em truncated Barsotti-Tate group} of level $n$
+	is an $S$-group $G$ such that
+\begin{enumerate}
+	\item $G$ is a finite and locally free group scheme.
+	\item $G$ is killed by $p^n$ and satisfies the equivalent conditions of the previous lemma (tk: ref).
+\end{enumerate}
+%	If, instead, $n = 1$, we say that an $S$-group $G$, for a scheme $S$
+%	where $p$ is locally nilpotent, is a {\em truncated Barsotti-Tate group}
+%	of level $1$ iff it satisfies:
+%\begin{enumerate}
+%	\item $G$ is finite, locally free and killed by $p$,
+%	\item Denoting by $S_0$ the closed subscheme (tk: understand what's written there).
+%\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[]
+	If $G$ is a group, we write $G(n)$ for the kernel of $p^n$.
+	Then, if $G$ is killed by $p^n$, we write $G = G(n)$.
+\end{defn}
+
+
+\begin{lem}[\cite{Messing}, \textsection $1$]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item If $G(n)$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module, then $G(n)$
+		is a finite, locally-free group scheme iff
+		$G(1)$ is. Then all the $G(i)$ are.
+
+	\item If $G(n)$ is finite and locally free, then
+		\begin{equation}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+			p^i\colon G(n) \arrow[r, "", rightarrow] &
+			G(n-1)
+		\end{tikzcd}
+		\end{equation} 
+		is an epimorphism iff it is faithfully flat.
+\end{enumerate}
+\end{lem} 
+
+
+\begin{defn}[$p$-torsion and $p$-divisible groups]
+	Let $S$ be a scheme and $G$ be an $S$-group.
+	Denote by $G(n)$ the kernel of the multiplication by $p^n$ on $G$.
+	$G$ is said to be of {\em $p$-torsion} iff $\varprojlim_{n \in \mathbb{N}} G(n) = G$.
+	$G$ is said to be {\em $p$-divisible} iff $p\colon G \to G$
+	is an epimorphism.
+\end{defn}
+
+
+\begin{defn}[Barsotti-Tate group]
+	An $S$ group $G$ is called {\em Barsotti-Tate} iff it satisfies
+\begin{enumerate}
+	\item $G$ is of $p$-torsion,
+	\item $G$ is $p$-divisible,
+	\item $G(1)$ is a finite, locally-free group scheme.
+\end{enumerate}
+	We denote by $\mathsf{BT}_S$ the full subcategory of $\mathsf{Gr}_S$,
+	whose objects are Barsotti-Tate groups over $S$.
+\end{defn}
+
+
+\begin{rem}[]
+	The category $\mathsf{BT}_S$ is not abelian:
+	it does not admit kernels.
+	In fact the kernel of the morphism $p\colon G \to G$
+	of multiplication by $p$ must be killed by $p$, hence cannot be
+	a Barsotti-Tate group (unless $G=0$).
+\end{rem}
+
+
+
+\section{The relation between Barsotti-Tate and formal Lie groups}
+Here we will fix a scheme $S$ and consider $X, Y$ to be sheaves on $S$
+for the {\em fppf} topology.
+Recall that, for $Y \in \mathsf{Sch}_{ S }$, sections on
+$T \in \mathsf{Sch}_{ S }$ of $Y$ are just $T$-points and,
+as usual with sheaves, will denote them by
+\begin{equation*}
+	\Gamma \left( T, Y \right) \coloneqq Y(T)
+.\end{equation*}
+
+
+\begin{defn}[$k$-th infinitesimal neighbourhood]\label{defn:kInfNeighbourhood}
+	Let $Y \hookrightarrow X$ be a monomorphism of {\em fppf} sheaves.
+	We define $\mathrm{Inf}_Y^k(X)$ as the subsheaf of $X$,
+	whose sections over an $S$-scheme $T$, denoted by $\Gamma ( T , \mathrm{Inf}_Y^k(X) )$,
+	are given as follows:
+	$\Gamma ( T , \mathrm{Inf}_Y^k(X) )$ is the subsets of all 
+	$t \in \Gamma \left( T, X \right)$ such that
+	there is a covering $\left\{ T_{ i } \to T \right\}_{ i \in I }$
+	of $T$ and, for each $i$, a closed subscheme $T_i'$ of $T_i$,
+	defined by an ideal whose $(k+1)$-st power is $(0)$,
+	with the property that every element $\left.t\right|_{T_i'} \in \Gamma(T'_i, X)$
+	is already an element of $\Gamma(T_i', Y)$.
+\end{defn}
+
+
+\begin{lem}[Compatibility with base change, {\cite[\S 2.1]{Messing}}]
+	If $S' \to S$ is a morphism of schemes, then
+	\begin{equation*}
+		\mathrm{Inf}_{Y_{S}'}^k (X_{S'}) =
+		(\mathrm{Inf}_Y^k(X))_{S'}
+	.\end{equation*}
+\end{lem} 
+
+\begin{defn}[]
+	Let $X$ be a sheaf on $S$, with a section $e_X\colon S \to X$.
+	If this section is clear from context, we will write $\mathrm{Inf}^k(X)$
+	instead of $\mathrm{Inf}_S^k(X)$, where this last notation is 
+	just \cref{defn:kInfNeighbourhood} for $e_X\colon S \hookrightarrow X$.
+\end{defn}
+
+\begin{defn}[Ind-infinitesimal sheaf]
+	A pointed sheaf $\left(X, e_X\right)$ is called {\em ind-infinitesimal} iff
+	\begin{equation*}
+		X = \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(X)
+	.\end{equation*}
+\end{defn}
+
+
+\begin{rem}[]
+	From the definition it immediately follows that, for all $i \geq 0$,
+	\begin{equation*}
+		\mathrm{Inf}^k ( \mathrm{Inf}^{k+1}(X) ) =
+		\mathrm{Inf}^k(X)
+	.\end{equation*}
+\end{rem}
+
+
+tk: for the following definition choose whether you want to go deeper, or you want to leave it to this.
+In case it is given in chapter $17$ of the stacks project.
+\begin{defn}[Quasi-coherent sheaf of $\mathcal{O}_{ X }$-modules]
+	Let $\mathcal{F}$ be a sheaf of $\mathcal{O}_{ X }$-modules.
+	We say that $\mathcal{F}$ is a {\em quasi-coherent sheaf of $\mathcal{O}_{ X }$-modules}
+	iff, for every point $x \in X$, there is an open neighbourhood $x \in U \subset X$
+	on which $\left.\mathcal{F}\right|_{U}$ is isomorphism to the cokernel
+	of a map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\bigoplus_{j \in J} \mathcal{O}_{ U } \arrow[r, "", rightarrow] &
+		\bigoplus_{i \in I} \mathcal{O}_{ U }
+	.\end{tikzcd}
+	\end{equation*} 
+	More explicitly this means that $X$ is covered by open subsets $U$,
+	on each of which $\left.\mathcal{F}\right|_{U}$ admits a presentation
+	of the form
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex]
+		\bigoplus_{j \in J} \mathcal{O}_{ U } \arrow[r, "", rightarrow] &
+		\bigoplus_{i \in I} \mathcal{O}_{ U } \arrow[r, "", rightarrow] &
+		\left.\mathcal{F}\right|_{U} \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*} 
+	in other words the above is exact.
+	This implies that:
+	\begin{enumerate}
+		\item for all $x \in X$ there is an open neighbourhood $x \in U \subset X$
+			on which $\left.\mathcal{F}\right|_{U}$ is generated by global sections;
+
+		\item for a suitable choice of these sections, the kernel of the associated surjection
+			is also generated by global sections.
+	\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[Formal Lie variety]
+	A pointed sheaf $\left(X, e_X\right)$ on $S$ is said to be
+	a {\em formal Lie variety} iff it satisfies the following conditions:
+\begin{enumerate}
+	\item $X$ is ind-infinitesimal and $\mathrm{Inf}^k(X)$, viewed
+		as a sheaf in the {\em fppf} topology,
+		is representable for all $k \geq 0$;
+	\item $e_X^* \left( \Omega_{X/S} \right) \simeq
+		e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$
+		is {\em locally free of finite type};
+	\item Denoting by $\mathrm{gr}^{\mathrm{inf}}(X)$ the unique graded $\mathcal{O}_{ S }$-algebra
+		such that $\mathrm{gr}^{\mathrm{inf}}_i(X) = \mathrm{gr}_i(\mathrm{Inf}^i(X))$,
+		we have an isomorphism
+		\begin{equation*}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{Sym}\left( \underline{\omega}_X \right) \arrow[r, "\sim", rightarrow] &
+				\mathrm{gr}^{\mathrm{inf}}(X)
+		\end{tikzcd}
+		\end{equation*} 
+		induced by the canonical mapping
+		$\underline{\omega}_X \xrightarrow{\sim} \mathrm{gr}^{\mathrm{inf}}(X)$,
+		where we denoted the conormal sheaf of the immersion $S \hookrightarrow X$
+		by $\underline{\omega}_X \simeq e^*_X \left( \Omega_{X/S} \right)$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[Formal Lie group]
+	A {\em formal Lie group} over $S$ is a group object $\left(G, e_G\right)$
+	in the category of formal Lie varieties over $S$.
+\end{defn}
+tk: I think this is going to be fundamental in order to take duals, etc.
+In the following we will always assume that a formal Lie group $\left(G, e_G\right)$ 
+is commutative.
+
+Our next aim is to find a connection between Barsotti-Tate groups and formal Lie groups,
+so let's start with some preliminary result:
+\begin{lem}[{\cite[\S2.1]{Messing}}]
+	Let $G$ be a group scheme on $S$.
+	Then $\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
+	is also a group.
+\end{lem} 
+tk: does he mean that this is also representable? In which case I don't see by what,
+from the proof in Messing.
+I guess the constructions gives a formal scheme (see e.g. ncatlab) and then we use that object
+as a representative.
+
+
+Assume now that our base scheme $S$ is of characteristic $p  > 0$.
+Then, as done in the previous section (tk: reference to the construction),
+on any finite commutative group scheme 
+$G \in \mathsf{Sch}_{ S }$ we can define a Frobenius morphism,
+$F_G\colon G \to G^{(p)}$, and a Vershiebung morphism, $V_G \colon G^{(p)} \to G$.
+As in definition (tk: nilpotentfrobenius) we denote by 
+$F^n_G\colon G \to G^{(p^n)}$ the $n$-fold composition
+of the Frobenius.
+
+\begin{defn}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item We denote by $G[n] \coloneqq \ker F^n_G$, the kernel of the $n$-fold composition
+	of the Frobenius morphism.
+	
+\item A sheaf of groups $G$ on $S$ is said to be {\em of $F$-torsion} iff
+	$G = \varinjlim_{n \in \mathbb{N}} G[n]$.
+
+\item A sheaf of groups $G$ on $S$ is said to be {\em $F$-divisible} iff
+	$F_G\colon G \to G^{(p)}$ is an epimorphism.
+\end{enumerate}
+\end{defn}
+
+
+\begin{thm}[{\cite[\S2.2]{Messing}}]
+	In order for a sheaf of groups $G$ on $S$ to be a formal Lie group, 
+	it is necessary and sufficient that the following conditions hold:
+\begin{enumerate}
+	\item $G$ is of $F$-torsion,
+	\item $G$ is $F$-divisible,
+	\item The $G[n]$ are finite and locally free $S$-group schemes.
+\end{enumerate}
+\end{thm}
+
+
+\end{document}
