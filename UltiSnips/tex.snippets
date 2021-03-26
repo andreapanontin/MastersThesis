@@ -90,22 +90,6 @@ snippet modr "Cat of modules" wA
 \mathsf{Mod}\text{-}R
 endsnippet
 
-snippet cat "category" i
-\mathsf{$1}
-endsnippet
-
-#snippet opnss "Open subset" wA
-#\stackrel{\text{open}}{\subset} $0
-#endsnippet
-#
-snippet flsct "Full subcategory" wA
-\stackrel{\text{full}}{\subset} $0
-endsnippet
-
-#snippet hom "Hom set" w
-#\mathrm{Hom}_{$1} \left( $2, $3 \right)
-#endsnippet
-
 snippet hom "Hom set" w
 \mathrm{Hom}_{ $1 } \left( $2, $3 \right)
 endsnippet
@@ -150,20 +134,12 @@ snippet ccs "Category of Sets" iA
 \mathsf{Sets}
 endsnippet
 
-#snippet cci "Category I" iA
-#\mathsf{I}
-#endsnippet
-
 snippet cct "Category of functors from I to C" iA
 \mathsf{C}^{\mathsf{I}}
 endsnippet
 
 snippet opc "Category of open subsets" wA
 \mathsf{Op}(X$1)
-endsnippet
-
-snippet dp "p-simplex" w
-\Delta^{p$1}
 endsnippet
 
 snippet rmd "R-module" wA
@@ -194,7 +170,7 @@ snippet cchx "Cochain complex" wA
 \left( $1^{\bullet}, d_{$1} \right)
 endsnippet
 
-snippet funcotr "Functor misspell" wA
+snippet funcotr "functor misspell" wA
 functor
 endsnippet
 
@@ -228,11 +204,6 @@ endsnippet
 
 snippet shs "Sheaf stalk" wA
 \mathcal{F$1}_{$2}
-endsnippet
-
-snippet shd "Sheaf definition" wA
-$1: \mathsf{Op}(X$2)^{op} &\longrightarrow \mathsf{Ab$3} \\\
-\mathcal{U$4} &\longmapsto $5 \nonumber 
 endsnippet
 
 snippet homs "Hom set of the category of sheaves" wA
@@ -277,4 +248,16 @@ endsnippet
 
 snippet shom "sheaf hom functor" wA
 \mathcal{H}\mathrm{om}_{$1} \left( $2, $3 \right)
+endsnippet
+
+snippet fdg "Field degree" wA
+[ $1 : $2 ]
+endsnippet
+
+snippet ggr "Galois group" wA
+\mathrm{Gal}\left( $1 / $2 \right)
+endsnippet
+
+snippet ntr "Normalized trace map" wA
+T_{ $1 / $2 }
 endsnippet
