@@ -4,6 +4,184 @@
 In all that follows $p$ will be a fixed prime number.
 Moreover $R$ denotes a commutative ring.
 
+The aim of this section is to introduce, from two different points of view,
+the notions of {\em $p$-divisible group} and of {\em formal Lie group},
+and to show how the two concepts are related to one another.
+tk: do we keep it? Before doing so, though, we need to introduce a new notion, that
+of formal scheme.
+
+
+\subsection{Formal schemes}
+These concepts are thought to allow for the defintion of
+infinitesimal neighbourhoods of subschemes of schemes.
+Let's start by recalling a few useful algebra defintions.
+
+\begin{defn}[Topological rings and modules]\leavevmode\vspace{-1\baselineskip}
+\begin{enumerate}
+\item We say that a ring $R$ is a {\em topological ring} iff it is a ring endowed with a topology
+	such that both addition and multiplication are continuous maps
+	$R \cross R \to R$, where $R \cross R$ is taken with the product topology.
+
+\item We say that an $R$-module $M$, where $R$ is a topological ring,
+	is a {\em topological module} iff $M$ is enodwed with a topology such that
+	addition and scalar multiplication are both continuous, again with their source
+	taken with the product topology.
+
+\item $R$ is {\em linearly topologized} iff $0$ has a fundamental system
+	of neighbourhoods consisting of ideals.
+	Analogously $M$ is {\em linearly topologized} iff $0$ has a fundamental
+	system of neighbourhood consisting of submodules.
+
+\item If $R$ is linearly topologized, we say that the ideal $I \triangleleft R$
+	is an {\em ideal of definition} iff $I$ is open and every neighbourhood
+	of $0$ contains $I^n$ for an appropriate $n \in \mathbb{N}$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[Complete tensor product]
+	Let $R$ be a topological ring and $M, N$ be linearly topologized $R$-modules.
+	Let $M_\mu \triangleleft M$ and $N_\nu \triangleleft N$ run through
+	fundamental systems of open submodules of $M$ and $N$ respectively.
+	We endow the tensor product of $M$ and $N$ with the linear topology
+	defined by the fundamental system of open submodules
+	\begin{equation*}
+	\begin{tikzcd}
+	\ima \{ M_\mu \otimes_R N + M \otimes_R N_\nu 
+		\arrow[r, "", rightarrow] &
+	M \otimes_R N \}
+	.\end{tikzcd}
+	\end{equation*}
+	Then we define the {\em completed tensor product} as the completion
+	of the tensor product, i.e.
+	\begin{equation*}
+		M \widehat{\otimes}_R N = 
+		\varprojlim \frac{M \otimes_R N}{M_\mu \otimes_R N +
+		M \otimes_R N_\nu} =
+		\varprojlim M / M_\mu \otimes_R N / N_\nu
+	.\end{equation*}
+\end{defn}
+
+
+\begin{rem}[]
+	In the case where $R$ is a complete topological ring,
+	$M = R [\![ X_1, \ldots, X_{ n } ]\!]$
+	and $N = R [\![ Y_1, \ldots, Y_{ m } ]\!]$,
+	one obtains the isomorphism
+	\begin{equation*}
+		R [\![ X_1, \ldots, X_{ n } ]\!] \widehat{\otimes}_R
+		R [\![ Y_1, \ldots, Y_{ m } ]\!] \simeq
+		R [\![ S_1, \ldots, S_n, T_1 \ldots, T_{ m } ]\!]
+	.\end{equation*}
+	Above we denoted by $S_j \coloneqq X_j \otimes 1$
+	and by $T_j \coloneqq 1 \otimes Y_j$.
+\end{rem}
+
+
+\begin{thm}[{\cite[\S5]{Shatz}}, Grothendieck]
+	A functor from profinite $R$-algebras to sets (resp$.$ groups)
+	is representable iff it is {\em left exact}, i.e.
+	iff it commutes with fibered products and final elements.
+\end{thm}
+In what follows this theorem will be applied, sometimes
+to formal schemes. In such case, the anti-equivalence of categories (tk: make sure you define it)
+implies that one need to check {\em right exactness} instead of left exactness.
+
+
+
+\subsection{Formal Lie groups}
+In this section we will define the concept of {\em formal Lie group},
+generalizing that of Lie group, i.e. that of group (tk: I'd look for a description
+on wikipedia, if I'm not mistaken it is the infinitesimal linear expansion of
+the action of a VS on a manifold), without the restriction of convergence.
+
+As will be usual (tk: has it become so?) throughout this section we will define
+concepts both in terms of formal schemes, borrowing from \cite{Shatz},
+and in terms of {\em fppf} sheaves, borrowing from \cite{Messing}.
+
+
+tk: the following is just a draft. Please check its correctness
+
+\subsubsection{Formal scheme point of view}
+Here we fix $R$ a complete local ring and $S = \mathrm{Spec}(R)$.
+tk: for this definition I need the connected-etale short exact sequence...
+\begin{defn}[Formal Lie variety]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item A formal $S$-scheme $G$ is said to be {\em smooth} iff
+		$G^0$ is the formal spectrum of a power series ring over $R$.
+	\item A {\em formal Lie variety} over $S$ is a smooth, connected formal $S$-scheme.
+\end{enumerate}
+\end{defn}
+
+tk: these definitions will need to be checked once you settle down on how 
+to approach the previous ones.
+\begin{defn}[Formal Lie group]
+%	Let $R$ be a complete, noetherian, local ring,
+%	with residue field $k$ of characteristic $p > 0$.
+%	Let $\mathscr{A} \coloneqq R [\![ X_1, \ldots, X_{ n } ]\!]$
+%	be the ring of formal power series in $n$ variables,
+%	and $\mathscr{A} \widehat{\otimes}_R \mathscr{A}$ the ring of formal power series 
+%	in $2n$ variables.
+%	An {\em $n$-dimensional formal Lie group $\Gamma$ over $R$} is 
+%	given by $\Gamma \coloneqq \mathrm{Spec}\, \mathscr{A}$,
+%	(tk: are you sure? The more I read, the more I am {\em un}sure...)
+%	where the group law is defined by a homomorphism of $R$-algebras 
+	A {\em formal Lie group} is a group object in the category of
+	formal Lie varieties.
+	More explicitly it is $\Gamma \coloneqq \mathrm{Spf}\left( \mathscr{A} \right)$,
+	where $\mathscr{A} \coloneqq R [\![ X_1, \ldots, X_{ n } ]\!]$
+	and $n$ is its dimension. 
+	Moreover its group law is given by a ring homomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		f\colon \mathscr{A} \arrow[r, "", rightarrow] &
+		\mathscr{A} \widehat{\otimes}_R \mathscr{A} =
+		R [\![ X_1, \ldots, X_{ 2n } ]\!]
+	,\end{tikzcd}
+	\end{equation*} 
+	satisfying the following conditions:
+	\begin{enumerate}
+		\item {\em $\varepsilon$ axiom:} $X = f(X,0) = f(0,X)$,
+		\item {\em coassociativity:} $f(X, f(Y,Z)) = f(f(X,Y), Z)$,
+		\item {\em commutativity:} $f(X,Y) = f(Y,X)$.
+	\end{enumerate}
+	Notice that any such morphism $f$ is just the data of 
+	$\left( f_i(Y,Z) \right)_{i=1}^n$, power series in $2n$ variables, where
+	$f_i$ is the image of $X_i$ via $f$.
+	Then one, at the level of $R$-algebras, introduces the notation
+	\begin{equation*}
+		X \ast Y \coloneqq f(X,Y)
+	.\end{equation*} 
+\end{defn}
+
+\begin{rem}[]
+	These axioms are enough to grant the existance of the inverse for any element of $\Gamma$,
+	hence they suffice to give $\Gamma$ a group scheme structure.
+\end{rem}
+
+
+\begin{defn}[divisible formal groups]
+	We define the map multiplication by $p$ on $\Gamma$ as the map $p\colon \Gamma \to \Gamma$
+	associated to 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\psi\colon \mathscr{A} \arrow[r, "", rightarrow] &
+		\mathscr{A} \widehat{\otimes}_R \mathscr{A} \\
+		X \arrow[r, "", mapsto] & 
+		X \ast \ldots \ast X
+	\quad \text{($p$ times)}
+	.\end{tikzcd}
+	\end{equation*} 
+	A formal Lie group $\Gamma$ is said to be {\em divisible} iff the map $p$ is 
+	an isogeny, i.e. it is surjective and has finite kernel.
+\end{defn}
+
+
+\subsection{\texorpdfstring{$p$}{p}-divisible groups}
 \begin{defn}[$p$-divisible group]
 	A {\em $p$-divisible group} over $R$ of height $h \in \mathbb{N}_+$ is an inductive system
 	\begin{equation*}
@@ -35,63 +213,7 @@ Moreover $R$ denotes a commutative ring.
 	.\end{equation*} 
 \end{rem}
 
-
-\begin{defn}[Formal Lie group]
-	Let $R$ be a complete, noetherian, local ring,
-	with residue field $k$ of characteristic $p > 0$.
-	Let $\mathscr{A} \coloneqq R [\![ X_1, \ldots, X_{ n } ]\!]$
-	be the ring of formal power series in $n$ variables,
-	and $\mathscr{A} \widehat{\otimes}_R \mathscr{A}$ the ring of formal power series 
-	in $2n$ variables.
-	An {\em $n$-dimensional formal Lie group $\Gamma$ over $R$} is 
-	given by $\Gamma \coloneqq \mathrm{Spec}\, \mathscr{A}$,
-	(tk: are you sure? The more I read, the more I am {\em un}sure...)
-	where the group law is defined by a homomorphism of $R$-algebras 
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		f\colon \mathscr{A} \arrow[r, "", rightarrow] &
-		\mathscr{A} \widehat{\otimes}_R \mathscr{A}
-	,\end{tikzcd}
-	\end{equation*} 
-	satisfying the following conditions:
-	\begin{enumerate}
-		\item {\em $\varepsilon$ axiom:} $X = f(X,0) = f(0,X)$,
-		\item {\em coassociativity:} $f(X, f(Y,Z)) = f(f(X,Y), Z)$,
-		\item {\em commutativity:} $f(X,Y) = f(Y,X)$.
-	\end{enumerate}
-	Notice that any such morphism $f$ is just the data of 
-	$\left( f_i(Y,Z) \right)_{i=1}^n$, power series in $2n$ variables, where
-	$f_i$ is the image of $X_i$ via $f$.
-	Then one, at the level of $R$-algebras, introduces the notation
-	\begin{equation*}
-		X \ast Y \coloneqq f(X,Y)
-	.\end{equation*} 
-\end{defn}
-
-\begin{rem}[]
-	These axioms are enough to grant the existance of the inverse for any element of $\Gamma$,
-	hence they suffice to give $\Gamma$ a group scheme structure.
-\end{rem}
-
-
-\begin{ex}[]
-	We define the map multiplication by $p$ on $\Gamma$ as the map $p\colon \Gamma \to \Gamma$
-	associated to 
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\psi\colon \mathscr{A} \arrow[r, "", rightarrow] &
-		\mathscr{A} \widehat{\otimes}_R \mathscr{A} \\
-		X \arrow[r, "", mapsto] & 
-		X \ast \ldots \ast X
-	\quad \text{($p$ times)}
-	.\end{tikzcd}
-	\end{equation*} 
-	A formal Lie group $\Gamma$ is said to be {\em divisible} iff the map $p$ is 
-	an isogeny, i.e. it is surjective and has finite kernel.
+\begin{ex}
 	In such case one can define a $p$-divisible group of height $h$
 	over $R$, starting from $\Gamma$, by:
 	\begin{equation*}
@@ -147,5 +269,9 @@ Moreover $R$ denotes a commutative ring.
 	to $G^0$.
 \end{defn}
 
+
+tk: add section on dual of $p$-divisible group. Maybe add a remark about
+the definition from Messing, in order to prepare to
+the comparison with formal Lie groups.
 
 \end{document}
