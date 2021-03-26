@@ -206,7 +206,7 @@ In case it is given in chapter $17$ of the stacks project.
 		\end{tikzcd}
 		\end{equation*} 
 		induced by the canonical mapping
-		$\underline{\omega}_X \xrightarrow{\sim} \mathrm{gr}^{\mathrm{inf}}(X)$,
+		$\underline{\omega}_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$,
 		where we denoted the conormal sheaf of the immersion $S \hookrightarrow X$
 		by $\underline{\omega}_X \simeq e^*_X \left( \Omega_{X/S} \right)$.
 \end{enumerate}
@@ -238,8 +238,9 @@ Assume now that our base scheme $S$ is of characteristic $p  > 0$.
 Then, as done in the previous section (tk: reference to the construction),
 on any finite commutative group scheme 
 $G \in \mathsf{Sch}_{ S }$ we can define a Frobenius morphism,
-$F_G\colon G \to G^{(p)}$, and a Vershiebung morphism, $V_G \colon G^{(p)} \to G$.
-As in definition (tk: nilpotentfrobenius) we denote by 
+$F_G\colon G \to G^{(p)}$, and a Verschiebung morphism, $V_G \colon G^{(p)} \to G$.
+Recall that $F_G \circ V_G = V_G \circ F_G = p \cdot \mathrm{id}_{ G }$.
+Moreover, as in \cref{defn:nilpotentFrobenius} we denote by 
 $F^n_G\colon G \to G^{(p^n)}$ the $n$-fold composition
 of the Frobenius.
 
@@ -265,6 +266,25 @@ of the Frobenius.
 	\item $G$ is $F$-divisible,
 	\item The $G[n]$ are finite and locally free $S$-group schemes.
 \end{enumerate}
+\end{thm}
+
+
+\begin{thm}[{\cite[\S2.2]{Messing}}]
+	Let $G$ be a {\em Barsotti-Tate} group over $S$.
+	Then $\varinjlim_{n \in \mathbb{N}} G[n]$ is a {\em formal Lie group}
+	and is equal to $\overline{G} \coloneqq \varinjlim_{n \in \mathbb{N}} \mathrm{Inf}^k(G)$.
+\end{thm}
+
+
+Actually, after quite some work, one can extend the above result to the case
+in which the base scheme $S$ is not necessarily of characteristic $p$,
+but in which $p$ is only {\em locally nilpotent}.
+In fact Messing proved the following.
+\begin{thm}[{\cite[\S2.3.3]{Messing}}]
+	Let $p$ be locally nilpotent on $S$ and $G$ be a Barsotti-Tate group
+	on $S$.
+	Then $\overline{G} = \varinjlim_{k \in \mathbb{N}}\mathrm{Inf}^k(G)$
+	is a {\em formal Lie group}.
 \end{thm}
 
 
