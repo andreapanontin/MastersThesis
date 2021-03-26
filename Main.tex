@@ -2,10 +2,12 @@
 \documentclass[a4paper,10pt,titlepage]{article}% use option titlepage to get the title on a page of its own.
 \usepackage[utf8]{inputenc}
 
+
 %Font
 \usepackage{crimson}
 \usepackage[T1]{fontenc}
 %\setmathfont{XITS Math}
+
 
 %Packages from old files
 %\usepackage{ucs}
@@ -17,12 +19,14 @@
 \usepackage{mathrsfs}
 \usepackage{centernot}
 
+
 %From the internet
 %Questo Pacchetto serve per modificare le impostazioni del line spacing inline
 \usepackage{setspace}
 \usepackage{graphicx}
 %Per le liste nelle descrizioni degli algoritmi
 \usepackage{enumitem}
+
 
 %Commutative diagrams
 \usepackage{tikz}
@@ -32,21 +36,26 @@
 % To use some colours
 \usepackage{xcolor}
 
+
 %Appendices
 \usepackage[title]{appendix}
 
-%Per il Frontespizio
+
+%Legacy: I used them for the titlepage
 \usepackage{tabularx}
 \usepackage{geometry}
 
-%Dal Darione
+
+%From Darione
 %Modifies the margins and aspect ratio
 \usepackage{layaureo}
 %Allows to load subfiles which can be compiled on their own
 \usepackage{subfiles}
 
+
 \usepackage{mathtools}
 \setlist[description]{leftmargin=3.2em,labelindent=3.2em}
+
 
 %New useful operators:
 \DeclareMathOperator{\sign}{sign}
@@ -58,6 +67,7 @@
 
 %QED symbol
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+
 
 %Bibliography
 \usepackage{csquotes}
@@ -73,6 +83,7 @@ eprint=false
 \usepackage{hyperref}
 \usepackage{cleveref}
 \addbibresource{Bibliography.bib}
+
 
 %Theorem environments
 \newtheoremstyle{example}

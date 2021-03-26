@@ -27,8 +27,14 @@ in what follows.
 	\begin{equation*}
 		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
 	.\end{equation*} 
+	If we view $G$, by \cref{thm:reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}_{ S }$, instead,
+	we will use the notation
+	\begin{equation*}
+		\Gamma \left( T, G \right) \coloneqq G(T)
+	\end{equation*}
+	for the sections of $G$ on $T$.
 	If, in particular, $G$ is a {\em group scheme} then, by definition,
-	$G(T)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
+	$G(T) = \Gamma(T,G)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
 \end{rem}
 
 
@@ -1204,18 +1210,19 @@ tk: for this section please add some references (not only the course from Essen)
 \end{rem}
 
 
-\begin{defn}[Notation]
+\begin{ntt}
 	Given a morphism of $R$-schemes $f\colon X \to Y$,
-	we define the morphism $f^{(p)}$ as the morphism
+	we define 
+	%the morphism $f^{(p)}$ as the morphism
 	\begin{equation}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		f \cross id\colon X^{(p)} \arrow[r, "", rightarrow] &
+		f^{(p)} \coloneqq f \cross id\colon X^{(p)} \arrow[r, "", rightarrow] &
 		Y^{(p)}
 	.\end{tikzcd}
 	\end{equation} 
-\end{defn}
+\end{ntt}
 
 
 \begin{lem}\label{lem:FrobeniusHomomorphism}
