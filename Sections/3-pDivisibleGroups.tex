@@ -7,13 +7,20 @@ Moreover $R$ denotes a commutative ring.
 The aim of this section is to introduce, from two different points of view,
 the notions of {\em $p$-divisible group} and of {\em formal Lie group},
 and to show how the two concepts are related to one another.
-tk: do we keep it? Before doing so, though, we need to introduce a new notion, that
+Before doing so, though, we need to introduce a new notion, that
 of formal scheme.
 
 
 \subsection{Formal schemes}
-These concepts are thought to allow for the defintion of
-infinitesimal neighbourhoods of subschemes of schemes.
+These definitions are meant to allow to capture infinitesimal
+information, which is not present in the construction of schemes.
+We will not have time to discuss such interpretation, and will
+only restrict to stating the definitions and results which will
+be needed in what follows.
+This section is strongly inspired from 
+\cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP},
+which in turn bases itself on \cite[\S10]{EGA1}.
+
 Let's start by recalling a few useful algebra defintions.
 
 \begin{defn}[Topological rings and modules]\leavevmode\vspace{-1\baselineskip}
@@ -35,11 +42,13 @@ Let's start by recalling a few useful algebra defintions.
 \item If $R$ is linearly topologized, we say that the ideal $I \triangleleft R$
 	is an {\em ideal of definition} iff $I$ is open and every neighbourhood
 	of $0$ contains $I^n$ for an appropriate $n \in \mathbb{N}$.
+
+\item $R$ is {\em admissible} iff it has an ideal of defintion and it is {\em complete}.
 \end{enumerate}
 \end{defn}
 
 
-\begin{defn}[Complete tensor product]
+\begin{defn}[Completed tensor product]
 	Let $R$ be a topological ring and $M, N$ be linearly topologized $R$-modules.
 	Let $M_\mu \triangleleft M$ and $N_\nu \triangleleft N$ run through
 	fundamental systems of open submodules of $M$ and $N$ respectively.
@@ -78,18 +87,217 @@ Let's start by recalling a few useful algebra defintions.
 \end{rem}
 
 
+\begin{defn}[Pseudo-discrete sheaves]
+	A sheaf of topological rings (analogously modules, etc)
+	is called {\em pseudo-discrete} iff, for all $U \subset X$,
+	$\mathcal{F}(U)$ is enodwed with the discrete topology.
+\end{defn}
+
+
+\begin{defn}[Associated pseudo-discrete sheaf]\label{defn:AssociatePDSheaf}
+	Let $X$ be a topological space with a basis of the topology
+	consisting of quasi compact open subsets (for example $\mathrm{Spec}(R)$
+	for a ring $R$).
+	Given any sheaf $\mathcal{F}$ of rings (analogously modules, etc)
+	we define the {\em associated pseudo-discrete sheaf},
+	still denoted by $\mathcal{F}$, as the sheaf
+	of {\em topological} rings (analog$.$ modules, etc)
+	with topologies defined as follows.
+	To each $U \subset X$ open and quasi compact we endow
+	$\mathcal{F}(U)$ with the discrete topology.
+	For an arbitrary open $U = \cup_{i \in I} U_i$, where $U_i$ are all
+	quasi compact open, we endow $\mathcal{F}(U)$ with the
+	induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$.
+\end{defn}
+
+
+\begin{rem}[]
+	In the above one should verify good definition of the topology
+	and also should define how to endow $\mathcal{F}(U)$
+	with the induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$.
+	For questions of space we will leave these verifications to
+	\cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP}
+	and \cite[\S10]{EGA1}.
+\end{rem}
+
+
+\begin{defn}[Locally topologically ringed spaces]
+	We define a {\em locally topologically ringed space}, 
+	for short {\em ltrs}, to be a pair
+	$( X , \mathcal{O}_{ X } )$ consisting of a topological space $X$
+	and a sheaf of topological rings $\mathcal{O}_X$,
+	whose stalks are local rings.
+	A {\em morphism of ltrs}
+	$( X , \mathcal{O}_{ X } ) \to  ( Y , \mathcal{O}_{ Y } )$
+	is a pair $\left(f, f^\#\right)$,
+	where $f\colon X \to Y$ is a continuous map
+	and $f^\#\colon \mathcal{O}_Y \to f_* \mathcal{O}_X$ is
+	a morphism of sheaves such that, for all $V \subset Y$ open,
+	the map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		f^\#_V\colon \mathcal{O}_{ X }(V) \arrow[r, "", rightarrow] &
+		\mathcal{O}_{ X }(f^{-1}(V))
+	\end{tikzcd}
+	\end{equation*} 
+	is continuous and, for all $x \in X$, the induced map at the level
+	of stalks
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		f^\#_x\colon \mathcal{O}_{ Y,f(x) } \arrow[r, "", rightarrow] &
+		\mathcal{O}_{ X,x }
+	\end{tikzcd}
+	\end{equation*} 
+	is a local homomorphism of rings (here we forget about topology).
+\end{defn}
+
+
+We now have enough basic definitions to give that of formal scheme.
+Let's notice that this construction follows that of \cite[\S10]{EGA1},
+hence all of the verifications can be checked there.
+
+\begin{defn}[Affine formal scheme]\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+\item Let $A$ be an {\em admissible ring}, with fundamental system of
+	neighbourhoods $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$.
+	We define
+	\begin{equation*}
+	\mathrm{Spf}(A) \coloneqq
+	\left\{ \mathfrak{p} \triangleleft A \ \middle|\ \mathfrak{p}
+	\text{ is open and prime}\, \right\} \subset \mathrm{Spec}(A)
+	,\end{equation*}
+	and endow $\mathrm{Spf}(A)$ with the subset topology.
+	For each $\lambda \in \Lambda$, one can associate,
+	as in \cref{defn:AssociatePDSheaf},
+	to the structure sheaf $\mathcal{O}_{\mathrm{Spec}(A/I_\lambda)}$
+	of $\mathrm{Spec}(A/I_\lambda)$,
+	a pseudo-discrete sheaf, which we will denote by $\mathcal{O}_\lambda$.
+	One should indeed notice that, for all $I_\lambda$,
+	$\mathrm{Spec}(A/I_\lambda)$ has indeed tha the same topological space
+	of $\mathrm{Spf}(A)$.
+	Moreover, for $I_\lambda \subset I_\mu$, one has an induced homomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{Spec}(A/I_\mu) \arrow[r, "", rightarrow] &
+		\mathrm{Spec}(A/I_\lambda)
+	,\end{tikzcd}
+	\end{equation*} 
+	which gives rise to a compatible system.
+	Then one defines
+	\begin{equation*}
+	\mathcal{O}_{\mathrm{Spf}(A)} \coloneqq
+	\varprojlim_{\lambda \in \Lambda} \mathcal{O}_\lambda
+	,\end{equation*}
+	where the limit is taken in the category of sheaves of topological rings.
+	Finally one defines the pair $( \mathrm{Spf}(A) , \mathcal{O}_{ \mathrm{Spf}(A) } )$
+	to be the {\em formal spectrum} of $A$.
+
+\item A {\em ltrs} is said to be an {\em affine formal scheme} iff it is isomorphic,
+	as ltrs, to the spectrum of an admissible ring.
+	A morphism of affine formal schemes is just a morphism of the underlying
+	locally topologically ringed spaces.
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]
+	As in the definition of associated pseudo-discrete sheaf, in the above
+	there are many details to be checked and filled.
+	Again we will leave them to \cite[\S10]{EGA1}.
+\end{rem}
+
+
+\begin{rem}[]\label{rem:EquivalenceFormalAffineSchemes}
+	One can prove that, mush like with affine schemes, the category of affine
+	formal schemes is anti-equivalent to that of admissible topological rings.
+	In particular we have
+	\begin{equation*}
+	\mathrm{Hom}_{\mathsf{ltrs}} \left( \mathrm{Spf}(B), \mathrm{Spf}(A) \right) \simeq
+	\mathrm{Hom}_{ \mathrm{cont} } \left( A, B \right)
+	,\end{equation*}
+	where in the left hand side we denoted by $\mathsf{ltrs}$ the category of
+	locally topologically ringed spaces, whereas in the right hand side
+	we considered only continuous morphisms of rings, i.e. morphisms
+	in the category of admissible topological rings.
+\end{rem}
+
+
+\begin{defn}[Formal scheme]
+	A {\em formal scheme} is a ltrs $( \mathfrak{X} , \mathcal{O}_{ \mathfrak{X} } )$
+	such that every point has an open neighbourhood isomorphic,
+	in $\mathsf{ltrs}$, to an {\em affine formal scheme}.
+	A morphism of formal schemes is just a morphism of the underlying
+	locally topologically ringed spaces.
+\end{defn}
+
+
+\begin{rem}[]
+	Following the construction of associated pseudo-discrete sheaf,
+	to any sheaf one can associate a formal sheaf.
+	This actually gives rise to a fully faithful embedding of the category of schemes
+	in that of formal schemes.
+\end{rem}
+
+
+To ease the transition to the study of $p$-divisible groups
+let's also recall a couple of results with these objects.
+\begin{rem}[]
+	In this remark we will restrict to the affine case, because it will be
+	our main interest.
+	Given an admissible ring $A$, with fundamental system of
+	of ideals $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$, then
+	we have
+	\begin{equation*}
+	\mathrm{Spf}(A) \simeq \varinjlim_{\lambda \in \Lambda} \mathrm{Spec}(A/I_\lambda)
+	\end{equation*}
+	in the category of formal schemes.
+	In fact, as can be seen in \cite[\S10.6]{EGA1}, one can do a similar construction
+	with formal schemes.
+	Hence we can view these last as inductive limits of ordinary schemes.
+\end{rem}
+
+
+\begin{rem}[]\label{rem:VeryFiniteSchemes}
+	Moreover, with regards to the construction of $p$-divisible groups
+	and formal Lie groups, we will follow \cite[\S5]{Shatz} for the point
+	of view of formal schemes.
+	Then, as we will remark again, we fix $R$ a 
+	complete local admissible ring and $S \coloneqq \mathrm{Spec}(R)$.
+	Moreover we will meainly deal with formal affine schemes over $S$ which
+	are given by inductive limits of what Shatz defines {\em very finite} scheme over $S$.
+	These are $S$-schemes $T$ satisfying:
+	\begin{enumerate}
+		\item $T$ is {\em finite} over $S$ (hence affine);
+		\item the $R$-module $\Gamma \left( T , \mathcal{O}_{ T } \right)$
+			is of finite length.
+	\end{enumerate}
+	Specializing \cref{rem:EquivalenceFormalAffineSchemes} to the case of
+	formal affine schemes over $S$, 
+	as just defined,
+	we obtain an anti-equivalence of categories with the category of
+	profinite $R$-algebras.
+	This is the setting in which we will state most results in the 
+	formal scheme setting in the following sections.
+\end{rem}
+
+
+tk: even though it is a pretty powerful result, is it really needed?
 \begin{thm}[{\cite[\S5]{Shatz}}, Grothendieck]
-	A functor from profinite $R$-algebras to sets (resp$.$ groups)
+	A functor from profinite $R$-algebras to $\mathsf{Sets}$ (resp$.$ $\mathsf{Gp}$)
 	is representable iff it is {\em left exact}, i.e.
 	iff it commutes with fibered products and final elements.
 \end{thm}
-In what follows this theorem will be applied, sometimes
-to formal schemes. In such case, the anti-equivalence of categories (tk: make sure you define it)
+In what follows this theorem will be applied, sometimes,
+to formal schemes. In such case, the anti-equivalence of \cref{rem:EquivalenceFormalAffineSchemes}
 implies that one need to check {\em right exactness} instead of left exactness.
 
-
-
-\subsection{Formal Lie groups}
+\subsection{Formal groups and formal Lie groups}
 In this section we will define the concept of {\em formal Lie group},
 generalizing that of Lie group, i.e. that of group (tk: I'd look for a description
 on wikipedia, if I'm not mistaken it is the infinitesimal linear expansion of
@@ -103,9 +311,59 @@ and in terms of {\em fppf} sheaves, borrowing from \cite{Messing}.
 tk: the following is just a draft. Please check its correctness
 
 \subsubsection{Formal scheme point of view}
-Here we fix $R$ a complete local ring and $S = \mathrm{Spec}(R)$.
-tk: for this definition I need the connected-etale short exact sequence...
-\begin{defn}[Formal Lie variety]\leavevmode\vspace{-.2\baselineskip}
+As anticipated in \cref{rem:VeryFiniteSchemes},
+we fix $R$ a complete local admissible ring, $S \coloneqq \mathrm{Spec}(R)$
+and we work only with inductive limits of {\em very finite} $S$-schemes.
+\begin{defn}[Formal group schemes]
+	A {\em formal group scheme}
+	is just a group object in the category of formal schemes,
+	 as defined in \cref{rem:groupObject}.
+	Analogously a {\em formal $S$-group scheme}
+	is a group object in the category of formal schemes over $S$.
+\end{defn}
+
+
+\begin{rem}[]\label{rem:FormalHopf}
+	As with the case of group schemes, in the affine case
+	$G = \mathrm{Spf}(\mathscr{A})$,
+	one defines, on $\mathscr{A}$, comultiplication, antipode and counit morphisms
+	with the usual properties of \cref{defn:HopfAlgebra}.
+	One should note, though, that in the category of 
+	profinite $R$-algebras, the coproduct id given by
+	the completed tensor product, hence the comultiplication
+	is a morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\widetilde{m}\colon \mathscr{A} \arrow[r, "", rightarrow] &
+		\mathscr{A} \widehat{\otimes}_R \mathscr{A}
+	.\end{tikzcd}
+	\end{equation*} 
+\end{rem}
+
+
+One can generalize the results of \cref{thm:ConnecteEtaleSequenceGS} to this new setting.
+\begin{thm}[{\cite[\S5]{Shatz}}]
+	Let $G$ be a formal group scheme over $S$.
+	Then there is a canonical exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G^0 \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		G^{et} \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	in which $G^0$ is a connected normal formal group of $G$
+	and $G^{et}$ is an étale formal group.
+\end{thm}
+
+
+The following definition is, again, not the most general one, but
+the right one in our context.
+\begin{defn}[Formal Lie variety]\leavevmode\vspace{-1\baselineskip}
 \begin{enumerate}
 	\item A formal $S$-scheme $G$ is said to be {\em smooth} iff
 		$G^0$ is the formal spectrum of a power series ring over $R$.
@@ -113,8 +371,6 @@ tk: for this definition I need the connected-etale short exact sequence...
 \end{enumerate}
 \end{defn}
 
-tk: these definitions will need to be checked once you settle down on how 
-to approach the previous ones.
 \begin{defn}[Formal Lie group]
 %	Let $R$ be a complete, noetherian, local ring,
 %	with residue field $k$ of characteristic $p > 0$.
@@ -131,7 +387,18 @@ to approach the previous ones.
 	More explicitly it is $\Gamma \coloneqq \mathrm{Spf}\left( \mathscr{A} \right)$,
 	where $\mathscr{A} \coloneqq R [\![ X_1, \ldots, X_{ n } ]\!]$
 	and $n$ is its dimension. 
-	Moreover its group law is given by a ring homomorphism
+\end{defn}
+
+
+\begin{rem}[]
+	As stated in \cref{rem:FormalHopf}, since a formal Lie group
+	is an affine formal scheme, one gets a Hopf algebra structure
+	on $\mathscr{A}$.
+	As formal Lie groups are often introduced giving focus only
+	on the comultiplication morphism and its axioms, we will
+	recall them here, with names which can be found in the literature.
+	More explicitly comultiplication of the formal Lie group
+	$\mathrm{Spf}(\mathscr{A})$ is a morphism of topological rings
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -150,20 +417,25 @@ to approach the previous ones.
 	Notice that any such morphism $f$ is just the data of 
 	$\left( f_i(Y,Z) \right)_{i=1}^n$, power series in $2n$ variables, where
 	$f_i$ is the image of $X_i$ via $f$.
-	Then one, at the level of $R$-algebras, introduces the notation
+	Again, as is often found in the literature, one denotes the image of
+	comultiplication by
 	\begin{equation*}
 		X \ast Y \coloneqq f(X,Y)
 	.\end{equation*} 
-\end{defn}
-
-\begin{rem}[]
-	These axioms are enough to grant the existance of the inverse for any element of $\Gamma$,
+	One can also stress that these axioms are enough to grant
+	the existance of the inverse for any element of $\Gamma$,
 	hence they suffice to give $\Gamma$ a group scheme structure.
+
+	(tk: make this note a bit better.)
+	Finally a note on the terminology one often finds: this
+	is chosen to be closer to the analogous concept of Lie groups
+	in differential geometry.
 \end{rem}
 
 
 \begin{defn}[divisible formal groups]
-	We define the map multiplication by $p$ on $\Gamma$ as the map $p\colon \Gamma \to \Gamma$
+	We define the map multiplication by $p$ on $\Gamma \coloneqq \mathrm{Spf}(\mathscr{A})$
+	as the map $p\colon \Gamma \to \Gamma$
 	associated to 
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -178,7 +450,202 @@ to approach the previous ones.
 	\end{equation*} 
 	A formal Lie group $\Gamma$ is said to be {\em divisible} iff the map $p$ is 
 	an isogeny, i.e. it is surjective and has finite kernel.
+	This means that $\mathscr{A}$ is a {\em free} module of finite rank over itself.
 \end{defn}
+
+
+
+\subsubsection{{\em fppf} sheaves point of view}
+tk: this part has to be read again, it was just a copy-paste!
+Moreover I have to fix the references (I can quote directly the theorem number!)
+
+In the following part we will always write groups over $S$, or $S$-group, to mean
+an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
+Also the schemes $X, Y$ will be viewed as sheaves on $S$
+for the {\em fppf} topology.
+Recall that, for $Y \in \mathsf{Sch}_{ S }$, sections on
+$T \in \mathsf{Sch}_{ S }$ of $Y$ are just $T$-points and,
+as usual with sheaves, will denote them by
+\begin{equation*}
+	\Gamma \left( T, Y \right) \coloneqq Y(T)
+.\end{equation*}
+
+
+\begin{defn}[$k$-th infinitesimal neighbourhood]\label{defn:kInfNeighbourhood}
+	Let $Y \hookrightarrow X$ be a monomorphism of {\em fppf} sheaves.
+	We define $\mathrm{Inf}_Y^k(X)$ as the subsheaf of $X$,
+	whose sections over an $S$-scheme $T$, denoted by $\Gamma ( T , \mathrm{Inf}_Y^k(X) )$,
+	are given as follows:
+	$\Gamma ( T , \mathrm{Inf}_Y^k(X) )$ is the subsets of all
+	$t \in \Gamma \left( T, X \right)$ such that
+	there is a covering $\left\{ T_{ i } \to T \right\}_{ i \in I }$
+	of $T$ and, for each $i$, a closed subscheme $T_i'$ of $T_i$,
+	defined by an ideal whose $(k+1)$-st power is $(0)$,
+	with the property that every element $\left.t\right|_{T_i'} \in \Gamma(T'_i, X)$
+	is already an element of $\Gamma(T_i', Y)$.
+\end{defn}
+
+
+\begin{defn}[]
+	Let $X$ be a sheaf on $S$, with a section $e_X\colon S \to X$.
+	If this section is clear from context, e.g. in case we have
+	$(X, e_X)$ a pointed sheaf on $S$, i.e. a sheaf on $S$
+	given with a section $e_X\colon S \hookrightarrow X$,
+	we will write $\mathrm{Inf}^k(X)$
+	instead of $\mathrm{Inf}_S^k(X)$.
+\end{defn}
+
+
+\begin{defn}[Ind-infinitesimal sheaf]
+	A pointed sheaf $\left(X, e_X\right)$ is called {\em ind-infinitesimal} iff,
+	as an {\em fppf sheaf}
+	\begin{equation*}
+		X = \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(X)
+	.\end{equation*}
+\end{defn}
+
+
+Right now we need to introduce a couple more concepts from algebraic
+geometry to make sense of the definitions which are at the heart of this section.
+\begin{defn}[Quasi-coherent sheaf of $\mathcal{O}_{ X }$-modules]
+	Let $\mathcal{F}$ be a sheaf of $\mathcal{O}_{ X }$-modules.
+	We say that $\mathcal{F}$ is a {\em quasi-coherent sheaf of $\mathcal{O}_{ X }$-modules}
+	iff, for every point $x \in X$, there is an open neighbourhood $x \in U \subset X$
+	on which $\left.\mathcal{F}\right|_{U}$ is isomorphic to the cokernel
+	of a map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\bigoplus_{j \in J} \mathcal{O}_{ U } \arrow[r, "", rightarrow] &
+		\bigoplus_{i \in I} \mathcal{O}_{ U }
+	.\end{tikzcd}
+	\end{equation*}
+	More explicitly this means that $X$ is covered by open subsets $U$,
+	on each of which $\left.\mathcal{F}\right|_{U}$ admits a presentation
+	of the form of the following exact sequence:
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex]
+		\bigoplus_{j \in J} \mathcal{O}_{ U } \arrow[r, "", rightarrow] &
+		\bigoplus_{i \in I} \mathcal{O}_{ U } \arrow[r, "", rightarrow] &
+		\left.\mathcal{F}\right|_{U} \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	This implies that:
+	\begin{enumerate}
+		\item for all $x \in X$ there is an open neighbourhood $x \in U \subset X$
+			on which $\left.\mathcal{F}\right|_{U}$ is generated by global sections;
+
+		\item for a suitable choice of these sections, the kernel of the associated surjection
+			is also generated by global sections.
+	\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[Conormal sheaf of an immersion]
+	Let $i\colon Z \to X$ be a closed immersion of schemes.
+	Let $\mathcal{I} \subset \mathcal{O}_X$ be the corresponding
+	quasi-coherent sheaf of ideals.
+	Then the sheaf $\mathcal{I}/\mathcal{I}^2$ is annihilated by $\mathcal{I}$,
+	hence it corresponds to a sheaf on $Z$.
+	This last sheaf, denoted with $\underline{\omega}_i$, is called the {\em conormal
+	sheaf} of $Z$ in $X$, or the conormal sheaf of the immersion.
+	In case we are given a pointed sheaf on $S$ $\left(X, e_X\right)$, we will denote 
+	the conormal sheaf of the immersion $e_X$ simply by
+	$\underline{\omega}_X$.
+\end{defn}
+tk: I should prove that $S \hookrightarrow X$ is a closed immersion
+
+
+And now back to our interests.
+\begin{defn}[Formal Lie variety]
+	A pointed sheaf $\left(X, e_X\right)$ on $S$ is said to be
+	a {\em formal Lie variety} iff it satisfies the following:
+\begin{enumerate}
+	\item $X$ is ind-infinitesimal and $\mathrm{Inf}^k(X)$, viewed
+		as a sheaf in the {\em fppf} topology,
+		is representable for all $k \geq 0$;
+	\item $\underline{\omega}_X \simeq
+		e_X^* \left( \Omega_{X/S} \right) \simeq
+		e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$
+		is {\em locally free of finite type};
+	\item Denoting by $\mathrm{gr}^{\mathrm{inf}}(X)$ the unique graded $\mathcal{O}_{ S }$-algebra
+		such that $\mathrm{gr}^{\mathrm{inf}}_i(X) = \mathrm{gr}_i(\mathrm{Inf}^i(X))$,
+		we have an isomorphism
+		\begin{equation*}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{Sym}\left( \underline{\omega}_X \right) \arrow[r, "\sim", rightarrow] &
+				\mathrm{gr}^{\mathrm{inf}}(X)
+		\end{tikzcd}
+		\end{equation*}
+		induced by the canonical mapping
+		$\underline{\omega}_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[Formal Lie group]
+	A {\em formal Lie group} over $S$ is a group object $\left(G, e_G\right)$
+	in the category of formal Lie varieties over $S$.
+\end{defn}
+tk: I think this is going to be fundamental in order to take duals, etc.
+In the following we will always assume that a formal Lie group $\left(G, e_G\right)$
+is commutative.
+
+tk: do I keep this remark?
+Our next aim is to find a connection between Barsotti-Tate groups and formal Lie groups,
+so let's start with some preliminary result:
+\begin{lem}[{\cite[\S2.1]{Messing}}]
+	Let $G$ be a group scheme on $S$.
+	Then $\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
+	is also a group.
+\end{lem}
+
+
+Assume now that our base scheme $S$ is of characteristic $p  > 0$.
+\begin{rem}[Frobenius and Verschiebung]
+One can generalize the definitions given for finite commutative group scheme
+in \cref{sec:FrobeniusVerschiebung}.
+In fact, looking at how they act on $S$-points, these
+definitions can be generalized to any contravariant functor
+from $\mathsf{Sch}_{ S }$ to $\mathsf{Sets}$.
+Then, on any sheaf of groups $G$, a Frobenius morphism,
+denoted again by $F_G\colon G \to G^{(p)}$, 
+and a Verschiebung morphism, denoted by $V_G \colon G^{(p)} \to G$.
+Moreover, as in \cref{defn:nilpotentFrobenius} we denote by
+$F^n_G\colon G \to G^{(p^n)}$ the $n$-fold composition
+of the Frobenius.
+\end{rem}
+
+
+\begin{defn}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item We denote by $G[n] \coloneqq \ker F^n_G$, the kernel of the $n$-fold composition
+	of the Frobenius morphism.
+
+\item A sheaf of groups $G$ on $S$ is said to be {\em of $F$-torsion} iff
+	$G = \varinjlim_{n \in \mathbb{N}} G[n]$.
+
+\item A sheaf of groups $G$ on $S$ is said to be {\em $F$-divisible} iff
+	$F_G\colon G \to G^{(p)}$ is an epimorphism.
+\end{enumerate}
+\end{defn}
+
+Finally we can more easily characterize the formal Lie groups over
+$S$ of characteristic $p$.
+\begin{thm}[{\cite[\S2.2]{Messing}}]
+	In order for a sheaf of groups $G$ on $S$ to be a formal Lie group,
+	it is necessary and sufficient that the following conditions hold:
+\begin{enumerate}
+	\item $G$ is of $F$-torsion,
+	\item $G$ is $F$-divisible,
+	\item The $G[n]$ are finite and locally free $S$-group schemes.
+\end{enumerate}
+\end{thm}
+
 
 
 \subsection{\texorpdfstring{$p$}{p}-divisible groups}
@@ -262,16 +729,18 @@ to approach the previous ones.
 		0
 	,\end{tikzcd}
 	\end{equation*}
-	where $G^{et}$ is an e\'tale $p$-divisible group.
+	where $G^{et}$ is an étale $p$-divisible group.
 	One then defines the dimension of $G$ to be the dimension 
 	(i.e. the number of variables of $\mathscr{A}$)
 	of the formal Lie group corresponding, as of proposition (tk: reference to the above one),
 	to $G^0$.
 \end{defn}
 
+\subsection{Relation between \texorpdfstring{$p$}{p}-divisible groups and
+formal Lie groups}
+
 
 tk: add section on dual of $p$-divisible group. Maybe add a remark about
 the definition from Messing, in order to prepare to
 the comparison with formal Lie groups.
-
 \end{document}

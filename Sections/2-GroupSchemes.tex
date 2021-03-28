@@ -173,7 +173,7 @@ in what follows.
 \end{defn}
 
 
-\begin{rem}[]
+\begin{rem}\label{rem:groupObject}
 	One can generalize the definition of group object, from the category
 	of $S$-schemes, to any category $\mathsf{C}$ admitting finite products
 	(hence with final object given by the empty product) in the same manner as above.
@@ -240,6 +240,7 @@ in what follows.
 	With regards to kernels, one can use the general construction 
 	in a category with zero object,
 	since for a morphism $\alpha\colon G \to G'$ its kernel
+	is just the fibered product of $G$ and $0$ over $G'$, i.e.
 	\begin{equation*}
 		\ker \alpha =
 		\varprojlim \Bigg(
@@ -250,8 +251,7 @@ in what follows.
 			G'
 		\end{tikzcd} \Bigg)
 		= G \cross_{G'} 0
-	\end{equation*}
-	is just the fibered product of $G$ and $0$ over $G'$.
+	.\end{equation*}
 	In the case of $\mathsf{Sch}_{ S }$ we can construct fibered products.
 	In particular we have the zero object $S$, with unique morphism
 	$S \to G'$ given by the unit morphism of $G'$.
@@ -917,7 +917,7 @@ We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{
 its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
 Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
-\begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]
+\begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]\label{thm:ConnecteEtaleSequenceGS}
 	Let $G^0$ be the connected component of the identity in $G$.
 	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
 	and it is a flat, closed normal subgroup scheme of $G$.
@@ -1147,7 +1147,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 \end{ex}
 
 
-\subsection{Frobenius and Verschiebung}
+\subsection{Frobenius and Verschiebung}\label{sec:FrobeniusVerschiebung}
 Let's now study a few constructions in characteristic $p$:
 let $R$ be a ring with $\mathrm{char}\, R = p$.
 tk: for this section please add some references (not only the course from Essen).
@@ -1232,14 +1232,14 @@ tk: for this section please add some references (not only the course from Essen)
 \end{lem} 
 
 
-\begin{defn}[Nilpotent Frobenius]\leavevmode\vspace{-1.2\baselineskip}
+\begin{defn}[Nilpotent Frobenius]\leavevmode\vspace{-1.2\baselineskip}\label{defn:nilpotentFrobenius}
 \begin{enumerate}
 \item We set, for any $X \in \mathsf{Sch}_{ S }$ and any integer $n \geq 0$,
 	$X^{(0)} \coloneqq X$ and $X^{(p^{n+1})} \coloneqq \left( X^{(p^{n})} \right)^{(p)}$.
 	Then we denote by $F^n_X\colon X \to X^{(p^n)}$
 	the $n$-fold composition
 	\begin{equation}
-	\begin{tikzcd}
+	\begin{tikzcd}[column sep=4.3em]
 		X \arrow[r, "F_X", rightarrow] &
 		X^{(p)} \arrow[r, "F_{X^{(p)}}", rightarrow] &
 		\ldots \arrow[r, "", rightarrow] &
