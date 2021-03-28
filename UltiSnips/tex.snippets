@@ -199,7 +199,7 @@ snippet shf "Sheaf" wA
 endsnippet
 
 snippet shv "Sheaf valuation" wA
-\mathcal{F$1}(\mathcal{U$2})
+\mathcal{F$1}(U$2)
 endsnippet
 
 snippet shs "Sheaf stalk" wA
@@ -234,8 +234,12 @@ snippet fbpr "Fibered product" wA
 $1 \cross_{ $2 } $3
 endsnippet
 
-snippet affs "Affine scheme" wA
+snippet afs "Affine scheme" wA
 \mathrm{Spec}($0)
+endsnippet
+
+snippet fafs "Affine formal scheme" wA
+\mathrm{Spf}($0)
 endsnippet
 
 snippet gbs "Global sections" wA
@@ -260,4 +264,8 @@ endsnippet
 
 snippet ntr "Normalized trace map" wA
 T_{ $1 / $2 }
+endsnippet
+
+snippet lrs "Locally ringed space" wA
+( $1 , \mathcal{O}_{ $1 } )
 endsnippet
