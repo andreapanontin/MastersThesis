@@ -80,10 +80,10 @@ url=false,
 isbn=false,
 eprint=false
 ]{biblatex}
-\usepackage{hyperref}
-\usepackage{cleveref}
 \addbibresource{Bibliography.bib}
 
+\usepackage{hyperref}
+\usepackage[noabbrev]{cleveref}
 
 %Theorem environments
 \newtheoremstyle{example}
@@ -114,8 +114,8 @@ eprint=false
 
 %Examples-exercises
 \theoremstyle{example}
-\newtheorem*{ex}{Example}
-\newtheorem{exr}{Exercise}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exr}[thm]{Exercise}
 
 %Definitions-remarks
 \theoremstyle{definition}
@@ -124,6 +124,7 @@ eprint=false
 \newtheorem{rem}[thm]{Remark}
 
 
+%Equation numbering
 \numberwithin{equation}{section}
 
 
@@ -131,6 +132,7 @@ eprint=false
 \usepackage{blindtext}
 \title{Crystalline comparison theorem for $p$-divisible groups}
 \author{Andrea Panontin}
+
 
 \begin{document}
 

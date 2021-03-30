@@ -213,7 +213,7 @@ hence all of the verifications can be checked there.
 \end{rem}
 
 
-\begin{rem}[]\label{rem:EquivalenceFormalAffineSchemes}
+\begin{rem}[]\label{EquivalenceFormalAffineSchemes}
 	One can prove that, mush like with affine schemes, the category of affine
 	formal schemes is anti-equivalent to that of admissible topological rings.
 	In particular we have
@@ -263,21 +263,21 @@ let's also recall a couple of results with these objects.
 \end{rem}
 
 
-\begin{rem}[]\label{rem:VeryFiniteSchemes}
+\begin{rem}[]\label{VeryFiniteSchemes}
 	Moreover, with regards to the construction of $p$-divisible groups
 	and formal Lie groups, we will follow \cite[\S5]{Shatz} for the point
 	of view of formal schemes.
 	Then, as we will remark again, we fix $R$ a 
-	complete local admissible ring and $S \coloneqq \mathrm{Spec}(R)$.
+	local admissible ring and $S \coloneqq \mathrm{Spec}(R)$.
 	Moreover we will meainly deal with formal affine schemes over $S$ which
-	are given by inductive limits of what Shatz defines {\em very finite} scheme over $S$.
+	are given by inductive limits of what Shatz defines {\em very finite} schemes over $S$.
 	These are $S$-schemes $T$ satisfying:
 	\begin{enumerate}
 		\item $T$ is {\em finite} over $S$ (hence affine);
 		\item the $R$-module $\Gamma \left( T , \mathcal{O}_{ T } \right)$
 			is of finite length.
 	\end{enumerate}
-	Specializing \cref{rem:EquivalenceFormalAffineSchemes} to the case of
+	Specializing \cref{EquivalenceFormalAffineSchemes} to the case of
 	formal affine schemes over $S$, 
 	as just defined,
 	we obtain an anti-equivalence of categories with the category of
@@ -294,7 +294,7 @@ tk: even though it is a pretty powerful result, is it really needed?
 	iff it commutes with fibered products and final elements.
 \end{thm}
 In what follows this theorem will be applied, sometimes,
-to formal schemes. In such case, the anti-equivalence of \cref{rem:EquivalenceFormalAffineSchemes}
+to formal schemes. In such case, the anti-equivalence of \cref{EquivalenceFormalAffineSchemes}
 implies that one need to check {\em right exactness} instead of left exactness.
 
 \subsection{Formal groups and formal Lie groups}
@@ -311,19 +311,19 @@ and in terms of {\em fppf} sheaves, borrowing from \cite{Messing}.
 tk: the following is just a draft. Please check its correctness
 
 \subsubsection{Formal scheme point of view}
-As anticipated in \cref{rem:VeryFiniteSchemes},
-we fix $R$ a complete local admissible ring, $S \coloneqq \mathrm{Spec}(R)$
+As anticipated in \cref{VeryFiniteSchemes},
+we fix $R$ a local admissible ring, $S \coloneqq \mathrm{Spec}(R)$
 and we work only with inductive limits of {\em very finite} $S$-schemes.
 \begin{defn}[Formal group schemes]
 	A {\em formal group scheme}
 	is just a group object in the category of formal schemes,
-	 as defined in \cref{rem:groupObject}.
+	 as defined in \cref{groupObject}.
 	Analogously a {\em formal $S$-group scheme}
 	is a group object in the category of formal schemes over $S$.
 \end{defn}
 
 
-\begin{rem}[]\label{rem:FormalHopf}
+\begin{rem}[]\label{FormalHopf}
 	As with the case of group schemes, in the affine case
 	$G = \mathrm{Spf}(\mathscr{A})$,
 	one defines, on $\mathscr{A}$, comultiplication, antipode and counit morphisms
@@ -343,7 +343,7 @@ and we work only with inductive limits of {\em very finite} $S$-schemes.
 \end{rem}
 
 
-One can generalize the results of \cref{thm:ConnecteEtaleSequenceGS} to this new setting.
+One can generalize the results of \cref{ConnecteEtaleSequenceGS} to this new setting.
 \begin{thm}[{\cite[\S5]{Shatz}}]
 	Let $G$ be a formal group scheme over $S$.
 	Then there is a canonical exact sequence
@@ -371,17 +371,7 @@ the right one in our context.
 \end{enumerate}
 \end{defn}
 
-\begin{defn}[Formal Lie group]
-%	Let $R$ be a complete, noetherian, local ring,
-%	with residue field $k$ of characteristic $p > 0$.
-%	Let $\mathscr{A} \coloneqq R [\![ X_1, \ldots, X_{ n } ]\!]$
-%	be the ring of formal power series in $n$ variables,
-%	and $\mathscr{A} \widehat{\otimes}_R \mathscr{A}$ the ring of formal power series 
-%	in $2n$ variables.
-%	An {\em $n$-dimensional formal Lie group $\Gamma$ over $R$} is 
-%	given by $\Gamma \coloneqq \mathrm{Spec}\, \mathscr{A}$,
-%	(tk: are you sure? The more I read, the more I am {\em un}sure...)
-%	where the group law is defined by a homomorphism of $R$-algebras 
+\begin{defn}[Formal Lie group]\label{defn:FormalSchemeFormalLieGroup}
 	A {\em formal Lie group} is a group object in the category of
 	formal Lie varieties.
 	More explicitly it is $\Gamma \coloneqq \mathrm{Spf}\left( \mathscr{A} \right)$,
@@ -391,7 +381,7 @@ the right one in our context.
 
 
 \begin{rem}[]
-	As stated in \cref{rem:FormalHopf}, since a formal Lie group
+	As stated in \cref{FormalHopf}, since a formal Lie group
 	is an affine formal scheme, one gets a Hopf algebra structure
 	on $\mathscr{A}$.
 	As formal Lie groups are often introduced giving focus only
@@ -433,7 +423,7 @@ the right one in our context.
 \end{rem}
 
 
-\begin{defn}[divisible formal groups]
+\begin{defn}[$p$-divisible formal Lie group]\label{defn:pDivisibleFormalLieGroup}
 	We define the map multiplication by $p$ on $\Gamma \coloneqq \mathrm{Spf}(\mathscr{A})$
 	as the map $p\colon \Gamma \to \Gamma$
 	associated to 
@@ -448,14 +438,15 @@ the right one in our context.
 	\quad \text{($p$ times)}
 	.\end{tikzcd}
 	\end{equation*} 
-	A formal Lie group $\Gamma$ is said to be {\em divisible} iff the map $p$ is 
+	If, moreover, $\Gamma$ is a formal Lie group, 
+	it is said to be {\em $p$-divisible} iff the map $p$ is 
 	an isogeny, i.e. it is surjective and has finite kernel.
 	This means that $\mathscr{A}$ is a {\em free} module of finite rank over itself.
 \end{defn}
 
 
 
-\subsubsection{{\em fppf} sheaves point of view}
+\subsubsection{fppf sheaves point of view}
 tk: this part has to be read again, it was just a copy-paste!
 Moreover I have to fix the references (I can quote directly the theorem number!)
 
@@ -587,6 +578,15 @@ And now back to our interests.
 \end{defn}
 
 
+\begin{rem}[{\cite[\S2.1]{Messing}}]\label{FormalLieVarietyPowerSeries}
+	From this definition it follows that $X$, locally on $S$,
+	is given by $\mathcal{O}_S [\![ T_1, \ldots, T_n ]\!]$.
+	In particular, in the case we work in, for the formal scheme point of view,
+	it grants that $X$ is given by
+	$R [\![ T_1, \ldots, T_n ]\!]$.
+\end{rem}
+
+
 \begin{defn}[Formal Lie group]
 	A {\em formal Lie group} over $S$ is a group object $\left(G, e_G\right)$
 	in the category of formal Lie varieties over $S$.
@@ -598,8 +598,8 @@ is commutative.
 tk: do I keep this remark?
 Our next aim is to find a connection between Barsotti-Tate groups and formal Lie groups,
 so let's start with some preliminary result:
-\begin{lem}[{\cite[\S2.1]{Messing}}]
-	Let $G$ be a group scheme on $S$.
+\begin{lem}[{\cite[\S2.1, lemma 1.1.6]{Messing}}]
+	Let $G$ be an $S$-group scheme.
 	Then $\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
 	is also a group.
 \end{lem}
@@ -636,7 +636,7 @@ of the Frobenius.
 
 Finally we can more easily characterize the formal Lie groups over
 $S$ of characteristic $p$.
-\begin{thm}[{\cite[\S2.2]{Messing}}]
+\begin{thm}[{\cite[\S2.2, theorem 2.1.7]{Messing}}]\label{MessingCharactLieGroup}
 	In order for a sheaf of groups $G$ on $S$ to be a formal Lie group,
 	it is necessary and sufficient that the following conditions hold:
 \begin{enumerate}
@@ -647,100 +647,400 @@ $S$ of characteristic $p$.
 \end{thm}
 
 
+\begin{rem}[Comparison of the two points of view]
+	From 
+	\cref{MessingCharactLieGroup},
+	\cref{FormalLieVarietyPowerSeries,defn:FormalSchemeFormalLieGroup}
+	we see that the two definitions of formal Lie group coincide, over
+	$S = \mathrm{Spec}(R)$, where $R$ is a local admissible ring.
+	In fact from the definition as an fppf sheaf of groups,
+	we obtain that $G$ is $F$-torsion.
+	As a consequence every $G[n]$, up to base
+	change to the residue field, satisfies conditions of \cref{FrobeniusChar2},
+	which grants connectedness.
+	Moreover we see that $G$ is given by a ring of formal power series,
+	hence it is smooth.
+	For the converse we recall
+	\cref{reprFctSheaf},
+	\cref{VeryFiniteSchemes,FrobeniusVerschiebungRelation}
+	and then have to argue following \cite[porposition 1]{TatePC}, see
+	also \cite[\S2, theorem 2.1.7]{Messing} for some more details.
+\end{rem}
+
+
 
 \subsection{\texorpdfstring{$p$}{p}-divisible groups}
-\begin{defn}[$p$-divisible group]
+Again, following the previous points of view, we will define $p$-divisible groups
+from two different starting points: that of formal schemes
+and that of fppf sheaves.
+
+
+
+\subsubsection{Formal scheme point of view}
+In this section we will follow the construction of \cite[\S2]{TatePC} and
+of \cite[\S6]{Shatz}. 
+In particular we will see a $p$-divisible group as a formal group
+satisfying certain important properties.
+As before, sticking to the convention of \cite{Shatz}, we will 
+denote by $R$ an admissible local ring (and often assume that
+it also has residue characteristic $p$).
+
+
+\begin{defn}[$p$-divisible group]\label{defn:pDivGroupFormalSchemes}
 	A {\em $p$-divisible group} over $R$ of height $h \in \mathbb{N}_+$ is an inductive system
 	\begin{equation*}
-	G \coloneqq \left(G_\nu, i_\nu\right)_{\nu \in \mathbb{N}}
+	G \coloneqq \left(G_v, i_v\right)_{v \in \mathbb{N}}
 	,\end{equation*} 
 	satisfying:
 	\begin{enumerate}
-		\item for each $\nu \in \mathbb{N}$, $G_\nu$ is a finite, commutative group scheme over $R$
-			of order $p^{\nu h}$,
-		\item for each $\nu \in \mathbb{N}$, there is an exact sequence
+		\item for each $v \in \mathbb{N}$, $G_v$ is a finite, commutative group scheme over $R$
+			of order $p^{v h}$,
+		\item for each $v \in \mathbb{N}$, there is an exact sequence
 			\begin{equation*}
 			\begin{tikzcd}
 				0 \arrow[r, "", rightarrow] &
-				G_\nu \arrow[r, "i_\nu", rightarrow] &
-				G_{\nu + 1} \arrow[r, "p^\nu", rightarrow] &
-				G_{\nu + 1} 
+				G_v \arrow[r, "i_v", rightarrow] &
+				G_{v + 1} \arrow[r, "p^v", rightarrow] &
+				G_{v + 1} 
 			,\end{tikzcd}
 			\end{equation*}
-			where the second map is the multiplication by $p^\nu$ in $G_{\nu + 1}$,
-			hence the first is a closed immersion.
+			where the second map is the multiplication by $p^v$ in $G_{v + 1}$,
+			hence the first is a closed immersion which identifies
+			$G_v$ with the kernel of $p^v$ on $G_{v+1}$.
 	\end{enumerate}
 \end{defn}
 
+
 \begin{rem}[]
-	In the case of ordinary abelian groups this would give rise just to 
-	$G_\nu = \left( \mathbb{Z}/p^\nu\mathbb{Z} \right)^h$, hence to the $p$-divisible group
+	Recalling \cref{VeryFiniteSchemes} we see that the inductive system 
+	$\left( G_v, i_v \right)_{v \in \mathbb{N}}$ defines a formal group 
 	\begin{equation*}
-		G = \varinjlim G_\nu = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
-	.\end{equation*} 
+	G \coloneqq \varinjlim_{v \in \mathbb{N}} G_v
+	.\end{equation*}
+	Even though this remark allows to associate an object to a $p$-divisible 
+	group, we will mostly work directly with the inductive system.
 \end{rem}
 
-\begin{ex}
-	In such case one can define a $p$-divisible group of height $h$
-	over $R$, starting from $\Gamma$, by:
+
+We can actually characterize these objects a bit more. 
+In fact the following proposition holds.
+\begin{prop}\label{CharactpDivGroups}%[{\cite[\S6]{Shatz}}]
+	A $p$-divisible group over $R$ is a $p$-torsion
+	commutative formal group $G$ over $R$,
+	for which $p\colon G \to G$ is an {\em isogeny}.
+\end{prop}
+\begin{proof}
+	The following diagram then shows that $G_v$ is the kernel of $p^v$
+	on $G_{v+2}$ via the iterated injection $i_{v+1} \circ i_v$.
+	Inductively this holds for $G_{v+t}$, where $t \geq 1$:
+	\begin{equation*}
+	\begin{tikzcd}
+		&
+		&
+		G_{v+2} \arrow[r, "p^v", rightarrow] &
+		G_{v+2} \arrow[r, "p", rightarrow] &
+		G_{v+2}\\
+		0 \arrow[r, "", rightarrow] &
+		G_{v} \arrow[r, "i_v"', rightarrow] &
+		G_{v+1} \arrow[r, "p^v"', rightarrow] 
+		\arrow[u, "i_{v+1}", rightarrow] &
+		G_{v+1} \arrow[u, "i_{v+1}", rightarrow] &
+	.\end{tikzcd}
+	\end{equation*}
+	As a consequence $G_v$ is the kernel of $p^v$ on $G$,
+	hence $G$ is $p$-torsion (since it is $\varinjlim G_v$).
+	Then we analyze the following diagram to obtain that $p$
+	is an isogeny:
+	\begin{equation*}
+	\begin{tikzcd}[row sep=1.4em]
+		G_{v+t+1} \arrow[rr, "p^t", rightarrow] & &
+		G_{v+t+1} \arrow[r, "p^v", rightarrow] &
+		G_{v+t+1}\\
+		&
+		G_v \arrow[ru, "i_{v,t+1}", rightarrow] 
+		\arrow[rd, "i_{v,t}", rightarrow] 
+		& & \\
+		G_{v+t} \arrow[ru, "j_{t,v}", dashrightarrow] 
+		\arrow[rr, "p^t"', rightarrow]
+		\arrow[uu, "i_{v+t}", rightarrow] & &
+		G_{v,t} \arrow[uu, "i_{v+t}"', rightarrow]
+	.\end{tikzcd}
+	\end{equation*}
+	In fact the big square commutes and condition $2$ of the definition
+	of $p$-divisible group, applied to $G_{v+t}$, implies that $p^t \circ i_{v+t}$
+	factors through the kernel of $p^v$ on $G_{v+t+1}$.
+	As seen above this is $G_v$, granting the existence of the 
+	dashed arrow $j_{t,v}$.
+	Moreover we obtain the commutativity of the right triangle by
+	definition of inductive system.
+	As a consequence also the lower triangle commutes, granting
+	$i_{v,t} \circ j_{t,v} = p^t$.
+	Then, as $i_{v,t}$ is a monomorphism, $\ker j_{t,v}$
+	coincides with the kernel of $p^t$ on $G_{v+t}$, 
+	which is $G_t$ by the above discussion.
+	Then, by property $1$ of $p$-divisible groups,
+	the order of $G_{v+t}$ is the product of the orders
+	of $G_v$ and $G_t$, hence the following is a
+	short exact sequence of abelian $S$-group schemes
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G_t \arrow[r, "i_{t,v}", rightarrow] &
+		G_{v+t} \arrow[r, "j_{t,v}", rightarrow] &
+		G_v \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Let's remark that these computation do not depend on the chosen $t \geq 1$
+	nor on the chosen $v$.
+	Hence the above sequence is exact for all $v$ and $t$.
+	In particular, fixing $t=1$ and letting $v$ vary,
+	we obtain that $p\colon G \to G$ is an isogeny,
+	i.e. it is onto and has kernel given by a finite group scheme over $S$.
+\end{proof}
+
+
+\begin{rem}[]
+	This proposition actually has an inverse.
+	In fact, starting from a $p$-torsion commutative formal group $G$ over
+	$R$, for which $p\colon G \to G$ is an isogeny, we can recover a $p$-divisible
+	group as in \cref{defn:pDivGroupFormalSchemes}.
+	In fact setting $G_v \coloneqq \ker p^v$, as seen in \cref{CharactpDivGroups},
+	and $i_v$ the inclusion of one kernel into the next gives an inductive system.
+	The height $h$ is given by the exponent of the order of $\ker p$,
+	and one checks that the order of $\ker p^v = p^{vh}$.
+	Finally $G = \varinjlim_{v \in \mathbb{N}} G_v$ since it is $p$-torsion.
+\end{rem}
+
+
+\begin{ex}\leavevmode\vspace{-.2\baselineskip}\label{ex:pDivGroups}
+\begin{enumerate}
+\item In the case of ordinary abelian groups this definition would just allow
+	$G_v = \left( \mathbb{Z}/p^v\mathbb{Z} \right)^h$, hence to the $p$-divisible group
+	\begin{equation*}
+		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
+	.\end{equation*} 
+\item In case we start considering an $n$-dimensional commutative\label{ConnectedpDivGroupFLG}
+	formal Lie group $\Gamma$ over $R$, we clearly have to require that it is $p$-divisible,
+	as defined in \cref{defn:pDivisibleFormalLieGroup}.
+	Then multiplication by $p$ is an isogeny.
+	In case, moreover, $R$ is complete and has residue characteristic $p$,
+	one can define a $p$-divisible group of height $h$
+	over $R$, starting from $\Gamma$, by the inductive system
 	\begin{equation*}
 		\Gamma(p) \coloneqq \left(\Gamma_{p^\nu}, i_{p^\nu}\right)_\nu
 	.\end{equation*} 
 	In the above $\Gamma_{p^\nu}$ is the kernel of the multiplication by $p^\nu$ 
 	in $\Gamma$.
-	By questions of connectedness (tk: see short exact sequence of connected
-	and etale groups) one sees that the order of $\Gamma_{p^\nu}$
-	is a power of $p$, that $\Gamma_{p^\nu}$ is connected.
-	hence that $\Gamma(p)$ is a connected $p$-divisible group.
-
-	tk: complete it.
+	Then one can prove that $\ker p$ is connected and, since $p$ is an isogeny,
+	it is also finite.
+	By \cref{prop:PropertiesConnecteEtale} this implies that the order of $\ker p$
+	is a power of $p$.
+	Then, using flatness (to base change to the residue field) and 
+	\cref{FrobeniusVerschiebungRelation}, one can extend this result
+	to $\ker p^v$ for all $v \geq 1$.
+	Hence the construction of $\Gamma(p)$ gives rise to a connected $p$-divisible group.
+\end{enumerate}
 \end{ex}
 
-\begin{prop}[]
-	Let $R$ be a complete noetherian local ring whose residue field $k$
+
+\begin{rem}[]
+	Even though the above is just a sketch of the construction, of which more details
+	are available at \cite[\S6]{Shatz},
+	we felt it was useful to quote it in view of the following section.
+\end{rem}
+\subsubsection{fppf sheaves point of view}
+tk: here copy the relevant results from Messing.
+
+In the following part we will always write groups over $S$, or $S$-group, to mean
+an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
+\begin{lem}[{\cite[\S 1, lemma 1.1]{Messing}}]\label{lem:equivCondTruncatedBTGroup}
+	The following conditions are equivalent:
+\begin{enumerate}
+	\item $G$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module,
+
+	\item $\ker(p^{n-i}) = \ima (p^i)$, for $i=0, \ldots, n$.
+\end{enumerate}
+\end{lem} 
+
+
+\begin{defn}[Truncated Barsotti-Tate group of level $n$]
+	Consider $n \geq 2$, a {\em truncated Barsotti-Tate group} of level $n$
+	is an $S$-group $G$ such that
+\begin{enumerate}
+	\item $G$ is a finite and locally free group scheme.
+	\item $G$ is killed by $p^n$ and satisfies the equivalent conditions of 
+		\cref{lem:equivCondTruncatedBTGroup}.
+\end{enumerate}
+\end{defn}
+
+
+\begin{defn}[]
+	If $G$ is a group, we write $G(n)$ for the kernel of $p^n$.
+	Then, if $G$ is killed by $p^n$, we write $G = G(n)$.
+\end{defn}
+
+
+\begin{lem}[{\cite[\S1, lemma 1.5]{Messing}}]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item If $G(n)$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module, then $G(n)$
+		is a finite, locally-free group scheme iff
+		$G(1)$ is. Then all the $G(i)$ are.
+
+	\item If $G(n)$ is finite and locally free, then
+		\begin{equation}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+			p^i\colon G(n) \arrow[r, "", rightarrow] &
+			G(n-1)
+		\end{tikzcd}
+		\end{equation} 
+		is an epimorphism iff it is faithfully flat.
+\end{enumerate}
+\end{lem} 
+
+
+\begin{defn}[$p$-torsion and $p$-divisible groups]
+	Let $S$ be a scheme and $G$ be an $S$-group.
+	Denote by $G(n)$ the kernel of the multiplication by $p^n$ on $G$.
+	The group $G$ is said to be of {\em $p$-torsion} iff $\varprojlim_{n \in \mathbb{N}} G(n) = G$.
+	Similarly $G$ is said to be {\em $p$-divisible} iff $p\colon G \to G$
+	is an epimorphism.
+\end{defn}
+
+
+\begin{defn}[Barsotti-Tate group]\label{BTGroup}
+	An $S$ group $G$ is called {\em Barsotti-Tate} iff it satisfies
+\begin{enumerate}
+	\item $G$ is of $p$-torsion,
+	\item $G$ is $p$-divisible,
+	\item $G(1)$ is a finite, locally-free group scheme.
+\end{enumerate}
+	We denote by $\mathsf{BT}_S$ the full subcategory of $\mathsf{Gr}_S$,
+	whose objects are Barsotti-Tate groups over $S$.
+\end{defn}
+
+
+\begin{rem}[]
+	The category $\mathsf{BT}_S$ is not abelian:
+	it does not admit kernels.
+	In fact the kernel of the morphism $p\colon G \to G$
+	of multiplication by $p$ must be killed by $p$, hence cannot be
+	a Barsotti-Tate group (unless $G=0$).
+\end{rem}
+
+
+\begin{rem}[Comparison of the two points of view]
+	We will follow \cite[\S2, remark 2.3 and \S3, theorem 2.1.7]{Messing} to show that
+	the two points of view define the same objects over $S = \mathrm{Spec}(R)$,
+	for an admissible local ring $R$.
+	Let's start by considering $G \in \mathsf{BT}_S$.
+	Then, by definition, $G(v) = G(v+r)(v)$, i.e. denoted by $i_v\colon G(v) \to G(v+1)$
+	the inclusion of $G(v)$ into $G(v+1)$, we obtain that 
+	$\left( G_v, i_v \right)_{v \in \mathbb{N}}$ is an inductive system of $S$-groups.
+	Moreover $G(v)$ is a kernel of multiplication by $p^v$ on $G_{v+t}$, for $t \geq 0$
+	which, in particular, means that the following is exact.
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G_v \arrow[r, "i_v", rightarrow] &
+		G_{v+1} \arrow[r, "p^v", rightarrow] &
+		G_{v+1}
+	.\end{tikzcd}
+	\end{equation*}
+	Hence $\left( G_v, i_v \right)_{v \in \mathbb{N}}$ satisfies condition $2$
+	of \cref{defn:pDivGroupFormalSchemes}.
+	Then, since $G$ is $p$-divisible, i.e. multiplication by $p$ is an
+	epimorphism of $G$, we have that for any $0 \leq i \leq n$
+	$p^{n-i}$ induces an epimorphism $G(n) \twoheadrightarrow G(i)$.
+	Combining this with the above remark we obtain the exactness of
+	\begin{equation}\label{diag:equivpDivGrDefn}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G(n-i) \arrow[r, "", rightarrow] &
+		G(n) \arrow[r, "p^{n-i}", rightarrow] &
+		G(i) \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation}
+	From the theory of finite group schemes over a field one obtains that the
+	rank of the fiber of $G(1)$ at a point $s \in S$ is of the form
+	$p^{h(s)}$ for a function $h$ which is locally constant on $S$.
+	Then, from \cref{diag:equivpDivGrDefn} and multiplicativity of
+	ranks in short exact sequences, see \cref{QuotientGroupScheme}, we obtain
+	that the rank of the fiber of $G(n)$ at $s$
+	is $p^{n(s)}$.
+	Hence our inductive system satisfies also $1$ 
+	of \cref{defn:pDivGroupFormalSchemes}.
+
+	Starting from a $p$-divisible group $\left( G_v, i_v \right)_{v \in \mathbb{N}}$,
+	instead, we set $G \coloneqq \varinjlim_{v \in \mathbb{N}} G_v$
+	and invoke \cref{CharactpDivGroups} to conclude that $G \in \mathsf{BT}_S$.
+\end{rem}
+
+
+Before moving on to the concept of duality for $p$-divisible groups
+we'll state a result
+which relate the concepts introduced in the last couple of sections:
+that of formal Lie group and of $p$-divisible group.
+
+
+\begin{prop}[{\cite[\S2, proposition 1]{TatePC}}]
+	Let $R$ be a complete Noetherian local ring whose residue field $k$
 	is of characteristic $p > 0$.
-	Then $\Gamma \mapsto \Gamma(p)$ is an equivalence of categories
-	between the category of divisible commutative formal Lie groups over $R$
+	Then the functor $\Gamma \mapsto \Gamma(p)$, constructed as in \cref{ConnectedpDivGroupFLG}
+	of \cref{ex:pDivGroups},
+	is an equivalence of categories
+	between the category of $p$-divisible commutative formal Lie groups over $R$
 	and the category of connected $p$-divisible groups over $R$.
 \end{prop}
 
-\begin{defn}[Dimension of a $p$-divisible group]
-	Let $G \coloneqq \left(G_{\nu}, i_\nu\right)_{\nu \in \mathbb{N}}$ be a $p$-divisible group
-	over $R$ as before.
-	The connected components $G^0_\nu$ determine a connected $p$-divisible
-	group $G^0$.
-	Moreover, from the short exact sequence
-	\begin{equation*}
-	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
-		G^0_\nu \arrow[r, "", rightarrow] &
-		G_\nu \arrow[r, "", rightarrow] &
-		G^{et}_\nu \arrow[r, "", rightarrow] &
-		0
-	\end{tikzcd}
-	\end{equation*}
-	one gets the exact sequence
-	\begin{equation*}
-	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
-		G^0 \arrow[r, "", rightarrow] &
-		G \arrow[r, "", rightarrow] &
-		G^{et} \arrow[r, "", rightarrow] &
-		0
-	,\end{tikzcd}
-	\end{equation*}
-	where $G^{et}$ is an étale $p$-divisible group.
-	One then defines the dimension of $G$ to be the dimension 
-	(i.e. the number of variables of $\mathscr{A}$)
-	of the formal Lie group corresponding, as of proposition (tk: reference to the above one),
-	to $G^0$.
-\end{defn}
-
-\subsection{Relation between \texorpdfstring{$p$}{p}-divisible groups and
-formal Lie groups}
 
 
-tk: add section on dual of $p$-divisible group. Maybe add a remark about
-the definition from Messing, in order to prepare to
-the comparison with formal Lie groups.
+%\subsection{Cartier duality for \texorpdfstring{$p$}{p}-divisible groups}
+%tk: add this section (or something like: Other properties) if you want to 
+%also speak about dimension. Otherwise no point in doing it.
+%
+%
+%In this section we want to extend the concept of duality introduced in \cref{CartierDualityGroups}.
+%We will do so considering $p$-divisible groups as formal schemes,
+%i.e. as inductive systems of finite commutative group schemes.
+%In fact we will follow \cite[\S6]{Shatz} (or Tate? tk).
+
+
+
+%\begin{defn}[Dimension of a $p$-divisible group]
+%	Let $G \coloneqq \left(G_{\nu}, i_\nu\right)_{\nu \in \mathbb{N}}$ be a $p$-divisible group
+%	over $R$ as before.
+%	The connected components $G^0_\nu$ determine a connected $p$-divisible
+%	group $G^0$.
+%	Moreover, from the short exact sequence
+%	\begin{equation*}
+%	\begin{tikzcd}
+%		0 \arrow[r, "", rightarrow] &
+%		G^0_\nu \arrow[r, "", rightarrow] &
+%		G_\nu \arrow[r, "", rightarrow] &
+%		G^{et}_\nu \arrow[r, "", rightarrow] &
+%		0
+%	\end{tikzcd}
+%	\end{equation*}
+%	one gets the exact sequence
+%	\begin{equation*}
+%	\begin{tikzcd}
+%		0 \arrow[r, "", rightarrow] &
+%		G^0 \arrow[r, "", rightarrow] &
+%		G \arrow[r, "", rightarrow] &
+%		G^{et} \arrow[r, "", rightarrow] &
+%		0
+%	,\end{tikzcd}
+%	\end{equation*}
+%	where $G^{et}$ is an étale $p$-divisible group.
+%	One then defines the dimension of $G$ to be the dimension 
+%	(i.e. the number of variables of $\mathscr{A}$)
+%	of the formal Lie group corresponding, as of proposition (tk: reference to the above one),
+%	to $G^0$.
+%\end{defn}
+
+
 \end{document}
