@@ -27,7 +27,7 @@ in what follows.
 	\begin{equation*}
 		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
 	.\end{equation*} 
-	If we view $G$, by \cref{reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}_{ S }$, instead,
+	If we view $G$, by \cref{thm:reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}_{ S }$, instead,
 	we will use the notation
 	\begin{equation*}
 		\Gamma \left( T, G \right) \coloneqq G(T)
@@ -61,7 +61,7 @@ in what follows.
 	as the unique arrow to the terminal object of $\mathsf{Gp}$
 	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
 	Then the group axioms are equivalent to
-	\begin{align}\label{GroupAxioms}
+	\begin{align}\label{eq:GroupAxioms}
 		m \circ (\mathrm{id}_{ G } \cross m) &= m \circ (m \cross \mathrm{id}_{ G }),\nonumber\\
 		m \circ (\mathrm{id}_{ G } \cross \mathrm{inv}) \circ \Delta &=
 		m \circ (\mathrm{inv} \cross \mathrm{id}_{ G }) \circ \Delta = \varepsilon \circ \pi,\\
@@ -73,7 +73,7 @@ in what follows.
 \end{rem}
 
 
-\begin{rem}[]\label{StructuralMorphisms}
+\begin{rem}[]\label{rem:StructuralMorphisms}
 	Given a group scheme $G \in \mathsf{Sch}_{ S }$, Yoneda's lemma allows to translate
 	the group structure of $G(T)$, for all $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
 	In fact, since the universal property of
@@ -95,7 +95,7 @@ in what follows.
 	inducing the group structure on $G(T)$ via Yoneda embedding.
 	Then, again by Yoneda's lemma, also the above maps have to
 	satisfy the properties written in 
-	\cref{GroupAxioms}.
+	\cref{eq:GroupAxioms}.
 	More explicitly:
 	\begin{enumerate}
 		\item Associativity of the product
@@ -173,7 +173,7 @@ in what follows.
 \end{defn}
 
 
-\begin{rem}\label{groupObject}
+\begin{rem}\label{rem:groupObject}
 	One can generalize the definition of group object, from the category
 	of $S$-schemes, to any category $\mathsf{C}$ admitting finite products
 	(hence with final object given by the empty product) in the same manner as above.
@@ -295,9 +295,9 @@ If we consider $G = \mathrm{Spec}(A)$ affine,
 the arrow-reversing equivalence of categories between
 affine $R$-schemes and commutative $R$-algebras, 
 allows us to translate the structural morphisms
-of schemes defined in \cref{StructuralMorphisms} into
+of schemes defined in \cref{rem:StructuralMorphisms} into
 appropriate $R$-algebra morphisms.
-Then the properties defined by the diagrams in \cref{StructuralMorphisms}
+Then the properties defined by the diagrams in \cref{rem:StructuralMorphisms}
 will translate into properties for these new morphisms.
 
 Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
@@ -327,7 +327,7 @@ With this in mind we obtain the following $R$-algebra morphisms:
 		R & \text{(counit/augmentation),}
 	\end{tikzcd}
 \end{equation*} 
-satisfying the duals of the diagrams in \cref{StructuralMorphisms}.
+satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 \end{rem}
 
 
@@ -349,7 +349,7 @@ satisfying the duals of the diagrams in \cref{StructuralMorphisms}.
 		\end{tikzcd}
 	\end{equation*} 
 	satisfying the conditions obtained by dualizing those
-	of \cref{StructuralMorphisms}, more explicitly:
+	of \cref{rem:StructuralMorphisms}, more explicitly:
 	\begin{align*}
 		( \widetilde{m} \otimes_R \mathrm{id}_{ A } ) \circ \widetilde{m} &=
 		( \mathrm{id}_{ A } \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
@@ -413,7 +413,7 @@ satisfying the duals of the diagrams in \cref{StructuralMorphisms}.
 
 The following results are valid in a more general setting, so let's change
 the assumption for $S$: we will assume it is a locally Noetherian scheme.
-\begin{rem}[Finite $S$-scheme]\label{finiteGSMotivation}
+\begin{rem}[Finite $S$-scheme]\label{rem:finiteGSMotivation}
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
 	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
 	More explicitly this means that there exists a cover of $S$ by affine open subschemes
@@ -462,7 +462,7 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 In order to compute a few useful examples, let's make explicit the relation between
 multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
 $R$, for $S = \mathrm{Spec}(R)$.
-\begin{rem}\label{ExplicitComult}
+\begin{rem}\label{rem:ExplicitComult}
 	Yoneda tells us that the multiplication map 
 	$m\colon G \cross G \to G$ can be expressed
 	as the product $\mathrm{pr}_1 \mathrm{pr}_2$
@@ -489,7 +489,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 
 \begin{ex}
-	In all of the following examples we will denote $S \coloneqq \mathrm{Spec}(R)$
+	In the following examples we will denote $S \coloneqq \mathrm{Spec}(R)$
 	and $G \coloneqq \mathrm{Spec}(A)$.\nopagebreak[4]
 	\begin{enumerate}
 		\item The {\em additive group scheme}, given by 
@@ -524,7 +524,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				\qquad \text{ and } \qquad
 				\widetilde{\mathrm{pr}}_2(x) = 1 \otimes_R x
 			.\end{equation*} 
-			Then, thanks to \cref{ExplicitComult},
+			Then, thanks to \cref{rem:ExplicitComult},
 			we desume that
 			\begin{equation*}
 				\widetilde{m}(x) =
@@ -793,7 +793,7 @@ It actually is a more general result, due to Grothendieck.
 
 
 As promised we obtain the following result for quotient group schemes.
-\begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{QuotientGroupScheme}
+\begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{thm:QuotientGroupScheme}
 	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
 	subgroup scheme.
 	Define the action $a\colon G \cross_{ S } H \to G$ as the restriction of the
@@ -810,7 +810,7 @@ As promised we obtain the following result for quotient group schemes.
 \end{prop}
 
 \begin{rem}[Short exact sequence]
-	Assume, in the hypothesis of \cref{QuotientGroupScheme}, that $H$ is
+	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
 	also {\em normal} in $G$.
 	Then the multiplication on $G$ induces a multiplication 
 	morphism on $G/H$, making it an $S$-group scheme.
@@ -838,7 +838,7 @@ The study of étale group schemes is strictly related to that of
 separable algebras, so here are a few interesting results for the latter:
 
 \begin{thm}[{\cite[\S 6.2]{Waterhouse}}]
-	\label{SeparableAlgebrasCharacterization}
+	\label{thm:SeparableAlgebrasCharacterization}
 	Let $k$ be a field and denote by $\overline{k}$ and $k^s$ respectively
 	an algebraic and separable closure of $k$.
 	Let $A$ be a finite dimensional $k$-algebra.
@@ -860,7 +860,7 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 
 \begin{defn}[Separable algebra]
 	A $k$-algebra $A$ satisfying the equivalent conditions of
-	\cref{SeparableAlgebrasCharacterization}
+	\cref{thm:SeparableAlgebrasCharacterization}
 	is called {\em separable}.
 \end{defn}
 
@@ -917,20 +917,20 @@ We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{
 its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
 Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
-\begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]\label{ConnecteEtaleSequenceGS}
+\begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]\label{thm:ConnectedEtaleSequenceGS}
 	Let $G^0$ be the connected component of the identity in $G$.
 	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
 	and it is a flat, closed normal subgroup scheme of $G$.
 	Moreover the quotient $G^{et} \coloneqq G/G^0$,
-	constructed as in \cref{QuotientGroupScheme},
+	constructed as in \cref{thm:QuotientGroupScheme},
 	is étale and gives rise to the short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
+		1 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		G^{et} \arrow[r, "", rightarrow] &
-		0
+		1
 	,\end{tikzcd}
 	\end{equation*}
 	called the {\em connected-étale sequence} for $G$.
@@ -940,7 +940,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \end{thm}
 
 
-\begin{prop}[{\cite[\S 3.7]{TateMF}}]\label{prop:PropertiesConnecteEtale}
+\begin{prop}[{\cite[\S 3.7]{TateMF}}]\label{prop:PropertiesConnectedEtale}
 \leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
@@ -967,7 +967,7 @@ In this section we'll mainly be concerned with $S = \mathrm{Spec}(R)$ affine
 and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(A)$.
 
 \begin{rem}[]
-	In \cref{finiteGSMotivation} we recalled that $A$ is a finite projective $R$-module.
+	In \cref{rem:finiteGSMotivation} we recalled that $A$ is a finite projective $R$-module.
 	Then, still arguing by
 	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}),
 	$A$ is a finite and locally free $R$-module.
@@ -1040,7 +1040,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \end{defn}
 
 
-\begin{thm}[{\cite[\S 3.7]{Waterhouse}}, Cartier duality]\label{CartierDuality}
+\begin{thm}[{\cite[\S 3.7]{Waterhouse}}, Cartier duality]\label{thm:CartierDuality}
 	Let $G$ be a finite, commutative $R$-group scheme.
 	Then the following facts hold.
 \begin{enumerate}
@@ -1151,7 +1151,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 \subsection{Frobenius and Verschiebung}\label{sec:FrobeniusVerschiebung}
 Let's now study a few constructions in characteristic $p$:
 let $R$ be a ring with $\mathrm{char}\, R = p$.
-tk: for this section please add some references (not only the course from Essen).
+%tk: for this section please add some references (not only the course from Essen).
 
 
 \begin{defn}[]
@@ -1205,7 +1205,7 @@ tk: for this section please add some references (not only the course from Essen)
 
 
 \begin{rem}[]
-	Notice that, by construction, the relative Frobenius $F_X$ is a
+	Notice that the relative Frobenius $F_X$ is a
 	morphism of $R$-schemes, for all $X \in \mathsf{Sch}_{ R }$.
 	Instead the absolute Frobenius $\varphi_X$, in general, is not.
 \end{rem}
@@ -1214,7 +1214,6 @@ tk: for this section please add some references (not only the course from Essen)
 \begin{ntt}
 	Given a morphism of $R$-schemes $f\colon X \to Y$,
 	we define 
-	%the morphism $f^{(p)}$ as the morphism
 	\begin{equation}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1258,7 +1257,7 @@ tk: for this section please add some references (not only the course from Essen)
 
 The following results hold for group schemes over field, hence we will replace
 $R$ by a field $k$ of characteristic $p > 0$.
-\begin{prop}[]\label{FrobeniusChar1}
+\begin{prop}[]\label{thm:FrobeniusChar1}
 	Let $G$ be a finite $k$-group scheme.
 	The following are equivalent:
 \begin{enumerate}
@@ -1269,7 +1268,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \end{prop}
 
 
-\begin{prop}[]\label{FrobeniusChar2}
+\begin{prop}[]\label{thm:FrobeniusChar2}
 	Let $G$ be a finite commutative $k$-group scheme.
 	Then $G$ is connected iff $F_G$ is nilpotent.
 \end{prop}
@@ -1277,7 +1276,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 
 \begin{defn}[Verschiebung]
 	Let $G$ be a finite, commutative $R$-group scheme.
-	By \cref{CartierDuality} $(G^{(p)})^D \simeq (G^D)^{(p)}$.
+	By \cref{thm:CartierDuality} $(G^{(p)})^D \simeq (G^D)^{(p)}$.
 	One defines the {\em Verschiebung} homomorphism
 	\begin{equation}
 	\begin{tikzcd}[row sep = 0ex
@@ -1303,7 +1302,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 
 
 Let's briefly quote a result, which acts as a dual to
-\cref{FrobeniusChar1} and \cref{FrobeniusChar2}.
+\cref{thm:FrobeniusChar1} and \cref{thm:FrobeniusChar2}.
 \begin{prop}[]
 	Let $G$ be a finite commutative $k$-group scheme. Then the following hold.
 \begin{enumerate}
@@ -1315,7 +1314,7 @@ Let's briefly quote a result, which acts as a dual to
 
 We will conclude this section with a famous and useful relation between
 Frobenius and Verschiebung:
-\begin{thm}[{\cite[\S11.i]{MilneAG}}]\label{FrobeniusVerschiebungRelation}
+\begin{thm}[{\cite[\S11.i]{MilneAG}}]\label{thm:FrobeniusVerschiebungRelation}
 	Let $G$ be a finite commutative $k$-group scheme. Then the following
 	diagram commutes
 	\begin{equation}
@@ -1334,5 +1333,5 @@ Frobenius and Verschiebung:
 \end{thm}
 
 
-tk: should I write some examples for Frobenius morphism? Why not.
+%tk: should I write some examples for Frobenius morphism? Why not.
 \end{document}

@@ -1,9 +1,6 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
 \section{\texorpdfstring{$p$}{p}-divisible groups}
-In all that follows $p$ will be a fixed prime number.
-Moreover $R$ denotes a commutative ring.
-
 The aim of this section is to introduce, from two different points of view,
 the notions of {\em $p$-divisible group} and of {\em formal Lie group},
 and to show how the two concepts are related to one another.
@@ -19,7 +16,7 @@ only restrict to stating the definitions and results which will
 be needed in what follows.
 This section is strongly inspired from 
 \cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP},
-which in turn bases itself on \cite[\S10]{EGA1}.
+which in turn bases itself on \cite[Chapter I, \S10]{EGA1}.
 
 Let's start by recalling a few useful algebra defintions.
 
@@ -31,7 +28,7 @@ Let's start by recalling a few useful algebra defintions.
 
 \item We say that an $R$-module $M$, where $R$ is a topological ring,
 	is a {\em topological module} iff $M$ is enodwed with a topology such that
-	addition and scalar multiplication are both continuous, again with their source
+	addition and scalar multiplication are both continuous, again with their sources
 	taken with the product topology.
 
 \item $R$ is {\em linearly topologized} iff $0$ has a fundamental system
@@ -88,7 +85,7 @@ Let's start by recalling a few useful algebra defintions.
 
 
 \begin{defn}[Pseudo-discrete sheaves]
-	A sheaf of topological rings (analogously modules, etc)
+	A sheaf of topological rings (resp$.$ modules, groups, etc)
 	is called {\em pseudo-discrete} iff, for all $U \subset X$,
 	$\mathcal{F}(U)$ is enodwed with the discrete topology.
 \end{defn}
@@ -98,10 +95,10 @@ Let's start by recalling a few useful algebra defintions.
 	Let $X$ be a topological space with a basis of the topology
 	consisting of quasi compact open subsets (for example $\mathrm{Spec}(R)$
 	for a ring $R$).
-	Given any sheaf $\mathcal{F}$ of rings (analogously modules, etc)
+	Given any sheaf $\mathcal{F}$ of rings (resp$.$ modules, groups, etc)
 	we define the {\em associated pseudo-discrete sheaf},
 	still denoted by $\mathcal{F}$, as the sheaf
-	of {\em topological} rings (analog$.$ modules, etc)
+	of {\em topological} rings (resp$.$ topological modules, topological groups, etc)
 	with topologies defined as follows.
 	To each $U \subset X$ open and quasi compact we endow
 	$\mathcal{F}(U)$ with the discrete topology.
@@ -117,7 +114,7 @@ Let's start by recalling a few useful algebra defintions.
 	with the induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$.
 	For questions of space we will leave these verifications to
 	\cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP}
-	and \cite[\S10]{EGA1}.
+	and \cite[Chapter I, \S10]{EGA1}.
 \end{rem}
 
 
@@ -127,7 +124,7 @@ Let's start by recalling a few useful algebra defintions.
 	$( X , \mathcal{O}_{ X } )$ consisting of a topological space $X$
 	and a sheaf of topological rings $\mathcal{O}_X$,
 	whose stalks are local rings.
-	A {\em morphism of ltrs}
+	A {\em morphism of locally topologically ringed spaces}
 	$( X , \mathcal{O}_{ X } ) \to  ( Y , \mathcal{O}_{ Y } )$
 	is a pair $\left(f, f^\#\right)$,
 	where $f\colon X \to Y$ is a continuous map
@@ -157,7 +154,7 @@ Let's start by recalling a few useful algebra defintions.
 
 
 We now have enough basic definitions to give that of formal scheme.
-Let's notice that this construction follows that of \cite[\S10]{EGA1},
+Let's notice that this construction follows that of \cite[Chapter I, \S10]{EGA1},
 hence all of the verifications can be checked there.
 
 \begin{defn}[Affine formal scheme]\leavevmode\vspace{-\baselineskip}
@@ -176,8 +173,8 @@ hence all of the verifications can be checked there.
 	to the structure sheaf $\mathcal{O}_{\mathrm{Spec}(A/I_\lambda)}$
 	of $\mathrm{Spec}(A/I_\lambda)$,
 	a pseudo-discrete sheaf, which we will denote by $\mathcal{O}_\lambda$.
-	One should indeed notice that, for all $I_\lambda$,
-	$\mathrm{Spec}(A/I_\lambda)$ has indeed tha the same topological space
+	One should also notice that, for all $I_\lambda$,
+	$\mathrm{Spec}(A/I_\lambda)$ has indeed the same topological space
 	of $\mathrm{Spf}(A)$.
 	Moreover, for $I_\lambda \subset I_\mu$, one has an induced homomorphism
 	\begin{equation*}
@@ -198,8 +195,9 @@ hence all of the verifications can be checked there.
 	Finally one defines the pair $( \mathrm{Spf}(A) , \mathcal{O}_{ \mathrm{Spf}(A) } )$
 	to be the {\em formal spectrum} of $A$.
 
-\item A {\em ltrs} is said to be an {\em affine formal scheme} iff it is isomorphic,
-	as ltrs, to the spectrum of an admissible ring.
+\item A {\em locally topologically ringed space} is said to be an 
+	{\em affine formal scheme} iff it is isomorphic,
+	in ltrs, to the spectrum of an admissible ring.
 	A morphism of affine formal schemes is just a morphism of the underlying
 	locally topologically ringed spaces.
 \end{enumerate}
@@ -208,13 +206,13 @@ hence all of the verifications can be checked there.
 
 \begin{rem}[]
 	As in the definition of associated pseudo-discrete sheaf, in the above
-	there are many details to be checked and filled.
-	Again we will leave them to \cite[\S10]{EGA1}.
+	there are many details to be checked and filled in.
+	Again we will leave them to \cite[Chapter I, \S10]{EGA1}.
 \end{rem}
 
 
 \begin{rem}[]\label{EquivalenceFormalAffineSchemes}
-	One can prove that, mush like with affine schemes, the category of affine
+	One can prove that, much like with affine schemes, the category of affine
 	formal schemes is anti-equivalent to that of admissible topological rings.
 	In particular we have
 	\begin{equation*}
@@ -229,7 +227,8 @@ hence all of the verifications can be checked there.
 
 
 \begin{defn}[Formal scheme]
-	A {\em formal scheme} is a ltrs $( \mathfrak{X} , \mathcal{O}_{ \mathfrak{X} } )$
+	A {\em formal scheme} is a locally topologically ringed space 
+	$( \mathfrak{X} , \mathcal{O}_{ \mathfrak{X} } )$
 	such that every point has an open neighbourhood isomorphic,
 	in $\mathsf{ltrs}$, to an {\em affine formal scheme}.
 	A morphism of formal schemes is just a morphism of the underlying
@@ -239,7 +238,7 @@ hence all of the verifications can be checked there.
 
 \begin{rem}[]
 	Following the construction of associated pseudo-discrete sheaf,
-	to any sheaf one can associate a formal sheaf.
+	one can associate to any sheaf a formal sheaf.
 	This actually gives rise to a fully faithful embedding of the category of schemes
 	in that of formal schemes.
 \end{rem}
@@ -257,29 +256,29 @@ let's also recall a couple of results with these objects.
 	\mathrm{Spf}(A) \simeq \varinjlim_{\lambda \in \Lambda} \mathrm{Spec}(A/I_\lambda)
 	\end{equation*}
 	in the category of formal schemes.
-	In fact, as can be seen in \cite[\S10.6]{EGA1}, one can do a similar construction
+	In fact, as can be seen in \cite[Chapter I, \S10.6]{EGA1}, one can do a similar construction
 	with formal schemes.
 	Hence we can view these last as inductive limits of ordinary schemes.
 \end{rem}
 
 
-\begin{rem}[]\label{VeryFiniteSchemes}
+\begin{rem}[]\label{rem:VeryFiniteSchemes}
 	Moreover, with regards to the construction of $p$-divisible groups
 	and formal Lie groups, we will follow \cite[\S5]{Shatz} for the point
 	of view of formal schemes.
-	Then, as we will remark again, we fix $R$ a 
+	Then, as we will remark again, we will fix $R$ a 
 	local admissible ring and $S \coloneqq \mathrm{Spec}(R)$.
-	Moreover we will meainly deal with formal affine schemes over $S$ which
-	are given by inductive limits of what Shatz defines {\em very finite} schemes over $S$.
-	These are $S$-schemes $T$ satisfying:
+	Moreover we will mainly deal with formal affine schemes over $S$ which
+	are given by inductive limits of what \cite{Shatz} defines {\em very finite} schemes over $S$.
+	There, we read that an $S$-schemes $T$ is very finite if it satisfies:
 	\begin{enumerate}
 		\item $T$ is {\em finite} over $S$ (hence affine);
 		\item the $R$-module $\Gamma \left( T , \mathcal{O}_{ T } \right)$
 			is of finite length.
 	\end{enumerate}
 	Specializing \cref{EquivalenceFormalAffineSchemes} to the case of
-	formal affine schemes over $S$, 
-	as just defined,
+	this family of formal affine schemes over $S$, i.e. those
+	which are given by inductive limits of {\em very finite} $S$ schemes,
 	we obtain an anti-equivalence of categories with the category of
 	profinite $R$-algebras.
 	This is the setting in which we will state most results in the 
@@ -287,37 +286,36 @@ let's also recall a couple of results with these objects.
 \end{rem}
 
 
-tk: even though it is a pretty powerful result, is it really needed?
-\begin{thm}[{\cite[\S5]{Shatz}}, Grothendieck]
-	A functor from profinite $R$-algebras to $\mathsf{Sets}$ (resp$.$ $\mathsf{Gp}$)
-	is representable iff it is {\em left exact}, i.e.
-	iff it commutes with fibered products and final elements.
-\end{thm}
-In what follows this theorem will be applied, sometimes,
-to formal schemes. In such case, the anti-equivalence of \cref{EquivalenceFormalAffineSchemes}
-implies that one need to check {\em right exactness} instead of left exactness.
+%tk: for this draft I decided not to include this remark.
+%\begin{thm}[{\cite[\S5]{Shatz}}, Grothendieck]
+%	A functor from profinite $R$-algebras to $\mathsf{Sets}$ (resp$.$ $\mathsf{Gp}$)
+%	is representable iff it is {\em left exact}, i.e.
+%	iff it commutes with fibered products and final elements.
+%\end{thm}
+%In what follows this theorem will be applied, sometimes,
+%to formal schemes. In such case, the anti-equivalence of \cref{EquivalenceFormalAffineSchemes}
+%implies that one need to check {\em right exactness} instead of left exactness.
 
 \subsection{Formal groups and formal Lie groups}
 In this section we will define the concept of {\em formal Lie group},
-generalizing that of Lie group, i.e. that of group (tk: I'd look for a description
-on wikipedia, if I'm not mistaken it is the infinitesimal linear expansion of
-the action of a VS on a manifold), without the restriction of convergence.
+generalizing that of Lie group, i.e. that of group in the category of
+complex analytic manifolds, without the restriction of convergence
+of the series defining the group operation.
 
-As will be usual (tk: has it become so?) throughout this section we will define
+Starting from this section we will define
 concepts both in terms of formal schemes, borrowing from \cite{Shatz},
 and in terms of {\em fppf} sheaves, borrowing from \cite{Messing}.
 
 
-tk: the following is just a draft. Please check its correctness
-
-\subsubsection{Formal scheme point of view}
-As anticipated in \cref{VeryFiniteSchemes},
+\subsubsection{Formal schemes point of view}
+As anticipated in \cref{rem:VeryFiniteSchemes},
 we fix $R$ a local admissible ring, $S \coloneqq \mathrm{Spec}(R)$
 and we work only with inductive limits of {\em very finite} $S$-schemes.
 \begin{defn}[Formal group schemes]
 	A {\em formal group scheme}
-	is just a group object in the category of formal schemes,
-	 as defined in \cref{groupObject}.
+	is just a group object,
+	as defined in \cref{rem:groupObject},
+	in the category of formal schemes.
 	Analogously a {\em formal $S$-group scheme}
 	is a group object in the category of formal schemes over $S$.
 \end{defn}
@@ -329,7 +327,7 @@ and we work only with inductive limits of {\em very finite} $S$-schemes.
 	one defines, on $\mathscr{A}$, comultiplication, antipode and counit morphisms
 	with the usual properties of \cref{defn:HopfAlgebra}.
 	One should note, though, that in the category of 
-	profinite $R$-algebras, the coproduct id given by
+	profinite $R$-algebras, the coproduct is given by
 	the completed tensor product, hence the comultiplication
 	is a morphism
 	\begin{equation*}
@@ -343,30 +341,31 @@ and we work only with inductive limits of {\em very finite} $S$-schemes.
 \end{rem}
 
 
-One can generalize the results of \cref{ConnecteEtaleSequenceGS} to this new setting.
-\begin{thm}[{\cite[\S5]{Shatz}}]
+One can generalize the results of \cref{thm:ConnectedEtaleSequenceGS} to this new setting.
+\begin{thm}[{\cite[\S5]{Shatz}}]\label{thm:ConnectedEtaleSeqFormalGr}
 	Let $G$ be a formal group scheme over $S$.
-	Then there is a canonical exact sequence
+	Then there is a canonical short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
+		1 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		G^{et} \arrow[r, "", rightarrow] &
-		0
+		1
 	\end{tikzcd}
 	\end{equation*}
-	in which $G^0$ is a connected normal formal group of $G$
+	in which $G^0$ is a connected normal formal subgroup of $G$
 	and $G^{et}$ is an étale formal group.
 \end{thm}
 
 
-The following definition is, again, not the most general one, but
+The following definition is not the most general one, but
 the right one in our context.
 \begin{defn}[Formal Lie variety]\leavevmode\vspace{-1\baselineskip}
 \begin{enumerate}
 	\item A formal $S$-scheme $G$ is said to be {\em smooth} iff
-		$G^0$ is the formal spectrum of a power series ring over $R$.
+		$G^0$, as defined in \cref{thm:ConnectedEtaleSeqFormalGr},
+		is the formal spectrum of a power series ring over $R$.
 	\item A {\em formal Lie variety} over $S$ is a smooth, connected formal $S$-scheme.
 \end{enumerate}
 \end{defn}
@@ -400,8 +399,8 @@ the right one in our context.
 	\end{equation*} 
 	satisfying the following conditions:
 	\begin{enumerate}
-		\item {\em $\varepsilon$ axiom:} $X = f(X,0) = f(0,X)$,
-		\item {\em coassociativity:} $f(X, f(Y,Z)) = f(f(X,Y), Z)$,
+		\item {\em $\varepsilon$ axiom:} $X = f(X,0) = f(0,X)$;
+		\item {\em coassociativity:} $f(X, f(Y,Z)) = f(f(X,Y), Z)$;
 		\item {\em commutativity:} $f(X,Y) = f(Y,X)$.
 	\end{enumerate}
 	Notice that any such morphism $f$ is just the data of 
@@ -416,10 +415,14 @@ the right one in our context.
 	the existance of the inverse for any element of $\Gamma$,
 	hence they suffice to give $\Gamma$ a group scheme structure.
 
-	(tk: make this note a bit better.)
-	Finally a note on the terminology one often finds: this
-	is chosen to be closer to the analogous concept of Lie groups
-	in differential geometry.
+	Finally a note on the terminology and the axioms.
+	At first one can notice that we have never explicitly asked 
+	a formal Lie group to be commutative, but we have added the axiom here.
+	In fact, much like the choice of introducing them via the explicit description
+	of the group law, this is a choice which brings this definition
+	closer to the analogous concept of Lie groups over complex analytic manifolds.
+	Moreover, in the future, we will mainly concentrate on Lie groups related to
+	$p$-divisible groups, which are assumed to be commutative.
 \end{rem}
 
 
@@ -447,13 +450,10 @@ the right one in our context.
 
 
 \subsubsection{fppf sheaves point of view}
-tk: this part has to be read again, it was just a copy-paste!
-Moreover I have to fix the references (I can quote directly the theorem number!)
-
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
 Also the schemes $X, Y$ will be viewed as sheaves on $S$
-for the {\em fppf} topology.
+for the fppf topology.
 Recall that, for $Y \in \mathsf{Sch}_{ S }$, sections on
 $T \in \mathsf{Sch}_{ S }$ of $Y$ are just $T$-points and,
 as usual with sheaves, will denote them by
@@ -463,13 +463,13 @@ as usual with sheaves, will denote them by
 
 
 \begin{defn}[$k$-th infinitesimal neighbourhood]\label{defn:kInfNeighbourhood}
-	Let $Y \hookrightarrow X$ be a monomorphism of {\em fppf} sheaves.
+	Let $Y \hookrightarrow X$ be a monomorphism of fppf sheaves.
 	We define $\mathrm{Inf}_Y^k(X)$ as the subsheaf of $X$,
 	whose sections over an $S$-scheme $T$, denoted by $\Gamma ( T , \mathrm{Inf}_Y^k(X) )$,
-	are given as follows:
-	$\Gamma ( T , \mathrm{Inf}_Y^k(X) )$ is the subsets of all
+	are given as follows.
+	The sections $\Gamma ( T , \mathrm{Inf}_Y^k(X) )$ consist of all
 	$t \in \Gamma \left( T, X \right)$ such that
-	there is a covering $\left\{ T_{ i } \to T \right\}_{ i \in I }$
+	there is an fppf covering $\left\{ T_{ i } \to T \right\}_{ i \in I }$
 	of $T$ and, for each $i$, a closed subscheme $T_i'$ of $T_i$,
 	defined by an ideal whose $(k+1)$-st power is $(0)$,
 	with the property that every element $\left.t\right|_{T_i'} \in \Gamma(T'_i, X)$
@@ -477,19 +477,19 @@ as usual with sheaves, will denote them by
 \end{defn}
 
 
-\begin{defn}[]
+\begin{ntt}[]
 	Let $X$ be a sheaf on $S$, with a section $e_X\colon S \to X$.
 	If this section is clear from context, e.g. in case we have
 	$(X, e_X)$ a pointed sheaf on $S$, i.e. a sheaf on $S$
 	given with a section $e_X\colon S \hookrightarrow X$,
 	we will write $\mathrm{Inf}^k(X)$
 	instead of $\mathrm{Inf}_S^k(X)$.
-\end{defn}
+\end{ntt}
 
 
 \begin{defn}[Ind-infinitesimal sheaf]
 	A pointed sheaf $\left(X, e_X\right)$ is called {\em ind-infinitesimal} iff,
-	as an {\em fppf sheaf}
+	as an {\em fppf sheaf},
 	\begin{equation*}
 		X = \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(X)
 	.\end{equation*}
@@ -546,7 +546,7 @@ geometry to make sense of the definitions which are at the heart of this section
 	the conormal sheaf of the immersion $e_X$ simply by
 	$\underline{\omega}_X$.
 \end{defn}
-tk: I should prove that $S \hookrightarrow X$ is a closed immersion
+%tk: I should prove that $S \hookrightarrow X$ is a closed immersion
 
 
 And now back to our interests.
@@ -555,7 +555,7 @@ And now back to our interests.
 	a {\em formal Lie variety} iff it satisfies the following:
 \begin{enumerate}
 	\item $X$ is ind-infinitesimal and $\mathrm{Inf}^k(X)$, viewed
-		as a sheaf in the {\em fppf} topology,
+		as a sheaf in the fppf topology,
 		is representable for all $k \geq 0$;
 	\item $\underline{\omega}_X \simeq
 		e_X^* \left( \Omega_{X/S} \right) \simeq
@@ -576,14 +576,16 @@ And now back to our interests.
 		$\underline{\omega}_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$.
 \end{enumerate}
 \end{defn}
+%tk: you can find the definition of symmetrical algebra on an ideal $I$
+%at page 53 of Shatz.
 
-
-\begin{rem}[{\cite[\S2.1]{Messing}}]\label{FormalLieVarietyPowerSeries}
+\begin{rem}[{\cite[Chapter II, \S1]{Messing}}]\label{rem:FormalLieVarietyPowerSeries}
 	From this definition it follows that $X$, locally on $S$,
 	is given by $\mathcal{O}_S [\![ T_1, \ldots, T_n ]\!]$.
-	In particular, in the case we work in, for the formal scheme point of view,
+	In particular, following the assumptions made for the formal scheme point of view,
 	it grants that $X$ is given by
-	$R [\![ T_1, \ldots, T_n ]\!]$.
+	$R [\![ T_1, \ldots, T_n ]\!]$,
+	where $S = \mathrm{Spec}(R)$.
 \end{rem}
 
 
@@ -591,33 +593,36 @@ And now back to our interests.
 	A {\em formal Lie group} over $S$ is a group object $\left(G, e_G\right)$
 	in the category of formal Lie varieties over $S$.
 \end{defn}
-tk: I think this is going to be fundamental in order to take duals, etc.
+
+
 In the following we will always assume that a formal Lie group $\left(G, e_G\right)$
 is commutative.
+Moreover, for these last results, we will assume that
+our base scheme $S$ is of characteristic $p  > 0$.
 
-tk: do I keep this remark?
-Our next aim is to find a connection between Barsotti-Tate groups and formal Lie groups,
-so let's start with some preliminary result:
-\begin{lem}[{\cite[\S2.1, lemma 1.1.6]{Messing}}]
-	Let $G$ be an $S$-group scheme.
-	Then $\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
-	is also a group.
-\end{lem}
+%tk: do I keep this remark? For the moment I decided to skip this lemma.
+%Our next aim is to find a connection between Barsotti-Tate groups and formal Lie groups,
+%so let's start with some preliminary result:
+%\begin{lem}[{\cite[Chapter II, \S1, lemma 1.1.6]{Messing}}]
+%	Let $G$ be a group scheme over $S$.
+%	Then also
+%	$\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
+%	is a group.
+%\end{lem}
 
 
-Assume now that our base scheme $S$ is of characteristic $p  > 0$.
 \begin{rem}[Frobenius and Verschiebung]
 One can generalize the definitions given for finite commutative group scheme
 in \cref{sec:FrobeniusVerschiebung}.
 In fact, looking at how they act on $S$-points, these
 definitions can be generalized to any contravariant functor
 from $\mathsf{Sch}_{ S }$ to $\mathsf{Sets}$.
-Then, on any sheaf of groups $G$, a Frobenius morphism,
+Then one defines, on any sheaf of groups $G$, a Frobenius morphism,
 denoted again by $F_G\colon G \to G^{(p)}$, 
 and a Verschiebung morphism, denoted by $V_G \colon G^{(p)} \to G$.
-Moreover, as in \cref{defn:nilpotentFrobenius} we denote by
+Moreover, as in \cref{defn:nilpotentFrobenius}, we denote by
 $F^n_G\colon G \to G^{(p^n)}$ the $n$-fold composition
-of the Frobenius.
+of the Frobenius morphism.
 \end{rem}
 
 
@@ -634,14 +639,15 @@ of the Frobenius.
 \end{enumerate}
 \end{defn}
 
-Finally we can more easily characterize the formal Lie groups over
+
+With this in mind we can more easily characterize the formal Lie groups over
 $S$ of characteristic $p$.
-\begin{thm}[{\cite[\S2.2, theorem 2.1.7]{Messing}}]\label{MessingCharactLieGroup}
+\begin{thm}[{\cite[Chapter II, \S2, theorem 2.1.7]{Messing}}]\label{thm:MessingCharactLieGroup}
 	In order for a sheaf of groups $G$ on $S$ to be a formal Lie group,
 	it is necessary and sufficient that the following conditions hold:
 \begin{enumerate}
-	\item $G$ is of $F$-torsion,
-	\item $G$ is $F$-divisible,
+	\item $G$ is of $F$-torsion;
+	\item $G$ is $F$-divisible;
 	\item The $G[n]$ are finite and locally free $S$-group schemes.
 \end{enumerate}
 \end{thm}
@@ -649,29 +655,29 @@ $S$ of characteristic $p$.
 
 \begin{rem}[Comparison of the two points of view]
 	From 
-	\cref{MessingCharactLieGroup},
-	\cref{FormalLieVarietyPowerSeries,defn:FormalSchemeFormalLieGroup}
+	\cref{thm:MessingCharactLieGroup},
+	\cref{rem:FormalLieVarietyPowerSeries,defn:FormalSchemeFormalLieGroup}
 	we see that the two definitions of formal Lie group coincide, over
 	$S = \mathrm{Spec}(R)$, where $R$ is a local admissible ring.
 	In fact from the definition as an fppf sheaf of groups,
 	we obtain that $G$ is $F$-torsion.
 	As a consequence every $G[n]$, up to base
-	change to the residue field, satisfies conditions of \cref{FrobeniusChar2},
+	change to the residue field, satisfies conditions of \cref{thm:FrobeniusChar2},
 	which grants connectedness.
 	Moreover we see that $G$ is given by a ring of formal power series,
 	hence it is smooth.
 	For the converse we recall
-	\cref{reprFctSheaf},
-	\cref{VeryFiniteSchemes,FrobeniusVerschiebungRelation}
+	\cref{thm:reprFctSheaf},
+	\cref{rem:VeryFiniteSchemes,thm:FrobeniusVerschiebungRelation}
 	and then have to argue following \cite[porposition 1]{TatePC}, see
-	also \cite[\S2, theorem 2.1.7]{Messing} for some more details.
+	also \cite[Chapter II, \S2, theorem 2.1.7]{Messing} for some more details.
 \end{rem}
 
 
 
 \subsection{\texorpdfstring{$p$}{p}-divisible groups}
-Again, following the previous points of view, we will define $p$-divisible groups
-from two different starting points: that of formal schemes
+As in the previous section, we will define $p$-divisible groups
+from two different points of view: that of formal schemes
 and that of fppf sheaves.
 
 
@@ -694,7 +700,7 @@ it also has residue characteristic $p$).
 	satisfying:
 	\begin{enumerate}
 		\item for each $v \in \mathbb{N}$, $G_v$ is a finite, commutative group scheme over $R$
-			of order $p^{v h}$,
+			of order $p^{v h}$;
 		\item for each $v \in \mathbb{N}$, there is an exact sequence
 			\begin{equation*}
 			\begin{tikzcd}
@@ -712,7 +718,7 @@ it also has residue characteristic $p$).
 
 
 \begin{rem}[]
-	Recalling \cref{VeryFiniteSchemes} we see that the inductive system 
+	Recalling \cref{rem:VeryFiniteSchemes} we see that the inductive system 
 	$\left( G_v, i_v \right)_{v \in \mathbb{N}}$ defines a formal group 
 	\begin{equation*}
 	G \coloneqq \varinjlim_{v \in \mathbb{N}} G_v
@@ -730,7 +736,7 @@ In fact the following proposition holds.
 	for which $p\colon G \to G$ is an {\em isogeny}.
 \end{prop}
 \begin{proof}
-	The following diagram then shows that $G_v$ is the kernel of $p^v$
+	The following diagram shows that $G_v$ is the kernel of $p^v$
 	on $G_{v+2}$ via the iterated injection $i_{v+1} \circ i_v$.
 	Inductively this holds for $G_{v+t}$, where $t \geq 1$:
 	\begin{equation*}
@@ -773,9 +779,10 @@ In fact the following proposition holds.
 	dashed arrow $j_{t,v}$.
 	Moreover we obtain the commutativity of the right triangle by
 	definition of inductive system.
-	As a consequence also the lower triangle commutes, granting
+	As a consequence, since $i_{v+t}$ is a monomorphism,
+	also the lower triangle commutes, granting
 	$i_{v,t} \circ j_{t,v} = p^t$.
-	Then, as $i_{v,t}$ is a monomorphism, $\ker j_{t,v}$
+	Then, as also $i_{v,t}$ is a monomorphism, $\ker j_{t,v}$
 	coincides with the kernel of $p^t$ on $G_{v+t}$, 
 	which is $G_t$ by the above discussion.
 	Then, by property $1$ of $p$-divisible groups,
@@ -816,11 +823,12 @@ In fact the following proposition holds.
 \begin{ex}\leavevmode\vspace{-.2\baselineskip}\label{ex:pDivGroups}
 \begin{enumerate}
 \item In the case of ordinary abelian groups this definition would just allow
-	$G_v = \left( \mathbb{Z}/p^v\mathbb{Z} \right)^h$, hence to the $p$-divisible group
+	$G_v = \left( \mathbb{Z}/p^v\mathbb{Z} \right)^h$, hence
+	it would just give rise to the $p$-divisible group
 	\begin{equation*}
 		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
 	.\end{equation*} 
-\item In case we start considering an $n$-dimensional commutative\label{ConnectedpDivGroupFLG}
+\item In case we start considering an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
 	formal Lie group $\Gamma$ over $R$, we clearly have to require that it is $p$-divisible,
 	as defined in \cref{defn:pDivisibleFormalLieGroup}.
 	Then multiplication by $p$ is an isogeny.
@@ -830,16 +838,17 @@ In fact the following proposition holds.
 	\begin{equation*}
 		\Gamma(p) \coloneqq \left(\Gamma_{p^\nu}, i_{p^\nu}\right)_\nu
 	.\end{equation*} 
-	In the above $\Gamma_{p^\nu}$ is the kernel of the multiplication by $p^\nu$ 
-	in $\Gamma$.
-	Then one can prove that $\ker p$ is connected and, since $p$ is an isogeny,
-	it is also finite.
-	By \cref{prop:PropertiesConnecteEtale} this implies that the order of $\ker p$
-	is a power of $p$.
-	Then, using flatness (to base change to the residue field) and 
-	\cref{FrobeniusVerschiebungRelation}, one can extend this result
-	to $\ker p^v$ for all $v \geq 1$.
-	Hence the construction of $\Gamma(p)$ gives rise to a connected $p$-divisible group.
+	In the above $\Gamma_{p^\nu}$ is the kernel of
+	the multiplication by $p^\nu$ in $\Gamma$.
+	Then one can prove that $\ker p$ is connected and,
+	since $p$ is an isogeny, it is also finite.
+	By \cref{prop:PropertiesConnectedEtale} this implies that
+	the order of $\ker p$ is a power of $p$.
+	Then flatness allows us to base change to the residue field and invoke
+	\cref{thm:FrobeniusVerschiebungRelation}, with which one can extend 
+	this result to $\ker p^v$ for all $v \geq 1$.
+	It follows that the construction of $\Gamma(p)$
+	gives rise to a connected $p$-divisible group.
 \end{enumerate}
 \end{ex}
 
@@ -850,11 +859,9 @@ In fact the following proposition holds.
 	we felt it was useful to quote it in view of the following section.
 \end{rem}
 \subsubsection{fppf sheaves point of view}
-tk: here copy the relevant results from Messing.
-
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
-\begin{lem}[{\cite[\S 1, lemma 1.1]{Messing}}]\label{lem:equivCondTruncatedBTGroup}
+\begin{lem}[{\cite[Chapter I, \S1, lemma 1.1]{Messing}}]\label{lem:equivCondTruncatedBTGroup}
 	The following conditions are equivalent:
 \begin{enumerate}
 	\item $G$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module,
@@ -881,11 +888,12 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 \end{defn}
 
 
-\begin{lem}[{\cite[\S1, lemma 1.5]{Messing}}]\leavevmode\vspace{-.2\baselineskip}
+\begin{lem}[{\cite[Chapter I, \S1, lemma 1.5]{Messing}}]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item If $G(n)$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module, then $G(n)$
 		is a finite, locally-free group scheme iff
-		$G(1)$ is. Then all the $G(i)$ are.
+		$G(1)$ is. 
+		In such case all the $G(i)$, for $1 \leq i \leq n$, are also finite and locally-free.
 
 	\item If $G(n)$ is finite and locally free, then
 		\begin{equation}
@@ -893,7 +901,7 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
 			p^i\colon G(n) \arrow[r, "", rightarrow] &
-			G(n-1)
+			G(n-i)
 		\end{tikzcd}
 		\end{equation} 
 		is an epimorphism iff it is faithfully flat.
@@ -904,7 +912,7 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 \begin{defn}[$p$-torsion and $p$-divisible groups]
 	Let $S$ be a scheme and $G$ be an $S$-group.
 	Denote by $G(n)$ the kernel of the multiplication by $p^n$ on $G$.
-	The group $G$ is said to be of {\em $p$-torsion} iff $\varprojlim_{n \in \mathbb{N}} G(n) = G$.
+	The group $G$ is said to be of {\em $p$-torsion} iff $\varinjlim_{n \in \mathbb{N}} G(n) = G$.
 	Similarly $G$ is said to be {\em $p$-divisible} iff $p\colon G \to G$
 	is an epimorphism.
 \end{defn}
@@ -913,8 +921,8 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 \begin{defn}[Barsotti-Tate group]\label{BTGroup}
 	An $S$ group $G$ is called {\em Barsotti-Tate} iff it satisfies
 \begin{enumerate}
-	\item $G$ is of $p$-torsion,
-	\item $G$ is $p$-divisible,
+	\item $G$ is of $p$-torsion;
+	\item $G$ is $p$-divisible;
 	\item $G(1)$ is a finite, locally-free group scheme.
 \end{enumerate}
 	We denote by $\mathsf{BT}_S$ the full subcategory of $\mathsf{Gr}_S$,
@@ -932,15 +940,19 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 
 
 \begin{rem}[Comparison of the two points of view]
-	We will follow \cite[\S2, remark 2.3 and \S3, theorem 2.1.7]{Messing} to show that
+	We will follow \cite[Chapter I, \S2, remark 2.3 and 
+	Chapter II, \S3, theorem 2.1.7]{Messing} to show that
 	the two points of view define the same objects over $S = \mathrm{Spec}(R)$,
 	for an admissible local ring $R$.
 	Let's start by considering $G \in \mathsf{BT}_S$.
-	Then, by definition, $G(v) = G(v+r)(v)$, i.e. denoted by $i_v\colon G(v) \to G(v+1)$
-	the inclusion of $G(v)$ into $G(v+1)$, we obtain that 
-	$\left( G_v, i_v \right)_{v \in \mathbb{N}}$ is an inductive system of $S$-groups.
-	Moreover $G(v)$ is a kernel of multiplication by $p^v$ on $G_{v+t}$, for $t \geq 0$
-	which, in particular, means that the following is exact.
+	Let's denote by $i_{v,t}\colon G(v) \to G(v+t)$ the natural inclusion
+	morphisms.
+	By definition we have $G(v) = G(v+t)(v)$ for all $t \geq 1$.
+	Then, denoting by $i_v \coloneqq i_{v,1}$, this means that
+	$\left( G_v, i_v \right)_{v \in \mathbb{N}}$ is an inductive system.
+	Moreover it also means that $G(v)$ is the kernel of multiplication
+	by $p^v$ on $G_{v+t}$ for all $t$. 
+	As a consequence we obtain that the following is exact:
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -952,14 +964,14 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 	Hence $\left( G_v, i_v \right)_{v \in \mathbb{N}}$ satisfies condition $2$
 	of \cref{defn:pDivGroupFormalSchemes}.
 	Then, since $G$ is $p$-divisible, i.e. multiplication by $p$ is an
-	epimorphism of $G$, we have that for any $0 \leq i \leq n$
-	$p^{n-i}$ induces an epimorphism $G(n) \twoheadrightarrow G(i)$.
+	epimorphism of $G$ we have that, for any $0 \leq i \leq v$,
+	$p^{v-i}$ induces an epimorphism $G(v) \twoheadrightarrow G(i)$.
 	Combining this with the above remark we obtain the exactness of
 	\begin{equation}\label{diag:equivpDivGrDefn}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
-		G(n-i) \arrow[r, "", rightarrow] &
-		G(n) \arrow[r, "p^{n-i}", rightarrow] &
+		G(v-i) \arrow[r, "i_{v-i,i}", rightarrow] &
+		G(v) \arrow[r, "p^{v-i}", rightarrow] &
 		G(i) \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
@@ -968,7 +980,7 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 	rank of the fiber of $G(1)$ at a point $s \in S$ is of the form
 	$p^{h(s)}$ for a function $h$ which is locally constant on $S$.
 	Then, from \cref{diag:equivpDivGrDefn} and multiplicativity of
-	ranks in short exact sequences, see \cref{QuotientGroupScheme}, we obtain
+	ranks in short exact sequences, see \cref{thm:QuotientGroupScheme}, we obtain
 	that the rank of the fiber of $G(n)$ at $s$
 	is $p^{n(s)}$.
 	Hence our inductive system satisfies also $1$ 
@@ -980,8 +992,8 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 \end{rem}
 
 
-Before moving on to the concept of duality for $p$-divisible groups
-we'll state a result
+%Before moving on to the concept of duality for $p$-divisible groups
+To end this section we'll state a result
 which relate the concepts introduced in the last couple of sections:
 that of formal Lie group and of $p$-divisible group.
 
@@ -989,7 +1001,7 @@ that of formal Lie group and of $p$-divisible group.
 \begin{prop}[{\cite[\S2, proposition 1]{TatePC}}]
 	Let $R$ be a complete Noetherian local ring whose residue field $k$
 	is of characteristic $p > 0$.
-	Then the functor $\Gamma \mapsto \Gamma(p)$, constructed as in \cref{ConnectedpDivGroupFLG}
+	Then the functor $\Gamma \mapsto \Gamma(p)$, constructed as in \cref{ex:ConnectedpDivGroupFLG}
 	of \cref{ex:pDivGroups},
 	is an equivalence of categories
 	between the category of $p$-divisible commutative formal Lie groups over $R$
