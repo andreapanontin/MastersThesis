@@ -18,7 +18,7 @@ This section is strongly inspired from
 \cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP},
 which in turn bases itself on \cite[Chapter I, \S10]{EGA1}.
 
-Let's start by recalling a few useful algebra defintions.
+Let's start by recalling a few useful algebra definitions.
 
 \begin{defn}[Topological rings and modules]\leavevmode\vspace{-1\baselineskip}
 \begin{enumerate}
@@ -27,7 +27,7 @@ Let's start by recalling a few useful algebra defintions.
 	$R \cross R \to R$, where $R \cross R$ is taken with the product topology.
 
 \item We say that an $R$-module $M$, where $R$ is a topological ring,
-	is a {\em topological module} iff $M$ is enodwed with a topology such that
+	is a {\em topological module} iff $M$ is endowed with a topology such that
 	addition and scalar multiplication are both continuous, again with their sources
 	taken with the product topology.
 
@@ -437,7 +437,7 @@ the right one in our context.
 		\psi\colon \mathscr{A} \arrow[r, "", rightarrow] &
 		\mathscr{A} \widehat{\otimes}_R \mathscr{A} \\
 		X \arrow[r, "", mapsto] & 
-		X \ast \ldots \ast X
+		X \ast \cdots \ast X
 	\quad \text{($p$ times)}
 	.\end{tikzcd}
 	\end{equation*} 
@@ -581,7 +581,7 @@ And now back to our interests.
 
 \begin{rem}[{\cite[Chapter II, \S1]{Messing}}]\label{rem:FormalLieVarietyPowerSeries}
 	From this definition it follows that $X$, locally on $S$,
-	is given by $\mathcal{O}_S [\![ T_1, \ldots, T_n ]\!]$.
+	is isomorphic to $\mathcal{O}_S [\![ T_1, \ldots, T_n ]\!]$.
 	In particular, following the assumptions made for the formal scheme point of view,
 	it grants that $X$ is given by
 	$R [\![ T_1, \ldots, T_n ]\!]$,
@@ -737,7 +737,7 @@ In fact the following proposition holds.
 \end{prop}
 \begin{proof}
 	The following diagram shows that $G_v$ is the kernel of $p^v$
-	on $G_{v+2}$ via the iterated injection $i_{v+1} \circ i_v$.
+	on $G_{v+2}$ via the iterated immersion $i_{v+1} \circ i_v$.
 	Inductively this holds for $G_{v+t}$, where $t \geq 1$:
 	\begin{equation*}
 	\begin{tikzcd}
@@ -755,6 +755,8 @@ In fact the following proposition holds.
 	\end{equation*}
 	As a consequence $G_v$ is the kernel of $p^v$ on $G$,
 	hence $G$ is $p$-torsion (since it is $\varinjlim G_v$).
+	To simplify the discussion we will introduce the notation
+	$i_{v,t} \coloneqq i_v \circ \ldots \circ i_{v+t}\colon G_v \to G_{v + t}$.
 	Then we analyze the following diagram to obtain that $p$
 	is an isogeny:
 	\begin{equation}\label{diag:pDivCharProof}
@@ -814,8 +816,8 @@ In fact the following proposition holds.
 	group as in \cref{defn:pDivGroupFormalSchemes}.
 	In fact setting $G_v \coloneqq \ker p^v$, as seen in \cref{CharactpDivGroups},
 	and $i_v$ the inclusion of one kernel into the next gives an inductive system.
-	The height $h$ is given by the exponent of the order of $\ker p$,
-	and one checks that the order of $\ker p^v = p^{vh}$.
+	The height $h$ is given by the exponent in the order of $\ker p$,
+	and one checks that the order of $\ker p^v$ is $p^{vh}$.
 	Finally $G = \varinjlim_{v \in \mathbb{N}} G_v$ since it is $p$-torsion.
 \end{rem}
 
@@ -858,10 +860,14 @@ In fact the following proposition holds.
 	are available at \cite[\S6]{Shatz},
 	we felt it was useful to quote it in view of the following section.
 \end{rem}
+
+
+
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
 \begin{lem}[{\cite[Chapter I, \S1, lemma 1.1]{Messing}}]\label{lem:equivCondTruncatedBTGroup}
+	Let $G$ be an $S$ group.
 	The following conditions are equivalent:
 \begin{enumerate}
 	\item $G$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module,
@@ -952,7 +958,7 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 	$\left( G_v, i_v \right)_{v \in \mathbb{N}}$ is an inductive system.
 	Moreover it also means that $G(v)$ is the kernel of multiplication
 	by $p^v$ on $G_{v+t}$ for all $t$. 
-	As a consequence we obtain that the following is exact:
+	As a consequence we obtain that the following sequence is exact:
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -982,7 +988,7 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 	Then, from \cref{diag:equivpDivGrDefn} and multiplicativity of
 	ranks in short exact sequences, see \cref{thm:QuotientGroupScheme}, we obtain
 	that the rank of the fiber of $G(n)$ at $s$
-	is $p^{n(s)}$.
+	is $p^{nh(s)}$.
 	Hence our inductive system satisfies also $1$ 
 	of \cref{defn:pDivGroupFormalSchemes}.
 

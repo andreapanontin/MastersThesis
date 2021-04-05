@@ -68,7 +68,7 @@ in what follows.
 		m \circ (\varepsilon \cross \mathrm{id}_{ G }) &=
 		m \circ (\mathrm{id}_{ G } \cross \varepsilon) = \mathrm{id}_{ G }\nonumber
 	.\end{align} 
-	Notice that in this last equality we implicitly use the isomorphism
+	Notice that in this last equality we implicitly use the isomorphisms
 	$\left\{ e \right\} \cross G \simeq G \simeq G \cross \left\{ e \right\}$.
 \end{rem}
 
@@ -132,13 +132,13 @@ in what follows.
 			\end{tikzcd}
 			\end{equation*} 
 		\item Identity element (again, as with groups, in the following diagrams
-			we will implicitly use the isomorphism
+			we use the isomorphisms
 			$S \cross_{ S } G \simeq G \simeq G \cross_{ S } S$)
 			\begin{equation*}
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
-				S \cross_{ S } G \arrow[r, "\mathrm{id}_{ G }", rightarrow] 
+				S \cross_{ S } G \arrow[r, "\sim", rightarrow] 
 				\arrow[u, "\varepsilon \cross_S \mathrm{id}_{ G }", rightarrow] &
 				G \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
 			\end{tikzcd}
@@ -146,7 +146,7 @@ in what follows.
 			\begin{tikzcd}
 				G \cross_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
-				G \cross_{ S } S \arrow[r, "\mathrm{id}_{ G }", rightarrow] 
+				G \cross_{ S } S \arrow[r, "\sim", rightarrow] 
 				\arrow[u, "\mathrm{id}_{ G } \cross_S \varepsilon", rightarrow] &
 				G. \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
 			\end{tikzcd}
@@ -286,7 +286,7 @@ Moreover, in the rest of the discussion, we will mostly be concerned by
 affine group scheme, hence the choice to concentrate most on them.
 Many of the following results, though, are still valid in a more general setting.
 
-For most of the following section, then, we will fix an affine group scheme
+For most of the following section, then, we will fix an affine scheme
 $S = \mathrm{Spec}(R)$, and focus on affine $S$-groups.
 
 
@@ -488,7 +488,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 \end{rem}
 
 
-\begin{ex}
+\begin{ex}\label{ex:AffineGroupSchemesExamples}
 	In the following examples we will denote $S \coloneqq \mathrm{Spec}(R)$
 	and $G \coloneqq \mathrm{Spec}(A)$.\nopagebreak[4]
 	\begin{enumerate}
@@ -680,7 +680,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			A basis for $A$ is given by $\left\{ e_\sigma \right\}_{\sigma \in \Gamma}$,
 			for $e_\sigma(\gamma) = \delta_{\gamma,\sigma}$,
 			where $\delta$ is the Kronecker delta.
-			Defining the following Hopf algebra morphisms
+			Defining the following Hopf algebra structure
 			we see that $A$ represents an $S$-group scheme,
 			called the constant group scheme for $\Gamma$,
 			which we denote by $\underline{\Gamma}$.
@@ -761,7 +761,7 @@ is a locally Noetherian scheme.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		(\mathrm{id}_{ X }, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		(\mathrm{pr}_1, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
 		X \cross_{ S } X
 	\end{tikzcd}
 	\end{equation*} 
@@ -770,7 +770,7 @@ is a locally Noetherian scheme.
 
 The next theorem will allow us to construct quotients of
 $S$-group schemes by finite, flat closed subgroup schemes.
-It actually is a more general result, due to Grothendieck.
+It actually is a consequence of the following, more general result, due to Grothendieck.
 \begin{thm}[{\cite[\S 3.4]{TateMF}}]
 	Suppose that $H$, finite flat over $S$, acts strictly freely on $X$
 	of finite type over $S$ in such a way that every orbit is contained in an affine open set.
@@ -792,7 +792,7 @@ It actually is a more general result, due to Grothendieck.
 \end{thm}
 
 
-As promised we obtain the following result for quotient group schemes.
+As promised we obtain the following result for group schemes.
 \begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{thm:QuotientGroupScheme}
 	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
 	subgroup scheme.
@@ -808,6 +808,18 @@ As promised we obtain the following result for quotient group schemes.
 		[G:H][H:S] = [G:S]
 	.\end{equation*} 
 \end{prop}
+
+
+Finally, in order to take quotients, we need to introduce the notion
+of normal subgroup:
+\begin{defn}[Normal subgoroup]
+	Let $G$ be an $S$ group and $H$ be a subgroup scheme of $G$,
+	i.e. $H$ is a subscheme of $G$ and the inclusion morphism
+	is a homomorphism of group schemes.
+	We say that $H$ is a {\em normal subgroup} of $G$ iff, for all $T \in \mathsf{Sch}_{ S }$,
+	the subgroup $H(T)$ of $G(T)$ is a {\em normal} subgroup.
+\end{defn}
+
 
 \begin{rem}[Short exact sequence]
 	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
@@ -828,9 +840,11 @@ As promised we obtain the following result for quotient group schemes.
 	\end{equation*}
 	where short exactness also means that $i$ is a closed immersion
 	and $u$ is faithfully flat.
-	Moreover $1$ denotes the constant $S$-group scheme $1$, as
-	seen in \cref{ex:ConstantGroups} of the examples.
+	Here $1$ denotes the constant $S$-group scheme $1$, as
+	seen in \cref{ex:ConstantGroups} of
+	\cref{ex:AffineGroupSchemesExamples}.
 \end{rem}
+
 
 
 \subsubsection{Separable algebras and étale group schemes}
@@ -910,7 +924,7 @@ In fact we can use this characterization in our context thanks to
 \end{enumerate}
 \end{lem} 
 
-\subsubsection{Connected-étale exact equence}
+\subsubsection{Connected-étale exact sequence}
 In the following section we will always assume that 
 $S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
 We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
@@ -973,14 +987,14 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	$A$ is a finite and locally free $R$-module.
 	For an $R$-module $M$ we define its dual $R$-module to be
 	$M^D \coloneqq \mathrm{Hom}_{R} \left( M, R \right)$.
-	Hence, for any locally free $R$-modules $M$ and $N$,
+	Hence, for any locally free $R$-modules of finite rank $M$ and $N$,
 	one has the natural isomorphisms
-	\begin{equation*}
+	\begin{equation*}%See Waterhouse
 	\begin{tikzcd}
 		M \arrow[r, "\sim", rightarrow] &
-		M^D &
+		(M^D)^D &
 		\text{and} &
-		M^D \otimes_R N \arrow[r, "\sim", rightarrow] &
+		M^D \otimes_R N^D \arrow[r, "\sim", rightarrow] &
 		\left( M \otimes_R N \right)^D
 	.\end{tikzcd}
 	\end{equation*}
@@ -1007,8 +1021,8 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 		A^D 
 	.\end{tikzcd}
 	\end{equation*}
-	More explicitly $(\widetilde{\Delta})^D$ and $(\widetilde{\mathrm{m}})^D$ are
-	the transpose maps of $\widetilde{\Delta}$ and $\widetilde{\mathrm{m}}$ respectively,
+	More explicitly $(\widetilde{\Delta})^D$ and $(\widetilde{m})^D$ are
+	the transpose maps of $\widetilde{\Delta}$ and $\widetilde{m}$ respectively,
 	i.e.
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1028,7 +1042,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right) \otimes_R
 	\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
 	.\end{equation*}
-	Analogously one constructs $(\widetilde{\mathrm{m}})^D$.
+	Analogously one constructs $(\widetilde{m})^D$.
 \end{rem}
 
 \begin{defn}[Cartier dual]
@@ -1053,7 +1067,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \end{enumerate}
 \end{thm}
 
-\begin{rem}[]
+\begin{rem}[]\label{rem:DualityOtherProperties}
 	Duals of finite commutative group schemes inherit some other properties,
 	in fact $[G^D : S] = [G : S]$.
 	Moreover the dual of a short exact sequence is short exact.
@@ -1076,7 +1090,7 @@ Here the relevant notions:
 
 
 \begin{rem}[{\cite[\S 2.4]{Waterhouse}}, Dual as hom functor]
-	Characters form a subgroup of the set of morphism of $S$-schemes
+	Characters form a group in the set of morphism of $S$-schemes
 	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
 	\begin{equation*}
 		\mathrm{Hom}_{\mathsf{Gp}_S} \left( G, (\mathbb{G}_m)_S \right)
@@ -1111,12 +1125,13 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 		In particular this yields that $\mu_n$ is dual to $\underline{\mathbb{Z}/n\mathbb{Z}}$
 		and viceversa.
 
-	\item One can show that $\left( \alpha_p \right)^D \simeq \alpha_p$.
-		In fact we can view $(\alpha_p)^D$ as the character group
+	\item One can show that $\alpha_p^D \simeq \alpha_p$.
+		In fact we can view $\alpha_p^D$ as the character group
 		\begin{equation*}
 			\mathrm{Hom}_{\mathsf{Gp}_S} \left( (\alpha_p)_S, (\mathbb{G}_m)_S \right)
 		.\end{equation*}
-		In particular we reason for $S = \mathrm{Spec}(\mathbb{F}_p)$, where
+		To see this we can reduce to the case where 
+		$S = \mathrm{Spec}(\mathbb{F}_p)$, where
 		$\mathbb{F}_{p}$ denotes the finite field of order $p$ prime. Then
 		the result holds in general due to compatibility of the construction of
 		dual group scheme with base change.
@@ -1128,7 +1143,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 			\mathrm{exp}\colon \alpha_p(R) \arrow[r, "", rightarrow] &
 			(\mathbb{G}_m)_{ \mathbb{F}_{p} } \\
 			r \arrow[r, "", mapsto] & \mathrm{exp}(r) \coloneqq
-			1 + r + \frac{r^2}{2!} + \ldots + \frac{r^{p-1}}{\left( p-1 \right)!}
+			1 + r + \frac{r^2}{2!} + \cdots + \frac{r^{p-1}}{\left( p-1 \right)!}
 		.\end{tikzcd}
 		\end{equation*} 
 		With this notation it can be shown that, for any
@@ -1155,7 +1170,8 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 
 
 \begin{defn}[]
-	Denote by $\varphi_A\colon A \to A$, for any $R$-algebra $A$, the morphism
+	For any $R$-algebra $A$,
+	denote by $\varphi_A\colon A \to A$ the morphism
 	acting by $a \mapsto a^p$.
 	It induces $\mathrm{Spec}(\varphi_A)\colon \mathrm{Spec}(A) \to \mathrm{Spec}(A)$,
 	which is the identity at the level of topological spaces.
@@ -1218,7 +1234,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		f^{(p)} \coloneqq f \cross id\colon X^{(p)} \arrow[r, "", rightarrow] &
+		f^{(p)} \coloneqq f \cross \mathrm{id}_{  }\colon X^{(p)} \arrow[r, "", rightarrow] &
 		Y^{(p)}
 	.\end{tikzcd}
 	\end{equation} 
@@ -1301,7 +1317,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \end{rem}
 
 
-Let's briefly quote a result, which acts as a dual to
+Let's briefly quote a result, which is dual to
 \cref{thm:FrobeniusChar1} and \cref{thm:FrobeniusChar2}.
 \begin{prop}[]
 	Let $G$ be a finite commutative $k$-group scheme. Then the following hold.

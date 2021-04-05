@@ -54,7 +54,7 @@ intersections with fibered products.
 
 
 \begin{rem}[]
-	From properties $2.$ and $3.$ above it follows that, given 
+	From properties $2$ and $3$ above it follows that, given 
 	two coverings of the same object $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 	and $\left\{ V_{ i } \to U \right\}_{ j \in J }$, also
 	$\left\{ U_{ i } \cross_U V_j \to U \right\}_{ (i,j) \in I \cross J }$
@@ -66,10 +66,10 @@ Before moving on to some examples, we should introduce a
 definition which plays an important role in the definition of
 some important pretopologies.
 \begin{defn}[Jointly surjective family of morphisms]
-For $\mathsf{C} = \mathsf{Sets}$ or $\mathsf{C} = \mathsf{Sch}_{ S }$, for some scheme $S$,
-we will say that a family of morphisms
-$\left\{ U_{ i } \to U \right\}_{ i \in I }$ is {\em jointly surjective} iff
-the set-theoretic union of the images is $U$.
+	For $\mathsf{C} = \mathsf{Sets}$ or $\mathsf{C} = \mathsf{Sch}_{ S }$, for some scheme $S$,
+	we will say that a family of morphisms
+	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ is {\em jointly surjective} iff
+	the set-theoretic union of the images is $U$.
 \end{defn}
 
 
@@ -120,7 +120,7 @@ Let's now give a couple of examples on $\mathsf{Sch}_{ S }$, for a fixed scheme 
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
 		jointly surjective collection of 
 		flat maps locally of finite presentation.
-		The acronym fppf stands for 
+		The acronym {\em fppf} stands for 
 		"fidèlement plat et de présentation finie".
 \end{enumerate}
 \end{ex}
@@ -151,7 +151,7 @@ Let's now give a couple of examples on $\mathsf{Sch}_{ S }$, for a fixed scheme 
 \end{defn}
 
 
-\begin{rem}[{\em fpqc} topology]
+\begin{rem}[fpqc topology]
 	It can be shown, see \cite[\S 2.3.2]{Vistoli},
 	that on $\mathsf{Sch}_{ S }$, the data
 	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}_{ S }$,
@@ -262,8 +262,8 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 	\end{equation*} 
 	as the map sending $(a_i) \in \prod_i F(U_i)$ to
 	$\mathrm{pr}_1^*(a_i) \in \prod_{i,j} F( U_i \cross_{ U } U_j )$,
-	whose component in $F( U_i \cross_{ U } U_j )$ is given by $\mathrm{pr}_1^*(a_i)$,
-	where $\mathrm{pr}_1\colon U_i \cross_{ U } U_j \to U_i$ is the projection on the first
+	whose component in $F( U_i \cross_{ U } U_j )$ is given by $\mathrm{pr}_1^{i,j*}(a_i)$,
+	where $\mathrm{pr}^{i,j}_1\colon U_i \cross_{ U } U_j \to U_i$ is the projection on the first
 	component.
 	Analogously we define a morphism $\mathrm{pr}_2^*\colon \prod_i F(U_i) \to 
 	\prod_{i,j} F( U_i \cross_{ U } U_j )$.
