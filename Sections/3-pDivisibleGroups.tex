@@ -757,7 +757,7 @@ In fact the following proposition holds.
 	hence $G$ is $p$-torsion (since it is $\varinjlim G_v$).
 	Then we analyze the following diagram to obtain that $p$
 	is an isogeny:
-	\begin{equation*}
+	\begin{equation}\label{diag:pDivCharProof}
 	\begin{tikzcd}[row sep=1.4em]
 		G_{v+t+1} \arrow[rr, "p^t", rightarrow] & &
 		G_{v+t+1} \arrow[r, "p^v", rightarrow] &
@@ -769,9 +769,9 @@ In fact the following proposition holds.
 		G_{v+t} \arrow[ru, "j_{t,v}", dashrightarrow] 
 		\arrow[rr, "p^t"', rightarrow]
 		\arrow[uu, "i_{v+t}", rightarrow] & &
-		G_{v,t} \arrow[uu, "i_{v+t}"', rightarrow]
+		G_{v+t} \arrow[uu, "i_{v+t}"', rightarrow]
 	.\end{tikzcd}
-	\end{equation*}
+	\end{equation}
 	In fact the big square commutes and condition $2$ of the definition
 	of $p$-divisible group, applied to $G_{v+t}$, implies that $p^t \circ i_{v+t}$
 	factors through the kernel of $p^v$ on $G_{v+t+1}$.
@@ -789,7 +789,7 @@ In fact the following proposition holds.
 	the order of $G_{v+t}$ is the product of the orders
 	of $G_v$ and $G_t$, hence the following is a
 	short exact sequence of abelian $S$-group schemes
-	\begin{equation*}
+	\begin{equation}\label{eqn:pDivGrInducedmultiplication}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		G_t \arrow[r, "i_{t,v}", rightarrow] &
@@ -797,7 +797,7 @@ In fact the following proposition holds.
 		G_v \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
-	\end{equation*}
+	\end{equation}
 	Let's remark that these computation do not depend on the chosen $t \geq 1$
 	nor on the chosen $v$.
 	Hence the above sequence is exact for all $v$ and $t$.
@@ -998,7 +998,7 @@ which relate the concepts introduced in the last couple of sections:
 that of formal Lie group and of $p$-divisible group.
 
 
-\begin{prop}[{\cite[\S2, proposition 1]{TatePC}}]
+\begin{prop}[{\cite[\S2, proposition 1]{TatePC}}]\label{prop:equivCatConnpDivGr}
 	Let $R$ be a complete Noetherian local ring whose residue field $k$
 	is of characteristic $p > 0$.
 	Then the functor $\Gamma \mapsto \Gamma(p)$, constructed as in \cref{ex:ConnectedpDivGroupFLG}
@@ -1010,49 +1010,101 @@ that of formal Lie group and of $p$-divisible group.
 
 
 
-%\subsection{Cartier duality for \texorpdfstring{$p$}{p}-divisible groups}
-%tk: add this section (or something like: Other properties) if you want to 
-%also speak about dimension. Otherwise no point in doing it.
-%
-%
-%In this section we want to extend the concept of duality introduced in \cref{CartierDualityGroups}.
-%We will do so considering $p$-divisible groups as formal schemes,
-%i.e. as inductive systems of finite commutative group schemes.
-%In fact we will follow \cite[\S6]{Shatz} (or Tate? tk).
+\subsection{Cartier duality}% for \texorpdfstring{$p$}{p}-divisible groups}
+In this section we want to extend the concept of duality introduced in \cref{CartierDualityGroups}
+to $p$-divisible groups.
+We will do so in the setting of formal schemes,
+i.e. viewing a $p$-divisible group as an inductive systems of finite commutative group schemes.
+In fact we will follow \cite[\S6]{Shatz} (or Tate? tk).
+
+\begin{rem}[]\label{rem:DualInductiveSystem}
+	Let's notice that for $t = 1$, thanks to \cref{rem:DualityOtherProperties}, 
+	\cref{eqn:pDivGrInducedmultiplication} dualizes to the exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G_v^D \arrow[r, "j_v^D", rightarrow] &
+		G_{v+1} \arrow[r, "i_v^D", rightarrow] &
+		G_1 \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Moreover we see that $\left( G_v^D, j_v^D \right)_{v \in \mathbb{N}}$
+	defines an inductive system, by construction of $j_v$ (using the universal property
+	defining it).
+	Then, still by \cref{rem:DualityOtherProperties}, we obtain that it satisfies condition
+	$1$ of \cref{defn:pDivGroupFormalSchemes}.
+	Moreover commutativity of the lower triangle in \cref{diag:pDivCharProof}
+	shows that $j_v = \coker i_{1,v} = \coker \left( p^v\colon G_{v+1} \to G_{v+1} \right)$,
+	since $i_{1,v}$ is injective.
+	But then, since duality is exact, this implies that the inductive system
+	satisfies also property $2$ of \cref{defn:pDivGroupFormalSchemes},
+	hence it defines a $p$-divisible group.
+\end{rem}
 
 
-
-%\begin{defn}[Dimension of a $p$-divisible group]
-%	Let $G \coloneqq \left(G_{\nu}, i_\nu\right)_{\nu \in \mathbb{N}}$ be a $p$-divisible group
-%	over $R$ as before.
-%	The connected components $G^0_\nu$ determine a connected $p$-divisible
-%	group $G^0$.
-%	Moreover, from the short exact sequence
-%	\begin{equation*}
-%	\begin{tikzcd}
-%		0 \arrow[r, "", rightarrow] &
-%		G^0_\nu \arrow[r, "", rightarrow] &
-%		G_\nu \arrow[r, "", rightarrow] &
-%		G^{et}_\nu \arrow[r, "", rightarrow] &
-%		0
-%	\end{tikzcd}
-%	\end{equation*}
-%	one gets the exact sequence
-%	\begin{equation*}
-%	\begin{tikzcd}
-%		0 \arrow[r, "", rightarrow] &
-%		G^0 \arrow[r, "", rightarrow] &
-%		G \arrow[r, "", rightarrow] &
-%		G^{et} \arrow[r, "", rightarrow] &
-%		0
-%	,\end{tikzcd}
-%	\end{equation*}
-%	where $G^{et}$ is an étale $p$-divisible group.
-%	One then defines the dimension of $G$ to be the dimension 
-%	(i.e. the number of variables of $\mathscr{A}$)
-%	of the formal Lie group corresponding, as of proposition (tk: reference to the above one),
-%	to $G^0$.
-%\end{defn}
+\begin{defn}[Cartier dual of a $p$-divisible group]
+	Let $G \coloneqq \left( G_v, i_v \right)_{v \in \mathbb{N}}$ be a $p$-divisible group over $R$.
+	Let $G^D \coloneqq \left( G_v^D, i_v^D \right)_{v \in \mathbb{N}}$ be the inductive system
+	defined in \cref{rem:DualInductiveSystem}, with the abuse of notation
+	$i_v^D \coloneqq j_v^D$.
+	This last inductive system defines a $p$-divisible group over $R$,
+	which is called the {\em Cartier dual} of $G$.
+\end{defn}
 
 
+It now makes sense to introduce one more concept which holds for $p$-divisible
+groups, that of dimension.
+\begin{rem}[]\label{rem:ConnectedComponentpDivGroup}
+	In the case of $p$-divisible groups over $R$, for each $v \in \mathbb{N}$, one obtains
+	the connected-étale sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G^0_v \arrow[r, "", rightarrow] &
+		G_v \arrow[r, "", rightarrow] &
+		G^{et}_v \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Moreover one can notice that the inductive system 
+	$G^0 \coloneqq \left( G^0_v, i^0_v \right)_{v \in \mathbb{N}}$,
+	where $i^0_v \coloneqq \left.i_v\right|_{G^0_v}$, defines a $p$-divisible group.
+	Then \cref{thm:ConnectedEtaleSeqFormalGr} gives a short exact sequence
+	in which the first term, $G^0$, is a connected $p$-divisible group.
+	By \cref{prop:equivCatConnpDivGr} we see that $G^0 = \mathrm{Spf}(\mathscr{A})$,
+	for $\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$ the ring of 
+	formal power series in $n$ variables.
+\end{rem}
+
+\begin{defn}[Dimension of a $p$-divisible group]
+	Let $G \coloneqq \left(G_{\nu}, i_\nu\right)_{\nu \in \mathbb{N}}$ be a $p$-divisible group
+	over $R$.
+	Consider the connected-étale sequence obtained by 
+	\cref{thm:ConnectedEtaleSeqFormalGr}.
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		G^0 \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		G^{et} \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Thanks to \cref{rem:ConnectedComponentpDivGroup} we see that
+	$G^0 = \mathrm{Spf}(\mathscr{A})$, where
+	$\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$.
+	We define $n$ to be the {\em dimension} of the $p$-divisible group $G$.
+\end{defn}
+
+\begin{prop}[{\cite[\S2.3, proposition 3]{TatePC}}]
+	Let $G$ be a $p$-divisible group over $R$
+	and $G^D$ its dual $p$-divisible group.
+	Denote by $n$ and $n^D$ their respective dimensions.
+	Then the height of the two $p$-divisible groups
+	coincide and moreover it satisfies
+	\begin{equation*}
+	h = n + n^D
+	.\end{equation*}
+\end{prop}
 \end{document}
