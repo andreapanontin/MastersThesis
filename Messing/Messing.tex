@@ -52,7 +52,7 @@
 \item Reasoning by induction one can show that
 	\begin{equation*}
 		\frac{\left( mn \right)!}{\left( n! \right)^m m!} =
-		\prod_{i=1}^{m-1} \frac{\left( in + n - 1 \right)!}{(in)! (n-1)!}
+		\prod_{k=1}^{m-1} \frac{\left( kn + n - 1 \right)!}{(kn)! (n-1)!}
 	,\end{equation*}
 	which shows that it is an integer.
 	In fact it can be interpreted as the number of partition of a set with $mn$
@@ -82,16 +82,44 @@
 		Then $\left( \pi \right)$ has a divided powers structure iff $e \leq p-1$.
 		In such case $\gamma$ is unique, determined by
 		$\gamma_n(x) \coloneqq x^n/n!$.
-		tk: finish this example
+		In fact it is known that, denoted by $\nu_p$ the valuation
+		of $\mathbb{Z}_{p}$ normalized to have value group $\mathbb{Z}$,
+		and if $n = a_0 + \cdots + a_kp^k$ is the $p$-adic expansion
+		of $n \in \mathbb{N}$, then
+		\begin{equation*}
+			\nu_p(n!) = 
+			\frac{n - s_p(n)}{p-1}
+		,\end{equation*}
+		where $s_p(n) = a_0 + \cdots a_k$.
+		Then, in order for $\gamma_n$ to all have values in $(\pi)$
+		we need that $\nu(\gamma_n(x)) > 0$ for all $x \in (\pi)$.
+		By axiom $2$ of \cref{defn:dividedPowers}
+		it is enough to check it for $\pi$.
+		Then, assuming $\nu$ is normalized to have values in $\mathbb{Z}$,
+		we have
+		\begin{equation*}
+			\nu(\gamma_n(\pi)) = \nu(\pi^n/n!) =
+			n - e \cdot \nu_p(n!) =
+			n \cdot \frac{p - 1 - e}{p - 1} + e \cdot \frac{s_p(n)}{p - 1}
+		.\end{equation*}
+		It is clear that $\nu(\gamma_n(\pi)) > 0$ for all $n \in \mathbb{N}$
+		iff $p - 1 - e \geq 0$ iff $e \leq p - 1$.
 \end{enumerate}
 \end{ex} 
 
 
 \begin{defn}[Morphism of divided powers]
-	A morphism of divided powers $u\colon \left(A, I, \gamma\right) \to \left(B, J, \delta\right)$
-	is a ring homomorphism such that
+	A morphism of divided powers, denoted by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		u\colon \left(A, I, \gamma\right) 
+		\arrow[r, "", rightarrow] &
+		\left(B, J, \delta\right)
+	,\end{tikzcd}
+	\end{equation*} 
+	is a ring homomorphism $u\colon A \to B$ such that
 	$u(I) \subset J$ and, for all $x \in I$, $u(\gamma_n(x)) = \delta_n(u(x))$.
 \end{defn}
-
-
 \end{document}
