@@ -20,6 +20,7 @@ which in turn bases itself on \cite[Chapter I, \S10]{EGA}.
 
 Let's start by recalling a few useful algebra definitions.
 
+
 \begin{defn}[Topological rings and modules]\leavevmode\vspace{-1\baselineskip}
 \begin{enumerate}
 \item We say that a ring $R$ is a {\em topological ring} iff it is a ring endowed with a topology
@@ -153,9 +154,11 @@ Let's start by recalling a few useful algebra definitions.
 \end{defn}
 
 
+\noindent
 We now have enough basic definitions to give that of formal scheme.
 Let's notice that this construction follows that of \cite[Chapter I, \S10]{EGA},
 hence all of the verifications can be checked there.
+
 
 \begin{defn}[Affine formal scheme]\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
@@ -244,6 +247,7 @@ hence all of the verifications can be checked there.
 \end{rem}
 
 
+\noindent
 To ease the transition to the study of $p$-divisible groups
 let's also recall a couple of results with these objects.
 \begin{rem}[]
@@ -296,6 +300,8 @@ let's also recall a couple of results with these objects.
 %to formal schemes. In such case, the anti-equivalence of \cref{EquivalenceFormalAffineSchemes}
 %implies that one need to check {\em right exactness} instead of left exactness.
 
+
+
 \subsection{Formal groups and formal Lie groups}
 In this section we will define the concept of {\em formal Lie group},
 generalizing that of Lie group, i.e. that of group in the category of
@@ -307,10 +313,13 @@ concepts both in terms of formal schemes, borrowing from \cite{Shatz},
 and in terms of {\em fppf} sheaves, borrowing from \cite{Messing}.
 
 
+
 \subsubsection{Formal schemes point of view}
 As anticipated in \cref{rem:VeryFiniteSchemes},
 we fix $R$ a local admissible ring, $S \coloneqq \mathrm{Spec}(R)$
 and we work only with inductive limits of {\em very finite} $S$-schemes.
+
+
 \begin{defn}[Formal group schemes]
 	A {\em formal group scheme}
 	is just a group object,
@@ -341,6 +350,7 @@ and we work only with inductive limits of {\em very finite} $S$-schemes.
 \end{rem}
 
 
+\noindent
 One can generalize the results of \cref{thm:ConnectedEtaleSequenceGS} to this new setting.
 \begin{thm}[{\cite[\S5]{Shatz}}]\label{thm:ConnectedEtaleSeqFormalGr}
 	Let $G$ be a formal group scheme over $S$.
@@ -359,6 +369,7 @@ One can generalize the results of \cref{thm:ConnectedEtaleSequenceGS} to this ne
 \end{thm}
 
 
+\noindent
 The following definition is not the most general one, but
 the right one in our context.
 \begin{defn}[Formal Lie variety]\leavevmode\vspace{-1\baselineskip}
@@ -369,6 +380,7 @@ the right one in our context.
 	\item A {\em formal Lie variety} over $S$ is a smooth, connected formal $S$-scheme.
 \end{enumerate}
 \end{defn}
+
 
 \begin{defn}[Formal Lie group]\label{defn:FormalSchemeFormalLieGroup}
 	A {\em formal Lie group} is a group object in the category of
@@ -496,10 +508,12 @@ as usual with sheaves, will denote them by
 \end{defn}
 
 
+\noindent
 Right now we need to introduce a couple more concepts from algebraic
 geometry to make sense of the definitions which are at the heart of this section.
 \begin{defn}[Quasi-coherent sheaf of $\mathcal{O}_{ X }$-modules]
-	Let $\mathcal{F}$ be a sheaf of $\mathcal{O}_{ X }$-modules.
+	Let $( X , \mathcal{O}_{ X } )$ be a ringed space and
+	$\mathcal{F}$ a sheaf of $\mathcal{O}_{ X }$-modules.
 	We say that $\mathcal{F}$ is a {\em quasi-coherent sheaf of $\mathcal{O}_{ X }$-modules}
 	iff, for every point $x \in X$, there is an open neighbourhood $x \in U \subset X$
 	on which $\left.\mathcal{F}\right|_{U}$ is isomorphic to the cokernel
@@ -540,24 +554,117 @@ geometry to make sense of the definitions which are at the heart of this section
 	quasi-coherent sheaf of ideals.
 	Then the sheaf $\mathcal{I}/\mathcal{I}^2$ is annihilated by $\mathcal{I}$,
 	hence it corresponds to a sheaf on $Z$.
-	This last sheaf, denoted with $\underline{\omega}_i$, is called the {\em conormal
+	This last sheaf, denoted with $\omega_i$, is called the {\em conormal
 	sheaf} of $Z$ in $X$, or the conormal sheaf of the immersion.
 	In case we are given a pointed sheaf on $S$ $\left(X, e_X\right)$, we will denote 
 	the conormal sheaf of the immersion $e_X$ simply by
-	$\underline{\omega}_X$.
+	$\omega_X$.
 \end{defn}
 %tk: I should prove that $S \hookrightarrow X$ is a closed immersion
 
 
+\begin{rem}[]
+	Notice that, when $G = X$ is an $S$-group, it is canonically a
+	pointed sheaf $\left(G, e_G\right)$ on $S$, with immersion $e_G\colon S \to G$
+	given by the unit section, i.e. the unique section whose image
+	is the unit of the group $G$.
+	In the following we will implicitly assume this, and write only
+	$G$ to denote the pointed sheaf $(G, e_G)$.
+\end{rem}
+
+
+\begin{defn}[Symmetric and exterior powers]
+	Let $( X , \mathcal{O}_{ X } )$ be a ringed space and $\mathcal{F}$ be an
+	$\mathcal{O}_{ X }$-module.
+\begin{enumerate}
+	\item We define the {\em tensor algebra} of $\mathcal{F}$ to be the sheaf of
+		noncommutative $\mathcal{O}_{ X }$-algebras
+		\begin{equation*}
+			\mathrm{T}(\mathcal{F}) = 
+			\mathrm{T}_{\mathcal{O}_{ X }}(\mathcal{F}) \coloneqq
+			\bigoplus_{n \geq 0} \mathrm{T}^n(\mathcal{F})
+		,\end{equation*}
+		where $\mathrm{T}^0(\mathcal{F)} \coloneqq \mathcal{O}_{ X }$,
+		$\mathrm{T}^0(\mathcal{F)} \coloneqq \mathcal{F}$ and,
+		for all $n \geq 2$,
+		\begin{equation*}
+			\mathrm{T}^n(\mathcal{F}) \coloneqq 
+			\mathcal{F} \otimes_{\mathcal{O}_{ X }} \cdots \otimes_{\mathcal{O}_{ X }}
+			\mathcal{F}
+			\quad \text{(n times)}
+		.\end{equation*}
+	
+	\item We define the {\em exterior algebra} of $\mathcal{F}$, 
+		denoted by $\bigwedge \mathcal{F}$, to be the quotient of
+		$\mathrm{T}(\mathcal{F})$ by the two sided ideal
+		generated by local sections of the form
+		$s \otimes s$ of $\mathrm{T}^2(\mathcal{F})$,
+		where $s$ is a local section of $\mathcal{F}$.
+
+	\item We define the {\em symmetric algebra} of $\mathcal{F}$,
+		denoted by $\mathrm{Sym}(\mathcal{F})$, to be the quotient 
+		of $\mathrm{T}(\mathcal{F})$ by the two-sided ideal
+		generated by local sections of the form
+		$s \otimes t - t \otimes s$ of $\mathrm{T}^2(\mathcal{F})$,
+		where $s$ and $t$ are local sections of $\mathcal{F}$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
+\label{rem:SheafSymExtProperties}
+\begin{enumerate}
+	\item Both $\bigwedge \mathcal{F}$ and $\mathrm{Sym}(\mathcal{F})$
+		are graded $\mathcal{O}_{ X }$-algebras, with graded inherited
+		from $\mathrm{T}(\mathcal{F})$.
+		Moreover $\mathrm{Sym}(\mathcal{F})$ is commutative,
+		whereas $\bigwedge \mathcal{F}$ is graded-commutative.
+		%tk: if you need to define it, it's like cup product.
+
+%	\item One could analogously use (tk: reference) to define the above objects.
+%		In fact the sheaf $\bigwedge^n \mathcal{F}$ is the sheaf associated
+%		to the presheaf
+%		\begin{equation*}
+%		\begin{tikzcd}[row sep = 0ex
+%			,/tikz/column 1/.append style={anchor=base east}
+%			,/tikz/column 2/.append style={anchor=base west}]
+%			U \arrow[r, "", mapsto] &
+%			\bigwedge_{\mathcal{O}_{ X }(U)}^n (\mathcal{F}(U))
+%		.\end{tikzcd}
+%		\end{equation*} 
+%		Analogously the sheaf $\mathrm{Sym}^n(\mathcal{F})$ is the 
+%		sheaf associated to the presheaf
+%		\begin{equation*}
+%		\begin{tikzcd}[row sep = 0ex
+%			,/tikz/column 1/.append style={anchor=base east}
+%			,/tikz/column 2/.append style={anchor=base west}]
+%			U \arrow[r, "", mapsto] &
+%			\mathrm{Sym}_{\mathcal{O}_{ X }(U)}^n (\mathcal{F}(U))
+%		.\end{tikzcd}
+%		\end{equation*} 
+%		For more details see 
+%		\cite[\href{https://stacks.math.columbia.edu/tag/01CF}{Section 01CF}]{SP}.
+
+	\item \label{SheafqcSymExt}
+		If $\mathcal{F}$ is a {\em quasi-coherent} (resp$.$ {\em locally free})
+		sheaf of $\mathcal{O}_{ X }$-modules,
+		then each of $T(\mathcal{F})$, $\bigwedge \mathcal{F}$ and
+		$\mathrm{Sym}(\mathcal{F})$ are {\em quasi-coherent} (resp$.$ {\em locally free}),
+		see \cite[\href{https://stacks.math.columbia.edu/tag/01CL}{Lemma 01CL}]{SP}.
+\end{enumerate}
+\end{rem}
+
+
+\noindent
 And now back to our interests.
-\begin{defn}[Formal Lie variety]
+\begin{defn}[Formal Lie variety]\label{defn:FormalLieVarfppf}
 	A pointed sheaf $\left(X, e_X\right)$ on $S$ is said to be
 	a {\em formal Lie variety} iff it satisfies the following:
 \begin{enumerate}
 	\item $X$ is ind-infinitesimal and $\mathrm{Inf}^k(X)$, viewed
 		as a sheaf in the fppf topology,
 		is representable for all $k \geq 0$;
-	\item $\underline{\omega}_X \simeq
+	\item $\omega_X \simeq
 		e_X^* \left( \Omega_{X/S} \right) \simeq
 		e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$
 		is {\em locally free of finite type};
@@ -568,16 +675,17 @@ And now back to our interests.
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Sym}\left( \underline{\omega}_X \right) \arrow[r, "\sim", rightarrow] &
+		\mathrm{Sym}\left( \omega_X \right) \arrow[r, "\sim", rightarrow] &
 				\mathrm{gr}^{\mathrm{inf}}(X)
 		\end{tikzcd}
 		\end{equation*}
 		induced by the canonical mapping
-		$\underline{\omega}_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$.
+		$\omega_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$.
 \end{enumerate}
 \end{defn}
 %tk: you can find the definition of symmetrical algebra on an ideal $I$
 %at page 53 of Shatz.
+
 
 \begin{rem}[{\cite[Chapter II, \S1]{Messing}}]\label{rem:FormalLieVarietyPowerSeries}
 	From this definition it follows that $X$, locally on $S$,
@@ -590,25 +698,15 @@ And now back to our interests.
 
 
 \begin{defn}[Formal Lie group]
-	A {\em formal Lie group} over $S$ is a group object $\left(G, e_G\right)$
+	A {\em formal Lie group} over $S$ is a group object $G$
 	in the category of formal Lie varieties over $S$.
 \end{defn}
 
-
-In the following we will always assume that a formal Lie group $\left(G, e_G\right)$
+\noindent
+In the following we will always assume that a formal Lie group $G$
 is commutative.
 Moreover, for these last results, we will assume that
 our base scheme $S$ is of characteristic $p  > 0$.
-
-%tk: do I keep this remark? For the moment I decided to skip this lemma.
-%Our next aim is to find a connection between Barsotti-Tate groups and formal Lie groups,
-%so let's start with some preliminary result:
-%\begin{lem}[{\cite[Chapter II, \S1, lemma 1.1.6]{Messing}}]
-%	Let $G$ be a group scheme over $S$.
-%	Then also
-%	$\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
-%	is a group.
-%\end{lem}
 
 
 \begin{rem}[Frobenius and Verschiebung]
@@ -640,6 +738,7 @@ of the Frobenius morphism.
 \end{defn}
 
 
+\noindent
 With this in mind we can more easily characterize the formal Lie groups over
 $S$ of characteristic $p$.
 \begin{thm}[{\cite[Chapter II, \S2, theorem 2.1.7]{Messing}}]\label{thm:MessingCharactLieGroup}
@@ -728,6 +827,7 @@ it also has residue characteristic $p$).
 \end{rem}
 
 
+\noindent
 We can actually characterize these objects a bit more. 
 In fact the following proposition holds.
 \begin{prop}\label{CharactpDivGroups}%[{\cite[\S6]{Shatz}}]
@@ -866,6 +966,10 @@ In fact the following proposition holds.
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
+Moreover, following \cite{Messing}, we will call $p$-divisible groups
+{\em Barsotti-Tate groups}.
+
+
 \begin{lem}[{\cite[Chapter I, \S1, lemma 1.1]{Messing}}]\label{lem:equivCondTruncatedBTGroup}
 	Let $G$ be an $S$ group.
 	The following conditions are equivalent:
@@ -945,6 +1049,38 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 \end{rem}
 
 
+\noindent
+Let's define an important object for Barsotti-Tate groups,
+which will be recalled in the following sections.
+In order to do so, we need a result.
+
+
+\begin{lem}[{\cite[Chapter II, \S3, lemma 3.3.18]{Messing}}]
+	Let $p$ be locally nilpotent of $S$ and $G$ be a {\em Barsotti-Tate} group on $S$.
+	Then
+	$\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
+	is a {\em formal Lie group}.
+\end{lem}
+
+
+\begin{defn}[Conormal sheaf of a Barsotti-Tate group]
+	Given a Barsotti-Tate group $G$ over a scheme $S$, where $p$ is locally nilpotent on $S$,
+	we define the conormal sheaf of $G$ by $\omega_G \coloneqq \omega_{\overline{G}}$
+	where, as above, $\overline{G} \coloneqq \varinjlim_k \mathrm{Inf}^k(G)$.
+\end{defn}
+
+
+\begin{rem}[{\cite[Chapter II, \S3, remark 3.3.20]{Messing}}]
+	In the above hypothesis,
+	thanks to \cref{defn:FormalLieVarfppf}, 
+	the sheaf $\omega_G$ is
+	locally free of finite type.
+	Moreover, locally on $S$, $\omega_G = \omega_{G(m)}$ for
+	$m$ sufficiently large.
+	Finally, if $p^N$ kills $S$, we have $\omega_G = \omega_{G(N)}$.
+\end{rem}
+
+
 \begin{rem}[Comparison of the two points of view]
 	We will follow \cite[Chapter I, \S2, remark 2.3 and 
 	Chapter II, \S3, theorem 2.1.7]{Messing} to show that
@@ -997,7 +1133,7 @@ an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{f
 	and invoke \cref{CharactpDivGroups} to conclude that $G \in \mathsf{BT}_S$.
 \end{rem}
 
-
+\noindent
 %Before moving on to the concept of duality for $p$-divisible groups
 To end this section we'll state a result
 which relate the concepts introduced in the last couple of sections:
@@ -1060,6 +1196,7 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 \end{defn}
 
 
+\noindent
 It now makes sense to introduce one more concept which holds for $p$-divisible
 groups, that of dimension.
 \begin{rem}[]\label{rem:ConnectedComponentpDivGroup}
