@@ -16,7 +16,7 @@ only restrict to stating the definitions and results which will
 be needed in what follows.
 This section is strongly inspired from 
 \cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP},
-which in turn bases itself on \cite[Chapter I, \S10]{EGA1}.
+which in turn bases itself on \cite[Chapter I, \S10]{EGA}.
 
 Let's start by recalling a few useful algebra definitions.
 
@@ -114,7 +114,7 @@ Let's start by recalling a few useful algebra definitions.
 	with the induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$.
 	For questions of space we will leave these verifications to
 	\cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP}
-	and \cite[Chapter I, \S10]{EGA1}.
+	and \cite[Chapter I, \S10]{EGA}.
 \end{rem}
 
 
@@ -154,7 +154,7 @@ Let's start by recalling a few useful algebra definitions.
 
 
 We now have enough basic definitions to give that of formal scheme.
-Let's notice that this construction follows that of \cite[Chapter I, \S10]{EGA1},
+Let's notice that this construction follows that of \cite[Chapter I, \S10]{EGA},
 hence all of the verifications can be checked there.
 
 \begin{defn}[Affine formal scheme]\leavevmode\vspace{-\baselineskip}
@@ -207,7 +207,7 @@ hence all of the verifications can be checked there.
 \begin{rem}[]
 	As in the definition of associated pseudo-discrete sheaf, in the above
 	there are many details to be checked and filled in.
-	Again we will leave them to \cite[Chapter I, \S10]{EGA1}.
+	Again we will leave them to \cite[Chapter I, \S10]{EGA}.
 \end{rem}
 
 
@@ -256,7 +256,7 @@ let's also recall a couple of results with these objects.
 	\mathrm{Spf}(A) \simeq \varinjlim_{\lambda \in \Lambda} \mathrm{Spec}(A/I_\lambda)
 	\end{equation*}
 	in the category of formal schemes.
-	In fact, as can be seen in \cite[Chapter I, \S10.6]{EGA1}, one can do a similar construction
+	In fact, as can be seen in \cite[Chapter I, \S10.6]{EGA}, one can do a similar construction
 	with formal schemes.
 	Hence we can view these last as inductive limits of ordinary schemes.
 \end{rem}
@@ -669,7 +669,7 @@ $S$ of characteristic $p$.
 	For the converse we recall
 	\cref{thm:reprFctSheaf},
 	\cref{rem:VeryFiniteSchemes,thm:FrobeniusVerschiebungRelation}
-	and then have to argue following \cite[porposition 1]{TatePC}, see
+	and then have to argue following \cite[proposition 1]{TatePC}, see
 	also \cite[Chapter II, \S2, theorem 2.1.7]{Messing} for some more details.
 \end{rem}
 
@@ -1021,7 +1021,8 @@ In this section we want to extend the concept of duality introduced in \cref{Car
 to $p$-divisible groups.
 We will do so in the setting of formal schemes,
 i.e. viewing a $p$-divisible group as an inductive systems of finite commutative group schemes.
-In fact we will follow \cite[\S6]{Shatz} (or Tate? tk).
+In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
+
 
 \begin{rem}[]\label{rem:DualInductiveSystem}
 	Let's notice that for $t = 1$, thanks to \cref{rem:DualityOtherProperties}, 
@@ -1063,7 +1064,7 @@ It now makes sense to introduce one more concept which holds for $p$-divisible
 groups, that of dimension.
 \begin{rem}[]\label{rem:ConnectedComponentpDivGroup}
 	In the case of $p$-divisible groups over $R$, for each $v \in \mathbb{N}$, one obtains
-	the connected-étale sequence
+	the exact connected-étale sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -1082,6 +1083,7 @@ groups, that of dimension.
 	for $\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$ the ring of 
 	formal power series in $n$ variables.
 \end{rem}
+
 
 \begin{defn}[Dimension of a $p$-divisible group]
 	Let $G \coloneqq \left(G_{\nu}, i_\nu\right)_{\nu \in \mathbb{N}}$ be a $p$-divisible group
@@ -1102,6 +1104,7 @@ groups, that of dimension.
 	$\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$.
 	We define $n$ to be the {\em dimension} of the $p$-divisible group $G$.
 \end{defn}
+
 
 \begin{prop}[{\cite[\S2.3, proposition 3]{TatePC}}]
 	Let $G$ be a $p$-divisible group over $R$
