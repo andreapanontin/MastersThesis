@@ -554,4 +554,203 @@ or $\mathcal{O}_{ S }$-modules.
 	.\end{equation*}
 	tk: checkit
 \end{rem}
+
+
+\subsection{Exponentials and prolongations}
+We want to extend the theory of exponentials to $H$ and 
+see a couple applications in this section (tk).
+
+
+
+
+\subsubsection{Exponentials}
+Before writing the working hypothesis for this section
+let's recall a brief definition:
+
+
+\begin{defn}[]
+	Let $S$ be a scheme and $V$ be an $\mathcal{O}_{ S }$-module.
+	We will denote by $\mathbf{W}(V)$ the functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbf{W}(V)\colon 
+		\mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
+		\mathsf{Gp} \\
+		S' \arrow[r, "", mapsto] & 
+		\Gamma(S', V_{S'})
+	,\end{tikzcd}
+	\end{equation*} 
+	where, as before, $V_{S'}$ denotes the inverse image of
+	$V$ to $S'$.
+	Then, by \cite[Proposition 4.6.5]{SGA3-1}, if $V$ is also
+	locally-free and of finite rank, we have the canonical isomorphism
+	\begin{equation*}
+		\mathbf{W}(V) \simeq
+		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left(\mathbf{W}(V^\vee) , \mathcal{O}_{ S } \right) \simeq
+		\underline{\mathrm{Spec}}_S(\mathrm{Sym}(V^\vee))
+	.\end{equation*}
+\end{defn}
+
+
+%\noindent
+Now to the setting for this first construction.
+Let $A$ be a ring, $I \triangleleft A$ and ideal with nilpotent
+divided powers and $A_0 \coloneqq A/I$.
+Consider $V$ a locally-free $A$ module of finite rank
+and $G = \mathrm{Spec}(B)$ a finite locally-free 
+group scheme over $S \coloneqq \mathrm{Spec}(A)$.
+Consider the $S$-group $\mathbf{W}(V) \cross_{ S } G$, whose ring is
+$C \coloneqq \mathrm{Sym}(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
+to $V \cross_{ S } G$ as pointed schemes (but not necessarily
+as group objects).
+
+
+\begin{rem}[]
+	In this section we will not be concerned with $\underline{\mathrm{Lie}}(U)$
+	as an $\underline{\mathcal{O}_{ S }}$-module, but we will be concerned 
+	with its corresponding $\mathcal{O}_{ S }$-module $\mathrm{Lie}(U)$, 
+	whose sections are still given by the primitive sections of $U$,
+	this time viewed as an $\mathcal{O}_{ S }$-module.
+	(tk: this is what I understood reading chapter III of Messing,
+	though he is never explicit about it).
+\end{rem}
+
+
+\begin{rem}[]
+	Since $\mathbf{W}(V) \cross_{ S } G$ is isomorphic to $H$ as pointed
+	schemes, we have $\omega_H \simeq \omega_{V \cross_S G}$, free of finite type,
+	which implies that $\mathrm{Lie}(H)$ is also locally-free.
+\end{rem}
+
+
+\begin{defn}[{\cite[Chapter III, \S2.6.8]{Messing}}]
+	Let $W$ be a locally-free $\mathcal{O}_{ S }$-module of finite rank
+	(tk: Messing does not ask for finite rank, but its argument in \S2.4
+	seems to revolve around taking duals, which I'm only aware to be working
+	in the finite rank case, see for example [SGA 3, 1, 4.6.5]).
+	Denote by $W_0$ and $H_0$ the restrictions of $W$ and $H$ to 
+	$S_0 \coloneqq \mathrm{Spec}(A_0)$ (i.e. their pullback along
+	the closed immersion $S_0 \hookrightarrow S$).
+	Then we will denote by 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\left( \mathbf{W}(W), H \right)
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\left( \mathbf{W}(W_0), H_0 \right)
+	\end{tikzcd}
+	\end{equation*} 
+	the map induced by the pullback functor on hom groups.
+	Here one can define a morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex, column sep = 1.5em
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		%\exp\colon
+		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left( W, I \cdot \mathrm{Lie}(H) \right)
+		\arrow[r, "\exp", rightarrowtail] &
+		\ker \big[ 
+		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\left( \mathbf{W}(W), H \right)
+		%\arrow[r, "", rightarrow] &
+		\to
+		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\left( \mathbf{W}(W_0), H_0 \right)
+		\big]
+	\end{tikzcd}
+	\end{equation*} 
+	by setting, on sections,
+	$\exp (\theta) (x) \coloneqq \exp \left( \theta(x) \right)$.
+	More precisely we associate to $\theta\colon W \to I \cdot \mathrm{Lie}(H)$,
+	the map $\exp \theta\colon \Gamma(W) \to C^\vee$, given on sections by
+	\begin{equation*}
+	\exp \left( \theta(x) \right) \coloneqq
+	\sum_{n\geq 0 } (\theta(x))^{(n)}
+	.\end{equation*}
+	Taking the transpose of such a map we obtain a mapping 
+	$(C^\vee)^\vee \simeq C \to \mathrm{Sym}(W^\vee)$, which corresponds
+	to an $S$-group homomorphism $W \to G$.
+	Then one can check that it actually sits in the desired kernel
+	following \cite[Chapter III, \S2.4, 2.6]{Messing}.
+\end{defn}
+
+
+
+\subsubsection{Prolongations}
+Let's now concentrate our efforts on lifting of homomorphisms.
+Consider $S, S_0$ as before.
+Consider then $H$ an $S$-group given as a vector group,
+i.e. $H = \mathbf{W}(V)$ for some locally free $\mathcal{O}_{ S }$-module
+of finite rank.
+As before, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
+
+
+\begin{rem}[{\cite[Chapter III, \S2.7]{Messing}}]
+	In order to study prolongations of homomorphisms it is useful to notice that
+	the above construction can be carried out in the following case.
+	Let's assume that $G \in \mathsf{Gr}_S$ is a filtering direct limit of
+	representable subgroups $G_\alpha$.
+	Assume that $\mathrm{Inf}^1(G) = \mathrm{Inf}^1(G_\alpha)$ for some $\alpha$,
+	so that $\mathrm{Lie}(G) = \mathrm{Lie}(G_\alpha)$.
+	Then one can define the exponential map in this case, giving rise to
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex, column sep = 2.0em
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\exp\colon
+		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left( V, I \cdot \mathrm{Lie}(G) \right)
+		\arrow[r, "", hookrightarrow] &
+		\ker \big[ 
+		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\left( H, G \right)
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\left( H_0, G_0 \right)
+		\big]
+	\end{tikzcd}
+	\end{equation*} 
+	where, as before, $V_0$ and $G_0$ are the pullback of $V$ and $G$ 
+	along $S_0 \hookrightarrow S$.
+	In particular, thanks to \cite[Chapter II, Corollary 3.3.16]{Messing},
+	the above conditions are satisfied by Barsotti-Tate
+	groups over a base scheme $S$ on which $p$ is nilpotent.
+\end{rem}
+
+
+\begin{defn}[Linearly compatible prolongations]
+	Let $u_0\colon H_0 \to G_0$ be a homomorphism of $S$-groups.
+	We say that two lifting $u', u''\colon H \to G$ of $u_0$
+	are linearly compatible iff their difference is in the image
+	of $\exp$ as just defined:
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex, column sep = 2.0em
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\exp\colon
+		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left( V, I \cdot \mathrm{Lie}(G) \right)
+		\arrow[r, "", hookrightarrow] &
+		\ker \big[ 
+		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\left( H, G \right)
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\left( H_0, G_0 \right)
+		\big]
+	\end{tikzcd}
+	\end{equation*} 
+\end{defn}
+
+
+\begin{rem}[]
+	The above is an equivalence relation on the set of lifting of $u_0$.
+\end{rem}
 \end{document}
