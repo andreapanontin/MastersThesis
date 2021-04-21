@@ -1,0 +1,165 @@
+\documentclass[../Main]{subfiles}
+\begin{document}
+\section{The crystals associated to Barsotti-Tate groups}
+Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.3]{Messing}}]
+	The functor acting by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		M \arrow[r, "", mapsto] & \mathrm{Hom}_{ \mathsf{Gr}_S } \left( G, \underline{M} \right)
+	\end{tikzcd}
+	\end{equation*} 
+	is represented by $\underline{\omega}_{G^\vee}$, where $G^\vee$ is
+	the Cartier dual of $G$.
+\end{prop}
+
+
+\begin{rem}[]
+	It can be checked that the isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, \underline{M} \right)
+		\arrow[r, "\sim", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} \left( \underline{\omega}_{G^\vee}, \underline{M} \right)
+	\end{tikzcd}
+	\end{equation*} 
+	is functorial in $G$.
+	Thus we have a commutative diagram whose lower horizontal arrow is
+	induced by the Cartier dual of $u$
+	\begin{equation*}
+	\begin{tikzcd}
+		G \arrow[r, "u", rightarrow] 
+		\arrow[d, "\alpha_G"', rightarrow] &
+		H \arrow[d, "\alpha_H", rightarrow] \\
+		\underline{\omega}_{G^\vee} \arrow[r, "", rightarrow] &
+		\underline{\omega}_{H^\vee}
+	.\end{tikzcd}
+	\end{equation*}
+\end{rem}
+
+
+\begin{defn}[Extension]
+	Let $\mathsf{C}$ be a category and $A,B \in \mathsf{C}$.
+	We define an {\em extension} $X$ of $A$ by $B$ to be a short exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*}
+	where $X \in \mathsf{C}$.
+	Moreover, given two extensions of $A$ by $B$, given by $X$ and $X'$,
+	we say that a {\em morphism of extensions} of $A$ by $B$
+	is a morphism $f\colon X \to X'$ that makes the following diagram commute
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] 
+		\arrow[d, "", equals] &
+		X \arrow[r, "", rightarrow] 
+		\arrow[d, "f", rightarrow] &
+		A \arrow[r, "", rightarrow] 
+		\arrow[d, "", equals] &
+		0\\
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that, thanks to the five lemma, in a morphism
+	of extensions of $A$ by $B$, $f$ is always an isomorphism.
+\end{rem}
+
+
+\begin{defn}[Pullback and pushout]\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+	\item Given a morphism $A' \to A$ and an extension $X$
+		of $A$ by $B$, we define $X' \coloneqq X \cross_A A'$,
+		so that we have the following commutative diagram
+		of short exact sequences
+		\begin{equation*}
+		\begin{tikzcd}
+			0 \arrow[r, "", rightarrow] &
+			B \arrow[r, "", rightarrow] 
+			\arrow[d, "", rightarrow] &
+			X' \arrow[r, "", rightarrow] 
+			\arrow[d, "f", rightarrow] &
+			A' \arrow[r, "", rightarrow] 
+			\arrow[d, "", rightarrow] &
+			0\\
+			0 \arrow[r, "", rightarrow] &
+			B \arrow[r, "", rightarrow] &
+			X \arrow[r, "", rightarrow] &
+			A \arrow[r, "", rightarrow] &
+			0
+		.\end{tikzcd}
+		\end{equation*}
+		The extension $X'$ of $A'$ by $B$
+		is called the {\em pullback} of $X$ via $A' \to A$.
+
+	\item Given a morphism $B \to B'$ and an extension $X$
+		of $A$ by $B$, we define $X' \coloneqq B' \coprod_A X$,
+		so that we have the following commutative diagram
+		of short exact sequences
+		\begin{equation*}
+		\begin{tikzcd}
+			0 \arrow[r, "", rightarrow] &
+			B \arrow[r, "", rightarrow] 
+			\arrow[d, "", rightarrow] &
+			X \arrow[r, "", rightarrow] 
+			\arrow[d, "f", rightarrow] &
+			A \arrow[r, "", rightarrow] 
+			\arrow[d, "", rightarrow] &
+			0\\
+			0 \arrow[r, "", rightarrow] &
+			B' \arrow[r, "", rightarrow] &
+			X' \arrow[r, "", rightarrow] &
+			A \arrow[r, "", rightarrow] &
+			0
+		.\end{tikzcd}
+		\end{equation*}
+		The extension $X'$ of $A$ by $B'$
+		is called the {\em pushout} of $X$ via $B \to B'$.
+\end{enumerate}
+\end{defn}
+
+
+\noindent
+In our case we are mainly interested in the case of extensions of $G$
+a {\em Barsotti-Tate} group over $S$, a scheme on which $p^N$ is zero.
+In particular we are interested in extensions of $G$ by vector groups,
+i.e. by a group $\underline{M}$ for a quasi-coherent $\mathcal{O}_{ S }$-module $M$.
+
+
+\begin{defn}[Universal extension]
+	We say that an extension $E(G)$ of $G$ by the vector group $\underline{V}(G)$ is
+	{\em universal} iff, given any extension
+	\begin{equation*}
+	\begin{tikzcd}
+		(\zeta)
+		0 \arrow[r, "", rightarrow] &
+		\underline{M} \arrow[r, "", rightarrow] &
+		(*) \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	of $G$ by $\underline{M}$, there is a unique map $\varphi\colon \underline{V}(G) \to \underline{M}$
+	such that the pushout of $E(G)$ by $\varphi$ is the given
+	extension $(\zeta)$.
+\end{defn}
+\end{document}
