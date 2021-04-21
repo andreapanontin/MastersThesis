@@ -1,6 +1,7 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
 \section{Divided powers, exponentials and crystals}
+\subsection{Divided powers}
 \begin{defn}[Ideal with divided powers]\label{defn:dividedPowers}
 	Let $A$ be a ring, and $I \triangleleft A$ an ideal of $A$.
 	We say that $I$ is equipped with {\em divided powers} iff
@@ -202,39 +203,39 @@ inverse maps.
 \end{defn}
 
 
-\begin{rem}[]
+\begin{rem}[]\label{rem:DividedPowersSheaf}
 	The above constructions can all be globalized to the case of
 	$\mathcal{O}_S$ algebras and modules, where $S$ denotes a scheme.
 	In particular one needs to replace $A$ by the above mentioned scheme $S$,
-	$I$ by a quasi-coherent sheaf of ideals $\mathscr{I}$ of $\mathcal{O}_S$ and
+	$I$ by a quasi-coherent sheaf of ideals $\mathcal{I}$ of $\mathcal{O}_S$ and
 	$M$ by a quasi-coherent $\mathcal{O}_S$-module.
-	Then a system of divided powers on $\mathscr{I}$ is the data
+	Then a system of divided powers on $\mathcal{I}$ is the data
 	of, for all $U \subset S$ open, a system of divided powers of
-	$\Gamma(U,\mathscr{I})$ in which divided power morphisms and restriction
+	$\Gamma(U,\mathcal{I})$ in which divided powers morphisms and restriction
 	maps commute.
-	Then we will call one such triple $\left(S, \mathscr{I}, \gamma\right)$
+	Then we will call one such triple $\left(S, \mathcal{I}, \gamma\right)$
 	a {\em scheme with divided powers}.
 
 	Moreover one generalizes morphism of divided powers in the following way:
-	let $\left(S, \mathscr{I}, \gamma\right)$ and $\left(S', \mathscr{I}', \gamma'\right)$
+	let $\left(S, \mathcal{I}, \gamma\right)$ and $\left(S', \mathcal{I}', \gamma'\right)$
 	be schemes with divided powers.
 	A {\em morphism of divided powers}
 	\begin{equation*}
-	f\colon \left(S, \mathscr{I}, \gamma\right) \to 
-	\left(S', \mathscr{I}', \gamma'\right)
+	f\colon \left(S, \mathcal{I}, \gamma\right) \to 
+	\left(S', \mathcal{I}', \gamma'\right)
 	\end{equation*}
 	is a morphism of schemes
 	$f\colon S \to S'$ such that
-	$f^{-1}(\mathscr{I}') \mathcal{O}_S \subset \mathscr{I}$
+	$f^{-1}(\mathcal{I}') \mathcal{O}_S \subset \mathcal{I}$
 	and, for all $U' \subset S'$ open,
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		f^\#(U')\colon 
-		\left(\mathcal{O}_{S'}(U'), \mathscr{I}'(U'), \gamma'\right)
+		\left(\mathcal{O}_{S'}(U'), \mathcal{I}'(U'), \gamma'\right)
 		\arrow[r, "", rightarrow] &
-		\left(\mathcal{O}_{ S }(f^{-1}U'), \mathscr{I}(f^{-1}U'), \gamma\right)
+		\left(\mathcal{O}_{ S }(f^{-1}U'), \mathcal{I}(f^{-1}U'), \gamma\right)
 	\end{tikzcd}
 	\end{equation*} 
 	is a morphism of divided powers rings.
@@ -242,13 +243,13 @@ inverse maps.
 	Moreover the divided powers algebra $\Gamma(M)$ is defined
 	as the sheaf associated to the presheaf 
 	$U \mapsto \Gamma_{\mathcal{O}_S(U)}(M(U))$.
-	Finally the divided powers on an ideal $\mathscr{I} \subset \mathcal{O}_S$
+	Finally the divided powers on an ideal $\mathcal{I} \subset \mathcal{O}_S$
 	are said to be {\em nilpotent} iff,
 	locally on $S$, they satisfy conditions in \cref{defn:NilpotentDividedPowers}.
 \end{rem}
 
 
-\subsection{}
+\subsection{Cospec and Lie algebras (tk)}
 The notation of this section will follow that of \cite[Capther III]{Messing}.
 This means that it might not be consistent with our previous exposition.
 
@@ -494,22 +495,61 @@ or $\mathcal{O}_{ S }$-modules.
 
 
 \begin{defn}[fppf sheaf associated to an $\mathcal{O}_{ S }$-module]
-	Let $S$ be a scheme and $M$ a quasi-coherent sheaf of $\mathcal{O}_{ S }$-modules.
-	We define $\underline{M}$, the {\em sheaf of $\underline{\mathcal{O}_{ S }}$-modules},
-	as the fppf sheaf whose sections on $f\colon T \to S$ fppf are given by
-	$\Gamma(T, f^*M)$.
-\end{defn}
-
-
-\begin{rem}[]
-	Let's notice that in the above definition, by $\underline{\mathcal{O}_{ S }}$
-	we mean the $\underline{\mathcal{O}_{ S }}$-module associated to the 
-	quasi-coherent sheaf $\mathcal{O}_{ S }$ itself.
-	Moreover, for a morphism of schemes $f\colon T \to S$, by $f^* M$ we mean 
+	Let $S$ be a scheme and $V$ be an $\mathcal{O}_{ S }$-module.
+	We will denote by $\mathbf{W}(V)$ the functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbf{W}(V)\colon 
+		\mathsf{Sch}_{ S }^{op} \arrow[r, "", rightarrow] &
+		\mathsf{Gp} \\
+		T \arrow[r, "", mapsto] & 
+		\Gamma(T, V_{T})
+	,\end{tikzcd}
+	\end{equation*} 
+	where $V_{T}$ denotes the pullback of
+	$V$ to $T$.
+	More explicitly, for a morphism of schemes $f\colon T \to S$, by $f^* M$ we mean 
 	the $\mathcal{O}_{ T }$-module $f^{-1} M \otimes_{f^{-1}\mathcal{O}_{ S }} \mathcal{O}_{ T }$,
 	where $f^{-1} M$ is the usual inverse image of sheaves and
 	$f^{-1}\mathcal{O}_{ S } \to \mathcal{O}_{ T }$ is defined starting from $f^\#$.
+\end{defn}
+
+
+\begin{rem}[{\cite[Proposition 4.6.2, 4.6.5]{SGA3-1}}]\leavevmode\vspace{-1.2\baselineskip}
+\begin{enumerate}
+\item[{\em 4.6.2}:]
+	The functor $\mathbf{W}$ commutes with base changes,
+	so that $\mathbf{W}(V)_{T} \simeq \mathbf{W}(V_{T})$,
+	where the subscript $T$ denotes respectively the base change 
+	and the pullback along $T\to S$.
+
+\item[{\em 4.6.5}:]
+	If $V$ is also  locally-free and of finite rank, we have the canonical isomorphism
+	\begin{equation*}
+		\mathbf{W}(V) \simeq
+		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left(\mathbf{W}(V^\vee) , \mathcal{O}_{ S } \right) \simeq
+		\underline{\mathrm{Spec}}_S(\mathrm{Sym}(V^\vee))
+	.\end{equation*}
+	This gives a representative in $\mathsf{Sch}_{ S }$ for 
+	$\mathbf{W}(V)$, making it not only an object of $\mathsf{Gr}_S$, but
+	also of $\mathsf{Gp}_S$.
+\end{enumerate}
 \end{rem}
+
+
+\begin{ntt}
+	Since the above definition is stable under base change, we will introduce a 
+	lighter notation to denote the same object.
+	Let $S$ be a scheme and $M$ a quasi-coherent sheaf of $\mathcal{O}_{ S }$-modules.
+	Then we will write $\underline{M} \coloneqq \mathbf{W}(M)$ for
+	an $\mathcal{O}_{ S }$-module.
+	In particular $\mathcal{O}_{ S }$ itself is an $\mathcal{O}_{ S }$-module, hence
+	we will denote by $\underline{\mathcal{O}_{ S }} \coloneqq \mathbf{W}(\mathcal{O}_{ S })$
+	and say that $\underline{M}$ is an $\underline{\mathcal{O}_{ S }}$-module.
+\end{ntt}
 
 
 \begin{defn}[]
@@ -568,41 +608,17 @@ Before writing the working hypothesis for this section
 let's recall a brief definition:
 
 
-\begin{defn}[]
-	Let $S$ be a scheme and $V$ be an $\mathcal{O}_{ S }$-module.
-	We will denote by $\mathbf{W}(V)$ the functor
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbf{W}(V)\colon 
-		\mathsf{Sch}_{ S } \arrow[r, "", rightarrow] &
-		\mathsf{Gp} \\
-		S' \arrow[r, "", mapsto] & 
-		\Gamma(S', V_{S'})
-	,\end{tikzcd}
-	\end{equation*} 
-	where, as before, $V_{S'}$ denotes the inverse image of
-	$V$ to $S'$.
-	Then, by \cite[Proposition 4.6.5]{SGA3-1}, if $V$ is also
-	locally-free and of finite rank, we have the canonical isomorphism
-	\begin{equation*}
-		\mathbf{W}(V) \simeq
-		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
-		\left(\mathbf{W}(V^\vee) , \mathcal{O}_{ S } \right) \simeq
-		\underline{\mathrm{Spec}}_S(\mathrm{Sym}(V^\vee))
-	.\end{equation*}
-\end{defn}
-
-
 %\noindent
 Now to the setting for this first construction.
 Let $A$ be a ring, $I \triangleleft A$ and ideal with nilpotent
 divided powers and $A_0 \coloneqq A/I$.
+Denote then by $S \coloneqq \mathrm{Spec}(A)$
+and by $S_0 \coloneqq \mathrm{Spec}(A/I)$ its closes
+subscheme define by the ideal $I$.
 Consider $V$ a locally-free $A$ module of finite rank
 and $G = \mathrm{Spec}(B)$ a finite locally-free 
-group scheme over $S \coloneqq \mathrm{Spec}(A)$.
-Consider the $S$-group $\mathbf{W}(V) \cross_{ S } G$, whose ring is
+group scheme over $S$.
+Consider the $S$-group $\underline{V} \cross_{ S } G$, whose ring is
 $C \coloneqq \mathrm{Sym}(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
 to $V \cross_{ S } G$ as pointed schemes (but not necessarily
 as group objects).
@@ -620,7 +636,7 @@ as group objects).
 
 
 \begin{rem}[]
-	Since $\mathbf{W}(V) \cross_{ S } G$ is isomorphic to $H$ as pointed
+	Since $\underline{V} \cross_{ S } G$ is isomorphic to $H$ as pointed
 	schemes, we have $\omega_H \simeq \omega_{V \cross_S G}$, free of finite type,
 	which implies that $\mathrm{Lie}(H)$ is also locally-free.
 \end{rem}
@@ -632,37 +648,37 @@ as group objects).
 	seems to revolve around taking duals, which I'm only aware to be working
 	in the finite rank case, see for example [SGA 3, 1, 4.6.5]).
 	Denote by $W_0$ and $H_0$ the restrictions of $W$ and $H$ to 
-	$S_0 \coloneqq \mathrm{Spec}(A_0)$ (i.e. their pullback along
+	$S_0$ (i.e. their pullback along
 	the closed immersion $S_0 \hookrightarrow S$).
-	Then we will denote by 
+	Then we will denote
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathrm{Hom}_{ \mathsf{Gr}_S } 
-		\left( \mathbf{W}(W), H \right)
+		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
-		\left( \mathbf{W}(W_0), H_0 \right)
+		\left( \underline{W_0}, H_0 \right)
 	\end{tikzcd}
 	\end{equation*} 
 	the map induced by the pullback functor on hom groups.
 	Here one can define a morphism
 	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex, column sep = 1.5em
+	\begin{tikzcd}[row sep = 0ex, column sep = 1.8em
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		%\exp\colon
+		\exp\colon
 		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
 		\left( W, I \cdot \mathrm{Lie}(H) \right)
-		\arrow[r, "\exp", rightarrowtail] &
+		\arrow[r, "", rightarrowtail] &
 		\ker \big[ 
 		\mathrm{Hom}_{ \mathsf{Gr}_S } 
-		\left( \mathbf{W}(W), H \right)
-		%\arrow[r, "", rightarrow] &
-		\to
+		\left( \underline{W}, H \right)
+		\arrow[r, "", rightarrow] &
+		%\to
 		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
-		\left( \mathbf{W}(W_0), H_0 \right)
+		\left( \underline{W_0}, H_0 \right)
 		\big]
 	\end{tikzcd}
 	\end{equation*} 
@@ -676,7 +692,7 @@ as group objects).
 	.\end{equation*}
 	Taking the transpose of such a map we obtain a mapping 
 	$(C^\vee)^\vee \simeq C \to \mathrm{Sym}(W^\vee)$, which corresponds
-	to an $S$-group homomorphism $W \to G$.
+	to an $S$-group homomorphism $\underline{W} \to G$.
 	Then one can check that it actually sits in the desired kernel
 	following \cite[Chapter III, \S2.4, 2.6]{Messing}.
 \end{defn}
@@ -687,8 +703,12 @@ as group objects).
 Let's now concentrate our efforts on lifting of homomorphisms.
 Consider $S, S_0$ as before.
 Consider then $H$ an $S$-group given as a vector group,
-i.e. $H = \mathbf{W}(V)$ for some locally free $\mathcal{O}_{ S }$-module
+i.e. $H = \underline{V}$ for some locally free $\mathcal{O}_{ S }$-module
 of finite rank.
+(tk: this is the interpretation which seemed most natural in the last
+section and allowed me to give some meaning to the definition of exponential,
+so I am sticking with it, even though I have not been able to pinpoint
+this definition from Messing's text.)
 As before, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 
 
@@ -729,7 +749,7 @@ As before, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 	Let $u_0\colon H_0 \to G_0$ be a homomorphism of $S$-groups.
 	We say that two lifting $u', u''\colon H \to G$ of $u_0$
 	are linearly compatible iff their difference is in the image
-	of $\exp$ as just defined:
+	of 
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex, column sep = 2.0em
 		,/tikz/column 1/.append style={anchor=base east}
@@ -745,12 +765,425 @@ As before, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
 		\left( H_0, G_0 \right)
 		\big]
-	\end{tikzcd}
+	.\end{tikzcd}
 	\end{equation*} 
 \end{defn}
 
 
 \begin{rem}[]
 	The above is an equivalence relation on the set of lifting of $u_0$.
+\end{rem}
+
+
+\noindent
+Let's now study better this relation with the exponential map in the context of
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	u_0\colon \underline{V_0} \arrow[r, "", rightarrowtail] &
+	G_0
+\end{tikzcd}
+\end{equation*} 
+a monomorphism with image $H_0 \subset G_0$.
+We want to study the set of lifting $H$ of $H_0$ to
+subgroups of $G$, flat over $S$, together with the structure
+of locally-free module on $H$, lifting that of $H_0$.
+
+\begin{rem}[]\label{rem:EquivalentLiftingSolutions}
+	In case $H$ is a solution to this problem, it is given by
+	$\underline{V}$, where $V$ is a finite, locally-free $\mathcal{O}_{ S }$-module.
+	Any such $V$ is determined up to a (non-unique) isomorphism.
+	Fixed one such $V$, giving $H$ is equivalent to giving a morphism
+	$u\colon \underline{V} \to G$ lifting $u_0$, modulo identifying
+	two such morphisms if they differ by an $\mathcal{O}_{ S }$-automorphism
+	of $V$ which reduces to the identity on $V_0$.
+\end{rem}
+
+
+\begin{lem}[{\cite[Chapter III, lemma 2.7.4]{Messing}}]
+	Let $u_0, \underline{V}, G, \underline{V_0}, G_0$ be as above.
+	Any homomorphism $u\colon \underline{V} \to G$ lifting 
+	$u_0\colon \underline{V_0} \rightarrowtail G_0$
+	is a monomorphism.
+\end{lem} 
+
+
+\begin{defn}[Congruent lifting]
+	Two lifting $u, u'\colon \underline{V} \to G$ of $u_0$ are said to
+	be {\em congruent} iff the differ by an $\mathcal{O}_{ S }$-linear
+	automorphism of $\underline{V}$ reducing to the identity on $\underline{V_0}$.
+\end{defn}
+
+
+\begin{rem}[]
+	By \cref{rem:EquivalentLiftingSolutions} it is clear that
+	two lifting of $u_0$ are congruent iff they define the same solution
+	$H$ to the problem of lifting subgroups of $G_0$ to subgroups of $G$.
+\end{rem}
+
+
+\begin{lem}[{\cite[Chapter III, lemma 2.7.6]{Messing}}]
+	If $u$ and $u'$ are congruent lifting of $u_0$, then
+	they are linearly compatible.
+\end{lem} 
+
+
+\begin{rem}[]
+	Let's notice that this proposition allows to
+	transpose the equivalence relation, via the exponential map,
+	from lifting of $u_0$ to solutions of the problem of lifting
+	of the subgroup $H_0$.
+	In particular we can rephrase it in terms of subgroups
+	of $\mathrm{Lie}(G)$. More explicitly
+	let $\mathfrak{h} \subset \mathrm{Lie}(G)$ be a locally-free
+	submodule of $\mathrm{Lie}(G)$ lifting
+	$\mathfrak{h}_0 \coloneqq \mathrm{Lie}(H_0)$.
+	Then the following proposition holds.
+\end{rem}
+
+
+\begin{prop}[{\cite[Chapter III, proposition 2.7.7]{Messing}}]
+	In each linear equivalence class of solutions of
+	the problem of lifting the subgroup $H_0$
+	there is exactly one $H$ with 
+	$\mathrm{Lie}(H) = \mathfrak{h}$.
+\end{prop}
+
+
+
+\subsection{Crystals}
+\subsubsection{Crystalline site}
+In order to introduce crystals we need to first define the crystalline site.
+Here, as a start, we will introduce the basic terminology needed to give
+some meaning to our objects.
+
+
+\begin{defn}[Thickening]
+	Let $X$ be a scheme.
+	We say that a scheme $X'$ is a {\em thickening} of $X$ iff
+	$X$ is a closed subscheme of $X'$ and their underlying topological
+	are equal.
+\end{defn}
+
+
+\begin{rem}[]
+	Recall that closed immersions $X \hookrightarrow X'$ are in one to
+	one correspondence with quasi-coherent sheaves of ideals
+	$\mathcal{I}$ of $\mathcal{O}_{ X }$, see
+	\cite[\href{https://stacks.math.columbia.edu/tag/01QN}{Section 01QN}]{SP}
+	for more details.
+	Then the ideal associated to a thickening $X'$ of $X$ 
+	is {\em locally nilpotent}.
+\end{rem}
+
+
+\begin{defn}[Divided powers thickening]
+	A {\em divided powers thickening} is a scheme with divided powers
+	$\left(U, \mathcal{I}, \gamma\right)$, as in \cref{rem:DividedPowersSheaf},
+	in which $\mathcal{I}$ is a locally nilpotent sheaf of ideals.
+	Equivalently it is the data of $\left(U, T, \gamma\right)$,
+	for a thickening $U \hookrightarrow T$, defined by a locally nilpotent
+	sheaf of ideals on $\mathsf{O}_T$, with divided powers structure
+	defined by $\gamma$.
+\end{defn}
+
+
+\begin{defn}[]
+	A {\em divided powers thickening} of $X$
+	is a divided powers thickening $\left(U, T, \delta\right)$
+	with an open immersion $U \hookrightarrow X$.
+	A morphism of divided powers thickening of $X$ is just
+	a morphism of schemes with divided powers.
+	More explicitly, a morphism from $\left(U, T, \gamma\right)$
+	to $\left(U', T', \delta\right)$ is given by a commutative
+	diagram
+	\begin{equation}\label{diag:MorphDivPowers}
+	\begin{tikzcd}
+		U \arrow[d, "f"', rightarrow] \arrow[r, "", hookrightarrow] &
+		T \arrow[d, "\overline{f}", rightarrow] \\
+		U' \arrow[r, "", hookrightarrow] &
+		T'
+	,\end{tikzcd}
+	\end{equation}
+	such that $U \to U'$ is an open immersion (corresponds to
+	an inclusion of open subschemes of $X$) and
+	$\overline{f}\colon T \to T'$ is a morphism of divided powers.
+\end{defn}
+
+
+\begin{defn}[Crystalline site on $X$]
+	We define the {\em crystalline site} on $X$, denoted by $\mathsf{Crys}(X)$,
+	as the category whose objects are divided powers thickening of $X$
+	and morphisms are morphisms of divided powers thickening of $X$.
+	We endow this category with the pretopology induced by the
+	Zariski topology.
+	More explicitly 
+	\begin{equation*}
+	\begin{tikzcd}
+		\{ \left(U_i, T_i, \gamma_i\right)
+		\arrow[r, "", rightarrow] &
+	\left(U, T, \gamma\right) \}_{i \in I}
+	\end{tikzcd}
+	\end{equation*}
+	is a covering iff, for all $i$, we have an open immersion
+	$T_i \hookrightarrow T$ whose underlying set is the same as
+	that of $U_i$, and moreover the family $\left\{ T_i \to T \right\}_{i \in I}$
+	is jointly surjective, i.e. $\cup_{i \in I} U_i = U$ at
+	the level of topological sets.
+\end{defn}
+
+
+\begin{rem}[Sheaves on the crystalline site on $X$]
+	Let's remark that a sheaf $\mathcal{F}$ on $\mathsf{Crys}(X)$, for every
+	object $\left(U, T, \gamma\right)$, gives rise by restriction
+	to a Zariski sheaf $\mathcal{F}_T$ on the scheme $T$ by the rule
+	\begin{equation*}
+	\mathcal{F}_T(W) \coloneqq
+	\mathcal{F}(U \cap W, W, \left.\delta\right|_{W})
+	,\end{equation*}
+	where $W \subset T$ is an open subscheme.
+	Moreove any morphism in $\mathsf{Crys}(X)$
+	$\left(U, T, \delta\right) \to \left(U', T', \delta'\right)$
+	gives rise to a canonical comparison map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		c_f\colon f^{-1}\mathcal{F}_{T'} \arrow[r, "", rightarrow] &
+		\mathcal{F}_T
+	.\end{tikzcd}
+	\end{equation*} 
+	More explicitly this map acts, for all open $W' \subset T'$, the restriction
+
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\left.f\right|_{f^{-1}W'}\colon 
+		(U \cap f^{-1}W', f^{-1}W', \left.\delta\right|_{f^{-1}W'} )
+		\arrow[r, "", rightarrow] &
+		\left(U' \cap W', W', \left.\delta\right|_{W'} \right)
+	.\end{tikzcd}
+	\end{equation*} 
+	defines a morphism $(\left.f\right|_{f^{-1}W'})^*\colon \mathcal{F} \to \mathcal{F}$,
+	which induces a map $\mathcal{F}_{T'}(W') \to \mathcal{F}_T(f^{-1}W')$
+	and finally, by adjunction, this gives the desired morphism $c_f$.
+	Moreover we can notice that, if $f$ is an open immersion, then
+	$c_f$ is an isomorphism, since $\mathcal{F}_T$ is just the restriction
+	of $\mathcal{F}_T$ to $T'$.
+
+	Conversely a family of Zariski sheaves $\mathcal{F}_T$, indexed by 
+	the objects $\left(U, T, \delta\right) \in \mathsf{Crys}(X)$, satisfying
+	the usual cocycle conditions defines a sheaf on $\mathsf{Crys}(X)$ 
+	(which we recall is given with the Zariski topology).
+	This proof follows the standard procedure of gluing of sheaves,
+	for more details see
+	\cite[\href{https://stacks.math.columbia.edu/tag/07IN}{Section 07IN}]{SP}.
+\end{rem}
+
+
+\begin{rem}[]
+	The above remark allows one to define a canonical structure sheaf
+	on $\mathsf{Crys}(X)$, given by the family, for all $\left(U, T, \delta\right) \in
+	\mathsf{Crys}(X)$, of structure sheaves $\mathcal{O}_{ T }$.
+
+	Analogously, given a family of $\mathcal{O}_{ T }$-modules $M_T$
+	satisfying the cocycle conditions, gives rise to a sheaf of modules
+	$M$ on $\mathsf{Crys}(X)$.
+	In particular, if for any diagram as in \cref{diag:MorphDivPowers}, induced
+	by a morphism in $\mathsf{Crys}(X)$, we have $\overline{f}^*(M_{T'}) = M_T$,
+	we say that $M$ is {\em special}.
+	Moreover we say that $M$ is quasi-coherent iff it is special and, for all
+	$\left(U, T, \delta\right) \in \mathsf{Crys}(X)$, the $\mathcal{O}_{ T }$-module
+	$M_T$ is quasi-coherent.
+\end{rem}
+
+
+\subsubsection{Crystals}
+We now turn our attention to Crystals.
+As usual we will introduce the necessary preliminary definitions before 
+turning to that of $\mathsf{F}$-crystals.
+%Finally we have fulfilled all the requirements to define
+%what and $\mathscr{F}$-crystal is.
+%To do so we need to consider a fibered category $\mathscr{F}$ on
+%$\mathsf{Sch}_{  }$ which is a stack with respect to the
+%Zariski pretopology. In particular this implies that both
+%morphisms and objects con be glued together.
+
+
+\begin{defn}[Pullback and cartesian morphism]\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+	\item We say that a category $\mathsf{F}$ is {\em over} the category $\mathsf{C}$
+		iff it is given with a functor $p_{\mathsf{F}}\colon \mathsf{F} \to \mathsf{C}$.
+
+	\item Let $\mathsf{F}$ be a category over $\mathsf{C}$.
+		An arrow $\phi\colon \xi \to \eta$ in $\mathsf{F}$ is {\em cartesian}
+		iff, for any arrow $\psi\colon \zeta \to \eta$ in $\mathsf{F}$
+		and any arrow $h\colon p_{\mathsf{F}}\zeta \to p_{\mathsf{F}}\xi$
+		in $\mathsf{C}$, such that $p_{\mathsf{F}} \phi \circ h = p_{\mathsf{F}} \psi$,
+		there exists a unique arrow $\theta\colon \zeta \to \xi$ with
+		$p_{\mathsf{F}} \theta = h$ and $\phi \circ \theta = \psi$,
+		as in the commutative diagram
+		\begin{equation*}
+		\begin{tikzcd}[row sep=0.75em]
+			\zeta \arrow[rd, "\theta"', dashrightarrow] 
+			\arrow[rrd, "\psi", rightarrow, bend left] 
+			\arrow[dd, "", mapsto] & & \\
+			&
+			\xi \arrow[r, "\phi"', rightarrow] &
+			\eta \arrow[dd, "", mapsto] \\
+			p_{\mathsf{F}} \zeta \arrow[rd, "h"', rightarrow] 
+			\arrow[rrd, "", rightarrow, bend left] & & \\
+			&
+			p_{\mathsf{F}} \xi \arrow[r, "", rightarrow] 
+			\arrow[from=uu, "", mapsto, crossing over] &
+			p_{\mathsf{F}} \eta
+		,\end{tikzcd}
+		\end{equation*}
+		where the vertical arrows are induced by the functor $p_{\mathsf{F}}$.
+		Moreover, if $\xi \to \eta$ is a cartesian arrow of $\mathsf{F}$
+		mapping to an arrow $U \to V$ of $\mathsf{C}$,
+		we say that $\xi$ is a {\em pullback} of $\eta$ to $U$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]
+	As with most universal properties, a pullback is unique
+	up to unique isomorphism.
+\end{rem}
+
+
+\begin{defn}[Fibered category]
+	A {\em fibered category over} $\mathsf{C}$ is a category $\mathsf{F}$
+	over $\mathsf{C}$ such that, given an arrow $f\colon U \to V$ in $\mathsf{C}$
+	and an object $\eta$ of $\mathsf{F}$ mapping to $V$, then
+	there is a cartesian arrow $\phi\colon \zeta \to \eta$, with $p_{\mathsf{F}} \phi = f$.
+	In other words, in a fibered category $\mathsf{F} \to \mathsf{C}$,
+	we can always pull back objects of $\mathsf{F}$ along arrows
+	of $\mathsf{C}$.
+
+	Given two fibered categories $\mathsf{F}$ and $\mathsf{G}$ over $\mathsf{C}$,
+	a morphism of fibered categories is a functor $F\colon \mathsf{F} \to \mathsf{G}$
+	which is {\em base-preserving}, i.e. $p_{\mathsf{G}} \circ F = p_{\mathsf{F}}$,
+	and which sends cartesian arrows to cartesian arrows.
+\end{defn}
+
+
+\begin{defn}[Cartesian section]
+	We can clearly consider $\mathsf{C}$ as a category over $\mathsf{C}$
+	via the identity functor.
+	Then, extending the definition of morphism of fibered categories also
+	to arbitrary categories over $\mathsf{C}$, we say that
+	a cartesian section of $\mathsf{F}$, fibered category over $\mathsf{C}$,
+	is a fibered morphism $\mathsf{C} \to \mathsf{F}$.
+\end{defn}
+
+
+\begin{rem}[]
+	More explicitly a cartesian section of a fibered category $\mathsf{F}$
+	over $\mathsf{C}$ is the choice, for each object $U \in \mathsf{C}$,
+	of an object $\eta_U \in \mathsf{F}$ such that $p_{\mathsf{F}} \eta_U = U$.
+	It also requires, for each morphism $f\colon U \to V$, the choice of
+	an inverse image $\phi_f\colon \eta_U \to \eta_V$,
+	compatible with compositions.
+	In other words it is the choice of a compatible
+	system of inverse images over objects of $\mathsf{C}$.
+\end{rem}
+
+
+\begin{defn}[Fibered product of categories]
+	Let $F\colon \mathsf{A} \to \mathsf{C}$ and $G\colon \mathsf{B} \to \mathsf{C}$
+	be fibered categories over $\mathsf{C}$. 
+	We define the {\em fibered product} category $\mathsf{A} \cross_{ \mathsf{C} } \mathsf{B}$
+	as follows.
+\begin{enumerate}
+	\item An object of $\mathsf{A} \cross_{ \mathsf{C} } \mathsf{B}$ is given by a triple
+		$\left(A, B, f\right)$, where $A \in \mathsf{A}$, $B \in \mathsf{B}$
+		and $f\colon F(A) \to G(B)$ is an isomorphism in $\mathsf{C}$.
+
+	\item A morphism $\left(A, B, f\right) \to  \left(A', B', f'\right)$
+		is given by a pair $\left(a, b\right)$,
+		where $a\colon A \to A'$ is a morphism in $\mathsf{A}$,
+		$b\colon B \to B'$ is a morphism in $\mathsf{B}$
+		and they make the following diagram commute
+		\begin{equation*}
+		\begin{tikzcd}
+			F(A) \arrow[r, "f", rightarrow] 
+			\arrow[d, "F(a)"', rightarrow] &
+			G(B) \arrow[d, "G(b", rightarrow] \\
+			F(A') \arrow[r, "f'", rightarrow] &
+			G(B')
+		.\end{tikzcd}
+		\end{equation*}
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]
+	If both $\mathsf{A}$ and $\mathsf{B}$ are fibered over $\mathsf{C}$ then
+	also $\mathsf{A} \cross_{ \mathsf{C} } \mathsf{B}$ is fibered over $\mathsf{C}$,
+	see for example
+	\cite[\href{https://stacks.math.columbia.edu/tag/02XQ}{Lemma 02XQ}]{SP}
+	for a proof.
+	In our situation, moreover, $\mathsf{Crys}(X)$ is fibered over $\mathsf{Sch}_{  }$
+	(tk: I haven't looked for a source yet, though I guess this holds since
+	$\mathsf{F} \cross_{ \mathsf{Sch}_{  } } \mathsf{Crys}(X)$ should be fibered).
+	Hence, considered any $\mathsf{F}$ fibered over $\mathsf{Sch}_{  }$,
+	also $\mathsf{F} \cross_{ \mathsf{Sch}_{  } } \mathsf{Crys}(X)$
+	is fibered over $\mathsf{Sch}_{ }$.
+\end{rem}
+
+
+\begin{defn}[$\mathsf{F}$-crystals]
+	An {\em $\mathsf{F}$-crystal} on $X$ is a
+	cartesian section of the fibered category
+	$\mathsf{F} \cross_{ \mathsf{Sch}_{  } } \mathsf{Crys}(X)$, where
+	the functor $\mathsf{Crys}(X) \to \mathsf{Sch}_{  }$ is given
+	by the association
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\left(U, T, \gamma\right) \arrow[r, "", mapsto] & T
+	.\end{tikzcd}
+	\end{equation*} 
+	Moreover a morphism of $\mathsf{F}$-crystals is a
+	morphism of cartesian sections.
+\end{defn}
+
+
+\begin{rem}[]
+	Let's make the above definition more explicit.
+	An $\mathsf{F}$-crystal is the datum, for each object
+	$\left(U, T, \gamma\right)$ of an object
+	$Q_{\left(U, T, \gamma\right)} \in \mathsf{F}_T$, where
+	$\mathsf{F}_T$ is tk,
+	and, for each morphism in $\mathsf{Crys}(X)$, as in \cref{diag:MorphDivPowers},
+	of an isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		u_{\overline{f}}\colon 
+		Q_{\left(U, T, \gamma\right)}
+		\arrow[r, "", rightarrow] &
+		\overline{f}^* (Q_{\left(U', T', \delta \right)})
+	.\end{tikzcd}
+	\end{equation*} 
+	Moreover, given two such composable morphisms in $\mathsf{Crys}(X)$,
+	the above need to satisfy $f^*(u_{\overline{g}}) \circ u_{\overline{f}} =
+	u_{\overline{g} \circ \overline{f}}$,
+	where $\overline{g}$ comes from the morphism
+	in $\mathsf{Crys}(X)$ giving rise to
+	\begin{equation*}
+	\begin{tikzcd}
+		U' \arrow[d, "g"', rightarrow] \arrow[r, "", hookrightarrow] &
+		T' \arrow[d, "\overline{g}", rightarrow] \\
+		U'' \arrow[r, "", hookrightarrow] &
+		T''
+	.\end{tikzcd}
+	\end{equation*}
 \end{rem}
 \end{document}
