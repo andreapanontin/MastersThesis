@@ -97,7 +97,7 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 			B \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			X' \arrow[r, "", rightarrow] 
-			\arrow[d, "f", rightarrow] &
+			\arrow[d, "", rightarrow] &
 			A' \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			0\\
@@ -121,7 +121,7 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 			B \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			X \arrow[r, "", rightarrow] 
-			\arrow[d, "f", rightarrow] &
+			\arrow[d, "", rightarrow] &
 			A \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			0\\
@@ -150,7 +150,7 @@ i.e. by a group $\underline{M}$ for a quasi-coherent $\mathcal{O}_{ S }$-module 
 	{\em universal} iff, given any extension
 	\begin{equation*}
 	\begin{tikzcd}
-		(\zeta)
+		(\zeta) &
 		0 \arrow[r, "", rightarrow] &
 		\underline{M} \arrow[r, "", rightarrow] &
 		(*) \arrow[r, "", rightarrow] &
@@ -162,4 +162,121 @@ i.e. by a group $\underline{M}$ for a quasi-coherent $\mathcal{O}_{ S }$-module 
 	such that the pushout of $E(G)$ by $\varphi$ is the given
 	extension $(\zeta)$.
 \end{defn}
+
+
+\subsection{Crystals associated to Barsotti-Tate groups}
+
+
+\begin{defn}[Lcally infinitesimally liftable Barsotti-Tate groups]
+	Let $S_0$ be a scheme with $p$ locally nilpotent on it.
+	We denote by $\mathsf{BT}'(S_0) \subset \mathsf{BT}(S_0)$ 
+	the full subcategory whose objects satisfy the following property:
+	$G_0$ is in $\mathsf{BT}'(S_0)$ iff
+	there is an affine open cover $\left\{ U_i \right\}_{i \in I}$ of $S_0$, which depends on $G_0$, 
+	on which, for all $i$ and all finite order thickening $U_i \hookrightarrow U$,
+	there is a $G \in \mathsf{BT}(U)$ such that
+	$\left.G\right|_{U_i} = \left.G_0\right|_{U_i}$.
+	We call the Barsotti-Tate groups in $\mathsf{BT}'(S_0)$
+	{\em locally infinitesimally liftable}.
+\end{defn}
+
+
+\begin{thm}[{\cite[Chapter IV, theorem 2.2]{Messing}}]\label{thm:UniqueLiftingCrystals}
+	Let $S = \mathrm{Spec}(A)$ such that $p^N \cdot 1_S = 0$,
+	$S-0 \coloneqq \mathbb{V}(I) \subset S$, where $I$ is
+	an ideal of $A$ with nilpotent divided powers.
+	Let $G, H \in \mathsf{BT}(S)$ and consider a homomorphism
+	$u_0\colon G_0 \to H_0$ between their restrictions to $S_0$.
+	By tk: add reference (thm 1.15 on Messing) $u_0$ defines
+	a morphism of extensions $v_0 \coloneqq E(u_0)\colon E(G_0) \to E(H_0)$,
+	making the diagram commute:
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G_0) \arrow[d, "\underline{V}(u_0)", rightarrow] 
+		\arrow[r, "", rightarrow] &
+		E(G_0) \arrow[d, "v_0", rightarrow]
+		\arrow[r, "", rightarrow] &
+		G_0 \arrow[d, "u_0", rightarrow]
+		\arrow[r, "", rightarrow] &
+		0 \\
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(H_0) \arrow[r, "", rightarrow] &
+		E(H_0) \arrow[r, "", rightarrow] &
+		H_0 \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Then there is a unique morphism of $S$-groups (tk)
+	$v\colon E(G) \to E(H)$, which is not necessarily a morphism
+	of extensions, that satisfied the following properties:
+\begin{enumerate}
+	\item $v$ is a lifting of $v_0$;
+	\item given $w\colon \underline{V}(G) \to \underline{V}(H)$ a lifting of $\underline{V}(u_0)$,
+		denoted the inclusions by $i\colon \underline{V}(H) \to E(H)$ and by 
+		$j\colon \underline{V}(G) \to E(G)$,
+		such that $d\coloneqq (i \circ w - v \circ j)\colon \underline{V}(G) \to E(H)$
+		induces the zero on $S_0$, then $d$ is an exponential.
+		(tk: the definition of exponential for BT groups is given in III 2.4,
+		think about whether its better to tex it or not.)
+\end{enumerate}
+\end{thm}
+
+
+\begin{rem}[]
+	tk: copy from rem 2.3. The morphism $v$ is independent of the choice of $w$
+	in \cref{thm:UniqueLiftingCrystals}.
+	In fact, chosen another lift $w'$ of $\underline{V}(u_0)$, tk.
+\end{rem}
+
+
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.1]{Messing}}]
+	Let $G, H, K \in \mathsf{BT}(S)$ as before and consider another
+	homomorphism $u_0'\colon H_0 \to K_0$, where $K_0$ again denotes
+	the restriction of $K$ to $S_0$.
+	Denote by $E_S(u_0)$ the morphism $v$ whose existence is granted in
+	\cref{thm:UniqueLiftingCrystals}.
+	Then $E_S(u'_0 \circ u_0) = E_S(u'_0) \circ E_S(u_0)$.
+\end{cor} 
+
+
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.2]{Messing}}]
+	If, in the above notation, $G = H$ and $u_0 = \mathrm{id}_{ G_0 }$,
+	then $E_S(u_0) = \mathrm{id}_{ G }$.
+\end{cor} 
+
+
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.3]{Messing}}]
+	Let $G,H, u_0$ as in \cref{thm:UniqueLiftingCrystals},
+	with moreover $u_0$ an isomorphism.
+	Then $E_S(u_0)$ is an isomorphism too.
+\end{cor} 
+
+
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.4]{Messing}}]
+	Suppose we are given a commutative diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		S_0 \arrow[r, "", hookrightarrow] &
+		S \\
+		S_0' \arrow[u, "", rightarrow] 
+		\arrow[r, "", hookrightarrow] &
+		S' \arrow[u, "", rightarrow] 
+	,\end{tikzcd}
+	\end{equation*}
+	where $S_0 \hookrightarrow S$ and $S'_0 \hookrightarrow S'$ are
+	nilpotent immersion as in the statement of \cref{thm:UniqueLiftingCrystals}.
+	Let $S_0' = \mathbb{V}(J)$ and $S_0 = \mathbb{V}(I)$
+	and assume that $S' \to S$ is a divided powers morphism.
+	Consider $G,H \in \mathsf{BT}(S)$ and $u_0\colon G_0 \to H_0$ as before.
+	Then the construction of $E_S(u_0)$ is compatible with the base
+	change $S' \to S$.
+	More explicitly we have
+	\begin{equation*}
+		E_{S'}(u_{0_{S'_0}}) =
+		\left( E_S(u_0) \right)_{S'} = v_{S'}
+	.\end{equation*}
+\end{cor} 
+
+tk: maybe in section 0 add what you mean by $\mathbb{V}(I)$ for an affine scheme.
 \end{document}

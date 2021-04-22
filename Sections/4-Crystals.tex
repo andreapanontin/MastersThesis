@@ -127,9 +127,10 @@
 \end{defn}
 
 \noindent
-Let's now introduce the analogous of the symmetric algebra 
-in the divided powers context:
-(tk: I'm not sure this result plays a role in my dissertation)
+Let's now introduce the analogous of the symmetric algebra, first,
+and of the formal completion, later,
+in the context of divided powers.
+(tk: I'm not sure this result plays a role in my dissertation.)
 
 
 \begin{thm}[{\cite[\S3, theorem 3.9]{Berthelot}}]
@@ -177,6 +178,42 @@ in the divided powers context:
 \end{enumerate}
 	To make notation cleaner, when the base $A$ is clear, we
 	will write $\Gamma(M)$ for $\Gamma_A(M)$.
+\end{thm}
+
+
+\begin{thm}[{\cite[\S3, theorem 3.9]{Berthelot}}, divided powers envelope]
+	Let $\left(A, I, \gamma\right)$ a ring with divided powers, $B$ an $A$-algebra
+	and $J \triangleleft B$ an ideal.
+	There exists a $B$-algebra $\mathcal{D}_{B,\gamma}(J)$
+	with a divided powers ideal $\left(J, [\ \cdot \ ]\right)$,
+	such that $J \mathcal{D}_{B, \gamma} \subset \overline{J}$,
+	$[\ \cdot \ ]$ is compatible with $\gamma$ and with the
+	following universal property:
+	for any $B$-algebra $C$ containing an ideal
+	$K$ which contains $JC$ and has a divided powers structure
+	$\delta$ compatible  with $\gamma$, there is a unique 
+	divided powers morphism 
+	$\left(\mathcal{D}_{B,\gamma}, J, [\ \cdot \ ]\right) \to 
+	\left(C, K, \delta\right)$ making the following
+	diagram commute
+	\begin{equation*}
+	\begin{tikzcd}
+		&
+		\left(\mathcal{D}_{B, \gamma}, J, [\ \cdot \ ]\right)
+		\arrow[rd, "", dashrightarrow,
+		start anchor=south east] & \\
+		\left(B, J\right) \arrow[ru, "", rightarrow,
+		end anchor=south west] 
+		\arrow[rr, "", rightarrow] & &
+		\left(C, K, \delta\right). \\
+		&
+		\left(A, I, \gamma\right)
+		\arrow[lu, "", rightarrow,
+		start anchor=north west] 
+		\arrow[ru, "", rightarrow,
+		start anchor=north east] & 
+	\end{tikzcd}
+	\end{equation*}
 \end{thm}
 
 
@@ -888,6 +925,10 @@ some meaning to our objects.
 	for more details.
 	Then the ideal associated to a thickening $X'$ of $X$ 
 	is {\em locally nilpotent}.
+	Moreover, if the ideal sheaf $\mathcal{I}$ associated to the thickening
+	$X \hookrightarrow X'$ is globally nilpotent, i.e. there exists $n \in \mathbb{N}$
+	such that $\mathcal{I}^{n+1} = 0$, we say that $X \hookrightarrow X'$ 
+	is a {\em finite order thickening}.
 \end{rem}
 
 
@@ -982,7 +1023,8 @@ some meaning to our objects.
 	This defines a morphism $(\left.f\right|_{f^{-1}W'})^*\colon$
 	which, in turn, induces a map $\mathcal{F}_{T'}(W') \to \mathcal{F}_T(f^{-1}W')$
 	and finally, by adjunction, this gives the desired morphism $c_f$.
-	Moreover we can notice that, if $f$ is an open immersion, then
+	Moreover we can notice that if, in \cref{diag:MorphDivPowers},
+	$\overline{f}$ (tk: think about it) is an open immersion, then
 	$c_f$ is an isomorphism, since $\mathcal{F}_{T'}$ is just the restriction
 	of $\mathcal{F}_T$ to $T'$.
 
@@ -1183,7 +1225,7 @@ turning to that of $\mathsf{F}$-crystals.
 \begin{rem}[]
 	Let's make the above definition more explicit.
 	An $\mathsf{F}$-crystal is the datum, for each object
-	$\left(U, T, \gamma\right)$ of an object
+	$\left(U, T, \gamma\right)$, of an object
 	$Q_{\left(U, T, \gamma\right)} \in \mathsf{F}_T$, where
 	$\mathsf{F}_T$ is the fiber of $\mathsf{F}$ over $T$,
 	and, for each morphism in $\mathsf{Crys}(X)$, as in \cref{diag:MorphDivPowers},
