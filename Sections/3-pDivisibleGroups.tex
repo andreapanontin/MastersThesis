@@ -41,7 +41,7 @@ Let's start by recalling a few useful algebra definitions.
 	is an {\em ideal of definition} iff $I$ is open and every neighbourhood
 	of $0$ contains $I^n$ for an appropriate $n \in \mathbb{N}$.
 
-\item $R$ is {\em admissible} iff it has an ideal of defintion and it is {\em complete}.
+\item $R$ is {\em admissible} iff it has an ideal of definition and it is {\em complete}.
 \end{enumerate}
 \end{defn}
 
@@ -88,7 +88,7 @@ Let's start by recalling a few useful algebra definitions.
 \begin{defn}[Pseudo-discrete sheaves]
 	A sheaf of topological rings (resp$.$ modules, groups, etc)
 	is called {\em pseudo-discrete} iff, for all $U \subset X$,
-	$\mathcal{F}(U)$ is enodwed with the discrete topology.
+	$\mathcal{F}(U)$ is endowed with the discrete topology.
 \end{defn}
 
 
@@ -424,7 +424,7 @@ the right one in our context.
 		X \ast Y \coloneqq f(X,Y)
 	.\end{equation*} 
 	One can also stress that these axioms are enough to grant
-	the existance of the inverse for any element of $\Gamma$,
+	the existence of the inverse for any element of $\Gamma$,
 	hence they suffice to give $\Gamma$ a group scheme structure.
 
 	Finally a note on the terminology and the axioms.
@@ -447,7 +447,7 @@ the right one in our context.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\psi\colon \mathscr{A} \arrow[r, "", rightarrow] &
-		\mathscr{A} \widehat{\otimes}_R \mathscr{A} \\
+		\mathscr{A} \\ %\widehat{\otimes}_R \mathscr{A} \\
 		X \arrow[r, "", mapsto] & 
 		X \ast \cdots \ast X
 	\quad \text{($p$ times)}
@@ -464,17 +464,22 @@ the right one in our context.
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
-As a consequence, to differentiate from \cref{defn:CatOfGroupSchemes}, we will
-denote the category of group schemes as fppf sheaves by $\mathsf{Gr}_S$,
-opposed to $\mathsf{Gp}_S$.
-Also the schemes $X, Y$ will be viewed as sheaves on $S$
-for the fppf topology.
+Also the schemes $X, Y \in \mathsf{Sch}_{ S }$ will be viewed as, via the associated
+functor of points, as sheaves on $S$ for the fppf topology.
 Recall that, for $Y \in \mathsf{Sch}_{ S }$, sections on
 $T \in \mathsf{Sch}_{ S }$ of $Y$ are just $T$-points and,
 as usual with sheaves, will denote them by
 \begin{equation*}
 	\Gamma \left( T, Y \right) \coloneqq Y(T)
 .\end{equation*}
+
+
+\begin{ntt}[]\label{not:GrS} 
+	To differentiate the above definition of $S$-group,
+	which does not require representability, from that of \cref{defn:CatOfGroupSchemes}, we will
+	denote the category of group schemes as fppf sheaves by $\mathsf{Gr}_S$,
+	as opposed to $\mathsf{Gp}_S$.
+\end{ntt}
 
 
 \begin{defn}[$k$-th infinitesimal neighbourhood]\label{defn:kInfNeighbourhood}
@@ -594,7 +599,7 @@ geometry to make sense of the definitions which are at the heart of this section
 			\mathrm{T}^n(\mathcal{F}) \coloneqq 
 			\mathcal{F} \otimes_{\mathcal{O}_{ X }} \cdots \otimes_{\mathcal{O}_{ X }}
 			\mathcal{F}
-			\quad \text{(n times)}
+			\quad \text{($n$ times)}
 		.\end{equation*}
 	
 	\item We define the {\em exterior algebra} of $\mathcal{F}$, 
@@ -859,7 +864,7 @@ In fact the following proposition holds.
 	As a consequence $G_v$ is the kernel of $p^v$ on $G$,
 	hence $G$ is $p$-torsion (since it is $\varinjlim G_v$).
 	To simplify the discussion we will introduce the notation
-	$i_{v,t} \coloneqq i_v \circ \ldots \circ i_{v+t}\colon G_v \to G_{v + t}$.
+	$i_{v,t} \coloneqq i_v \circ \cdots \circ i_{v+t}\colon G_v \to G_{v + t}$.
 	Then we analyze the following diagram to obtain that $p$
 	is an isogeny:
 	\begin{equation}\label{diag:pDivCharProof}
@@ -1052,12 +1057,12 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \end{rem}
 
 
-\noindent
-Let's define an important object for Barsotti-Tate groups,
-which will be recalled in the following sections.
-In order to do so, we need a result.
-
-
+%\noindent
+%Let's define an important object for Barsotti-Tate groups,
+%which will be recalled in the following sections.
+%In order to do so, we need a result.
+%
+%
 \begin{lem}[{\cite[Chapter II, \S3, lemma 3.3.18]{Messing}}]
 	Let $p$ be locally nilpotent of $S$ and $G$ be a {\em Barsotti-Tate} group on $S$.
 	Then
@@ -1180,9 +1185,9 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 	defining it).
 	Then, still by \cref{rem:DualityOtherProperties}, we obtain that it satisfies condition
 	$1$ of \cref{defn:pDivGroupFormalSchemes}.
-	Moreover commutativity of the lower triangle in \cref{diag:pDivCharProof}
+	Moreover, since $i_{1,v}$ is injective,
+	commutativity of the lower triangle in \cref{diag:pDivCharProof}
 	shows that $j_v = \coker i_{1,v} = \coker \left( p^v\colon G_{v+1} \to G_{v+1} \right)$,
-	since $i_{1,v}$ is injective.
 	But then, since duality is exact, this implies that the inductive system
 	satisfies also property $2$ of \cref{defn:pDivGroupFormalSchemes},
 	hence it defines a $p$-divisible group.
@@ -1191,9 +1196,8 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 
 \begin{defn}[Cartier dual of a $p$-divisible group]
 	Let $G \coloneqq \left( G_v, i_v \right)_{v \in \mathbb{N}}$ be a $p$-divisible group over $R$.
-	Let $G^D \coloneqq \left( G_v^D, i_v^D \right)_{v \in \mathbb{N}}$ be the inductive system
-	defined in \cref{rem:DualInductiveSystem}, with the abuse of notation
-	$i_v^D \coloneqq j_v^D$.
+	Let $G^D \coloneqq \left( G_v^D, j_v^D \right)_{v \in \mathbb{N}}$ be the inductive system
+	defined in \cref{rem:DualInductiveSystem}.
 	This last inductive system defines a $p$-divisible group over $R$,
 	which is called the {\em Cartier dual} of $G$.
 \end{defn}
