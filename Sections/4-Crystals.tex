@@ -322,9 +322,9 @@ grant that the structure extends for flat algebras.
 \subsection{Cospec and Lie algebras}
 The notation of this section will follow that of \cite[Capther III]{Messing}.
 This means that it might not be consistent with our previous exposition.
-(tk: this part of the book from Messing seems to be used only in the preliminary
-constructions of $\exp$, hence it might very well be that it is not used afterwards
-and that it is not really relevant for my m\'emoire.)
+%(tk: this part of the book from Messing seems to be used only in the preliminary
+%constructions of $\exp$, hence it might very well be that it is not used afterwards
+%and that it is not really relevant for my m\'emoire.)
 
 
 \begin{defn}[Quasi-coherent (co)algebra]
@@ -966,7 +966,7 @@ some meaning to our objects.
 
 \begin{defn}[Divided powers thickening]
 	Let $U$ be a scheme. A {\em divided powers thickening} of $U$ 
-	is the datum of $\left(U, T, \gamma\right)$,
+	is the datum of $\left(U \hookrightarrow T, \gamma\right)$,
 	where $U \hookrightarrow T$ is a thickening defined by a locally nilpotent
 	sheaf of ideals $\mathcal{I}$ on $\mathcal{O}_T$, 
 	with divided powers structure defined by $\gamma$.
@@ -987,12 +987,12 @@ some meaning to our objects.
 	The crystalline site on $X$, denoted by $\mathsf{Crys}(X)$,
 	is given as follows.
 	The objects of $\mathsf{Crys}(X)$ are
-	divided powers thickenings $\left(U, T, \delta\right)$
+	divided powers thickenings $\left(U \hookrightarrow T, \delta\right)$
 	with an open immersion $U \hookrightarrow X$.
 	Morphisms in $\mathsf{Crys}(X)$, thanks to \cref{rem:EquivPDThickening},
 	are just morphism of schemes with divided powers.
-	More explicitly, a morphism from $\left(U, T, \gamma\right)$
-	to $\left(U', T', \delta\right)$ is given by a commutative
+	More explicitly, a morphism from $\left(U \hookrightarrow T, \gamma\right)$
+	to $\left(U' \hookrightarrow T', \delta\right)$ is given by a commutative
 	diagram
 	\begin{equation}\label{diag:MorphDivPowers}
 	\begin{tikzcd}
@@ -1010,9 +1010,9 @@ some meaning to our objects.
 	More explicitly 
 	\begin{equation*}
 	\begin{tikzcd}
-		\{ \left(U_i, T_i, \gamma_i\right)
+		\{ \left(U_i \hookrightarrow T_i, \gamma_i\right)
 		\arrow[r, "", rightarrow] &
-		\left(U, T, \gamma\right) \}_{i \in I}
+		\left(U \hookrightarrow T, \gamma\right) \}_{i \in I}
 	\end{tikzcd}
 	\end{equation*}
 	is a covering iff, for all $i$, we have an open immersion
@@ -1025,15 +1025,16 @@ some meaning to our objects.
 
 \begin{rem}[Sheaves on the crystalline site on $X$]\label{rem:SheavesCrysX}
 	Let's remark that a sheaf $\mathcal{F}$ on $\mathsf{Crys}(X)$, for every
-	object $\left(U, T, \gamma\right)$, gives rise by restriction
+	object $\left(U \hookrightarrow T, \gamma\right)$, gives rise by restriction
 	to a Zariski sheaf $\mathcal{F}_T$ on the scheme $T$ by the rule
 	\begin{equation*}
 	\mathcal{F}_T(W) \coloneqq
-	\mathcal{F}(U \cap W, W, \left.\delta\right|_{W})
+	\mathcal{F}(U \cap W \hookrightarrow W, \left.\delta\right|_{W})
 	,\end{equation*}
 	where $W \subset T$ is an open subscheme.
-	Moreover any morphism 
-	$f\colon \left(U, T, \delta\right) \to \left(U', T', \delta'\right)$
+	Moreover a morphism 
+	$f\colon \left(U \hookrightarrow T, \delta\right) \to
+	\left(U' \hookrightarrow T', \delta'\right)$
 	in $\mathsf{Crys}(X)$
 	gives rise to a canonical comparison map
 	\begin{equation*}
@@ -1050,9 +1051,9 @@ some meaning to our objects.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\left.f\right|_{f^{-1}W'}\colon 
-		(U \cap f^{-1}W', f^{-1}W', \left.\delta\right|_{f^{-1}W'} )
+		(U \cap f^{-1}W' \hookrightarrow f^{-1}W', \left.\delta\right|_{f^{-1}W'} )
 		\arrow[r, "", rightarrow] &
-		\left(U' \cap W', W', \left.\delta\right|_{W'} \right)
+		\left(U' \cap W' \hookrightarrow W', \left.\delta\right|_{W'} \right)
 	.\end{tikzcd}
 	\end{equation*} 
 	This defines a morphism $(\left.f\right|_{f^{-1}W'})^*\colon$
@@ -1068,11 +1069,11 @@ some meaning to our objects.
 	one can define a sheaf on the crystalline site from the following data.
 	\begin{enumerate}
 		\item A family of Zariski sheaves $\mathcal{F}_T$, indexed by 
-			the objects $\left(U, T, \delta\right) \in \mathsf{Crys}(X)$.
+			the objects $\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$.
 
 		\item A family of morphisms $\rho_u\colon u^{-1}\mathcal{F}_{T'} \to \mathcal{F}_T$
-			for all morphisms $u\colon \left(U, T, \delta\right) \to 
-			\left(U', T', \delta'\right)$ in $\mathsf{Crys}(X)$
+			indexed by the morphisms 
+			$u$ of $\mathsf{Crys}(X)$,
 			satisfying the usual cocycle condition, i.e.
 			\begin{equation*}
 			\begin{tikzcd}
@@ -1086,8 +1087,11 @@ some meaning to our objects.
 				\mathcal{F}_T
 			\end{tikzcd}
 			\end{equation*}
-			for all $u$ as before and $v\colon \left(U', T', \delta'\right) \to 
-			\left(U'', T'', \delta''\right)$.
+			where $u\colon \left(U \hookrightarrow T, \delta\right) \to 
+			\left(U' \hookrightarrow T', \delta'\right)$ ,
+			and $v\colon \left(U' \hookrightarrow T', \delta'\right) \to 
+			\left(U'' \hookrightarrow T'', \delta''\right)$
+			range over all morphisms of $\mathsf{Crys}(X)$.
 	\end{enumerate}
 \end{rem}
 
@@ -1096,7 +1100,8 @@ some meaning to our objects.
 	The above remark allows one to define a canonical structure sheaf
 	on $\mathsf{Crys}(X)$, denoted by $\mathcal{O}_{\mathsf{Crys}(X)}$,
 	by the family of structure sheaves $\mathcal{O}_T$
-	indexed by $\left(U, T, \delta\right) \in \mathsf{Crys}(X)$.
+	indexed by the objects 
+	$\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$.
 \end{ex}
 
 
@@ -1116,11 +1121,12 @@ topics of this section.
 	We can remark that a sheaf on $\mathsf{Crys}(X)$ is a sheaf of modules
 	iff it induces, as in \cref{rem:SheavesCrysX}, a
 	family $\left\{ M_T \right\}_{T}$ of $\mathcal{O}_{ T }$-modules $M_T$, 
-	indexed by $\left(U, T, \delta\right) \in \mathsf{Crys}(X)$.
+	indexed by $\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$.
 
 	Moreover, given a sheaf of modules $\mathcal{M}$ on $\mathsf{Crys}(X)$,
 	the morphisms $\rho_u\colon u^{-1}\mathcal{M}_{T'} \to \mathcal{M}_T$,
-	where $u\colon \left(U, T, \delta\right) \to \left(U', T', \delta'\right)$
+	where $u\colon \left(U \hookrightarrow T, \delta\right) \to
+	\left(U' \hookrightarrow T', \delta'\right)$
 	is a morphism in $\mathsf{Crys}(X)$, induce a morphism
 	\begin{equation}\label{eqn:SheafModulesMorphism}
 	\begin{tikzcd}[row sep = 0ex
@@ -1140,7 +1146,7 @@ topics of this section.
 	the induced morphism in \cref{eqn:SheafModulesMorphism}
 	is an isomorphism.
 	Moreover we say that $M$ is {\em quasi-coherent} iff it is special and, for all
-	$\left(U, T, \delta\right) \in \mathsf{Crys}(X)$, the $\mathcal{O}_{ T }$-module
+	$\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$, the $\mathcal{O}_{ T }$-module
 	$M_T$ is quasi-coherent.
 \end{defn}
 
@@ -1163,9 +1169,160 @@ topics of this section.
 	of $\mathsf{C}$-crystal, where $\mathsf{C}$ is a category fibered over $\mathsf{Sch}_{  }$.
 	In fact, given $\mathsf{C}$, one defines $\mathsf{C}$-crystals as cartesian
 	sections of the fibered category $\mathsf{C} \cross_{ \mathsf{Sch}_{  } } \mathsf{Crys}(X)$,
-	where $\mathsf{Crys}(X) \to \mathsf{Sch}_{  }$ is given by $\left(U, T, \delta\right)
-	\mapsto T$.
+	where $\mathsf{Crys}(X) \to \mathsf{Sch}_{  }$ is given by
+	$\left(U \hookrightarrow T, \delta\right) \mapsto T$.
 \end{rem}
 
 
+\noindent
+We can now end this section by outlining the construction
+of inverse images of crystals.
+
+
+\begin{rem}[]
+	Since crystals are sheaves we can define one locally,
+	given that we satisfy the necessary compatibility conditions.
+	In particular, given a crystal of modules $\mathscr{F}$ on $\mathsf{Crys}(Y)$,
+	where $Y \in \mathsf{Sch}_{  }$, and a morphism of schemes
+	$\varphi\colon X \to Y$, we want to define a crystal $\varphi^* \mathscr{F}$
+	on $\mathsf{Crys}(X)$.
+	To do so we will concentrate only on objects $\left(U \hookrightarrow T, \delta\right)
+	\in \mathsf{Crys}(X)$ such that $U$ (hence also $T$)
+	is affine and
+	$\varphi(U)$ is contained in an affine subset $V$ of $Y$.
+\end{rem}
+
+
+\begin{defn}[Pullback of crystals]\label{defn:PBCrystals}
+	Let $X, Y \in \mathsf{Sch}_{  }$, $\varphi\colon X \to Y$ a morphism of schemes and
+	$\mathscr{F}$ a crystal of modules on $Y$.
+	Fix $U$ and $V$ as in the last remark and set
+	$T = \mathrm{Spec}(A), U = \mathrm{Spec}(A/I)$
+	and $V = \mathrm{Spec}(B)$.
+	Consider the following pullback of rings,
+	also known as fibered product or amalgamated product,
+	\begin{equation*}
+	\begin{tikzcd}
+		A/I &
+		A \arrow[l, "", twoheadrightarrow] \\
+		B \arrow[u, "", rightarrow] &
+		B \cross_{ A/I } A
+		\arrow[u, "", rightarrow] 
+		\arrow[l, "", twoheadrightarrow] 
+	.\end{tikzcd}
+	\end{equation*}
+	By construction (fibered products of commutative rings
+	commute with $\mathrm{for}\colon \mathsf{CRings} \to \mathsf{Sets}$)
+	the morphism $B \cross_{ A/I } A \twoheadrightarrow B$ is surjective
+	with kernel $J \coloneqq (0) \cross I$.
+	Since $I$ is nilpotent, also $J$ is.
+	Moreover one can define divided powers on $\left(B \cross_{ A/I } A, J\right)$
+	by setting $\gamma_n(0,i) \coloneqq (0,\delta_n(i))$,
+	making $B \cross_{ A/I } A \to A$ a divided power morphism.
+	Setting $W \coloneqq \mathrm{Spec}(B \cross_{ A/I } A)$ and
+	translating everything into the category of schemes, we obtain the
+	following commutative diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		U \arrow[r, "", hookrightarrow] 
+		\arrow[d, "\left.\varphi\right|_{U}"', rightarrow] &
+		T \arrow[d, "\widetilde{\varphi}", rightarrow] \\
+		V \arrow[r, "", hookrightarrow] &
+		W
+	,\end{tikzcd}
+	\end{equation*}
+	where $\left(V \hookrightarrow W, \gamma\right)$ is an object of $\mathsf{Crys}(Y)$
+	and $\widetilde{\varphi}\colon T \to W$ is a morphism of divided powers schemes.
+	We finally define $\left( \varphi^* \mathscr{F} \right)_{\left(U \hookrightarrow T, \delta\right)}
+	\coloneqq \widetilde{\varphi}^* \mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)}$
+	and use \cref{rem:SheavesCrysX} to glue these sheaves
+	together and obtain $\varphi^* \mathscr{F}$ a crystal
+	on $\mathsf{Crys}(X)$.
+\end{defn}
+
+
+\begin{prop}[]
+	The construction carried out in \cref{defn:PBCrystals} is well defined.
+	More explicitly the definition of $\widetilde{\varphi}^* 
+	\mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)}$ does not depend
+	on the chosen affine $V$ containing $\varphi(U)$.
+\end{prop}
+\begin{proof}
+	Let's keep notation as in \cref{defn:PBCrystals} and consider another
+	open affine $V'$ in $Y$ containing $\varphi(U)$.
+	As above we construct $\left(V' \hookrightarrow W', \gamma'\right) \in \mathsf{Crys}(Y)$,
+	where $W' \coloneqq V' \amalg_U T$ and has divided powers defined as for $W$.
+	Denote by $\widetilde{\varphi}'\colon T \to W'$ defined as before, then
+	we need to show
+	\begin{equation*}
+	\widetilde{\varphi}^* \mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)} =
+	\widetilde{\varphi}'^* \mathscr{F}_{\left(V' \hookrightarrow W', \gamma'\right)}
+	.\end{equation*}
+	Again we are working with sheaves, hence it suffices to
+	check equality locally.
+	Let $U_0 \subset U$ be an open affine subset such that
+	$\varphi(U_0) \subset V_0 \subset V \cap V'$, where $V_0$ is
+	again open affine.
+	Finally we define $T_0 \subset T$ the open subscheme of $T$
+	induced by the immersion $U_0 \hookrightarrow U$.
+	Repeating the construction with the amalgamated product we obtain the diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		U_0 \arrow[r, "", hookrightarrow] 
+		\arrow[d, "", rightarrow] &
+		T_0 \arrow[d, "\widetilde{\varphi}_0", rightarrow] \\
+		V_0 \arrow[r, "", hookrightarrow] &
+		W_0
+	.\end{tikzcd}
+	\end{equation*}
+	Moreover this construction is such that the following diagrams both commute
+	\begin{equation*}
+	\begin{tikzcd}
+		&
+		U_0 \arrow[rr, "", hookrightarrow] 
+		\arrow[ld, "", rightarrow] 
+		\arrow[dd, "", rightarrow] & &
+		T_0 \arrow[ld, "\widetilde{\varphi}_0", rightarrow] 
+		\arrow[dd, "", rightarrow] \\
+		V_0 \arrow[rr, "", hookrightarrow, crossing over] 
+		\arrow[dd, "", rightarrow] & &
+		W_0 & \\
+		&
+		U \arrow[rr, "", hookrightarrow] 
+		\arrow[ld, "", rightarrow] & &
+		T, \arrow[ld, "\widetilde{\varphi}", rightarrow] \\
+		V \arrow[rr, "", hookrightarrow] & &
+		W \arrow[from=uu, "", dashrightarrow, crossing over] &
+	\end{tikzcd}
+	\qquad
+	\begin{tikzcd}
+		&
+		U_0 \arrow[rr, "", hookrightarrow] 
+		\arrow[ld, "", rightarrow] 
+		\arrow[dd, "", rightarrow] & &
+		T_0 \arrow[ld, "\widetilde{\varphi}_0", rightarrow] 
+		\arrow[dd, "", rightarrow] \\
+		V_0 \arrow[rr, "", hookrightarrow, crossing over] 
+		\arrow[dd, "", rightarrow] & &
+		W_0 & \\
+		&
+		U \arrow[rr, "", hookrightarrow] 
+		\arrow[ld, "", rightarrow] & &
+		T. \arrow[ld, "\widetilde{\varphi}'", rightarrow] \\
+		V' \arrow[rr, "", hookrightarrow] & &
+		W' \arrow[from=uu, "", dashrightarrow, crossing over] &
+	\end{tikzcd}
+	\end{equation*}
+	Then, by universal property of amalgamated coproduct, we obtain the existence
+	and uniqueness of the dashed arrows.
+	Now we can conclude, since $\mathscr{F}$ is a crystal and
+	commutativity of the above diagrams implies
+	\begin{equation*}
+	\left.( \widetilde{\varphi}^* \mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)})\right|_{T_0} =
+	\widetilde{\varphi}_0^* \mathscr{F}_{\left(V_0 \hookrightarrow W_0, \gamma_0 \right)} =
+	\left.( \widetilde{\varphi}'^* \mathscr{F}_{\left(V' \hookrightarrow W', \gamma'\right)})\right|_{T_0}
+	,\end{equation*}
+	hence, by sheaf properties, that the definition of $\widetilde{\varphi}^*$
+	does not depend on the chosen $V$.	
+\end{proof}
 \end{document}

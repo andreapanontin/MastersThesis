@@ -1,15 +1,27 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
 \section{The crystals associated to Barsotti-Tate groups}
-Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
+tk: In this section we want to associate to certain Barsotti-Tate groups
+a few crystals.
+In order to do so we need to discuss universal extensions, which will be the basis
+for the definitions of such crystals.
 
-\begin{prop}[{\cite[Chapter IV, proposition 1.3]{Messing}}]
-	The functor acting by
+
+
+\subsubsection{Universal extensions}
+For this section we fix $S$ a scheme and $G$ a finite locally-free $S$-group.
+For the first proposition it is not necessary, but for the rest of the section we will also
+assume that $p^N$ is zero on $S$.
+
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.3]{Messing}}]\label{prop:ReprhM}
+	The functor acting, on quasi-coherent $\mathcal{O}_{ S }$-modules, by
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		M \arrow[r, "", mapsto] & \mathrm{Hom}_{ \mathsf{Gr}_S } \left( G, \underline{M} \right)
+		\mathcal{M} \arrow[r, "", mapsto] & 
+		\mathrm{Hom}_{ \mathsf{Gr}_S } \left( G, \underline{\mathcal{M}} \right)
 	\end{tikzcd}
 	\end{equation*} 
 	is represented by $\underline{\omega}_{G^\vee}$, where $G^\vee$ is
@@ -17,21 +29,27 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 \end{prop}
 
 
-\begin{rem}[]
-	It can be checked that the isomorphism
+\begin{rem}[]\label{rem:ReprMorExt}
+	The proposition implies that there is
+	a homomorphism $\alpha\colon G \to \underline{\omega}_{G^\vee}$
+	with the property that, for all $\beta\colon G \to \underline{\mathcal{M}}$,
+	there is a unique linear $u\colon \underline{\omega}_{G^\vee} \to \underline{\mathcal{M}}$
+	such that $\beta = u \circ \alpha$.
+	Moreover, following {\cite[Chapter IV, remark 1.6]{Messing}},
+	one can check that the isomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, \underline{M} \right)
+		\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, \underline{\mathcal{M}} \right)
 		\arrow[r, "\sim", rightarrow] &
-		\mathrm{Hom}_{\mathsf{Gr}_S} \left( \underline{\omega}_{G^\vee}, \underline{M} \right)
+		\mathrm{Hom}_{\mathsf{Gr}_S} \left( \underline{\omega}_{G^\vee}, \underline{\mathcal{M}} \right)
 	\end{tikzcd}
 	\end{equation*} 
 	is functorial in $G$.
 	Thus we have a commutative diagram whose lower horizontal arrow is
 	induced by the Cartier dual of $u$
-	\begin{equation*}
+	\begin{equation}\label{diag:functorialityRepresent}
 	\begin{tikzcd}
 		G \arrow[r, "u", rightarrow] 
 		\arrow[d, "\alpha_G"', rightarrow] &
@@ -39,15 +57,17 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 		\underline{\omega}_{G^\vee} \arrow[r, "", rightarrow] &
 		\underline{\omega}_{H^\vee}
 	.\end{tikzcd}
-	\end{equation*}
+	\end{equation}
 \end{rem}
+tk: decide whether to add also remark 1.5 page 117 of Messing.
 
 
 \begin{defn}[Extension]
-	Let $\mathsf{C}$ be a category and $A,B \in \mathsf{C}$.
+	Let $\mathsf{C}$ be an abelian category and $A,B \in \mathsf{C}$.
 	We define an {\em extension} $X$ of $A$ by $B$ to be a short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
+		(\zeta) &
 		0 \arrow[r, "", rightarrow] &
 		B \arrow[r, "", rightarrow] &
 		X \arrow[r, "", rightarrow] &
@@ -56,11 +76,13 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 	,\end{tikzcd}
 	\end{equation*}
 	where $X \in \mathsf{C}$.
-	Moreover, given two extensions of $A$ by $B$, given by $X$ and $X'$,
-	we say that a {\em morphism of extensions} of $A$ by $B$
+	We might also denote the extension by $\zeta$.
+	Moreover, given two extensions $\zeta$ and $\zeta'$ of $A$ by $B$,
+	given by $X$ and $X'$, we say that a {\em morphism of extensions} of $A$ by $B$
 	is a morphism $f\colon X \to X'$ that makes the following diagram commute
 	\begin{equation*}
 	\begin{tikzcd}
+		(\zeta) &
 		0 \arrow[r, "", rightarrow] &
 		B \arrow[r, "", rightarrow] 
 		\arrow[d, "", equals] &
@@ -69,6 +91,7 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 		A \arrow[r, "", rightarrow] 
 		\arrow[d, "", equals] &
 		0\\
+		(\zeta') &
 		0 \arrow[r, "", rightarrow] &
 		B \arrow[r, "", rightarrow] &
 		X' \arrow[r, "", rightarrow] &
@@ -76,23 +99,27 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 		0
 	.\end{tikzcd}
 	\end{equation*}
+	Finally we introduce the notation $\mathrm{E}(A,B)$ for the set of all extensions
+	of $A$ by $B$, and the notation $\mathrm{Hom} \left( \zeta, \zeta' \right)$
+	to denote the set of $f\colon X \to X'$ inducing a morphism of extensions.
 \end{defn}
 
 
 \begin{rem}[]
-	Notice that, thanks to the five lemma, in a morphism
-	of extensions of $A$ by $B$, $f$ is always an isomorphism.
+	Notice that, thanks to the five lemma, all $f \in \mathrm{Hom} 
+	\left( \zeta, \zeta' \right)$ are isomorphisms.
 \end{rem}
 
 
 \begin{defn}[Pullback and pushout]\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
-	\item Given a morphism $A' \to A$ and an extension $X$
+	\item Given a morphism $\gamma\colon A' \to A$ and an extension $X$
 		of $A$ by $B$, we define $X' \coloneqq X \cross_A A'$,
 		so that we have the following commutative diagram
 		of short exact sequences
 		\begin{equation*}
 		\begin{tikzcd}
+			(\zeta\gamma) &
 			0 \arrow[r, "", rightarrow] &
 			B \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
@@ -101,6 +128,7 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 			A' \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			0\\
+			(\zeta) &
 			0 \arrow[r, "", rightarrow] &
 			B \arrow[r, "", rightarrow] &
 			X \arrow[r, "", rightarrow] &
@@ -110,13 +138,17 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 		\end{equation*}
 		The extension $X'$ of $A'$ by $B$
 		is called the {\em pullback} of $X$ via $A' \to A$.
+		Moreover, if we denote by $\zeta$ the extension
+		$X$ of $A$ by $B$, then we denote by $\zeta\gamma$
+		its pullback via $\gamma$.
 
-	\item Given a morphism $B \to B'$ and an extension $X$
-		of $A$ by $B$, we define $X' \coloneqq B' \coprod_A X$,
+	\item Given a morphism $\beta\colon B \to B'$ and an extension $X$
+		of $A$ by $B$, we define $X' \coloneqq B' \amalg_A X$,
 		so that we have the following commutative diagram
 		of short exact sequences
 		\begin{equation*}
 		\begin{tikzcd}
+			(\zeta) &
 			0 \arrow[r, "", rightarrow] &
 			B \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
@@ -125,6 +157,7 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 			A \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			0\\
+			(\beta\zeta) &
 			0 \arrow[r, "", rightarrow] &
 			B' \arrow[r, "", rightarrow] &
 			X' \arrow[r, "", rightarrow] &
@@ -134,40 +167,499 @@ Let $S$ be a scheme and $G$ a finite locally-free $S$-group.
 		\end{equation*}
 		The extension $X'$ of $A$ by $B'$
 		is called the {\em pushout} of $X$ via $B \to B'$.
+		Moreover, if we denote by $\zeta$ the extension
+		$X$ of $A$ by $B$, then we denote by $\beta\zeta$
+		its pushout via $\beta$.
 \end{enumerate}
 \end{defn}
 
 
-\noindent
-In our case we are mainly interested in the case of extensions of $G$
-a {\em Barsotti-Tate} group over $S$, a scheme on which $p^N$ is zero.
-In particular we are interested in extensions of $G$ by vector groups,
-i.e. by a group $\underline{M}$ for a quasi-coherent $\mathcal{O}_{ S }$-module $M$.
-
-
-\begin{defn}[Universal extension]
-	We say that an extension $E(G)$ of $G$ by the vector group $\underline{V}(G)$ is
-	{\em universal} iff, given any extension
+\begin{rem}[]\label{rem:CorrExtAutMor}
+	Given an extension
 	\begin{equation*}
 	\begin{tikzcd}
 		(\zeta) &
 		0 \arrow[r, "", rightarrow] &
-		\underline{M} \arrow[r, "", rightarrow] &
+		M \arrow[r, "\pi", rightarrow] &
+		E \arrow[r, "\pi", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*}
+	we can construct an isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, M \right)
+		\arrow[r, "\sim", rightarrow] &
+		\mathrm{Aut}(\zeta) \\
+		u \arrow[r, "", mapsto] & 
+		\mathrm{id}_{ E } + \iota \circ u \circ \pi
+	,\end{tikzcd}
+	\end{equation*} 
+	where we denoted by $\mathrm{Aut}(\zeta) \coloneqq \mathrm{Hom} \left( \zeta, \zeta \right)$.
+	The construction of the inverse morphism follows naturally from the 
+	universal properties of kernel and cokernel, viewing $M = \ker \pi$
+	and $G = \coker \iota$.
+\end{rem}
+
+
+\begin{rem}[]\label{rem:YonedaExensionTheta}
+	We can give an equivalence relation on the set $\mathrm{E}(A,B)$ by
+	setting $\zeta \sim \zeta'$ iff $\mathrm{Hom}_{  } \left( \zeta, \zeta' \right) \neq 0$,
+	i.e. iff there is a commutative diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		(\zeta) &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] 
+		\arrow[d, "", equals] &
+		X \arrow[r, "", rightarrow] 
+		\arrow[d, "\rotatebox{90}{\(\sim\)}", rightarrow] &
+		A \arrow[r, "", rightarrow] 
+		\arrow[d, "", equals] &
+		0\\
+		(\zeta') &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X' \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	connecting the two extensions.
+	Assume now that we can compute $\mathrm{Ext}^n_{\mathsf{C}}(A, B)$
+	for all $A,B \in \mathsf{C}$ and all $n \in \mathbb{N}$.
+	Then, given an extension $\zeta \in \mathrm{E}(A,B)$, given by $X$,
+	we can define a map $\theta\colon \mathrm{E}(A,B) \to \mathrm{Ext}^1_{\mathsf{C}}(A,B)$
+	as follows.
+	We apply the right derived functor 
+	$\left\{ R^n h^B \right\}_{n \in \mathbb{N}}$ of $h^B$, 
+	where $h^B$ is the Yoneda
+	embedding $h^B(X) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( X, B \right)$
+	for all $X \in \mathsf{C}$, to the short exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		(\zeta) &
+		0 \arrow[r, "", rightarrow] &
+		B \arrow[r, "", rightarrow] &
+		X \arrow[r, "", rightarrow] &
+		A \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*}
+	induced by the extension $\zeta$.
+	This gives rise to a long exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( A, B \right) \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( X, V \right) \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{C}} \left( B, B \right) \arrow[r, "\partial", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{C}}(A,B)
+	.\end{tikzcd}
+	\end{equation*}
+	Here we define $\theta(\zeta) \coloneqq \partial(\mathrm{id}_{ B }) \in \mathrm{Ext}^1_{\mathsf{C}}
+	(A,B)$.
+\end{rem}
+
+
+\begin{lem}[{\cite[\S3.4, Porism 3.4.2]{Weibel}}]
+	Let $\mathsf{C}$ be an abelian category on which we
+	can compute $\mathrm{Ext}^n_{\mathsf{C}}(A,B)$
+	for all $A, B \in \mathsf{C}$ and all $n \in \mathbb{N}$.
+	Let $\zeta \sim \zeta'$ be equivalent extensions of
+	$A$ by $B$.
+	Then $\theta(\zeta) = \theta(\zeta')$, hence $\theta$
+	defines a map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta\colon \displaystyle{\frac{\mathrm{E}(A,B)}{\sim}} 
+		\arrow[r, "", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{C}}(A,B)
+	.\end{tikzcd}
+	\end{equation*} 
+\end{lem} 
+
+
+\begin{thm}[{\cite[\S3.4, Thoerem 3.4.3]{Weibel}}]\label{thm:CorrExt}
+	Let $\mathsf{C}$ be an abelian category on which we
+	can compute $\mathrm{Ext}^n_{\mathsf{C}}(A,B)$
+	for all $A, B \in \mathsf{C}$ and all $n \in \mathbb{N}$.
+	Then $\theta$ induces a bijective correspondence
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\displaystyle{\frac{\mathrm{E}(A,B)}{\sim}} 
+		\arrow[r, "\theta", leftrightarrow] &
+		\mathrm{Ext}^1_{\mathsf{C}}(A,B)
+	.\end{tikzcd}
+	\end{equation*} 
+\end{thm} 
+
+
+\begin{rem}[]\label{rem:rigidityExt}
+	We are mainly interested in extensions of $G$, a Barsotti-Tate
+	group on $S$, by a quasi-coherent module $\mathcal{M}$ (more precisely by
+	its associated fppf sheaf $\underline{\mathcal{M}}$).
+	Let's recall that we assumed that $p^N$ kills $S$,
+	hence multiplication by $p^N$ is the trivial map on $\mathcal{M}$.
+	As a consequence, for all $\mathrm{Hom}_{\mathsf{Gr}_S}
+	\left( G, \underline{\mathcal{M}} \right)$,
+	we obtain the following commutative diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		G \arrow[r, "f", rightarrow] 
+		\arrow[d, "p^N"', rightarrow] 
+		\arrow[rd, "0", rightarrow] &
+		\underline{\mathcal{M}} \arrow[d, "p^n", rightarrow] \\
+		G \arrow[r, "f"', rightarrow] &
+		\underline{\mathcal{M}}
+	.\end{tikzcd}
+	\end{equation*}
+	But this means that $f \circ p^N = 0$ and, being multiplication
+	by $p^N$ on $G$ an epimorphism, that $f = 0$.
+	This proves that $\mathrm{Hom}_{ \mathsf{Gr}_S } \left( G, \underline{\mathcal{M}} \right) = 0$.
+	Thanks to \cref{rem:CorrExtAutMor}, this implies that
+	the only automorphism of $\zeta$ is the identity.
+	Let's now recall \cref{rem:PropertiesGrS},
+	which state that $\mathsf{Gr}_S$ is an abelian category with enough injectives.
+	This allows us to apply \cref{thm:CorrExt}.
+	Then the above implies that $\zeta$ is uniquely determined by $\theta(\zeta)
+	\in \mathrm{Ext}^1_{\mathsf{Gr}_S}(G, \underline{\mathcal{M}})$,
+	since its equivalence class is reduced to $\zeta$ itself.
+\end{rem}
+
+
+\begin{defn}[Universal extension]
+	Let $G \in \mathsf{BT}(S)$ for a scheme $S$ and $\underline{V}(G)$ a vector $S$-group.
+	We say that an extension $\zeta \in \mathrm{E}(G, \underline{V}(G))$, given
+	by $E(G)$, is {\em universal} iff, given any extension
+	\begin{equation*}
+	\begin{tikzcd}
+		(\xi) &
+		0 \arrow[r, "", rightarrow] &
+		\underline{\mathcal{M}} \arrow[r, "", rightarrow] &
 		(*) \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		0
 	\end{tikzcd}
 	\end{equation*}
-	of $G$ by $\underline{M}$, there is a unique map $\varphi\colon \underline{V}(G) \to \underline{M}$
-	such that the pushout of $E(G)$ by $\varphi$ is the given
-	extension $(\zeta)$.
+	of $G$ by $\underline{\mathcal{M}}$, where $\mathcal{M}$ is a quasi-coherent
+	$\mathcal{O}_{ S }$-module,
+	there is a unique map $\varphi\colon \underline{V}(G) \to \underline{\mathcal{M}}$
+	such that $\varphi\zeta = \xi$, i.e.
+	the pushout of $E(G)$ by $\varphi$ is the given
+	extension $\xi$.
 \end{defn}
 
 
+\begin{rem}[]
+	By \cref{rem:rigidityExt} we see that $\varphi\zeta = \xi$ is
+	actually an equality, and not just an isomorphism.
+\end{rem}
+
+
+\begin{prop}[]
+	Let $S$ be a scheme killed by $p^N$ and $G$
+	a Barsotti-Tate group on $S$.
+	Then there is a universal extension of $G$ by a vector group,
+	which we denote by
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G) \arrow[r, "", rightarrow] &
+		E(G) \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+\end{prop}
+\begin{proof}
+	Let's start by noticing that we are in the same situation
+	of \cref{rem:rigidityExt}.
+	Consider now the short exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		(\zeta') &
+		0 \arrow[r, "", rightarrow] &
+		G(N) \arrow[r, "\iota_G", rightarrow] &
+		G \arrow[r, "p^N", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Choose now a quasi-coherent $\mathcal{O}_{ S }$-module $\mathcal{M}$.
+	Applying, as in \cref{rem:YonedaExensionTheta}, the right derived functor
+	$\left\{ R^n h^{\underline{\mathcal{M}}} \right\}_{n \in \mathbb{N}}$, we obtain the long exact sequence
+	\begin{equation*}
+	\begin{tikzcd}[column sep=0.66em]
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}%_{\mathsf{Gr}_S} 
+		\left( G, \underline{\mathcal{M}} \right)
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}%_{\mathsf{Gr}_S} 
+		\left( G, \underline{\mathcal{M}} \right) 
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}%_{\mathsf{Gr}_S} 
+		\left( G(N), \underline{\mathcal{M}} \right) 
+		\arrow[r, "\partial", rightarrow] &
+		\mathrm{Ext}^1%_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+		\arrow[r, "\alpha", rightarrow] &
+		\mathrm{Ext}^1%_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+	,\end{tikzcd}
+	\end{equation*}
+	where we implicitly work in the category $\mathsf{Gr}_S$.
+	As noted in \cref{rem:rigidityExt} 
+	$\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, \underline{\mathcal{M}} \right) = 0$.
+	Moreover $\mathrm{Ext}^1$ is a bifunctor, which implies that
+	the map $\alpha\colon \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})
+	\to \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})$ comes from multiplication
+	by $p^N$ in $\underline{\mathcal{M}}$, hence it is $0$.
+	This leaves an exact sequence
+	\begin{equation*}
+	\begin{tikzcd}%[column sep=0.70em]
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( G(N), \underline{\mathcal{M}} \right) 
+		\arrow[r, "\partial", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+		\arrow[r, "0", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+	,\end{tikzcd}
+	\end{equation*}
+	which implies that $\partial$ is an isomorphism.
+	Clearly this argument is functorial in $\underline{\mathcal{M}}$.
+	Moreover, by \cref{prop:ReprhM}, we see that 
+	the source of $\partial$ is represented by $\underline{\omega}_{G(N)^\vee}$.
+	Let $\alpha\colon G(N) \to \underline{\omega}_{G(N)^\vee}$
+	be as in \cref{rem:ReprMorExt} and define $\zeta \coloneqq \alpha\zeta'$,
+	as in the following commutative diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		(\zeta') &
+		0 \arrow[r, "", rightarrow] &
+		G(N) \arrow[r, "\iota_G", rightarrow] 
+		\arrow[d, "\alpha", rightarrow] &
+		G \arrow[r, "p^N", rightarrow] 
+		\arrow[d, "", rightarrow] &
+		G \arrow[r, "", rightarrow] 
+		\arrow[d, "", equals] &
+		0\\
+		(\alpha\zeta') &
+		0 \arrow[r, "", rightarrow] &
+		\underline{\omega}_{G(N)^\vee} 
+		\arrow[r, "", rightarrow] &
+		%\underline{\omega}_{G(N)^\vee} \coprod_{G(N)} G
+		E(G)
+		\arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*}
+	where we denoted by $E(G) \coloneqq \underline{\omega}_{G(N)^\vee} \amalg_{G(N)} G$.
+	Then, by rigidity of extensions of $G$ by vector groups, i.e. 
+	\cref{rem:rigidityExt}, any extension $\xi$ is uniquely determined by its
+	class $\theta(\xi) \in \mathrm{Ext}^1_{\mathsf{Gr}_S}(G, \underline{\mathcal{M}})$.
+	By the above this corresponds to a morphism $u\colon G(N) \to \underline{\mathcal{M}}$,
+	which factorizes through $\alpha$ as $u = \alpha \circ \beta$ thanks to \cref{rem:ReprMorExt}.
+	Finally, thanks to naturality of the connecting morphism $\partial$, 
+	we obtain the following commutative diagram, obtained from that of
+	pushout of the extension $\zeta$ via $\beta$:
+	\begin{equation*}
+	\begin{tikzcd}%[column sep=0.70em]
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( E(G), \underline{\mathcal{M}} \right) 
+		\arrow[d, "", rightarrow] 
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\big( \underline{\omega}_{G(N)^\vee}, \underline{\mathcal{M}} \big) 
+		\arrow[d, "", rightarrow] 
+		\arrow[r, "\partial", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+		\arrow[d, "", equals] \\
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( E(G), \underline{\mathcal{M}} \right) 
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( \underline{\omega}_{G(N)^\vee}, \underline{\mathcal{M}} \right) 
+		\arrow[r, "\partial", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+	.\end{tikzcd}
+	\end{equation*}
+	Commutativity of this diagram implies that $\theta(\beta\zeta) = \theta(\xi)$.
+	Then rigidity of the extensions grants that $\xi = \beta\zeta$, i.e.
+	that $\zeta$ is universal.
+\end{proof}
+
+\begin{rem}[{\cite[Chapter III, remark 1.11]{Messing}}]
+	Notice that in the above proposition one could substitute
+	$N$ with any $n \geq N$ and still obtain a universal extension.
+	In fact the unique isomorphism comes from the commutative diagram
+	of \cref{diag:functorialityRepresent}
+	which, setting $H = G(N)$ and $G = G(N+i)$ becomes
+	\begin{equation*}
+	\begin{tikzcd}
+		G(N+i) \arrow[r, "p^i", rightarrow] 
+		\arrow[d, "\alpha_G"', rightarrow] &
+		G(N) \arrow[d, "\alpha_H", rightarrow] \\
+		\underline{\omega}_{G(N+i)^\vee} \arrow[r, "\sim", rightarrow] &
+		\underline{\omega}_{G(N)^\vee}
+	,\end{tikzcd}
+	\end{equation*}
+	and the fact that the bottom arrow is an isomorphism
+	is \cref{rem:ConormalSheafBT}.
+	(tk: think about it)
+\end{rem}
+
+
+\begin{defn}[]
+	Given $S$ and $G$ as before, for $n$ sufficiently big, we define
+	$\underline{V}(G) \coloneqq \underline{\omega}_{G(N)^\vee}$ and
+	$E(G) \coloneqq \underline{V}(G) \amalg_{G(n)} G$.
+	Then the extension
+	\begin{equation*}
+	\begin{tikzcd}
+		(\zeta)
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G) \arrow[r, "", rightarrow] &
+		E(G) \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	is universal.
+	Moreover $E(G)$ is an fppf sheaf of groups on $S$,
+	determined up to unique isomorphism.
+\end{defn}
+
+
+\begin{lem}[{\cite[Chapter IV, lemma 1.13]{Messing}}]
+	The universal extension 
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G) \arrow[r, "", rightarrow] &
+		E(G) \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	commutes with base change.
+\end{lem} 
+
+
+\begin{lem}[{\cite[Chapter IV, corollary 1.14]{Messing}}]
+	Assume that $p$ is only locally nilpotent on $S$
+	and consider $G$ a Barsotti-Tate group on $S$.
+	Then there is a universal extension
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G) \arrow[r, "", rightarrow] &
+		E(G) \arrow[r, "", rightarrow] &
+		G \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	of $G$ by the vector group
+	$\underline{V}(G) \coloneqq \underline{\omega}_{G^\vee}$.
+\end{lem} 
+
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.15]{Messing}}]
+	Let $p$ be locally nilpotent on $S$ and $G,H$ be two
+	Barsotti-Tate groups on $S$, with a homomorphism $u\colon G \to H$.
+	Then there is a unique homomorphism
+	$E(u)\colon E(G) \to E(H)$ inducing the morphism of extensions
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G) \arrow[r, "", rightarrow] 
+		\arrow[d, "\underline{V}(u)", rightarrow] &
+		E(G) \arrow[r, "", rightarrow] 
+		\arrow[d, "E(u)", rightarrow] &
+		G \arrow[r, "", rightarrow] 
+		\arrow[d, "u", rightarrow] &
+		0\\
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(H) \arrow[r, "", rightarrow] &
+		E(H) \arrow[r, "", rightarrow] &
+		H \arrow[r, "", rightarrow] &
+		0
+	,\end{tikzcd}
+	\end{equation*}
+	where $\underline{V}(u)$ is induced by the Cartier dual of $u$.
+\end{prop} 
+
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]
+	Denote by $\overline{E(G)} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k E(G)$,
+	then $\overline{E(G)}$ is a {\em formal Lie group}.
+\end{prop} 
+tk: if not already, introduce the notation overline!
+
+
+\begin{defn}[]
+	Let $S$ be a scheme where $p$ is locally nilpotent and $G$
+	a Barsotti-Tate group on $S$.
+	Denote by $E(G)$ the universal extension of $G$, then we define
+	$\underline{\mathrm{Lie}}(E(G)) \coloneqq \underline{\mathrm{Lie}}(\overline{E(G)})$.
+\end{defn}
+
+
+\begin{rem}[]
+	Notice than $\underline{\mathrm{Lie}}(E(G))$ is a locally-free
+	$\mathcal{O}_{ S }$-module of finite rank.
+	If moreover $p^N$ kills $S$, we know that this actually coincides
+	with $\underline{\mathrm{Lie}}(E(G) \cross_{ G } G(N))$.
+\end{rem}
+
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.21]{Messing}}]
+	The following sequence is exact
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\overline{\underline{V}(G)} \arrow[r, "", rightarrow] &
+		\overline{E(G)} \arrow[r, "", rightarrow] &
+		\overline{G} \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+\end{prop} 
+tk:check that the notation is defined.
+
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.22]{Messing}}]
+	The following sequence is exact
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\underline{V}(G) \arrow[r, "", rightarrow] &
+		\underline{\mathrm{Lie}}(E(G)) \arrow[r, "", rightarrow] &
+		\underline{\mathrm{Lie}}(G) \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+\end{prop} 
+
+
+
 \subsection{Crystals associated to Barsotti-Tate groups}
-
-
-\begin{defn}[Lcally infinitesimally liftable Barsotti-Tate groups]
+\begin{defn}[Locally infinitesimally liftable Barsotti-Tate groups]
 	Let $S_0$ be a scheme with $p$ locally nilpotent on it.
 	We denote by $\mathsf{BT}'(S_0) \subset \mathsf{BT}(S_0)$ 
 	the full subcategory whose objects satisfy the following property:
