@@ -8,7 +8,7 @@ for the definitions of such crystals.
 
 
 
-\subsubsection{Universal extensions}
+\subsection{Universal extensions}
 For this section we fix $S$ a scheme and $G$ a finite locally-free $S$-group.
 For the first proposition it is not necessary, but for the rest of the section we will also
 assume that $p^N$ is zero on $S$.
@@ -59,7 +59,8 @@ assume that $p^N$ is zero on $S$.
 	.\end{tikzcd}
 	\end{equation}
 \end{rem}
-tk: decide whether to add also remark 1.5 page 117 of Messing.
+%tk: decide whether to add also remark 1.5 page 117 of Messing.
+%As of now, nope
 
 
 \begin{defn}[Extension]
@@ -231,14 +232,15 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	connecting the two extensions.
 	Assume now that we can compute $\mathrm{Ext}^n_{\mathsf{C}}(A, B)$
 	for all $A,B \in \mathsf{C}$ and all $n \in \mathbb{N}$.
-	Then, given an extension $\zeta \in \mathrm{E}(A,B)$, given by $X$,
-	we can define a map $\theta\colon \mathrm{E}(A,B) \to \mathrm{Ext}^1_{\mathsf{C}}(A,B)$
-	as follows.
+	Then we can define a map $\theta\colon \mathrm{E}(A,B) \to 
+	\mathrm{Ext}^1_{\mathsf{C}}(A,B)$ as follows.
+	Fix an extension $\zeta \in \mathrm{E}(A,B)$, given by $X$,
+	and denote by $h^B$ the Yoneda
+	embedding defined, for all $X \in \mathsf{C}$, by
+	$h^B(X) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( X, B \right)$.
 	We apply the right derived functor 
 	$\left\{ R^n h^B \right\}_{n \in \mathbb{N}}$ of $h^B$, 
-	where $h^B$ is the Yoneda
-	embedding $h^B(X) \coloneqq \mathrm{Hom}_{\mathsf{C}} \left( X, B \right)$
-	for all $X \in \mathsf{C}$, to the short exact sequence
+	to the short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		(\zeta) &
@@ -308,7 +310,7 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	its associated fppf sheaf $\underline{\mathcal{M}}$).
 	Let's recall that we assumed that $p^N$ kills $S$,
 	hence multiplication by $p^N$ is the trivial map on $\mathcal{M}$.
-	As a consequence, for all $\mathrm{Hom}_{\mathsf{Gr}_S}
+	As a consequence, for all $f \in \mathrm{Hom}_{\mathsf{Gr}_S}
 	\left( G, \underline{\mathcal{M}} \right)$,
 	we obtain the following commutative diagram
 	\begin{equation*}
@@ -327,7 +329,7 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	Thanks to \cref{rem:CorrExtAutMor}, this implies that
 	the only automorphism of $\zeta$ is the identity.
 	Let's now recall \cref{rem:PropertiesGrS},
-	which state that $\mathsf{Gr}_S$ is an abelian category with enough injectives.
+	which states that $\mathsf{Gr}_S$ is an abelian category with enough injectives.
 	This allows us to apply \cref{thm:CorrExt}.
 	Then the above implies that $\zeta$ is uniquely determined by $\theta(\zeta)
 	\in \mathrm{Ext}^1_{\mathsf{Gr}_S}(G, \underline{\mathcal{M}})$,
@@ -336,7 +338,8 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 
 
 \begin{defn}[Universal extension]
-	Let $G \in \mathsf{BT}(S)$ for a scheme $S$ and $\underline{V}(G)$ a vector $S$-group.
+	Let $S$ be a scheme, $G \in \mathsf{BT}(S)$
+	and $\underline{V}(G)$ a vector $S$-group.
 	We say that an extension $\zeta \in \mathrm{E}(G, \underline{V}(G))$, given
 	by $E(G)$, is {\em universal} iff, given any extension
 	\begin{equation*}
@@ -359,7 +362,11 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 
 
 \begin{rem}[]
-	By \cref{rem:rigidityExt} we see that $\varphi\zeta = \xi$ is
+	Let's consider again the case where, on the base
+	scheme $S$, $p$ is nilpotent.
+	By rigidity of extensions of Barsotti-Tate groups
+	by quasi-coherent modules, i.e. \cref{rem:rigidityExt}, 
+	we see that $\varphi\zeta = \xi$ is
 	actually an equality, and not just an isomorphism.
 \end{rem}
 
@@ -393,7 +400,7 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 		0
 	.\end{tikzcd}
 	\end{equation*}
-	Choose now a quasi-coherent $\mathcal{O}_{ S }$-module $\mathcal{M}$.
+	Let's fix a quasi-coherent $\mathcal{O}_{ S }$-module $\mathcal{M}$.
 	Applying, as in \cref{rem:YonedaExensionTheta}, the right derived functor
 	$\left\{ R^n h^{\underline{\mathcal{M}}} \right\}_{n \in \mathbb{N}}$, we obtain the long exact sequence
 	\begin{equation*}
@@ -421,7 +428,8 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	Moreover $\mathrm{Ext}^1$ is a bifunctor, which implies that
 	the map $\alpha\colon \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})
 	\to \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})$ comes from multiplication
-	by $p^N$ in $\underline{\mathcal{M}}$, hence it is $0$.
+	by $p^N$ in $\underline{\mathcal{M}}$. 
+	Hence, by additivity of $\mathrm{Ext}$, it is $0$.
 	This leaves an exact sequence
 	\begin{equation*}
 	\begin{tikzcd}%[column sep=0.70em]
@@ -472,10 +480,23 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	By the above this corresponds to a morphism $u\colon G(N) \to \underline{\mathcal{M}}$,
 	which factorizes through $\alpha$ as $u = \alpha \circ \beta$ thanks to \cref{rem:ReprMorExt}.
 	Finally, thanks to naturality of the connecting morphism $\partial$, 
-	we obtain the following commutative diagram, obtained from that of
+	we obtain the following commutative diagram, obtained from the
 	pushout of the extension $\zeta$ via $\beta$:
 	\begin{equation*}
 	\begin{tikzcd}%[column sep=0.70em]
+		0 \arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( P, \underline{\mathcal{M}} \right) 
+		\arrow[d, "", rightarrow] 
+		\arrow[r, "", rightarrow] &
+		\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( \underline{\mathcal{M}}, \underline{\mathcal{M}} \right) 
+		\arrow[d, "{\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( \ \cdot \ , \beta \right)}", rightarrow] 
+		\arrow[r, "\partial_1", rightarrow] &
+		\mathrm{Ext}^1_{\mathsf{Gr}_S}
+		(G,\underline{\mathcal{M}})
+		\arrow[d, "", equals] \\
 		0 \arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{\mathsf{Gr}_S} 
 		\left( E(G), \underline{\mathcal{M}} \right) 
@@ -483,20 +504,36 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{\mathsf{Gr}_S} 
 		\big( \underline{\omega}_{G(N)^\vee}, \underline{\mathcal{M}} \big) 
-		\arrow[d, "", rightarrow] 
-		\arrow[r, "\partial", rightarrow] &
+		\arrow[d, "{\mathrm{Hom}_{\mathsf{Gr}_S} 
+		\left( \ \cdot \ , \alpha\right)}", rightarrow] 
+		\arrow[r, "\partial_2", rightarrow] &
 		\mathrm{Ext}^1_{\mathsf{Gr}_S}
-		(G,\underline{\mathcal{M}})
+		(G,\underline{\mathcal{M}}) 
 		\arrow[d, "", equals] \\
 		0 \arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{\mathsf{Gr}_S} 
-		\left( E(G), \underline{\mathcal{M}} \right) 
+		0
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{\mathsf{Gr}_S} 
-		\left( \underline{\omega}_{G(N)^\vee}, \underline{\mathcal{M}} \right) 
-		\arrow[r, "\partial", rightarrow] &
+		\left( G(N), \underline{\mathcal{M}} \right) 
+		\arrow[r, "\partial_3", rightarrow] &
 		\mathrm{Ext}^1_{\mathsf{Gr}_S}
 		(G,\underline{\mathcal{M}})
+	,\end{tikzcd}
+	\end{equation*}
+	where the extension $\beta\zeta$ of $G$ by $\underline{\mathcal{M}}$ is given by $P$.
+	By definition of $\theta$ the rightmost square acts on elements as
+	\begin{equation*}
+	\begin{tikzcd}
+		\mathrm{id}_{ \underline{\mathcal{M}} }
+		\arrow[r, "\partial_1", mapsto] 
+		\arrow[d, "\beta^* \circ \alpha^*"', mapsto] &
+		\theta(\beta\zeta)
+		\arrow[d, "", equal] \\
+		%\beta
+		%\arrow[d, "\alpha^*", mapsto] 
+		%& \\
+		u \arrow[r, "\partial_3", mapsto] &
+		\theta(\xi)
 	.\end{tikzcd}
 	\end{equation*}
 	Commutativity of this diagram implies that $\theta(\beta\zeta) = \theta(\xi)$.
@@ -507,21 +544,23 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 \begin{rem}[{\cite[Chapter III, remark 1.11]{Messing}}]
 	Notice that in the above proposition one could substitute
 	$N$ with any $n \geq N$ and still obtain a universal extension.
-	In fact the unique isomorphism comes from the commutative diagram
+	The unique isomorphism comes from the commutative diagram
 	of \cref{diag:functorialityRepresent}
-	which, setting $H = G(N)$ and $G = G(N+i)$ becomes
+	which, setting $H = G(N)$ and $G = G(N+i)$, becomes
 	\begin{equation*}
 	\begin{tikzcd}
 		G(N+i) \arrow[r, "p^i", rightarrow] 
-		\arrow[d, "\alpha_G"', rightarrow] &
-		G(N) \arrow[d, "\alpha_H", rightarrow] \\
+		\arrow[d, "\alpha_{G(N+i)}"', rightarrow] &
+		G(N) \arrow[d, "\alpha_{G(N)}", rightarrow] \\
 		\underline{\omega}_{G(N+i)^\vee} \arrow[r, "\sim", rightarrow] &
 		\underline{\omega}_{G(N)^\vee}
-	,\end{tikzcd}
+	.\end{tikzcd}
 	\end{equation*}
-	and the fact that the bottom arrow is an isomorphism
+	Here the fact that the bottom arrow is an isomorphism
 	is \cref{rem:ConormalSheafBT}.
-	(tk: think about it)
+	Then, thanks to universal property of pushout it's easy to construct
+	a morphism of extensions, which is clearly an isomorphism
+	thanks to the five lemma.
 \end{rem}
 
 
@@ -532,7 +571,7 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	Then the extension
 	\begin{equation*}
 	\begin{tikzcd}
-		(\zeta)
+		(\zeta) &
 		0 \arrow[r, "", rightarrow] &
 		\underline{V}(G) \arrow[r, "", rightarrow] &
 		E(G) \arrow[r, "", rightarrow] &
@@ -544,6 +583,11 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 	Moreover $E(G)$ is an fppf sheaf of groups on $S$,
 	determined up to unique isomorphism.
 \end{defn}
+
+
+\noindent
+Now that we have finally defined it, let's see
+a few results concerned this universal extension.
 
 
 \begin{lem}[{\cite[Chapter IV, lemma 1.13]{Messing}}]
@@ -579,7 +623,7 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 \end{lem} 
 
 
-\begin{prop}[{\cite[Chapter IV, proposition 1.15]{Messing}}]
+\begin{prop}[{\cite[Chapter IV, proposition 1.15]{Messing}}]\label{prop:MorUnivExts}
 	Let $p$ be locally nilpotent on $S$ and $G,H$ be two
 	Barsotti-Tate groups on $S$, with a homomorphism $u\colon G \to H$.
 	Then there is a unique homomorphism
@@ -605,11 +649,14 @@ tk: decide whether to add also remark 1.5 page 117 of Messing.
 \end{prop} 
 
 
+\noindent
+Recall that, in \cref{not:GBar}, we introduced the notation
+$\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$,
+for $G \in \mathsf{Gr}_S$.
 \begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]
-	Denote by $\overline{E(G)} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k E(G)$,
+	Let $G \in \mathsf{BT}(S)$ and $S$ be as before,
 	then $\overline{E(G)}$ is a {\em formal Lie group}.
 \end{prop} 
-tk: if not already, introduce the notation overline!
 
 
 \begin{defn}[]
@@ -623,11 +670,13 @@ tk: if not already, introduce the notation overline!
 \begin{rem}[]
 	Notice than $\underline{\mathrm{Lie}}(E(G))$ is a locally-free
 	$\mathcal{O}_{ S }$-module of finite rank.
-	If moreover $p^N$ kills $S$, we know that this actually coincides
-	with $\underline{\mathrm{Lie}}(E(G) \cross_{ G } G(N))$.
+	%If moreover $p^N$ kills $S$, we know that this actually coincides
+	%with $\underline{\mathrm{Lie}}(E(G) \cross_{ G } G(N))$.
 \end{rem}
 
 
+\noindent
+Let's end with a couple of results, still with the same notation and hypothesis as before.
 \begin{prop}[{\cite[Chapter IV, proposition 1.21]{Messing}}]
 	The following sequence is exact
 	\begin{equation*}
@@ -640,7 +689,6 @@ tk: if not already, introduce the notation overline!
 	.\end{tikzcd}
 	\end{equation*}
 \end{prop} 
-tk:check that the notation is defined.
 
 
 \begin{prop}[{\cite[Chapter IV, proposition 1.22]{Messing}}]
@@ -659,6 +707,17 @@ tk:check that the notation is defined.
 
 
 \subsection{Crystals associated to Barsotti-Tate groups}
+In this following section, since we will mainly be working with affine schemes,
+we introduce the following notation.
+
+
+\begin{ntt}
+	Let $A$ be a ring, $I \triangleleft A$ an ideal and $S \coloneqq \mathrm{Spec}(A)$.
+	We denote by $\mathbb{V}(I) \coloneqq \mathrm{Spec}(A/I)$,
+	a scheme with a closed immersion $\mathbb{V}(I) \hookrightarrow S$.
+\end{ntt} 
+
+
 \begin{defn}[Locally infinitesimally liftable Barsotti-Tate groups]
 	Let $S_0$ be a scheme with $p$ locally nilpotent on it.
 	We denote by $\mathsf{BT}'(S_0) \subset \mathsf{BT}(S_0)$ 
@@ -675,11 +734,11 @@ tk:check that the notation is defined.
 
 \begin{thm}[{\cite[Chapter IV, theorem 2.2]{Messing}}]\label{thm:UniqueLiftingCrystals}
 	Let $S = \mathrm{Spec}(A)$ such that $p^N \cdot 1_S = 0$,
-	$S-0 \coloneqq \mathbb{V}(I) \subset S$, where $I$ is
+	$S_0 \coloneqq \mathbb{V}(I) \subset S$, where $I$ is
 	an ideal of $A$ with nilpotent divided powers.
 	Let $G, H \in \mathsf{BT}(S)$ and consider a homomorphism
-	$u_0\colon G_0 \to H_0$ between their restrictions to $S_0$.
-	By tk: add reference (thm 1.15 on Messing) $u_0$ defines
+	$u_0\colon G_0 \to H_0$ between the respective restrictions to $S_0$.
+	By \cref{prop:MorUnivExts} $u_0$ defines
 	a morphism of extensions $v_0 \coloneqq E(u_0)\colon E(G_0) \to E(H_0)$,
 	making the diagram commute:
 	\begin{equation*}
@@ -699,9 +758,9 @@ tk:check that the notation is defined.
 		0
 	.\end{tikzcd}
 	\end{equation*}
-	Then there is a unique morphism of $S$-groups (tk)
+	Then there is a unique morphism of $S$-groups
 	$v\colon E(G) \to E(H)$, which is not necessarily a morphism
-	of extensions, that satisfied the following properties:
+	of extensions, that satisfies the following properties:
 \begin{enumerate}
 	\item $v$ is a lifting of $v_0$;
 	\item given $w\colon \underline{V}(G) \to \underline{V}(H)$ a lifting of $\underline{V}(u_0)$,
@@ -709,20 +768,27 @@ tk:check that the notation is defined.
 		$j\colon \underline{V}(G) \to E(G)$,
 		such that $d\coloneqq (i \circ w - v \circ j)\colon \underline{V}(G) \to E(H)$
 		induces the zero on $S_0$, then $d$ is an exponential.
-		(tk: the definition of exponential for BT groups is given in III 2.4,
-		think about whether its better to tex it or not.)
+		%(tk: the definition of exponential for BT groups is given in III 2.4,
+		%think about whether its better to tex it or not.)
 \end{enumerate}
 \end{thm}
 
 
-\begin{rem}[]
-	tk: copy from rem 2.3. The morphism $v$ is independent of the choice of $w$
+\begin{rem}[{\cite[Chapter IV, remark 2.3]{Messing}}]
+	The morphism $v$ is independent of the choice of $w$
 	in \cref{thm:UniqueLiftingCrystals}.
-	In fact, chosen another lift $w'$ of $\underline{V}(u_0)$, tk.
+	In fact, chosen another lift $w'$ of $\underline{V}(u_0)$, we 
+	can write $w' = w + h$, where $h$, thanks to \cref{lem:CongruentLinComp}
+	is an exponential.
+	So, defining $d'$ corresponding to $w'$ in the
+	above construction, we obtain $d' = d + i \circ h$.
+	But then it is easy to show that $i \circ h$ is
+	itself an exponential, hence that $d'$ is an
+	exponential iff $d$ is.
 \end{rem}
 
 
-\begin{cor}[{\cite[Chapter IV, corollary 2.4.1]{Messing}}]
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.1]{Messing}}]\label{thm:M4.2.4.1}
 	Let $G, H, K \in \mathsf{BT}(S)$ as before and consider another
 	homomorphism $u_0'\colon H_0 \to K_0$, where $K_0$ again denotes
 	the restriction of $K$ to $S_0$.
@@ -732,20 +798,20 @@ tk:check that the notation is defined.
 \end{cor} 
 
 
-\begin{cor}[{\cite[Chapter IV, corollary 2.4.2]{Messing}}]
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.2]{Messing}}]\label{thm:M4.2.4.2}
 	If, in the above notation, $G = H$ and $u_0 = \mathrm{id}_{ G_0 }$,
 	then $E_S(u_0) = \mathrm{id}_{ G }$.
 \end{cor} 
 
 
-\begin{cor}[{\cite[Chapter IV, corollary 2.4.3]{Messing}}]
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.3]{Messing}}]\label{thm:M4.2.4.3}
 	Let $G,H, u_0$ as in \cref{thm:UniqueLiftingCrystals},
 	with moreover $u_0$ an isomorphism.
 	Then $E_S(u_0)$ is an isomorphism too.
 \end{cor} 
 
 
-\begin{cor}[{\cite[Chapter IV, corollary 2.4.4]{Messing}}]
+\begin{cor}[{\cite[Chapter IV, corollary 2.4.4]{Messing}}]\label{thm:M4.2.4.4}
 	Suppose we are given a commutative diagram
 	\begin{equation*}
 	\begin{tikzcd}
@@ -770,5 +836,153 @@ tk:check that the notation is defined.
 	.\end{equation*}
 \end{cor} 
 
-tk: maybe in section 0 add what you mean by $\mathbb{V}(I)$ for an affine scheme.
+
+\noindent
+Thanks to the above results we are ready to define the crystals we hinted at above.
+For the construction we fix a scheme $S_0$ with $p$ locally
+nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
+
+\begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]
+	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(X)$,
+	it suffices to define them locally.
+	More specifically we are going to define the main crystal
+	of objects $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
+	with the property that $U_0$ is affine and
+	$\left.G_0\right|_{U_0}$ can be lifted to $U$.
+
+	Moreover, by \crefrange{thm:M4.2.4.1,thm:M4.2.4.2,thm:M4.2.4.3},
+	we can see that, fixing one such object of $\mathsf{Crys}(S_0)$,
+	$E(G)$ is independent of the chosen lift of $\left.G_0\right|_{U_0}$.
+	Moreover, given a morphism $f\colon \left(U_0 \hookrightarrow U, \delta\right) \to 
+	\left(V_0 \hookrightarrow V, \gamma\right)$ in $\mathsf{Crys}(S_0)$,
+	given by the diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		U_0 \arrow[r, "", hookrightarrow] &
+		U\\
+		V_0 \arrow[u, "", rightarrow] 
+		\arrow[r, "", hookrightarrow] &
+		V \arrow[u, "", rightarrow] 
+	,\end{tikzcd}
+	\end{equation*}
+	we have $f$ an open immersion.
+	Hence $u_0\colon f^* \left.G_0\right|_{U_0} \to \left.G_0\right|_{V_0}$
+	is an isomorphism. 
+	Then, applying \cref{thm:M4.2.4.3} to $G_U$ a lift of
+	$\left.G_0\right|_{U_0}$ to $U$ and $G_V$ of $\left.G_0\right|_{V_0}$ to $V$,
+	we obtain a canonical isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\overline{f}^* \left( E(G_U) \right) \arrow[r, "\sim", rightarrow] &
+		E(G_V)
+	.\end{tikzcd}
+	\end{equation*} 
+\end{rem}
+
+
+\begin{defn}[]
+	In the above notation, we define the crystal $\mathbb{E}(G_0)$
+	by setting its value on $\left(U_0 \hookrightarrow U, \delta\right)$, as considered
+	before, to be $E(G)$ for any lifting of $\left.G_0\right|_{U_0}$.
+
+	In the same way we define, for any morphism $u_0\colon G_0 \to H_0$ of 
+	Barsotti-Tate groups on $S_0$, a morphism of associated crystals.
+	In particular, on ``sufficiently
+	small" open subsets $U_0 \hookrightarrow U$ as before,
+	we set $\mathbb{E}(u_0) \coloneqq E(u_0)$.
+
+	Finally, for an arbitrary morphism of schemes $f\colon T_0 \to S_0$,
+	we can define the {\em pullback} of the crystal $\mathbb{E}(G_0)$, denoted
+	by $f^* \left( \mathbb{E}(G_0) \right)$, on ``sufficiently small" open
+	sets in the crystalline site of $T_0$.
+	Here we say that $V_0 \hookrightarrow V$ is sufficiently small iff
+\begin{enumerate}
+	\item $f(V_0) \subset U_0$ and $\left.G_0\right|_{U_0}$ can be lifted to infinitesimal
+		neighbourhoods,
+
+	\item $V_0$ is affine.
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]
+	Since we are in the affine case we can use the construction of amalgamated
+	sum of schemes to obtain the diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		U_0 \arrow[r, "", hookrightarrow] &
+		U \coloneqq U_0 \coprod_{V_0} V \\
+		V_0 \arrow[u, "f", rightarrow] 
+		\arrow[r, "", hookrightarrow] &
+		V \arrow[u, "", rightarrow] 
+	.\end{tikzcd}
+	\end{equation*}
+	tk: then it is immediate that, for a lifting $G_U$ 
+	of $\left.G_0\right|_{U_0}$ to $U$, we have
+	\begin{equation*}
+		\overline{f}^* \left( E(G_u) \right) =
+		E(G_V) = \mathbb{E} \left( f^* (G_0) \right)_{V_0 \hookrightarrow V}
+	.\end{equation*}
+	As a consequence $f^* \left( \mathbb{E}(G_0) \right) =
+	\mathbb{E}\left( f^*(G_0) \right)$.
+	
+	More properly these equalities should be considered as isomorphisms (tk).
+	Then a more precise statement would be that the following diagram
+	commutes up to a {\em unique natural equivalence}:
+	\begin{equation*}
+	\begin{tikzcd}
+		\mathsf{BT}'(S_0)
+		\arrow[r, "\mathbb{E}", rightarrow] 
+		\arrow[d, "f^*"', rightarrow] &
+		\left\{ \text{Crystals in } \mathsf{Gr}_{S_0} \right\}
+		\arrow[d, "f^*", rightarrow] \\
+		\mathsf{BT}'(T_0) \arrow[r, "\mathbb{E}", rightarrow] &
+		\left\{ \text{Crystals in } \mathsf{Gr}_{T_0} \right\}
+	.\end{tikzcd}
+	\end{equation*}
+\end{rem}
+
+
+\begin{defn}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item We define the functor $\overline{\mathbb{E}}$, associating to
+	any $G_0 \in \mathsf{BT}'(S_0)$ a crystal in $\mathsf{Gr}_{S_0}$
+	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
+	\begin{equation*}
+		\overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
+		\overline{\left( \mathbb{E}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \right)}
+	.\end{equation*}
+
+\item We define the functor $\mathbb{D}$, associating to
+	any $G_0 \in \mathsf{BT}'(S_0)$ a crystal in $\mathsf{Gr}_{S_0}$
+	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
+	\begin{equation*}
+		\mathbb{D}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
+		\mathrm{Lie}
+		\left( \overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \right)
+	.\end{equation*}
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]
+	It is clear that all functors, $\mathbb{E}, \overline{\mathbb{E}}$ and
+	$\mathbb{D}$ are additive.
+\end{rem}
+
+
+\begin{rem}[]
+	Let's summarise the above constructions.
+	Consider $S_0 \hookrightarrow S$ a nilpotent divided power immersion.
+	Assume that $G_0 \in \mathsf{BT}(S_0)$ can be lifted to $G \in \mathsf{BT}(S)$.
+	Then, up to canonical isomorphism, we have
+\begin{enumerate}
+	\item $\mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
+	\item $\overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = \overline{E(G)}$,
+	\item $\mathbb{D}(G_0)_{S_0 \hookrightarrow S} = 
+		\underline{\mathrm{Lie}}(E(G))$.
+\end{enumerate}
+\end{rem}
 \end{document}

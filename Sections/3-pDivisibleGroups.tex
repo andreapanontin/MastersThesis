@@ -519,12 +519,19 @@ as usual with sheaves, will denote them by
 \end{ntt}
 
 
+\begin{ntt}\label{not:GBar}
+	For a scheme $S$ and an $S$-group $G \in \mathsf{Gr}_S$, we introduce
+	the notation 
+	\begin{equation*}
+	\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{inf}^k(G)
+	.\end{equation*}
+\end{ntt} 
+
+
 \begin{defn}[Ind-infinitesimal sheaf]
 	A pointed sheaf $\left(X, e_X\right)$ is called {\em ind-infinitesimal} iff,
-	as an {\em fppf sheaf},
-	\begin{equation*}
-		X = \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(X)
-	.\end{equation*}
+	as an {\em fppf sheaf}, $X = \overline{X}$.
+	%\varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(X)
 \end{defn}
 
 
@@ -703,8 +710,6 @@ And now back to our interests.
 		$\omega_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$.
 \end{enumerate}
 \end{defn}
-%tk: you can find the definition of symmetrical algebra on an ideal $I$
-%at page 53 of Shatz.
 
 
 \begin{rem}[{\cite[Chapter II, \S1]{Messing}}]\label{rem:FormalLieVarietyPowerSeries}
