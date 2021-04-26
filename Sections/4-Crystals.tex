@@ -1,6 +1,15 @@
 \documentclass[../Main]{subfiles}
 \begin{document}
 \section{Divided powers, exponentials and crystals}
+The aim of this section is to introduce the crystalline site on a scheme,
+on which we will define the notion of crystal.
+In order to do so we will need to develop some theory for extensions
+and prolongations, which will be studied via the exponential map.
+To introduce this map we need to define a divided powers structure,
+which allows to make sense of expressions like $x^n/n!$.
+
+
+
 \subsection{Divided powers}
 \begin{defn}[Ideal with divided powers]\label{defn:dividedPowers}
 	Let $A$ be a ring, and $I \triangleleft A$ an ideal of $A$.
@@ -143,6 +152,63 @@
 \end{defn}
 
 
+\begin{defn}[]
+	Given a divided power ring $\left(A, I, \gamma\right)$ and
+	a ring homomorphism $f\colon A \to B$, we say that
+	$\gamma$ extends to $B$ iff there exists a divided powers
+	structure $\overline{\gamma}$ on $IB$ such that
+	\begin{equation*}
+		f\colon \left(A, I, \gamma\right) \to \left(B, IB, \overline{\gamma}\right)
+	\end{equation*}
+	is a morphism of divided power rings.
+\end{defn}
+
+
+\begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/07H1}{Lemma 07H1}]{SP}}]
+\label{lem:PDFlatExtension}
+	Let $\left(A, I, \gamma\right)$ be a divided power ring
+	and $A \to B$ a ring homomorphism.
+	If $\gamma$ extends to $B$, then it extends uniquely.
+	Assume moreover that any of the following conditions holds
+\begin{enumerate}
+	\item $IB = 0$,
+	\item $I$ is principal or
+	\item $A \to B$,
+\end{enumerate}
+	then $\gamma$ extends to $B$.
+\end{lem} 
+
+
+\noindent
+The point of introducing all of these definitions is to allow one to define the following
+inverse maps, of which we will construct some generalizations later on.
+\begin{defn}[]\label{defn:PDExponential}
+	Let $\left(A, I, \gamma\right)$ be a nilpotent divided powers ring.
+	Then we can define two maps
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\exp\colon I \arrow[r, "", rightarrow] &
+		\left( 1 + I \right)^*\\
+		\log\colon \left( 1 + I \right)^* \arrow[r, "", rightarrow] &
+		I
+	,\end{tikzcd}
+	\end{equation*} 
+	given by 
+	$\exp (x) \coloneqq \sum_{n\geq 0} \gamma_n(x)$
+	and $\log (1+x) \coloneqq \sum_{n\geq 1} 
+	(-1)^{n-1} \left( n-1 \right)! \gamma_n(x)$.
+	Let's notice that these maps are well defined.
+	In fact we assumed $I$ with nilpotent divided powers,
+	hence $\gamma_n = 0$ for $n$ big enough, which means that
+	these are actually finite sums.
+	Then, as outlined in \cite[Chapter III, \S1.6]{Messing},
+	one checks that these maps are inverses to each other
+	by reducing to the universal case $\widehat{\Gamma_{\mathbb{Z}}(\mathbb{Z})}$.
+\end{defn}
+
+
 \noindent
 Let's now introduce the analogous of the symmetric algebra, first,
 and of the formal completion, later,
@@ -208,7 +274,7 @@ in the context of divided powers.
 \end{thm}
 
 
-\begin{thm}[{\cite[\S3, theorem 3.9]{Berthelot}}, divided powers envelope]
+\begin{thm}[{\cite[\S3, theorem 3.9]{Berthelot}}, divided powers envelope]\label{thm:PDEnvelope}
 	Let $\left(A, I, \gamma\right)$ a ring with divided powers, $B$ an $A$-algebra
 	and $J \triangleleft B$ an ideal.
 	There exists a $B$-algebra $\mathcal{D}_{B,\gamma}(J)$
@@ -245,53 +311,37 @@ in the context of divided powers.
 %tk: if you have time maybe add some remark from SP.
 
 
-\noindent
-The point of introducing all of these definitions is to allow one to define the following
-inverse maps, of which we will construct some generalizations later on.
-\begin{defn}[]
-	Let $\left(A, I, \gamma\right)$ be a nilpotent divided powers ring.
-	Then we can define two maps
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\exp\colon I \arrow[r, "", rightarrow] &
-		\left( 1 + I \right)^*\\
-		\log\colon \left( 1 + I \right)^* \arrow[r, "", rightarrow] &
-		I
-	,\end{tikzcd}
-	\end{equation*} 
-	given by 
-	$\exp (x) \coloneqq \sum_{n\geq 0} \gamma_n(x)$
-	and $\log (1+x) \coloneqq \sum_{n\geq 1} 
-	(-1)^{n-1} \left( n-1 \right)! \gamma_n(x)$.
-	Let's notice that these maps are well defined.
-	In fact we assumed $I$ with nilpotent divided powers,
-	hence $\gamma_n = 0$ for $n$ big enough, which means that
-	these are actually finite sums.
-	Then, as outlined in \cite[Chapter III, \S1.6]{Messing},
-	one checks that these maps are inverses to each other
-	by reducing to the universal case $\widehat{\Gamma_{\mathbb{Z}}(\mathbb{Z})}$.
-\end{defn}
+\begin{rem}[]
+	Notice that \cref{lem:PDFlatExtension} allows one, starting from
+	a divided power ring $\left(A, I, \gamma\right)$, to give
+	a structure of divided power ring to $A_{\mathfrak{p}}$ for all
+	$\mathfrak{p} \in \mathrm{Spec}(A) \eqqcolon S$, since localization is a flat morphism.
+	Moreover these structures are all compatible with localization, by construction.
+	This pushes us to give a structure of divided powers to the structure
+	sheaf $\mathcal{O}_{ S }$.
+	Actually one can be even more general, giving the following definition.
+\end{rem}
 
 
-\begin{rem}[]\label{rem:DividedPowersSheaf}
-	The above constructions can all be globalized to the case of
-	$\mathcal{O}_S$-algebras and modules, where $S$ denotes a scheme.
-	In particular one needs to replace the ring $A$ by the 
-	structure sheaf $\mathcal{O}_{ S }$ of the above mentioned scheme $S$,
-	$I$ by a quasi-coherent sheaf of ideals $\mathcal{I}$ of $\mathcal{O}_S$ and
-	$M$ by a quasi-coherent $\mathcal{O}_S$-module.
-	Then a system of divided powers on $\mathcal{I}$ is the data
-	of, for all $U \subset S$ open, a system of divided powers of
+\begin{defn}[Scheme with divided powers]\label{defn:DividedPowersSheaf}
+	Let $S$ be a scheme and $\mathcal{I}$ a quasi-coherent sheaf
+	of ideals of $\mathcal{O}_{ S }$.
+	%The above constructions can all be globalized to the case of
+	%$\mathcal{O}_S$-algebras and modules, where $S$ denotes a scheme.
+	%In particular one needs to replace the ring $A$ by the 
+	%structure sheaf $\mathcal{O}_{ S }$ of the above mentioned scheme $S$,
+	%$I$ by a quasi-coherent sheaf of ideals $\mathcal{I}$ of $\mathcal{O}_S$ and
+	%$M$ by a quasi-coherent $\mathcal{O}_S$-module.
+	A {\em system of divided powers} on $\mathcal{I}$ is the data,
+	for all $U \subset S$ open, of a system of divided powers of
 	$\Gamma(U,\mathcal{I})$ in which restriction maps
 	are given by morphisms of divided power rings.
-	Then we will call one such triple $\left(S, \mathcal{I}, \gamma\right)$
+	Then we will call one triple $\left(S, \mathcal{I}, \gamma\right)$
 	a {\em scheme with divided powers}.
 
-	Moreover one generalizes the concept of morphism of divided 
-	power rings in the following way:
-	let $\left(S, \mathcal{I}, \gamma\right)$ and $\left(S', \mathcal{I}', \gamma'\right)$
+	%Moreover one generalizes the concept of morphism of divided 
+	%power rings in the following way:
+	Let now $\left(S, \mathcal{I}, \gamma\right)$ and $\left(S', \mathcal{I}', \gamma'\right)$
 	be schemes with divided powers.
 	A {\em morphism of divided power schemes}
 	\begin{equation*}
@@ -313,21 +363,80 @@ inverse maps, of which we will construct some generalizations later on.
 	\end{tikzcd}
 	\end{equation*} 
 	is a morphism of divided powers rings.
+\end{defn}
 
-	Moreover the divided powers algebra $\Gamma(M)$ is defined
-	as the sheaf associated to the presheaf 
-	$U \mapsto \Gamma_{\mathcal{O}_S(U)}(M(U))$.
-	Finally the divided powers on an ideal $\mathcal{I} \subset \mathcal{O}_S$
-	are said to be {\em locally nilpotent} iff,
+
+\begin{defn}[Locally nilpotent sheaf of ideals with divided powers]
+	We say that the divided powers on the sheaf of ideals $\mathcal{I}$
+	of $\mathcal{O}_{ S }$ are {\em locally nilpotent} iff,
 	locally on $S$, they satisfy conditions in \cref{defn:NilpotentDividedPowers}.
-\end{rem}
-tk: add PD envelope in the scheme case.
+\end{defn}
 
-tk: in order to treat PD rings in the case of an affine scheme, one should
-grant that the structure extends for flat algebras.
+
+\noindent
+In order to generalize the other constructions of the section
+we need the following result.
+
+
+\begin{prop}[{\cite[Remark 3.20, proposition 3.21]{Berthelot}}]\label{prop:PDEnvScheme}
+	Let $\left(A, I, \gamma\right)$ be a divided power ring, $B$
+	an $A$-algebra with $J$ an ideal of $B$.
+\begin{enumerate}
+	\item Consider a surjective morphism of divided power rings
+		$\left(A, I, \gamma\right) \to  \left(A', I', \gamma'\right)$ ,
+		$B' \coloneqq A' \otimes_A B$ and $J' = JB'$.
+		Then the following canonical map is an isomorphism
+		\begin{equation*}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+			S' \otimes_A \mathcal{D}_{B,\gamma}(J) \arrow[r, "\sim", rightarrow] &
+			\mathcal{D}_{B',\gamma'}(J')
+		.\end{tikzcd}
+		\end{equation*} 
+
+	\item Suppose $J \triangleleft A$ is an ideal and $B'$ is a $B$-algebra.
+		Then there is a natural map
+		\begin{equation*}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+			\mathcal{D}_{B,\gamma}(J) \otimes_B B' \arrow[r, "", rightarrow] &
+			\mathcal{D}_{B',\gamma}(JB')
+		,\end{tikzcd}
+		\end{equation*} 
+		which is an isomorphism if $B'$ is a {\em flat} $B$-algebra.
+\end{enumerate}
+\end{prop}
+
+
+\begin{rem}[]
+	Finally one can generalize the construction
+	of \cref{thm:PDSymAlg,thm:PDEnvelope} to the case of $\mathcal{M}$
+	an quasi-coherent $\mathcal{O}_{ S }$-algebra.
+	Indeed the divided powers algebra $\Gamma(\mathcal{M})$ is defined
+	as the sheaf associated to the presheaf 
+	$U \mapsto \Gamma_{\mathcal{O}_S(U)}(\mathcal{M}(U))$.
+
+	For the divided powers envelope let's consider the following situation.
+	Take a closed immersion of schemes $X \to Y$, with a morphism $Y \to S$,
+	where $S$ is equipped with a structure of divided powers via $\gamma$.
+	Then, one defines the
+	divided powers envelope $\mathcal{D}_{X,\gamma}(Y)$, to be the scheme
+	corresponding to the divided powers envelope of $X$ in $Y$,
+	compatible with $\gamma$.
+	More explicitly $\mathcal{D}_{X,\gamma}(Y)$ is locally 
+	given by the spectrum of the divided powers envelope
+	of $\mathcal{O}_{ Y }$ at the ideal defining $X$, compatible with $\gamma$.
+	As already remarked it is indeed thanks to \cref{prop:PDEnvScheme}
+	that we can carry out this construction.
+\end{rem}
+
 
 
 \subsection{Cospec and Lie algebras}
+The aim of the following concepts is to give some vocabulary to
+be able to work with exponentials in more general cases than what we saw before.
 The notation of this section will follow that of \cite[Capther III]{Messing}.
 This means that it might not be consistent with our previous exposition.
 %(tk: this part of the book from Messing seems to be used only in the preliminary
@@ -687,6 +796,8 @@ or $\mathcal{O}_{ S }$-modules.
 
 
 \subsection{Exponentials and prolongations}
+Here we generalize the concept of exponential seen in \cref{defn:PDExponential}
+to groups on $S$ and see how this construction relates to prolongations.
 Let's start with the setting of the following section.
 Let $A$ be a ring, $I \triangleleft A$ and ideal with nilpotent
 divided powers and $A_0 \coloneqq A/I$.
@@ -871,7 +982,7 @@ Let's now study better this relation with the exponential map in the context of
 \end{tikzcd}
 \end{equation*} 
 a monomorphism with image $H_0 \subset G_0$.
-We want to study the set of lifting $H$ of $H_0$ to
+We want to study the set of liftings $H$ of $H_0$ to
 subgroups of $G$ that are flat over $S$, together with the structure
 of locally-free module on $H$, lifting that of $H_0$.
 
@@ -939,8 +1050,18 @@ of locally-free module on $H$, lifting that of $H_0$.
 
 
 \subsection{Crystals}
-tk: stil to add a quote from Grothendieck explaining the reason
-for this name and a description of the two subsections.
+Here we finally give the definition of crystalline site and, then, of
+crystal on such a site.
+This concept was introduced by A. Grothendieck, 
+who described his choice of terminlogy saying:
+«{\em Un crystal possède deux propriétés caractŕristiques : la rigidité, 
+et la faculté de croitre, dans un voisinage approprié. 
+Il y a des cristaux de toute espèce de substance : des cristaux de soude, 
+de souffre, de modules, d'anneaux, de schémas relatifs, etc.}»\footnote{A
+crystal has two characteristic properties: rigidity and ability to grow
+in appropriate neighbourhoods.
+There are crystals in every kind of substance: crystals of soda, of sulfur,
+of modules, of rings, of relative schemes, etc.}
 
 
 
@@ -986,7 +1107,7 @@ some meaning to our objects.
 	Thanks to \cref{rem:thickeningIdeal}, the datum of a
 	divided powers thickening of $U$ is equivalent to the datum of
 	a scheme $T$ with divided powers, i.e.
-	$\left(T, \mathcal{I}, \gamma\right)$, as in \cref{rem:DividedPowersSheaf},
+	$\left(T, \mathcal{I}, \gamma\right)$, as in \cref{defn:DividedPowersSheaf},
 	in which $\mathcal{I}$ is a locally nilpotent sheaf of ideals
 	and is associated to the closed immersion $U \hookrightarrow T$.
 \end{rem}
@@ -1065,7 +1186,7 @@ some meaning to our objects.
 		\left(U' \cap W' \hookrightarrow W', \left.\delta\right|_{W'} \right)
 	.\end{tikzcd}
 	\end{equation*} 
-	This defines a morphism $(\left.f\right|_{f^{-1}W'})^*\colon$
+	This defines a morphism $(\left.f\right|_{f^{-1}W'})^*$
 	which, in turn, induces a map $\mathcal{F}_{T'}(W') \to \mathcal{F}_T(f^{-1}W')$
 	and finally, by adjunction, this gives the desired morphism $c_f$.
 	Moreover we can notice that if, in \cref{diag:MorphDivPowers},
@@ -1116,7 +1237,7 @@ some meaning to our objects.
 
 
 \subsubsection{Crystals}
-We can now focus our attention to crystals and their pullback.
+We can finally focus our attention to crystals and their pullback.
 
 
 \begin{defn}[Sheaf of modules]
@@ -1148,7 +1269,7 @@ We can now focus our attention to crystals and their pullback.
 \end{rem}
 
 
-\begin{defn}[]
+\begin{defn}[]\label{defn:SpecialQCSheavesCrys}
 	We say that a sheaf of modules $\mathcal{M}$ is {\em special}
 	iff, for all morphisms in $\mathsf{Crys}(X)$,
 	the induced morphism in \cref{eqn:SheafModulesMorphism}
@@ -1159,7 +1280,7 @@ We can now focus our attention to crystals and their pullback.
 \end{defn}
 
 
-\begin{rem}[]
+\begin{rem}[]\label{rem:specialSheavesIso}
 	Usually, when dealing with special sheaves of modules, we will omit the isomorphism
 	$\sigma_u$ and assume that there is a literal equality
 	$\mathcal{F}_{T'} = \mathcal{F}_T$.
