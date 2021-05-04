@@ -5,7 +5,7 @@ The aim of this section is to introduce the crystalline site on a scheme,
 on which we will define the notion of crystal.
 In order to do so we will need to develop some theory for extensions
 and prolongations, which will be studied via the exponential map.
-To introduce this map we need to define a divided powers structure,
+To introduce this map we need to define divided powers structures,
 which allows to make sense of expressions like $x^n/n!$.
 
 
@@ -172,41 +172,11 @@ which allows to make sense of expressions like $x^n/n!$.
 	Assume moreover that any of the following conditions holds
 \begin{enumerate}
 	\item $IB = 0$,
-	\item $I$ is principal or
-	\item $A \to B$,
+	\item $I$ is {\em principal} or
+	\item $A \to B$ is a {\em flat} morphism,
 \end{enumerate}
 	then $\gamma$ extends to $B$.
 \end{lem} 
-
-
-\noindent
-The point of introducing all of these definitions is to allow one to define the following
-inverse maps, of which we will construct some generalizations later on.
-\begin{defn}[]\label{defn:PDExponential}
-	Let $\left(A, I, \gamma\right)$ be a nilpotent divided powers ring.
-	Then we can define two maps
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\exp\colon I \arrow[r, "", rightarrow] &
-		\left( 1 + I \right)^*\\
-		\log\colon \left( 1 + I \right)^* \arrow[r, "", rightarrow] &
-		I
-	,\end{tikzcd}
-	\end{equation*} 
-	given by 
-	$\exp (x) \coloneqq \sum_{n\geq 0} \gamma_n(x)$
-	and $\log (1+x) \coloneqq \sum_{n\geq 1} 
-	(-1)^{n-1} \left( n-1 \right)! \gamma_n(x)$.
-	Let's notice that these maps are well defined.
-	In fact we assumed $I$ with nilpotent divided powers,
-	hence $\gamma_n = 0$ for $n$ big enough, which means that
-	these are actually finite sums.
-	Then, as outlined in \cite[Chapter III, \S1.6]{Messing},
-	one checks that these maps are inverses to each other
-	by reducing to the universal case $\widehat{\Gamma_{\mathbb{Z}}(\mathbb{Z})}$.
-\end{defn}
 
 
 \noindent
@@ -274,11 +244,11 @@ in the context of divided powers.
 \end{thm}
 
 
-\begin{thm}[{\cite[\S3, theorem 3.9]{Berthelot}}, divided powers envelope]\label{thm:PDEnvelope}
+\begin{thm}[{\cite[\S3, theorem 3.19]{Berthelot}}, divided powers envelope]\label{thm:PDEnvelope}
 	Let $\left(A, I, \gamma\right)$ a ring with divided powers, $B$ an $A$-algebra
 	and $J \triangleleft B$ an ideal.
 	There exists a $B$-algebra $\mathcal{D}_{B,\gamma}(J)$
-	with a divided powers ideal $\left(J, [\ \cdot \ ]\right)$,
+	with a divided powers ideal $\left(\overline{J}, [\ \cdot \ ]\right)$,
 	such that $J \mathcal{D}_{B, \gamma} \subset \overline{J}$,
 	$[\ \cdot \ ]$ is compatible with $\gamma$ and with the
 	following universal property:
@@ -286,13 +256,13 @@ in the context of divided powers.
 	$K$ which contains $JC$ and has a divided powers structure
 	$\delta$ compatible  with $\gamma$, there is a unique 
 	divided powers morphism 
-	$\left(\mathcal{D}_{B,\gamma}, J, [\ \cdot \ ]\right) \to 
+	$\left(\mathcal{D}_{B,\gamma}, \overline{J}, [\ \cdot \ ]\right) \to 
 	\left(C, K, \delta\right)$ making the following
 	diagram commute
 	\begin{equation*}
 	\begin{tikzcd}
 		&
-		\left(\mathcal{D}_{B, \gamma}, J, [\ \cdot \ ]\right)
+		\left(\mathcal{D}_{B, \gamma}, \overline{J}, [\ \cdot \ ]\right)
 		\arrow[rd, "", dashrightarrow,
 		start anchor=south east] & \\
 		\left(B, J\right) \arrow[ru, "", rightarrow,
@@ -309,6 +279,36 @@ in the context of divided powers.
 	\end{equation*}
 \end{thm}
 %tk: if you have time maybe add some remark from SP.
+
+
+\noindent
+The point of introducing all of these definitions is to allow one to define the following
+inverse maps, of which we will construct some generalizations later on.
+\begin{defn}[]\label{defn:PDExponential}
+	Let $\left(A, I, \gamma\right)$ be a nilpotent divided powers ring.
+	Then we can define two maps
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\exp\colon I \arrow[r, "", rightarrow] &
+		\left( 1 + I \right)^*\\
+		\log\colon \left( 1 + I \right)^* \arrow[r, "", rightarrow] &
+		I
+	,\end{tikzcd}
+	\end{equation*} 
+	given by 
+	$\exp (x) \coloneqq \sum_{n\geq 0} \gamma_n(x)$
+	and $\log (1+x) \coloneqq \sum_{n\geq 1} 
+	(-1)^{n-1} \left( n-1 \right)! \gamma_n(x)$.
+	Let's notice that these maps are well defined.
+	In fact we assumed $I$ with nilpotent divided powers,
+	hence $\gamma_n = 0$ for $n$ big enough, which implies that
+	these are actually finite sums.
+	Then, as outlined in \cite[Chapter III, \S1.6]{Messing},
+	one checks that these maps are inverses to each other
+	by reducing to the universal case $\widehat{\Gamma_{\mathbb{Z}}(\mathbb{Z})}$.
+\end{defn}
 
 
 \begin{rem}[]
@@ -1054,10 +1054,10 @@ Here we finally give the definition of crystalline site and, then, of
 crystal on such a site.
 This concept was introduced by A. Grothendieck, 
 who described his choice of terminlogy saying:
-«{\em Un crystal possède deux propriétés caractŕristiques : la rigidité, 
-et la faculté de croitre, dans un voisinage approprié. 
+« {\em Un crystal possède deux propriétés caractéristiques : la rigidité, 
+et la faculté de croître, dans un voisinage approprié. 
 Il y a des cristaux de toute espèce de substance : des cristaux de soude, 
-de souffre, de modules, d'anneaux, de schémas relatifs, etc.}»\footnote{A
+de soufre, de modules, d'anneaux, de schémas relatifs, etc.} »\footnote{A
 crystal has two characteristic properties: rigidity and ability to grow
 in appropriate neighbourhoods.
 There are crystals in every kind of substance: crystals of soda, of sulfur,
@@ -1080,7 +1080,9 @@ some meaning to our objects.
 
 
 \begin{rem}[]\label{rem:thickeningIdeal}
-	Recall that closed immersions $X \hookrightarrow X'$ are in one to
+	In our case the closed embedding $f\colon X \to X'$ gives a homeomorphism
+	of the underlying topological spaces.
+	Recall, moreover, that closed immersions $X \hookrightarrow X'$ are in one to
 	one correspondence with quasi-coherent sheaves of ideals
 	$\mathcal{I}$ of $\mathcal{O}_{ X' }$, see
 	\cite[\href{https://stacks.math.columbia.edu/tag/01QN}{Section 01QN}]{SP}
@@ -1134,7 +1136,7 @@ some meaning to our objects.
 	\end{equation}
 	such that $U \hookrightarrow U'$ is an open immersion (corresponds to
 	an inclusion of open subschemes of $X$) and
-	$\overline{f}\colon T \to T'$ is a morphism of divided powers.
+	$\overline{f}\colon T \to T'$ is a divided powers morphism.
 	Finally we endow this category with the pretopology induced by the
 	Zariski topology.
 	More explicitly 
@@ -1145,11 +1147,12 @@ some meaning to our objects.
 		\left(U \hookrightarrow T, \gamma\right) \}_{i \in I}
 	\end{tikzcd}
 	\end{equation*}
-	is a covering iff, for all $i$, we have an open immersion
-	$T_i \hookrightarrow T$ whose underlying set is the same as
-	that of $U_i$ and the family $\left\{ T_i \to T \right\}_{i \in I}$
-	is jointly surjective, i.e. $\cup_{i \in I} U_i = U$ at
-	the level of topological sets.
+	is a covering iff, for all $i$, the map
+	$T_i \hookrightarrow T$ is an open immersion and
+	the family $\left\{ T_i \to T \right\}_{i \in I}$
+	is jointly surjective.
+	Then, since $U_i$ and $T_i$ have the same underlying topological space,
+	we also obtain that $\cup_{i \in I} U_i = U$ as sets.
 \end{defn}
 
 
@@ -1229,7 +1232,7 @@ some meaning to our objects.
 \begin{ex}[Structure sheaf]
 	The above remark allows one to define a canonical structure sheaf
 	on $\mathsf{Crys}(X)$, denoted by $\mathcal{O}_{\mathsf{Crys}(X)}$,
-	by the family of structure sheaves $\mathcal{O}_T$
+	given by the family of structure sheaves $\mathcal{O}_T$
 	indexed by the objects 
 	$\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$.
 \end{ex}
@@ -1242,7 +1245,7 @@ We can finally focus our attention to crystals and their pullback.
 
 \begin{defn}[Sheaf of modules]
 	We say that a sheaf on $\mathsf{Crys}(X)$ is a {\em sheaf of modules}
-	iff it is a sheaf of $\mathcal{O}_{\mathsf{Crys}(X)}$-modules
+	iff it is a sheaf of $\mathcal{O}_{\mathsf{Crys}(X)}$-modules.
 \end{defn}
 
 
@@ -1324,6 +1327,7 @@ of inverse images of crystals.
 
 
 \begin{defn}[Pullback of crystals]\label{defn:PBCrystals}
+	tk: add reference to Messing and look it up on Berthelot.
 	Let $X, Y \in \mathsf{Sch}_{  }$, $\varphi\colon X \to Y$ a morphism of schemes and
 	$\mathscr{F}$ a crystal of modules on $Y$.
 	Fix $U$ and $V$ as in the last remark and set

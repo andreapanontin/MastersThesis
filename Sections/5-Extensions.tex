@@ -79,7 +79,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 			(\zeta\gamma) &
 			0 \arrow[r, "", rightarrow] &
 			B \arrow[r, "", rightarrow] 
-			\arrow[d, "", rightarrow] &
+			\arrow[d, "", equals] &
 			X' \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			A' \arrow[r, "", rightarrow] 
@@ -112,7 +112,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 			X \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			A \arrow[r, "", rightarrow] 
-			\arrow[d, "", rightarrow] &
+			\arrow[d, "", equals] &
 			0\\
 			(\beta\zeta) &
 			0 \arrow[r, "", rightarrow] &
@@ -163,8 +163,9 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 
 
 \begin{rem}[]\label{rem:YonedaExensionTheta}
-	We can give an equivalence relation on the set $\mathrm{E}(A,B)$ by
-	setting $\zeta \sim \zeta'$ iff $\mathrm{Hom}_{  } \left( \zeta, \zeta' \right) \neq 0$,
+	We define an equivalence relation on the set $\mathrm{E}(A,B)$ by
+	saying that $\zeta \sim \zeta'$ 
+	iff $\mathrm{Hom}_{  } \left( \zeta, \zeta' \right) \neq 0$,
 	i.e. iff there is a commutative diagram
 	\begin{equation*}
 	\begin{tikzcd}
@@ -302,7 +303,8 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 	\end{tikzcd}
 	\end{equation*} 
 	is functorial in $G$.
-	Thus we have a commutative diagram whose lower horizontal arrow is
+	Thus, given a morphism of finite locally-free $S$-groups $u\colon G \to H$,
+	we have a commutative diagram whose lower horizontal arrow is
 	induced by the Cartier dual of $u$
 	\begin{equation}\label{diag:functorialityRepresent}
 	\begin{tikzcd}
@@ -318,12 +320,16 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 %As of now, nope
 
 
-\begin{rem}[]\label{rem:rigidityExt}
-	We are mainly interested in extensions of $G$, a Barsotti-Tate
-	group on $S$, by a quasi-coherent module $\mathcal{M}$ (more precisely by
-	its associated fppf sheaf $\underline{\mathcal{M}}$).
-	Let's recall that we assumed that $p^N$ kills $S$,
-	hence multiplication by $p^N$ is the trivial map on $\mathcal{M}$.
+\begin{lem}\label{lem:rigidityExt}
+	Let $S$ be a scheme killed by $p^N$, $G$ a Barsotti-Tate group on $S$
+	and $\mathcal{M}$ a quasi-coherent $\mathcal{O}_S$-module.
+	Then any extension $\zeta$ of $G$ by $\underline{\mathcal{M}}$ is
+	uniquely determined by $\theta(\zeta) \in 
+	\mathrm{Ext}^1_{\mathsf{Gr}_S}(G, \underline{\mathcal{M}})$.
+\end{lem} 
+\begin{proof}
+	Since $p^N$ kills $S$, multiplication by $p^N$ 
+	is the trivial map on $\mathcal{M}$.
 	As a consequence, for all $f \in \mathrm{Hom}_{\mathsf{Gr}_S}
 	\left( G, \underline{\mathcal{M}} \right)$,
 	we obtain the following commutative diagram
@@ -348,7 +354,7 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 	Then the above implies that $\zeta$ is uniquely determined by $\theta(\zeta)
 	\in \mathrm{Ext}^1_{\mathsf{Gr}_S}(G, \underline{\mathcal{M}})$,
 	since its equivalence class is reduced to $\zeta$ itself.
-\end{rem}
+\end{proof}
 
 
 \begin{defn}[Universal extension]
@@ -379,7 +385,7 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 	Let's consider again the case where, on the base
 	scheme $S$, $p$ is nilpotent.
 	By rigidity of extensions of Barsotti-Tate groups
-	by quasi-coherent modules, i.e. \cref{rem:rigidityExt}, 
+	by quasi-coherent modules, i.e. \cref{lem:rigidityExt}, 
 	we see that $\varphi\zeta = \xi$ is
 	actually an equality, and not just an isomorphism.
 \end{rem}
@@ -402,7 +408,7 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 \end{prop}
 \begin{proof}
 	Let's start by noticing that we are in the same situation
-	of \cref{rem:rigidityExt}.
+	of \cref{lem:rigidityExt}.
 	Consider now the short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
@@ -431,33 +437,19 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 		\arrow[r, "\partial", rightarrow] &
 		\mathrm{Ext}^1_{\mathsf{Gr}_S}
 		(G,\underline{\mathcal{M}})
-		\arrow[r, "\alpha", rightarrow] &
+		\arrow[r, "p^N", rightarrow] &
 		\mathrm{Ext}^1_{\mathsf{Gr}_S}
 		(G,\underline{\mathcal{M}})
 	,\end{tikzcd}
 	\end{equation*}
 	where we used $\mathrm{Hom}_{\mathsf{Gr}_S} \left( G, \underline{\mathcal{M}} \right) = 0$,
-	as seen in \cref{rem:rigidityExt}.
+	as seen in \cref{lem:rigidityExt}.
 	Moreover $\mathrm{Ext}^1$ is a bifunctor, which implies that
-	the map $\alpha\colon \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})
+	the map $p^N\colon \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})
 	\to \mathrm{Ext}^1_{\mathsf{Gr}_S}(G,\underline{\mathcal{M}})$ comes from multiplication
 	by $p^N$ in $\underline{\mathcal{M}}$. 
 	Hence, by additivity of $\mathrm{Ext}$, it is $0$.
-	This leaves an exact sequence
-	\begin{equation*}
-	\begin{tikzcd}%[column sep=0.70em]
-		0 \arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{\mathsf{Gr}_S} 
-		\left( G(N), \underline{\mathcal{M}} \right) 
-		\arrow[r, "\partial", rightarrow] &
-		\mathrm{Ext}^1_{\mathsf{Gr}_S}
-		(G,\underline{\mathcal{M}})
-		\arrow[r, "0", rightarrow] &
-		\mathrm{Ext}^1_{\mathsf{Gr}_S}
-		(G,\underline{\mathcal{M}})
-	,\end{tikzcd}
-	\end{equation*}
-	which implies that $\partial$ is an isomorphism.
+	This implies that $\partial$ is an isomorphism.
 	Clearly this argument is functorial in $\underline{\mathcal{M}}$.
 	Moreover, by \cref{prop:ReprhM}, we see that 
 	the source of $\partial$ is represented by $\underline{\omega}_{G(N)^\vee}$.
@@ -488,7 +480,7 @@ we will apply the results of last section to $\mathsf{Gr}_S$.
 	\end{equation*}
 	where we denoted by $E(G) \coloneqq \underline{\omega}_{G(N)^\vee} \amalg_{G(N)} G$.
 	Then, by rigidity of extensions of $G$ by vector groups, i.e. 
-	\cref{rem:rigidityExt}, any extension $\xi$ of $G$ by a
+	\cref{lem:rigidityExt}, any extension $\xi$ of $G$ by a
 	vector group is uniquely determined by its
 	class $\theta(\xi) \in \mathrm{Ext}^1_{\mathsf{Gr}_S}(G, \underline{\mathcal{M}})$.
 	By the above this corresponds to a morphism $u\colon G(N) \to \underline{\mathcal{M}}$
@@ -778,15 +770,15 @@ we introduce the following notation.
 	\end{equation*}
 	Then there is a unique morphism of $S$-groups
 	$v\colon E(G) \to E(H)$, which is not necessarily a morphism
-	of extensions, that satisfies the following properties:
+	of extensions, that satisfies the following properties.
 \begin{enumerate}
-	\item $v$ is a lifting of $v_0$;
+	\item $v$ is a lifting of $v_0$.
 
-	\item given $w\colon \underline{V}(G) \to \underline{V}(H)$ a lifting of $\underline{V}(u_0)$,
-		denoted the inclusions by $i\colon \underline{V}(H) \to E(H)$ and by 
-		$j\colon \underline{V}(G) \to E(G)$,
+	\item Denote the inclusions by $i\colon \underline{V}(H) \to E(H)$ and by 
+		$j\colon \underline{V}(G) \to E(G)$.
+		Given $w\colon \underline{V}(G) \to \underline{V}(H)$ a lifting of $\underline{V}(u_0)$
 		such that $d\coloneqq (i \circ w - v \circ j)\colon \underline{V}(G) \to E(H)$
-		induces the zero on $S_0$, then $d$ is an exponential.
+		induces the zero morphism on $S_0$, then $d$ is an exponential.
 		%(tk: the definition of exponential for BT groups is given in III 2.4,
 		%think about whether its better to tex it or not.)
 \end{enumerate}
@@ -843,7 +835,7 @@ we introduce the following notation.
 	\end{equation*}
 	where $S_0 \hookrightarrow S$ and $S'_0 \hookrightarrow S'$ are
 	nilpotent immersion as in the statement of \cref{thm:UniqueLiftingCrystals}.
-	Let $S_0' = \mathbb{V}(J)$ and $S_0 = \mathbb{V}(I)$
+	Write $S_0' = \mathbb{V}(J)$ and $S_0 = \mathbb{V}(I)$
 	and assume that $S' \to S$ is a divided powers morphism.
 	Consider $G,H \in \mathsf{BT}(S)$ and $u_0\colon G_0 \to H_0$ as before.
 	Then the construction of $E_S(u_0)$ is compatible with the base
@@ -865,18 +857,19 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 \begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]
 	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(X)$,
 	it suffices to define them locally.
-	More specifically we are going to define the main crystal
-	of objects $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
+	More specifically we are going to define their evaluation
+	on objects $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	with the property that $U_0$ is affine and
 	$\left.G_0\right|_{U_0}$ can be lifted to $U$.
 
 	Moreover, by \cref{thm:M4.2.4.1,thm:M4.2.4.2,thm:M4.2.4.3},
 	we can see that, fixing one such object of $\mathsf{Crys}(S_0)$,
 	$E(G)$ is independent of the chosen lift of $\left.G_0\right|_{U_0}$.
-	Moreover, given a morphism in $\mathsf{Crys}(S_0)$,
+	Also, given 
 	$f\colon \left(V_0 \hookrightarrow V, \delta\right) \to 
 	\left(U_0 \hookrightarrow U, \gamma\right)$,
-	as in the diagram
+	a morphism in $\mathsf{Crys}(S_0)$
+	inducing the diagram
 	\begin{equation*}
 	\begin{tikzcd}
 		U_0 \arrow[r, "", hookrightarrow] &
@@ -886,7 +879,7 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 		V \arrow[u, "\overline{f}"', rightarrow] 
 	,\end{tikzcd}
 	\end{equation*}
-	we have $f$ an open immersion.
+	then $f$ is an open immersion.
 	Hence $u_0\colon f^* \left.G_0\right|_{U_0} \to \left.G_0\right|_{V_0}$
 	is an isomorphism. 
 	Then, applying \cref{thm:M4.2.4.3} to $G_U$ a lift of
@@ -946,7 +939,7 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 	Then, as seen in the above remark, for a lifting $G_U$ 
 	of $\left.G_0\right|_{U_0}$ to $U$, we have
 	\begin{equation*}
-		\overline{f}^* \left( E(G_u) \right) =
+		\overline{f}^* \left( E(G_U) \right) =
 		E(G_V) = \mathbb{E} \left( f^* (G_0) \right)_{V_0 \hookrightarrow V}
 	.\end{equation*}
 	As a consequence $f^* \left( \mathbb{E}(G_0) \right) =
@@ -970,8 +963,6 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 	which, for each $\left(U_0 \hookrightarrow U, \gamma\right) \in \mathsf{Crys}(S)$,
 	induce a sheaf $\mathscr{F}_{\left(U_0 \hookrightarrow U, \gamma\right)} \in \mathsf{Gr}_S$
 	and are special, as in \cref{defn:SpecialQCSheavesCrys}
-	(tk: I think this could be a correct interpretation of the concept,
-	though I haven't checked it thoroughly).
 \end{rem}
 
 
@@ -1012,7 +1003,7 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 	\item $\mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
 	\item $\overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = \overline{E(G)}$,
 	\item $\mathbb{D}(G_0)_{S_0 \hookrightarrow S} = 
-		\underline{\mathrm{Lie}}(E(G))$.
+		\mathrm{Lie}(E(G))$.
 \end{enumerate}
 \end{rem}
 \end{document}
