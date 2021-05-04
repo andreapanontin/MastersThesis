@@ -661,7 +661,9 @@ a few results concerned this universal extension.
 Recall that, in \cref{not:GBar}, we introduced the notation
 $\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$,
 for $G \in \mathsf{Gr}_S$.
-\begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]
+
+
+\begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]\label{prop:ExtFLG}
 	Let $G \in \mathsf{BT}(S)$ and $S$ be as before,
 	then $\overline{E(G)}$ is a {\em formal Lie group}.
 \end{prop} 
@@ -671,12 +673,12 @@ for $G \in \mathsf{Gr}_S$.
 	Let $S$ be a scheme where $p$ is locally nilpotent and $G$
 	a Barsotti-Tate group on $S$.
 	Denote by $E(G)$ the universal extension of $G$, then we define
-	$\underline{\mathrm{Lie}}(E(G)) \coloneqq \underline{\mathrm{Lie}}(\overline{E(G)})$.
+	$\mathrm{Lie}(E(G)) \coloneqq \mathrm{Lie}(\overline{E(G)})$.
 \end{defn}
 
 
 \begin{rem}[]
-	Notice than $\underline{\mathrm{Lie}}(E(G))$ is a locally-free
+	Notice than $\mathrm{Lie}(E(G))$ is a locally-free
 	$\mathcal{O}_{ S }$-module of finite rank.
 	%If moreover $p^N$ kills $S$, we know that this actually coincides
 	%with $\underline{\mathrm{Lie}}(E(G) \cross_{ G } G(N))$.
@@ -717,18 +719,22 @@ Let's end with a couple of results, still with the same notation and hypothesis 
 \subsection{Crystals associated to Barsotti-Tate groups}
 Here we can finally use those results to define the desired crystals
 associated to Barsotti-Tate groups.
-Since we will mainly be working with affine schemes,
+Since it will be used quite a lot in the suite,
 we introduce the following notation.
 
 
 \begin{ntt}
-	Let $A$ be a ring, $I \triangleleft A$ an ideal and $S \coloneqq \mathrm{Spec}(A)$.
-	We denote by $\mathbb{V}(I) \coloneqq \mathrm{Spec}(A/I)$,
-	a scheme with a closed immersion $\mathbb{V}(I) \hookrightarrow S$.
+	Let $S$ be a scheme and $\mathcal{I}$ be a quasi-coherent sheaf of
+	ideals of $\mathcal{O}_{ S }$.
+	We write $\mathbb{V}(\mathcal{I})$ to denote the unique
+	closed subscheme of $S$ induced by the sheaf of ideals $\mathcal{I}$.
+	Notice that, in the affine case $S = \mathrm{Spec}(A)$,
+	the sheaf $\mathcal{I}$ corresponds to an ideal $I \triangleleft A$
+	and $\mathbb{V}(I) \simeq \mathrm{Spec}(A/I)$.
 \end{ntt} 
 
 
-\begin{defn}[Locally infinitesimally liftable Barsotti-Tate groups]
+\begin{defn}[Locally infinitesimally liftable Barsotti-Tate groups]\label{defn:LILBTG}
 	Let $S_0$ be a scheme with $p$ locally nilpotent on it.
 	We denote by $\mathsf{BT}'(S_0) \subset \mathsf{BT}(S_0)$ 
 	the full subcategory whose objects satisfy the following property:
@@ -740,6 +746,17 @@ we introduce the following notation.
 	We call the Barsotti-Tate groups in $\mathsf{BT}'(S_0)$
 	{\em locally infinitesimally liftable}.
 \end{defn}
+
+
+\begin{rem}[]\label{rem:LocallyLiftableBTG}
+	Quoting \cite{Messing} in the introduction to his work, it has been shown
+	that the requirements in the above definition are always satisfied by 
+	all objects $G_0 \in \mathsf{BT}(S_0)$.
+	This allows to apply the following results in the most general case,
+	without imposing any additional requirement on the chosen Barsotti-Tate group.
+	(tk: should I keep notation as in Messing, or should I change it to reflect this remark?)	
+\end{rem}
+
 
 
 \begin{thm}[{\cite[Chapter IV, theorem 2.2]{Messing}}]\label{thm:UniqueLiftingCrystals}
@@ -959,7 +976,7 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 		\left\{ \text{Crystals in } \mathsf{Gr}_{T_0} \right\}
 	,\end{tikzcd}
 	\end{equation*}
-	where by ``Crystal in $\mathsf{Gr}_S$" we mean sheaves $\mathscr{F}$ on $\mathsf{Crys}(S)$
+	where by "Crystal in $\mathsf{Gr}_S$" we mean sheaves $\mathscr{F}$ on $\mathsf{Crys}(S)$
 	which, for each $\left(U_0 \hookrightarrow U, \gamma\right) \in \mathsf{Crys}(S)$,
 	induce a sheaf $\mathscr{F}_{\left(U_0 \hookrightarrow U, \gamma\right)} \in \mathsf{Gr}_S$
 	and are special, as in \cref{defn:SpecialQCSheavesCrys}
@@ -984,13 +1001,25 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 		\mathrm{Lie}
 		\left( \overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \right)
 	.\end{equation*}
+
+\item We define the functor $\mathbb{D}^*$, associating to
+	any $G_0 \in \mathsf{BT}'(S_0)$ a crystal in $\mathsf{Gr}_{S_0}$
+	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
+	\begin{equation*}
+		\mathbb{D}^*(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
+		\mathrm{Lie}
+		\left( \overline{\mathbb{E}}(G_0^D)_{\left(U_0 \hookrightarrow U, \delta\right)} \right)
+	,\end{equation*}
+	$\overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)}$, 
+	since it is a formal Lie group by \cref{prop:ExtFLG}, hence a Barsotti-Tate group,
+	for which we previously introduced the notion of duality.
 \end{enumerate}
 \end{defn}
 
 
 \begin{rem}[]
-	It is clear that all functors, $\mathbb{E}, \overline{\mathbb{E}}$ and
-	$\mathbb{D}$ are additive.
+	It is clear that all functors, $\mathbb{E}, \overline{\mathbb{E}}$,
+	$\mathbb{D}$ and $\mathbb{D}^*$ are additive.
 \end{rem}
 
 
@@ -998,12 +1027,217 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 	Let's summarise the above constructions.
 	Consider $S_0 \hookrightarrow S$ a nilpotent divided power immersion.
 	Assume that $G_0 \in \mathsf{BT}(S_0)$ can be lifted to $G \in \mathsf{BT}(S)$.
+	Notice that, by \cref{rem:pDivDualityBaseChange}, $G^D$ will be a lift of $G_0^D$.
 	Then, up to canonical isomorphism, we have
 \begin{enumerate}
 	\item $\mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
 	\item $\overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = \overline{E(G)}$,
 	\item $\mathbb{D}(G_0)_{S_0 \hookrightarrow S} = 
+		\mathrm{Lie}(E(G))$,
+	\item $\mathbb{D}^*(G_0)_{S_0 \hookrightarrow S} = \mathrm{Lie}(E(G^D))$.
+\end{enumerate}
+\end{rem}
+
+
+
+\subsection{Deformation theory}
+
+
+\begin{ntt}
+	Let $S$ be a scheme with $p$ locally nilpotent on it, $\mathcal{I}$
+	be a quasi-coherent ideal of $\mathcal{O}_{ S }$ endowed with locally nilpotent
+	divided powers.
+	Let $S_0 \coloneqq \mathbb{V}(\mathcal{I})$,
+	so that $S_0 \hookrightarrow S$ is an object of the crystalline site of $S_0$.
+	Let's introduce the notation $\mathsf{BT}'(S_0)$ to denote the full subcategory of
+	$\mathsf{BT}(S_0)$ consisting of those $G_0$s which locally (in
+	the Zariski topology) can be lifted to an element $G \in \mathsf{BT}(S)$.
+\end{ntt} 
+
+
+\begin{rem}[]
+	Notice that we used the same notation as in \cref{defn:LILBTG}, but with
+	a different meaning.
+	In fact in this section we will be concerned more with the values crystals
+	assume on specific objects of $\mathsf{Crys}(S)$, like $S_0 \hookrightarrow S$,
+	rather than on the crystals themselves.
+
+	It is worth ending this remark quoting \cref{rem:LocallyLiftableBTG},
+	which states that this assumption is actually not restrictive.
+\end{rem}
+
+
+\begin{ntt}[]
+	Since, as remarked above, we are mainly interested in the values of
+	crystals on a specific object of $\mathsf{Crys}(S_0)$, given
+	by the closed immersion $S_0 \hookrightarrow S$, we introduce the following notation.
+	Let $G_0 \in \mathsf{BT}'(S_0)$ and $\mathscr{F}$ a crystal on $\mathsf{Crys}(S)$,
+	we denote by $\mathscr{F}_S$ the Zariki sheaf
+	$\mathscr{F}_{\left(S_0 \hookrightarrow S, \mathcal{I}\right)}$.
+	In particular, for the crystals defined in the previous section, we have
+\begin{enumerate}
+	\item $\mathbb{E}(G_0)_S \coloneqq \mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
+	\item $\overline{\mathbb{E}}(G_0)_S \coloneqq \overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = 
+		\overline{E(G)}$,
+	\item $\mathbb{D}(G_0)_S \coloneqq \mathbb{D}(G_0)_{S_0 \hookrightarrow S} = 
 		\mathrm{Lie}(E(G))$.
+	\item $\mathbb{D}^*(G_0)_S \coloneqq \mathbb{D}^*(G_0)_{S_0 \hookrightarrow S} = 
+		\mathrm{Lie}(E(G^D))$.
+\end{enumerate}
+\end{ntt}
+
+
+\begin{defn}[Adimissible filtration]
+	Let $G_0 \in \mathsf{BT}(S_0)$.
+	A filtration $\mathrm{Fil}^1 \subset \mathbb{D}(G_0)_S$ is said to be
+	{\em admissible} iff $\mathrm{Fil}^1$ is a locally-free vector subgroup
+	with locally free quotient which, on $S_0$, reduces to
+	(the morphisms of sheaves on $S_0$ associated to)
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\underline{V}(G_0) \arrow[r, "", hookrightarrow] &
+		\underline{\mathrm{Lie}}(E(G_0))
+	.\end{tikzcd}
+	\end{equation*} 
+\end{defn}
+
+
+tk: the following notation is non standard. Is it okay?
+\begin{defn}[]
+	Let's fix $S_0 \hookrightarrow S$ as before.
+	We define the category $\mathsf{BF}(S_0)$ whose objects
+	are pairs $(G_0, \mathrm{Fil}^1)$, where $G_0 \in \mathsf{BT}(S_0)$
+	and $\mathrm{Fil}^1$ is an {\em admissible} filtration on
+	$\mathbb{D}(G_0)_S$ and whose morphisms are defined to be
+	pairs $(u_0, \xi)$, where $u_0\colon G_0 \to H_0$
+	and $\xi$ is a morphism of filtered objects, i.e. a commutative diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		\mathrm{Fil}^1 \arrow[d, "\xi"', rightarrow] 
+		\arrow[r, "", hookrightarrow] &
+		\mathbb{D}(G_0)_S 
+		\arrow[d, "\mathbb{D}(u_0)_S", rightarrow] \\
+		\mathrm{Fil}^1 \arrow[r, "", hookrightarrow] &
+		\mathbb{D}(H_0)_S
+	\end{tikzcd}
+	\end{equation*}
+	which, on $S_0$, reduces to
+	\begin{equation*}
+	\begin{tikzcd}
+		\underline{V}(G_0) \arrow[r, "", hookrightarrow] 
+		\arrow[d, "\underline{V}(u_0)_{S_0}"', rightarrow] &
+		\underline{\mathrm{Lie}}(E(G_0))
+		\arrow[d, "\mathrm{Lie}(E(u_0))", rightarrow] \\
+		\underline{V}(H_0) \arrow[r, "", hookrightarrow] &
+		\underline{\mathrm{Lie}}(E(H_0))
+	\end{tikzcd}
+	\end{equation*}
+	(or more consistently to the associated Zariski sheaves on $S_0$
+	and $H_0$ respectively).
+\end{defn}
+
+
+\noindent
+This definition allows to state the following theorem:
+\begin{thm}[{\cite[Chapter V, theorem 1.6]{Messing}}]\label{thm:EquivCatBTS}
+	Let $S \hookrightarrow S_0$ as before.
+	The following functor defines an equivalence of categories
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathsf{BT}(S) \arrow[r, "", rightarrow] &
+		\mathsf{BF}(S_0) \\
+		G \arrow[r, "", mapsto] & 
+		\left(G_0, \underline{V}(G) \hookrightarrow \underline{\mathrm{Lie}}(E(G))\right)
+	,\end{tikzcd}
+	\end{equation*} 
+	where we denoted by $G_0$ the restriction of $G$ to $S_0$
+	and we recall that $\mathbb{D}(G_0)_S = \underline{\mathrm{Lie}}(E(G))$.
+\end{thm}
+
+
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+	\item Let $G_0$ be $\mathsf{BT}'(S_0)$.
+		We define, on $S$, a Zariski sheaf of sets, denoted by $\mathscr{L}$,
+		as follows.
+		Let $U \subset S$ be an affine open subscheme of $S$.
+		We define $\Gamma(U,\mathscr{L})$ to be the set of all linearly compatible prolongations,
+		as in \cref{defn:LinCompProlong}, of
+		\begin{equation*}
+		\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+			\left.\underline{V}(G_0)\right|_{U_0} \arrow[r, "", hookrightarrow] &
+			\left.E(G_0)\right|_{U_0}
+		\end{tikzcd}
+		\end{equation*} 
+		to a vector subgroup $V' \hookrightarrow \left.\mathbb{E}(G_0)_S\right|_{U}$
+		(more precisely the corresponding morphism between the associated
+		fppf sheaves, as in \cref{defn:fppfSheafAssociatedtoMod}).
+		Clearly this defines a sheaf on the affine open subsets of $S$.
+		Since these form a basis for the topology of $S$, the definition
+		can be extended to a sheaf on $S$.
+
+	\item By construction of $\mathbb{E}(G_0)_S$ we can construct a canonical
+		section $\Theta \in \Gamma(S, \mathscr{L})$.
+		By sheaf properties it is enough to define it on sufficiently small
+		affine open subschemes $U$ of $S$ and then check compatibility of all
+		these sections.
+		In particular we assume that $U$ is affine and $p$ is nilpotent on $U$.
+		Then, we define $\left.\Theta\right|_{ U }$ to be the equivalence class
+		of $\underline{V}(G)$, where $G$ is any lifting of $\left.G_0\right|_{ U_0 }$
+		to $U$.
+		In order to check compatibility we pick $U_1$, $U_2$, $G_1$ and $G_2$
+		as above and $V \subset U_1 \cap U_2$ affine
+		with $p$ nilpotent on it.
+		Then we require that the restriction to $V$ of the two liftings,
+		which we still denote by $G_1$ and $G_2$, lie in the same equivalence class.
+		Here we can apply \cref{prop:MorUnivExts} and obtain the following
+		square
+		\begin{equation*}
+		\begin{tikzcd}
+			\underline{V}(G_1) \arrow[r, "j", hookrightarrow] 
+			\arrow[d, "w", rightarrow] &
+			E(G_1) \arrow[d, "v", rightarrow] \\
+			\underline{V}(G_1) \arrow[r, "i", hookrightarrow] &
+			E(G_2)
+		,\end{tikzcd}
+		\end{equation*}
+		where $i \circ w - v \circ j$ is an exponential.
+		Since $\left.\mathbb{E}(G_0)_S\right|_{ V } = E(G_2)$,
+		this is exactly the requirement of \cref{defn:LinCompProlong} 
+		to state that the two liftings lie in the same equivalence class.
+
+	\item If $G$ is a global lifting of $G_0$, then we have the canonical isomorphism
+		$E(G) \simeq \mathbb{E}(G_0)_S$.
+		Hence $\underline{V}(G)$ gives an element $\Theta \in \Gamma(S,\mathscr{L})$,
+		i.e. a distinguished vector subgroup in the linear equivalence
+		class of prolongations of $\underline{V}(G_0)$.
+
+	\item Notice that, by \cref{prop:equivClassFiltration}, the datum of 
+		$V \subset \mathbb{E}(G_0)_S$ which belongs to $\Theta$ is
+		equivalent to the datum of an {\em admissible} filtration
+		$\mathrm{Fil}^1 \hookrightarrow \mathbb{D}(G_0)_S$.
+		In particular the knowledge of the map
+		$\underline{V}(G) \hookrightarrow \mathbb{E}(G_0)_S$, for $G$ a global
+		lifting of $G_0$, is equivalent to the knowledge of
+		$\underline{V}(G) \hookrightarrow \mathbb{D}(G_0)_S$.
+		Finally, from the definition of universal extension
+		and of the crystal $\mathbb{E}(G_0)$, we can reconstruct 
+		\begin{equation*}
+			G \simeq \mathbb{E}(G_0)_S/\underline{V}(G)
+		.\end{equation*}
+		Essentially the above, modulo checking that the quotient is
+		a Barsotti-Tate group (verification which is carried out in
+		\cite[Chapter V, theorem 1.6]{Messing}), states that from 
+		the datum of an admissible filtration of $\mathbb{D}(G_0)_S$
+		one can recover the global lifting $G$ of $G_0$.
+		This is indeed the basis used to construct the quasi-inverse
+		to the functor of \cref{thm:EquivCatBTS}.
 \end{enumerate}
 \end{rem}
 \end{document}
