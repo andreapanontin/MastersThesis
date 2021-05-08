@@ -1,0 +1,205 @@
+\documentclass[../Main]{subfiles}
+\begin{document}
+\section{Classification of \texorpdfstring{$p$}{p}-divisible groups
+	over \texorpdfstring{$\mathcal{O}_{ K }$}{the ring of integers of K}}
+This section will follow \cite[Appendix A]{Kisin}.
+We fix $k$ a perfect field of characteristic $p$,
+$W \coloneqq W(k)$ its ring of Witt vectors, $K_0 \coloneqq W[1/p]$
+its field of fractions and $K/K_0$ a finite totally ramified extension.
+Fix now a uniformizer $\pi$ of $K$ with (Eisenstein) minimal polynomial
+$E(u) \in K_0[u]$.
+
+
+The formation of $\mathbb{D}(G)$ and of $\mathbb{D}^*(G)$ is compatible
+with all base changes (tk: why?).
+In particular, if $p = 0$ on $T$ we can pull $G$ back by the Frobenius $\varphi$ on $T$.
+Then the relative Frobenius on $G$ gives a map $G \to \varphi^*(G)$
+hence a map of crystals
+\begin{equation*}
+\begin{tikzcd}
+	\varphi^* (\mathbb{D}(G)) \arrow[r, "\sim", rightarrow] &
+	\mathbb{D}(\varphi^*(G)) \arrow[r, "", rightarrow] &
+	\mathbb{D}(G)
+.\end{tikzcd}
+\end{equation*}
+
+
+\begin{rem}[]
+	Suppose that $T_0$ is a scheme over $W$ and that $p = 0$ on $T_0$.
+	Consider $G_0 \in \mathsf{BT}(S_0)$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
+	an object on which $p$ is locally nilpotent, and $G$ a lifting of $G_0$ to $T$.
+	By construction of $\mathbb{D}$ we have an isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}(G_0)(T) \arrow[r, "\sim", rightarrow] &
+		\mathbb{D}(G)(T)
+	.\end{tikzcd}
+	\end{equation*} 
+	Moreover the $\mathcal{O}_{ T }$-module $\mathbb{D}(G)(T)$ sits in an exact sequence
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\left( \mathrm{Lie}(G) \right)^D \arrow[r, "", rightarrow] &
+		\mathbb{D}(G)(T) \arrow[r, "", rightarrow] &
+		\mathrm{Lie}(G^D) \arrow[r, "", rightarrow] &
+		0
+	.\end{tikzcd}
+	\end{equation*}
+	Finally, if $T = \mathrm{Spec}(A)$, we introduce the notation
+	$\mathbb{D}(G)(A)$ for $\mathbb{D}(G)(T)$.
+\end{rem}
+
+
+\begin{lem}[{\cite[Lemma A.2]{Kisin}}]
+	Let $S \to A_0$ be a surjection of $p$-adically complete
+	and separated local $\mathbb{Z}_{p}$-algebras with residue field
+	$k$ and kernel $\mathrm{Fil}^1 A$ equipped with divided powers.
+	Suppose moreover that
+\begin{enumerate}
+	\item $A$ is a $p$-torsion-free and it is equipped with an endomorphism
+		$\varphi\colon A \to A$ lifting the Frobenius on $A/pA$;
+		
+	\item the following map, induced on the pullback, is surjective
+		\begin{equation*}
+		\begin{tikzcd}
+			1 \otimes \varphi/p \colon
+			\varphi^*(\mathrm{Fil}^1 A)
+			\arrow[r, "", twoheadrightarrow] &
+			A
+		.\end{tikzcd}
+		\end{equation*}
+\end{enumerate}
+	If $G \in \mathsf{BT}(A_0)$ we write $\mathrm{Fil}^1 \mathbb{D}(G)(A) \subset \mathbb{D}(G)(A)$
+	for the preimage of $\left( \mathrm{Lie}(G) \right)^D \subset \mathbb{D}(G)(A_0)$.
+	Then the restriction of $\varphi\colon \mathbb{D}(G)(A) \to \mathbb{D}(G)(A)$
+	to $\mathrm{Fil}^1 \mathbb{D}(G)(A)$ is divisible by $p$ and the following induced map
+	is a surjection
+	\begin{equation*}
+	\begin{tikzcd}
+		1 \otimes \varphi/p \colon
+		\varphi^*\mathrm{Fil}^1 \mathbb{D}(G)(A)
+		\arrow[r, "", twoheadrightarrow] &
+		\mathbb{D}(G)(A)
+	.\end{tikzcd}
+	\end{equation*}
+\end{lem} 
+
+
+\begin{defn}[Special ring]
+	We define a {\em special ring} to be a $p$-adically complete, separated, $p$-torsion-free,
+	local $\mathbb{Z}_{p}$-algebra $A$ equipped with an endomorphism $\varphi$
+	lifting the Frobenius on $A/pA$.
+	Moreover we call {\em map of special rings} a morphism
+	of $\mathbb{Z}_{p}$-algebras compatible with $\varphi$.
+\end{defn}
+
+
+\begin{defn}[]
+	Let $A$ be a special ring. We define the category
+	$\mathsf{C}_A$ whose objects are finite, free $A$-modules
+	$M$ equipped with a semilinear Frobenius map $\varphi\colon M \to M$
+	and an $A$-submodule $M_1 \subset M$ such that $\varphi(M_1) \subset pM$
+	and such that the map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{id}_{ Atk? }\otimes\varphi/p\colon 
+		\varphi^*(M_1) \arrow[r, "", twoheadrightarrow] &
+		M
+	\end{tikzcd}
+	\end{equation*} 
+	is surjective.
+	tk: Its morphisms are morphisms of $A$-modules compatible with
+	the Frobenius and with the submodule $M_1$.
+\end{defn}
+
+
+\begin{defn}[]
+	Consider a map of special rings $A \to B$ and $M \in \mathsf{C}_A$.
+	Then $M \otimes_A B \in \mathsf{C}_B$, when equipped with
+	the induced Frobenius (tk: what is it?) and setting
+	$\left( M \otimes_A B \right)_1$ to be the image of
+	$M_1 \otimes_A B$ in $M \otimes_A B$.
+\end{defn}
+
+
+\begin{lem}[{\cite[Lemma A.4]{Kisin}}]
+	Let $h\colon A \to B$ be a surjection of special rings with kernel $J$.
+	Suppose that, for all $i \geq 1$, $\varphi^i(J) \subset p^{i + j_i} J$,
+	where $\left\{ j_i \right\}_{i \geq 1}$ is a sequence of integers
+	such that $lim_{i \to \infty} j_i = \infty$.
+	Consider $M, M' \in \mathsf{C}_A$ and
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta_B\colon M \otimes_A B 
+		\arrow[r, "\sim", rightarrow] &
+		M' \otimes_A B
+	\end{tikzcd}
+	\end{equation*} 
+	an isomorphism in $\mathsf{C}_B$.
+	Then there exists a unique isomorphism of $A$-modules
+	$\theta_A\colon M \to M'$ lifting $\theta_B$ and compatible with $\varphi$.
+\end{lem} 
+
+
+\noindent
+We will apply the above lemma in the situation where $J$ is equipped
+with divided powers structure and there exists a finite set of elements $x_1, \ldots, x_n \in J$
+such that $J$, in the $p$-adic topology, is topologically generated by 
+the $x_i$ and their divided powers.
+Assume moreover that $\varphi(x_i) = x_1^p$ and that the integers
+$j_i$ above are $v_p \left( (p-1)! \right) - 1$.
+Denote by $S$ the $p$-adic completion of the divided powers envelope
+of $W[u]$ with respect to the ideal generated by $E(u)$.
+The ring $S$ is equipped with an endomorphism $\varphi$ given by the Frobenius
+on $W$ and by $\varphi(u) \coloneqq u^p$.
+We denote by $\mathrm{Fil}^1 S \subset S$ the closure of the ideal
+generated by $E(u)$ and its divided powers.
+Since $\varphi( \mathrm{Fil}^1 S) \subset p S$ we set $\varphi_1 \coloneqq \varphi/p$.
+
+\begin{defn}[]
+	We denote by $\mathsf{BT}^{\varphi}_{/S}$ the category
+	whose objects are finite free $S$-modules $M$
+	equipped with an $S$-submodule $\mathrm{Fil}^1 M$
+	and a $\varphi$-semilinear map $\varphi\colon  \mathrm{Fil}^1 M \to M$
+	such that
+\begin{enumerate}
+	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
+		and the quotient $M/\mathrm{Fil}^1 M$ is a free $\mathcal{O}_{ K }$-module;
+	\item the map $\mathrm{id}_{ tk } \otimes \varphi_1\colon 
+		\varphi^* \left( \mathrm{Fil}^1 M \right) \to M$
+		is surjective.
+\end{enumerate}
+\end{defn}
+
+
+\noindent
+Notice that any $M \in \mathsf{BT}^{\varphi}_{/S}$ is equipped with a Frobenius
+semilinear map $\varphi\colon M \to M$ defined by
+\begin{equation*}
+	\varphi (x) \coloneqq \varphi_1 \left( E(u) \right)^{-1} \varphi_1 (E(u)x)
+.\end{equation*}
+
+
+\begin{prop}[{\cite[Proposition A.6]{Kisin}}]
+	There is an exact contravariant functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathsf{BT}_{\mathcal{O}_{ K }} \arrow[r, "", rightarrow] &
+		\mathsf{BT}^{\varphi}_{/S} \\
+		G \arrow[r, "", mapsto] & 
+		\mathbb{D}(G)(S)
+	.\end{tikzcd}
+	\end{equation*} 
+	If $p > 2$ this functor is an anti equivalence,
+	whereas if $p = 2$ it induces an anti-equivalence of the 
+	corresponding isogeny categories.
+\end{prop}
+\end{document}

@@ -300,25 +300,6 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 
 
 \noindent
-As one could expect from topological spaces, we have the following result:
-\begin{prop}[{\cite[\href{https://stacks.math.columbia.edu/tag/00WH}{Proposition 00WH}]{SP}}]
-	Let $\mathsf{C}$ be a site and $F \in \mathsf{PSh}(\mathsf{C})$.
-	There is a sheaf $F^\# \in \mathsf{Sh}(\mathsf{C})$, with a morphism of presheaves
-	$F \to F^\#$ satisfying the following universal property:
-	for all maps of presheaves $F \to G$, where $G \in \mathsf{Sh}\left(\mathsf{C}\right)$,
-	there is a unique map $F^\# \to G$ such that $F \to F^\# \to G$
-	equals the given map.
-\end{prop}
-
-
-\begin{rem}[]
-	Since the construction of $F^\#$ is interesting in its own right, 
-	one can check it out at
-	\cite[\href{https://stacks.math.columbia.edu/tag/00W1}{Section 00W1}]{SP}.
-\end{rem}
-
-
-\noindent
 Before stating the main result of this section, let's notice
 a simple fact:
 \begin{rem}[]
@@ -338,7 +319,7 @@ Finally we can state a very important result due to Grothendieck:
 
 
 
-\subsection{Morphisms of sites}
+\subsection{Morphisms of topoi}
 The main objects of our future studies will be sheaves on
 $\mathsf{Sch}_{ S }$ taken with the fppf topology.
 Since we will often be concerned with change of basis, i.e. pullbacks,
@@ -422,7 +403,7 @@ of fibered product in the representable case.
 \end{lem} 
 
 
-\begin{defn}[Localization]
+\begin{defn}[Localization]\label{defn:localizationTopoi}
 	Let $\mathsf{C}$ be a site and $U \in \mathsf{C}$.
 \begin{enumerate}
 	\item We call the site $\mathsf{C}/U$ the {\em localization}
@@ -437,111 +418,17 @@ of fibered product in the representable case.
 \end{defn}
 
 
-\begin{defn}[]
-	Let $\mathsf{C}$ and $\mathsf{D}$ be categories and $u\colon \mathsf{C} \to \mathsf{D}$
-	be a functor.
-	We define the functor
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		u^p\colon \mathsf{PSh}\left( \mathsf{D} \right) \arrow[r, "", rightarrow] &
-		\mathsf{PSh}\left( \mathsf{C} \right) \\
-		F \arrow[r, "", mapsto] & 
-		F \circ u
-	.\end{tikzcd}
-	\end{equation*} 
-\end{defn}
-
-
-\begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00VE}{Lemma 00VE}]{SP}}]
-	The functor $u^p$ admits a left adjoint, which we denote by $u_p$.
-	For more details on its construction see 
-	\cite[\href{https://stacks.math.columbia.edu/tag/00VC}{Section 00VC}]{SP}.
-\end{rem}
-
-
-\begin{defn}[Continuous functors]
-	Let $\mathsf{C}$ and $\mathsf{D}$ be two sites we say that a
-	functor $u\colon \mathsf{C} \to \mathsf{D}$ is {\em continuous}
-	iff, for every covering $\left\{ V_{ i } \to V \right\}_{ i \in I }$ in $\mathsf{C}$
-	we have
+\begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/03I4}{Lemma 03I4}]{SP}}]
+	Let $g\colon S \to S'$ be a morphism in $\mathsf{Sch}_{  }$, viewed
+	as a site with the fppf topology.
+	Let $j\colon \mathsf{Sch}_{ S } \to \mathsf{Sch}_{ S' }$ be the corresponding
+	localization functor, where both categories are taken with the fppf topology.
+	Then, for $F'$ a sheaf of sets on $\mathsf{Sch}_{ S' }$, we have
 \begin{enumerate}
-	\item $\left\{ u(V_{ i }) \to u(V) \right\}_{ i \in I }$ is a covering in $\mathsf{D}$ and
-	\item for any morphism $T \to V$ in $\mathsf{C}$, the following is an isomorphism
-		\begin{equation*}
-		\begin{tikzcd}[row sep = 0ex
-			,/tikz/column 1/.append style={anchor=base east}
-			,/tikz/column 2/.append style={anchor=base west}]
-			u(T \cross_{ V } V_i) \arrow[r, "\sim", rightarrow] &
-			u(T) \cross_{u(V)} u(V_i)
-		.\end{tikzcd}
-		\end{equation*} 
+	\item $j^* F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}_{ S }$,
+		where $T/S'$ means that we view $T$ as an element of $\mathsf{Sch}_{ S' }$;
+	\item if $F'$ is representable by $X' \in \mathsf{Sch}_{ S' }$,
+		then $j^*$ is representable by $X'_S \coloneqq X' \cross_{ S } S$.
 \end{enumerate}
-\end{defn}
-
-
-\begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00WW}{Lemma 00WW}]{SP}}]
-	Let $\mathsf{C}$ and $\mathsf{D}$ be sites.
-	Let $u\colon \mathsf{C} \to \mathsf{D}$ be a continuous functor between them
-	and $F$ a sheaf on $\mathsf{D}$.
-	Then $u^pF$ is a sheaf on $\mathsf{C}$.
-\end{lem}
-
-
-\begin{ntt}[]
-	To avoid confusion we denote by $u^s$ the restriction of $u^p$ to $\mathsf{Sh}(\mathsf{C})$.
-\end{ntt}
-
-
-\begin{defn}[]
-	Given $\mathsf{C}$, $\mathsf{D}$ and $u$ as before, we define the following
-	functor
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		u_s\colon \mathsf{Sh}\left(\mathsf{C}\right) \arrow[r, "", rightarrow] &
-		\mathsf{Sh}\left(\mathsf{D}\right) \\
-		G \arrow[r, "", mapsto] & \left( u_p G \right)^\#
-	.\end{tikzcd}
-	\end{equation*} 
-\end{defn}
-
-
-\begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00WX}{Lemma 00WX}]{SP}}]
-	Given $\mathsf{C}, \mathsf{D}$ and $u$ as before,
-	$u_s$ is left adjoint to $u^s$.
-\end{rem}
-
-
-\begin{defn}[Morphism of sites]
-	Let $\mathsf{C}$ and $\mathsf{D}$ be sites.
-	A {\em morphism of sites} is a continuous functor $f\colon \mathsf{C} \to \mathsf{D}$
-	such that $u_s$ is {\em exact}. 
-	In this case we call $f^* \coloneqq u_s$ the {\em pullback functor}
-	and $f_* \coloneqq u^s$ the {\em pushforward functor}.
-\end{defn}
-
-\begin{rem}[]
-	As remarked above, and like in the case of topological spaces, we have the adjunction
-	\begin{equation*}
-		\mathrm{Hom}_{\mathsf{Sh}(\mathsf{D})} \left( f^* G, F \right) \simeq
-		\mathrm{Hom}_{\mathsf{Sh}(\mathsf{C})} \left( G, f_* F \right) 
-	.\end{equation*}
-\end{rem}
-
-
-\begin{ex}[{\cite[\href{https://stacks.math.columbia.edu/tag/00X2}{Example 00X2}]{SP}}]
-	In the case of $X$ and $Y$ topological spaces, any continuous map
-	$f\colon X \to Y$ induces a functor $u\colon \mathsf{Op}(Y) \to \mathsf{Op}(X)$
-	given by $u(V) \coloneqq f^{-1}(V)$.
-	Giving the site structure of the topological space to $\mathsf{Op}(X)$ (and $Y$)
-	we see that $u$ is a continuous functor and that $u^s$ coincides with the
-	usual pushforward functor on sheaves on topological spaces.
-	Then by adjointness the pullback is isomorphism to $u_s$ which, as a consequence,
-	is exact.
-	All in all this grants that $u$ is a morphism of sites and that it carries the
-	information we were used to from topology.
-\end{ex}
+\end{lem} 
 \end{document}
