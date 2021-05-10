@@ -418,6 +418,17 @@ of fibered product in the representable case.
 \end{defn}
 
 
+\begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00XZ}{Section 00XZ}]{SP}}]
+	Let $\mathsf{C}$ and $U$ be as before.
+	For all $F \in \mathsf{Sh}\left(\mathsf{C}\right)$, the value of $j_U^*F$
+	is given by
+	\begin{equation*}
+		j_U^*F(X/U) = F(X)
+	,\end{equation*}
+	where $X/U$ denotes any object $X \to U \in \mathsf{C}/U$.
+\end{rem}
+
+
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/03I4}{Lemma 03I4}]{SP}}]
 	Let $g\colon S \to S'$ be a morphism in $\mathsf{Sch}_{  }$, viewed
 	as a site with the fppf topology.
@@ -426,9 +437,10 @@ of fibered product in the representable case.
 	Then, for $F'$ a sheaf of sets on $\mathsf{Sch}_{ S' }$, we have
 \begin{enumerate}
 	\item $j^* F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}_{ S }$,
-		where $T/S'$ means that we view $T$ as an element of $\mathsf{Sch}_{ S' }$;
+		where $T/S'$ means that we view $T$ as an element of $\mathsf{Sch}_{ S' }$
+		via $g$;
 	\item if $F'$ is representable by $X' \in \mathsf{Sch}_{ S' }$,
-		then $j^*$ is representable by $X'_S \coloneqq X' \cross_{ S } S$.
+		then $j^*F'$ is representable by $X'_S \coloneqq X' \cross_{ S' } S$.
 \end{enumerate}
 \end{lem} 
 \end{document}

@@ -152,7 +152,7 @@ which allows to make sense of expressions like $x^n/n!$.
 \end{defn}
 
 
-\begin{defn}[]
+\begin{defn}[]\label{RingExtendingDivPowers}
 	Given a divided power ring $\left(A, I, \gamma\right)$ and
 	a ring homomorphism $f\colon A \to B$, we say that
 	$\gamma$ extends to $B$ iff there exists a divided powers
@@ -317,7 +317,7 @@ inverse maps, of which we will construct some generalizations later on.
 	a structure of divided power ring to $A_{\mathfrak{p}}$ for all
 	$\mathfrak{p} \in \mathrm{Spec}(A) \eqqcolon S$, since localization is a flat morphism.
 	Moreover these structures are all compatible with localization, by construction.
-	This pushes us to give a structure of divided powers to the structure
+	This pushes us to expand the notion of divided powers to the
 	sheaf $\mathcal{O}_{ S }$.
 	Actually one can be even more general, giving the following definition.
 \end{rem}
@@ -333,8 +333,8 @@ inverse maps, of which we will construct some generalizations later on.
 	%$I$ by a quasi-coherent sheaf of ideals $\mathcal{I}$ of $\mathcal{O}_S$ and
 	%$M$ by a quasi-coherent $\mathcal{O}_S$-module.
 	A {\em system of divided powers} on $\mathcal{I}$ is the data,
-	for all $U \subset S$ open, of a system of divided powers of
-	$\Gamma(U,\mathcal{I})$ in which restriction maps
+	for all $U \subset S$ open, of a system of divided powers $\gamma(U)$ 
+	of $\Gamma(U,\mathcal{I})$ in which restriction maps
 	are given by morphisms of divided power rings.
 	Then we will call one triple $\left(S, \mathcal{I}, \gamma\right)$
 	a {\em scheme with divided powers}.
@@ -357,12 +357,24 @@ inverse maps, of which we will construct some generalizations later on.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		f^\#(U')\colon 
-		\left(\mathcal{O}_{S'}(U'), \mathcal{I}'(U'), \gamma'\right)
+		\left(\mathcal{O}_{S'}(U'), \mathcal{I}'(U'), \gamma'(U')\right)
 		\arrow[r, "", rightarrow] &
-		\left(\mathcal{O}_{ S }(f^{-1}U'), \mathcal{I}(f^{-1}U'), \gamma\right)
+		\left(\mathcal{O}_{ S }(f^{-1}U'), \mathcal{I}(f^{-1}U'), \gamma(f^{-1}U')\right)
 	\end{tikzcd}
 	\end{equation*} 
 	is a morphism of divided powers rings.
+%	Consider now a morphism of schemes
+%	$f\colon T \to S$, where $\left(S, \mathcal{I}, \gamma\right)$ is
+%	a scheme with divided powers.
+%	We say that the divided powers of $S$ {\em extend} to $T$ iff,
+%	for all $U \subset T$ open, the divided powers on 
+%	$f^*\mathcal{I}(U)$, given by $f^*\gamma(U)$, extend to
+%	$\mathcal{O}_{ T }(U)$ in the sense of \cref{RingExtendingDivPowers},
+%	i.e. they extend to $\left( f^*\mathcal{I}(U) \right)\mathcal{O}_{ T }(U)$.
+%	Analogously, given a sheaf of ideals $\mathcal{J}$ of $\mathcal{O}_{ T }$,
+%	we say that divided powers on $S$ {\em extend to $J$} iff the above
+%	condition holds replacing $\left( f^*\mathcal{I}(U) \right)\mathcal{O}_{ T }(U)$
+%	with $\mathcal{J}$.
 \end{defn}
 
 
@@ -1076,17 +1088,23 @@ some meaning to our objects.
 	We say that a scheme $X'$ is a {\em thickening} of $X$ iff
 	$X$ is a closed subscheme of $X'$ and their underlying topological
 	spaces are equal.
+	More generally, given a scheme $S$ and $X, X' \in \mathsf{Sch}_{ S }$,
+	we say that $X'$ is a {\em thickening of $X$ over} $S$ iff
+	the closed immersion $X \hookrightarrow X'$ is a morphism over $S$.
 \end{defn}
 
 
 \begin{rem}[]\label{rem:thickeningIdeal}
-	In our case the closed embedding $f\colon X \to X'$ gives a homeomorphism
+	For thickenings, the closed embedding $f\colon X \to X'$ gives a homeomorphism
 	of the underlying topological spaces.
-	Recall, moreover, that closed immersions $X \hookrightarrow X'$ are in one to
-	one correspondence with quasi-coherent sheaves of ideals
+	Recall, moreover, that closed immersions $X \hookrightarrow X'$ in $\mathsf{Sch}_{  }$
+	are in one to one correspondence with quasi-coherent sheaves of ideals
 	$\mathcal{I}$ of $\mathcal{O}_{ X' }$, see
 	\cite[\href{https://stacks.math.columbia.edu/tag/01QN}{Section 01QN}]{SP}
 	for more details.
+	More in general, to a closed immersion $X \hookrightarrow X'$ in
+	$\mathsf{Sch}_{ S }$, one can associate a quasi-coherent sheaf of ideals
+	$\mathcal{I}$ of $\mathcal{O}_{ X' }$.
 	Then the ideal associated to a thickening $X'$ of $X$ 
 	is {\em locally nilpotent}.
 	Moreover, if the ideal sheaf $\mathcal{I}$ associated to the thickening
@@ -1109,20 +1127,42 @@ some meaning to our objects.
 	Thanks to \cref{rem:thickeningIdeal}, the datum of a
 	divided powers thickening of $U$ is equivalent to the datum of
 	a scheme $T$ with divided powers, i.e.
-	$\left(T, \mathcal{I}, \gamma\right)$, as in \cref{defn:DividedPowersSheaf},
-	in which $\mathcal{I}$ is a locally nilpotent sheaf of ideals
+	$\left(T, \mathcal{J}, \delta\right)$, as in \cref{defn:DividedPowersSheaf},
+	in which $\mathcal{J}$ is a locally nilpotent sheaf of ideals
 	and is associated to the closed immersion $U \hookrightarrow T$.
 \end{rem}
 
 
-\begin{defn}[Crystalline site on $X$]
-	The crystalline site on $X$, denoted by $\mathsf{Crys}(X)$,
-	is given as follows.
-	The objects of $\mathsf{Crys}(X)$ are
-	divided powers thickenings $\left(U \hookrightarrow T, \delta\right)$
-	with an open immersion $U \hookrightarrow X$.
+\begin{defn}[Relative divided powers]
+	Consider a base scheme with divided powers
+	$\left(S, \mathcal{I}, \gamma\right)$, and a divided powers
+	scheme $\left(T, \mathcal{J}, \delta\right)$.
+	We call it 
+\begin{enumerate}
+	\item a {\em divided powers scheme over $\left(S, \mathcal{I}, \gamma\right)$}
+		iff it is given with a morphism of divided powers $T \to S$;
+
+	\item a {\em divided powers thickening over $\left(S, \mathcal{I}, \gamma\right)$}
+		iff it is a divided powers thickening endowed
+		with a morphism of divided powers schemes $T \to S$.
+\end{enumerate}
+	If the divided powers of $S$ are clear from context we will
+	simply write divided powers scheme (resp$.$ thickening) over $S$.
+\end{defn}
+
+
+\begin{defn}[Crystalline site on $X$ over $\left(S, \mathcal{I}, \gamma\right)$]
+	Let $\left(S, \mathcal{I}, \gamma\right)$ be a divided powers base scheme
+	and $X \in \mathsf{Sch}_{ S }$.
+	The {\em crystalline site} on $X$ over $\left(S, \mathcal{I}, \gamma\right)$,
+	denoted by $\mathsf{Crys}(X/S, \mathcal{I}, \gamma)$ or simply
+	$\mathsf{Crys}(X/S)$ if the divided powers structure of $S$ 
+	is clear from context, is given as follows.
+	The objects of $\mathsf{Crys}(X/S)$ are
+	divided powers thickenings $\left(U \hookrightarrow T, \delta\right)$ over $S$
+	with an open immersion $U \hookrightarrow X$ of $S$-schemes.
 	Morphisms in $\mathsf{Crys}(X)$, thanks to \cref{rem:EquivPDThickening},
-	are just morphism of schemes with divided powers.
+	are just morphism of $S$-schemes with divided powers.
 	More explicitly, a morphism $f\colon \left(U \hookrightarrow T, \gamma\right)
 	\to \left(U' \hookrightarrow T', \delta\right)$ is given by a commutative
 	diagram
@@ -1135,7 +1175,7 @@ some meaning to our objects.
 	,\end{tikzcd}
 	\end{equation}
 	such that $U \hookrightarrow U'$ is an open immersion (corresponds to
-	an inclusion of open subschemes of $X$) and
+	an inclusion of open $S$-subschemes of $X$) and
 	$\overline{f}\colon T \to T'$ is a divided powers morphism.
 	Finally we endow this category with the pretopology induced by the
 	Zariski topology.
@@ -1154,6 +1194,17 @@ some meaning to our objects.
 	Then, since $U_i$ and $T_i$ have the same underlying topological space,
 	we also obtain that $\cup_{i \in I} U_i = U$ as sets.
 \end{defn}
+
+
+\begin{ntt}[]
+	In case we consider the base scheme $S = \mathrm{Spec}(\mathbb{Z})$
+	with trivial divided powers (given by the zero sheaf of ideals),
+	we obtain the category $\mathsf{Crys}(X/S)$, which
+	we simply denote by $\mathsf{Crys}(X)$ since there is no
+	restriction imposed by $S$.
+	The following constructions are carried out over $\mathbb{Z}$ to
+	keep notation cleaner, but can be generalized to the case $\mathsf{Crys}(X/S)$.
+\end{ntt}
 
 
 \begin{rem}[Sheaves on the crystalline site on $X$]\label{rem:SheavesCrysX}

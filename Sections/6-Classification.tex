@@ -10,45 +10,68 @@ Fix now a uniformizer $\pi$ of $K$ with (Eisenstein) minimal polynomial
 $E(u) \in K_0[u]$.
 
 
-The formation of $\mathbb{D}(G)$ and of $\mathbb{D}^*(G)$ is compatible
-with all base changes (tk: why?).
-In particular, if $p = 0$ on $T$ we can pull $G$ back by the Frobenius $\varphi$ on $T$.
-Then the relative Frobenius on $G$ gives a map $G \to \varphi^*(G)$
-hence a map of crystals
-\begin{equation*}
-\begin{tikzcd}
-	\varphi^* (\mathbb{D}(G)) \arrow[r, "\sim", rightarrow] &
-	\mathbb{D}(\varphi^*(G)) \arrow[r, "", rightarrow] &
-	\mathbb{D}(G)
-.\end{tikzcd}
-\end{equation*}
+\begin{rem}[]
+	The formation of $\mathbb{D}(G)$ and of $\mathbb{D}^*(G)$ is compatible
+	with all base changes. %(tk: why?).
+	In particular, if $p = 0$ on $T$ we can pull $G$ back by the Frobenius $\varphi$ on $T$.
+	Then the relative Frobenius on $G$ gives a map $G \to \varphi^*(G)$
+	hence a map of crystals
+	\begin{equation*}
+	\begin{tikzcd}
+		\varphi^* (\mathbb{D}^*(G)) \arrow[r, "\sim", rightarrow] &
+		\mathbb{D}^*(\varphi^*(G)) \arrow[r, "", rightarrow] &
+		\mathbb{D}^*(G)
+	.\end{tikzcd}
+	\end{equation*}
+\end{rem}
+
+
+\begin{ntt}[]
+	In the following we will mainly be interested in the valuation of
+	crystals on objects.
+	In particular, given $G_0 \in \mathsf{BT}(T_0)$ and 
+	$T_0 \hookrightarrow T \in \mathsf{Crys}(T_0)$, we will be interested
+	in $\mathbb{D}^*(G_0)_{T}(T) = \mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$,
+	where $\mathbb{D}^*(G_0)_T$ is defined in \cref{CrystalAssociatedZarSheafS}
+	and its valuation in \cref{rem:SheavesCrysX}.
+	Then we introduce the shorter notation
+	$\mathbb{D}^*(G_0)(T) \coloneqq \mathbb{D}^*(G_0)_T(T)$.
+	Finally, if $T = \mathrm{Spec}(A)$ is affine, we introduce the notation
+	$\mathbb{D}^*(G)(A)$ for $\mathbb{D}^*(G)(T)$.
+\end{ntt}
 
 
 \begin{rem}[]
 	Suppose that $T_0$ is a scheme over $W$ and that $p = 0$ on $T_0$.
 	Consider $G_0 \in \mathsf{BT}(S_0)$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
 	an object on which $p$ is locally nilpotent, and $G$ a lifting of $G_0$ to $T$.
-	By construction of $\mathbb{D}$ we have an isomorphism
+	By construction of $\mathbb{D}^*$ we have an isomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbb{D}(G_0)(T) \arrow[r, "\sim", rightarrow] &
-		\mathbb{D}(G)(T)
+		\mathbb{D}^*(G_0)(T) \arrow[r, "\sim", rightarrow] &
+		\mathbb{D}^*(G)(T)
 	.\end{tikzcd}
 	\end{equation*} 
-	Moreover the $\mathcal{O}_{ T }$-module $\mathbb{D}(G)(T)$ sits in an exact sequence
+	%In fact, as defined above, the left hand side is just
+	%$\mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$ and the right hand side
+	%$\mathbb{D}^*(G)_{T \hookrightarrow T}(T)$.
+	%Then it suffices to prove the equality of Zariski sheaves on $T$
+	%$\mathbb{D}^*(G_0)_{T_0 \hookrightarrow T} = \mathbb{D}^*(G)_{T \hookrightarrow T}$.
+	%In fact, in general, a nilpotent closed immersion $U_0 \hookrightarrow U$
+	%induces a morphism $\mathsf{Crys}(U/S) \to \mathsf{Crys}(U_0/S)$
+	%by base changing $T \to U$ an open immersion to $U_0$.
+	Moreover the $\mathcal{O}_{ T }$-module $\mathbb{D}^*(G)(T)$ sits in an exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\left( \mathrm{Lie}(G) \right)^D \arrow[r, "", rightarrow] &
-		\mathbb{D}(G)(T) \arrow[r, "", rightarrow] &
+		\mathbb{D}^*(G)(T) \arrow[r, "", rightarrow] &
 		\mathrm{Lie}(G^D) \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
 	\end{equation*}
-	Finally, if $T = \mathrm{Spec}(A)$, we introduce the notation
-	$\mathbb{D}(G)(A)$ for $\mathbb{D}(G)(T)$.
 \end{rem}
 
 
@@ -64,24 +87,24 @@ hence a map of crystals
 	\item the following map, induced on the pullback, is surjective
 		\begin{equation*}
 		\begin{tikzcd}
-			1 \otimes \varphi/p \colon
+			\mathrm{id}_{ A } \otimes \varphi/p \colon
 			\varphi^*(\mathrm{Fil}^1 A)
 			\arrow[r, "", twoheadrightarrow] &
 			A
 		.\end{tikzcd}
 		\end{equation*}
 \end{enumerate}
-	If $G \in \mathsf{BT}(A_0)$ we write $\mathrm{Fil}^1 \mathbb{D}(G)(A) \subset \mathbb{D}(G)(A)$
-	for the preimage of $\left( \mathrm{Lie}(G) \right)^D \subset \mathbb{D}(G)(A_0)$.
-	Then the restriction of $\varphi\colon \mathbb{D}(G)(A) \to \mathbb{D}(G)(A)$
-	to $\mathrm{Fil}^1 \mathbb{D}(G)(A)$ is divisible by $p$ and the following induced map
+	If $G \in \mathsf{BT}(A_0)$ we write $\mathrm{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
+	for the preimage of $\left( \mathrm{Lie}(G) \right)^D$ inside $\mathbb{D}^*(G)(A_0)$.
+	Then the restriction of $\varphi\colon \mathbb{D}^*(G)(A) \to \mathbb{D}^*(G)(A)$
+	to $\mathrm{Fil}^1 \mathbb{D}^*(G)(A)$ is divisible by $p$ and the following induced map
 	is a surjection
 	\begin{equation*}
 	\begin{tikzcd}
 		1 \otimes \varphi/p \colon
-		\varphi^*\mathrm{Fil}^1 \mathbb{D}(G)(A)
+		\varphi^*\mathrm{Fil}^1 \mathbb{D}^*(G)(A)
 		\arrow[r, "", twoheadrightarrow] &
-		\mathbb{D}(G)(A)
+		\mathbb{D}^*(G)(A)
 	.\end{tikzcd}
 	\end{equation*}
 \end{lem} 
@@ -106,13 +129,13 @@ hence a map of crystals
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{id}_{ Atk? }\otimes\varphi/p\colon 
+		\mathrm{id}_{ A }\otimes\varphi/p\colon 
 		\varphi^*(M_1) \arrow[r, "", twoheadrightarrow] &
 		M
 	\end{tikzcd}
 	\end{equation*} 
 	is surjective.
-	tk: Its morphisms are morphisms of $A$-modules compatible with
+	Its morphisms are morphisms of $A$-modules compatible with
 	the Frobenius and with the submodule $M_1$.
 \end{defn}
 
@@ -120,7 +143,8 @@ hence a map of crystals
 \begin{defn}[]
 	Consider a map of special rings $A \to B$ and $M \in \mathsf{C}_A$.
 	Then $M \otimes_A B \in \mathsf{C}_B$, when equipped with
-	the induced Frobenius (tk: what is it?) and setting
+	the induced Frobenius %(tk: what is it?) 
+	and setting
 	$\left( M \otimes_A B \right)_1$ to be the image of
 	$M_1 \otimes_A B$ in $M \otimes_A B$.
 \end{defn}
@@ -171,7 +195,7 @@ Since $\varphi( \mathrm{Fil}^1 S) \subset p S$ we set $\varphi_1 \coloneqq \varp
 \begin{enumerate}
 	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
 		and the quotient $M/\mathrm{Fil}^1 M$ is a free $\mathcal{O}_{ K }$-module;
-	\item the map $\mathrm{id}_{ tk } \otimes \varphi_1\colon 
+	\item the map $1 \otimes \varphi_1\colon 
 		\varphi^* \left( \mathrm{Fil}^1 M \right) \to M$
 		is surjective.
 \end{enumerate}
@@ -195,7 +219,7 @@ semilinear map $\varphi\colon M \to M$ defined by
 		\mathsf{BT}_{\mathcal{O}_{ K }} \arrow[r, "", rightarrow] &
 		\mathsf{BT}^{\varphi}_{/S} \\
 		G \arrow[r, "", mapsto] & 
-		\mathbb{D}(G)(S)
+		\mathbb{D}^*(G)(S)
 	.\end{tikzcd}
 	\end{equation*} 
 	If $p > 2$ this functor is an anti equivalence,
