@@ -320,7 +320,7 @@ Finally we can state a very important result due to Grothendieck:
 \subsection{Morphisms of topoi}
 The main objects of our future studies will be sheaves on
 $\mathsf{Sch}_{ S }$ taken with the fppf topology.
-Since we will often be concerned with change of basis, i.e. pullbacks,
+Since we will often be concerned with base change, i.e. pullbacks,
 of sheaves, we devote this section to define this concept.
 Essentially we want to generalize the construction
 of fibered product in the representable case.
@@ -328,7 +328,7 @@ of fibered product in the representable case.
 
 \begin{defn}[Topoi]
 	Let $\mathsf{C}$ be a site.
-	A {\em topos} on $\mathsf{C}$ is the category $\mathsf{Sh}\left(\mathsf{C}\right)$
+	The associated {\em topos} to $\mathsf{C}$ is the category $\mathsf{Sh}\left(\mathsf{C}\right)$
 	of sheaves on $\mathsf{C}$.
 	A morphism of topoi $f$ from $\mathsf{Sh}\left(\mathsf{D}\right)$
 	to $\mathsf{Sh}\left(\mathsf{C}\right)$ is the data of a pair
@@ -341,12 +341,12 @@ of fibered product in the representable case.
 	\end{equation*}
 	and the functor $f^*$ commutes with finite limits, i.e. it
 	is left exact.
-	Moreover, given the sites $\mathsf{C}, \mathsf{D}$ and $\mathsf{E}$
+	Moreover, given sites $\mathsf{C}, \mathsf{D}$ and $\mathsf{E}$
 	and morphism of topoi 
 	$f\colon \mathsf{Sh}\left(\mathsf{D}\right) \to \mathsf{Sh}\left(\mathsf{C}\right)$ and
 	$g\colon \mathsf{Sh}\left(\mathsf{E}\right) \to \mathsf{Sh}\left(\mathsf{D}\right)$,
 	we can define their composition $f \circ g$
-	to be the pair of morphisms $\left( f \circ g \right)_* \coloneqq f_* \circ g_*$
+	as the pair of morphisms $\left( f \circ g \right)_* \coloneqq f_* \circ g_*$
 	and $\left( f \circ g \right)^* \coloneqq g^* \circ f^*$.
 \end{defn}
 
