@@ -1038,7 +1038,7 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 
 
 
-\subsection{Deformation theory}
+\subsection{Grothendieck-Messing deformation theory}
 
 
 \begin{ntt}
@@ -1126,13 +1126,12 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 		\underline{V}(G_0) \arrow[r, "", hookrightarrow] 
 		\arrow[d, "\underline{V}(u_0)_{S_0}"', rightarrow] &
 		\underline{\mathrm{Lie}}(E(G_0))
-		\arrow[d, "\mathrm{Lie}(E(u_0))", rightarrow] \\
+		\arrow[d, "\underline{\mathrm{Lie}}(E(u_0))", rightarrow] \\
 		\underline{V}(H_0) \arrow[r, "", hookrightarrow] &
 		\underline{\mathrm{Lie}}(E(H_0))
 	\end{tikzcd}
 	\end{equation*}
-	(or, more precisely, to the associated Zariski sheaves on $S_0$
-	and $H_0$ respectively).
+	(or, more precisely, to the associated Zariski sheaves on $S_0$).
 \end{defn}
 
 
@@ -1152,7 +1151,7 @@ This definition allows to state the following theorem:
 	,\end{tikzcd}
 	\end{equation*} 
 	where we denoted by $G_0$ the restriction of $G$ to $S_0$
-	and we recall that $\mathbb{D}(G_0)_S = \underline{\mathrm{Lie}}(E(G))$.
+	and we recall that $\mathbb{D}(G_0)_S = \mathrm{Lie}(E(G))$.
 \end{thm}
 
 
@@ -1233,7 +1232,7 @@ This definition allows to state the following theorem:
 		\cite[Chapter V, theorem 1.6]{Messing}), states that from 
 		the datum of an admissible filtration of $\mathbb{D}(G_0)_S$
 		one can recover the global lifting $G$ of $G_0$.
-		This is indeed the basis used to construct the quasi-inverse
+		This is indeed the main idea used to construct the quasi-inverse
 		to the functor of \cref{thm:EquivCatBTS}.
 \end{enumerate}
 \end{rem}

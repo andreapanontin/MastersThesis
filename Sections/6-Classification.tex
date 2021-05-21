@@ -39,7 +39,7 @@ $E(u) \in K_0[u]$.
 \end{ntt}
 
 
-\begin{rem}[]
+\begin{rem}[]\label{rem:DGValuationRestriction}
 	Suppose that $T_0$ is a scheme over $W$ and that $p = 0$ on $T_0$.
 	Consider $G_0 \in \mathsf{BT}(T_0)$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
 	an object on which $p$ is locally nilpotent, and $G$ a lifting of $G_0$ to $T$.
@@ -52,14 +52,18 @@ $E(u) \in K_0[u]$.
 		\mathbb{D}^*(G)(T)
 	.\end{tikzcd}
 	\end{equation*} 
+	%tk: prove it.
 	%In fact, as defined above, the left hand side is just
 	%$\mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$ and the right hand side
 	%$\mathbb{D}^*(G)_{T \hookrightarrow T}(T)$.
 	%Then it suffices to prove the equality of Zariski sheaves on $T$
-	%$\mathbb{D}^*(G_0)_{T_0 \hookrightarrow T} = \mathbb{D}^*(G)_{T \hookrightarrow T}$.
+	%\begin{equation*}
+	%\mathbb{D}^*(G_0)_{T_0 \hookrightarrow T} = \mathbb{D}^*(G)_{T \hookrightarrow T}
+	%.\end{equation*}
 	%In fact, in general, a nilpotent closed immersion $U_0 \hookrightarrow U$
 	%induces a morphism $\mathsf{Crys}(U/S) \to \mathsf{Crys}(U_0/S)$
 	%by base changing $T \to U$ an open immersion to $U_0$.
+
 	Moreover the $\mathcal{O}_{ T }$-module $\mathbb{D}^*(G)(T)$ sits in an exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
@@ -70,16 +74,64 @@ $E(u) \in K_0[u]$.
 		0
 	.\end{tikzcd}
 	\end{equation*}
+	%tk: prove it.
 \end{rem}
 
 
-\begin{lem}[{\cite[Lemma A.2]{Kisin}}]
+\noindent
+We recall that elements of $\mathsf{Crys}(X/S)$ are defined by
+locally nilpotent sheaf of ideals.
+In what follows, though, we want to evaluate crystals on
+surjections of $p$-adically complete rings, whose kernel is endowed with divided powers.
+\begin{defn}[]\label{defn:NotNilpotentEvaluation}
+	tk: this definition seems to make sense, but I wrote it myself.
+	Let $A \twoheadrightarrow A_0$ be a surjective homomorphism
+	of $p$-adically complete and separated $\mathbb{Z}_{p}$-algebras
+	whose kernel is equipped with divided powers, compatible with those on $p \mathbb{Z}_{p}$.
+	Take $G \in \mathsf{BT}(A_0)$.
+	Denote by $G_n$ the restriction of $G$ to $A_0/p^nA_0$
+	and by $A_n \coloneqq A/p^nA$.
+	Then we define
+	\begin{equation*}
+		\mathbb{D}^*(G)(A) \coloneqq
+		\varprojlim_{n \in \mathbb{N}} \mathbb{D}^*(G_n)(A_n)
+	.\end{equation*}
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that, in the above definition, $A_n \twoheadrightarrow A_0/p^nA_0$
+	has kernel equipped with divided powers.
+	In fact it is the projection of the kernel of $A \twoheadrightarrow A_0$, over
+	$p^nA$, an ideal with divided powers compatible with those on the kernel.
+	And analogously, since the divided powers on the kernel are compatible with those 
+	on $(p)$, we see that the kernel of $A_n \twoheadrightarrow A_0/p^mA_0$
+	has divided powers for all $m \leq n$.
+	Now, combining this remark with \cref{rem:DGValuationRestriction},
+	we see that the above definition could have easily been swapped out with
+	\begin{equation*}
+		\mathbb{D}^*(G)(A) \coloneqq
+		\varprojlim_{n \geq m} \mathbb{D}^*(G_m)(A_n)
+	\end{equation*}
+	by cofinality of the family $n \geq m$ in $\mathbb{N}$.
+\end{rem}
+
+
+
+\begin{rem}[]
+	tk: add a remark on the technical lemmas before going into the statements.
+	The idea is that we need to iteratively lift the additional structure we are defining
+	on our modules (so Frobenius and filtration) to extend the classical theory over a field.
+\end{rem}
+
+
+\begin{lem}[{\cite[Lemma A.2]{Kisin}}]\label{lem:A2Kisin}
 	Let $A \to A_0$ be a surjection of $p$-adically complete
 	and separated local $\mathbb{Z}_{p}$-algebras with residue field
 	$k$ and kernel $\mathrm{Fil}^1 A$ equipped with divided powers.
 	Suppose moreover that
 \begin{enumerate}
-	\item $A$ is a $p$-torsion-free and it is equipped with an endomorphism
+	\item $A$ is $p$-torsion-free and it is equipped with an endomorphism
 		$\varphi\colon A \to A$ lifting the Frobenius on $A/pA$;
 		
 	\item the following map, induced on the pullback, is surjective
@@ -106,6 +158,39 @@ $E(u) \in K_0[u]$.
 	.\end{tikzcd}
 	\end{equation*}
 \end{lem} 
+
+
+\begin{rem}[]\label{rem:A2Kisin}
+	Even though we will not prove the theorem, we feel it is important to remark on
+	the most important points used in the proof.
+\begin{enumerate}
+	\item Given an ideal with divided powers $I \triangleleft A$, then $\varphi(I) \subset pA$.
+		In fact 
+		\begin{equation*}
+			\varphi(x) = x^p = \gamma_p(x) \cdot p! \in pA
+		.\end{equation*}
+
+	\item tk: think about proving it.
+		Let $\widetilde{G}$ be a lift of $G$ to $A$, then we have
+		\begin{equation*}
+			\mathrm{Fil}^1(\mathbb{D}^*(\widetilde{G})(A) =
+			( \mathrm{Lie} \widetilde{G} )^D +
+			\mathrm{Fil}^1A \cdot \mathbb{D}^*(\widetilde{G})(A)
+		.\end{equation*}
+		
+	\item Let $H \in \mathsf{BT}(\mathrm{Spec}(W(k))$. Denote by $H_0$ the restriction
+		of $H$ to $k$ and by $V$ the Verschiebung morphism.
+		Then $W(k) \twoheadrightarrow k$ satisfies the hypothesis of our lemma,
+		and the kernel $\mathrm{Fil}^1(W(k)) = (p)$ is equipped with divided powers.
+		Then, using the theory of Dieudonné modules, one can see that
+		\begin{equation*}
+			( \mathrm{Lie} H)^D + p \mathbb{D}^*(H)(W(k)) =
+			V \mathbb{D}^{*}(H)(W(k))
+		,\end{equation*}
+		i.e. that
+		$V \mathbb{D}^*(H)(W(k)) = \mathrm{Fil}^1 \mathbb{D}^*(H)(W(k))$.
+\end{enumerate}
+\end{rem}
 
 
 \begin{defn}[Special ring]
@@ -138,6 +223,13 @@ $E(u) \in K_0[u]$.
 \end{defn}
 
 
+\begin{rem}[]
+	Notice that \cref{lem:A2Kisin} allows to endow,
+	for $G \in \mathsf{BT}(A_0)$ and $A \twoheadrightarrow A_0$ as in the hypothesis,
+	the module $\mathbb{D}^*(G)(A)$ with the structure of an object in $\mathsf{C}_A$.
+\end{rem}
+
+
 \begin{defn}[]
 	Consider a map of special rings $A \to B$ and $M \in \mathsf{C}_A$.
 	Then $M \otimes_A B \in \mathsf{C}_B$, when equipped with
@@ -148,7 +240,7 @@ $E(u) \in K_0[u]$.
 \end{defn}
 
 
-\begin{lem}[{\cite[Lemma A.4]{Kisin}}]
+\begin{lem}[{\cite[Lemma A.4]{Kisin}}]\label{lem:A4Kisin}
 	Let $h\colon A \to B$ be a surjection of special rings with kernel $J$.
 	Suppose that, for all $i \geq 1$, $\varphi^i(J) \subset p^{i + j_i} J$,
 	where $\left\{ j_i \right\}_{i \geq 1}$ is a sequence of integers
@@ -169,26 +261,76 @@ $E(u) \in K_0[u]$.
 \end{lem} 
 
 
+\begin{rem}[]
+	Again we will not prove the theorem, though try to give an idea of
+	how the proof works.
+	In this case we deform iteratively the map
+	\begin{equation*}
+	\begin{tikzcd}[column sep=3.0em]
+		\varphi^*(M_1) \arrow[r, "\varphi^*(\left.\theta_0\right|_{ M_1 })", rightarrow] &
+		\varphi^*(M_1') \arrow[r, "1 \otimes \varphi/p", rightarrow] &
+		M'
+	\end{tikzcd}
+	\end{equation*}
+	obtaining a succession of maps $\theta_i$ whose successive difference
+	has image lying in $p^{j_i}M'$.
+	The fact that $j_i \to \infty$ allows to obtain a well defined limit.
+\end{rem}
+
+
 \noindent
-We will apply the above lemma in the situation where $J$ is equipped
-with divided powers structure and there exists a finite set of elements $x_1, \ldots, x_n \in J$
-such that $J$, in the $p$-adic topology, is topologically generated by 
-the $x_i$ and their divided powers.
-Assume moreover that $\varphi(x_i) = x_1^p$ and that the integers
-$j_i$ above are $v_p \left( (p-1)! \right) - 1$.
-Denote by $S$ the $p$-adic completion of the divided powers envelope
-of $W[u]$ with respect to the ideal generated by $E(u)$.
-The ring $S$ is equipped with an endomorphism $\varphi$ given by the Frobenius
-on $W$ and by $\varphi(u) \coloneqq u^p$.
-We denote by $\mathrm{Fil}^1 S \subset S$ the closure of the ideal
-generated by $E(u)$ and its divided powers.
-Since $\varphi( \mathrm{Fil}^1 S) \subset p S$ we set $\varphi_1 \coloneqq \varphi/p$.
+In order to apply the above results to the proof of the main theorem of the section
+we still need some remarks and definitions.
+
+
+\begin{ntt}[]
+	Consider $W$ as a divided power ring, endowing the maximal ideal $(p)$
+	with the divided powers structure defined in \cref{PDex:DVR} of \cref{PDexamples}.
+	Consider $W[u]$ as a $W$-algebra, and take $\mathcal{D}_{W[u]}(E(u))$
+	its divided powers envelope, as outlined in \cref{thm:PDEnvelope}.
+	Let's notice that, as outlined in \cref{rem:PDEnvelope},
+	the ideal $\overline{J}$ of $\mathcal{D}_{W[u]}(E(u))$ contains $p$.
+	We denote by $S$ the $p$-adic completion of $\mathcal{D}_{W[u]}(E(u))$.
+	The ring $S$ is equipped with an endomorphism $\varphi$ given by the Frobenius
+	on $W$ and by $\varphi(u) \coloneqq u^p$.
+	We denote by $\mathrm{Fil}^1 S \subset S$ the closure of the ideal
+	generated by $E(u)$ and its divided powers.
+	Since $\mathrm{Fil}^1(S)$ is equipped with divided powers, 
+	as seen in \cref{rem:A2Kisin} we have $\varphi( \mathrm{Fil}^1 S) \subset p S$.
+	Then we set $\varphi_1 \coloneqq \varphi/p$.
+\end{ntt}
+
+
+\begin{rem}[]
+	tk: you need to argue for the extension of $G_e$ to $S$,
+	since the kernel seems to have topologically nilpotent divided powers,
+	but not nilpotnet ones. So follow De joung.
+\end{rem}
+
+
+\begin{rem}[]\label{rem:j_iTheoremA6}
+	We will apply \cref{lem:A4Kisin} in the situation where $J$ is equipped
+	with divided powers structure and there exists a finite set of 
+	elements $x_1, \ldots, x_n \in J$ such that $J$, in the $p$-adic topology, 
+	is topologically generated by the $x_i$ and their divided powers.
+	We will have, moreover, that $\varphi(x_i) = x_1^p$.
+	Then the integers $j_i$ above are $v_p \left( (p-1)! \right) - 1$.
+	In fact, since $J$ is equipped with divided powers, we have
+	\begin{equation*}
+		\varphi^i(x_j) =
+		x_j^{p^i} =
+		x_j \cdot \gamma_{p^i-1}(x_j) \cdot (p^i-1)!
+	.\end{equation*}
+	Since both $x_j$ and $\gamma_{p^i-1}(x_j)$ are in $J$,
+	we see that $\varphi^i(x_j) \in p^{\nu_p((p^i-1)!)}J$.
+\end{rem}
+
 
 \begin{defn}[]
 	We denote by $\mathsf{BT}^{\varphi}_{/S}$ the category
 	whose objects are finite free $S$-modules $M$
 	equipped with an $S$-submodule $\mathrm{Fil}^1 M$
-	and a $\varphi$-semilinear map $\varphi\colon  \mathrm{Fil}^1 M \to M$
+	and a $\varphi$-semilinear map $\varphi_1\colon  \mathrm{Fil}^1 M \to M$
 	such that
 \begin{enumerate}
 	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
@@ -200,12 +342,47 @@ Since $\varphi( \mathrm{Fil}^1 S) \subset p S$ we set $\varphi_1 \coloneqq \varp
 \end{defn}
 
 
-\noindent
-Notice that any $M \in \mathsf{BT}^{\varphi}_{/S}$ is equipped with a Frobenius
-semilinear map $\varphi\colon M \to M$ defined by
-\begin{equation*}
-	\varphi (x) \coloneqq \varphi_1 \left( E(u) \right)^{-1} \varphi_1 (E(u)x)
-.\end{equation*}
+\begin{rem}[]\label{invertibilityphi1E(u))}
+	Notice that any $M \in \mathsf{BT}^{\varphi}_{/S}$ is equipped with a Frobenius
+	semilinear map $\varphi\colon M \to M$ defined by
+	\begin{equation*}
+		\varphi (x) \coloneqq \varphi_1 \left( E(u) \right)^{-1} \varphi_1 (E(u)x)
+	.\end{equation*}
+	(tk: this is my interpretation, I'm not sure it is correct.)
+	In fact $\varphi_1(E(u))$ is invertible in $S$.
+	To show this we recall that, by definition, $\varphi_1$ is
+	linear on $W[u]$, and that $W[u]$ embeds in $S$.
+	Then it is enough to show that the element
+	\begin{equation*}
+		\varphi_1(E(u)) =
+		\frac{ u^{ep} }{ p } + \varphi_1(a_{e-1}) u^{(e-1)p} +
+		\cdots + \varphi_1(a_0)
+	\end{equation*}
+	is invertible in $W[u]$.
+	Recall that,
+	for all $L/K_0$ finite and totally ramified,
+	the following morphism is surjective 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		W[u] \arrow[r, "", twoheadrightarrow] &
+		O_{L} \\
+		u \arrow[r, "", mapsto] & 
+		\pi_L
+	.\end{tikzcd}
+	\end{equation*} 
+	This is because, as an $O_{K_0}$-module, $O_L$ is generated by $\pi_L$, its uniformizer,
+	and every element of $W$ can be seen as an element in $O_{K_0}$.
+	Let's now take $[ L : K_0 ] = e \cdot p$, where $e = [ K : K_0 ]$.
+	Then the image of $\varphi_1(E(u))$ via the above morphism is given by a sum of
+	elements with strictly positive valuation 
+	(we have $\nu_L(\varphi_1(a_i)) > 0$ for all $i < e$) and $\pi_L^{ep}/p$.
+	Since the absolute ramification of $L$ is exactly $ep$, we see that this
+	last term is invertible, hence the whole sum is.
+	By surjectivity $\varphi_1(E(u))$ is invertible also in $W[u]$,
+	hence in $S$.
+\end{rem}
 
 
 \begin{prop}[{\cite[Proposition A.6]{Kisin}}]
@@ -214,7 +391,7 @@ semilinear map $\varphi\colon M \to M$ defined by
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathsf{BT}_{\mathcal{O}_{ K }} \arrow[r, "", rightarrow] &
+		\mathsf{BT}(\mathcal{O}_{ K }) \arrow[r, "", rightarrow] &
 		\mathsf{BT}^{\varphi}_{/S} \\
 		G \arrow[r, "", mapsto] & 
 		\mathbb{D}^*(G)(S)
@@ -224,3 +401,219 @@ semilinear map $\varphi\colon M \to M$ defined by
 	whereas if $p = 2$ it induces an anti-equivalence of the 
 	corresponding isogeny categories.
 \end{prop}
+\begin{proof}\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item We start by showing that this functor actually takes values in $\mathsf{BT}^{\varphi}_{/S}$.
+	To do so we need to show that $M(G) \coloneqq \mathbb{D}^{*}(G)(S)$
+	has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$.
+	If we can show that $S$ and $O_K$ satisfy the hypothesis of \cref{lem:A2Kisin}
+	we can conclude by invoking that result.
+	Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$
+	which we already remarked being a surjection.
+	Then, by construction, we see that $S \twoheadrightarrow O_K$
+	is surjective too.
+	Then it is clear that both $S$ and $O_K$ are 
+	$p$-adically complete, separated, local $\mathbb{Z}_{p}$-algebras.
+	Moreover, by definition, $\ker (W[u] \to O_K) = (E(u))$.
+	Then, by construction of $S$ and completeness of $O_K$,
+	we see that $\mathrm{Fil}^1 S$, the kernel of $S \twoheadrightarrow O_K$, is generated
+	by $E(u)$ and its divided powers, i.e. it is equipped with divided powers.
+	Moreover, by construction, it is clear that $S$ is $p$-torsion-free
+	and it is also equipped with an endomorphism lifting the Frobenius on $S/pS$.
+
+	Finally we are left to prove that the map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{id}_{ S } \otimes \varphi/p \colon 
+		\varphi^*(\mathrm{Fil}^1 S) \arrow[r, "", twoheadrightarrow] &
+		S
+	\end{tikzcd}
+	\end{equation*} 
+	is surjective.
+	Here, thanks to the argument in \cref{invertibilityphi1E(u))}, we easily conclude.
+	In fact we see that, for all $s \in S$,
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		s \cdot \left( \varphi_1(E(u)) \right)^{-1} \otimes E(u) 
+		\arrow[r, "", mapsto] & 
+		s
+	.\end{tikzcd}
+	\end{equation*} 
+
+
+\item The converse is definitely more tricky.
+	It will require to use classical Dieudonné theory to construct a
+	Barsotti-Tate group over $k$ associated to a module $M \in \mathsf{BT}^{\varphi}_{/S}$
+	and then to iteratively lift it from $k = O_K/\pi O_K$ to $O_K$.
+	This difficulty is due to the fact that, in general, the maximal
+	ideal of $O_K$, i.e. the kernel of $O_K \twoheadrightarrow k$, 
+	does not admit divided powers.
+	Then the only hope to lift the classical construction is to
+	procede iteratively, reducing the above projection in a sequence of
+	smaller projections, whose kernels all have divided powers structures.
+	(tk: might be a good idea to outline the two main steps now)
+
+	Let's start by introducing the necessary notation:
+	let $i$ vary in $1, \ldots, e$ and set $R_i \coloneqq W[u]/u^i$.
+	Clearly $R_i$ is equipped with a Frobenius endomorphism $\varphi$
+	given by the usual one on $W$ and $u \mapsto u^p$ on the indeterminate.
+	Then $O_K/ (\pi^i)$ is an $R_i$-algebra by $u \mapsto \pi$,
+	seeing $W = O_{K_0} \subset O_K$.
+	As can be seen writing the elements of $O_K$ in Teichmüller expansion
+	the map $R_i \twoheadrightarrow O_K/ (\pi^i)$ is a surjection
+	with kernel $pR_i$, which is equipped with divided powers by \cref{lem:PDFlatExtension}.
+	Then, given a $p$-divisible group $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$,
+	we can evaluate $\mathbb{D}^*(G_i)(R_i)$ thanks to \cref{defn:NotNilpotentEvaluation}.
+	Following the notation of \cref{lem:A2Kisin}
+	we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
+	the preimage of $\left( \mathrm{Lie}G_i \right)^D \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
+	in $\mathbb{D}^*(G_i)(R_i)$.
+	Notice that universal property of divided powers envelope
+	induces a $\varphi$-compatible map $S \to R_i$ as the unique map associated to
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		W[u] \arrow[r, "", rightarrow] &
+		R_i \\
+		u \arrow[r, "", mapsto] & u \\
+		u^{ej} / j!  \arrow[r, "", mapsto] & 0
+	.\end{tikzcd}
+	\end{equation*} 
+	This map is compatible with $\varphi$, hence by uniqueness also
+	the induced map on $S$ is.
+	We can then define the module $M_i \coloneqq M \otimes_S R_i$,
+	which is a restriction of scalars of our original one and
+	it is also equipped with the diagonal action of $\varphi$.
+	We set $\mathrm{Fil}^1 M_i \subset M_i$
+	to be the image of $\mathrm{Fil}^1 M$ in $M_i$, which is a submodule
+	by surjectivity of $S \twoheadrightarrow R_i$.
+	Notice that the above corresponds to defining $\mathrm{Fil}^1 M_i \coloneqq
+	\mathrm{Fil}^1 M \otimes_S R_i$.
+	Then, by right exactness of tensor product, 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{id}_{ S } \otimes \varphi_1
+		\colon 
+		\varphi^*(\mathrm{Fil}^1 M)\arrow[r, "", rightarrow] &
+		M
+	\end{tikzcd}
+	\end{equation*} 
+	induces an surjective map $\varphi^*(\mathrm{Fil}^1 M_i \twoheadrightarrow M_i$
+	for all $i$.
+	In other words we have just seen that, for $i \in [1,e]$,
+	$M_i \in \mathsf{C}_{R_i}$.
+
+	With all this in mind, the idea of the proof, is to first construct from
+	$M_1$ a barsotti-Tate group $G_1$ on $k = O_K/\pi O_k$.
+	Then, using the previous lemmas and Grothendieck-Messing deformation theory,
+	lift it, iteratively, to $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$ until $i = e$.
+	Finally, using completeness of $O_K$, using another inductive process of lifting
+	to define $G \in \mathsf{BT}(O_K)$.
+	The idea is that at each step we obtain a group with an isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}^*(G_i)(R_i) \arrow[r, "\sim", rightarrow] &
+		M_i
+	\end{tikzcd}
+	\end{equation*} 
+	compatible with both filtration and $\varphi$.
+
+	As already hinted above, the first part of the construction
+	is mainly due to the classical Dieudonné theory.
+	More explicitly, let's denote by $F\colon M_1 \to M_1$ the map induced by
+	$\varphi\colon M \to M$.
+	Then we see that both sides of the surjective map
+	$\varphi^* ( \mathrm{Fil}^1 M_1) \to M_1$ are free $W$-modules of the same (finite) rank,
+	which can be seen by base changing to $k$, which means that the map is an isomorphism.
+	Now we consider the composition
+	\begin{equation*}
+	\begin{tikzcd}
+		M_1 \arrow[r, "\sim", rightarrow] &
+		\varphi^* (\mathrm{Fil}^1 M) \arrow[r, "", rightarrow] &
+		\varphi^* (M_1) \arrow[r, "\sim", rightarrow] &
+		M_1
+	,\end{tikzcd}
+	\end{equation*}
+	where the first arrow is just the inverse of the above iso, the second map
+	is induced by the inclusion $\mathrm{Fil}^1 M \hookrightarrow M$ and the
+	third one is given by $a \otimes m \mapsto \varphi^{-1}(a)m$.
+	This composition gives a $\varphi^{-1}$-semilinear map $V\colon M_1 \to M_1$
+	such that $FV = VF = p$.
+	Let's denote by $G_1$ the Barsotti-Tate group on $k$ associated to this
+	Dieudonné module.
+	Classical theory grants that the isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}^*(G_1)(W) \arrow[r, "\sim", rightarrow] &
+		M_1
+	\end{tikzcd}
+	\end{equation*} 
+	is compatible with Frobenius.
+	Moreover, thanks to \cref{rem:A2Kisin}, we see that $\mathrm{Fil}^1 \mathbb{D}^*(G_1)(W)$
+	is identified with $V \mathbb{D}^*(G_1)(W)$, which allows to say that the isomorphism
+	is compatible also with Filtration.
+
+	We now have to start, iteratively, lift this construction.
+	We assume, for $i \in [2,e]$, that we have an isomorphism
+	\begin{equation}\label{eqn:PartialIsoCRi}
+	\begin{tikzcd}
+	\mathbb{D}^*(G_{i-1})(R_{i-1}) 
+	\arrow[r, "\sim", rightarrow] &
+	M_{i-1}
+	\end{tikzcd}
+	\end{equation}
+	compatible with Frobenius and filtrations, i.e. a morphism in $\mathsf{C}_{R_{i-1}}$.
+	We can notice, moreover, that the kernel of $R_i \twoheadrightarrow O_K/ (\pi^{i-1})$
+	is $(p, u^{i-1})$ which is still equipped with divided powers.
+	In fact we simply put $\gamma_1(u^{i-1}) = u^{i-1}$ and, for all $n \geq 2$,
+	$\gamma_n(u^{i-1}) = 0$, since $u^{n(i-1)} \in (u^i)$.
+	Then we are done invoking \cref{lem:PDExt2}.
+	Again, this means that we can compute $\mathbb{D}^*(G_{i-1})(R_i)$.
+	We have already seen that $M_i \in \mathsf{C}_{R_i}$, moreover \cref{lem:A2Kisin}
+	applied to the surjection $R_i \twoheadrightarrow O_k/ (\pi^{i-1})$ implies that
+	also $\mathbb{D}^*(G_{i-1})(R_i)$ is in $\mathsf{C}_{R_i}$.
+	Recalling that the isomorphism in \cref{eqn:PartialIsoCRi}
+	is a morphism in $\mathsf{C}_{R_{i-1}}$ and \cref{rem:j_iTheoremA6}, 
+	we can apply \cref{lem:A4Kisin} to the surjection $R_i \twoheadrightarrow R_{i-1}$
+	and obtain a lift to an isomorphism
+	\begin{equation*}
+	\begin{tikzcd}
+	\mathbb{D}^*(G_{i-1})(R_{i}) 
+	\arrow[r, "\sim", rightarrow] &
+	M_{i}
+	\end{tikzcd}
+	\end{equation*}
+	compatible with Frobenius.
+	Finally, since the kernel of $R_i \twoheadrightarrow R_{i-1}$ is nilpotent,
+	we can invoke \cref{thm:EquivCatBTS} and obtain that
+	there is a unique $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$
+	lifting $G_{i-1}$ and such that $(\mathrm{Lie}G_i)^D \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
+	is equal to the image of $\mathrm{Fil}^i M_i$ under the composite
+	\begin{equation*}
+	\begin{tikzcd}
+		\mathrm{Fil}^1 M_i \subset M_i
+		\arrow[r, "\sim", rightarrow] &
+		\mathbb{D}^*(G_{i-1})(R_i)
+		\arrow[r, "", rightarrow] &
+		\mathbb{D}^*(G_{i-1})(O_K/\pi^iO_K)
+	.\end{tikzcd}
+	\end{equation*}
+	Then, by construction, we obtain that the isomorphism
+	$\mathbb{D}^*(G_i)(R_i) \simeq M_i$, where we recall the implicit use of 
+	\cref{rem:DGValuationRestriction}, is compatible also with filtrations,
+	i.e. is in $\mathsf{C}_{R_i}$.
+	This concludes the first step of induction.
+\end{enumerate}
+\end{proof}
+
