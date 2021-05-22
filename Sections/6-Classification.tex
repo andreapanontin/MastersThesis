@@ -1,5 +1,243 @@
 \section{Classification of \texorpdfstring{$p$}{p}-divisible groups
 	over \texorpdfstring{$\mathcal{O}_{ K }$}{the ring of integers of K}}
+
+
+
+\subsection{Witt vectors}
+In order to work over a finite extension $K/\mathbb{Q}_p$ it is convenient to
+have some familiarity with the formalism of Witt vectors, so we will dedicate some 
+space to recall the basic definitions and results.
+
+
+\begin{rem}[Motivation]
+	Consider $K/\mathbb{Q}_p$ finite and unramified.
+	Denote by $k \coloneqq O_K/pOK$ the residue field of $K$ and by $q \coloneqq \left| k \right|$
+	its cardinality.
+	Then there is multiplicative map $[\ \cdot \ ]\colon k \to O_K$,
+	called the Teichmüller lifting, with image $\mu_{q-1}(O_K)$
+	the $(q-1)$-st root of unity of $O_K$.
+	In particular it is well known that any element $a \in O_K$
+	can be uniquely written in a Teichmüller expansion
+	\begin{equation*}
+		a = \sum_{n \in \mathbb{N}} [c_n] p^n
+	,\end{equation*}
+	with $c_n \in k$ for all $n \in \mathbb{N}$.
+	The theory of Witt vectors allows the explicit computation of sum and
+	products between Teichmüller lifts, using only
+	algebraic operations of the sequences of elements of $k$.
+	Clearly its interest doesn't stop there, so we will highlight some 
+	other properties of the construction.
+
+	Moreover we wish to remark that the following constructions
+	can be carried out for any ring $A$, though the most interesting
+	results for us will be in case $A$ is a perfect $\mathbb{F}_p$-algebra,
+	i.e. an $\mathbb{F}_p$ algebra on which the map $x \mapsto x^p$
+	is an automorphism.
+	Then, in this whole section we will stick to this assumption.
+\end{rem}
+
+
+\begin{defn}[Witt polynomials]
+	We define a family of polynomials $\left\{ w_n(\mathbf{x}) \right\}_{n \in \mathbb{N}} \subset
+	\mathbb{Z}[\mathbf{x}] = \mathbb{Z}[x_i]_{i \in \mathbb{N}}$ by
+	\begin{align*}
+		w_0(\mathbf{x}) \coloneqq w_0(x_0) &\coloneqq x_0 \\
+		w_1(\mathbf{x}) \coloneqq w_1(x_0, x_1) &\coloneqq x_0^p + px_1 \\
+				&\ \ \ \ \! \vdots \\
+		w_n(\mathbf{x}) \coloneqq w_n(x_0, \ldots, x_n) &\coloneqq
+		\sum_{ i=0 }^{ n } p^i x_i^{p^{n-1}} =
+		x_0^{p^n} + px_1^{p^{n-1}} + \cdots + p^{n-1}x_{n-1}^p + p^n x_n
+	.\end{align*}
+\end{defn}
+
+
+\begin{lem}[{\cite[Chapter II, \S6, theorem 6]{Serre}}]\label{thm:WittSumProdPolys}
+	For every $\phi \in \mathbb{Z}[x,y]$ there exists a sequence
+	$\left\{ \varphi_n \right\}_{n \in \mathbb{N}} \subset \mathbb{Z}[\mathbf{x}, \mathbf{y}]$,
+	where $\mathbf{x} = \left\{ x_n \right\}_{n \in \mathbb{N}}$
+	and analogously for $\mathbf{y}$, such that,
+	for all $n \in \mathbb{N}$,
+	\begin{equation*}
+		w_n(\varphi_0, \ldots, \varphi_n) =
+		\phi \left( w_n(x_0, \ldots, x_n), w_n(y_0, \ldots, y_n) \right)
+	.\end{equation*}
+\end{lem} 
+
+
+\begin{ntt}[]\label{not:WittSumProd}
+	Denote by $\left\{ S_n \right\}_{n \in \mathbb{N}}$ and
+	$\left\{ P_n \right\}_{n \in \mathbb{N}}$ the polynomials associated 
+	by \cref{thm:WittSumProdPolys} to 
+	$\phi(x,y) = x + y$ and $\phi(x,y) = x \cdot y$ respectively.
+	Then we define, for $\mathbf{a},\mathbf{b} \in A^{\mathbb{N}}$ the following
+	composition laws:
+	\begin{align*}
+		\mathbf{a} + \mathbf{b} &\coloneqq
+		\left( S_n(\mathbf{a},\mathbf{b}) \right)_{n \in \mathbb{N}}\\
+		\mathbf{a} \cdot \mathbf{b} &\coloneqq 
+		\left( P_n(\mathbf{a},\mathbf{b}) \right)_{n \in \mathbb{N}}
+	.\end{align*}
+\end{ntt}
+
+
+\begin{thm}[{\cite[Chapter II, \S6, theorem 7]{Serre}}]
+	The laws of composition on $A^{\mathbb{N}}$ defined in \cref{not:WittSumProd}
+	make it into a commutative unitary ring.
+\end{thm}
+
+
+\begin{defn}[Ring of Witt vectors]
+	We define the {\em ring of Witt vectors} with coefficients in $A$
+	to be the commutative unitary ring $A^{\mathbb{N}}$ endowed with
+	the composition laws defined in \cref{not:WittSumProd}.
+\end{defn}
+
+
+\begin{rem}[]
+	By definition, the map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		W\colon W(A) \arrow[r, "", rightarrow] &
+		A^{\mathbb{N}} \\
+		\mathbf{a} \arrow[r, "", mapsto] & 
+		\left( w_n(\mathbf{a}) \right)_{n \in \mathbb{N}}
+	\end{tikzcd}
+	\end{equation*} 
+	is a ring homomorphism.
+	Moreover it is easy to check that it is an isomorphism as soon
+	as $p$ is invertible and it is a monomorphism if $p$ is not a zero divisor.
+\end{rem}
+
+
+\begin{defn}[Frobenius and Verschiebung]
+	Since $A$ is of characteristic $p$ we can define on $W(A)$ the following two
+	maps
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		V\colon W(A) \arrow[r, "", rightarrow] &
+		W(A) \\
+		(a_0, a_1, \ldots) \arrow[r, "", mapsto] & 
+		(0, a_0, a_1, \ldots)
+	\end{tikzcd}
+	\qquad \text{ and } \qquad
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		F\colon W(A) \arrow[r, "", rightarrow] &
+		W(A) \\
+		(a_0, a_1, \ldots) \arrow[r, "", mapsto] & 
+		(a_0^p, a_1^p, \ldots)
+	.\end{tikzcd}
+	\end{equation*} 
+	It can be easily shown that the first map, called {\em Verschiebung}
+	(German for {\em shift}), is additive, whereas the second, called {\em Frobenius},
+	is a ring homomorphism.
+\end{defn}
+
+
+\begin{defn}[]
+	A ring $B$ is called {\em $p$-ring} iff it is separated and complete
+	for the topology induced by a decreasing collection of ideals
+	$\left\{ \mathfrak{b}_i \right\}_{i \geq 1}$ such that for all $n,m \geq 1$
+	$\mathfrak{b}_n \mathfrak{b}_m \subset \mathfrak{b}_{n+m}$ and
+	$B/\mathfrak{b}_1$ is a perfect $\mathbb{F}_p$-algebra
+	(hence $p \in \mathfrak{b}_1$).
+
+	We say that $B$ is a {\em strict $p$-ring} iff it is a $p$-ring
+	and $\mathfrak{b}_i = p^iB$ for all $i \geq 1$
+	and $p\colon B \to B$ is an injective map.
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that a strict $p$-ring is a $p$-adically separated and complete
+	ring such that $B/pB$ is a perfect $\mathbb{F}_p$-algebra.
+\end{rem}
+
+
+\begin{rem}[]
+	Since $A$ is of characteristic $p$ we have the identities
+	$VF = FV = p$.
+	Moreover, in case $A$ is perfect, we see that $p^nW(A) = V^nW(A)$,
+	since
+	\begin{equation*}
+		p \cdot \left( a_0, a_1, \ldots \right) =
+		(0, a_0^p, a_1^p, \ldots)
+	.\end{equation*}
+	This means that the $p$-adic topology of $W(A)$ corresponds
+	to the natural product topology.
+	This means that $W(A) \simeq \varprojlim_{n \in \mathbb{N}} W(A)/ (p^n)$
+	hence that $W(A)$ is a strict $p$-ring.
+\end{rem}
+
+
+\begin{prop}[{\cite[Proposition 4.2.3]{Brinon}}]
+	If $A$ is a perfect $\mathbb{F}_p$-algebra and $B$ is a $p$-ring,
+	then the natural "reduction" map 
+	\begin{equation*}
+	\begin{tikzcd}
+		\mathrm{Hom}_{  } \left( W(A), B \right)
+		\arrow[r, "\sim", rightarrow] &
+		\mathrm{Hom}_{  } \left( A, B/\mathfrak{b}_1 \right)
+	\end{tikzcd}
+	\end{equation*}
+	is an isomorphism.
+	More generally, for any strict $p$-ring $\mathcal{B}$, the natural map
+	\begin{equation*}
+	\begin{tikzcd}
+		\mathrm{Hom}_{  } \left( \mathcal{B}, B \right)
+		\arrow[r, "\sim", rightarrow] &
+		\mathrm{Hom}_{  } \left( \mathcal{B}/ (p), B/\mathfrak{b}_1 \right)
+	\end{tikzcd}
+	\end{equation*}
+	is bijective for every $p$-ring $B$.
+\end{prop}
+
+
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item Let's notice that, by the previous comments, we have
+	$W(A)/ (p) = A$, which allows the definition of the first map above.
+	Moreover the above shows that $\mathcal{B}$ and $W(\mathcal{B}/p \mathcal{B})$
+	satisfy the same universal property in the category of $p$-rings.
+	As a consequence all strict $p$-rings are of the form $W(A)$ for
+	a perfect $\mathbb{F}_p$-algebra $A$.
+
+\item Using the above proposition we can recover the theory of maximal unramified
+	extensions for finite extensions $K/\mathbb{Q}_p$.
+	Let $k \coloneqq O_k/ (\pi_K)$ be its residue field.
+	In fact $O_K$ is a $p$-ring, when considered with the filtration
+	given by $\left\{ \pi_K^i \right\}_{i \geq 1}$.
+	Then there is a unique map of rings $\alpha\colon W(k) \to O_K$
+	lifting the isomorphism $W(k)/ (p) \simeq k \simeq O_K/ (\pi_K)$.
+	Since $p$ has image in the maximal ideal of $O_K$,
+	the map $\alpha$ is local and injective.
+	This means that $O_K/ (p)$ is a $W(k)/ (p) = k$ vector space
+	with basis $\left(1, \pi_K, \ldots, \pi_K^e\right)$,
+	where $e = e(K/\mathbb{Q}_p)$ is the absolute ramification
+	index of $K$.
+	Since $O_K$ is complete and separated with respect to the $p$-adic topology,
+	by successive approximations, we see that the above is a
+	$W(k)$-basis of $O_K$, which is then a free $W(k)$-module
+	of rank $e$.
+	As a consequence also $K = O_K[1/p]$ is a $W(k)[1/p] \eqqcolon K_0$
+	vector space of dimension $e$.
+	Then $K/K_0$ is a field extension of degree $e$, which is totally ramified
+	since the two fields have isomorphic residue fields.
+	Then we see that the Witt vector construction allows one to
+	construct $K_0$ the {\em maximal unramified subextension} of any
+	finite extension of $\mathbb{Q}_p$.
+\end{enumerate}
+\end{rem}
+
+
+
+\subsection{Classification of \texorpdfstring{$p$}{p}-divisible groups
+	over \texorpdfstring{$\mathcal{O}_{ K }$}{the ring of integers of K}}
 This section will follow \cite[Appendix A]{Kisin}.
 We fix $k$ a perfect field of characteristic $p$,
 $W \coloneqq W(k)$ its ring of Witt vectors, $K_0 \coloneqq W[1/p]$
@@ -52,7 +290,6 @@ $E(u) \in K_0[u]$.
 		\mathbb{D}^*(G)(T)
 	.\end{tikzcd}
 	\end{equation*} 
-	%tk: prove it.
 	%In fact, as defined above, the left hand side is just
 	%$\mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$ and the right hand side
 	%$\mathbb{D}^*(G)_{T \hookrightarrow T}(T)$.
@@ -74,7 +311,6 @@ $E(u) \in K_0[u]$.
 		0
 	.\end{tikzcd}
 	\end{equation*}
-	%tk: prove it.
 \end{rem}
 
 
@@ -117,11 +353,16 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 \end{rem}
 
 
-
 \begin{rem}[]
-	tk: add a remark on the technical lemmas before going into the statements.
-	The idea is that we need to iteratively lift the additional structure we are defining
-	on our modules (so Frobenius and filtration) to extend the classical theory over a field.
+	We will now introduce some technical lemmas, which will play a crucial role
+	in the proof of the main result of this section, \cref{prop:A6Kisin}.
+	In fact these lemmas allow, in combination with \cref{thm:EquivCatBTS},
+	to lift not only a Barsotti-Tate group along a thickening with divided
+	powers, but also to lift some additional structure, i.e.
+	a Frobenius morphism and a filtration, on the valuation of $\mathbb{D}^*$.
+	This will be needed in the proof to iteratively lift the
+	Barsotti-Tate group over $k$ obtained via the classical classification,
+	along with all the extra required structure, to an object of $\mathsf{BT}(O_K)$.
 \end{rem}
 
 
@@ -170,8 +411,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 			\varphi(x) = x^p = \gamma_p(x) \cdot p! \in pA
 		.\end{equation*}
 
-	\item tk: think about proving it.
-		Let $\widetilde{G}$ be a lift of $G$ to $A$, then we have
+	\item Let $\widetilde{G}$ be a lift of $G$ to $A$, then we have
 		\begin{equation*}
 			\mathrm{Fil}^1(\mathbb{D}^*(\widetilde{G})(A) =
 			( \mathrm{Lie} \widetilde{G} )^D +
@@ -266,7 +506,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 	how the proof works.
 	In this case we deform iteratively the map
 	\begin{equation*}
-	\begin{tikzcd}[column sep=3.0em]
+	\begin{tikzcd}[column sep=4.8em]
 		\varphi^*(M_1) \arrow[r, "\varphi^*(\left.\theta_0\right|_{ M_1 })", rightarrow] &
 		\varphi^*(M_1') \arrow[r, "1 \otimes \varphi/p", rightarrow] &
 		M'
@@ -299,13 +539,6 @@ we still need some remarks and definitions.
 	as seen in \cref{rem:A2Kisin} we have $\varphi( \mathrm{Fil}^1 S) \subset p S$.
 	Then we set $\varphi_1 \coloneqq \varphi/p$.
 \end{ntt}
-
-
-\begin{rem}[]
-	tk: you need to argue for the extension of $G_e$ to $S$,
-	since the kernel seems to have topologically nilpotent divided powers,
-	but not nilpotnet ones. So follow De joung.
-\end{rem}
 
 
 \begin{rem}[]\label{rem:j_iTheoremA6}
@@ -343,12 +576,11 @@ we still need some remarks and definitions.
 
 
 \begin{rem}[]\label{invertibilityphi1E(u))}
-	Notice that any $M \in \mathsf{BT}^{\varphi}_{/S}$ is equipped with a Frobenius
-	semilinear map $\varphi\colon M \to M$ defined by
+	Notice that any $M \in \mathsf{BT}^{\varphi}_{/S}$ is equipped with a 
+	$\varphi$-semilinear map $\varphi\colon M \to M$ defined by
 	\begin{equation*}
 		\varphi (x) \coloneqq \varphi_1 \left( E(u) \right)^{-1} \varphi_1 (E(u)x)
 	.\end{equation*}
-	(tk: this is my interpretation, I'm not sure it is correct.)
 	In fact $\varphi_1(E(u))$ is invertible in $S$.
 	To show this we recall that, by definition, $\varphi_1$ is
 	linear on $W[u]$, and that $W[u]$ embeds in $S$.
@@ -385,7 +617,7 @@ we still need some remarks and definitions.
 \end{rem}
 
 
-\begin{prop}[{\cite[Proposition A.6]{Kisin}}]
+\begin{prop}[{\cite[Proposition A.6]{Kisin}}]\label{prop:A6Kisin}
 	There is an exact contravariant functor
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -402,134 +634,137 @@ we still need some remarks and definitions.
 	corresponding isogeny categories.
 \end{prop}
 \begin{proof}\leavevmode\vspace{-.2\baselineskip}
+We start by showing that this functor actually takes values in $\mathsf{BT}^{\varphi}_{/S}$.
+To do so we need to show that $M(G) \coloneqq \mathbb{D}^{*}(G)(S)$
+has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$.
+If we can show that $S$ and $O_K$ satisfy the hypothesis of \cref{lem:A2Kisin}
+we can conclude by invoking that result.
+Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$
+which we already remarked being a surjection.
+Then, by construction, we see that $S \twoheadrightarrow O_K$
+is surjective too.
+Then it is clear that both $S$ and $O_K$ are 
+$p$-adically complete, separated, local $\mathbb{Z}_{p}$-algebras.
+Moreover, by definition, $\ker (W[u] \to O_K) = (E(u))$.
+Then, by construction of $S$ and completeness of $O_K$,
+we see that $\mathrm{Fil}^1 S$, the kernel of $S \twoheadrightarrow O_K$, is generated
+by $E(u)$ and its divided powers.
+Then, thanks to \cref{PDExtendCompletion} it is equipped with divided powers.
+Moreover, by construction, it is clear that $S$ is $p$-torsion-free
+and it is also equipped with an endomorphism lifting the Frobenius on $S/pS$.
+
+Finally we are left to prove that the map
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	\mathrm{id}_{ S } \otimes \varphi/p \colon 
+	\varphi^*(\mathrm{Fil}^1 S) \arrow[r, "", twoheadrightarrow] &
+	S
+\end{tikzcd}
+\end{equation*} 
+is surjective.
+Here, thanks to the argument in \cref{invertibilityphi1E(u))}, we easily conclude.
+In fact we see that, for all $s \in S$,
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	s \cdot \left( \varphi_1(E(u)) \right)^{-1} \otimes E(u) 
+	\arrow[r, "", mapsto] & 
+	s
+.\end{tikzcd}
+\end{equation*} 
+
+
+The converse is definitely more tricky and we will only concentrate on
+the case $p > 2$, leaving the rest of the proof to \cite{Kisin}.
+It will require the use of classical Dieudonné theory to construct a
+Barsotti-Tate group over $k$ associated to a module $M \in \mathsf{BT}^{\varphi}_{/S}$
+and then to iteratively lift it from $k = O_K/\pi O_K$ to $O_K$.
+This difficulty is due to the fact that, in general, the maximal
+ideal of $O_K$, i.e. the kernel of $O_K \twoheadrightarrow k$, 
+does not admit divided powers.
+Then the only hope to lift the classical construction is to
+procede iteratively, reducing the above projection to a sequence of
+smaller projections, whose kernels all have divided powers structures.
+
+More specifically, using the previous technical lemmas and Grothendieck-Messing deformation theory,
+we will iteratively lift $G_1$, the Barsotti-Tate group coming from calssical Dieudonné theory,
+to $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$ until $i = e$.
+Finally, thanks to completeness of $O_K$ and \cite[Lemma 2.4.4]{deJong},
+we will carry out another inductive process of lifting
+to define $G \in \mathsf{BT}(O_K)$.
+The idea is that at each step we obtain a group with an isomorphism
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	\mathbb{D}^*(G_i)(R_i) \arrow[r, "\sim", rightarrow] &
+	M_i
+\end{tikzcd}
+\end{equation*} 
+compatible with both filtration and $\varphi$, in such a way that these isomorphisms
+lift to a global one, still compatible with all the necessary structure.
+
+Let's now start the proof proper, by introducing the necessary notation:
+let $i$ vary in $1, \ldots, e$ and set $R_i \coloneqq W[u]/u^i$.
+Clearly $R_i$ is equipped with a Frobenius endomorphism $\varphi$
+given by the usual one on $W$ and $u \mapsto u^p$ on the indeterminate.
+Then $O_K/ (\pi^i)$ is an $R_i$-algebra by $u \mapsto \pi$,
+seeing $W = O_{K_0} \subset O_K$.
+As can be seen writing the elements of $O_K$ in Teichmüller expansion
+the map $R_i \twoheadrightarrow O_K/ (\pi^i)$ is a surjection
+with kernel $pR_i$, which is equipped with divided powers by \cref{lem:PDFlatExtension}.
+Then, given a $p$-divisible group $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$,
+we can evaluate $\mathbb{D}^*(G_i)(R_i)$ thanks to \cref{defn:NotNilpotentEvaluation}.
+Following the notation of \cref{lem:A2Kisin}
+we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
+the preimage of $\left( \mathrm{Lie}G_i \right)^D \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
+in $\mathbb{D}^*(G_i)(R_i)$.
+Notice that universal property of divided powers envelope
+induces a $\varphi$-compatible map $S \to R_i$ as the unique map associated to
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	W[u] \arrow[r, "", rightarrow] &
+	R_i \\
+	u \arrow[r, "", mapsto] & u \\
+	u^{ej} / j!  \arrow[r, "", mapsto] & 0
+.\end{tikzcd}
+\end{equation*} 
+This map is compatible with $\varphi$, hence by uniqueness also
+the induced map on $S$ is.
+We can then define the module $M_i \coloneqq M \otimes_S R_i$,
+which is a restriction of scalars of our original one and
+it is also equipped with the diagonal action of $\varphi$.
+We set $\mathrm{Fil}^1 M_i \subset M_i$
+to be the image of $\mathrm{Fil}^1 M$ in $M_i$, which is a submodule
+by surjectivity of $S \twoheadrightarrow R_i$.
+Notice that the above corresponds to defining $\mathrm{Fil}^1 M_i \coloneqq
+\mathrm{Fil}^1 M \otimes_S R_i$.
+Then, by right exactness of tensor product, 
+\begin{equation*}
+\begin{tikzcd}[row sep = 0ex
+	,/tikz/column 1/.append style={anchor=base east}
+	,/tikz/column 2/.append style={anchor=base west}]
+	\mathrm{id}_{ S } \otimes \varphi_1
+	\colon 
+	\varphi^*(\mathrm{Fil}^1 M)\arrow[r, "", rightarrow] &
+	M
+\end{tikzcd}
+\end{equation*} 
+induces an surjective map $\varphi^*(\mathrm{Fil}^1 M_i) \twoheadrightarrow M_i$
+for all $i$.
+In other words we have just seen that, for $i \in [1,e]$,
+$M_i \in \mathsf{C}_{R_i}$.
+
+With all this in mind we can start with the lifting process.
 \begin{enumerate}
-\item We start by showing that this functor actually takes values in $\mathsf{BT}^{\varphi}_{/S}$.
-	To do so we need to show that $M(G) \coloneqq \mathbb{D}^{*}(G)(S)$
-	has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$.
-	If we can show that $S$ and $O_K$ satisfy the hypothesis of \cref{lem:A2Kisin}
-	we can conclude by invoking that result.
-	Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$
-	which we already remarked being a surjection.
-	Then, by construction, we see that $S \twoheadrightarrow O_K$
-	is surjective too.
-	Then it is clear that both $S$ and $O_K$ are 
-	$p$-adically complete, separated, local $\mathbb{Z}_{p}$-algebras.
-	Moreover, by definition, $\ker (W[u] \to O_K) = (E(u))$.
-	Then, by construction of $S$ and completeness of $O_K$,
-	we see that $\mathrm{Fil}^1 S$, the kernel of $S \twoheadrightarrow O_K$, is generated
-	by $E(u)$ and its divided powers, i.e. it is equipped with divided powers.
-	Moreover, by construction, it is clear that $S$ is $p$-torsion-free
-	and it is also equipped with an endomorphism lifting the Frobenius on $S/pS$.
-
-	Finally we are left to prove that the map
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{id}_{ S } \otimes \varphi/p \colon 
-		\varphi^*(\mathrm{Fil}^1 S) \arrow[r, "", twoheadrightarrow] &
-		S
-	\end{tikzcd}
-	\end{equation*} 
-	is surjective.
-	Here, thanks to the argument in \cref{invertibilityphi1E(u))}, we easily conclude.
-	In fact we see that, for all $s \in S$,
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		s \cdot \left( \varphi_1(E(u)) \right)^{-1} \otimes E(u) 
-		\arrow[r, "", mapsto] & 
-		s
-	.\end{tikzcd}
-	\end{equation*} 
-
-
-\item The converse is definitely more tricky.
-	It will require to use classical Dieudonné theory to construct a
-	Barsotti-Tate group over $k$ associated to a module $M \in \mathsf{BT}^{\varphi}_{/S}$
-	and then to iteratively lift it from $k = O_K/\pi O_K$ to $O_K$.
-	This difficulty is due to the fact that, in general, the maximal
-	ideal of $O_K$, i.e. the kernel of $O_K \twoheadrightarrow k$, 
-	does not admit divided powers.
-	Then the only hope to lift the classical construction is to
-	procede iteratively, reducing the above projection in a sequence of
-	smaller projections, whose kernels all have divided powers structures.
-	(tk: might be a good idea to outline the two main steps now)
-
-	Let's start by introducing the necessary notation:
-	let $i$ vary in $1, \ldots, e$ and set $R_i \coloneqq W[u]/u^i$.
-	Clearly $R_i$ is equipped with a Frobenius endomorphism $\varphi$
-	given by the usual one on $W$ and $u \mapsto u^p$ on the indeterminate.
-	Then $O_K/ (\pi^i)$ is an $R_i$-algebra by $u \mapsto \pi$,
-	seeing $W = O_{K_0} \subset O_K$.
-	As can be seen writing the elements of $O_K$ in Teichmüller expansion
-	the map $R_i \twoheadrightarrow O_K/ (\pi^i)$ is a surjection
-	with kernel $pR_i$, which is equipped with divided powers by \cref{lem:PDFlatExtension}.
-	Then, given a $p$-divisible group $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$,
-	we can evaluate $\mathbb{D}^*(G_i)(R_i)$ thanks to \cref{defn:NotNilpotentEvaluation}.
-	Following the notation of \cref{lem:A2Kisin}
-	we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
-	the preimage of $\left( \mathrm{Lie}G_i \right)^D \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
-	in $\mathbb{D}^*(G_i)(R_i)$.
-	Notice that universal property of divided powers envelope
-	induces a $\varphi$-compatible map $S \to R_i$ as the unique map associated to
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		W[u] \arrow[r, "", rightarrow] &
-		R_i \\
-		u \arrow[r, "", mapsto] & u \\
-		u^{ej} / j!  \arrow[r, "", mapsto] & 0
-	.\end{tikzcd}
-	\end{equation*} 
-	This map is compatible with $\varphi$, hence by uniqueness also
-	the induced map on $S$ is.
-	We can then define the module $M_i \coloneqq M \otimes_S R_i$,
-	which is a restriction of scalars of our original one and
-	it is also equipped with the diagonal action of $\varphi$.
-	We set $\mathrm{Fil}^1 M_i \subset M_i$
-	to be the image of $\mathrm{Fil}^1 M$ in $M_i$, which is a submodule
-	by surjectivity of $S \twoheadrightarrow R_i$.
-	Notice that the above corresponds to defining $\mathrm{Fil}^1 M_i \coloneqq
-	\mathrm{Fil}^1 M \otimes_S R_i$.
-	Then, by right exactness of tensor product, 
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{id}_{ S } \otimes \varphi_1
-		\colon 
-		\varphi^*(\mathrm{Fil}^1 M)\arrow[r, "", rightarrow] &
-		M
-	\end{tikzcd}
-	\end{equation*} 
-	induces an surjective map $\varphi^*(\mathrm{Fil}^1 M_i \twoheadrightarrow M_i$
-	for all $i$.
-	In other words we have just seen that, for $i \in [1,e]$,
-	$M_i \in \mathsf{C}_{R_i}$.
-
-	With all this in mind, the idea of the proof, is to first construct from
-	$M_1$ a barsotti-Tate group $G_1$ on $k = O_K/\pi O_k$.
-	Then, using the previous lemmas and Grothendieck-Messing deformation theory,
-	lift it, iteratively, to $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$ until $i = e$.
-	Finally, using completeness of $O_K$, using another inductive process of lifting
-	to define $G \in \mathsf{BT}(O_K)$.
-	The idea is that at each step we obtain a group with an isomorphism
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbb{D}^*(G_i)(R_i) \arrow[r, "\sim", rightarrow] &
-		M_i
-	\end{tikzcd}
-	\end{equation*} 
-	compatible with both filtration and $\varphi$.
-
-	As already hinted above, the first part of the construction
-	is mainly due to the classical Dieudonné theory.
-	More explicitly, let's denote by $F\colon M_1 \to M_1$ the map induced by
+\item	At first we need to construct, using Classical Dieudonné theory,
+	a barsotti-Tate group $G_1$ on $k = O_K/\pi O_k$ from $M_1$.
+	Let's denote by $F\colon M_1 \to M_1$ the map induced by
 	$\varphi\colon M \to M$.
 	Then we see that both sides of the surjective map
 	$\varphi^* ( \mathrm{Fil}^1 M_1) \to M_1$ are free $W$-modules of the same (finite) rank,
@@ -560,11 +795,11 @@ we still need some remarks and definitions.
 	\end{tikzcd}
 	\end{equation*} 
 	is compatible with Frobenius.
-	Moreover, thanks to \cref{rem:A2Kisin}, we see that $\mathrm{Fil}^1 \mathbb{D}^*(G_1)(W)$
-	is identified with $V \mathbb{D}^*(G_1)(W)$, which allows to say that the isomorphism
-	is compatible also with Filtration.
+	Moreover, thanks to \cref{rem:A2Kisin}, $\mathrm{Fil}^1 \mathbb{D}^*(G_1)(W)$
+	can be identified with $V \mathbb{D}^*(G_1)(W)$, which grants that the isomorphism
+	is also compatible with Filtration.
 
-	We now have to start, iteratively, lift this construction.
+\item We now have to start, iteratively, lift this construction.
 	We assume, for $i \in [2,e]$, that we have an isomorphism
 	\begin{equation}\label{eqn:PartialIsoCRi}
 	\begin{tikzcd}
@@ -574,7 +809,7 @@ we still need some remarks and definitions.
 	\end{tikzcd}
 	\end{equation}
 	compatible with Frobenius and filtrations, i.e. a morphism in $\mathsf{C}_{R_{i-1}}$.
-	We can notice, moreover, that the kernel of $R_i \twoheadrightarrow O_K/ (\pi^{i-1})$
+	Moreover we can notice that the kernel of $R_i \twoheadrightarrow O_K/ (\pi^{i-1})$
 	is $(p, u^{i-1})$ which is still equipped with divided powers.
 	In fact we simply put $\gamma_1(u^{i-1}) = u^{i-1}$ and, for all $n \geq 2$,
 	$\gamma_n(u^{i-1}) = 0$, since $u^{n(i-1)} \in (u^i)$.
@@ -600,6 +835,10 @@ we still need some remarks and definitions.
 	there is a unique $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$
 	lifting $G_{i-1}$ and such that $(\mathrm{Lie}G_i)^D \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
 	is equal to the image of $\mathrm{Fil}^i M_i$ under the composite
+	%tk: here one should also prove that this image is locally free.
+	%I guess this is true, since we have the short exact sequence
+	%of the second rem of this section, and it should be that Lie is free
+	%(then splitting, etc).
 	\begin{equation*}
 	\begin{tikzcd}
 		\mathrm{Fil}^1 M_i \subset M_i
@@ -614,6 +853,68 @@ we still need some remarks and definitions.
 	\cref{rem:DGValuationRestriction}, is compatible also with filtrations,
 	i.e. is in $\mathsf{C}_{R_i}$.
 	This concludes the first step of induction.
-\end{enumerate}
-\end{proof}
 
+\item Finally we need to reiterate the above argument to the surjection
+	$S \twoheadrightarrow R_e$.
+	At first we need to show that the kernel of this map is equipped with divided powers.
+	Since it is the $p$-adic completion of the kernel
+	of the map $\mathbb{D}_{W[u]}(E(u)) \twoheadrightarrow R_e$,
+	induced by $W[u] \twoheadrightarrow R_e$, we can study this and
+	then apply \cref{PDExtendCompletion}.
+	But this kernel is generated by $u^e$ hence it is equipped with divided powers,
+	since $(E(u)) \triangleleft \mathcal{D}_{W[u]}(E(u))$ has a P.D. structure
+	compatible with that of $(p)$ (and it is an Eisenstein polynomial).
+	Then we can apply \cref{lem:A2Kisin} and obtain that the valuation
+	$\mathbb{D}^*(G_e)(S)$ is in $\mathsf{C}_{S}$.
+	Again as before we lift the isomorphism 
+	\begin{equation*}
+	\begin{tikzcd}
+		M_e \arrow[r, "\sim", rightarrow] &
+		\mathbb{D}^*(G_e)(R_e)
+	\end{tikzcd}
+	\end{equation*}
+	in $\mathsf{C}_{R_e}$ to an isomorphism $M \simeq \mathbb{D}^*(G_e)(S)$
+	compatible with $\varphi$.
+	Now we need to lift the group $G_e$ to $O_K$ and we assume that $p > 2$.
+	In order to do so we notice that, for all $i$,
+	$O_K/p^{i-1}O_K \twoheadrightarrow O_K/ (p^i)$ and
+	$S \twoheadrightarrow O_K/ (p^i)$ are equipped with
+	divided powers, the first being nilpotent, the second existing by compatibility
+	of divided powers on $u^e$ with those on $p$.
+	Moreover, since $O_K$ is $p$-adically complete, thanks to \cite[Lemma 2.4.4]{deJong},
+	we see that the datum of a Barsotti-Tate group on $O_K$ is equivalent to
+	the data of a compatible sequence of Barsotti-Tate groups $G^i$ on $O_K/ (p^i)$.
+	Here compatible means that the restriction of $G^i$ to $O_K/ (p^{i-1})$
+	is isomorphic to $G^{i-1}$.
+	Then, invoking again \cref{thm:EquivCatBTS}, we can construct this sequence by induction,
+	taking at each time the group $G^i$ determined by $(\mathrm{Lie} G^i)^D \subset
+	\mathbb{D}^*(G_e)(O_K/p^iO_K)$ given by the image of $\mathrm{Fil}^1 M$ under
+	\begin{equation*}
+	\begin{tikzcd}
+		M \arrow[r, "\sim", rightarrow] &
+		\mathbb{D}^*(G_e)(S) \arrow[r, "", rightarrow] &
+		\mathbb{D}^*(G_e)(O_K/p^iO_K)
+	.\end{tikzcd}
+	\end{equation*}
+	By functoriality of $\mathbb{D}^*(G_e)$ this gives rise to a compatible family $G^i$,
+	which in turn, by \cite[Lemma 2.4.4]{deJong}, defines $G(M) \in \mathsf{BT}(O_K)$
+	such that $(\mathrm{Lie}G)^D \subset \mathbb{D}^*(G_e)(O_K)$ is
+	equal to the image of $\mathrm{Fil}^iM$ under
+	\begin{equation*}
+	\begin{tikzcd}
+		M \arrow[r, "\sim", rightarrow] &
+		\mathbb{D}^*(G_e)(S) \arrow[r, "", rightarrow] &
+		\mathbb{D}^*(G_e)(O_K)
+	.\end{tikzcd}
+	\end{equation*}
+\end{enumerate}
+At last we are only left to prove that the above morphism are quasi inverse to each other.
+It is clear, by construction, that $M \simeq M(G(M))$.
+For the other direction we see, by induction on $i = 1, \ldots, e$, that uniqueness in
+\cref{PDExtendCompletion} grants that, given any $G \in \mathsf{BT}(O_K)$, $G_i(M(G))$ is
+isomorphic to the base change of $G$ to $O_K/ (\pi^i)$.
+Analogously, for $i \in \mathbb{N}$, uniqueness in \cref{PDExtendCompletion} grants
+that $G^i(M(G))$ is isomorphic to the base change of $G$ to $O_K/ (p^i)$.
+Then, invoking again \cite[Lemma 2.4.4]{deJong}, we can conclude that $G(M(G)) \simeq G$
+and the two functors are quasi-inverses to one another.
+\end{proof}
