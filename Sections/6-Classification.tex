@@ -7,11 +7,13 @@
 In order to work over a finite extension $K/\mathbb{Q}_p$ it is convenient to
 have some familiarity with the formalism of Witt vectors, so we will dedicate some 
 space to recall the basic definitions and results.
+As a typographical convention, in the following sections we will
+denote vectors using a boldface character.
 
 
 \begin{rem}[Motivation]
 	Consider $K/\mathbb{Q}_p$ finite and unramified.
-	Denote by $k \coloneqq O_K/pOK$ the residue field of $K$ and by $q \coloneqq \left| k \right|$
+	Denote by $k \coloneqq O_K/pO_K$ the residue field of $K$ and by $q \coloneqq \left| k \right|$
 	its cardinality.
 	Then there is multiplicative map $[\ \cdot \ ]\colon k \to O_K$,
 	called the Teichmüller lifting, with image $\mu_{q-1}(O_K)$
@@ -33,11 +35,13 @@ space to recall the basic definitions and results.
 	results for us will be in case $A$ is a perfect $\mathbb{F}_p$-algebra,
 	i.e. an $\mathbb{F}_p$ algebra on which the map $x \mapsto x^p$
 	is an automorphism.
-	Then, in this whole section we will stick to this assumption.
+	Then the results we will introduce in this section will
+	revolve around this assumption, but we will highlight when
+	it is not strictly necessary.
 \end{rem}
 
 
-\begin{defn}[Witt polynomials]
+\begin{defn}[Witt polynomials]%tk: widow
 	We define a family of polynomials $\left\{ w_n(\mathbf{x}) \right\}_{n \in \mathbb{N}} \subset
 	\mathbb{Z}[\mathbf{x}] = \mathbb{Z}[x_i]_{i \in \mathbb{N}}$ by
 	\begin{align*}
@@ -55,7 +59,7 @@ space to recall the basic definitions and results.
 	For every $\phi \in \mathbb{Z}[x,y]$ there exists a sequence
 	$\left\{ \varphi_n \right\}_{n \in \mathbb{N}} \subset \mathbb{Z}[\mathbf{x}, \mathbf{y}]$,
 	where $\mathbf{x} = \left\{ x_n \right\}_{n \in \mathbb{N}}$
-	and analogously for $\mathbf{y}$, such that,
+	$\mathbf{y} = \left\{ y_n \right\}_{n \in \mathbb{N}}$, such that,
 	for all $n \in \mathbb{N}$,
 	\begin{equation*}
 		w_n(\varphi_0, \ldots, \varphi_n) =
@@ -87,9 +91,9 @@ space to recall the basic definitions and results.
 
 
 \begin{defn}[Ring of Witt vectors]
-	We define the {\em ring of Witt vectors} with coefficients in $A$
-	to be the commutative unitary ring $A^{\mathbb{N}}$ endowed with
-	the composition laws defined in \cref{not:WittSumProd}.
+	We define the {\em ring of Witt vectors} with coefficients in $A$,
+	denoted by $W(A)$, to be the commutative unitary ring $A^{\mathbb{N}}$
+	endowed with the composition laws defined in \cref{not:WittSumProd}.
 \end{defn}
 
 
@@ -106,8 +110,9 @@ space to recall the basic definitions and results.
 	\end{tikzcd}
 	\end{equation*} 
 	is a ring homomorphism.
-	Moreover it is easy to check that it is an isomorphism as soon
-	as $p$ is invertible and it is a monomorphism if $p$ is not a zero divisor.
+	Moreover it is easy to check that it is 
+	a monomorphism if $p$ is not a zero divisor ans
+	an isomorphism as soon as $p$ is invertible. 
 \end{rem}
 
 
@@ -139,7 +144,7 @@ space to recall the basic definitions and results.
 \end{defn}
 
 
-\begin{defn}[]
+\begin{defn}[(Strict) $p$-ring]
 	A ring $B$ is called {\em $p$-ring} iff it is separated and complete
 	for the topology induced by a decreasing collection of ideals
 	$\left\{ \mathfrak{b}_i \right\}_{i \geq 1}$ such that for all $n,m \geq 1$
@@ -163,19 +168,89 @@ space to recall the basic definitions and results.
 	Since $A$ is of characteristic $p$ we have the identities
 	$VF = FV = p$.
 	Moreover, in case $A$ is perfect, we see that $p^nW(A) = V^nW(A)$,
-	since
-	\begin{equation*}
-		p \cdot \left( a_0, a_1, \ldots \right) =
-		(0, a_0^p, a_1^p, \ldots)
-	.\end{equation*}
+	since $p \cdot \left( a_0, a_1, \ldots \right) =
+	(0, a_0^p, a_1^p, \ldots)$.
 	This means that the $p$-adic topology of $W(A)$ corresponds
 	to the natural product topology.
-	This means that $W(A) \simeq \varprojlim_{n \in \mathbb{N}} W(A)/ (p^n)$
-	hence that $W(A)$ is a strict $p$-ring.
+	This means that $W(A) \simeq \varprojlim_{n \in \mathbb{N}} W(A)/ (p^n)$.
+	Then, since $W(A)/ (p) \simeq A$, that $W(A)$ is a strict $p$-ring.
 \end{rem}
 
 
-\begin{prop}[{\cite[Proposition 4.2.3]{Brinon}}]
+\begin{lem}[{\cite[Lemma 4.2.2]{Brinon}}]\label{pRingSection}
+	Let $B$ be a $p$-ring.
+	There is a unique set theoretic section
+	$r_B\colon B/\mathfrak{b}_1 \to B$
+	to the reduction map such that
+	$r_B(x^p) = r_B(x)^p$
+	for all $x \in B/\mathfrak{b}_1$.
+	Moreover $r_B$ is multiplicative and $r_B(1) = 1$.
+\end{lem} 
+
+
+\begin{defn}[Teichmüller lift]
+	For a ring $A$, we can define the section to the reduction map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		[\ \cdot \ ]\colon A \arrow[r, "", rightarrow] &
+		W(A) \\
+		a \arrow[r, "", mapsto] &
+		[a] \coloneqq \left( a, 0, 0, \ldots \right)
+	,\end{tikzcd}
+	\end{equation*} 
+	where $[a]$ is called the {\em Teichmüller lift} of $a$.
+\end{defn}
+
+
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}\label{TeichmullerExpansionWitt}
+\begin{enumerate}
+\item Using some universal arguments it is easy to prove that
+	\begin{equation*}
+		(x_0, x_1, x_2, \ldots) \cdot (y_0, 0, 0 \ldots) =
+		(x_0y_0, x_1^py_0, x_2^{p^2}y_0, \ldots)
+	\end{equation*}
+	in $W(A)$.
+	Hence $[\ \cdot\ ]$ is a multiplicative map
+	and satisfies conditions of \cref{pRingSection}.
+
+\item If $B$ is a strict $p$-ring endowed with the $p$-adic topology,
+	each $b \in B$ can be written as
+	\begin{equation*}
+		b = \sum_{n \in \mathbb{N} }^{  } r_B(b_n) p^n
+	\end{equation*}
+	with $b_n \in B/\mathfrak{b}_1 = B/pB$.
+	Let's recall that $B$ is complete and separated with respect to the $p$-adic
+	topology.
+	As a consequence the above series converges and the expansion is unique.
+
+\item Let $A$ be a perfect $\mathbb{F}_p$-algebra, then any element of $x \in W(A)$
+	can be uniquely written as
+	\begin{equation*}
+		x = \sum_{n \in \mathbb{N} }^{  } [c_n] p^n
+	,\end{equation*}
+	where $c_n \in A$.
+	We will refer to this expansion as the {\em Theichmüller expansion} in the future.
+	Moreover, given $x = \left( a_n \right)_{n \in \mathbb{N}}$, one can also write it as
+	\begin{equation*}
+		x = \sum_{n \in \mathbb{N} }^{  } V^n([a_n])
+	.\end{equation*}
+	Then, since $A$ is perfect, $F$ is invertible on $W(A)$ too
+	and we obtain $V^n = p^n F^{-n}$. Then we can rewrite the above sum as
+	\begin{equation*}
+		x = 
+		\sum_{n \in \mathbb{N} }^{  } p^n F^{-n}([a_n]) =
+		\sum_{n \in \mathbb{N} } ([a_n^{p^{-n}}]) p^n
+	.\end{equation*}
+	All combined we can explicitly compute the coefficients
+	of the Teichmüller expansion of $x = \left( a_n \right)$,
+	via $[c_n] = [a_n^{p^{-n}}]$.
+\end{enumerate}
+\end{rem}
+
+
+\begin{prop}[{\cite[Proposition 4.2.3]{Brinon}}]\label{UPWittVectors}
 	If $A$ is a perfect $\mathbb{F}_p$-algebra and $B$ is a $p$-ring,
 	then the natural "reduction" map 
 	\begin{equation*}

@@ -17,8 +17,6 @@ on $k, W$ and $K_0$.
 We fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
 we denote by $\overline{K}$ a fixed separable closure of $K$,
 and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
-Finally, given a field $F$, we denote by $O_F$ its ring of integers.
-tk: this remark maybe to be said before in the introduction.
 
 
 
@@ -117,7 +115,7 @@ tk: this remark maybe to be said before in the introduction.
 	.\end{tikzcd}
 	\end{equation*} 
 	Moreover $R(O/pO) \simeq R(O/\mathfrak{a})$ and this common ring
-	is a domain as soon as $O$ is a domain.
+	is a domain as soon as $O$ is.
 \end{prop}
 
 
@@ -137,7 +135,7 @@ tk: this remark maybe to be said before in the introduction.
 \end{rem}
 
 
-\begin{ntt}[]
+\begin{ntt}[]\label{not:tiltingElts}
 	In view of the above isomorphism we might see an element $x \in R$
 	either as an element 
 	$\left( x_n \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
@@ -157,14 +155,14 @@ tk: this remark maybe to be said before in the introduction.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\left| \ \cdot \ \right|_R\colon R \arrow[r, "", rightarrow] &
 		p^{\mathbb{Q}} \cup \left\{ 0 \right\} \\
-		\left( x^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left( x^{(n)} \right) \arrow[r, "", mapsto] & 
 		\left| x^{(0)} \right|_p
 	\end{tikzcd}
 	\end{equation*} 
 	is a $G_K$-equivariant absolute value on $R$ that makes
 	$R$ the valuation ring for the unique valuation
 	$\nu_R$ on $\mathrm{Frac}\, R$ extending
-	$l \log_p \left| \ \cdot \ \right|_R$ on $R$
+	$-\log_p \left| \ \cdot \ \right|_R$ on $R$
 	and having value group $\mathbb{Q}$.
 	Moreover $R$ is $\nu_R$-adically separated and complete
 	and the subfield $\overline{k}$ of $R$ maps
@@ -172,21 +170,272 @@ tk: this remark maybe to be said before in the introduction.
 \end{lem} 
 
 
-\begin{ntt}[]
-	Let's denote by $\zeta_{p^n}$ the primitive $p^n$-th roots of unity
+\begin{ntt}[]\leavevmode\vspace{-.2\baselineskip}\label{not:ExampleEltsTilt}
+\begin{enumerate}
+\item Fix $\big( p^{1/p^n} \big)_{n \in \mathbb{N}}$ 
+	a compatible family of $p^n$-th roots of $p$
 	in $O_{\mathbb{C}_K}$.
-	We denote by $\varepsilon$ the special element of $R$ given by
+	Denote by $\mathbf{p}$ the element of $R$ given by
 	\begin{equation*}
-		\varepsilon \coloneqq \left( \varepsilon^{(n)} \right)_{n \in \mathbb{N}} =
-		\left( 1, \zeta_p, \zeta_{p^2}, \ldots \right)
+		\mathbf{p} \coloneqq \big( p^{(n)} \big)_{n \in \mathbb{N}} =
+		\big( p, p^{1/p}, p^{1/p^2}, \ldots \big) \in R
+	.\end{equation*}
+	Its valuation is easily computed by
+	$\nu_R(\mathbf{p}) = \nu_p(p^{(0)}) = \nu_p(p) = 1$.
+
+\item Fix a compatible family of primitive $p^n$-th roots of unity
+	$\left( \zeta_{p^n} \right)_{n \in \mathbb{N}}$ in $O_{\mathbb{C}_K}$.
+	We denote by $\boldsymbol\varepsilon$ the special element of $R$ given by
+	\begin{equation*}
+		\boldsymbol\varepsilon \coloneqq \big( \varepsilon^{(n)} \big)_{n \in \mathbb{N}} =
+		\left( 1, \zeta_p, \zeta_{p^2}, \ldots \right) \in R
 	.\end{equation*}
 	We can see that any two such $\varepsilon$
-	are $\mathbb{Z}_{p}^\cross$-powers of each other.
+	are $\mathbb{Z}_{p}^*$-powers of each other.
 	Moreover we can compute the valuation
 	\begin{equation*}
 		\nu_R \left( \varepsilon - 1 \right) = \frac{ p }{ p - 1 }
 	.\end{equation*}
+	Let's compute it for $p > 2$: by definition we have
+	$\nu_R(\varepsilon - 1) = \nu_p \left( (\varepsilon -1 )^{(0)} \right)$.
+	Sum, in $\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$
+	is given by
+	\begin{equation*}
+		\left( \varepsilon -1 \right)^{(0)} =
+		\lim_{n \to \infty} \left( \zeta_{p^n} + (-1)^{(n)} \right)^{p^n}
+	.\end{equation*}
+	Let's notice that $\left( -1 \right)^{(n)} = -1$ for all $n$
+	and $\zeta_{p^n} - 1$ is a root of $\Phi_{p^n}(1+x)$,
+	where $\Phi_m$ denotes the $m$-th cyclotomic polynomial.
+	In particular $\Phi_{p^n}(1+x)$ is Eisenstein of degree
+	$p^{n-1}(p-1)$.
+	Then
+	\begin{equation*}
+		\nu_R(\varepsilon - 1) =
+		\lim_{n \to \infty} \frac{ p^n }{ p^{n-1}(p-1) } =
+		\frac{ p }{ p-1 }
+	.\end{equation*}
+\end{enumerate}
 \end{ntt}
+
+
+\begin{rem}[]
+	There is a natural family of ring maps
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta_m\colon R \arrow[r, "", rightarrow] &
+		)_{\mathbb{C}_K} \\
+		\left( x_m \right)_{m \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		x_n
+	.\end{tikzcd}
+	\end{equation*} 
+	Let's give $R$ a $\overline{k}$-algebra structure
+	via the $k$-embedding
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\overline{k} = R(\overline{k}) \arrow[r, "", rightarrow] &
+		R(O_{\overline{K}}/pO_{\overline{K}}) =R\\
+		c \arrow[r, "", mapsto] & 
+		\left( j(c), j(c^{1/p}), j(c^{1/p^2}), \ldots \right)
+	,\end{tikzcd}
+	\end{equation*} 
+	where $j\colon \overline{k} \to O_{\overline{K}}/ (p)$ is the canonical
+	section to the reduction map $O_{\overline{K}}/ (p) \twoheadrightarrow \overline{k}$.
+	Then $\theta_0$ becomes a $\overline{k}$-algebra map.
+	We wish to lift it to a ring map $W(R) \to O_{\mathbb{C}_K}$,
+	but we cannot use universal property of the Witt vector construction
+	since $O_{\mathbb{C}_K}/ (p)$ is not perfect (the Frobenius is,
+	in particular, not injective).
+\end{rem}
+
+
+\begin{defn}[]
+	We define, set theoretically, the map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta\colon W(R) \arrow[r, "", rightarrow] &
+		O_{\mathbb{C}_K} \\
+		\sum_{n \in \mathbb{N} }^{  } [c_n] p^n \arrow[r, "", mapsto] & 
+		\sum_{n \in \mathbb{N} }^{  } c_n^{(0)} p^n
+	,\end{tikzcd}
+	\end{equation*} 
+	where \cref{TeichmullerExpansionWitt} allows us to write any element of $W(R)$
+	in a unique Teichmüller expansion and $c_n^{(0)}$ is defined as in \cref{not:tiltingElts}.
+\end{defn}
+
+
+\begin{rem}[]
+	In \cref{TeichmullerExpansionWitt} we explicitly computed the Teichmüller
+	expansion of $\left( r_n \right)_{n \in \mathbb{N}}$
+	to be $\sum_{n \in \mathbb{N} }^{  } [r_n^{p^{-n}}] p^n$.
+	Moreover, by compatibility of the elements in $\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$
+	and multiplicativity of $r \mapsto r^{(n)}$
+	we have that $\big( r^{p^{-n}} \big)^{(0)} = \big( (r^{p^{-n}})^{(n)} \big)^{p^n} =
+	r^{(n)}$.
+	Hence we can compute $\theta$ also via
+	\begin{equation*}
+	\begin{tikzcd}
+		\theta\colon 
+		\left( r_0, r_1, \ldots \right)
+		\arrow[r, "", mapsto] &
+		\sum_{n \in \mathbb{N} }^{  } r_n^{(n)} p^n
+	.\end{tikzcd}
+	\end{equation*}
+\end{rem}
+
+
+\begin{rem}[]
+	Let's now notice that $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
+	acts naturally on $O_{\mathbb{C}_K}$, since it acts via isometries on
+	$\overline{K}$.
+	Since, moreover, it acts via morphisms of rings, which commute with $x \mapsto x^p$,
+	it acts naturally on $R = \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
+	Finally, thanks to \cref{UPWittVectors}, this induces naturally
+	an action of $G_K$ on $W(R)$.
+	More explicitly it the action of $g \in G_K$ is defined by
+	\begin{equation*}
+		g \left( \sum_{n \in \mathbb{N} }^{  } [c_n] p^n \right) =
+		\sum_{n \in \mathbb{N} }^{  } [g(c_n)] p^n
+	.\end{equation*}
+	Moreover, recalling the explicit description of the Teichmüller
+	epxansion given in \cref{TeichmullerExpansionWitt}, we see that this
+	action of $G_K$ on $W(R)$ corresponds with the component-wise action
+	(again, since it commutes with Frobenius on $R$).
+\end{rem}
+
+
+\begin{lem}[{\cite[Lemma 4.4.1]{Brinon}}]
+	The map $\theta\colon W(R) \to O_{\mathbb{C}_K}$ is a $G_K$-equivariant surjective ring homomorphism.
+\end{lem} 
+
+
+\begin{rem}[]
+	Notice that $\theta$ is clearly $G_K$-equivariant, since the action of
+	$G_K$ on $O_{\mathbb{C}_K}$ is continuous and $K$-linear.
+	Moreover, inverting $p$, we obtain another $G_K$-equivariant surjective ring homomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta_{\mathbb{Q}}\colon W(R)[1/p] \arrow[r, "", rightarrow] &
+		O_{\mathbb{C}_K} = \mathbb{C}_K
+	.\end{tikzcd}
+	\end{equation*} 
+	Though the source ring is not a complete valuation ring.
+\end{rem}
+
+
+\begin{prop}[{\cite[Proposition 4.4.3]{Brinon}}]
+	Let $\mathbf{p}$ be as in \cref{not:ExampleEltsTilt} and let
+	\begin{equation*}
+	\xi \coloneqq \xi_{\mathbf{p}} = \mathbf{p} - p \in W(R)
+	.\end{equation*}
+\begin{enumerate}
+	\item The ideal $\ker \theta \triangleleft W(R)$ is principal and it is generated
+		by $\xi$.
+	\item An element $w = (w_0, w_1, \ldots) \in \ker\theta$ generates
+		the ideal if and only if $r_1 \in R^*$.
+\end{enumerate}
+\end{prop}
+
+
+\begin{cor}[{\cite[Corollary 4.4.5]{Brinon}}]
+	For all $j \geq 1$ we have $W(R) \cap \left( \ker \theta_{\mathbb{Q}} \right)^j =
+	\left( \ker \theta \right)^j$.
+	Moreover $\bigcap_{j \geq 1} \left( \ker \theta \right)^j =
+	\bigcap_{j \geq 1} \left( \ker \theta_{\mathbb{Q}} \right)^j = 0$.
+\end{cor} 
+
+
+\begin{rem}[]
+	As a consequence of the above we see that $W(R)[1/p]$
+	injects into its $\ker \theta_{\mathbb{Q}}$-completion.
+	Moreover we denote its completion by
+	\begin{equation*}
+	B^+_{\mathrm{dR}} \coloneqq \varprojlim_{j \geq 1}
+	\frac{ W(R)[1/p] }{ \left( \ker \theta_{\mathbb{Q}} \right)^j }
+	.\end{equation*}
+	Recall that $G_K$ acts component-wise on the ring of Witt vectors,
+	so $\ker \theta_{\mathbb{Q}}$ is stable under the action of $G_K$
+	and the transition maps of the above projective limit are $G_K$-equivariant.
+	As a consequence $B^+_{\mathrm{dR}}$ inherits a natural action of $G_K$
+	which is compatible with that on its subring $W(R)[1/p]$.
+	Then $B^+_{\mathrm{dR}}$ projects $G_K$-equivariantly on its quotients
+	by $\left( \ker \theta_{\mathbb{Q}} \right)^j$.
+	In particular, for $j = 1$, we obtain a lift of $\theta$ 
+	to a $G_K$-equivariant surjection
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\theta^+_{\mathrm{dR}}\colon B^+_{\mathrm{dR}} \arrow[r, "", rightarrow] &
+		\mathbb{C}_K
+	.\end{tikzcd}
+	\end{equation*} 
+	Finally we see that the action of the Frobenius on $W(R)[1/p]$
+	does not naturally extend to $B^+_{\mathrm{dR}}$.
+	In fact $\ker \theta_{\mathbb{Q}}$ is not stable under its action:
+	$\varphi(\xi) = [\mathbf{p}^p] - p \notin \ker \theta_{\mathbb{Q}}$.
+\end{rem}
+
+
+\noindent
+By construction we saw that $B_{\mathrm{dR}}^+$ is a discrete valuation ring,
+so we want to find a uniformizer with which it is nice to work with.
+\begin{defn}[]
+	Let $\boldsymbol\varepsilon$ be as in \cref{not:ExampleEltsTilt}.
+	We define
+	\begin{equation*}
+		t \coloneqq \log \left( [\boldsymbol\varepsilon] \right) =
+		\log \left( 1 + ([\boldsymbol\varepsilon] - 1)\right) =
+		\sum_{n = 1 }^{ \infty } (-1)^{n+1} 
+		\frac{ ([\boldsymbol\varepsilon] - 1)^n }{ n }
+		\in B_{\mathrm{dR}}^+
+	.\end{equation*}
+\end{defn}
+
+
+\begin{rem}[{\cite[pp. 60--62]{Brinon}}]\leavevmode\vspace{-\baselineskip}
+\begin{enumerate}
+	\item The element $[\boldsymbol\varepsilon] - 1 $ lies in
+		$\ker \theta$, hence we can compute $\log ([\boldsymbol\varepsilon])$.
+
+	\item One can show, via careful topological arguments, that,
+		since any two different choices of $\boldsymbol\varepsilon$
+		are related by $\boldsymbol\varepsilon' = \boldsymbol\varepsilon^a$
+		for $a \in \mathbb{Z}_{p}^*$, then
+		$t' = a t$.
+
+	\item $G_K$ acts multiplicatively on $t$ via the cyclotomic character,
+		i.e. $g(t) = \Xi(g) t$ for all $g \in G_K$.
+
+	\item The element $t$ is a uniformizer of $B_{\mathrm{dR}}^+$.
+\end{enumerate}
+\end{rem}
+
+
+\begin{defn}[Field of $p$-adic periods]
+	We define the {\em field of $p$-adic periods}, also called
+	the {\em de Rham period ring}, 
+	$B_{\mathrm{dR}} \coloneqq \mathrm{Frac}\, B_{\mathrm{dR}}^+$.
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that, just like $B_{\mathrm{dR}}^+$, the field of $p$-adic periods
+	$B_{\mathrm{dR}}$ is endowed with a natural $G_K$-action.
+	Moreover we can notice that, set theoretically, the construction of
+	$B_{\mathrm{dR}}$ depends only on $\mathbb{C}_K$ and not on $K$,
+	though the choice of $K$ changes the Galois group acting on it,
+	up to restriction to a closed subgroup.
+\end{rem}
+
 
 
 
