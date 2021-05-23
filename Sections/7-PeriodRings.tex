@@ -1,0 +1,313 @@
+\section{Period Rings}
+%to define:
+%\begin{enumerate}
+%\item Representations ($p/\ell$-adic reps),
+%\item regular algebras
+%\item admissible representations
+%\item functors going from representations to modules
+%\end{enumerate}
+%
+We introduce, for this section, the following notation:
+$K$ will denote a complete discrete valuation ring, with residue field $k$
+of characteristic $p$.
+We will denote by $W \coloneqq W(k)$ the ring of Witt vectors with coefficients in $k$
+and by $K_0 \coloneqq W[1/p]$ its field of fractions.
+We will denote by $\sigma$ the absolute Frobenius acting
+on $k, W$ and $K_0$.
+We fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
+we denote by $\overline{K}$ a fixed separable closure of $K$,
+and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
+Finally, given a field $F$, we denote by $O_F$ its ring of integers.
+tk: this remark maybe to be said before in the introduction.
+
+
+
+\subsection{Period rings}
+\begin{defn}[]
+	Let $A$ be an $\mathbb{F}_p$-algebra.
+	We can associate it the perfect $\mathbb{F}_p$ algebra
+	\begin{equation*}
+		R(A) \coloneqq \varprojlim_{x \mapsto x^p} A =
+		\left\{ \left( x_0, x_1, \ldots \right) \in \prod_{n \in \mathbb{N}} A
+		\ \middle|\ x_{n+1}^p = x_n \text{ for all } n \in \mathbb{N} \right\}
+	\end{equation*}
+	endowed with the product ring structure.
+\end{defn}
+
+
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{enumerate}
+\item The above $\mathbb{F}_p$-algebra is perfect
+	since the $p$-th power map is clearly surjective by definition.
+	Moreover it is injective since any element $\left( x_n \right)_{n \in \mathbb{N}}$
+	satisfying $\left( x_n \right)^p = 0$ has, for all $n \geq 1$,
+	$x_{n-1} = x_n^p = 0$.
+
+\item We have a canonical morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		R(A) \arrow[r, "", rightarrow] &
+		A \\
+		\left( x_n \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		x_0
+	.\end{tikzcd}
+	\end{equation*} 
+	Moreover it is clear that any morphism from a perfect $\mathbb{F}_p$-algebra
+	to $A$ factors through the above projection.
+
+\item If $A$ is already perfect, then it is clear that $R(A) \simeq A$.
+	In particular the inverse map of the above projection is given by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		a \arrow[r, "", mapsto] &
+		\left( a^{1/p^n} \right)_{n \in \mathbb{N}}
+	.\end{tikzcd}
+	\end{equation*} 
+
+\item It can be shown that, given $F$ a field of characteristic $p$, then $R(F)$ is the largest
+	perfect subfield of $F$.
+	Denote now by $\overline{k}$ a fixed separable closure of $k$.
+	Then, since $\overline{k}$ is already perfect, $R(\overline{k}) = \overline{k}$.
+\end{enumerate}
+\end{rem}
+
+
+\begin{ntt}[]
+	We introduce the following ring
+	\begin{equation*}
+		R \coloneqq R(O_{\mathbb{C}_K}/pO_{\mathbb{C}_K}) =
+		R(O_{\overline{K}}/pO_{\overline{K}})
+	.\end{equation*}
+	It is a perfect $\mathbb{F}_p$-algebra and also canonically an
+	algebra over $\overline{k}$, since $O_{\mathbb{C}_K}$ is.
+\end{ntt}
+
+
+\begin{prop}[{\cite[Proposition 4.3.1]{Brinon}}]
+	Let $O$ be a $p$-adically separated and complete ring, and $\mathfrak{a} \triangleleft O$
+	an ideal of $O$ containing $p$ and such that $\mathfrak{a}^N \subset pO$ for some $N \in \mathbb{N}$
+	(i.e. the $\mathfrak{a}$-adic and $p$-adic topologies coincide).
+	Then we can define a map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		R(O/\mathfrak{a}) \arrow[r, "", rightarrow] &
+		\varprojlim_{x \mapsto x^p} O \\
+		\left( x_n \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left( x^{(n)} \right)_{n \in \mathbb{N}}
+	,\end{tikzcd}
+	\end{equation*} 
+	where we define $x^{(n)} \coloneqq \lim_{m \to \infty} \widehat{x_{n+m}}^{p^m}$,
+	in which $\widehat{x_m}$ is any lift of $x_m$ to $O$.
+	This map does not depend on the choice of lift, it is bijective
+	and its inverse is given by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\varprojlim_{x \mapsto x^p} O \arrow[r, "", rightarrow] &
+		R(O/\mathfrak{a}) \\
+		\left( x^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left( x^{(n)} \mathrm{mod}\, \mathfrak{a} \right)_{n \in \mathbb{N}}
+	.\end{tikzcd}
+	\end{equation*} 
+	Moreover $R(O/pO) \simeq R(O/\mathfrak{a})$ and this common ring
+	is a domain as soon as $O$ is a domain.
+\end{prop}
+
+
+\begin{rem}[]
+	If we endow $\varprojlim_{x \mapsto x^p} O$ with the ring structure
+	given, for any $x \coloneqq \left( x^{(n)} \right)$ and 
+	$y \coloneqq \left( y^{(n)} \right)$, 
+	by
+	\begin{equation*}
+		\left( xy \right)^{(n)} \coloneqq x^{(n)} y^{(n)}
+		\qquad \text{ and } \qquad
+		\left( x + y \right)^{(n)} \coloneqq
+		\lim_{m \to \infty} \big( x^{(n+m)} +
+		y^{(n+m)}\big)^{p^m}
+	,\end{equation*}
+	then the above bijection is an isomorphism of rings.
+\end{rem}
+
+
+\begin{ntt}[]
+	In view of the above isomorphism we might see an element $x \in R$
+	either as an element 
+	$\left( x_n \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
+	or as an element
+	$\left( x^{(n)} \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
+	We will use the above notation accordingly.
+\end{ntt}
+
+
+\begin{lem}[{\cite[Lemma 4.3.3]{Brinon}}]
+	Denote by $\left| \ \cdot \ \right|_p$ the absolute value on $\mathbb{C}_K$
+	normalized by $\left| p \right|_p = 1/p$.
+	The map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\left| \ \cdot \ \right|_R\colon R \arrow[r, "", rightarrow] &
+		p^{\mathbb{Q}} \cup \left\{ 0 \right\} \\
+		\left( x^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left| x^{(0)} \right|_p
+	\end{tikzcd}
+	\end{equation*} 
+	is a $G_K$-equivariant absolute value on $R$ that makes
+	$R$ the valuation ring for the unique valuation
+	$\nu_R$ on $\mathrm{Frac}\, R$ extending
+	$l \log_p \left| \ \cdot \ \right|_R$ on $R$
+	and having value group $\mathbb{Q}$.
+	Moreover $R$ is $\nu_R$-adically separated and complete
+	and the subfield $\overline{k}$ of $R$ maps
+	isomorphically onto the residue field of $R$.
+\end{lem} 
+
+
+\begin{ntt}[]
+	Let's denote by $\zeta_{p^n}$ the primitive $p^n$-th roots of unity
+	in $O_{\mathbb{C}_K}$.
+	We denote by $\varepsilon$ the special element of $R$ given by
+	\begin{equation*}
+		\varepsilon \coloneqq \left( \varepsilon^{(n)} \right)_{n \in \mathbb{N}} =
+		\left( 1, \zeta_p, \zeta_{p^2}, \ldots \right)
+	.\end{equation*}
+	We can see that any two such $\varepsilon$
+	are $\mathbb{Z}_{p}^\cross$-powers of each other.
+	Moreover we can compute the valuation
+	\begin{equation*}
+		\nu_R \left( \varepsilon - 1 \right) = \frac{ p }{ p - 1 }
+	.\end{equation*}
+\end{ntt}
+
+
+
+\subsection{Galois representations}
+\begin{defn}[$p$-adic representation]
+	A {\em $p$-adic representation} of a profinite group $\Gamma$ is a
+	representation $\rho\colon \Gamma \to \mathrm{Aut}_{\mathbb{Q}_p}(V)$
+	of $\Gamma$ on a finite-dimensional $\mathbb{Q}_p$ vector space
+	$V$, where $\rho$ is continuous.
+	Here the topology on $\mathrm{Aut}_{\mathbb{Q}_p}(V)$ is
+	that of $\mathrm{GL}_n(\mathbb{Q}_p)$, which is well defined,
+	independently of the chosen basis.
+
+	A {\em morphism of $p$-adic representations} $V_1, V_2$ of $\Gamma$
+	is a $\Gamma$-equivariant linear map $f\colon V_1 \to V_2$, 
+	i.e. a linear map that commutes with the action of $\Gamma$.
+	More explicitly, denoting $\rho_i(\gamma)$ simply by $\gamma$ for
+	an element $\gamma \in \Gamma$, a $\Gamma$-equivariant
+	map satisfies, for all $v \in V_1$ and all $\gamma \in \Gamma$,
+	$\gamma(f(v)) = f(\gamma(v))$.
+
+	We denote the category of $p$-adic representations of $\Gamma$,
+	whose objects and morphism have just been described,
+	by $\mathsf{Rep}_{\mathbb{Q}_p}(\Gamma)$.
+\end{defn}
+
+
+\begin{rem}[]
+	In general the above definition is used for representations of Galois groups.
+	In particular one fixes $K$ a finite extension of $\mathbb{Q}_p$, $\overline{K}$
+	a separable closure of $K$ and $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$,
+	which is profinite.
+	Then one studies $p$-adic representations of $\Gamma = G_K$.
+\end{rem}
+
+
+\begin{rem}[]
+	tk: maybe one can add the example of Tate module of an elliptic curve here.
+	Define a Tate module before though.
+	See page 131 of my notes.
+\end{rem}
+
+
+\begin{defn}[$G_K$-regular algebra]
+	Let $B$ be a commutative and integral $\mathbb{Q}_p$-algebra
+	equipped with an action of $G_K$.
+	Denote by $C \coloneqq \mathrm{Frac}(B)$ and by $E \coloneqq E^{G_K}$.
+	We say that $B$ is {\em $G_K$-regular} iff
+\begin{enumerate}
+	\item $B^{G_K} = C^{G_K}$ and
+	\item if $b \in B$ generates a vector space $\mathbb{Q}_p \cdot b$
+		stable under the action of $G_K$, then $b$ is invertible in $B$.
+\end{enumerate}
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that for any $G_K$-regular algebra $E$ is a field.
+\end{rem}
+
+
+\begin{defn}[]
+	For a $G_K$-regular algebra $B$, one can define a
+	functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(G_K) \arrow[r, "", rightarrow] &
+		\mathsf{VS}(E) \\
+		V \arrow[r, "", mapsto] & 
+		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
+	,\end{tikzcd}
+	\end{equation*} 
+	where we denoted by $\mathsf{VS}(E)$ the category of $E$-vector spaces.
+	Moreover we can define a natural $B$-linear, $G_K$-equivariant map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\alpha_B(V)\colon 
+		\mathbb{D}_B(V) \otimes_E B\arrow[r, "", rightarrow] &
+		V \otimes_{\mathbb{Q}_p} B \\
+		\left( v \otimes b_1 \right) \otimes b_2 \arrow[r, "", mapsto] & 
+		v \otimes b_1b_2
+	.\end{tikzcd}
+	\end{equation*}
+\end{defn}
+
+
+\begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
+	Fix $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$.
+	Then the map $\alpha_B(V)$ is always injective and
+	$\dim_E \mathbb{D}_B(V) \leq \dim_E V$.
+	Moreover there is equality of dimensions iff $\alpha_B(V)$ is an isomorphism.
+\end{prop}
+
+
+\begin{defn}[Admissible representations]
+	We say that $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$ is a
+	{\em $B$-admissible representation} iff 
+	$\dim_E \mathbb{D})B(V) = \dim_E V$.
+	We denote by $\mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \subset \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$
+	the full subcategory of $B$-admissible representations.
+\end{defn}
+
+
+\begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
+	The functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \arrow[r, "", rightarrow] &
+		\mathsf{VS}_F(E) \\
+		V \arrow[r, "", mapsto] & 
+		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
+	,\end{tikzcd}
+	\end{equation*} 
+	where we denoted by $\mathsf{VS}_F(E)$ the category of finite dimensional $E$-vector spaces,
+	is exact and faithfuls.
+	Moreover any subrepresentation and quotient of a $B$-admissible
+	representation is $B$-admissible.
+\end{prop}

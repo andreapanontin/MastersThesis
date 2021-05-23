@@ -1,5 +1,5 @@
 \section{Classification of \texorpdfstring{$p$}{p}-divisible groups
-	over \texorpdfstring{$\mathcal{O}_{ K }$}{the ring of integers of K}}
+	over \texorpdfstring{$O_{ K }$}{the ring of integers of K}}
 
 
 
@@ -45,7 +45,7 @@ space to recall the basic definitions and results.
 		w_1(\mathbf{x}) \coloneqq w_1(x_0, x_1) &\coloneqq x_0^p + px_1 \\
 				&\ \ \ \ \! \vdots \\
 		w_n(\mathbf{x}) \coloneqq w_n(x_0, \ldots, x_n) &\coloneqq
-		\sum_{ i=0 }^{ n } p^i x_i^{p^{n-1}} =
+		\sum_{ i=0 }^{ n } p^i x_i^{p^{n-i}} =
 		x_0^{p^n} + px_1^{p^{n-1}} + \cdots + p^{n-1}x_{n-1}^p + p^n x_n
 	.\end{align*}
 \end{defn}
@@ -237,7 +237,7 @@ space to recall the basic definitions and results.
 
 
 \subsection{Classification of \texorpdfstring{$p$}{p}-divisible groups
-	over \texorpdfstring{$\mathcal{O}_{ K }$}{the ring of integers of K}}
+	over \texorpdfstring{$O_{ K }$}{the ring of integers of K}}
 This section will follow \cite[Appendix A]{Kisin}.
 We fix $k$ a perfect field of characteristic $p$,
 $W \coloneqq W(k)$ its ring of Witt vectors, $K_0 \coloneqq W[1/p]$
@@ -778,14 +778,14 @@ With all this in mind we can start with the lifting process.
 		M_1
 	,\end{tikzcd}
 	\end{equation*}
-	where the first arrow is just the inverse of the above iso, the second map
+	where the first arrow is just the inverse of the above isomorphism, the second map
 	is induced by the inclusion $\mathrm{Fil}^1 M \hookrightarrow M$ and the
 	third one is given by $a \otimes m \mapsto \varphi^{-1}(a)m$.
 	This composition gives a $\varphi^{-1}$-semilinear map $V\colon M_1 \to M_1$
 	such that $FV = VF = p$.
 	Let's denote by $G_1$ the Barsotti-Tate group on $k$ associated to this
-	Dieudonné module.
-	Classical theory grants that the isomorphism
+	Dieudonné module, see e.g. \cite[Proposition 7.2.6]{Brinon} for a reference.
+	In particular the isomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
