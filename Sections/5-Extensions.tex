@@ -753,6 +753,7 @@ we introduce the following notation.
 	This allows to apply the following results in the most general case,
 	without imposing any additional requirement on the chosen Barsotti-Tate group.
 	(tk: should I keep notation as in Messing, or should I change it to reflect this remark?)	
+	You should change it...
 \end{rem}
 
 
@@ -869,7 +870,7 @@ For the construction we fix a scheme $S_0$ with $p$ locally
 nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 
 
-\begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]
+\begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]\label{CrystalLocalPB}
 	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(X)$,
 	it suffices to define them locally.
 	More specifically we are going to define their evaluation
@@ -951,7 +952,7 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 		start anchor={[xshift=0.38ex]}] 
 	.\end{tikzcd}
 	\end{equation*}
-	Then, as seen in the above remark, for a lifting $G_U$ 
+	Then, as seen in \cref{CrystalLocalPB}, for a lifting $G_U$ 
 	of $\left.G_0\right|_{U_0}$ to $U$, we have
 	\begin{equation*}
 		\overline{f}^* \left( E(G_U) \right) =
@@ -1007,10 +1008,11 @@ nilpotent on it and $G \in \mathsf{BT}'(S_0)$.
 		\mathbb{D}^*(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
 		\mathrm{Lie}
 		\left( \overline{\mathbb{E}}(G_0^D)_{\left(U_0 \hookrightarrow U, \delta\right)} \right)
-	,\end{equation*}
-	$\overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)}$, 
-	since it is a formal Lie group by \cref{prop:ExtFLG}, hence a Barsotti-Tate group,
-	for which we previously introduced the notion of duality.
+	.\end{equation*}
+	%$\overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)}$, 
+	%since it is a formal Lie group by \cref{prop:ExtFLG}, hence a Barsotti-Tate group,
+	%for which we previously introduced the notion of duality.
+	%tk: I don't rememeber what I had on my mind...
 \end{enumerate}
 \end{defn}
 

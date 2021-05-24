@@ -1,12 +1,4 @@
 \section{Period Rings}
-%to define:
-%\begin{enumerate}
-%\item Representations ($p/\ell$-adic reps),
-%\item regular algebras
-%\item admissible representations
-%\item functors going from representations to modules
-%\end{enumerate}
-%
 We introduce, for this section, the following notation:
 $K$ will denote a complete discrete valuation ring, with residue field $k$
 of characteristic $p$.
@@ -17,6 +9,8 @@ on $k, W$ and $K_0$.
 We fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
 we denote by $\overline{K}$ a fixed separable closure of $K$,
 and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
+Finally we will denote by $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$ 
+the absolute Galois group of $K$.
 
 
 
@@ -37,8 +31,8 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 \begin{enumerate}
 \item The above $\mathbb{F}_p$-algebra is perfect
 	since the $p$-th power map is clearly surjective by definition.
-	Moreover it is injective since any element $\left( x_n \right)_{n \in \mathbb{N}}$
-	satisfying $\left( x_n \right)^p = 0$ has, for all $n \geq 1$,
+	Moreover it is injective since any element $\mathbf{x} = \left( x_n \right)_{n \in \mathbb{N}}$
+	satisfying $\mathbf{x}^p = 0$ has, for all $n \geq 1$,
 	$x_{n-1} = x_n^p = 0$.
 
 \item We have a canonical morphism
@@ -52,24 +46,17 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 		x_0
 	.\end{tikzcd}
 	\end{equation*} 
-	Moreover it is clear that any morphism from a perfect $\mathbb{F}_p$-algebra
+	Moreover any morphism from a perfect $\mathbb{F}_p$-algebra
 	to $A$ factors through the above projection.
 
-\item If $A$ is already perfect, then it is clear that $R(A) \simeq A$.
+\item If $A$ is already perfect, then $R(A) \simeq A$.
 	In particular the inverse map of the above projection is given by
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		a \arrow[r, "", mapsto] &
-		\left( a^{1/p^n} \right)_{n \in \mathbb{N}}
-	.\end{tikzcd}
-	\end{equation*} 
+	$a \mapsto \left( a^{1/p^n} \right)_{n \in \mathbb{N}}$.
+	In particular, let's consider $\overline{k}$ a fixed separable closure of $k$.
+	Since $\overline{k}$ is already perfect, we obtain $R(\overline{k}) = \overline{k}$.
 
 \item It can be shown that, given $F$ a field of characteristic $p$, then $R(F)$ is the largest
 	perfect subfield of $F$.
-	Denote now by $\overline{k}$ a fixed separable closure of $k$.
-	Then, since $\overline{k}$ is already perfect, $R(\overline{k}) = \overline{k}$.
 \end{enumerate}
 \end{rem}
 
@@ -89,7 +76,7 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 	Let $O$ be a $p$-adically separated and complete ring, and $\mathfrak{a} \triangleleft O$
 	an ideal of $O$ containing $p$ and such that $\mathfrak{a}^N \subset pO$ for some $N \in \mathbb{N}$
 	(i.e. the $\mathfrak{a}$-adic and $p$-adic topologies coincide).
-	Then we can define a map
+	Then we have a map
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -121,13 +108,13 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 
 \begin{rem}[]
 	If we endow $\varprojlim_{x \mapsto x^p} O$ with the ring structure
-	given, for any $x \coloneqq \left( x^{(n)} \right)$ and 
-	$y \coloneqq \left( y^{(n)} \right)$, 
+	given, for any $\mathbf{x} \coloneqq \left( x^{(n)} \right)$ and 
+	$\mathbf{y} \coloneqq \left( y^{(n)} \right)$, 
 	by
 	\begin{equation*}
-		\left( xy \right)^{(n)} \coloneqq x^{(n)} y^{(n)}
+		\left( \mathbf{xy} \right)^{(n)} \coloneqq x^{(n)} y^{(n)}
 		\qquad \text{ and } \qquad
-		\left( x + y \right)^{(n)} \coloneqq
+		\left( \mathbf{x} + \mathbf{y} \right)^{(n)} \coloneqq
 		\lim_{m \to \infty} \big( x^{(n+m)} +
 		y^{(n+m)}\big)^{p^m}
 	,\end{equation*}
@@ -136,13 +123,23 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 
 
 \begin{ntt}[]\label{not:tiltingElts}
-	In view of the above isomorphism we might see an element $x \in R$
+	In view of the above isomorphism we might see an element $\mathbf{x} \in R$
 	either as an element 
 	$\left( x_n \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
 	or as an element
 	$\left( x^{(n)} \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
 	We will use the above notation accordingly.
 \end{ntt}
+
+
+\begin{rem}[]\label{rem:GKActionR}
+	Let's now notice that $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
+	acts naturally on $O_{\mathbb{C}_K}$, since it acts via isometries on
+	$\overline{K}$.
+	Acting via morphisms of rings, which commute with $x \mapsto x^p$,
+	its action can naturally be extended to
+	$R = \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
+\end{rem}
 
 
 \begin{lem}[{\cite[Lemma 4.3.3]{Brinon}}]
@@ -190,43 +187,50 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 		\boldsymbol\varepsilon \coloneqq \big( \varepsilon^{(n)} \big)_{n \in \mathbb{N}} =
 		\left( 1, \zeta_p, \zeta_{p^2}, \ldots \right) \in R
 	.\end{equation*}
-	We can see that any two such $\varepsilon$
+	The element $\boldsymbol\varepsilon$ depends on the chosen
+	compatible family.
+	Moreover any two such $\boldsymbol\varepsilon$
 	are $\mathbb{Z}_{p}^*$-powers of each other.
 	Moreover we can compute the valuation
-	\begin{equation*}
-		\nu_R \left( \varepsilon - 1 \right) = \frac{ p }{ p - 1 }
-	.\end{equation*}
+	$\nu_R \left( \boldsymbol\varepsilon - 1 \right) = p/ (p - 1)$.
 	Let's compute it for $p > 2$: by definition we have
-	$\nu_R(\varepsilon - 1) = \nu_p \left( (\varepsilon -1 )^{(0)} \right)$.
+	$\nu_R(\boldsymbol\varepsilon - 1) = \nu_p \left( (\boldsymbol\varepsilon -1 )^{(0)} \right)$.
 	Sum, in $\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$
 	is given by
 	\begin{equation*}
-		\left( \varepsilon -1 \right)^{(0)} =
+		\left( \boldsymbol\varepsilon -1 \right)^{(0)} =
 		\lim_{n \to \infty} \left( \zeta_{p^n} + (-1)^{(n)} \right)^{p^n}
 	.\end{equation*}
 	Let's notice that $\left( -1 \right)^{(n)} = -1$ for all $n$
-	and $\zeta_{p^n} - 1$ is a root of $\Phi_{p^n}(1+x)$,
+	and that $\zeta_{p^n} - 1$ is a root of $\Phi_{p^n}(1+x)$,
 	where $\Phi_m$ denotes the $m$-th cyclotomic polynomial.
 	In particular $\Phi_{p^n}(1+x)$ is Eisenstein of degree
 	$p^{n-1}(p-1)$.
 	Then
 	\begin{equation*}
-		\nu_R(\varepsilon - 1) =
+		\nu_R(\boldsymbol\varepsilon - 1) =
 		\lim_{n \to \infty} \frac{ p^n }{ p^{n-1}(p-1) } =
 		\frac{ p }{ p-1 }
 	.\end{equation*}
+	Finally we recall that $G_K$ acts on $\zeta_{p^n}$ via
+	the cyclotomic character.
+	More explicitly $g(\zeta_{p^n}) = \zeta_{p^n}^{\xi(g)}$ for any $g \in G_K$.
+	As a consequence, since the induced action is component-wise,
+	$G_K$ acts also on $\boldsymbol\varepsilon$ via the cyclotomic character,
+	i.e. $g(\boldsymbol\varepsilon) = \boldsymbol\varepsilon^{\xi(g)}$
+	for all $g \in G_K$.
 \end{enumerate}
 \end{ntt}
 
 
 \begin{rem}[]
-	There is a natural family of ring maps
+	There is a natural family of ring homomorphisms
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\theta_m\colon R \arrow[r, "", rightarrow] &
-		)_{\mathbb{C}_K} \\
+		O_{\mathbb{C}_K} \\
 		\left( x_m \right)_{m \in \mathbb{N}} \arrow[r, "", mapsto] & 
 		x_n
 	.\end{tikzcd}
@@ -248,8 +252,8 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 	Then $\theta_0$ becomes a $\overline{k}$-algebra map.
 	We wish to lift it to a ring map $W(R) \to O_{\mathbb{C}_K}$,
 	but we cannot use universal property of the Witt vector construction
-	since $O_{\mathbb{C}_K}/ (p)$ is not perfect (the Frobenius is,
-	in particular, not injective).
+	since $O_{\mathbb{C}_K}/ (p)$ is not perfect (in particular the Frobenius
+	is not injective).
 \end{rem}
 
 
@@ -290,13 +294,10 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 \end{rem}
 
 
-\begin{rem}[]
-	Let's now notice that $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
-	acts naturally on $O_{\mathbb{C}_K}$, since it acts via isometries on
-	$\overline{K}$.
-	Since, moreover, it acts via morphisms of rings, which commute with $x \mapsto x^p$,
-	it acts naturally on $R = \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
-	Finally, thanks to \cref{UPWittVectors}, this induces naturally
+\begin{rem}[]\label{GKActionWR}
+	Let's recall that in \cref{rem:GKActionR} we saw that
+	the action of $G_K$ extends naturally from $O_{\mathbb{C}_K}$ to $R$.
+	Then, thanks to \cref{UPWittVectors}, this induces naturally
 	an action of $G_K$ on $W(R)$.
 	More explicitly it the action of $g \in G_K$ is defined by
 	\begin{equation*}
@@ -324,7 +325,7 @@ and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\theta_{\mathbb{Q}}\colon W(R)[1/p] \arrow[r, "", rightarrow] &
-		O_{\mathbb{C}_K} = \mathbb{C}_K
+		O_{\mathbb{C}_K}[1/p] = \mathbb{C}_K
 	.\end{tikzcd}
 	\end{equation*} 
 	Though the source ring is not a complete valuation ring.
@@ -423,7 +424,8 @@ so we want to find a uniformizer with which it is nice to work with.
 \begin{defn}[Field of $p$-adic periods]
 	We define the {\em field of $p$-adic periods}, also called
 	the {\em de Rham period ring}, 
-	$B_{\mathrm{dR}} \coloneqq \mathrm{Frac}\, B_{\mathrm{dR}}^+$.
+	$B_{\mathrm{dR}} \coloneqq \mathrm{Frac}\, B_{\mathrm{dR}}^+ =
+	B_{\mathrm{dR}}^+[1/t]$.
 \end{defn}
 
 
@@ -436,6 +438,72 @@ so we want to find a uniformizer with which it is nice to work with.
 	up to restriction to a closed subgroup.
 \end{rem}
 
+
+\begin{defn}[]
+	We define $A_{\mathrm{cris}}$ the $p$-adic completion of the
+	divided power envelope of $W(R)$ with respect to the ideal $\ker \theta$.
+	More explicitly
+	\begin{equation*}
+		A_{\mathrm{cris}} = \varprojlim_{n \in \mathbb{N}} 
+		\mathcal{D}_{W(R)}(\ker\theta)/p^n\mathcal{D}_{W(R)}(\ker\theta)
+	.\end{equation*}
+\end{defn}
+
+
+\begin{rem}[{\cite[\S9.1]{Brinon}}]
+	The ring $A_{\mathrm{cris}}$ is a domain, in particular it is a subring
+	of $B_{\mathrm{dR}}^+$, whose elements are given by
+	\begin{equation*}
+	A_{\mathrm{cris}} = 
+	\left\{ \sum_{n \in \mathbb{N} }^{  } a_n \frac{ \xi^n }{ n! } \ \middle|\ 
+	a_n \in W(R) \text{ s.t. } \lim_{n \to \infty} a_n = 0
+	\text{ for the $p$-adic topology}\right\}
+	.\end{equation*}
+	Moreover the composite $A_{\mathrm{cris}} \hookrightarrow B_{\mathrm{dR}}^+ 
+	\twoheadrightarrow \mathbb{C}_K$ lands in $O_{\mathbb{C}_K}$
+	and induces a surjective ring homomorphism $A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$.
+	Also, by {\cite[Proposition 9.1.3]{Brinon}}, we see that the important
+	element $t = \log ([\boldsymbol\varepsilon])$ is in $A_{\mathrm{cris}}$.
+\end{rem}
+
+
+\begin{rem}[]
+	As seen in \cref{GKActionWR}, $G_K$ acts on $W(R)$ sending $pW(R)$ to $pW(R)$.
+	Then by universal property of divided powers envelope the action extends to
+	$\mathcal{D}_{W(R)}(\ker\theta)$.
+	More explicitly any $g \in G_K$ induces the unique map
+	\begin{equation*}
+	\begin{tikzcd}
+		&
+		\mathcal{D}_{W(R)}(\ker\theta)
+		\arrow[rd, "", dashrightarrow,
+		start anchor=south east] & \\
+		\left(W(R), \ker\theta\right) \arrow[ru, "", rightarrow,
+		end anchor=south west] 
+		\arrow[rr, "", rightarrow] & &
+		W(R) \subset \mathcal{D}_{W(R)}(\ker\theta). 
+	.\end{tikzcd}
+	\end{equation*}
+	And this then extends to $A_{\mathrm{cris}}$.
+	By {\cite[Proposition 9.1.2]{Brinon}} the action
+	of $G_K$ on $A_{\mathrm{cris}}$ is continuous.
+	Also, following {\cite[Lemmas 9.1.7-9.1.8]{Brinon}},
+	we can extend the Frobenius morphism on $W(R)$ to 
+	$A_{\mathrm{cris}}$ and it acts, on $t$, by $t \mapsto pt$.
+\end{rem}
+
+
+tk: fix this definition, add universal property of acris, fix following part.
+\begin{defn}[]
+	We define the {\em crystalline period ring} for $K$
+	to be the $G_K$-stable subring $B_{\mathrm{cris}} \coloneqq A_{\mathrm{cris}}[1/t]$
+	of $B_{\mathrm{dR}}$.
+\end{defn}
+
+
+\begin{rem}[]
+	tk: add remark on construction, like for $B_{\mathrm{dR}}$. 
+\end{rem}
 
 
 
