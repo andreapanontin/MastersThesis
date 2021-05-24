@@ -1,5 +1,10 @@
 \section{Classification of \texorpdfstring{$p$}{p}-divisible groups
 	over \texorpdfstring{$O_{ K }$}{the ring of integers of K}}
+In this section we will review the results seen in \cite[Appendix A]{Kisin},
+which generalize the results of Dieudonné of classification of Barsotti-Tate groups.
+In fact we will introduce some technical lemmas and use them to
+generalize the classification of Barsotti-Tate groups over a field
+to that of Barsotti-Tate groups over the ring of integers of a local field.
 
 
 
@@ -35,7 +40,7 @@ denote vectors using a boldface character.
 	results for us will be in case $A$ is a perfect $\mathbb{F}_p$-algebra,
 	i.e. an $\mathbb{F}_p$ algebra on which the map $x \mapsto x^p$
 	is an automorphism.
-	Then the results we will introduce in this section will
+	The results we will introduce in this section
 	revolve around this assumption, but we will highlight when
 	it is not strictly necessary.
 \end{rem}
@@ -56,7 +61,7 @@ denote vectors using a boldface character.
 
 
 \begin{lem}[{\cite[Chapter II, \S6, theorem 6]{Serre}}]\label{thm:WittSumProdPolys}
-	For every $\phi \in \mathbb{Z}[x,y]$ there exists a sequence
+	For every $\phi \in \mathbb{Z}[x,y]$ there exists a unique sequence
 	$\left\{ \varphi_n \right\}_{n \in \mathbb{N}} \subset \mathbb{Z}[\mathbf{x}, \mathbf{y}]$,
 	where $\mathbf{x} = \left\{ x_n \right\}_{n \in \mathbb{N}}$
 	$\mathbf{y} = \left\{ y_n \right\}_{n \in \mathbb{N}}$, such that,
@@ -111,7 +116,7 @@ denote vectors using a boldface character.
 	\end{equation*} 
 	is a ring homomorphism.
 	Moreover it is easy to check that it is 
-	a monomorphism if $p$ is not a zero divisor ans
+	a monomorphism if $p$ is not a zero divisor and
 	an isomorphism as soon as $p$ is invertible. 
 \end{rem}
 
@@ -147,9 +152,10 @@ denote vectors using a boldface character.
 \begin{defn}[(Strict) $p$-ring]
 	A ring $B$ is called {\em $p$-ring} iff it is separated and complete
 	for the topology induced by a decreasing collection of ideals
-	$\left\{ \mathfrak{b}_i \right\}_{i \geq 1}$ such that for all $n,m \geq 1$
-	$\mathfrak{b}_n \mathfrak{b}_m \subset \mathfrak{b}_{n+m}$ and
-	$B/\mathfrak{b}_1$ is a perfect $\mathbb{F}_p$-algebra
+	$\left\{ \mathfrak{b}_i \right\}_{i \geq 1}$ such that 
+	$\mathfrak{b}_n \mathfrak{b}_m \subset \mathfrak{b}_{n+m}$
+	for all $n,m \geq 1$
+	and $B/\mathfrak{b}_1$ is a perfect $\mathbb{F}_p$-algebra
 	(hence $p \in \mathfrak{b}_1$).
 
 	We say that $B$ is a {\em strict $p$-ring} iff it is a $p$-ring
@@ -171,7 +177,7 @@ denote vectors using a boldface character.
 	since $p \cdot \left( a_0, a_1, \ldots \right) =
 	(0, a_0^p, a_1^p, \ldots)$.
 	This means that the $p$-adic topology of $W(A)$ corresponds
-	to the natural product topology.
+	to its natural product topology.
 	This means that $W(A) \simeq \varprojlim_{n \in \mathbb{N}} W(A)/ (p^n)$.
 	Then, since $W(A)/ (p) \simeq A$, that $W(A)$ is a strict $p$-ring.
 \end{rem}
@@ -206,7 +212,7 @@ denote vectors using a boldface character.
 
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}\label{TeichmullerExpansionWitt}
 \begin{enumerate}
-\item Using some universal arguments it is easy to prove that
+\item Reducing to an appropriate universal case it is easy to prove that
 	\begin{equation*}
 		(x_0, x_1, x_2, \ldots) \cdot (y_0, 0, 0 \ldots) =
 		(x_0y_0, x_1^py_0, x_2^{p^2}y_0, \ldots)
@@ -225,26 +231,26 @@ denote vectors using a boldface character.
 	topology.
 	As a consequence the above series converges and the expansion is unique.
 
-\item Let $A$ be a perfect $\mathbb{F}_p$-algebra, then any element of $x \in W(A)$
+\item Let $A$ be a perfect $\mathbb{F}_p$-algebra, then any element $\mathbf{x} \in W(A)$
 	can be uniquely written as
 	\begin{equation*}
-		x = \sum_{n \in \mathbb{N} }^{  } [c_n] p^n
+		\mathbf{x} = \sum_{n \in \mathbb{N} }^{  } [c_n] p^n
 	,\end{equation*}
 	where $c_n \in A$.
 	We will refer to this expansion as the {\em Theichmüller expansion} in the future.
-	Moreover, given $x = \left( a_n \right)_{n \in \mathbb{N}}$, one can also write it as
+	Moreover, given $\mathbf{x} = \left( a_n \right)_{n \in \mathbb{N}}$, one can also write it as
 	\begin{equation*}
-		x = \sum_{n \in \mathbb{N} }^{  } V^n([a_n])
+		\mathbf{x} = \sum_{n \in \mathbb{N} }^{  } V^n([a_n])
 	.\end{equation*}
 	Then, since $A$ is perfect, $F$ is invertible on $W(A)$ too
 	and we obtain $V^n = p^n F^{-n}$. Then we can rewrite the above sum as
 	\begin{equation*}
-		x = 
+		\mathbf{x} = 
 		\sum_{n \in \mathbb{N} }^{  } p^n F^{-n}([a_n]) =
 		\sum_{n \in \mathbb{N} } ([a_n^{p^{-n}}]) p^n
 	.\end{equation*}
 	All combined we can explicitly compute the coefficients
-	of the Teichmüller expansion of $x = \left( a_n \right)$,
+	of the Teichmüller expansion of $\mathbf{x} = \left( a_n \right)_{n \in \mathbb{N}}$,
 	via $[c_n] = [a_n^{p^{-n}}]$.
 \end{enumerate}
 \end{rem}
@@ -285,7 +291,7 @@ denote vectors using a boldface character.
 \item The inverse to the second bijection has the following form.
 	Let $h \in \mathrm{Hom}_{  } \left( \mathcal{B}/ (p), B/\mathfrak{b}_1 \right)$
 	and write an element $x \in \mathcal{B}$ using its expansion via $r_{\mathcal{B}}$.
-	Then the induced map on $\mathcal{B}$ acts by
+	The induced map on $\mathcal{B}$ acts by
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -334,10 +340,11 @@ denote vectors using a boldface character.
 \subsection{Classification of \texorpdfstring{$p$}{p}-divisible groups
 	over \texorpdfstring{$O_{ K }$}{the ring of integers of K}}
 This section will follow \cite[Appendix A]{Kisin}.
-We fix $k$ a perfect field of characteristic $p$,
-$W \coloneqq W(k)$ its ring of Witt vectors, $K_0 \coloneqq W[1/p]$
-its field of fractions and $K/K_0$ a finite totally ramified extension.
-Fix now a uniformizer $\pi$ of $K$ with (Eisenstein) minimal polynomial
+Fix $k$ a perfect field of characteristic $p$ and denote by
+$W \coloneqq W(k)$ its ring of Witt vectors and by $K_0 \coloneqq W[1/p]$
+its field of fractions.
+Finally fix $K/K_0$ a finite totally ramified extension
+with uniformizer $\pi$ of $K$ whose (Eisenstein) minimal polynomial is
 $E(u) \in K_0[u]$.
 
 
@@ -368,8 +375,10 @@ $E(u) \in K_0[u]$.
 	and its evaluation in \cref{rem:SheavesCrysX}.
 	Then we introduce the shorter notation
 	$\mathbb{D}^*(G_0)(T) \coloneqq \mathbb{D}^*(G_0)_T(T)$.
-	Finally, if $T = \mathrm{Spec}(A)$ is affine, we introduce the notation
+	Moreover, if $T = \mathrm{Spec}(A)$ is affine, we introduce the notation
 	$\mathbb{D}^*(G)(A)$ for $\mathbb{D}^*(G)(T)$.
+	Finally we notice that, fixed $G$, the functor $\mathbb{D}^*(G)$
+	is contravariant when evaluated on schemes, but covariant on rings.
 \end{ntt}
 
 
@@ -455,7 +464,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 	in the proof of the main result of this section, \cref{prop:A6Kisin}.
 	In fact these lemmas allow, in combination with \cref{thm:EquivCatBTS},
 	to lift not only a Barsotti-Tate group along a thickening with divided
-	powers, but also to lift some additional structure, i.e.
+	powers, but to also lift some additional structure, i.e.
 	a Frobenius morphism and a filtration, on the valuation of $\mathbb{D}^*$.
 	It is, in fact, this extra structure that is going to grant
 	uniqueness for the lifts we are interested in.
@@ -498,7 +507,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 
 
 \begin{rem}[]\label{rem:A2Kisin}
-	Even though we will not prove the theorem, we feel it is important to report
+	Even though we will not prove the theorem, we feel it is important to write
 	the most important points used in the proof.
 \begin{enumerate}
 	\item Given an ideal with divided powers $I \triangleleft A$, then $\varphi(I) \subset pA$.
@@ -750,7 +759,7 @@ and it is also equipped with an endomorphism lifting the Frobenius on $S/pS$.
 More explicitly, with regards to the Frobenius, we have already defined it on $W[u]$.
 In order to lift it to $S$ we notice that it sends $pW[u]$ to $pW[u]$
 and it can be extended, by universal property of divided powers envelope,
-to $\mathcal{D}_{W[u]}(E(u))$ as the unique map making the diagram commute
+to $\mathcal{D}_{W[u]}(E(u))$ as the unique map making the following diagram commute
 \begin{equation*}
 \begin{tikzcd}
 	&
@@ -766,7 +775,7 @@ to $\mathcal{D}_{W[u]}(E(u))$ as the unique map making the diagram commute
 \end{equation*}
 Then this extends to $S$ by continuity with respect to $p$-adic
 topology and it lifts the Frobenius defined on
-$S/pS = \mathcal{D}_{W[u]}(E(u))/ (p) = W[u]/ (p)$.
+$S/pS = \mathcal{D}_{W[u]}(E(u))/ (p)$.
 Finally we are left to prove that the map
 \begin{equation*}
 \begin{tikzcd}[row sep = 0ex
@@ -792,7 +801,7 @@ In fact we see that, for all $s \in S$,
 
 
 The construction of the quasi-inverse $M \mapsto G(M)$
-is definitely more tricky and we will only concentrate on
+is definitely more tricky and we will concentrate only on
 the case $p > 2$, leaving the rest of the proof to \cite{Kisin}.
 It will require the use of classical Dieudonné theory to construct a
 Barsotti-Tate group over $k$ associated to a module $M \in \mathsf{BT}^{\varphi}_{/S}$
@@ -978,7 +987,7 @@ With all this in mind we can start with the lifting process.
 	induced by $W[u] \twoheadrightarrow R_e$, we can study this and
 	then apply \cref{PDExtendCompletion}.
 	But this kernel is generated by $u^e$ hence it is equipped with divided powers,
-	since $(E(u)) \triangleleft \mathcal{D}_{W[u]}(E(u))$ has a P.D. structure
+	since $(E(u)) \triangleleft\, \mathcal{D}_{W[u]}(E(u))$ has a P.D. structure
 	compatible with that of $(p)$ (and it is an Eisenstein polynomial).
 	Then we can apply \cref{lem:A2Kisin} and obtain that the valuation
 	$\mathbb{D}^*(G_e)(S)$ is in $\mathsf{C}_{S}$.

@@ -14,6 +14,136 @@ the absolute Galois group of $K$.
 
 
 
+\subsection{Galois representations}
+\begin{defn}[$p$-adic representation]
+	A {\em $p$-adic representation} of a profinite group $\Gamma$ is a
+	representation $\rho\colon \Gamma \to \mathrm{Aut}_{\mathbb{Q}_p}(V)$
+	of $\Gamma$ on a finite-dimensional $\mathbb{Q}_p$ vector space
+	$V$, where $\rho$ is continuous.
+	Here the topology on $\mathrm{Aut}_{\mathbb{Q}_p}(V)$ is
+	that of $\mathrm{GL}_n(\mathbb{Q}_p)$, which is well defined,
+	independently of the chosen basis.
+
+	A {\em morphism of $p$-adic representations} $V_1, V_2$ of $\Gamma$
+	is a $\Gamma$-equivariant linear map $f\colon V_1 \to V_2$, 
+	i.e. a linear map that commutes with the action of $\Gamma$.
+	More explicitly, denoting $\rho_i(\gamma)$ simply by $\gamma$ for
+	an element $\gamma \in \Gamma$, a $\Gamma$-equivariant
+	map satisfies $\gamma(f(v)) = f(\gamma(v))$
+	for all $v \in V_1$ and all $\gamma \in \Gamma$.
+
+	We denote the category of $p$-adic representations of $\Gamma$,
+	whose objects and morphism have just been described,
+	by $\mathsf{Rep}_{\mathbb{Q}_p}(\Gamma)$.
+\end{defn}
+
+
+\begin{rem}[]
+	In general the above definition is used for representations of Galois groups.
+	In particular $G_K$ is profinite and one studies $p$-adic representations of $\Gamma = G_K$.
+\end{rem}
+
+
+%\begin{rem}[]
+%	tk: maybe one can add the example of Tate module of an elliptic curve here.
+%	Define a Tate module before though.
+%	See page 131 of my notes.
+%\end{rem}
+
+
+\begin{defn}[$(F,G)$-regular algebra]
+	Let $F$ be a field and $G$ be a group.
+	Let $B$ be an $F$-algebra domain
+	equipped with an action of $G$ via automorphisms of $F$-algebras.
+	Denote by $C \coloneqq \mathrm{Frac}(B)$ and by $E \coloneqq B^{G}$.
+	Notice that $G$ acts on $C$ in a natural way.
+	We say that $B$ is {\em $(F,G)$-regular} iff
+\begin{enumerate}
+	\item $B^{G} = C^{G}$ and
+	\item if $b \in B$ generates a vector space $F \cdot b$
+		stable under the action of $G$, then $b \in B^*$.
+\end{enumerate}
+	Since we will often be interested in the case of $p$-adic representations
+	of the absolute Galois group of a finite extension $K/\mathbb{Q}_p$,
+	we will often assume $F = \mathbb{Q}_p$.
+	In such case we will simply write that $B$ is $G$-regular
+	to mean that it is $(\mathbb{Q}_p,G)$-regular.
+	Moreover we will often take $G = G_K$.
+\end{defn}
+
+
+\begin{rem}[]
+	Notice that for any $(F,G)$-regular algebra $E$ is a field.
+	Moreover if $B$ is already a field, than it clearly is $(F,G)$-regular.
+\end{rem}
+
+
+\begin{defn}[]
+	For a $G_K$-regular algebra $B$, one can define a
+	functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(G_K) \arrow[r, "", rightarrow] &
+		\mathsf{VS}(E) \\
+		V \arrow[r, "", mapsto] & 
+		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
+	,\end{tikzcd}
+	\end{equation*} 
+	where we denoted by $\mathsf{VS}(E)$ the category of $E$-vector spaces.
+	Moreover we can define a natural $B$-linear, $G_K$-equivariant map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\alpha_B(V)\colon 
+		\mathbb{D}_B(V) \otimes_E B\arrow[r, "", rightarrow] &
+		V \otimes_{\mathbb{Q}_p} B \\
+		\left( v \otimes b_1 \right) \otimes b_2 \arrow[r, "", mapsto] & 
+		v \otimes b_1b_2
+	.\end{tikzcd}
+	\end{equation*}
+\end{defn}
+
+
+\begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
+	Fix $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$.
+	Then the map $\alpha_B(V)$ is always injective and
+	$\dim_E \mathbb{D}_B(V) \leq \dim_E V$.
+	Moreover there is equality of dimensions iff $\alpha_B(V)$ is an isomorphism.
+\end{prop}
+
+
+\begin{defn}[Admissible representations]
+	We say that $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$ is a
+	{\em $B$-admissible representation} iff 
+	$\dim_E \mathbb{D}_B(V) = \dim_E V$.
+	We denote by $\mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \subset \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$
+	the full subcategory of $B$-admissible representations.
+\end{defn}
+
+
+\begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
+	The functor
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \arrow[r, "", rightarrow] &
+		\mathsf{VS}_F(E) \\
+		V \arrow[r, "", mapsto] & 
+		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
+	,\end{tikzcd}
+	\end{equation*} 
+	where we denoted by $\mathsf{VS}_F(E)$ the category of finite dimensional $E$-vector spaces,
+	is exact and faithful.
+	Moreover any subrepresentation and quotient of a $B$-admissible
+	representation is $B$-admissible.
+\end{prop}
+
+
+
 \subsection{Period rings}
 \begin{defn}[]
 	Let $A$ be an $\mathbb{F}_p$-algebra.
@@ -51,7 +181,7 @@ the absolute Galois group of $K$.
 
 \item If $A$ is already perfect, then $R(A) \simeq A$.
 	In particular the inverse map of the above projection is given by
-	$a \mapsto \left( a^{1/p^n} \right)_{n \in \mathbb{N}}$.
+	$a \mapsto \left( a^{1/p^n} \right)$.
 	In particular, let's consider $\overline{k}$ a fixed separable closure of $k$.
 	Since $\overline{k}$ is already perfect, we obtain $R(\overline{k}) = \overline{k}$.
 
@@ -125,9 +255,9 @@ the absolute Galois group of $K$.
 \begin{ntt}[]\label{not:tiltingElts}
 	In view of the above isomorphism we might see an element $\mathbf{x} \in R$
 	either as an element 
-	$\left( x_n \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
+	$\left( x_n \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
 	or as an element
-	$\left( x^{(n)} \right)_{n \in \mathbb{N}} \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
+	$\left( x^{(n)} \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
 	We will use the above notation accordingly.
 \end{ntt}
 
@@ -152,7 +282,7 @@ the absolute Galois group of $K$.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\left| \ \cdot \ \right|_R\colon R \arrow[r, "", rightarrow] &
 		p^{\mathbb{Q}} \cup \left\{ 0 \right\} \\
-		\left( x^{(n)} \right) \arrow[r, "", mapsto] & 
+		\left( x^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
 		\left| x^{(0)} \right|_p
 	\end{tikzcd}
 	\end{equation*} 
@@ -167,7 +297,7 @@ the absolute Galois group of $K$.
 \end{lem} 
 
 
-\begin{ntt}[]\leavevmode\vspace{-.2\baselineskip}\label{not:ExampleEltsTilt}
+\begin{ex}[]\leavevmode\vspace{-.2\baselineskip}\label{ExampleEltsTilt}
 \begin{enumerate}
 \item Fix $\big( p^{1/p^n} \big)_{n \in \mathbb{N}}$ 
 	a compatible family of $p^n$-th roots of $p$
@@ -213,14 +343,14 @@ the absolute Galois group of $K$.
 		\frac{ p }{ p-1 }
 	.\end{equation*}
 	Finally we recall that $G_K$ acts on $\zeta_{p^n}$ via
-	the cyclotomic character.
-	More explicitly $g(\zeta_{p^n}) = \zeta_{p^n}^{\xi(g)}$ for any $g \in G_K$.
+	the cyclotomic character, which is defined by
+	$g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}$ for any $g \in G_K$.
 	As a consequence, since the induced action is component-wise,
 	$G_K$ acts also on $\boldsymbol\varepsilon$ via the cyclotomic character,
-	i.e. $g(\boldsymbol\varepsilon) = \boldsymbol\varepsilon^{\xi(g)}$
+	i.e. $g(\boldsymbol\varepsilon) = \boldsymbol\varepsilon^{\chi(g)}$
 	for all $g \in G_K$.
 \end{enumerate}
-\end{ntt}
+\end{ex}
 
 
 \begin{rem}[]
@@ -333,9 +463,9 @@ the absolute Galois group of $K$.
 
 
 \begin{prop}[{\cite[Proposition 4.4.3]{Brinon}}]
-	Let $\mathbf{p}$ be as in \cref{not:ExampleEltsTilt} and let
+	Let $\mathbf{p}$ be as in \cref{ExampleEltsTilt} and let
 	\begin{equation*}
-	\xi \coloneqq \xi_{\mathbf{p}} = \mathbf{p} - p \in W(R)
+		\xi \coloneqq \xi_{\mathbf{p}} = [\mathbf{p}] - p \in W(R)
 	.\end{equation*}
 \begin{enumerate}
 	\item The ideal $\ker \theta \triangleleft W(R)$ is principal and it is generated
@@ -390,7 +520,7 @@ the absolute Galois group of $K$.
 By construction we saw that $B_{\mathrm{dR}}^+$ is a discrete valuation ring,
 so we want to find a uniformizer with which it is nice to work with.
 \begin{defn}[]
-	Let $\boldsymbol\varepsilon$ be as in \cref{not:ExampleEltsTilt}.
+	Let $\boldsymbol\varepsilon$ be as in \cref{ExampleEltsTilt}.
 	We define
 	\begin{equation*}
 		t \coloneqq \log \left( [\boldsymbol\varepsilon] \right) =
@@ -414,7 +544,7 @@ so we want to find a uniformizer with which it is nice to work with.
 		$t' = a t$.
 
 	\item $G_K$ acts multiplicatively on $t$ via the cyclotomic character,
-		i.e. $g(t) = \Xi(g) t$ for all $g \in G_K$.
+		i.e. $g(t) = \chi(g) t$ for all $g \in G_K$.
 
 	\item The element $t$ is a uniformizer of $B_{\mathrm{dR}}^+$.
 \end{enumerate}
@@ -434,9 +564,15 @@ so we want to find a uniformizer with which it is nice to work with.
 	$B_{\mathrm{dR}}$ is endowed with a natural $G_K$-action.
 	Moreover we can notice that, set theoretically, the construction of
 	$B_{\mathrm{dR}}$ depends only on $\mathbb{C}_K$ and not on $K$,
-	though the choice of $K$ changes the Galois group acting on it,
+	though the choice of $K$ changes, functorially, the Galois group acting on it,
 	up to restriction to a closed subgroup.
 \end{rem}
+
+
+\begin{prop}[{\cite[Theorem 4.4.13, example 5.1.3]{Brinon}}]
+	$B_{\mathrm{dR}}$ is $G_K$-regular
+	(being a field) and $B_{\mathrm{dR}}^{G_K} = K$.
+\end{prop}
 
 
 \begin{defn}[]
@@ -481,7 +617,7 @@ so we want to find a uniformizer with which it is nice to work with.
 		\left(W(R), \ker\theta\right) \arrow[ru, "", rightarrow,
 		end anchor=south west] 
 		\arrow[rr, "", rightarrow] & &
-		W(R) \subset \mathcal{D}_{W(R)}(\ker\theta). 
+		W(R) \subset \mathcal{D}_{W(R)}(\ker\theta) 
 	.\end{tikzcd}
 	\end{equation*}
 	And this then extends to $A_{\mathrm{cris}}$.
@@ -493,138 +629,65 @@ so we want to find a uniformizer with which it is nice to work with.
 \end{rem}
 
 
-tk: fix this definition, add universal property of acris, fix following part.
 \begin{defn}[]
+	We denote by $B_{\mathrm{cris}}^+$ the $G_K$-stable $W(R)[1/p]$
+	subalgebra 
+	\begin{equation*}
+	B_{\mathrm{cris}}^+ \coloneqq A_{\mathrm{cris}}[1/p] \subset B_{\mathrm{dR}}^+
+	.\end{equation*}
 	We define the {\em crystalline period ring} for $K$
-	to be the $G_K$-stable subring $B_{\mathrm{cris}} \coloneqq A_{\mathrm{cris}}[1/t]$
-	of $B_{\mathrm{dR}}$.
+	to be the $G_K$-stable $W(R)[1/p]$-subalgebra of $B_{\mathrm{dR}}$
+	given by $B_{\mathrm{cris}} \coloneqq B_{\mathrm{cris}}^+[1/t]$.
 \end{defn}
 
 
-\begin{rem}[]
-	tk: add remark on construction, like for $B_{\mathrm{dR}}$. 
-\end{rem}
-
-
-
-\subsection{Galois representations}
-\begin{defn}[$p$-adic representation]
-	A {\em $p$-adic representation} of a profinite group $\Gamma$ is a
-	representation $\rho\colon \Gamma \to \mathrm{Aut}_{\mathbb{Q}_p}(V)$
-	of $\Gamma$ on a finite-dimensional $\mathbb{Q}_p$ vector space
-	$V$, where $\rho$ is continuous.
-	Here the topology on $\mathrm{Aut}_{\mathbb{Q}_p}(V)$ is
-	that of $\mathrm{GL}_n(\mathbb{Q}_p)$, which is well defined,
-	independently of the chosen basis.
-
-	A {\em morphism of $p$-adic representations} $V_1, V_2$ of $\Gamma$
-	is a $\Gamma$-equivariant linear map $f\colon V_1 \to V_2$, 
-	i.e. a linear map that commutes with the action of $\Gamma$.
-	More explicitly, denoting $\rho_i(\gamma)$ simply by $\gamma$ for
-	an element $\gamma \in \Gamma$, a $\Gamma$-equivariant
-	map satisfies, for all $v \in V_1$ and all $\gamma \in \Gamma$,
-	$\gamma(f(v)) = f(\gamma(v))$.
-
-	We denote the category of $p$-adic representations of $\Gamma$,
-	whose objects and morphism have just been described,
-	by $\mathsf{Rep}_{\mathbb{Q}_p}(\Gamma)$.
-\end{defn}
-
-
-\begin{rem}[]
-	In general the above definition is used for representations of Galois groups.
-	In particular one fixes $K$ a finite extension of $\mathbb{Q}_p$, $\overline{K}$
-	a separable closure of $K$ and $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$,
-	which is profinite.
-	Then one studies $p$-adic representations of $\Gamma = G_K$.
-\end{rem}
-
-
-\begin{rem}[]
-	tk: maybe one can add the example of Tate module of an elliptic curve here.
-	Define a Tate module before though.
-	See page 131 of my notes.
-\end{rem}
-
-
-\begin{defn}[$G_K$-regular algebra]
-	Let $B$ be a commutative and integral $\mathbb{Q}_p$-algebra
-	equipped with an action of $G_K$.
-	Denote by $C \coloneqq \mathrm{Frac}(B)$ and by $E \coloneqq E^{G_K}$.
-	We say that $B$ is {\em $G_K$-regular} iff
+\begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
-	\item $B^{G_K} = C^{G_K}$ and
-	\item if $b \in B$ generates a vector space $\mathbb{Q}_p \cdot b$
-		stable under the action of $G_K$, then $b$ is invertible in $B$.
+\item With some computations one can show, see \cite[Proposition 9.1.3]{Brinon},
+	one can show that $t^{p-1} \in p A_{\mathrm{cris}}$, hence that 
+	inverting $t$ makes $p$ a unit.
+	Then $B_{\mathrm{cris}} = B_{\mathrm{cris}}^+[1/t] = A_{\mathrm{cris}}[1/t]$.
+
+\item As for $B_{\mathrm{dR}}$, set theoretically the definition of $B_{\mathrm{cris}}^+$ and
+	of $B_{\mathrm{cris}}$ only depends on $\mathbb{C}_{K}$.
+	Again the choice of $K$ changes, functorially, the Galois group $G_K$ acting on the
+	period rings.
 \end{enumerate}
-\end{defn}
-
-
-\begin{rem}[]
-	Notice that for any $G_K$-regular algebra $E$ is a field.
 \end{rem}
 
 
-\begin{defn}[]
-	For a $G_K$-regular algebra $B$, one can define a
-	functor
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(G_K) \arrow[r, "", rightarrow] &
-		\mathsf{VS}(E) \\
-		V \arrow[r, "", mapsto] & 
-		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
-	,\end{tikzcd}
-	\end{equation*} 
-	where we denoted by $\mathsf{VS}(E)$ the category of $E$-vector spaces.
-	Moreover we can define a natural $B$-linear, $G_K$-equivariant map
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\alpha_B(V)\colon 
-		\mathbb{D}_B(V) \otimes_E B\arrow[r, "", rightarrow] &
-		V \otimes_{\mathbb{Q}_p} B \\
-		\left( v \otimes b_1 \right) \otimes b_2 \arrow[r, "", mapsto] & 
-		v \otimes b_1b_2
-	.\end{tikzcd}
-	\end{equation*}
-\end{defn}
-
-
-\begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
-	Fix $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$.
-	Then the map $\alpha_B(V)$ is always injective and
-	$\dim_E \mathbb{D}_B(V) \leq \dim_E V$.
-	Moreover there is equality of dimensions iff $\alpha_B(V)$ is an isomorphism.
+\begin{prop}[{\cite[Proposition 9.1.6]{Brinon}}]
+	$B_{\mathrm{cris}}$ is $G_K$-regular
+	and $B_{\mathrm{cris}}^{G_K} = K_0$.
 \end{prop}
 
 
-\begin{defn}[Admissible representations]
-	We say that $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$ is a
-	{\em $B$-admissible representation} iff 
-	$\dim_E \mathbb{D})B(V) = \dim_E V$.
-	We denote by $\mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \subset \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$
-	the full subcategory of $B$-admissible representations.
+\noindent
+Finally we give a characterization of $A_{\mathrm{cris}}$ via
+a universal property.
+\begin{defn}[Formal divided power thickening]
+	Let $A$ be a ring, with a principal ideal $\mathfrak{p} = \left( \pi \right)$
+	equipped with divided powers and $V$ be an $A$-algebra.
+	A {\em $\pi$-adic divided power thickening of $V$}, similarly to \cref{defn:PDThickening},
+	is a surjective homomorphism of $A$-algebras
+	$\theta\colon D \to V$ such that $\ker \theta$ has a divided powers structure
+	compatible with those on $\mathfrak{p}$.
+	Morphisms between divided power thickening are divided power morphisms
+	making the obvious diagram commute.
+	If the category of $\pi$-adic divided power $A$-thickening of $V$,
+	whose objects and morphisms have just been defined, admits an initial object
+	we call it the {\em universal $\pi$-adic divided power $A$-thickening of $V$}.
+	
+	If, moreover, $V$ is separated and complete with respect to the $\mathfrak{p}$-adic topology
+	we define {\em formal $\pi$-adic divided power $A$-thickenings of $V$} to be
+	$\pi$-adic divided power $A$-thickenings of $V$ which are separated and complete
+	with respect to the $\mathfrak{p}$-adic topology.
+	An initial object in the category of formal $\pi$-adic divided power $A$-thickening
+	of $V$ is called universal as before.
 \end{defn}
 
 
-\begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
-	The functor
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \arrow[r, "", rightarrow] &
-		\mathsf{VS}_F(E) \\
-		V \arrow[r, "", mapsto] & 
-		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
-	,\end{tikzcd}
-	\end{equation*} 
-	where we denoted by $\mathsf{VS}_F(E)$ the category of finite dimensional $E$-vector spaces,
-	is exact and faithfuls.
-	Moreover any subrepresentation and quotient of a $B$-admissible
-	representation is $B$-admissible.
+\begin{prop}[{\cite[\S2.3.2]{Fontaine}}]
+	$A_{\mathrm{cris}}$ is a universal formal $p$-adic divided power $W$-thickening of
+	$O_{\mathbb{C}_K}$.
 \end{prop}
