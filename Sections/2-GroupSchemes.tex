@@ -410,6 +410,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 \end{defn}
 
 
+\noindent
 The following results are valid in a more general setting, so let's change
 the assumption for $S$: we will assume it is a locally Noetherian scheme.
 \begin{rem}[Finite $S$-scheme]\label{rem:finiteGSMotivation}
@@ -768,6 +769,8 @@ is a locally Noetherian scheme.
 	is a closed immersion.
 \end{defn}
 
+
+\noindent
 The next theorem will allow us to construct quotients of
 $S$-group schemes by finite, flat closed subgroup schemes.
 It actually is a consequence of the following, more general result, due to Grothendieck.
@@ -792,6 +795,7 @@ It actually is a consequence of the following, more general result, due to Groth
 \end{thm}
 
 
+\noindent
 As promised we obtain the following result for group schemes.
 \begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{thm:QuotientGroupScheme}
 	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
@@ -810,6 +814,7 @@ As promised we obtain the following result for group schemes.
 \end{prop}
 
 
+\noindent
 Finally, in order to take quotients, we need to introduce the notion
 of normal subgroup:
 \begin{defn}[Normal subgoroup]
@@ -851,6 +856,7 @@ of normal subgroup:
 The study of étale group schemes is strictly related to that of
 separable algebras, so here are a few interesting results for the latter:
 
+
 \begin{thm}[{\cite[\S 6.2]{Waterhouse}}]
 	\label{thm:SeparableAlgebrasCharacterization}
 	Let $k$ be a field and denote by $\overline{k}$ and $k^s$ respectively
@@ -887,6 +893,7 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \end{cor} 
 
 
+\noindent
 For the following definition we will not assume maximal generality, but
 we will restrict to a case which includes the situation we will be concerned with,
 i.e. finite schemes over a Noetherian affine base.
@@ -912,6 +919,7 @@ i.e. finite schemes over a Noetherian affine base.
 \end{defn}
 
 
+\noindent
 In fact we can use this characterization in our context thanks to
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]{SP}}]
 	\leavevmode\vspace{-.2\baselineskip}
@@ -923,6 +931,8 @@ In fact we can use this characterization in our context thanks to
 		for a separable $\kappa(s)$-algebra $A_s$.
 \end{enumerate}
 \end{lem} 
+
+
 
 \subsubsection{Connected-étale exact sequence}
 In the following section we will always assume that 
@@ -979,6 +989,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \subsection{Cartier Duality}\label{CartierDualityGroups}
 In this section we'll mainly be concerned with $S = \mathrm{Spec}(R)$ affine
 and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(A)$.
+
 
 \begin{rem}[]
 	In \cref{rem:finiteGSMotivation} we recalled that $A$ is a finite projective $R$-module.
@@ -1045,6 +1056,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	Analogously one constructs $(\widetilde{m})^D$.
 \end{rem}
 
+
 \begin{defn}[Cartier dual]
 	Given a $S$ and $G$ as before, we define the {\em dual} of $G$ as the
 	group scheme defined by
@@ -1067,12 +1079,15 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \end{enumerate}
 \end{thm}
 
+
 \begin{rem}[]\label{rem:DualityOtherProperties}
 	Duals of finite commutative group schemes inherit some other properties,
 	in fact $[G^D : S] = [G : S]$.
 	Moreover the dual of a short exact sequence is short exact.
 \end{rem}
 
+
+\noindent
 One can also interpret duality from a different point of view.
 Here the relevant notions:
 \begin{defn}[Characters of $\mathrm{S}$-groups]
@@ -1117,6 +1132,7 @@ Here the relevant notions:
 \end{rem}
 
 
+\noindent
 Let's now give a few examples of dual group schemes among the ones we introduced so far:
 \begin{ex}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
@@ -1161,6 +1177,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 		\end{equation*} 
 \end{enumerate}
 \end{ex}
+
 
 
 \subsection{Frobenius and Verschiebung}\label{sec:FrobeniusVerschiebung}
@@ -1271,6 +1288,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 \end{defn}
 
 
+\noindent
 The following results hold for group schemes over field, hence we will replace
 $R$ by a field $k$ of characteristic $p > 0$.
 \begin{prop}[]\label{thm:FrobeniusChar1}
@@ -1306,6 +1324,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 	recalling that $((G^{(p)})^D)^D \simeq G^{(p)}$ and $(G^D)^D \simeq G$.
 \end{defn}
 
+
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 \item By Cartier duality one sees that $F^D_G = V_{G^D}$ and
@@ -1317,6 +1336,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \end{rem}
 
 
+\noindent
 Let's briefly quote a result, which is dual to
 \cref{thm:FrobeniusChar1} and \cref{thm:FrobeniusChar2}.
 \begin{prop}[]
@@ -1328,6 +1348,8 @@ Let's briefly quote a result, which is dual to
 \end{enumerate}
 \end{prop}
 
+
+\noindent
 We will conclude this section with a famous and useful relation between
 Frobenius and Verschiebung:
 \begin{thm}[{\cite[\S11.i]{MilneAG}}]\label{thm:FrobeniusVerschiebungRelation}
