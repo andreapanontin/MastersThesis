@@ -1,7 +1,7 @@
 \section{Period Rings}
 We introduce, for this section, the following notation:
-$K$ will denote a complete discrete valuation ring, with residue field $k$
-of characteristic $p$.
+$K$ will denote a complete discrete valuation field, 
+with perfect residue field $k$ of characteristic $p$.
 We will denote by $W \coloneqq W(k)$ the ring of Witt vectors with coefficients in $k$
 and by $K_0 \coloneqq W[1/p]$ its field of fractions.
 We will denote by $\sigma$ the absolute Frobenius acting
@@ -10,7 +10,8 @@ We fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
 we denote by $\overline{K}$ a fixed separable closure of $K$,
 and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 Finally we will denote by $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$ 
-the absolute Galois group of $K$.
+the absolute Galois group of $K$ and notice that its action on $\overline{K}$
+extends to $\mathbb{C}_K$ by continuity.
 
 
 
@@ -61,47 +62,44 @@ the absolute Galois group of $K$.
 \begin{enumerate}
 	\item $B^{G} = C^{G}$ and
 	\item if $b \in B$ generates a vector space $F \cdot b$
-		stable under the action of $G$, then $b \in B^*$.
+		stable under the action of $G$, then $b \in B^{\cross}$.
 \end{enumerate}
-	Since we will often be interested in the case of $p$-adic representations
-	of the absolute Galois group of a finite extension $K/\mathbb{Q}_p$,
-	we will often assume $F = \mathbb{Q}_p$.
-	In such case we will simply write that $B$ is $G$-regular
-	to mean that it is $(\mathbb{Q}_p,G)$-regular.
-	Moreover we will often take $G = G_K$.
 \end{defn}
 
 
 \begin{rem}[]
-	Notice that for any $(F,G)$-regular algebra $E$ is a field.
+	Notice that for any $(F,G)$-regular algebra $E/F$ is a field extension.
 	Moreover if $B$ is already a field, than it clearly is $(F,G)$-regular.
+	Finally we will always be concerned with $G = G_K$ and $F = \mathbb{Q}_p$,
+	so we will fix them and assume that $B$ is a $(\mathbb{Q}_p, G_K)$-regular
+	algebra.
 \end{rem}
 
 
 \begin{defn}[]
-	For a $G_K$-regular algebra $B$, one can define a
-	functor
+	One can define the functor
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(G_K) \arrow[r, "", rightarrow] &
-		\mathsf{VS}(E) \\
+		\mathbf{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(G_K) \arrow[r, "", rightarrow] &
+		\mathsf{Vect}(E) \\
 		V \arrow[r, "", mapsto] & 
-		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
+		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{G_K}
 	,\end{tikzcd}
 	\end{equation*} 
-	where we denoted by $\mathsf{VS}(E)$ the category of $E$-vector spaces.
+	where we denoted by $\mathsf{Vect}(E)$ the category of $E$-vector spaces.
 	Moreover we can define a natural $B$-linear, $G_K$-equivariant map
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\alpha_B(V)\colon 
-		\mathbb{D}_B(V) \otimes_E B\arrow[r, "", rightarrow] &
-		V \otimes_{\mathbb{Q}_p} B \\
-		\left( v \otimes b_1 \right) \otimes b_2 \arrow[r, "", mapsto] & 
-		v \otimes b_1b_2
+		B \otimes_E \mathbf{D}_B(V) \arrow[r, "", rightarrow] &
+		B \otimes_{\mathbb{Q}_p} V \\
+		b \otimes d
+		\arrow[r, "", mapsto] & 
+		bd
 	.\end{tikzcd}
 	\end{equation*}
 \end{defn}
@@ -110,7 +108,7 @@ the absolute Galois group of $K$.
 \begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
 	Fix $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$.
 	Then the map $\alpha_B(V)$ is always injective and
-	$\dim_E \mathbb{D}_B(V) \leq \dim_E V$.
+	$\dim_E \mathbf{D}_B(V) \leq \dim_E V$.
 	Moreover there is equality of dimensions iff $\alpha_B(V)$ is an isomorphism.
 \end{prop}
 
@@ -118,7 +116,7 @@ the absolute Galois group of $K$.
 \begin{defn}[Admissible representations]
 	We say that $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$ is a
 	{\em $B$-admissible representation} iff 
-	$\dim_E \mathbb{D}_B(V) = \dim_E V$.
+	$\dim_E \mathbf{D}_B(V) = \dim_E V$.
 	We denote by $\mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \subset \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$
 	the full subcategory of $B$-admissible representations.
 \end{defn}
@@ -130,13 +128,13 @@ the absolute Galois group of $K$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbb{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \arrow[r, "", rightarrow] &
-		\mathsf{VS}_F(E) \\
+		\mathbf{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \arrow[r, "", rightarrow] &
+		\mathsf{Vect}_f(E) \\
 		V \arrow[r, "", mapsto] & 
-		\mathbb{D}_B(V) \coloneqq \left( V \otimes_{\mathbb{Q}_p} B \right)^{G_K}
+		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{G_K}
 	,\end{tikzcd}
 	\end{equation*} 
-	where we denoted by $\mathsf{VS}_F(E)$ the category of finite dimensional $E$-vector spaces,
+	where we denoted by $\mathsf{Vect}_f(E)$ the category of finite dimensional $E$-vector spaces,
 	is exact and faithful.
 	Moreover any subrepresentation and quotient of a $B$-admissible
 	representation is $B$-admissible.
