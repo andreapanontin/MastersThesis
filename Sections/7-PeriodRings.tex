@@ -73,6 +73,8 @@ extends to $\mathbb{C}_K$ by continuity.
 	Finally we will always be concerned with $G = G_K$ and $F = \mathbb{Q}_p$,
 	so we will fix them and assume that $B$ is a $(\mathbb{Q}_p, G_K)$-regular
 	algebra.
+	Moreover in the following we will simply write 
+	$G$-regular to mean $(\mathbb{Q}_p, G)$-regular.
 \end{rem}
 
 
@@ -148,8 +150,9 @@ extends to $\mathbb{C}_K$ by continuity.
 	We can associate it the perfect $\mathbb{F}_p$ algebra
 	\begin{equation*}
 		R(A) \coloneqq \varprojlim_{x \mapsto x^p} A =
-		\left\{ \left( x_0, x_1, \ldots \right) \in \prod_{n \in \mathbb{N}} A
-		\ \middle|\ x_{n+1}^p = x_n \text{ for all } n \in \mathbb{N} \right\}
+		\left\{ \mathbf{x} = \left( \mathbf{x}_0, \mathbf{x}_1, \ldots \right) 
+			\in \prod_{n \in \mathbb{N}} A
+		\ \middle|\ \mathbf{x}_{n+1}^p = \mathbf{x}_n \text{ for all } n \in \mathbb{N} \right\}
 	\end{equation*}
 	endowed with the product ring structure.
 \end{defn}
@@ -159,9 +162,9 @@ extends to $\mathbb{C}_K$ by continuity.
 \begin{enumerate}
 \item The above $\mathbb{F}_p$-algebra is perfect
 	since the $p$-th power map is clearly surjective by definition.
-	Moreover it is injective since any element $\mathbf{x} = \left( x_n \right)_{n \in \mathbb{N}}$
-	satisfying $\mathbf{x}^p = 0$ has, for all $n \geq 1$,
-	$x_{n-1} = x_n^p = 0$.
+	Moreover it is injective since any element $\mathbf{x} = \left( \mathbf{x}_n \right)$
+	satisfying $\mathbf{x}^p = 0$ has
+	$\mathbf{x}_{n-1} = \mathbf{x}_n^p = 0$ for all $n \geq 1$.
 
 \item We have a canonical morphism
 	\begin{equation*}
@@ -170,8 +173,8 @@ extends to $\mathbb{C}_K$ by continuity.
 		,/tikz/column 2/.append style={anchor=base west}]
 		R(A) \arrow[r, "", rightarrow] &
 		A \\
-		\left( x_n \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
-		x_0
+		\left( \mathbf{x}_n \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\mathbf{x}_0
 	.\end{tikzcd}
 	\end{equation*} 
 	Moreover any morphism from a perfect $\mathbb{F}_p$-algebra
@@ -181,7 +184,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	In particular the inverse map of the above projection is given by
 	$a \mapsto \left( a^{1/p^n} \right)$.
 	In particular, let's consider $\overline{k}$ a fixed separable closure of $k$.
-	Since $\overline{k}$ is already perfect, we obtain $R(\overline{k}) = \overline{k}$.
+	Since $\overline{k}$ is already perfect, we obtain $R(\overline{k}) \simeq \overline{k}$.
 
 \item It can be shown that, given $F$ a field of characteristic $p$, then $R(F)$ is the largest
 	perfect subfield of $F$.
@@ -211,22 +214,22 @@ extends to $\mathbb{C}_K$ by continuity.
 		,/tikz/column 2/.append style={anchor=base west}]
 		R(O/\mathfrak{a}) \arrow[r, "", rightarrow] &
 		\varprojlim_{x \mapsto x^p} O \\
-		\left( x_n \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
-		\left( x^{(n)} \right)_{n \in \mathbb{N}}
+		\left( \mathbf{x}_n \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left( \mathbf{x}^{(n)} \right)_{n \in \mathbb{N}}
 	,\end{tikzcd}
 	\end{equation*} 
-	where we define $x^{(n)} \coloneqq \lim_{m \to \infty} \widehat{x_{n+m}}^{p^m}$,
-	in which $\widehat{x_m}$ is any lift of $x_m$ to $O$.
+	where we define $\mathbf{x}^{(n)} \coloneqq \lim_{m \to \infty} \widehat{\mathbf{x}_{n+m}}^{p^m}$,
+	in which $\widehat{\mathbf{x}_m}$ is any lift of $\mathbf{x}_m$ to $O$.
 	This map does not depend on the choice of lift, it is bijective
 	and its inverse is given by
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\varprojlim_{x \mapsto x^p} O \arrow[r, "", rightarrow] &
+		\varprojlim_{n \mapsto x^p} O \arrow[r, "", rightarrow] &
 		R(O/\mathfrak{a}) \\
-		\left( x^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
-		\left( x^{(n)} \mathrm{mod}\, \mathfrak{a} \right)_{n \in \mathbb{N}}
+		\left( \mathbf{x}^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left( \mathbf{x}^{(n)} \mathrm{mod}\, \mathfrak{a} \right)_{n \in \mathbb{N}}
 	.\end{tikzcd}
 	\end{equation*} 
 	Moreover $R(O/pO) \simeq R(O/\mathfrak{a})$ and this common ring
@@ -234,17 +237,17 @@ extends to $\mathbb{C}_K$ by continuity.
 \end{prop}
 
 
-\begin{rem}[]
+\begin{rem}[]\label{tiltingOperations}
 	If we endow $\varprojlim_{x \mapsto x^p} O$ with the ring structure
-	given, for any $\mathbf{x} \coloneqq \left( x^{(n)} \right)$ and 
-	$\mathbf{y} \coloneqq \left( y^{(n)} \right)$, 
+	given, for any $\mathbf{x} \coloneqq \left( \mathbf{x}^{(n)} \right)$ and 
+	$\mathbf{y} \coloneqq \left( \mathbf{y}^{(n)} \right)$, 
 	by
 	\begin{equation*}
-		\left( \mathbf{xy} \right)^{(n)} \coloneqq x^{(n)} y^{(n)}
+		\left( \mathbf{xy} \right)^{(n)} \coloneqq \mathbf{x}^{(n)} \mathbf{y}^{(n)}
 		\qquad \text{ and } \qquad
 		\left( \mathbf{x} + \mathbf{y} \right)^{(n)} \coloneqq
-		\lim_{m \to \infty} \big( x^{(n+m)} +
-		y^{(n+m)}\big)^{p^m}
+		\lim_{m \to \infty} \big( \mathbf{x}^{(n+m)} +
+		\mathbf{y}^{(n+m)}\big)^{p^m}
 	,\end{equation*}
 	then the above bijection is an isomorphism of rings.
 \end{rem}
@@ -253,9 +256,9 @@ extends to $\mathbb{C}_K$ by continuity.
 \begin{ntt}[]\label{not:tiltingElts}
 	In view of the above isomorphism we might see an element $\mathbf{x} \in R$
 	either as an element 
-	$\left( x_n \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
+	$\left( \mathbf{x}_n \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
 	or as an element
-	$\left( x^{(n)} \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
+	$\left( \mathbf{x}^{(n)} \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
 	We will use the above notation accordingly.
 \end{ntt}
 
@@ -280,8 +283,8 @@ extends to $\mathbb{C}_K$ by continuity.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\left| \ \cdot \ \right|_R\colon R \arrow[r, "", rightarrow] &
 		p^{\mathbb{Q}} \cup \left\{ 0 \right\} \\
-		\left( x^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
-		\left| x^{(0)} \right|_p
+		\left( \mathbf{x}^{(n)} \right)_{n \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\left| \mathbf{x}^{(0)} \right|_p
 	\end{tikzcd}
 	\end{equation*} 
 	is a $G_K$-equivariant absolute value on $R$ that makes
@@ -318,21 +321,20 @@ extends to $\mathbb{C}_K$ by continuity.
 	The element $\boldsymbol\varepsilon$ depends on the chosen
 	compatible family.
 	Moreover any two such $\boldsymbol\varepsilon$
-	are $\mathbb{Z}_{p}^*$-powers of each other.
-	Moreover we can compute the valuation
+	are $\mathbb{Z}_{p}^{\cross}$-powers of each other.
+	Moreover we have
 	$\nu_R \left( \boldsymbol\varepsilon - 1 \right) = p/ (p - 1)$.
-	Let's compute it for $p > 2$: by definition we have
+	Let's show this for $p > 2$: by definition we have
 	$\nu_R(\boldsymbol\varepsilon - 1) = \nu_p \left( (\boldsymbol\varepsilon -1 )^{(0)} \right)$.
-	Sum, in $\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$
-	is given by
+	By \cref{tiltingOperations} we have
 	\begin{equation*}
 		\left( \boldsymbol\varepsilon -1 \right)^{(0)} =
 		\lim_{n \to \infty} \left( \zeta_{p^n} + (-1)^{(n)} \right)^{p^n}
 	.\end{equation*}
 	Let's notice that $\left( -1 \right)^{(n)} = -1$ for all $n$
-	and that $\zeta_{p^n} - 1$ is a root of $\Phi_{p^n}(1+x)$,
+	and that $\zeta_{p^n} - 1$ is a root of $\Phi_{p^n}(1+X)$,
 	where $\Phi_m$ denotes the $m$-th cyclotomic polynomial.
-	In particular $\Phi_{p^n}(1+x)$ is Eisenstein of degree
+	In particular $\Phi_{p^n}(1+X)$ is Eisenstein of degree
 	$p^{n-1}(p-1)$.
 	Then
 	\begin{equation*}
@@ -351,6 +353,11 @@ extends to $\mathbb{C}_K$ by continuity.
 \end{ex}
 
 
+\begin{thm}[{\cite[Theorem 4.3.5]{Brinon}}]
+	The field $\mathrm{Frac}\, R = R[1/\mathbf{p}]$ is algebraically closed.
+\end{thm}
+
+
 \begin{rem}[]
 	There is a natural family of ring homomorphisms
 	\begin{equation*}
@@ -359,8 +366,8 @@ extends to $\mathbb{C}_K$ by continuity.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\theta_m\colon R \arrow[r, "", rightarrow] &
 		O_{\mathbb{C}_K} \\
-		\left( x_m \right)_{m \in \mathbb{N}} \arrow[r, "", mapsto] & 
-		x_n
+		\left( \mathbf{x}_m \right)_{m \in \mathbb{N}} \arrow[r, "", mapsto] & 
+		\mathbf{x}_n
 	.\end{tikzcd}
 	\end{equation*} 
 	Let's give $R$ a $\overline{k}$-algebra structure
@@ -377,7 +384,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	\end{equation*} 
 	where $j\colon \overline{k} \to O_{\overline{K}}/ (p)$ is the canonical
 	section to the reduction map $O_{\overline{K}}/ (p) \twoheadrightarrow \overline{k}$.
-	Then $\theta_0$ becomes a $\overline{k}$-algebra map.
+	Then $\theta_0$ is a morphism of $\overline{k}$-algebras.
 	We wish to lift it to a ring map $W(R) \to O_{\mathbb{C}_K}$,
 	but we cannot use universal property of the Witt vector construction
 	since $O_{\mathbb{C}_K}/ (p)$ is not perfect (in particular the Frobenius
@@ -393,30 +400,30 @@ extends to $\mathbb{C}_K$ by continuity.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\theta\colon W(R) \arrow[r, "", rightarrow] &
 		O_{\mathbb{C}_K} \\
-		\sum_{n \in \mathbb{N} }^{  } [c_n] p^n \arrow[r, "", mapsto] & 
-		\sum_{n \in \mathbb{N} }^{  } c_n^{(0)} p^n
+		\sum_{n \in \mathbb{N} }^{  } [\mathbf{c}_n] p^n \arrow[r, "", mapsto] & 
+		\sum_{n \in \mathbb{N} }^{  } \mathbf{c}_n^{(0)} p^n
 	,\end{tikzcd}
 	\end{equation*} 
 	where \cref{TeichmullerExpansionWitt} allows us to write any element of $W(R)$
-	in a unique Teichmüller expansion and $c_n^{(0)}$ is defined as in \cref{not:tiltingElts}.
+	in a unique Teichmüller expansion and $\mathbf{c}_n^{(0)}$ is defined as in \cref{not:tiltingElts}.
 \end{defn}
 
 
 \begin{rem}[]
 	In \cref{TeichmullerExpansionWitt} we explicitly computed the Teichmüller
-	expansion of $\left( r_n \right)_{n \in \mathbb{N}}$
-	to be $\sum_{n \in \mathbb{N} }^{  } [r_n^{p^{-n}}] p^n$.
+	expansion of $\left( \mathbf{r}_n \right)_{n \in \mathbb{N}}$
+	to be $\sum_{n \in \mathbb{N} }^{  } [\mathbf{r}_n^{p^{-n}}] p^n$.
 	Moreover, by compatibility of the elements in $\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$
-	and multiplicativity of $r \mapsto r^{(n)}$
-	we have that $\big( r^{p^{-n}} \big)^{(0)} = \big( (r^{p^{-n}})^{(n)} \big)^{p^n} =
-	r^{(n)}$.
+	and multiplicativity of $\mathbf{r} \mapsto \mathbf{r}^{(n)}$
+	we have that $\big( \mathbf{r}^{p^{-n}} \big)^{(0)} = \big( (\mathbf{r}^{p^{-n}})^{(n)} \big)^{p^n} =
+	\mathbf{r}^{(n)}$.
 	Hence we can compute $\theta$ also via
 	\begin{equation*}
 	\begin{tikzcd}
 		\theta\colon 
-		\left( r_0, r_1, \ldots \right)
+		\left( \mathbf{r}_0, \mathbf{r}_1, \ldots \right)
 		\arrow[r, "", mapsto] &
-		\sum_{n \in \mathbb{N} }^{  } r_n^{(n)} p^n
+		\sum_{n \in \mathbb{N} }^{  } \mathbf{r}_n^{(n)} p^n
 	.\end{tikzcd}
 	\end{equation*}
 \end{rem}
@@ -429,8 +436,8 @@ extends to $\mathbb{C}_K$ by continuity.
 	an action of $G_K$ on $W(R)$.
 	More explicitly it the action of $g \in G_K$ is defined by
 	\begin{equation*}
-		g \left( \sum_{n \in \mathbb{N} }^{  } [c_n] p^n \right) =
-		\sum_{n \in \mathbb{N} }^{  } [g(c_n)] p^n
+		g \left( \sum_{n \in \mathbb{N} }^{  } [\mathbf{c}_n] p^n \right) =
+		\sum_{n \in \mathbb{N} }^{  } [g(\mathbf{c}_n)] p^n
 	.\end{equation*}
 	Moreover, recalling the explicit description of the Teichmüller
 	epxansion given in \cref{TeichmullerExpansionWitt}, we see that this
@@ -445,8 +452,8 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]
-	Notice that $\theta$ is clearly $G_K$-equivariant, since the action of
-	$G_K$ on $O_{\mathbb{C}_K}$ is continuous and $K$-linear.
+	Notice that $\theta$ is clearly $G_K$-equivariant.
+	%tk: a comment would be nice here
 	Moreover, inverting $p$, we obtain another $G_K$-equivariant surjective ring homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -468,8 +475,8 @@ extends to $\mathbb{C}_K$ by continuity.
 \begin{enumerate}
 	\item The ideal $\ker \theta \triangleleft W(R)$ is principal and it is generated
 		by $\xi$.
-	\item An element $w = (w_0, w_1, \ldots) \in \ker\theta$ generates
-		the ideal if and only if $r_1 \in R^*$.
+	\item An element $\mathbf{w} = (\mathbf{w}_0, \mathbf{w}_1, \ldots) \in \ker\theta$ generates
+		the ideal if and only if $\mathbf{w}_1 \in R^{\cross}$.
 \end{enumerate}
 \end{prop}
 
@@ -482,10 +489,9 @@ extends to $\mathbb{C}_K$ by continuity.
 \end{cor} 
 
 
-\begin{rem}[]
+\begin{rem}[]\label{kerQGKStable}
 	As a consequence of the above we see that $W(R)[1/p]$
-	injects into its $\ker \theta_{\mathbb{Q}}$-completion.
-	Moreover we denote its completion by
+	injects into its $\ker \theta_{\mathbb{Q}}$-completion
 	\begin{equation*}
 	B^+_{\mathrm{dR}} \coloneqq \varprojlim_{j \geq 1}
 	\frac{ W(R)[1/p] }{ \left( \ker \theta_{\mathbb{Q}} \right)^j }
@@ -509,8 +515,8 @@ extends to $\mathbb{C}_K$ by continuity.
 	\end{equation*} 
 	Finally we see that the action of the Frobenius on $W(R)[1/p]$
 	does not naturally extend to $B^+_{\mathrm{dR}}$.
-	In fact $\ker \theta_{\mathbb{Q}}$ is not stable under its action:
-	$\varphi(\xi) = [\mathbf{p}^p] - p \notin \ker \theta_{\mathbb{Q}}$.
+	In fact $\ker \theta_{\mathbb{Q}}$ is not stable under its action
+	since $\varphi(\xi) = [\mathbf{p}^p] - p \notin \ker \theta_{\mathbb{Q}}$.
 \end{rem}
 
 
@@ -533,12 +539,13 @@ so we want to find a uniformizer with which it is nice to work with.
 \begin{rem}[{\cite[pp. 60--62]{Brinon}}]\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
 	\item The element $[\boldsymbol\varepsilon] - 1 $ lies in
-		$\ker \theta$, hence we can compute $\log ([\boldsymbol\varepsilon])$.
+		$\ker \theta$, hence the element $\log ([\boldsymbol\varepsilon])$
+		is well defined in $B_{\mathrm{dR}}^+$.
 
 	\item One can show, via careful topological arguments, that,
 		since any two different choices of $\boldsymbol\varepsilon$
 		are related by $\boldsymbol\varepsilon' = \boldsymbol\varepsilon^a$
-		for $a \in \mathbb{Z}_{p}^*$, then
+		for $a \in \mathbb{Z}_{p}^{\cross}$, then
 		$t' = a t$.
 
 	\item $G_K$ acts multiplicatively on $t$ via the cyclotomic character,
@@ -551,9 +558,11 @@ so we want to find a uniformizer with which it is nice to work with.
 
 \begin{defn}[Field of $p$-adic periods]
 	We define the {\em field of $p$-adic periods}, also called
-	the {\em de Rham period ring}, 
-	$B_{\mathrm{dR}} \coloneqq \mathrm{Frac}\, B_{\mathrm{dR}}^+ =
-	B_{\mathrm{dR}}^+[1/t]$.
+	the {\em de Rham period ring},
+	\begin{equation*}
+	B_{\mathrm{dR}} \coloneqq \mathrm{Frac}\, B_{\mathrm{dR}}^+ =
+	B_{\mathrm{dR}}^+[1/t]
+	.\end{equation*}
 \end{defn}
 
 
@@ -585,14 +594,15 @@ so we want to find a uniformizer with which it is nice to work with.
 
 
 \begin{rem}[{\cite[\S9.1]{Brinon}}]
-	The ring $A_{\mathrm{cris}}$ is a domain, in particular it is a subring
+	The ring $A_{\mathrm{cris}}$ is identified with a subring
 	of $B_{\mathrm{dR}}^+$, whose elements are given by
 	\begin{equation*}
 	A_{\mathrm{cris}} = 
-	\left\{ \sum_{n \in \mathbb{N} }^{  } a_n \frac{ \xi^n }{ n! } \ \middle|\ 
-	a_n \in W(R) \text{ s.t. } \lim_{n \to \infty} a_n = 0
+	\left\{ \sum_{n \in \mathbb{N} }^{  } \mathbf{a}_n \frac{ \xi^n }{ n! } \ \middle|\ 
+	\mathbf{a}_n \in W(R) \text{ s.t. } \lim_{n \to \infty} \mathbf{a}_n = 0
 	\text{ for the $p$-adic topology}\right\}
 	.\end{equation*}
+	In particular this grants that $A_{\mathrm{cris}}$ is a domain.
 	Moreover the composite $A_{\mathrm{cris}} \hookrightarrow B_{\mathrm{dR}}^+ 
 	\twoheadrightarrow \mathbb{C}_K$ lands in $O_{\mathbb{C}_K}$
 	and induces a surjective ring homomorphism $A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$.
@@ -602,11 +612,12 @@ so we want to find a uniformizer with which it is nice to work with.
 
 
 \begin{rem}[]
-	As seen in \cref{GKActionWR}, $G_K$ acts on $W(R)$ sending $pW(R)$ to $pW(R)$.
+	As seen in \cref{GKActionWR}, $G_K$ acts on $W(R)$ sending $pW(R)$ to $pW(R)$
+	and, as seen in \cref{kerQGKStable}, $\ker\theta$ to $\ker\theta$.
 	Then by universal property of divided powers envelope the action extends to
 	$\mathcal{D}_{W(R)}(\ker\theta)$.
 	More explicitly any $g \in G_K$ induces the unique map
-	\begin{equation*}
+	\begin{equation}\label{eqn:ExtensionGKActionACris}
 	\begin{tikzcd}
 		&
 		\mathcal{D}_{W(R)}(\ker\theta)
@@ -617,19 +628,31 @@ so we want to find a uniformizer with which it is nice to work with.
 		\arrow[rr, "", rightarrow] & &
 		W(R) \subset \mathcal{D}_{W(R)}(\ker\theta) 
 	.\end{tikzcd}
-	\end{equation*}
+	\end{equation}
 	And this then extends to $A_{\mathrm{cris}}$.
 	By {\cite[Proposition 9.1.2]{Brinon}} the action
 	of $G_K$ on $A_{\mathrm{cris}}$ is continuous.
 	Also, following {\cite[Lemmas 9.1.7-9.1.8]{Brinon}},
-	we can extend the Frobenius morphism on $W(R)$ to 
-	$A_{\mathrm{cris}}$ and it acts, on $t$, by $t \mapsto pt$.
+	we can extend the Frobenius morphism $\varphi$ on $W(R)$ to 
+	$A_{\mathrm{cris}}$.
+	In fact one can check on the generator $\xi = [\mathbf{p}] - p$
+	of $\ker \theta$ that $\varphi$ on $W(R)$ sends $\ker\theta + (p)$ to
+	$\ker\theta + (p)$ and argue as in \cref{eqn:ExtensionGKActionACris}
+	that the action extends to $\mathcal{D}_{W(R)}(\ker\theta)$
+	and then to $A_{\mathrm{cris}}$.
+	In particular the above holds since
+	\begin{equation*}
+		\phi(\xi) = [\mathbf{p}^p] - p =
+		[\mathbf{p}]^p - p =
+		\underbrace{[\mathbf{p}]^p - p^p}_{\in \ker\theta} + 
+		\underbrace{p^p - p}_{\in p}
+	.\end{equation*}
+	Moreover one can check that $\varphi(t) = pt$.
 \end{rem}
 
 
 \begin{defn}[]
-	We denote by $B_{\mathrm{cris}}^+$ the $G_K$-stable $W(R)[1/p]$
-	subalgebra 
+	We denote by $B_{\mathrm{cris}}^+$ the $G_K$-stable $W(R)[1/p]$ subalgebra 
 	\begin{equation*}
 	B_{\mathrm{cris}}^+ \coloneqq A_{\mathrm{cris}}[1/p] \subset B_{\mathrm{dR}}^+
 	.\end{equation*}
@@ -641,7 +664,7 @@ so we want to find a uniformizer with which it is nice to work with.
 
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
-\item With some computations one can show, see \cite[Proposition 9.1.3]{Brinon},
+\item With some computations (see \cite[Proposition 9.1.3]{Brinon})
 	one can show that $t^{p-1} \in p A_{\mathrm{cris}}$, hence that 
 	inverting $t$ makes $p$ a unit.
 	Then $B_{\mathrm{cris}} = B_{\mathrm{cris}}^+[1/t] = A_{\mathrm{cris}}[1/t]$.
@@ -664,23 +687,23 @@ so we want to find a uniformizer with which it is nice to work with.
 Finally we give a characterization of $A_{\mathrm{cris}}$ via
 a universal property.
 \begin{defn}[Formal divided power thickening]
-	Let $A$ be a ring, with a principal ideal $\mathfrak{p} = \left( \pi \right)$
+	Let $A$ be a ring, with a principal ideal $\mathfrak{p}$
 	equipped with divided powers and $V$ be an $A$-algebra.
-	A {\em $\pi$-adic divided power thickening of $V$}, similarly to \cref{defn:PDThickening},
+	A {\em $\mathfrak{p}$-adic divided power thickening of $V$}
 	is a surjective homomorphism of $A$-algebras
 	$\theta\colon D \to V$ such that $\ker \theta$ has a divided powers structure
-	compatible with those on $\mathfrak{p}$.
+	compatible with those on $\mathfrak{p}$, similarly to \cref{defn:PDThickening}.
 	Morphisms between divided power thickening are divided power morphisms
 	making the obvious diagram commute.
-	If the category of $\pi$-adic divided power $A$-thickening of $V$,
+	If the category of $\mathfrak{p}$-adic divided power $A$-thickening of $V$,
 	whose objects and morphisms have just been defined, admits an initial object
-	we call it the {\em universal $\pi$-adic divided power $A$-thickening of $V$}.
+	we call it the {\em universal $\mathfrak{p}$-adic divided power $A$-thickening of $V$}.
 	
 	If, moreover, $V$ is separated and complete with respect to the $\mathfrak{p}$-adic topology
-	we define {\em formal $\pi$-adic divided power $A$-thickenings of $V$} to be
-	$\pi$-adic divided power $A$-thickenings of $V$ which are separated and complete
+	we define {\em formal $\mathfrak{p}$-adic divided power $A$-thickenings of $V$} to be
+	$\mathfrak{p}$-adic divided power $A$-thickenings of $V$ which are separated and complete
 	with respect to the $\mathfrak{p}$-adic topology.
-	An initial object in the category of formal $\pi$-adic divided power $A$-thickening
+	An initial object in the category of formal $\mathfrak{p}$-adic divided power $A$-thickening
 	of $V$ is called universal as before.
 \end{defn}
 
@@ -689,3 +712,82 @@ a universal property.
 	$A_{\mathrm{cris}}$ is a universal formal $p$-adic divided power $W$-thickening of
 	$O_{\mathbb{C}_K}$.
 \end{prop}
+\begin{proof}
+	It is clear that, by construction, $A_{\mathrm{cris}}$ is a
+	formal $p$-adic divided power $W$-thickening of $O_{\mathbb{C}_K}$.
+	We then need to show universality.
+	Let $\left(D, \theta_D, \gamma\right)$ be another formal $p$-adic divided power
+	$W$-thickening of $O_{\mathbb{C}_K}$.
+	Giving a morphism of formal $p$-adic divided power $W$-thickening
+	from $A_{\mathrm{cris}}$ to $D$ is equivalent to giving
+	a continuous morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\alpha\colon W(R) \arrow[r, "", rightarrow] &
+		D
+	\end{tikzcd}
+	\end{equation*} 
+	between $p$-adic rings, such that $\theta_D \circ \alpha = \left.\theta\right|_{ W(R) }$.
+	This is because universal property of divided powers envelope
+	allows to extend $\alpha$ uniquely to $\mathcal{D}_{W(R)}(\ker\theta)$
+	and continuity to $A_{\mathrm{cris}}$.
+	Let's denote $J_D \coloneqq \ker\theta$.
+	We now need to notice that, given $d_1 \equiv d_2 \mod J_D$ in $D$,
+	then $d_1^p \equiv d_2^p \mod pJ$.
+	If $p \in J$ it is simple, since $pJ \subset J^2$ and
+	it is known that $d_1^p \equiv d_2^p \mod J^2$.
+	If, instead, $p \notin J$, we can see that 
+	\begin{equation*}
+		d_1^p - d_2^p = \left( d_1 - d_2 \right) 
+		\left( d_1^{p-1} + \cdots + d_2^{p-1} \right)
+	\end{equation*}
+	implies that $d_1^p - d_2^p \in J$.
+	Moreover, since $J$ has divided powers, we see that
+	\begin{equation*}
+		d_1^p - d_2^p = p! \left( \gamma_p(d_1) - \gamma_p(d_2) \right) = p \cdot y
+	.\end{equation*}
+	Since, moreover, $J$ is a prime ideal and $p \notin J$
+	we have $y \in J$ and $d_1^p - d_2^p \in pJ$.
+	Fix now $\mathbf{x} \in R$ and take, for any $m \in \mathbb{N}$, 
+	$\xi_m \in D$ a lift via $\theta_D$ of $x^{(m)} \in O_{\mathbb{C}_K}$, defined
+	as in \cref{not:tiltingElts}.
+	Then, from what we stated before, the sequence $\xi_m^{p^m}$ converges
+	$p$-adically to an element $\rho(\mathbf{x}) \in D$ which does not depend on the chosen lift.
+	Convergence is due to the fact that $(x^{(n)})^p = x^{(n-1)} \in O_{\mathbb{C}_K}$
+	and the above fact, which also implies independence from the chosen lift.
+	Then we can notice that $\theta$ and $\theta_D$ are continuous in the $p$-adic topology,
+	since they are morphisms of $p$-adic rings.
+	Let's recall that
+	\begin{equation*}
+	\theta([\mathbf{x}]) = \mathbf{x}^{(0)} =
+	\lim_{n \to \infty} \widehat{\mathbf{x}_n}^{p^n}
+	.\end{equation*}
+	Then $\theta_D(\alpha([\mathbf{x}])) = \mathbf{x}^{(0)}$.
+	Continuity of $\theta_D$ in the $p$-adic topology implies that, for any choice
+	of lifts $\left\{ \xi_n \right\}_{n \in \mathbb{N}}$ of 
+	$\left\{ \widehat{\mathbf{x}_n} \right\}_{n \in \mathbb{N}}$, we have
+	that $\theta_D(\lim_{n \to \infty} \xi_n) = \mathbf{x}^{(0)}$.
+	There needs to exist a choice of lifts
+	%tk: why?
+	$\xi_n$ such that $\xi_n \to \alpha([\mathbf{x}])$.
+	Since moreover this limit does not depend on the chosen lifts, we have
+	that $\alpha([\mathbf{x}]) = \rho(\mathbf{x})$.
+	Then, since $\alpha$ is a continuous morphism of $p$-adic rings,
+	it acts on the general element of $W(R)$ by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\alpha\colon 
+		(\mathbf{x}_1, \mathbf{x}_2, \ldots) =
+		\sum_{n \in \mathbb{N} }^{  } [\mathbf{x}_n^{p^{-n}}] p^n
+		\arrow[r, "", mapsto] &
+		\sum_{n }^{  } \rho (\mathbf{x}_n^{p^{-n}}) p^n
+	.\end{tikzcd}
+	\end{equation*} 
+	This proves uniqueness, but it is also an explicit description of $\alpha$.
+	As a consequence also existence is clear, since the above $\alpha$ is
+	a continuous homomorphism which commutes with the morphisms $\theta$.
+\end{proof}
