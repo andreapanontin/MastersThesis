@@ -378,7 +378,8 @@ its (Eisenstein) minimal polynomial.
 	$\mathbb{D}^*(G_0)(T) \coloneqq \mathbb{D}^*(G_0)_T(T)$.
 	Moreover, if $T = \mathrm{Spec}(A)$ is affine, we introduce the notation
 	$\mathbb{D}^*(G)(A)$ for $\mathbb{D}^*(G)(T)$.
-	Finally we notice that, fixed $G$, the functor $\mathbb{D}^*(G)$
+	Finally we can notice that, fixed $G$, the functor $\mathbb{D}^*(G)$,
+	being induced by a sheaf on $\mathsf{Crys}(T_0)$,
 	is contravariant when evaluated on schemes, but covariant on rings.
 \end{ntt}
 
@@ -406,7 +407,7 @@ its (Eisenstein) minimal polynomial.
 	%In fact, in general, a nilpotent closed immersion $U_0 \hookrightarrow U$
 	%induces a morphism $\mathsf{Crys}(U/S) \to \mathsf{Crys}(U_0/S)$
 	%by base changing $T \to U$ an open immersion to $U_0$.
-	Moreover the $\mathcal{O}_{ T }$-module $\mathbb{D}^*(G)(T)$ sits in an exact sequence
+	Moreover the $O_{ T }$-module $\mathbb{D}^*(G)(T)$ sits in an exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -709,7 +710,7 @@ our ideals with divided powers.
 	such that
 \begin{enumerate}
 	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
-		and the quotient $M/\mathrm{Fil}^1 M$ is a free $\mathcal{O}_{ K }$-module;
+		and the quotient $M/\mathrm{Fil}^1 M$ is a free $O_{ K }$-module;
 	\item the map $1 \otimes \varphi_1\colon 
 		\varphi^* \left( \mathrm{Fil}^1 M \right) \to M$
 		is surjective.
@@ -767,7 +768,7 @@ our ideals with divided powers.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		M\colon \mathsf{BT}(\mathcal{O}_{ K }) \arrow[r, "", rightarrow] &
+		M\colon \mathsf{BT}(O_{ K }) \arrow[r, "", rightarrow] &
 		\mathsf{BT}^{\varphi}_{/S} \\
 		G \arrow[r, "", mapsto] & 
 		\mathbb{D}^*(G)(S) \eqqcolon M(G)

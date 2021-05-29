@@ -733,6 +733,7 @@ And now back to our interests.
 	in the category of formal Lie varieties over $S$.
 \end{defn}
 
+
 \noindent
 In the following we will always assume that a formal Lie group $G$
 is commutative.
@@ -954,12 +955,14 @@ In fact the following proposition holds.
 
 \begin{ex}\leavevmode\vspace{-.2\baselineskip}\label{ex:pDivGroups}
 \begin{enumerate}
-\item In the case of ordinary abelian groups this definition would just allow
+\item In the case of ordinary abelian groups this definition would\label{ex:ordinanrypDivGroup}
+	just allow
 	$G_v = \left( \mathbb{Z}/p^v\mathbb{Z} \right)^h$, hence
 	it would just give rise to the $p$-divisible group
 	\begin{equation*}
 		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
 	.\end{equation*} 
+	`
 \item In case we start considering an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
 	formal Lie group $\Gamma$ over $R$, we clearly have to require that it is $p$-divisible,
 	as defined in \cref{defn:pDivisibleFormalLieGroup}.
@@ -981,6 +984,29 @@ In fact the following proposition holds.
 	this result to $\ker p^v$ for all $v \geq 1$.
 	It follows that the construction of $\Gamma(p)$
 	gives rise to a connected $p$-divisible group.
+
+\item Let $G_v \coloneqq (\mu_{p^v})_R$ be the kernel of
+	multiplication by $p^v$ in $(\mathbb{G}_m)_R$.
+	We can form an inductive system from these objects, which defines
+	the $p$-divisible group
+	\begin{equation*}
+		\mathbb{G}_m(p) \coloneqq \varinjlim_{v \in \mathbb{N}}
+		\mu_{p^v}
+	,\end{equation*}
+	called the {\em $p$-divisible group of $\mathbb{G}_m$}.
+	In particular it is of height $1$.
+
+\item Denote by $\underline{\mathbb{Z}/p^v\mathbb{Z}}$ the base change to $R$\label{ex:Qp/Zp}
+	of the constant group scheme associated
+	to the group $\Gamma \coloneqq \mathbb{Z}/p^v\mathbb{Z}$, see \cref{ex:AffineGroupSchemesExamples}
+	\cref{ex:ConstantGroups}.
+	We can form an inductive system from these objects, defining the $p$-divisible group
+	\begin{equation*}
+	\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
+	\underline{\mathbb{Z}/p^v\mathbb{Z}}
+	,\end{equation*}
+	generalizing to the setting of group schemes example of \cref{ex:ordinanrypDivGroup}.
+	As the one before, this $p$-divisible group is of height $1$.
 \end{enumerate}
 \end{ex}
 
@@ -1001,7 +1027,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 
 
 \begin{lem}[{\cite[Chapter I, \S1, lemma 1.1]{Messing}}]\label{lem:equivCondTruncatedBTGroup}
-	Let $G$ be an $S$ group.
+	Let $G$ be an $S$-group such that $p^nG = 0$.
 	The following conditions are equivalent:
 \begin{enumerate}
 	\item $G$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module,
@@ -1028,7 +1054,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \end{defn}
 
 
-\begin{lem}[{\cite[Chapter I, \S1, lemma 1.5]{Messing}}]\leavevmode\vspace{-.2\baselineskip}
+\begin{lem}[{\cite[Chapter I, \S1, lemma 1.5]{Messing}}]\label{FlatnessDescentTrBTGroup}\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item If $G(n)$ is a flat $\mathbb{Z}/p^n\mathbb{Z}$-module, then $G(n)$
 		is a finite, locally-free group scheme iff
@@ -1291,3 +1317,155 @@ groups, that of dimension.
 	h = n + n^D
 	.\end{equation*}
 \end{prop}
+
+
+
+\subsection{Tate Modules}
+Let $K/\mathbb{Q}_p$ be a finite extension and denote by $k \coloneqq O_K/\pi O_K$
+the residue field, where $\pi$ is a uniformizer of $K$.
+Let $L$ be the completion of an algebraic extension of $K$ and, as usual,
+$O_L$ be the ring of integers of $L$.
+In particular let's denote by $\overline{K}$ a fixed algebraic closure
+of $K$, and by $G_K = \mathrm{Gal}\left( \overline{K} / K \right)$
+the absolute Galois group of $K$.
+Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
+
+
+\begin{defn}[]
+	We define the group of points of $G$ with values in $O_K$ as
+	\begin{equation*}
+		G(O_L) \coloneqq \varprojlim_{i \in \mathbb{N}} G(O_L/\mathfrak{m}^iO_L)
+	,\end{equation*}
+	where $\mathfrak{m}$ is the maximal ideal of $O_K$ and where
+	\begin{equation*}
+		G(O_L/\mathfrak{m}^iO_L) = \varinjlim_{v \in \mathbb{N}} G_v(O_L/\mathfrak{m}^iO_L)
+	.\end{equation*}
+\end{defn}
+
+
+\begin{rem}[]\label{VCPBTGroups}
+	Let $G$ be a $p$-divisible group over $O_K$ as in \cref{defn:pDivGroupFormalSchemes}.
+	Then $G_v$ is finite and flat over $O_K$, for all $v \in \mathbb{N}$. 
+	In particular this means that it is proper over $O_K$, hence
+	that we can apply the valutative criterion of properness,
+	see \cite[Chapter II, theorem 4.7]{Hartshorne}.
+	As a consequence we see that, for every $v \in \mathbb{N}$, we have
+	$G_v(L) \simeq G_v(O_L)$.
+\end{rem}
+
+
+\begin{defn}[Tate module]
+	To the Barsotti-Tate group $G$ we associate the module
+	\begin{equation*}
+		T_p(G) \coloneqq \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
+	,\end{equation*}
+	called the {\em Tate module} of $G$.
+	Here notice that the projective limit is taken over the maps
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		j_v(\overline{K})\colon 
+		G_v(\overline{K})\arrow[r, "", rightarrow] &
+		G_{v-1}(\overline{K})
+	,\end{tikzcd}
+	\end{equation*} 
+	where $j_v$ corresponds to $j_{1,v}$ constructed in
+	\cref{diag:pDivCharProof}, from \cref{CharactpDivGroups}.
+\end{defn}
+
+
+\begin{rem}[]
+	The module $T_p(G)$ is a $\mathbb{Z}_{p}$-module.
+	Moreover it is endowed with an action of $G_K$.
+	To see how it acts, notice that
+	\begin{equation*}
+		T_p(G) = \varprojlim_{v \in \mathbb{N}} G_v(\overline{K}) =
+		\varprojlim_{v \in \mathbb{N}} \mathrm{Hom}_{ \mathsf{Sch}_{ R } } 
+		\left( \mathrm{Spec}(\overline{K}), G_v \right) \simeq
+		\varinjlim_{v \in \mathbb{N}} \mathrm{Hom}_{ R\text{-}\mathsf{Alg} }
+		\left( A_v, \overline{K} \right)
+	,\end{equation*}
+	where $G_v = \mathrm{Spec}(A_v)$ is affine, being finite over $R$.
+	Here it is easy to specify the action of $G_K$, which on each term acts by
+	\begin{equation*}
+		\left( g \cdot f \right)(x) = g \cdot f(x)
+	\end{equation*}
+	for all $g \in G$, $x \in A_v$ and $f \in \mathrm{Hom}_{ R\text{-}\mathsf{Alg} } 
+	\left( A_v, \overline{K}\right)$.
+\end{rem}
+
+
+\begin{prop}[]
+	Take $G_0 \in \mathsf{BT}(O_K)$ and denote by $G$ its base change to $O_{\overline{K}}$.
+	Then
+	\begin{equation*}
+		T_p(G_0) \simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
+		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G \big)
+	,\end{equation*}
+	where, as constructed in \cref{ex:pDivGroups} \cref{ex:Qp/Zp} with $R = O_{\overline{K}}$,
+	we denote $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
+	\underline{\mathbb{Z}/p^n\mathbb{Z}}$.
+\end{prop}
+\begin{proof}
+	For this proof we will recall \cref{defn:pDivGroupFormalSchemes}
+	and write $G = \varinjlim_v G_v$.
+	The proof consists of the following isomorphisms.
+	\begin{align*}
+		T_p(G) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
+		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} G_v(O_{\overline{K}})
+		\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
+		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
+		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_v \right) \\
+		&\stackrel{3}{\simeq} \varprojlim_{v \in \mathbb{N}} 
+		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
+		\big(\underline{\mathbb{Z}/p^v\mathbb{Z}} , G \big)
+		\simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
+		\bigg( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G \bigg) \\
+		&\simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
+		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G \big)
+	.\end{align*}
+	Let's explain why these isomorphisms hold.
+	Isomorphism $1$ is due to the valutative criterion for properness,
+	see \cite[Chapter II, theorem 4.7]{Hartshorne}, since by \cref{defn:pDivGroupFormalSchemes}
+	all $G_v$ are finite, hence proper, schemes over $O_{\overline{K}}$.
+	Isomorphism $2$ follows from the fact that $G_v$ is
+	a flat $\mathbb{Z}/p^v\mathbb{Z}$-module, by 
+	\cref{BTGroup,FlatnessDescentTrBTGroup,lem:equivCondTruncatedBTGroup}.
+	(tk: this certainly holds if, instead of looking at morphisms of Barsotti-Tate groups
+	we were looking at morphisms of the respective evaluations at $O_{\overline{K}}$.
+	This seems to me to be the most plausible explanation of why the isomorphism
+	should also hold when looking at morphisms in $\mathsf{BT}(O_{\overline{K}})$,
+	though I am not sure it is the right argument.)
+	Finally isomorphism $3$ holds since $G_v$ is exactly the
+	subgroup of $G$ of $p^v$-torsion.
+\end{proof}
+
+
+\begin{ntt}[]
+	Let $M$ be a $\mathbb{Z}_{p}$-module, endowed with an action of $G_K$.
+	Let $\chi\colon G_K \to \mathbb{Z}_{p}^{\cross}$ denote the cyclotomic character,
+	i.e. the map such that for all $\zeta_{p^n} \in \overline{K}$ primitive $p^n$-th roots of unity,
+	we have
+	\begin{equation*}
+		g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}
+	\end{equation*}
+	for all $g \in G_K$.
+	For $n > 0$ we denote by $M(n)$ the $\mathbb{Z}_{p}$-module $M$ where the action of $G_K$
+	has been twisted by $\chi^n$, i.e. such that for all $g \in G_K$ and $m \in M$
+	\begin{equation*}
+		g \cdot m = \chi^n(g) (gm)
+	,\end{equation*}
+	where by $g \cdot m$ we denote the new modified action, and by $gm$ the old one on $M$.
+\end{ntt}
+
+
+\begin{prop}[]
+	Let $G \in \mathsf{BT}(O_K)$, then
+	\begin{equation*}
+		T_p(G^D) \simeq T_p(G)^\vee(1)
+	.\end{equation*}
+\end{prop}
+\begin{proof}
+	tk: Shatz should have some nice insight.
+\end{proof}

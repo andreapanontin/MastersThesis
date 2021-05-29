@@ -434,11 +434,12 @@ extends to $\mathbb{C}_K$ by continuity.
 	the action of $G_K$ extends naturally from $O_{\mathbb{C}_K}$ to $R$.
 	Then, thanks to \cref{UPWittVectors}, this induces naturally
 	an action of $G_K$ on $W(R)$.
-	More explicitly it the action of $g \in G_K$ is defined by
+	More explicitly the action of $G_K$ is defined by
 	\begin{equation*}
 		g \left( \sum_{n \in \mathbb{N} }^{  } [\mathbf{c}_n] p^n \right) =
 		\sum_{n \in \mathbb{N} }^{  } [g(\mathbf{c}_n)] p^n
-	.\end{equation*}
+	,\end{equation*}
+	for all $g \in G_K$.
 	Moreover, recalling the explicit description of the Teichmüller
 	epxansion given in \cref{TeichmullerExpansionWitt}, we see that this
 	action of $G_K$ on $W(R)$ corresponds with the component-wise action
@@ -452,18 +453,18 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]
-	Notice that $\theta$ is clearly $G_K$-equivariant.
-	%tk: a comment would be nice here
+	Notice that $\theta$ is clearly $G_K$-equivariant, since $G_K$ acts on $O_{\mathbb{C}_K}$
+	via isometries (hence via continuous maps).
 	Moreover, inverting $p$, we obtain another $G_K$-equivariant surjective ring homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\theta_{\mathbb{Q}}\colon W(R)[1/p] \arrow[r, "", rightarrow] &
+		\theta_{\mathbf{Q}}\colon W(R)[1/p] \arrow[r, "", rightarrow] &
 		O_{\mathbb{C}_K}[1/p] = \mathbb{C}_K
 	.\end{tikzcd}
 	\end{equation*} 
-	Though the source ring is not a complete valuation ring.
+	It is important to notice, though, that the source ring is not a complete valuation ring.
 \end{rem}
 
 
@@ -482,27 +483,27 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{cor}[{\cite[Corollary 4.4.5]{Brinon}}]
-	For all $j \geq 1$ we have $W(R) \cap \left( \ker \theta_{\mathbb{Q}} \right)^j =
+	For all $j \geq 1$ we have $W(R) \cap \left( \ker \theta_{\mathbf{Q}} \right)^j =
 	\left( \ker \theta \right)^j$.
 	Moreover $\bigcap_{j \geq 1} \left( \ker \theta \right)^j =
-	\bigcap_{j \geq 1} \left( \ker \theta_{\mathbb{Q}} \right)^j = 0$.
+	\bigcap_{j \geq 1} \left( \ker \theta_{\mathbf{Q}} \right)^j = 0$.
 \end{cor} 
 
 
 \begin{rem}[]\label{kerQGKStable}
 	As a consequence of the above we see that $W(R)[1/p]$
-	injects into its $\ker \theta_{\mathbb{Q}}$-completion
+	injects into its $\ker \theta_{\mathbf{Q}}$-completion
 	\begin{equation*}
 	B^+_{\mathrm{dR}} \coloneqq \varprojlim_{j \geq 1}
-	\frac{ W(R)[1/p] }{ \left( \ker \theta_{\mathbb{Q}} \right)^j }
+	\frac{ W(R)[1/p] }{ \left( \ker \theta_{\mathbf{Q}} \right)^j }
 	.\end{equation*}
 	Recall that $G_K$ acts component-wise on the ring of Witt vectors,
-	so $\ker \theta_{\mathbb{Q}}$ is stable under the action of $G_K$
+	so $\ker \theta_{\mathbf{Q}}$ is stable under the action of $G_K$
 	and the transition maps of the above projective limit are $G_K$-equivariant.
 	As a consequence $B^+_{\mathrm{dR}}$ inherits a natural action of $G_K$
 	which is compatible with that on its subring $W(R)[1/p]$.
 	Then $B^+_{\mathrm{dR}}$ projects $G_K$-equivariantly on its quotients
-	by $\left( \ker \theta_{\mathbb{Q}} \right)^j$.
+	by $\left( \ker \theta_{\mathbf{Q}} \right)^j$.
 	In particular, for $j = 1$, we obtain a lift of $\theta$ 
 	to a $G_K$-equivariant surjection
 	\begin{equation*}
@@ -515,8 +516,8 @@ extends to $\mathbb{C}_K$ by continuity.
 	\end{equation*} 
 	Finally we see that the action of the Frobenius on $W(R)[1/p]$
 	does not naturally extend to $B^+_{\mathrm{dR}}$.
-	In fact $\ker \theta_{\mathbb{Q}}$ is not stable under its action
-	since $\varphi(\xi) = [\mathbf{p}^p] - p \notin \ker \theta_{\mathbb{Q}}$.
+	In fact $\ker \theta_{\mathbf{Q}}$ is not stable under its action
+	since $\varphi(\xi) = [\mathbf{p}^p] - p \notin \ker \theta_{\mathbf{Q}}$.
 \end{rem}
 
 
@@ -549,7 +550,10 @@ so we want to find a uniformizer with which it is nice to work with.
 		$t' = a t$.
 
 	\item $G_K$ acts multiplicatively on $t$ via the cyclotomic character,
-		i.e. $g(t) = \chi(g) t$ for all $g \in G_K$.
+		i.e. for all $g \in G_K$
+		\begin{equation*}
+		g(t) = \chi(g) t
+		\end{equation*}
 
 	\item The element $t$ is a uniformizer of $B_{\mathrm{dR}}^+$.
 \end{enumerate}
@@ -757,23 +761,38 @@ a universal property.
 	$p$-adically to an element $\rho(\mathbf{x}) \in D$ which does not depend on the chosen lift.
 	Convergence is due to the fact that $(x^{(n)})^p = x^{(n-1)} \in O_{\mathbb{C}_K}$
 	and the above fact, which also implies independence from the chosen lift.
-	Then we can notice that $\theta$ and $\theta_D$ are continuous in the $p$-adic topology,
-	since they are morphisms of $p$-adic rings.
+%	Then we can notice that $\theta$ and $\theta_D$ are continuous in the $p$-adic topology,
+%	since they are morphisms of $p$-adic rings.
 	Let's recall that
 	\begin{equation*}
 	\theta([\mathbf{x}]) = \mathbf{x}^{(0)} =
 	\lim_{n \to \infty} \widehat{\mathbf{x}_n}^{p^n}
 	.\end{equation*}
-	Then $\theta_D(\alpha([\mathbf{x}])) = \mathbf{x}^{(0)}$.
-	Continuity of $\theta_D$ in the $p$-adic topology implies that, for any choice
-	of lifts $\left\{ \xi_n \right\}_{n \in \mathbb{N}}$ of 
-	$\left\{ \widehat{\mathbf{x}_n} \right\}_{n \in \mathbb{N}}$, we have
-	that $\theta_D(\lim_{n \to \infty} \xi_n) = \mathbf{x}^{(0)}$.
-	There needs to exist a choice of lifts
-	%tk: why?
-	$\xi_n$ such that $\xi_n \to \alpha([\mathbf{x}])$.
-	Since moreover this limit does not depend on the chosen lifts, we have
-	that $\alpha([\mathbf{x}]) = \rho(\mathbf{x})$.
+	We now want construct a family of lifts
+	$\xi_n$ such that $\xi_n \to \alpha([\mathbf{x}])$, in order
+	to show that $\alpha([\mathbf{x}]) = \rho(\mathbf{x})$.
+	We denote by $y_n \coloneqq \widehat{x_n}^{p^n} \in O_{\mathbb{C}_K}$
+	and by
+	\begin{equation*}
+		\mathbf{y}_n \coloneqq \left( y_n, y_n^{1/p}, y_n^{1/p^2}, \ldots \right) \in 
+		\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K} \simeq R
+	.\end{equation*}
+	Then $\theta([\mathbf{y}_n]) = \widehat{x_n}^{p^n}$ by definition of $\theta$.
+	Moreover it is clear that $\mathbf{y}_n \to \mathbf{x}$ in $R$,
+	hence that $[\mathbf{y}_n] \to [\mathbf{x}]$, if we endow $W(R)$ with the weak topology.
+	The first statement is true since, by definition of the element $\mathbf{x}^{(0)}$
+	(and independence of the chosen lift in its definition), we have
+	$y_n \to \mathbf{x}^{(0)}$. Then an easy induction argument
+	shows that $y_m^{1/p^n} \to \mathbf{x}^{(n)}$, hence that we have convergence
+	in $R \simeq \varprojlim_{x \mapsto x^p}O_{\mathbb{C}_K}$ (notice that we
+	can uniformly bound the distance of each component from its limit).
+	By continuity of $\alpha$, then, we get that
+	\begin{equation*}
+		\alpha([\mathbf{x}]) = \alpha\left(\lim_{n \to \infty} [\mathbf{y}_n]\right) =
+		\lim_{n \to \infty} \alpha([\mathbf{y}_n]) = \rho(\mathbf{x})
+	,\end{equation*}
+	where the last equality holds by compatibility of $\alpha$ with $\theta$
+	which implies that $\alpha([\mathbf{y}_n])$ is a lift of $\widehat{x_n}^{p^n}$.
 	Then, since $\alpha$ is a continuous morphism of $p$-adic rings,
 	it acts on the general element of $W(R)$ by
 	\begin{equation*}
