@@ -962,7 +962,7 @@ In fact the following proposition holds.
 	\begin{equation*}
 		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
 	.\end{equation*} 
-	`
+	
 \item In case we start considering an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
 	formal Lie group $\Gamma$ over $R$, we clearly have to require that it is $p$-divisible,
 	as defined in \cref{defn:pDivisibleFormalLieGroup}.
@@ -1331,7 +1331,7 @@ the absolute Galois group of $K$.
 Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
-\begin{defn}[]
+\begin{defn}[]\label{defn:valuationBTGroup}
 	We define the group of points of $G$ with values in $O_K$ as
 	\begin{equation*}
 		G(O_L) \coloneqq \varprojlim_{i \in \mathbb{N}} G(O_L/\mathfrak{m}^iO_L)
@@ -1351,6 +1351,16 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	see \cite[Chapter II, theorem 4.7]{Hartshorne}.
 	As a consequence we see that, for every $v \in \mathbb{N}$, we have
 	$G_v(L) \simeq G_v(O_L)$.
+	Notice, moreover, that given $M/K$ an infinite algebraic extension
+	and $L$ the $p$-acid completion of $M$, then
+	$O_L = \varprojlim_{n \in \mathbb{N}}O_M/\mathfrak{m}^nO_M$
+	and, for each $n$, we have
+	\begin{equation*}
+	O_L/\mathfrak{m}^nO_L = O_M/\mathfrak{m}^nO_M
+	.\end{equation*}
+	As a consequence, by \cref{defn:valuationBTGroup}, we see that
+	$G(L) = G(O_L) = G(O_M) = G(M)$.
+	In particular the above holds for $M = \overline{K}$ and $L = \mathbb{C}_K$.
 \end{rem}
 
 
@@ -1381,22 +1391,22 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	To see how it acts, notice that
 	\begin{equation*}
 		T_p(G) = \varprojlim_{v \in \mathbb{N}} G_v(\overline{K}) =
-		\varprojlim_{v \in \mathbb{N}} \mathrm{Hom}_{ \mathsf{Sch}_{ R } } 
+		\varprojlim_{v \in \mathbb{N}} \mathrm{Hom}_{ \mathsf{Sch}_{ O_K } } 
 		\left( \mathrm{Spec}(\overline{K}), G_v \right) \simeq
-		\varinjlim_{v \in \mathbb{N}} \mathrm{Hom}_{ R\text{-}\mathsf{Alg} }
+		\varinjlim_{v \in \mathbb{N}} \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} }
 		\left( A_v, \overline{K} \right)
 	,\end{equation*}
-	where $G_v = \mathrm{Spec}(A_v)$ is affine, being finite over $R$.
+	where $G_v = \mathrm{Spec}(A_v)$ is affine, being finite over $O_K$.
 	Here it is easy to specify the action of $G_K$, which on each term acts by
 	\begin{equation*}
 		\left( g \cdot f \right)(x) = g \cdot f(x)
 	\end{equation*}
-	for all $g \in G$, $x \in A_v$ and $f \in \mathrm{Hom}_{ R\text{-}\mathsf{Alg} } 
+	for all $g \in G$, $x \in A_v$ and $f \in \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} } 
 	\left( A_v, \overline{K}\right)$.
 \end{rem}
 
 
-\begin{prop}[]
+\begin{prop}[]\label{AlternativeDefnTateModule}
 	Take $G_0 \in \mathsf{BT}(O_K)$ and denote by $G$ its base change to $O_{\overline{K}}$.
 	Then
 	\begin{equation*}
@@ -1412,7 +1422,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	and write $G = \varinjlim_v G_v$.
 	The proof consists of the following isomorphisms.
 	\begin{align*}
-		T_p(G) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
+		T_p(G_0) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
 		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} G_v(O_{\overline{K}})
 		\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
 		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
@@ -1454,9 +1464,10 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	For $n > 0$ we denote by $M(n)$ the $\mathbb{Z}_{p}$-module $M$ where the action of $G_K$
 	has been twisted by $\chi^n$, i.e. such that for all $g \in G_K$ and $m \in M$
 	\begin{equation*}
-		g \cdot m = \chi^n(g) (gm)
+		g * m = \chi^n(g) (g \cdot m)
 	,\end{equation*}
-	where by $g \cdot m$ we denote the new modified action, and by $gm$ the old one on $M$.
+	where by $g * m$ we denote the new modified action, by $g \cdot m$ the old one on $M$
+	and $\chi_n(g) (g \cdot m)$ is just scalar multiplication.
 \end{ntt}
 
 
@@ -1467,5 +1478,38 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	.\end{equation*}
 \end{prop}
 \begin{proof}
-	tk: Shatz should have some nice insight.
+	We need to notice that
+	\begin{align*}
+		T_p(G^D) &= \varprojlim_{v \in \mathbb{N}} G_v^D(\overline{K})
+		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}}
+		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
+		\left( \left( G_v \right))_{\overline{K}}, \left( \mathbb{G}_m \right)_{\overline{K}} \right) \\
+		&\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
+		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
+		\left( \left( G_v\right))_{\overline{K}},\left( \mathbb{G}_m(p)\right)_{\overline{K}}\right)
+		\simeq \mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
+		\left( \left( G \right)_{\overline{K}}, \left( \mathbb{G}_m(p) \right)_{\overline{K}} \right)\\
+		&\stackrel{3}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
+		\left( G(\overline{K}), (\mathbb{G}_m(p))_{\overline{K}}(\overline{K}) \right)
+		\stackrel{4}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
+		\left( G(\overline{K}), \mathbb{Z}_{p}(1) \right) 
+		\phantom{\varprojlim_{v \in \mathbb{N}}}\\
+		&\stackrel{5}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
+		\left( G(\overline{K}), \mathbb{Z}_{p} \right)(1)
+		= T_p(G)^\vee(1)
+	.\end{align*}
+	Let's explain why these isomorphisms hold.
+	Isomorphism $1$ holds by \cref{rem:DualasHomFct}, whereas isomorphism $2$
+	holds since the image of $G_v$ sits in the $p^v$-torsion points of $\mathbb{G}_m$.
+	Isomorphism $3$ holds by (tk: I didn't manage to give a compelling argument for this).
+	For isomorphism $4$ notice that $(\mathbb{G}_m)_{\overline{K}}(\overline{K})$ consists of all
+	$p^n$-th roots of unity in $\overline{K}$, on which $G_K$ acts via the cyclotomic character.
+	As a ring this is isomorphic to $\mathbb{Z}_{p}$ (viewed in multiplicative notation),
+	on which the action of $G_K$ is trivial, being contained in $K$.
+	Then it is clear that $\mu_{p^\infty}(\overline{K}) \simeq \mathbb{Z}_{p}(1)$.
+	Finally isomorphism $5$ holds, since the action of $G_K$ on 
+	$\mathrm{Hom}_{ \mathsf{Gp} } \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
+	is given by $(g \cdot f)(x) = gf(g^{-1}x)$ for all $g \in G_K, 
+	f \in \mathrm{Hom}_{\mathsf{Gp}} \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
+	and $x \in G(\overline{K})$.
 \end{proof}
