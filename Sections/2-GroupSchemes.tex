@@ -817,7 +817,7 @@ As promised we obtain the following result for group schemes.
 \noindent
 Finally, in order to take quotients, we need to introduce the notion
 of normal subgroup:
-\begin{defn}[Normal subgoroup]
+\begin{defn}[Normal subgroup]
 	Let $G$ be an $S$ group and $H$ be a subgroup scheme of $G$,
 	i.e. $H$ is a subscheme of $G$ and the inclusion morphism
 	is a homomorphism of group schemes.
@@ -931,6 +931,28 @@ In fact we can use this characterization in our context thanks to
 		for a separable $\kappa(s)$-algebra $A_s$.
 \end{enumerate}
 \end{lem} 
+
+
+\noindent
+Finally we want to quote an important result which
+concerns finite étale group schemes over a field.
+\begin{defn}[Discrete $\mathscr{G}_k$ groups]
+	Let $k$ be a filed and $\overline{k}$ a fixed separable closure of $k$.
+	Let $\mathscr{G}_k \coloneqq \mathrm{Gal}\left( \overline{k} / k \right)$ be the
+	absolute Galois group of $k$.
+	We define the category of {\em discrete $\mathscr{G}_k$ groups} as the category
+	whose objects are finite groups endowed with the discrete topology
+	a continuous action of $\mathscr{G}_k$ via group homomorphisms.
+	A morphism of discrete $\mathscr{G}_k$ groups is a $\mathscr{G}_k$-equivariant
+	group homomorphism.
+\end{defn}
+
+
+\begin{thm}[{\cite[\S2.16]{Milne}}]\label{CharacterizationEtaleGroupSchemesK}
+	The functor $G \mapsto G(\overline{k})$ is an equivalence of categories
+	between the category of étale group schemes over $k$ and the
+	category of discrete $\mathscr{G}_k$ groups.
+\end{thm}
 
 
 

@@ -1335,7 +1335,7 @@ the residue field, where $\pi$ is a uniformizer of $K$.
 Let $L$ be the completion of an algebraic extension of $K$ and, as usual,
 $O_L$ be the ring of integers of $L$.
 In particular let's denote by $\overline{K}$ a fixed algebraic closure
-of $K$, and by $G_K = \mathrm{Gal}\left( \overline{K} / K \right)$
+of $K$, and by $\mathscr{G}_K = \mathrm{Gal}\left( \overline{K} / K \right)$
 the absolute Galois group of $K$.
 Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
@@ -1374,7 +1374,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{defn}[Tate module]
-	To the Barsotti-Tate group $G$ we associate the module
+	To the Barsotti-Tate group $G$ we associate the group
 	\begin{equation*}
 		T_p(G) \coloneqq \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
 	,\end{equation*}
@@ -1395,8 +1395,9 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{rem}[]
-	The module $T_p(G)$ is a $\mathbb{Z}_{p}$-module.
-	Moreover it is endowed with an action of $G_K$.
+	The module $T_p(G)$ is a free $\mathbb{Z}_{p}$-module of rank $h$,
+	where $h$ is the height of $G$.
+	Moreover it is endowed with a continuous action of $\mathscr{G}_K$.
 	To see how it acts, notice that
 	\begin{equation*}
 		T_p(G) = \varprojlim_{v \in \mathbb{N}} G_v(\overline{K}) =
@@ -1406,7 +1407,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		\left( A_v, \overline{K} \right)
 	,\end{equation*}
 	where $G_v = \mathrm{Spec}(A_v)$ is affine, being finite over $O_K$.
-	Here it is easy to specify the action of $G_K$, which on each term acts by
+	Here it is easy to specify the action of $\mathscr{G}_K$, which on each term acts by
 	\begin{equation*}
 		\left( g \cdot f \right)(x) = g \cdot f(x)
 	\end{equation*}
@@ -1416,15 +1417,15 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{prop}[]\label{AlternativeDefnTateModule}
-	Take $G_0 \in \mathsf{BT}(O_K)$ and denote by $G$ its base change to $O_{\overline{K}}$.
+	Consider $G \in \mathsf{BT}(O_K)$.
 	Then
 	\begin{equation*}
-		T_p(G_0) \simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
-		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G \big)
+		T_p(G) \simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
+		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \big)
 	,\end{equation*}
-	where, as constructed in \cref{ex:pDivGroups} \cref{ex:Qp/Zp} with $R = O_{\overline{K}}$,
-	we denote $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
-	\underline{\mathbb{Z}/p^n\mathbb{Z}}$.
+	where $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
+	\underline{\mathbb{Z}/p^n\mathbb{Z}}$, as constructed 
+	in \cref{ex:pDivGroups} \cref{ex:Qp/Zp} with $R = O_{\overline{K}}$.
 \end{prop}
 \begin{proof}
 	For this proof we will recall \cref{defn:pDivGroupFormalSchemes}
@@ -1432,60 +1433,51 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	The proof consists of the following isomorphisms.
 	\begin{align*}
 		T_p(G_0) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
-		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} G_v(O_{\overline{K}})
+		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} {G_v}_{O_{\overline{K}}}(O_{\overline{K}})
 		\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
-		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_v \right) \\
-		&\stackrel{3}{\simeq} \varprojlim_{v \in \mathbb{N}} 
-		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
-		\big(\underline{\mathbb{Z}/p^v\mathbb{Z}} , G \big)
+		\mathrm{Hom}_{ \mathsf{Gr}(O_{\overline{K}}) }
+		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, {G_v}_{O_{\overline{K}}} \right) \\
+		&\stackrel{3}{\simeq} 
+		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
+		\bigg( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_{O_{\overline{K}}} \bigg) 
 		\simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
-		\bigg( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G \bigg) \\
-		&\simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
-		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G \big)
+		\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \right)
 	.\end{align*}
 	Let's explain why these isomorphisms hold.
-	Isomorphism $1$ is due to the valutative criterion for properness,
-	see \cite[Chapter II, theorem 4.7]{Hartshorne}, since by \cref{defn:pDivGroupFormalSchemes}
-	all $G_v$ are finite, hence proper, schemes over $O_{\overline{K}}$.
+	Isomorphism $1$ is just \cref{VCPBTGroups}.
 	Isomorphism $2$ follows from the fact that $G_v$ is
 	a flat $\mathbb{Z}/p^v\mathbb{Z}$-module, by 
 	\cref{BTGroup,FlatnessDescentTrBTGroup,lem:equivCondTruncatedBTGroup}.
-	(tk: this certainly holds if, instead of looking at morphisms of Barsotti-Tate groups
-	we were looking at morphisms of the respective evaluations at $O_{\overline{K}}$.
-	This seems to me to be the most plausible explanation of why the isomorphism
-	should also hold when looking at morphisms in $\mathsf{BT}(O_{\overline{K}})$,
-	though I am not sure it is the right argument.)
 	Finally isomorphism $3$ holds since $G_v$ is exactly the
 	subgroup of $G$ of $p^v$-torsion.
 \end{proof}
 
 
 \begin{ntt}[]
-	Let $M$ be a $\mathbb{Z}_{p}$-module, endowed with an action of $G_K$.
-	Let $\chi\colon G_K \to \mathbb{Z}_{p}^{\cross}$ denote the cyclotomic character,
+	Let $M$ be a $\mathbb{Z}_{p}$-module, endowed with an action of $\mathscr{G}_K$.
+	Let $\chi\colon \mathscr{G}_K \to \mathbb{Z}_{p}^{\cross}$ denote the cyclotomic character,
 	i.e. the map such that for all $\zeta_{p^n} \in \overline{K}$ primitive $p^n$-th roots of unity,
 	we have
 	\begin{equation*}
 		g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}
 	\end{equation*}
-	for all $g \in G_K$.
+	for all $g \in \mathscr{G}_K$.
 	We define the module $\mathbb{Z}_{p}(1)$ to be the, set-theoretically, $\mathbb{Z}_{p}$
-	on which $G_K$ acts multiplicatively by $\chi$.
-	More explicitly the action of $G_K$ on $\mathbb{Z}_{p}(1)$ is given by
+	on which $\mathscr{G}_K$ acts multiplicatively by $\chi$.
+	More explicitly the action of $\mathscr{G}_K$ on $\mathbb{Z}_{p}(1)$ is given by
 	\begin{equation*}
 		g \cdot x \coloneqq \chi(g) x
 	\end{equation*}
-	for all $x \in \mathbb{Z}_{p}(1)$ and all $g \in G_K$.
+	for all $x \in \mathbb{Z}_{p}(1)$ and all $g \in \mathscr{G}_K$.
 	Let's now denote $\mathbb{Z}_{p}(-1) \coloneqq \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
 	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$, where the action is the usual action on the
-	hom module.
+	hom group.
 	More explicitly it is given, for all $f \in \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
-	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$ and $g \in G_K$, by
+	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$ and $g \in \mathscr{G}_K$, by
 	\begin{equation*}
 		(g \cdot f)(x) \coloneqq f (g^{-1} x)
 	,\end{equation*}
-	since the action of $G_K$ on $\mathbb{Z}_{p}$ is trivial.
+	since the action of $\mathscr{G}_K$ on $\mathbb{Z}_{p}$ is trivial.
 	Then, for all $n \in \mathbb{Z}$, we define the following modules
 	\begin{equation*}
 		\mathbb{Z}_{p}(n) \coloneqq
@@ -1500,14 +1492,14 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	Then is clear that $\mathbb{Z}_{p}(n) = \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
 	\left( \mathbb{Z}_{p}(-n), \mathbb{Z}_{p} \right)$ for all $n < 0$.
 	More explicitly we see that $\mathbb{Z}_{p}(n)$ set theoretically coincides
-	with $\mathbb{Z}_{p}$, but the action of $G_K$ has been twisted by
+	with $\mathbb{Z}_{p}$, but the action of $\mathscr{G}_K$ has been twisted by
 	an appropriate power of the cyclotomic character.
 	The twist is given by
 	\begin{equation*}
 		g \cdot x = \left( \chi(g) \right)^n x
 	.\end{equation*}
 	With this notation in mind we can twist the action on any $\mathbb{Z}_{p}$-module
-	$M$ endowed with a $G_K$-action.
+	$M$ endowed with a $\mathscr{G}_K$-action.
 	To do so we define
 	\begin{equation*}
 		M(n) \coloneqq M \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p}(n)
@@ -1520,7 +1512,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		\left( \mathbb{Z}_{p}(n), M\right)
 	.\end{equation*}
 	To conclude we can give an explicit description of the twisted action on $M(n)$.
-	It is given, for all $m \in M$ and all $g \in G_K$, by
+	It is given, for all $m \in M$ and all $g \in \mathscr{G}_K$, by
 	\begin{equation*}
 		g * m = (\chi(g))^n (g \cdot m)
 	,\end{equation*}
@@ -1541,14 +1533,14 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		T_p(G^D) &= \varprojlim_{v \in \mathbb{N}} G_v^D(\overline{K})
 		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}}
 		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
-		\left( \left( G_v \right))_{\overline{K}}, \left( \mathbb{G}_m \right)_{\overline{K}} \right) \\
+		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m}_{\overline{K}} \right) \\
 		&\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
 		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
-		\left( \left( G_v\right))_{\overline{K}},\left( \mathbb{G}_m(p)\right)_{\overline{K}}\right)
+		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}}\right)
 		\simeq \mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
-		\left( \left( G \right)_{\overline{K}}, \left( \mathbb{G}_m(p) \right)_{\overline{K}} \right)\\
+		\left( {G}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}} \right)\\
 		&\stackrel{3}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
-		\left( G(\overline{K}), (\mathbb{G}_m(p))_{\overline{K}}(\overline{K}) \right)
+		\left( G(\overline{K}), \mathbb{G}_m(p)(\overline{K}) \right)
 		\stackrel{4}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
 		\left( G(\overline{K}), \mathbb{Z}_{p}(1) \right) 
 		\phantom{\varprojlim_{v \in \mathbb{N}}}\\
@@ -1559,15 +1551,20 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	Let's explain why these isomorphisms hold.
 	Isomorphism $1$ holds by \cref{rem:DualasHomFct}, whereas isomorphism $2$
 	holds since the image of $G_v$ sits in the $p^v$-torsion points of $\mathbb{G}_m$.
-	Isomorphism $3$ holds by (tk: I didn't manage to give a compelling argument for this).
-	For isomorphism $4$ notice that $(\mathbb{G}_m)_{\overline{K}}(\overline{K})$ consists of all
-	$p^n$-th roots of unity in $\overline{K}$, on which $G_K$ acts via the cyclotomic character.
+	Isomorphism $3$ holds since, by \cref{prop:PropertiesConnectedEtale}, our group
+	schemes are étale, being over a field of characteristic $0$.
+	Moreover, by \cref{CharacterizationEtaleGroupSchemesK}, there is an equivalence of categories
+	between étale group schemes over a field and finite groups with an action
+	of the absolute Galois group of the field, which in our case is trivial.
+	Since the equivalence is given taking $\overline{K}$-points, the isomorphism follows.
+	For isomorphism $4$ notice that $\mathbb{G}_m(\overline{K})$ consists of all
+	$p^n$-th roots of unity in $\overline{K}$, on which $\mathscr{G}_K$ acts via the cyclotomic character.
 	As a ring this is isomorphic to $\mathbb{Z}_{p}$ (viewed in multiplicative notation),
-	on which the action of $G_K$ is trivial, being contained in $K$.
+	on which the action of $\mathscr{G}_K$ is trivial, being contained in $K$.
 	Then it is clear that $\mu_{p^\infty}(\overline{K}) \simeq \mathbb{Z}_{p}(1)$.
-	Finally isomorphism $5$ holds, since the action of $G_K$ on 
+	Finally isomorphism $5$ holds, since the action of $\mathscr{G}_K$ on 
 	$\mathrm{Hom}_{ \mathsf{Gp} } \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
-	is given by $(g \cdot f)(x) = gf(g^{-1}x)$ for all $g \in G_K, 
+	is given by $(g \cdot f)(x) = gf(g^{-1}x)$ for all $g \in \mathscr{G}_K, 
 	f \in \mathrm{Hom}_{\mathsf{Gp}} \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
 	and $x \in G(\overline{K})$.
 \end{proof}

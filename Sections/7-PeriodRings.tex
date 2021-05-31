@@ -9,7 +9,7 @@ on $k, W$ and $K_0$.
 We fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
 we denote by $\overline{K}$ a fixed separable closure of $K$,
 and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
-Finally we will denote by $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$ 
+Finally we will denote by $\mathscr{G}_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$ 
 the absolute Galois group of $K$ and notice that its action on $\overline{K}$
 extends to $\mathbb{C}_K$ by continuity.
 
@@ -41,7 +41,8 @@ extends to $\mathbb{C}_K$ by continuity.
 
 \begin{rem}[]
 	In general the above definition is used for representations of Galois groups.
-	In particular $G_K$ is profinite and one studies $p$-adic representations of $\Gamma = G_K$.
+	In particular $\mathscr{G}_K$ is profinite and one studies
+	$p$-adic representations of $\Gamma = \mathscr{G}_K$.
 \end{rem}
 
 
@@ -70,8 +71,8 @@ extends to $\mathbb{C}_K$ by continuity.
 \begin{rem}[]
 	Notice that for any $(F,G)$-regular algebra $E/F$ is a field extension.
 	Moreover if $B$ is already a field, than it clearly is $(F,G)$-regular.
-	Finally we will always be concerned with $G = G_K$ and $F = \mathbb{Q}_p$,
-	so we will fix them and assume that $B$ is a $(\mathbb{Q}_p, G_K)$-regular
+	Finally we will always be concerned with $G = \mathscr{G}_K$ and $F = \mathbb{Q}_p$,
+	so we will fix them and assume that $B$ is a $(\mathbb{Q}_p, \mathscr{G}_K)$-regular
 	algebra.
 	Moreover in the following we will simply write 
 	$G$-regular to mean $(\mathbb{Q}_p, G)$-regular.
@@ -84,14 +85,14 @@ extends to $\mathbb{C}_K$ by continuity.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbf{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(G_K) \arrow[r, "", rightarrow] &
+		\mathbf{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}(\mathscr{G}_K) \arrow[r, "", rightarrow] &
 		\mathsf{Vect}(E) \\
 		V \arrow[r, "", mapsto] & 
-		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{G_K}
+		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{\mathscr{G}_K}
 	,\end{tikzcd}
 	\end{equation*} 
 	where we denoted by $\mathsf{Vect}(E)$ the category of $E$-vector spaces.
-	Moreover we can define a natural $B$-linear, $G_K$-equivariant map
+	Moreover we can define a natural $B$-linear, $\mathscr{G}_K$-equivariant map
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -108,7 +109,7 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
-	Fix $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$.
+	Fix $V \in \mathsf{Rep}_{\mathbb{Q}_p}(\mathscr{G}_K)$.
 	Then the map $\alpha_B(V)$ is always injective and
 	$\dim_E \mathbf{D}_B(V) \leq \dim_E V$.
 	Moreover there is equality of dimensions iff $\alpha_B(V)$ is an isomorphism.
@@ -116,10 +117,11 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{defn}[Admissible representations]
-	We say that $V \in \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$ is a
+	We say that $V \in \mathsf{Rep}_{\mathbb{Q}_p}(\mathscr{G}_K)$ is a
 	{\em $B$-admissible representation} iff 
 	$\dim_E \mathbf{D}_B(V) = \dim_E V$.
-	We denote by $\mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \subset \mathsf{Rep}_{\mathbb{Q}_p}(G_K)$
+	We denote by $\mathsf{Rep}_{\mathbb{Q}_p}^B(\mathscr{G}_K) \subset
+	\mathsf{Rep}_{\mathbb{Q}_p}(\mathscr{G}_K)$
 	the full subcategory of $B$-admissible representations.
 \end{defn}
 
@@ -130,10 +132,10 @@ extends to $\mathbb{C}_K$ by continuity.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathbf{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(G_K) \arrow[r, "", rightarrow] &
+		\mathbf{D}_B\colon \mathsf{Rep}_{\mathbb{Q}_p}^B(\mathscr{G}_K) \arrow[r, "", rightarrow] &
 		\mathsf{Vect}_f(E) \\
 		V \arrow[r, "", mapsto] & 
-		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{G_K}
+		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{\mathscr{G}_K}
 	,\end{tikzcd}
 	\end{equation*} 
 	where we denoted by $\mathsf{Vect}_f(E)$ the category of finite dimensional $E$-vector spaces,
@@ -264,7 +266,7 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]\label{rem:GKActionR}
-	Let's now notice that $G_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
+	Let's now notice that $\mathscr{G}_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
 	acts naturally on $O_{\mathbb{C}_K}$, since it acts via isometries on
 	$\overline{K}$.
 	Acting via morphisms of rings, which commute with $x \mapsto x^p$,
@@ -287,7 +289,7 @@ extends to $\mathbb{C}_K$ by continuity.
 		\left| \mathbf{x}^{(0)} \right|_p
 	\end{tikzcd}
 	\end{equation*} 
-	is a $G_K$-equivariant absolute value on $R$ that makes
+	is a $\mathscr{G}_K$-equivariant absolute value on $R$ that makes
 	$R$ the valuation ring for the unique valuation
 	$\nu_R$ on $\mathrm{Frac}\, R$ extending
 	$-\log_p \left| \ \cdot \ \right|_R$ on $R$
@@ -342,13 +344,13 @@ extends to $\mathbb{C}_K$ by continuity.
 		\lim_{n \to \infty} \frac{ p^n }{ p^{n-1}(p-1) } =
 		\frac{ p }{ p-1 }
 	.\end{equation*}
-	Finally we recall that $G_K$ acts on $\zeta_{p^n}$ via
+	Finally we recall that $\mathscr{G}_K$ acts on $\zeta_{p^n}$ via
 	the cyclotomic character, which is defined by
-	$g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}$ for any $g \in G_K$.
+	$g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}$ for any $g \in \mathscr{G}_K$.
 	As a consequence, since the induced action is component-wise,
-	$G_K$ acts also on $\boldsymbol\varepsilon$ via the cyclotomic character,
+	$\mathscr{G}_K$ acts also on $\boldsymbol\varepsilon$ via the cyclotomic character,
 	i.e. $g(\boldsymbol\varepsilon) = \boldsymbol\varepsilon^{\chi(g)}$
-	for all $g \in G_K$.
+	for all $g \in \mathscr{G}_K$.
 \end{enumerate}
 \end{ex}
 
@@ -431,31 +433,33 @@ extends to $\mathbb{C}_K$ by continuity.
 
 \begin{rem}[]\label{GKActionWR}
 	Let's recall that in \cref{rem:GKActionR} we saw that
-	the action of $G_K$ extends naturally from $O_{\mathbb{C}_K}$ to $R$.
+	the action of $\mathscr{G}_K$ extends naturally from $O_{\mathbb{C}_K}$ to $R$.
 	Then, thanks to \cref{UPWittVectors}, this induces naturally
-	an action of $G_K$ on $W(R)$.
-	More explicitly the action of $G_K$ is defined by
+	an action of $\mathscr{G}_K$ on $W(R)$.
+	More explicitly the action of $\mathscr{G}_K$ is defined by
 	\begin{equation*}
 		g \left( \sum_{n \in \mathbb{N} }^{  } [\mathbf{c}_n] p^n \right) =
 		\sum_{n \in \mathbb{N} }^{  } [g(\mathbf{c}_n)] p^n
 	,\end{equation*}
-	for all $g \in G_K$.
+	for all $g \in \mathscr{G}_K$.
 	Moreover, recalling the explicit description of the Teichmüller
 	epxansion given in \cref{TeichmullerExpansionWitt}, we see that this
-	action of $G_K$ on $W(R)$ corresponds with the component-wise action
+	action of $\mathscr{G}_K$ on $W(R)$ corresponds with the component-wise action
 	(again, since it commutes with Frobenius on $R$).
 \end{rem}
 
 
 \begin{lem}[{\cite[Lemma 4.4.1]{Brinon}}]
-	The map $\theta\colon W(R) \to O_{\mathbb{C}_K}$ is a $G_K$-equivariant surjective ring homomorphism.
+	The map $\theta\colon W(R) \to O_{\mathbb{C}_K}$ is a
+	$\mathscr{G}_K$-equivariant surjective ring homomorphism.
 \end{lem} 
 
 
 \begin{rem}[]
-	Notice that $\theta$ is clearly $G_K$-equivariant, since $G_K$ acts on $O_{\mathbb{C}_K}$
+	Notice that $\theta$ is clearly $\mathscr{G}_K$-equivariant,
+	since $\mathscr{G}_K$ acts on $O_{\mathbb{C}_K}$
 	via isometries (hence via continuous maps).
-	Moreover, inverting $p$, we obtain another $G_K$-equivariant surjective ring homomorphism
+	Moreover, inverting $p$, we obtain another $\mathscr{G}_K$-equivariant surjective ring homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -497,15 +501,15 @@ extends to $\mathbb{C}_K$ by continuity.
 	B^+_{\mathrm{dR}} \coloneqq \varprojlim_{j \geq 1}
 	\frac{ W(R)[1/p] }{ \left( \ker \theta_{\mathbf{Q}} \right)^j }
 	.\end{equation*}
-	Recall that $G_K$ acts component-wise on the ring of Witt vectors,
-	so $\ker \theta_{\mathbf{Q}}$ is stable under the action of $G_K$
-	and the transition maps of the above projective limit are $G_K$-equivariant.
-	As a consequence $B^+_{\mathrm{dR}}$ inherits a natural action of $G_K$
+	Recall that $\mathscr{G}_K$ acts component-wise on the ring of Witt vectors,
+	so $\ker \theta_{\mathbf{Q}}$ is stable under the action of $\mathscr{G}_K$
+	and the transition maps of the above projective limit are $\mathscr{G}_K$-equivariant.
+	As a consequence $B^+_{\mathrm{dR}}$ inherits a natural action of $\mathscr{G}_K$
 	which is compatible with that on its subring $W(R)[1/p]$.
-	Then $B^+_{\mathrm{dR}}$ projects $G_K$-equivariantly on its quotients
+	Then $B^+_{\mathrm{dR}}$ projects $\mathscr{G}_K$-equivariantly on its quotients
 	by $\left( \ker \theta_{\mathbf{Q}} \right)^j$.
 	In particular, for $j = 1$, we obtain a lift of $\theta$ 
-	to a $G_K$-equivariant surjection
+	to a $\mathscr{G}_K$-equivariant surjection
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -549,8 +553,8 @@ so we want to find a uniformizer with which it is nice to work with.
 		for $a \in \mathbb{Z}_{p}^{\cross}$, then
 		$t' = a t$.
 
-	\item $G_K$ acts multiplicatively on $t$ via the cyclotomic character,
-		i.e. for all $g \in G_K$
+	\item $\mathscr{G}_K$ acts multiplicatively on $t$ via the cyclotomic character,
+		i.e. for all $g \in \mathscr{G}_K$
 		\begin{equation*}
 		g(t) = \chi(g) t
 		\end{equation*}
@@ -572,7 +576,7 @@ so we want to find a uniformizer with which it is nice to work with.
 
 \begin{rem}[]
 	Notice that, just like $B_{\mathrm{dR}}^+$, the field of $p$-adic periods
-	$B_{\mathrm{dR}}$ is endowed with a natural $G_K$-action.
+	$B_{\mathrm{dR}}$ is endowed with a natural $\mathscr{G}_K$-action.
 	Moreover we can notice that, set theoretically, the construction of
 	$B_{\mathrm{dR}}$ depends only on $\mathbb{C}_K$ and not on $K$,
 	though the choice of $K$ changes, functorially, the Galois group acting on it,
@@ -581,8 +585,8 @@ so we want to find a uniformizer with which it is nice to work with.
 
 
 \begin{prop}[{\cite[Theorem 4.4.13, example 5.1.3]{Brinon}}]
-	$B_{\mathrm{dR}}$ is $G_K$-regular
-	(being a field) and $B_{\mathrm{dR}}^{G_K} = K$.
+	$B_{\mathrm{dR}}$ is $\mathscr{G}_K$-regular
+	(being a field) and $B_{\mathrm{dR}}^{\mathscr{G}_K} = K$.
 \end{prop}
 
 
@@ -685,11 +689,11 @@ so we want to find a uniformizer with which it is nice to work with.
 
 
 \begin{rem}[]
-	As seen in \cref{GKActionWR}, $G_K$ acts on $W(R)$ sending $pW(R)$ to $pW(R)$
+	As seen in \cref{GKActionWR}, $\mathscr{G}_K$ acts on $W(R)$ sending $pW(R)$ to $pW(R)$
 	and, as seen in \cref{kerQGKStable}, $\ker\theta$ to $\ker\theta$.
 	Then by universal property of divided powers envelope the action extends to
 	$\mathcal{D}_{W(R)}(\ker\theta)$.
-	More explicitly any $g \in G_K$ induces the unique map
+	More explicitly any $g \in \mathscr{G}_K$ induces the unique map
 	\begin{equation}\label{eqn:ExtensionGKActionACris}
 	\begin{tikzcd}
 		&
@@ -704,7 +708,7 @@ so we want to find a uniformizer with which it is nice to work with.
 	\end{equation}
 	And this then extends to $A_{\mathrm{cris}}$.
 	By {\cite[Proposition 9.1.2]{Brinon}} the action
-	of $G_K$ on $A_{\mathrm{cris}}$ is continuous.
+	of $\mathscr{G}_K$ on $A_{\mathrm{cris}}$ is continuous.
 	Also, following {\cite[Lemmas 9.1.7-9.1.8]{Brinon}},
 	we can extend the Frobenius morphism $\varphi$ on $W(R)$ to 
 	$A_{\mathrm{cris}}$.
@@ -725,12 +729,12 @@ so we want to find a uniformizer with which it is nice to work with.
 
 
 \begin{defn}[]
-	We denote by $B_{\mathrm{cris}}^+$ the $G_K$-stable $W(R)[1/p]$ subalgebra 
+	We denote by $B_{\mathrm{cris}}^+$ the $\mathscr{G}_K$-stable $W(R)[1/p]$ subalgebra 
 	\begin{equation*}
 	B_{\mathrm{cris}}^+ \coloneqq A_{\mathrm{cris}}[1/p] \subset B_{\mathrm{dR}}^+
 	.\end{equation*}
 	We define the {\em crystalline period ring} for $K$
-	to be the $G_K$-stable $W(R)[1/p]$-subalgebra of $B_{\mathrm{dR}}$
+	to be the $\mathscr{G}_K$-stable $W(R)[1/p]$-subalgebra of $B_{\mathrm{dR}}$
 	given by $B_{\mathrm{cris}} \coloneqq B_{\mathrm{cris}}^+[1/t]$.
 \end{defn}
 
@@ -744,15 +748,15 @@ so we want to find a uniformizer with which it is nice to work with.
 
 \item As for $B_{\mathrm{dR}}$, set theoretically the definition of $B_{\mathrm{cris}}^+$ and
 	of $B_{\mathrm{cris}}$ only depends on $\mathbb{C}_{K}$.
-	Again the choice of $K$ changes, functorially, the Galois group $G_K$ acting on the
+	Again the choice of $K$ changes, functorially, the Galois group $\mathscr{G}_K$ acting on the
 	period rings.
 \end{enumerate}
 \end{rem}
 
 
 \begin{prop}[{\cite[Proposition 9.1.6]{Brinon}}]
-	$B_{\mathrm{cris}}$ is $G_K$-regular
-	and $B_{\mathrm{cris}}^{G_K} = K_0$.
+	$B_{\mathrm{cris}}$ is $\mathscr{G}_K$-regular
+	and $B_{\mathrm{cris}}^{\mathscr{G}_K} = K_0$.
 \end{prop}
 
 
