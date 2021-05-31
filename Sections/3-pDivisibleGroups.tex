@@ -1260,6 +1260,15 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 \end{rem}
 
 
+\begin{ex}[]
+	Borrowing from \cref{ex:pDivGroups} we can notice that
+	$\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$ is dual to $\mathbb{G}_m(p)$
+	and viceversa.
+	In fact, by \cref{ex:GroupSchemeDuality}, we know that
+	$\underline{\mathbb{Z}/p^n\mathbb{Z}}$ is dual to $\mu_{p^n}$ for all $n \in \mathbb{N}$.
+\end{ex}
+
+
 \noindent
 It now makes sense to introduce one more concept which holds for $p$-divisible
 groups, that of dimension.
@@ -1461,13 +1470,62 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}
 	\end{equation*}
 	for all $g \in G_K$.
-	For $n > 0$ we denote by $M(n)$ the $\mathbb{Z}_{p}$-module $M$ where the action of $G_K$
-	has been twisted by $\chi^n$, i.e. such that for all $g \in G_K$ and $m \in M$
+	We define the module $\mathbb{Z}_{p}(1)$ to be the, set-theoretically, $\mathbb{Z}_{p}$
+	on which $G_K$ acts multiplicatively by $\chi$.
+	More explicitly the action of $G_K$ on $\mathbb{Z}_{p}(1)$ is given by
 	\begin{equation*}
-		g * m = \chi^n(g) (g \cdot m)
+		g \cdot x \coloneqq \chi(g) x
+	\end{equation*}
+	for all $x \in \mathbb{Z}_{p}(1)$ and all $g \in G_K$.
+	Let's now denote $\mathbb{Z}_{p}(-1) \coloneqq \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$, where the action is the usual action on the
+	hom module.
+	More explicitly it is given, for all $f \in \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$ and $g \in G_K$, by
+	\begin{equation*}
+		(g \cdot f)(x) \coloneqq f (g^{-1} x)
 	,\end{equation*}
-	where by $g * m$ we denote the new modified action, by $g \cdot m$ the old one on $M$
-	and $\chi_n(g) (g \cdot m)$ is just scalar multiplication.
+	since the action of $G_K$ on $\mathbb{Z}_{p}$ is trivial.
+	Then, for all $n \in \mathbb{Z}$, we define the following modules
+	\begin{equation*}
+		\mathbb{Z}_{p}(n) \coloneqq
+		\begin{cases}
+			\mathbb{Z}_{p}(1)^{\otimes n} & \text{if } n > 0,\\
+			\mathbb{Z}_{p} & \text{if } n = 0,\\
+			\mathbb{Z}_{p}(-1)^{\otimes -n} & \text{if } n < 0.
+		\end{cases} 
+	\end{equation*}
+	Here by $\mathbb{Z}_{p}(1)^{\otimes n}$ we mean the $n$-fold tensor product
+	of $\mathbb{Z}_{p}(1)$ with itself.
+	Then is clear that $\mathbb{Z}_{p}(n) = \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+	\left( \mathbb{Z}_{p}(-n), \mathbb{Z}_{p} \right)$ for all $n < 0$.
+	More explicitly we see that $\mathbb{Z}_{p}(n)$ set theoretically coincides
+	with $\mathbb{Z}_{p}$, but the action of $G_K$ has been twisted by
+	an appropriate power of the cyclotomic character.
+	The twist is given by
+	\begin{equation*}
+		g \cdot x = \left( \chi(g) \right)^n x
+	.\end{equation*}
+	With this notation in mind we can twist the action on any $\mathbb{Z}_{p}$-module
+	$M$ endowed with a $G_K$-action.
+	To do so we define
+	\begin{equation*}
+		M(n) \coloneqq M \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p}(n)
+	,\end{equation*}
+	where the action on the tensor product is given by the diagonal one.
+	Here notice that, since $\mathbb{Z}_{p}$ is clearly free and of finite rank as
+	a $\mathbb{Z}_{p}$-module, for $n < 0$ we have
+	\begin{equation*}
+		M(n) \simeq \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+		\left( \mathbb{Z}_{p}(n), M\right)
+	.\end{equation*}
+	To conclude we can give an explicit description of the twisted action on $M(n)$.
+	It is given, for all $m \in M$ and all $g \in G_K$, by
+	\begin{equation*}
+		g * m = (\chi(g))^n (g \cdot m)
+	,\end{equation*}
+	where $g * m$ denotes the new modified action, whereas $g \cdot m$ the old one on $M$
+	and $(\chi(g))^n (g \cdot m)$ is just scalar multiplication.
 \end{ntt}
 
 
