@@ -526,8 +526,8 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \noindent
-By construction we saw that $B_{\mathrm{dR}}^+$ is a discrete valuation ring,
-so we want to find a uniformizer with which it is nice to work with.
+By construction $B_{\mathrm{dR}}^+$ is a discrete valuation ring,
+so we want to find a uniformizer which behaves well under the action of $\mathscr{G}_K$
 \begin{defn}[]
 	Let $\boldsymbol\varepsilon$ be as in \cref{ExampleEltsTilt}.
 	We define
@@ -557,7 +557,7 @@ so we want to find a uniformizer with which it is nice to work with.
 		i.e. for all $g \in \mathscr{G}_K$
 		\begin{equation*}
 		g(t) = \chi(g) t
-		\end{equation*}
+		.\end{equation*}
 
 	\item The element $t$ is a uniformizer of $B_{\mathrm{dR}}^+$.
 \end{enumerate}
@@ -684,7 +684,7 @@ so we want to find a uniformizer with which it is nice to work with.
 	,\end{tikzcd}
 	\end{equation*}
 	where the dashed arrow exists by universal property of the completion
-	of a ring with respect to the $I$-adic topology, here $I = (p)$.
+	of a ring with respect to the $p$-adic topology.
 \end{rem}
 
 
@@ -708,14 +708,15 @@ so we want to find a uniformizer with which it is nice to work with.
 	\end{equation}
 	And this then extends to $A_{\mathrm{cris}}$.
 	By {\cite[Proposition 9.1.2]{Brinon}} the action
-	of $\mathscr{G}_K$ on $A_{\mathrm{cris}}$ is continuous.
+	of $\mathscr{G}_K$ on $A_{\mathrm{cris}}$ is continuous
+	for the $p$-adic topology.
 	Also, following {\cite[Lemmas 9.1.7-9.1.8]{Brinon}},
 	we can extend the Frobenius morphism $\varphi$ on $W(R)$ to 
 	$A_{\mathrm{cris}}$.
 	In fact one can check on the generator $\xi = [\mathbf{p}] - p$
 	of $\ker \theta$ that $\varphi$ on $W(R)$ sends $\ker\theta + (p)$ to
 	$\ker\theta + (p)$ and argue as in \cref{eqn:ExtensionGKActionACris}
-	that the action extends to $\mathcal{D}_{W(R)}(\ker\theta)$
+	that the Frobenius extends to $\mathcal{D}_{W(R)}(\ker\theta)$
 	and then to $A_{\mathrm{cris}}$.
 	In particular the above holds since
 	\begin{equation*}
@@ -815,23 +816,33 @@ a universal property.
 	This is because universal property of divided powers envelope
 	allows to extend $\alpha$ uniquely to $\mathcal{D}_{W(R)}(\ker\theta)$
 	and continuity to $A_{\mathrm{cris}}$.
-	Let's denote $J_D \coloneqq \ker\theta$.
+	Let's denote $J_D \coloneqq \ker\theta_D$.
 	We now need to notice that, given $d_1 \equiv d_2 \mod J_D$ in $D$,
-	then $d_1^p \equiv d_2^p \mod pJ$.
-	If $p \in J$ it is simple, since $pJ \subset J^2$ and
-	it is known that $d_1^p \equiv d_2^p \mod J^2$.
-	If, instead, $p \notin J$, we can see that 
+	then $d_1^p \equiv d_2^p \mod pJ_D$.
+	In fact, given $d_1 \equiv d_1 \mod J_D$ there is $\lambda \in J_D$
+	such that $d_2 = d_1 + \lambda$.
+	Then
 	\begin{equation*}
-		d_1^p - d_2^p = \left( d_1 - d_2 \right) 
-		\left( d_1^{p-1} + \cdots + d_2^{p-1} \right)
-	\end{equation*}
-	implies that $d_1^p - d_2^p \in J$.
-	Moreover, since $J$ has divided powers, we see that
-	\begin{equation*}
-		d_1^p - d_2^p = p! \left( \gamma_p(d_1) - \gamma_p(d_2) \right) = p \cdot y
+		d_2^p = d_1^p + \sum_{i=1}^{ p-1 } \binom{p}{i} d_1^i \lambda^{p-i} + \lambda^p
 	.\end{equation*}
-	Since, moreover, $J$ is a prime ideal and $p \notin J$
-	we have $y \in J$ and $d_1^p - d_2^p \in pJ$.
+	Here we notice that $\binom{p}{i} d_1^i \lambda^{p-i} \in pJ_D$ for all $2 \leq i \leq p-1$
+	and that $\lambda^p = p! \gamma_p(\lambda)$, since $J_D$ is equipped with divided
+	powers.
+	All in all we have $d_1^p - d_2^p \in pJ_D$ as we wished.
+%	If $p \in J$ it is simple, since $pJ \subset J^2$ and
+%	it is known that $d_1^p \equiv d_2^p \mod J^2$.
+%	If, instead, $p \notin J$, we can see that 
+%	\begin{equation*}
+%		d_1^p - d_2^p = \left( d_1 - d_2 \right) 
+%		\left( d_1^{p-1} + \cdots + d_2^{p-1} \right)
+%	\end{equation*}
+%	implies that $d_1^p - d_2^p \in J$.
+%	Moreover, since $J$ has divided powers, we see that
+%	\begin{equation*}
+%		d_1^p - d_2^p = p! \left( \gamma_p(d_1) - \gamma_p(d_2) \right) = p \cdot y
+%	.\end{equation*}
+%	Since, moreover, $J$ is a prime ideal and $p \notin J$
+%	we have $y \in J$ and $d_1^p - d_2^p \in pJ$.
 	Fix now $\mathbf{x} \in R$ and take, for any $m \in \mathbb{N}$, 
 	$\xi_m \in D$ a lift via $\theta_D$ of $\mathbf{x}^{(m)} \in O_{\mathbb{C}_K}$, defined
 	as in \cref{not:tiltingElts}.
@@ -839,8 +850,6 @@ a universal property.
 	$p$-adically to an element $\rho(\mathbf{x}) \in D$ which does not depend on the chosen lift.
 	Convergence is due to the fact that $(\mathbf{x}^{(n)})^p = \mathbf{x}^{(n-1)} \in O_{\mathbb{C}_K}$
 	and the above fact, which also implies independence from the chosen lift.
-%	Then we can notice that $\theta$ and $\theta_D$ are continuous in the $p$-adic topology,
-%	since they are morphisms of $p$-adic rings.
 	Let's recall that
 	\begin{equation*}
 	\theta([\mathbf{x}]) = \mathbf{x}^{(0)} =
@@ -892,7 +901,7 @@ a universal property.
 
 
 \subsection{Comparison morphism}
-Define what $K_{\infty}$ is and the hypothesis of the thoerem, plus all the construction
+tk: Define what $K_{\infty}$ is and the hypothesis of the thoerem, plus all the construction
 of the morphism.
 
 

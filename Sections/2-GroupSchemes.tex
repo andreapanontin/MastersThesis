@@ -652,7 +652,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			\begin{equation*}
 				\left( D(X) \right)(G) \coloneqq
 				\mathrm{Hom}_{R \text{-Alg}} \left( R[X], A \right) \simeq
-				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^* \right)
+				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^{\cross} \right)
 			,\end{equation*} 
 			where the last hom set has a natural structure of abelian
 			group.
@@ -933,6 +933,17 @@ In fact we can use this characterization in our context thanks to
 \end{lem} 
 
 
+\begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GM}{Lemma 02GM}]{SP}}]
+	\label{FlatMorphismEtaleViaFIbers}
+	Let $f\colon X \to S$ be a morphism of schemes.
+	Assume, moreover, that $f$ is flat, locally of finite presentation and that,
+	for all $s \in S$, the fibre $X_s \coloneqq 
+	X \cross_{\mathrm{Spec}(\kappa(s))} \mathrm{Spec}(\kappa(s))$
+	is a disjoint union of finite separable extensions of $\kappa(s)$.
+	Then $f$ étale.
+\end{lem} 
+
+
 \noindent
 Finally we want to quote an important result which
 concerns finite étale group schemes over a field.
@@ -948,11 +959,28 @@ concerns finite étale group schemes over a field.
 \end{defn}
 
 
-\begin{thm}[{\cite[\S2.16]{Milne}}]\label{CharacterizationEtaleGroupSchemesK}
+\begin{thm}[{\cite[\S2.16]{MilneAG}}]\label{CharacterizationEtaleGroupSchemesK}
 	The functor $G \mapsto G(\overline{k})$ is an equivalence of categories
 	between the category of étale group schemes over $k$ and the
 	category of discrete $\mathscr{G}_k$ groups.
 \end{thm}
+
+
+\begin{ex}[]\label{EtaleConstantGroupScheme}
+	An important example of étale group schemes are given by
+	constant group schemes over fields.
+	In fact they are represented by the spectrum of a
+	finite product of copies of the base field, hence they are étale
+	by \cref{thm:SeparableAlgebrasCharacterization}.
+	More generally, in case the base scheme is a Noetherian discrete valuation
+	ring, we can reduce to the above arguments on the two fibers 
+	thanks to \cref{FlatMorphismEtaleViaFIbers} and obtain the same result.
+	In fact we only need to show that the structure morphism is flat,
+	which corresponds to showing that our algebra is a flat module over the 
+	base ring.
+	But this is the case, since as a module it is a finite product of copies
+	of the base ring, hence it is free and flat.
+\end{ex}
 
 
 
