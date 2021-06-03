@@ -848,8 +848,22 @@ a universal property.
 	as in \cref{not:tiltingElts}.
 	Then, from what we stated before, the sequence $\xi_m^{p^m}$ converges
 	$p$-adically to an element $\rho(\mathbf{x}) \in D$ which does not depend on the chosen lift.
-	Convergence is due to the fact that $(\mathbf{x}^{(n)})^p = \mathbf{x}^{(n-1)} \in O_{\mathbb{C}_K}$
-	and the above fact, which also implies independence from the chosen lift.
+	To prove this let's notice that, since $(x^{(m+1)})^p = x^{(m)}$ in $O_{\mathbb{C}_K}$,
+	we have $\xi_{m+1}^p \equiv \xi_m \mod J_D$.
+	But, by what we just proved, this implies that $\xi_{m+1}^{p^{m+1}} \equiv \xi_{m}^{p^m}
+	\mod p^m J_D$, hence that the sequence $\left\{ \xi_m^{p^m} \right\}$
+	is $p$-adically Cauchy.
+	Since $D$ is $p$-adically complete this is enough to grant convergence.
+	With regards to independence from the chosen lift, fix another family 
+	$\left\{ \zeta_m \right\}$ of lifts of $x^{(m)}$ in $D$.
+	Then, by construction, $\xi_m \equiv \zeta_m \mod J_D$ for all $m \in \mathbb{N}$, hence
+	$\xi_m^{p^m} \equiv \zeta_{m}^{p^m} \mod p^m J_D$ by the above.
+	This means that the sequence $\left\{ \xi_m^{p^m} - \zeta_m^{p^m} \right\}$
+	is Cauchy, moreover it clearly converges to zero.
+	Then, being $D$ a topological ring (hence sum is continuous),
+	we obtain that the two sequences $\left\{ \zeta_m^{p^m} \right\}$ and
+	$\left\{ \xi_m^{p^m} \right\}$ converge to the same point,
+	which is then independent from the choice of lifts.
 	Let's recall that
 	\begin{equation*}
 	\theta([\mathbf{x}]) = \mathbf{x}^{(0)} =
@@ -900,9 +914,9 @@ a universal property.
 
 
 
-\subsection{Comparison morphism}
-tk: Define what $K_{\infty}$ is and the hypothesis of the thoerem, plus all the construction
-of the morphism.
+\subsection{Comparison morphisms}
+This last section will be dedicated to constructing and studying a few properties
+of our desired comparison morphism.
 
 
 \begin{rem}[]\label{elementsTateModule}
@@ -941,7 +955,7 @@ of the morphism.
 		\arrow[u, "", hookrightarrow]
 	.\end{tikzcd}
 	\end{equation*}
-	Here $f^*G = G_{O_{\mathbb{C}_K}}$.
+	In this context we have $f^*G = G_{O_{\mathbb{C}_K}}$.
 	Then stability under base change means 
 	\begin{equation*}
 	f^* \mathbb{D}^*(G)_{U_0 \hookrightarrow U} \simeq
@@ -949,9 +963,9 @@ of the morphism.
 	\end{equation*}
 	as Zariski sheaves.
 	Moreover, since both $A_{\mathrm{cris}}$ and $O_K$ are endowed
-	with morphism from $S$ (hence with an $S$-module structure),
+	with a morphism from $S$ (hence with an $S$-module structure),
 	from the universal property of pushouts, we obtain
-	a morphism
+	a morphism in $\mathsf{Crys}(O_K)$
 	\begin{equation*}
 	\begin{tikzcd}
 		U \arrow[r, "\overline{\alpha}", rightarrow] &
@@ -961,7 +975,7 @@ of the morphism.
 		\mathrm{Spec}(O_K) \arrow[u, "", hookrightarrow] 
 	\end{tikzcd}
 	\end{equation*}
-	in $\mathsf{Crys}(O_K)$, which we will denote by $\alpha$.
+	which we will denote by $\alpha$.
 	Since crystals are special sheaves on $\mathsf{Crys}(O_K)$,
 	as of \cref{defn:SpecialQCSheavesCrys},
 	we finally have $\alpha^{-1} \mathbb{D}^*(G)_{S \twoheadrightarrow O_K} =
@@ -975,8 +989,8 @@ of the morphism.
 
 
 \begin{rem}[]\label{constr:ComparisonMorphism}
-	From the \cref{elementsTateModule} we see that any $f \in T_p(G)$
-	can be seen as a morphism of Barsotti-Tate groups
+	From \cref{elementsTateModule} we see that any $f \in T_p(G)$
+	can be interpreted as a morphism of Barsotti-Tate groups
 	on $O_{\mathbb{C}_K}$ between $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$
 	(base changed to $O_{\mathbb{C}_K}$) and $G_{O_{\mathbb{C}_K}}$.
 	Since $\mathbb{D}^*$ is a contravariant functor this induces a map
@@ -1061,7 +1075,7 @@ of the morphism.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\rho_G\colon 
-		\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}})
+		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
 		\arrow[r, "", rightarrow] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} T_p(G)^\vee
 	.\end{tikzcd}
@@ -1081,7 +1095,7 @@ of the morphism.
 \end{defn}
 
 
-\begin{thm}[{\cite[\S6, theorem 7]{Faltings}}]
+\begin{thm}[{\cite[\S6, theorem 7]{Faltings}}]\label{ComparisonTheorem}
 	The morphism constructed in \cref{constr:ComparisonMorphism}
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1099,18 +1113,20 @@ of the morphism.
 \begin{proof}
 	The idea of the proof, as carried out in \cite[\S6]{Faltings},
 	is to first concentrate on the particular case of $G = \mathbb{G}_m(p)$
-	and then reduce, using functoriality of $\rho_G$, the general case to this.
+	and then reduce, using functoriality of $\rho_G$, the general case to this one.
 	Here, though, we will not be concerned with filtrations nor with Frobenius.
 
-	Let's start by tackling functoriality.
-	This map is indeed functorial in $G$ since, as can be checked,
-	each step in the construction of \cref{constr:ComparisonMorphism}
-	is functorial in $G$.
+	Let's start by tackling functoriality and $\mathscr{G}_{K_\infty}$-equivariance.
+	Both of them can be explicitly checked in the construction of 
+	\cref{constr:ComparisonMorphism}.
+	In fact each step is clearly functorial
+	and, upon inspecting the various action at each step, it turns out
+	that each is also $\mathscr{G}_{K_\infty}$-equivariant.
 
 	Let's now concentrate on the particular case, so let's fix $G = \mathbb{G}_m(p)$ for now.
 	We need to explicitly compute the morphism $\rho_G$, using Messing's theory,
 	in order to prove that $t$ kills $\coker \rho_G$.
-	Recall that $T_p(G) = \mathbb{Z}_{p}(1)$, hence $T_p(G)^\vee = \mathbb{Z}_{p}(-1)$.
+	Recall that $T_p(G) = \mathbb{Z}_{p}(1)$, hence that $T_p(G)^\vee = \mathbb{Z}_{p}(-1)$.
 	Now, since $\mathscr{G}_{K}$ acts on $t \in A_{\mathrm{cris}}$ via the cyclotomic
 	character, we have an isomorphism of $\mathscr{G}_{K}$-modules $\mathbb{Z}_{p}(-1)
 	\simeq \mathbb{Z}_{p} t$.
@@ -1118,9 +1134,9 @@ of the morphism.
 	Moreover we will often use notation $\boldsymbol\varepsilon^{(n)}$ to denote
 	our fixed $p^n$th root of unity $\zeta_{p^n} \in O_{\mathbb{C}_K}$,
 	as defined in \cref{ExampleEltsTilt}.
-	Then $t \in T_p(G)$ and it corresponds, as shown in \cref{AlternativeDefnTateModule},
+	Then $t \in T_p(G)$ corresponds, as shown in \cref{AlternativeDefnTateModule},
 	to a morphism of Barsotti-Tate groups $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \to \mathbb{G}_m(p)$.
-	In particular, when evaluated on $O_{\mathbb{C}_K}$, it gives rise to
+	In particular, when evaluated at $O_{\mathbb{C}_K}$, it gives rise to
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1133,11 +1149,9 @@ of the morphism.
 		\boldsymbol\varepsilon^{(n)}
 	,\end{tikzcd}
 	\end{equation*} 
-	where by $\mu_{p^\infty}(O_{\mathbb{C}_K})$ we mean all the $p$ power 
-	roots of unity in $O_{\mathbb{C}_K}$.
-	Using the construction of \cref{UniversalExtensionConstruction} 
-	(tk: and I guess a process of projective limit, but I have not been able to
-	pinpoint exactly how to carry this process out)
+	where by $\mu_{p^\infty}(O_{\mathbb{C}_K})$ we mean the multiplicative group
+	of $p$ power roots of unity in $O_{\mathbb{C}_K}$.
+	Starting from the construction of \cref{UniversalExtensionConstruction} 
 	one can compute the universal extension of $G$ and $G^D$.
 	In particular they are
 	\begin{equation*}
@@ -1151,7 +1165,7 @@ of the morphism.
 	\end{tikzcd}
 	\end{equation*}
 	for $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$, where the quotient
-	si given by the pushout of $\mathbb{G}_a$ and $\underline{\mathbb{Q}_p}$
+	is given by the pushout of $\mathbb{G}_a$ and $\underline{\mathbb{Q}_p}$
 	over their common subgroup $\underline{\mathbb{Z}_{p}}$, and
 	\begin{equation*}
 	\begin{tikzcd}
@@ -1166,8 +1180,8 @@ of the morphism.
 	For this last notice that dual of $\mathbb{G}_m(p)$
 	is étale, hence $\omega_{G^D} = 0$.
 	Considering $t$ as a morphism of Barsotti-Tate groups, \cref{prop:MorUnivExts}
-	grants the existance of a morphism of extension which, when
-	evaluated at $O_{\mathbb{C}_K}$, give rise to the following diagram
+	grants the existence of a morphism of extensions which, when
+	evaluated at $O_{\mathbb{C}_K}$, gives rise to the following diagram
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -1205,9 +1219,8 @@ of the morphism.
 	In particular, if we write $x = a/p^m$, for $a \in \mathbb{Z}_{p}$ and $-m = \nu_p(x)$,
 	we can explicitly compute $\boldsymbol\varepsilon^x \coloneqq 
 	\left( \boldsymbol\varepsilon^{(m)} \right)^a$.
-	\Cref{thm:UniqueLiftingCrystals} (tk: again, maybe passing to limits
-	thanks to the definition of $p$-divisible group as inductive system and
-	of $O_K$ as $p$-adically complete ring, i.e. viewing it as a formal scheme)
+	\Cref{thm:UniqueLiftingCrystals}, recalling \cref{rem:NonNilpotentCrystalEvaluation}
+	and that $A_{\mathrm{cris}}$ is $p$-adically complete,
 	grants that $v_0$ can be uniquely
 	lifted to a morphism
 	\begin{equation*}
@@ -1220,7 +1233,7 @@ of the morphism.
 	\end{tikzcd}
 	\end{equation*} 
 	such that $\left.-v\right|_{ \underline{V}(\mathbb{G}_m(p)_{A_{\mathrm{cris}}}) }$
-	is an exponential (notice that, in the notation of \cref{thm:UniqueLiftingCrystals},
+	is an exponential (notice that, following the notation of \cref{thm:UniqueLiftingCrystals},
 	$j = 0$ in our case).
 	Moreover we can define a morphism
 	\begin{equation*}
@@ -1274,6 +1287,10 @@ of the morphism.
 	\end{equation*} 
 	Then here we clearly see that $t$ kills $\coker \rho_G$, since
 	$\ima \rho_G = t \cdot A_{\mathrm{cris}}$.
+%	Moreover, since the action of
+%	$\mathscr{G}_{K_\infty}$ both sides is diagonal (especially it is trivial
+%	on $\mathbb{D}^*(\mathbb{G}_m(p))(S)$), we also see that $\rho_G$
+%	is $\mathscr{G}_{K_\infty}$-equivariant.
 
 	Let's now switch to the general case, in which $G \in \mathsf{BT}(O_K)$
 	is arbitrary.
@@ -1283,7 +1300,7 @@ of the morphism.
 	Hence, given any $y \in T_p(G)^\vee$, we obtain $ty \in T_p(G^D)$,
 	which can be interpreted as a map in 
 	$\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
-	\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G^D_{O_{\overline{K}}}\right)$.
+	\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G^D_{O_{\overline{K}}}\big)$.
 	By \cref{thm:CartierDuality} this gives a morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1316,7 +1333,7 @@ of the morphism.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		T_p((ty)^D)^\vee(1) = T_p(ty)\colon 
-		T_p \left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \right)
+		T_p \big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \big)
 		\arrow[r, "", rightarrow] &
 		T_p(G^D)\\
 		1 = \left( 1/p^v \right)_{v \in \mathbb{N}}
@@ -1346,25 +1363,63 @@ of the morphism.
 		1 \otimes 1
 		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", mapsto] &
-		-t \otimes t
+		-t \otimes t^{-1}
 		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes T_p((ty)^D)^\vee"', mapsto] 
 	.\end{tikzcd}
 	\end{equation*}
-	But this allows us to compute, since we imposed no restrictions
-	on $y \in T_p(G)^\vee$, hence commutativity of the square
-	tells us that $t$ kills $\coker \rho_G$.
+	Now, since we imposed no restriction to the choice of $y \in T_p(G)^\vee$, 
+	commutativity of the square tells us that $t$ kills $\coker \rho_G$.
 
-	We are left to prove injectivity and $\mathscr{G}_{K_\infty}$-equivariance.
-	tk: complete.
+	We are left to prove injectivity.
+	For the first notice that, thanks to classical Dieudonné theory
+	$\mathbb{D}^*(G)(S)$ is a free $S$-module of rank $h$.
+	Then, inverting $t$ in $A_{\mathrm{cris}}$, i.e. extending scalars
+	to $B_{\mathrm{cris}}$, we obtain a surjective map
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		B_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
+		\arrow[r, "", rightarrow] &
+		B_{\mathrm{cris}} \otimes_S T_p(G)^\vee
+	\end{tikzcd}
+	\end{equation*} 
+	between finitely generated free $B_{\mathrm{cris}}$-modules.
+	But then, applying Cayley-Hamilton, we see that this is an isomorphism,
+	so in particular it is injective.
+	Now, since $\mathbb{D}^*(G)(S)$ and $T_p(G)^\vee$ are free modules,
+	they are also flat, hence the inclusion $A_{\mathrm{cris}} \hookrightarrow B_{\mathrm{cris}}$
+	induces the inclusions
+	\begin{equation*}
+	\begin{tikzcd}
+		A_{\mathrm{cris}} \otimes_S 
+		\mathbb{D}^*(G)(S)
+		\arrow[r, "", hookrightarrow] &
+		B_{\mathrm{cris}} \otimes_S
+		\mathbb{D}^*(G)(S)
+	\end{tikzcd}
+	\end{equation*}
+	and
+	\begin{equation*}
+	\begin{tikzcd}
+		A_{\mathrm{cris}} \otimes_S 
+		T_p(G)^\vee
+		\arrow[r, "", hookrightarrow] &
+		B_{\mathrm{cris}} \otimes_S
+		T_p(G)^\vee
+	.\end{tikzcd}
+	\end{equation*} 
+	This allows us to see $\rho_G$ as the restriction of an isomorphism to a subspace,
+	which grants its injectivity.
 \end{proof}
 
 
 \noindent
-One can actually obtain some finer result when base changing to $B_{\mathrm{cris}}$
-instead.
+We remark that, base changing to $B_{\mathrm{cris}}$, the above result can actually be
+improved upon.
 \begin{thm}[]
-	The base change the morphism
-	constructed in \cref{constr:ComparisonMorphism} to $B_{\mathrm{cris}}$
+	The base change to $B_{\mathrm{cris}}$ of the morphism
+	constructed in \cref{constr:ComparisonMorphism}
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1373,8 +1428,95 @@ instead.
 		B_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} T_p(G)^\vee
 	\end{tikzcd}
 	\end{equation*} 
-	is a $\mathscr{G}_K$-equivariant isomorphism compatible with Frobenius.
+	is a $\mathscr{G}_K$-equivariant isomorphism compatible with filtrations and Frobenius.
 \end{thm}
 
 
-tk: also cite classical Dieudonne theory.
+\begin{rem}[]
+	This result actually extends previously known 
+	results in the context of classical Dieudonné theory.
+	In fact, given $G \in \mathsf{BT}(O_K)$, let's denote by $G_k$
+	its base change to $k = O_K / \mathfrak{m}$ the residue field of $O_K$.
+	Then, denoted by $\mathbb{D}^*(G_k)$ the Dieduonné module associated to
+	$G_k$, we have the isomorphism of modules
+	\begin{equation*}
+		\mathbb{D}^*(G)(S) \simeq S \otimes_W \mathbb{D}^*(G_k)
+	.\end{equation*}
+	Though here we have not defined a natural filtration.
+	As a consequence it will not be of concern when looking at the classical
+	comparison morphism.
+\end{rem}
+
+
+\begin{thm}[]
+	Let $G \in \mathsf{BT}(O_K)$ and $G_k$ be as above.
+	Then we have a functorial $\mathscr{G}_K$-equivariant injection
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\rho_G\colon 
+		A_{\mathrm{cris}} \otimes_W \mathbb{D}^*(G_k)
+		\arrow[r, "", rightarrow] &
+		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee
+	\end{tikzcd}
+	\end{equation*} 
+	which is also compatible with Frobenius.
+	Inverting $t$ we obtain a functorial $\mathscr{G}_{K}$-equivariant isomorphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\rho\colon B_{\mathrm{cris}} \otimes_W \mathbb{D}^*(G_k)
+		\arrow[r, "", rightarrow] &
+		B_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee
+	\end{tikzcd}
+	\end{equation*} 
+	which again is compatible with Frobenius.
+\end{thm}
+
+
+\begin{rem}[]
+	Classically, in fact, in order to recover a natural filtration on $\mathbb{D}^*(G_k)$,
+	one needs to base change to $B_{\mathrm{dR}}$.
+	In fact one can define $D_{K} \coloneqq O_K \otimes_W \mathbb{D}^*(G_k)$.
+	Then 
+	\begin{equation*}
+		D_K = \mathbb{D}^*(G)(S)/\left( \mathrm{Fil}^1S \otimes_W \mathbb{D}^*(G_k)\right)
+	,\end{equation*}
+	hence it inherits a filtration from that on $\mathbb{D}^*(G)(S)$, via
+	\begin{equation*}
+	\mathrm{Fil}^1 D_K \coloneqq 
+	\mathrm{Fil}^1 / \left( \mathrm{Fil}^1S \otimes_W \mathbb{D}^*(G_k) \right)
+	.\end{equation*}
+	And now this induces the usual filtration on the scalar extension
+	$B_{\mathrm{dR}} \otimes_{W} D_K$, via 
+	\begin{align*}
+		\mathrm{Fil}^1 \left( B_{\mathrm{dR}} \otimes_{W} D_K \right) &=
+		\sum_{j \in \mathbb{Z} }^{  } \ima \left( 
+		\mathrm{Fil}^j B_{\mathrm{dR}} \otimes_{W} \mathrm{Fil}^{i-j} D_K \right) \\
+		&=
+		\mathrm{Fil}^{i-1} B_{\mathrm{dR}} \otimes_{W} \mathrm{Fil}^1 D_K +
+		\mathrm{Fil}^{i} B_{\mathrm{dR}} \otimes_{W} D_K
+	,\end{align*}
+	since the (decreasing) filtration on $D_K$ satisfies
+	$\mathrm{Fil}^0 D_K = D_K$ and $\mathrm{Fil}^2 D_K = 0$.
+	Moreover, having no natural filtration on $T_p(G)$,
+	one defines
+	\begin{equation*}
+		\mathrm{Fil}^i \left( B_{\mathrm{dR}} \otimes_{\mathbb{Z}_{p}} T_p(G) \right) \coloneqq
+		\mathrm{Fil}^i B_{\mathrm{dR}} \otimes_{\mathbb{Z}_{p}} T_p(G)
+	.\end{equation*}
+	With all this in mind one can prove that the base change of the
+	isomorphism $\rho$ above to $B_{\mathrm{dR}}$, i.e.
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathrm{id}_{ B_{\mathrm{dR}} } \otimes \rho\colon 
+		B_{\mathrm{dR}} \otimes_W D \arrow[r, "", rightarrow] &
+		B_{\mathrm{dR}} \otimes_{\mathbb{Z}_{p}} T_p(G)
+	\end{tikzcd}
+	\end{equation*} 
+	is an isomorphism compatible with the filtrations we just defined.
+\end{rem}

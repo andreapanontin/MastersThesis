@@ -480,7 +480,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 \end{defn}
 
 
-\begin{rem}[]
+\begin{rem}[]\label{rem:NonNilpotentCrystalEvaluation}
 	Notice that, in the above definition, $A_n \twoheadrightarrow A_0/p^nA_0$
 	has kernel equipped with divided powers.
 	In fact it is the projection of the kernel of $A \twoheadrightarrow A_0/p^nA_0$, over
@@ -496,6 +496,11 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 		\varprojlim_{n \geq m} \mathbb{D}^*(G_m)(A/p^nA)
 	\end{equation*}
 	by cofinality of the family $n \geq m$ in $\mathbb{N}$.
+	Moreover we can notice that, in case $p$ is not nilpotent
+	on $A_0$, the theory of Messing (see \cref{MessingCrystalDefinition}),
+	doesn't suffice to define the crystal $\mathbb{D}^*(G)$.
+	Though it is enough to define the crystal associated to
+	$G_1$, hence the valuation $\mathbb{D}^*(G)(A)$.
 \end{rem}
 
 
@@ -1195,7 +1200,7 @@ These will play an important role also in what follows.
 		To this aim we recall \cite[\S6.1, proposition 1.8(d), example 1.10]{Liu}
 		which let's us compute
 		\begin{equation*}
-			\Omega^1_{A_v/O_K} = \frac{ A_v \mathrm{d}T }{ A_v p^v T^{p^{v-1}} \mathrm{d}T }
+			\Omega^1_{A_v/\mathbb{Z}} = \frac{ A_v \mathrm{d}T }{ A_v p^v T^{p^{v-1}} \mathrm{d}T }
 			= A_v / (p^v) \frac{ \mathrm{d}T }{ T }
 		.\end{equation*}
 		Now we can invoke 
