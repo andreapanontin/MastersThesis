@@ -317,7 +317,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	$\left( \zeta_{p^n} \right)_{n \in \mathbb{N}}$ in $O_{\mathbb{C}_K}$.
 	We denote by $\boldsymbol\varepsilon$ the special element of $R$ given by
 	\begin{equation*}
-		\boldsymbol\varepsilon \coloneqq \big( \varepsilon^{(n)} \big)_{n \in \mathbb{N}} =
+		\boldsymbol\varepsilon \coloneqq \big( \boldsymbol\varepsilon^{(n)} \big)_{n \in \mathbb{N}} =
 		\left( 1, \zeta_p, \zeta_{p^2}, \ldots \right) \in R
 	.\end{equation*}
 	The element $\boldsymbol\varepsilon$ depends on the chosen
@@ -905,7 +905,7 @@ tk: Define what $K_{\infty}$ is and the hypothesis of the thoerem, plus all the 
 of the morphism.
 
 
-\begin{rem}[]
+\begin{rem}[]\label{elementsTateModule}
 	Let $G \in \mathsf{BT}(O_K)$, seen as the inductive limit of $G_v$, 
 	as in \cref{defn:pDivGroupFormalSchemes}.
 	Let's notice that, in \cref{AlternativeDefnTateModule} we could have
@@ -915,16 +915,70 @@ of the morphism.
 	Then we have
 	\begin{equation*}
 		T_p(G) \simeq \mathrm{Hom}_{\mathsf{BT}(O_{\mathbb{C}_K})} 
-		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, (G)_{O_{\mathbb{C}_K}} \big)
+		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\mathbb{C}_K}} \big)
+	.\end{equation*}
+\end{rem}
+
+
+\begin{rem}[]\label{BaseChangeAcris}
+	Among other things \cref{PDExtendCompletion} states that
+	$A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$
+	is a divided power thickening.
+	Since we will need to compute $\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}})$
+	for certain $G \in \mathsf{BT}(O_K)$, we wish to
+	reduce its computation to that of $\mathbb{D}^*(G)(S)$.
+	In order to do so, let's recall \cref{PBCrystals}, where we
+	defined explicitly the pullback of our crystals.
+	In particular consider the cartesian diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		V \coloneqq \mathrm{Spec}(A_{\mathrm{cris}})
+		\arrow[r, "", rightarrow] &
+		U \\
+		V_0 \coloneqq \mathrm{Spec}(O_{O_{\mathbb{C}_K}})
+		\arrow[u, "", hookrightarrow] \arrow[r, "f", rightarrow] &
+		\mathrm{Spec}(O_K) \eqqcolon U_0
+		\arrow[u, "", hookrightarrow]
+	.\end{tikzcd}
+	\end{equation*}
+	Here $f^*G = G_{O_{\mathbb{C}_K}}$.
+	Then stability under base change means 
+	\begin{equation*}
+	f^* \mathbb{D}^*(G)_{U_0 \hookrightarrow U} \simeq
+	\mathbb{D}^*(G_{O_{\mathbb{C}_K}})_{V_0 \hookrightarrow V}
+	\end{equation*}
+	as Zariski sheaves.
+	Moreover, since both $A_{\mathrm{cris}}$ and $O_K$ are endowed
+	with morphism from $S$ (hence with an $S$-module structure),
+	from the universal property of pushouts, we obtain
+	a morphism
+	\begin{equation*}
+	\begin{tikzcd}
+		U \arrow[r, "\overline{\alpha}", rightarrow] &
+		\mathrm{Spec}(S) \\
+		\mathrm{Spec}(O_K)
+		\arrow[u, "", hookrightarrow] \arrow[r, "", equals] &
+		\mathrm{Spec}(O_K) \arrow[u, "", hookrightarrow] 
+	\end{tikzcd}
+	\end{equation*}
+	in $\mathsf{Crys}(O_K)$, which we will denote by $\alpha$.
+	Since crystals are special sheaves on $\mathsf{Crys}(O_K)$,
+	as of \cref{defn:SpecialQCSheavesCrys},
+	we finally have $\alpha^{-1} \mathbb{D}^*(G)_{S \twoheadrightarrow O_K} =
+	\mathbb{D}^*(G)_{U_0 \hookrightarrow U}$.
+	Now we can conclude since, taking valuations, we have
+	\begin{equation*}
+	\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}}) \simeq
+	f^* \mathbb{D}^*(G)(S) = A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
 	.\end{equation*}
 \end{rem}
 
 
 \begin{rem}[]\label{constr:ComparisonMorphism}
-	From the above remark we see that any $f \in T_p(G)$
+	From the \cref{elementsTateModule} we see that any $f \in T_p(G)$
 	can be seen as a morphism of Barsotti-Tate groups
 	on $O_{\mathbb{C}_K}$ between $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$
-	(base changed to $O_{\mathbb{C}_K}$) and $(G)_{O_{\mathbb{C}_K}}$.
+	(base changed to $O_{\mathbb{C}_K}$) and $G_{O_{\mathbb{C}_K}}$.
 	Since $\mathbb{D}^*$ is a contravariant functor this induces a map
 	of crystals
 	\begin{equation*}
@@ -936,9 +990,6 @@ of the morphism.
 		\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})
 	.\end{tikzcd}
 	\end{equation*} 
-	Among other things \cref{PDExtendCompletion} states that
-	$A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$
-	is a divided power thickening.
 	Then we can evaluate the above at $A_{\mathrm{cris}}$ and obtain
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -950,13 +1001,20 @@ of the morphism.
 		\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(A_{\mathrm{cris}})
 	.\end{tikzcd}
 	\end{equation*} 
-	Here we can notice that $\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(A_{\mathrm{cris}})
-	\simeq A_{\mathrm{cris}}$ (tk: I still haven't figured out why).
-	Moreover one can also check that $\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}}) \simeq
-	A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)$ (tk: again I have not succeded),
-	recalling that $A_{\mathrm{cris}}$ has an $S$-algebra structure,
-	defined in \cref{AcrisAlgebraStructures}.
-	Combining these observation we obtain a pairing
+	We use \cref{BaseChangeAcris} to compute those crystals
+	in terms of the modules $M(G) = \mathbb{D}^*(G)(S)$ of \cref{prop:A6Kisin}.
+	In particular, from \cref{DieudonneModulesSimpleExamples}, we get
+	$\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(S) = S$.
+	Then we have
+	\begin{equation*}
+	\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(A_{\mathrm{cris}})
+	\simeq A_{\mathrm{cris}}
+	\qquad \text{ and } \qquad
+	\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}}) \simeq
+	A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
+	.\end{equation*}
+	Recalling that $A_{\mathrm{cris}}$ has an $S$-algebra structure,
+	defined in \cref{AcrisAlgebraStructures}, we obtain a pairing
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -983,9 +1041,8 @@ of the morphism.
 	\end{equation*} 
 	Since $\mathbb{D}^*$ is an additive functor this morphism
 	is $\mathbb{Z}$-linear, moreover it can be shown to be $\mathbb{Z}_{p}$-linear too.
-	Finally we can notice that, set-theoretically, $T_p(G) \simeq \left( \mathbb{Z}_p \right)^h$,
-	where $h$ is the height of $G$ as a $p$-divisible group.
-	This means that it is a finitely generated free (hence projective) $\mathbb{Z}_{p}$-module.
+	As stated in \cref{rem:TateModuleProperties}, $T_p(G)$ is a free
+	$\mathbb{Z}_{p}$-module of finite rank.
 	As a consequence we have a canonical isomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1018,14 +1075,14 @@ of the morphism.
 	By compatible we mean that $(\pi^{1/p^n})^p = \pi^{1/p^{n-1}}$.
 	We define the algebraic extension $K_{\infty}/K$ as the extension given
 	by $K_\infty \coloneqq \bigcup_{n \in \mathbb{N}} K(\pi^{1/p^n})$.
-	As usual we will denote by $G_{K_\infty} \coloneqq \mathrm{Gal}
+	As usual we will denote by $\mathscr{G}_{K_\infty} \coloneqq \mathrm{Gal}
 	\left( \overline{K} / K_\infty \right)$ 
 	the absolute Galois group of $K_\infty$.
 \end{defn}
 
 
 \begin{thm}[{\cite[\S6, theorem 7]{Faltings}}]
-	The map constructed in \cref{constr:ComparisonMorphism}
+	The morphism constructed in \cref{constr:ComparisonMorphism}
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1035,7 +1092,289 @@ of the morphism.
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} T_p(G)^\vee
 	\end{tikzcd}
 	\end{equation*} 
-	is a functorial injection which respects Frobenius,
-	filtrations and is $G_{K_\infty}$-equivariant.
+	is a functorial $\mathscr{G}_{K_\infty}$-equivariant injection 
+	which respects Frobenius and filtrations.
 	Moreover the cokernel of $\rho_G$ is annihilated by $t$.
 \end{thm}
+\begin{proof}
+	The idea of the proof, as carried out in \cite[\S6]{Faltings},
+	is to first concentrate on the particular case of $G = \mathbb{G}_m(p)$
+	and then reduce, using functoriality of $\rho_G$, the general case to this.
+	Here, though, we will not be concerned with filtrations nor with Frobenius.
+
+	Let's start by tackling functoriality.
+	This map is indeed functorial in $G$ since, as can be checked,
+	each step in the construction of \cref{constr:ComparisonMorphism}
+	is functorial in $G$.
+
+	Let's now concentrate on the particular case, so let's fix $G = \mathbb{G}_m(p)$ for now.
+	We need to explicitly compute the morphism $\rho_G$, using Messing's theory,
+	in order to prove that $t$ kills $\coker \rho_G$.
+	Recall that $T_p(G) = \mathbb{Z}_{p}(1)$, hence $T_p(G)^\vee = \mathbb{Z}_{p}(-1)$.
+	Now, since $\mathscr{G}_{K}$ acts on $t \in A_{\mathrm{cris}}$ via the cyclotomic
+	character, we have an isomorphism of $\mathscr{G}_{K}$-modules $\mathbb{Z}_{p}(-1)
+	\simeq \mathbb{Z}_{p} t$.
+	Let's recall that we denoted $t = \log([\boldsymbol\varepsilon]) \in A_{\mathrm{cris}}$.
+	Moreover we will often use notation $\boldsymbol\varepsilon^{(n)}$ to denote
+	our fixed $p^n$th root of unity $\zeta_{p^n} \in O_{\mathbb{C}_K}$,
+	as defined in \cref{ExampleEltsTilt}.
+	Then $t \in T_p(G)$ and it corresponds, as shown in \cref{AlternativeDefnTateModule},
+	to a morphism of Barsotti-Tate groups $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \to \mathbb{G}_m(p)$.
+	In particular, when evaluated on $O_{\mathbb{C}_K}$, it gives rise to
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		u_0\colon 
+		\mathbb{Q}_p/\mathbb{Z}_{p}
+		\arrow[r, "", rightarrow] &
+		\mu_{p^\infty}(O_{\mathbb{C}_K}) \\
+		\frac{ 1 }{ p^n } \arrow[r, "", mapsto] & 
+		\boldsymbol\varepsilon^{(n)}
+	,\end{tikzcd}
+	\end{equation*} 
+	where by $\mu_{p^\infty}(O_{\mathbb{C}_K})$ we mean all the $p$ power 
+	roots of unity in $O_{\mathbb{C}_K}$.
+	Using the construction of \cref{UniversalExtensionConstruction} 
+	(tk: and I guess a process of projective limit, but I have not been able to
+	pinpoint exactly how to carry this process out)
+	one can compute the universal extension of $G$ and $G^D$.
+	In particular they are
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		\mathbb{G}_a \arrow[r, "", rightarrow] &
+		(\mathbb{G}_a \oplus \underline{\mathbb{Q}_p}) / \underline{\mathbb{Z}_{p}} 
+		\arrow[r, "", rightarrow] &
+		\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \arrow[r, "", rightarrow] &
+		0
+	\end{tikzcd}
+	\end{equation*}
+	for $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$, where the quotient
+	si given by the pushout of $\mathbb{G}_a$ and $\underline{\mathbb{Q}_p}$
+	over their common subgroup $\underline{\mathbb{Z}_{p}}$, and
+	\begin{equation*}
+	\begin{tikzcd}
+		1 \arrow[r, "", rightarrow] &
+		1 \arrow[r, "", rightarrow] &
+		\mathbb{G}_m(p) \arrow[r, "", rightarrow] &
+		\mathbb{G}_m(p) \arrow[r, "", rightarrow] &
+		1
+	\end{tikzcd}
+	\end{equation*}
+	for $\mathbb{G}_m(p)$.
+	For this last notice that dual of $\mathbb{G}_m(p)$
+	is étale, hence $\omega_{G^D} = 0$.
+	Considering $t$ as a morphism of Barsotti-Tate groups, \cref{prop:MorUnivExts}
+	grants the existance of a morphism of extension which, when
+	evaluated at $O_{\mathbb{C}_K}$, give rise to the following diagram
+	\begin{equation*}
+	\begin{tikzcd}
+		0 \arrow[r, "", rightarrow] &
+		O_{\mathbb{C}_K} 
+		\arrow[d, "0", rightarrow] 
+		\arrow[r, "", rightarrow] &
+		\frac{ O_{\mathbb{C}_K} \oplus \mathbb{Q}_p }{ \mathbb{Z}_{p} }
+		\arrow[d, "v_0", rightarrow] 
+		\arrow[r, "", rightarrow] &
+		\mathbb{Q}_p/\mathbb{Z}_{p}
+		\arrow[d, "u_0", rightarrow] 
+		\arrow[r, "", rightarrow] &
+		0 \\
+		1 \arrow[r, "", rightarrow] &
+		1 \arrow[r, "", rightarrow] &
+		\mu_{p^\infty}(O_{\mathbb{C}_K})
+		\arrow[r, "", rightarrow] &
+		\mu_{p^\infty}(O_{\mathbb{C}_K})
+		\arrow[r, "", rightarrow] &
+		1
+	.\end{tikzcd}
+	\end{equation*}
+	Here it is clear that the map $v_0$, making the diagram commute, is defined by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		v_0\colon 
+		(\lambda, x) \arrow[r, "", mapsto] & 
+		u_0(x)
+	.\end{tikzcd}
+	\end{equation*} 
+	For the future we will denote by $\boldsymbol\varepsilon^x \coloneqq u_0(x)$,
+	for $x \in \mathbb{Q}_p/\mathbb{Z}_{p}$.
+	In particular, if we write $x = a/p^m$, for $a \in \mathbb{Z}_{p}$ and $-m = \nu_p(x)$,
+	we can explicitly compute $\boldsymbol\varepsilon^x \coloneqq 
+	\left( \boldsymbol\varepsilon^{(m)} \right)^a$.
+	\Cref{thm:UniqueLiftingCrystals} (tk: again, maybe passing to limits
+	thanks to the definition of $p$-divisible group as inductive system and
+	of $O_K$ as $p$-adically complete ring, i.e. viewing it as a formal scheme)
+	grants that $v_0$ can be uniquely
+	lifted to a morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		v\colon ( A_{\mathrm{cris}} \oplus \mathbb{Q}_p) / \mathbb{Z}_{p} 
+		\arrow[r, "", rightarrow] &
+		A_{\mathrm{cris}}^{\cross}
+	\end{tikzcd}
+	\end{equation*} 
+	such that $\left.-v\right|_{ \underline{V}(\mathbb{G}_m(p)_{A_{\mathrm{cris}}}) }$
+	is an exponential (notice that, in the notation of \cref{thm:UniqueLiftingCrystals},
+	$j = 0$ in our case).
+	Moreover we can define a morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\widetilde{v}\colon 
+		(A_{\mathrm{cris}} \oplus \mathbb{Q}_p) / \mathbb{Z}_{p}
+		\arrow[r, "", rightarrow] &
+		A_{\mathrm{cris}}^{\cross} \\
+		(a,x) \arrow[r, "", mapsto] & 
+		\exp(-at)\left[ \alpha(x) \right]
+	,\end{tikzcd}
+	\end{equation*} 
+	where, writing as before $x = a/p^m$ with $-m = \nu_p(x)$,
+	\begin{equation*}
+	\alpha(x) \coloneqq \big( (\boldsymbol\varepsilon^{(m+n)})^a \big)_{n \in \mathbb{N}} \in
+	R = \varprojlim O_{\mathbb{C}_K}
+	.\end{equation*}
+	Here it is important to notice that $A_{\mathrm{cris}}$ is complete
+	with respect to the $\ker\theta$-adic topology and that $\ker\theta$
+	is equipped with divided powers, hence that the above map is well defined.
+	Moreover we remark that, since $A_{\mathrm{cris}}^{\cross}$ is a multiplicative
+	group, $z \in \ker\theta$ iff $\theta(z) = 1$.
+	Then, since $t \in \ker \theta$, ideal with divided powers, we also obtain that
+	$\exp(-at) \in \ker\theta$.
+	As a consequence we obtain that $\theta(\widetilde{v}(x)) = \boldsymbol\varepsilon^x$,
+	i.e. that $\widetilde{v}$ lifts $v_0$.
+	Moreover, restricting $v$ to $\underline{V}
+	(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}_{A_{\mathrm{cris}}})$ 
+	is the same as computing it at $x=0$, which is an exponential.
+	By uniqueness this grants that $v = \widetilde{v}$.
+	Then we have explicitly computed $\mathbb{E}(u_0) \coloneqq \mathbb{E}(t) = \widetilde{v}$.
+	Now, taking $\mathrm{Lie}$ of all that, we get (what else could it be)
+	\begin{equation*}
+		\mathbb{D}^*(t)(A_{\mathrm{cris}})(a) = \log \left( \exp (-at) \right) = -at
+	\end{equation*}
+	for all $a \in A_{\mathrm{cris}}$.
+	And this is exactly the required explicit construction of $\rho_G$, which
+	then acts by
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\rho_G\colon 
+		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(\mathbb{G}_m(p))(S)
+		\arrow[r, "", rightarrow] &
+		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1} \\
+		1 \otimes 1 \arrow[r, "", mapsto] & -t \otimes t^{-1}
+	.\end{tikzcd}
+	\end{equation*} 
+	Then here we clearly see that $t$ kills $\coker \rho_G$, since
+	$\ima \rho_G = t \cdot A_{\mathrm{cris}}$.
+
+	Let's now switch to the general case, in which $G \in \mathsf{BT}(O_K)$
+	is arbitrary.
+	We want to explicitly construct a morphism $G_{O_{\overline{K}}} \to \mathbb{G}_m(p)$
+	which will allow us to reduce the study of $\rho_G$ to the one we have just defined.
+	To achieve this goal we recall that $T_p(G)^\vee = T_p(G^D)(-1) = t^{-1}T_p(G^D)$.
+	Hence, given any $y \in T_p(G)^\vee$, we obtain $ty \in T_p(G^D)$,
+	which can be interpreted as a map in 
+	$\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
+	\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G^D_{O_{\overline{K}}}\right)$.
+	By \cref{thm:CartierDuality} this gives a morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\left( ty \right)^D\colon G_{O_{\overline{K}}}
+		\arrow[r, "", rightarrow] &
+		\mathbb{G}_m(p)_{O_{\overline{K}}}
+	\end{tikzcd}
+	\end{equation*} 
+	Now, by functoriality of the comparison morphism $\rho_G$ we obtain the commutative
+	diagram
+	\begin{equation*}
+	\begin{tikzcd}[column sep=4.0em]
+		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
+		\arrow[r, "\rho_G", rightarrow] &
+		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee \\
+		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(\mathbb{G}_m(p))(S)
+		\arrow[r, "\rho_{\mathbb{G}_m(p)}", rightarrow] 
+		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", rightarrow] &
+		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1}
+		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes T_p ((ty)^D)^\vee"', rightarrow] 
+	,\end{tikzcd}
+	\end{equation*}
+	where we recall that both $\mathbb{D}^*$ and $T_p(G)^\vee$ act contravariantly on morphisms.
+	Now we need to determine the morphism $T_p((ty)^D)^\vee$ in order to reduce to the previous case.
+	To do so let's notice that 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		T_p((ty)^D)^\vee(1) = T_p(ty)\colon 
+		T_p \left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \right)
+		\arrow[r, "", rightarrow] &
+		T_p(G^D)\\
+		1 = \left( 1/p^v \right)_{v \in \mathbb{N}}
+		\arrow[r, "", mapsto] &
+		ty
+	.\end{tikzcd}
+	\end{equation*} 
+	Here, as computed before, we have $T_p ( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}} ) =
+	\mathbb{Z}_{p}$ and $T_p(G^D) = T_p(G)^\vee(1)$.
+	Combined with the above this determines the morphism
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		T_p((ty)^D)^\vee\colon 
+		t^{-1}
+		\arrow[r, "", mapsto] &
+		y
+	.\end{tikzcd}
+	\end{equation*}
+	Then, in the above square, we see that
+	\begin{equation*}
+	\begin{tikzcd}[column sep=4em]
+		1 \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})(1) 
+		\arrow[r, "\rho_G", mapsto] &
+		-t \otimes y \\
+		1 \otimes 1
+		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
+		\arrow[r, "\rho_{\mathbb{G}_m(p)}", mapsto] &
+		-t \otimes t
+		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes T_p((ty)^D)^\vee"', mapsto] 
+	.\end{tikzcd}
+	\end{equation*}
+	But this allows us to compute, since we imposed no restrictions
+	on $y \in T_p(G)^\vee$, hence commutativity of the square
+	tells us that $t$ kills $\coker \rho_G$.
+
+	We are left to prove injectivity and $\mathscr{G}_{K_\infty}$-equivariance.
+	tk: complete.
+\end{proof}
+
+
+\noindent
+One can actually obtain some finer result when base changing to $B_{\mathrm{cris}}$
+instead.
+\begin{thm}[]
+	The base change the morphism
+	constructed in \cref{constr:ComparisonMorphism} to $B_{\mathrm{cris}}$
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		B_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S) \arrow[r, "\sim", rightarrow] &
+		B_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} T_p(G)^\vee
+	\end{tikzcd}
+	\end{equation*} 
+	is a $\mathscr{G}_K$-equivariant isomorphism compatible with Frobenius.
+\end{thm}
+
+
+tk: also cite classical Dieudonne theory.
