@@ -37,10 +37,6 @@
 \usepackage{xcolor}
 
 
-%Appendices
-\usepackage[title]{appendix}
-
-
 %Legacy: I used them for the titlepage
 \usepackage{tabularx}
 \usepackage{geometry}
@@ -51,6 +47,21 @@
 \usepackage{layaureo}
 %Allows to load subfiles which can be compiled on their own
 \usepackage{subfiles}
+
+
+%Test for frontmatter and mainmatter
+\def\frontmatter{%
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+    \renewcommand{\thesection}{\roman{section}}
+}%
+
+\def\mainmatter{%
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}%
 
 
 \usepackage{mathtools}
@@ -143,13 +154,18 @@ eprint=false
 
 \begin{document}
 
+\frontmatter
 \maketitle
 
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
 \tableofcontents
-
 \newpage
+
+\subfile{Sections/0-Preface}
+\newpage
+
+\mainmatter
 
 \subfile{Sections/0-Conventions}
 \subfile{Sections/1-GrothendieckTopologies}
