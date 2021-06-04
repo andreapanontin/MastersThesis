@@ -461,11 +461,11 @@ the right one in our context.
 
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
-an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
-Also the schemes $X, Y \in \mathsf{Sch}_{ S }$ will be viewed as, via the associated
+an fppf sheaf of commutative groups on the site $(\mathsf{Sch}/S)_{\mathrm{fppf}}$.
+Also the schemes $X, Y \in \mathsf{Sch}/S$ will be viewed as, via the associated
 functor of points, as sheaves on $S$ for the fppf topology.
-Recall that, for $Y \in \mathsf{Sch}_{ S }$, sections on
-$T \in \mathsf{Sch}_{ S }$ of $Y$ are just $T$-points and,
+Recall that, for $Y \in \mathsf{Sch}/S$, sections on
+$T \in \mathsf{Sch}/S$ of $Y$ are just $T$-points and,
 as usual with sheaves, will denote them by
 \begin{equation*}
 	\Gamma \left( T, Y \right) \coloneqq Y(T)
@@ -475,17 +475,17 @@ as usual with sheaves, will denote them by
 \begin{ntt}[]\label{not:GrS} 
 	To differentiate the above definition of $S$-group,
 	which does not require representability, from that of \cref{defn:CatOfGroupSchemes}, we will
-	denote the category of group schemes as fppf sheaves by $\mathsf{Gr}_S$,
-	as opposed to $\mathsf{Gp}_S$.
+	denote the category of group schemes as fppf sheaves by $\mathsf{Gr}/S$,
+	as opposed to $\mathsf{Gp}/S$.
 \end{ntt}
 
 
 \begin{rem}[]\label{rem:PropertiesGrS}
 	Since the category of commutative groups, i.e. $\mathsf{Ab}$, is
-	abelian we see that $\mathsf{Gr}_S$ inherits two important properties.
+	abelian we see that $\mathsf{Gr}/S$ inherits two important properties.
 	First of all, as is proved in 
 	\cite[\href{https://stacks.math.columbia.edu/tag/03CN}{Lemma 03CN}]{SP},
-	$\mathsf{Gr}_S$ is an abelian category.
+	$\mathsf{Gr}/S$ is an abelian category.
 	Moreover, as proved in 
 	\cite[\href{https://stacks.math.columbia.edu/tag/01DP}{Theorem 01DP}]{SP},
 	it has enough injectives.
@@ -493,7 +493,7 @@ as usual with sheaves, will denote them by
 
 
 \begin{rem}[]
-	Since the category $\mathsf{Gr}_S$ does not require representability,
+	Since the category $\mathsf{Gr}/S$ does not require representability,
 	to define the pullback for a morphism of schemes $f\colon S \to S'$
 	we need to use the localization morphism of topoi, as defined in
 	\cref{defn:localizationTopoi}.
@@ -526,7 +526,7 @@ as usual with sheaves, will denote them by
 
 
 \begin{ntt}\label{not:GBar}
-	For a scheme $S$ and an $S$-group $G \in \mathsf{Gr}_S$, we introduce
+	For a scheme $S$ and an $S$-group $G \in \mathsf{Gr}/S$, we introduce
 	the notation 
 	\begin{equation*}
 	\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{inf}^k(G)
@@ -746,7 +746,7 @@ One can generalize the definitions given for finite commutative group scheme
 in \cref{sec:FrobeniusVerschiebung}.
 In fact, looking at how they act on $S$-points, these
 definitions can be generalized to any contravariant functor
-from $\mathsf{Sch}_{ S }$ to $\mathsf{Sets}$.
+from $\mathsf{Sch}/S$ to $\mathsf{Sets}$.
 Then one defines, on any sheaf of groups $G$, a Frobenius morphism,
 denoted again by $F_G\colon G \to G^{(p)}$, 
 and a Verschiebung morphism, denoted by $V_G \colon G^{(p)} \to G$.
@@ -1022,7 +1022,7 @@ In fact the following proposition holds.
 
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
-an fppf sheaf of commutative groups on the site $(\mathsf{Sch}_{ S })_{\mathrm{fppf}}$.
+an fppf sheaf of commutative groups on the site $(\mathsf{Sch}/S)_{\mathrm{fppf}}$.
 Moreover, following \cite{Messing}, we will call $p$-divisible groups
 {\em Barsotti-Tate groups}.
 
@@ -1092,7 +1092,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	\item $G$ is $p$-divisible;
 	\item $G(1)$ is a finite, locally-free group scheme.
 \end{enumerate}
-	We denote by $\mathsf{BT}(S)$ the full subcategory of $\mathsf{Gr}_S$,
+	We denote by $\mathsf{BT}(S)$ the full subcategory of $\mathsf{Gr}/S$,
 	whose objects are Barsotti-Tate groups over $S$.
 \end{defn}
 

@@ -2,7 +2,7 @@
 The aim of this section is to introduce
 the concept of Grothendieck topology on a category,
 in order to describe sheaves on such category.
-The main ideas behind these construction is that one can reduce
+The main idea behind this construction is that one can reduce
 the definition of open coverings to a few formal axioms, translating
 inclusions with arrows in a category and
 intersections with fibered products.
@@ -22,7 +22,7 @@ intersections with fibered products.
 	.\end{equation*}
 	This is the motivating example for the following constructions.
 	In fact arrows in $\mathsf{Op}(X)$ are inclusions and
-	fibered products are given by intersections.
+	fibered products correspond to intersections.
 \end{rem}
 
 
@@ -62,10 +62,10 @@ intersections with fibered products.
 
 \noindent
 Before moving on to some examples, we should introduce a
-definition which plays an important role in the definition of
+concept which plays an important role in the definition of
 some important pretopologies.
 \begin{defn}[Jointly surjective family of morphisms]
-	For $\mathsf{C} = \mathsf{Sets}$ or $\mathsf{C} = \mathsf{Sch}_{ S }$, for some scheme $S$,
+	For $\mathsf{C} = \mathsf{Sets}$ or $\mathsf{C} = \mathsf{Sch}/S$, for some scheme $S$,
 	we will say that a family of morphisms
 	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ is {\em jointly surjective} iff
 	the set-theoretic union of the images is $U$.
@@ -103,7 +103,7 @@ Let's now give some examples.
 %		collection of morphisms $U_i \to U$.
 
 \end{enumerate}
-Let's now give a couple of examples on $\mathsf{Sch}_{ S }$, for a fixed scheme $S$.
+Let's now give a couple of examples on $\mathsf{Sch}/S$, for a fixed scheme $S$.
 \begin{enumerate}[resume]
 	\item The {\em global Zariski topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
@@ -153,10 +153,10 @@ Let's now give a couple of examples on $\mathsf{Sch}_{ S }$, for a fixed scheme 
 
 \begin{rem}[fpqc topology]
 	It can be shown, see \cite[\S 2.3.2]{Vistoli},
-	that on $\mathsf{Sch}_{ S }$, the data
-	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}_{ S }$,
+	that on $\mathsf{Sch}/S$, the data
+	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}/S$,
 	s.t. the induced morphism $\amalg_i U_i \to U$ is {\em fpqc},
-	is a pretopology on $\mathsf{Sch}_{ S }$.
+	is a pretopology on $\mathsf{Sch}/S$.
 	This pretopology is called the {\em fpqc topology}.
 \end{rem}
 
@@ -303,7 +303,7 @@ a simple fact:
 \begin{rem}[]
 	If $\tau'$ is subordinate to $\tau$, as pretopologies on $\mathsf{C}$,
 	then any sheaf in $\tau$ is also a sheaf in $\tau'$.
-	As a consequence, for $\mathsf{C} = \mathsf{Sch}_{ S }$ for some scheme $S$,
+	As a consequence, for $\mathsf{C} = \mathsf{Sch}/S$ for some scheme $S$,
 	any sheaf in {\em fpqc} is also a sheaf in {\em fppf}, étale and Zariski topologies.
 \end{rem}
 
@@ -311,7 +311,7 @@ a simple fact:
 \noindent
 Finally we can state a very important result due to Grothendieck:
 \begin{thm}[{\cite[\S 2.3.6]{Vistoli}}, Grothendieck]\label{thm:reprFctSheaf}
-	A representable functor on $\mathsf{Sch}_{ S }$ is a sheaf in the {\em fpqc} topology.
+	A representable functor on $\mathsf{Sch}/S$ is a sheaf in the {\em fpqc} topology.
 	In particular it is also a sheaf in the étale and {\em fppf} topologies.
 \end{thm}
 
@@ -319,7 +319,7 @@ Finally we can state a very important result due to Grothendieck:
 
 \subsection{Morphisms of topoi}
 The main objects of our future studies will be sheaves on
-$\mathsf{Sch}_{ S }$ taken with the fppf topology.
+$\mathsf{Sch}/S$ taken with the fppf topology.
 Since we will often be concerned with base change, i.e. pullbacks,
 of sheaves, we devote this section to define this concept.
 Essentially we want to generalize the construction
@@ -430,11 +430,11 @@ of fibered product in the representable case.
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/03I4}{Lemma 03I4}]{SP}}]
 	Let $g\colon S \to S'$ be a morphism in $\mathsf{Sch}_{  }$, viewed
 	as a site with the fppf topology.
-	Let $j\colon \mathsf{Sch}_{ S } \to \mathsf{Sch}_{ S' }$ be the corresponding
+	Let $j\colon \mathsf{Sch}/S \to \mathsf{Sch}_{ S' }$ be the corresponding
 	localization functor, where both categories are taken with the fppf topology.
 	Then, for $F'$ a sheaf of sets on $\mathsf{Sch}_{ S' }$, we have
 \begin{enumerate}
-	\item $j^* F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}_{ S }$,
+	\item $j^* F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}/S$,
 		where $T/S'$ means that we view $T$ as an element of $\mathsf{Sch}_{ S' }$
 		via $g$;
 	\item if $F'$ is representable by $X' \in \mathsf{Sch}_{ S' }$,

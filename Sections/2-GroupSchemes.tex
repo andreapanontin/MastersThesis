@@ -1,48 +1,49 @@
 \section{Group schemes}
 In this section we introduce the notion of {\em group object}
-in a category, stating all of the results in the category
-of $S$-schemes, for a fixed scheme $S$.
-We will then state a few results which will play an important role
-in what follows.
+in a category, giving all of the definition in the context
+of group schemes, i.e. group objects over the category of (relative) schemes.
+In this context we will develop all the important tools which will play a role
+later in the dissertation, starting from their application in the definition of
+$p$-divisible groups.
 
 
 \begin{defn}[$S$-Group scheme]
-	Let $F\colon \mathsf{Sch}_S^{op} \to \mathsf{Gp}$ be a functor.
-	Assume that $F$ is representable by $G \in \mathsf{Sch}_{ S }$, i.e. such that, 
-	functorially in $T \in \mathsf{Sch}_{ S }$,
+	Let $F\colon (\mathsf{Sch}/S)^{op} \to \mathsf{Gp}$ be a functor.
+	Assume that $F$ is representable by $G \in \mathsf{Sch}/S$, i.e. 
+	functorially in $T \in \mathsf{Sch}/S$
 	\begin{equation*}
-		\iota F(T) \simeq \mathrm{Hom}_{\mathsf{Sch}_S} \left( T, G \right)
+		\iota F(T) \simeq \mathrm{Hom}_{\mathsf{Sch}/S} \left( T, G \right)
 	,\end{equation*} 
-	for $\iota\colon \mathsf{Gp} \to \mathsf{Sets}$ the forgetful functor.
-	Then we call $G$ a {\em group scheme} over $S$
+	where $\iota\colon \mathsf{Gp} \to \mathsf{Sets}$ is the forgetful functor.
+	We call $G$ a {\em group scheme} over $S$
 	or $S$-group scheme.
 \end{defn}
 
 
 \begin{rem}[$T$-points of an $S$-scheme]
-	Let's recall the standard notation: let $T \in \mathsf{Sch}_{ S }$, one defines
-	the $T$-points of $G \in \mathsf{Sch}_{ S }$ as
+	Let's recall a standard notation: let $T \in \mathsf{Sch}/S$, one defines
+	the {\em $T$-points} of $G \in \mathsf{Sch}/S$ as
 	\begin{equation*}
-		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( T, G \right)
+		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}/S} \left( T, G \right)
 	.\end{equation*} 
-	If we view $G$, by \cref{thm:reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}_{ S }$, instead,
+	If we view $G$, by \cref{thm:reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}/S$, instead,
 	we will use the notation
 	\begin{equation*}
 		\Gamma \left( T, G \right) \coloneqq G(T)
 	\end{equation*}
 	for the sections of $G$ on $T$.
 	If, in particular, $G$ is a {\em group scheme} then, by definition,
-	$G(T) = \Gamma(T,G)$ is endowed with group structure for every $T \in \mathsf{Sch}_{ S }$.
+	$G(T) = \Gamma(T,G)$ is endowed with group structure for every $T \in \mathsf{Sch}/S$.
 \end{rem}
 
 
 \begin{rem}[]
 	By definition, an abstract group is a set $G \in \mathsf{Sets}$, endowed with an operation,
-	an inverse map, and an identity element satisfying the usual properties.
+	an inverse map and an identity element satisfying the usual properties.
 	These can be rewritten in terms of commutative diagrams.
-	At first one writes the above three (respectively) as the following maps:
+	At first one writes the above as the following maps:
 	\begin{equation*}
-			\begin{tikzcd}[row sep = 0ex
+	\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
          ,/tikz/column 3/.append style={anchor=base east}]
@@ -51,10 +52,10 @@ in what follows.
 			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
 			G & \text{(inverse)} \\
 			\varepsilon \colon \left\{ e \right\} \arrow[r, "", rightarrow] &
-			G & \text{(unit)} 
+			G & \text{(unit),}
 		\end{tikzcd}
 	\end{equation*} 
-	for $\left\{ e \right\}$ the terminal object in $\mathsf{Gp}$.
+	where $\left\{ e \right\}$ is the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
 	as the unique arrow to the terminal object of $\mathsf{Gp}$
 	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
@@ -72,8 +73,8 @@ in what follows.
 
 
 \begin{rem}[]\label{rem:StructuralMorphisms}
-	Given a group scheme $G \in \mathsf{Sch}_{ S }$, Yoneda's lemma allows to translate
-	the group structure of $G(T)$, for all $T \in \mathsf{Sch}_{ S }$, into a group structure on $G$.
+	Given a group scheme $G \in \mathsf{Sch}/S$, Yoneda's lemma allows to translate
+	the group structure of $G(T)$, for all $T \in \mathsf{Sch}/S$, into a group structure on $G$.
 	In fact, since the universal property of
 	fibered product gives $\left( G \cross_{ S } G \right)(T) = G(T) \cross G(T)$,
 	one obtains that there exist unique maps
@@ -84,7 +85,7 @@ in what follows.
          ,/tikz/column 3/.append style={anchor=base east}]
 			m\colon G \cross_{ S } G \arrow[r, "", rightarrow] &
 			G & \text{(multiplication)} \\
-			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
+			\phantom{\cross_S} \mathrm{inv}\colon G \arrow[r, "", rightarrow] &
 			G & \text{(inverse)} \\
 			\varepsilon \colon S \arrow[r, "", rightarrow] &
 			G & \text{(unit)} 
@@ -154,8 +155,8 @@ in what follows.
 
 
 \begin{defn}[Commutative $S$-group scheme]
-	We say that a group scheme $G \in \mathsf{Sch}_{ S }$ is {\em commutative}
-	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}_{ S }$.
+	We say that a group scheme $G \in \mathsf{Sch}/S$ is {\em commutative}
+	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}/S$.
 	Using Yoneda lemma as before,
 	this is equivalent to asking that the following diagram commutes
 	\begin{equation*}
@@ -175,9 +176,9 @@ in what follows.
 	One can generalize the definition of group object, from the category
 	of $S$-schemes, to any category $\mathsf{C}$ admitting finite products
 	(hence with final object given by the empty product) in the same manner as above.
-	In fact, being $S$ the final object in $\mathsf{Sch}_{ S }$, one sees
+	In fact, being $S$ the final object in $\mathsf{Sch}/S$, one sees
 	that fibered products over $S$ (seen in the category of schemes)
-	are just products in $\mathsf{Sch}_{ S }$.
+	are just products in $\mathsf{Sch}/S$.
 \end{rem}
 
 
@@ -189,8 +190,8 @@ in what follows.
 			G'
 		\end{tikzcd}
 	\end{equation*} 
-	is a morphism $G \to G'$ in $\mathsf{Sch}_{ S }$ s.t., for all
-	$T \in \mathsf{Sch}_{ S }$, the corresponding morphism at the level of $T$-points
+	is a morphism $G \to G'$ in $\mathsf{Sch}/S$ such that, for all
+	$T \in \mathsf{Sch}/S$, the corresponding morphism at the level of $T$-points
 	is a group homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -213,7 +214,7 @@ in what follows.
 	is equivalent to giving a morphism between the functors they represent.
 
 	Again by Yoneda's lemma, one sees that a morphism $\alpha\colon G \to G'$
-	in $\mathsf{Sch}_{ S }$ is a morphism of group schemes iff
+	in $\mathsf{Sch}/S$ is a morphism of group schemes iff
 	it preserves products, i.e. iff
 	\begin{equation*}
 		\alpha \circ m = m' \circ (\alpha, \alpha)
@@ -224,7 +225,7 @@ in what follows.
 
 \begin{defn}[Category of $S$-group schemes]\label{defn:CatOfGroupSchemes}
 	Hence, combining all of the definitions so far, 
-	one can define the subcategory $\mathsf{Gp}_S$ of $\mathsf{Sch}_{ S }$,
+	one can define the subcategory $\mathsf{Gp}/S$ of $\mathsf{Sch}/S$,
 	of {\em $S$-group schemes}, or more simply {\em $S$-groups},
 	whose objects are $S$-group schemes
 	and morphisms are homomorphisms of $S$-group schemes.
@@ -233,7 +234,7 @@ in what follows.
 
 \begin{rem}[Kernels and cokernels]
 	As with any category, one defines kernels and cokernels 
-	in $\mathsf{Gp}_S$ via the usual universal properties.
+	in $\mathsf{Gp}/S$ via the usual universal properties.
 
 	With regards to kernels, one can use the general construction 
 	in a category with zero object,
@@ -250,7 +251,7 @@ in what follows.
 		\end{tikzcd} \Bigg)
 		= G \cross_{G'} 0
 	.\end{equation*}
-	In the case of $\mathsf{Sch}_{ S }$ we can construct fibered products.
+	In the case of $\mathsf{Sch}/S$ we can construct fibered products.
 	In particular we have the zero object $S$, with unique morphism
 	$S \to G'$ given by the unit morphism of $G'$.
 	Then the following gives rise to a kernel for $\alpha$
@@ -261,12 +262,12 @@ in what follows.
 	\end{tikzcd}
 	\end{equation*} 
 	where $i$ is the projection on the first factor.
-	Hence kernels exist in $\mathsf{Gp}_S$.
+	Hence kernels exist in $\mathsf{Gp}/S$.
 	
 	When it comes to cokernels, instead, one finds difficulties, much like
 	with sheaves of abelian groups.
 	In fact, given a morphism $\alpha\colon G \to G'$, one cannot always find an
-	object $H \in \mathsf{Gp}_S$ representing the functor
+	object $H \in \mathsf{Gp}/S$ representing the functor
 	\begin{equation*}
 	\begin{tikzcd}
 		T \arrow[r, "", mapsto] &
@@ -280,12 +281,12 @@ in what follows.
 
 \subsection{Affine group schemes}
 The above definitions have a dual interpretation in the affine case,
-which we want to show in this section.
+which is the main topic of this section.
 Moreover, in the rest of the discussion, we will mostly be concerned by
-affine group scheme, hence the choice to concentrate most on them.
+affine group scheme, hence the choice to dedicate a whole section to them.
 Many of the following results, though, are still valid in a more general setting.
 
-For most of the following section, then, we will fix an affine scheme
+Then, for most of the following section, then, we will fix an affine scheme
 $S = \mathrm{Spec}(R)$, and focus on affine $S$-groups.
 
 
@@ -309,7 +310,7 @@ to the multiplication morphism of the $R$-algebra $A$:
 	,/tikz/column 2/.append style={anchor=base west}]
 	\widetilde{\Delta}\colon A \otimes_R A \arrow[r, "", rightarrow] &
 	A \\
-	a \otimes_R b \arrow[r, "", mapsto] & a \cdot b
+	a \otimes b \arrow[r, "", mapsto] & a \cdot b
 .\end{tikzcd}
 \end{equation*} 
 With this in mind we obtain the following $R$-algebra morphisms:
@@ -321,7 +322,7 @@ With this in mind we obtain the following $R$-algebra morphisms:
 		\widetilde{m}\colon A \arrow[r, "", rightarrow] &
 		A \otimes_R A & \text{(comultiplication)} \\
 		\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
-		A & \text{(antipode)} \\
+		A \phantom{\otimes_R}& \text{(antipode)} \\
 		\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
 		R & \text{(counit/augmentation),}
 	\end{tikzcd}
@@ -342,7 +343,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 			\widetilde{m}\colon A \arrow[r, "", rightarrow] &
 			A \otimes_R A \\
 			\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
-			A \\
+			A \phantom{\otimes_R} \\
 			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
 			R,
 		\end{tikzcd}
@@ -378,11 +379,11 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 \begin{rem}[Equivalence of categories]
 	Clearly, then, any Hopf algebra over $R$ gives rise
 	to an affine $R$-group via the aforementioned equivalence of categories.
-	This actually is an anti-equivalence of categories between affine
+	This is actually an anti-equivalence of categories between affine
 	$R$-group schemes and Hopf algebras over $R$.
 	In fact	the multiplication morphism in a group scheme
 	corresponds to the comultiplication morphism in its 
-	associated Hopf algebra, and morphism in the two categories are defined
+	associated Hopf algebra, and morphisms in the two categories are defined
 	to preserve such operation.
 \end{rem}
 
@@ -417,14 +418,14 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
 	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
 	More explicitly this means that there exists a cover of $S$ by affine open subschemes
-	$V_i$ such that, for all $i$, the restriction of the structure morphism is of the form
+	on each of which the restriction of the structure morphism is of the form
 	$\mathrm{Spec}(A) \to \mathrm{Spec}(R)$, for $A$ a free $R$-module of finite rank over $R$. 
 	This is going to be our main interest in what follows.
 
 	It is also true that finite flat schemes over affine schemes
 	are themselves affine. 
 	We are going to be interested in the case of $S = \mathrm{Spec}(R)$,
-	for $R$ the ring of integers of a local field, mainly $\mathbb{Z}_p$,
+	for $R$ the ring of integers of a local field,
 	and $G$ finite flat over $S$.
 	In particular $S$ and $G$ will be Noetherian schemes
 	and $G$, being finite flat over $S$, is just $\mathrm{Spec}(A)$,
@@ -459,7 +460,7 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 
 
 \subsection{Examples}
-In order to compute a few useful examples, let's make explicit the relation between
+In order to compute a few useful examples, let's explicit the relation between
 multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
 $R$, for $S = \mathrm{Spec}(R)$.
 \begin{rem}\label{rem:ExplicitComult}
@@ -508,7 +509,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			as an additive group.
 			In fact	we know that
 			\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, \mathbb{G}_a \right) \simeq
+			\mathrm{Hom}_{\mathsf{Sch}/S} \left( X, \mathbb{G}_a \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
 			\left( R[x], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
 			\Gamma \left( X , \mathcal{O}_{ X } \right)
@@ -533,8 +534,8 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				\left( \widetilde{\mathrm{pr}}_2(x) \right) =
 				x \otimes_R 1 + 1 \otimes_R x
 			.\end{equation*} 
-			Then, from the properties (see \cref{defn:HopfAlgebra})
-			of counit and antipode, one easily checks that 
+			Then, from the properties of counit and antipode
+			(see \cref{defn:HopfAlgebra}), one checks that 
 			\begin{equation*}
 				\widetilde{\varepsilon}(x) = 0
 				\qquad \text{ and } \qquad
@@ -550,17 +551,17 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				,/tikz/column 1/.append style={anchor=base east}
 				,/tikz/column 2/.append style={anchor=base west}]
 				X \arrow[r, "", mapsto] & 
-				\Gamma \left( X , \mathcal{O}_{ X } \right)^*
+				\Gamma \left( X , \mathcal{O}_{ X } \right)^{\cross}
 			,\end{tikzcd}
 			\end{equation*} 
-			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)^*$ is viewed
+			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)^{\cross}$ is viewed
 			as a multiplicative group.
 			In fact one checks that
 			\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Sch}_S} \left( X, G \right) \simeq
+			\mathrm{Hom}_{\mathsf{Sch}/S} \left( X, G \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
 			\left( R[x, x^{-1}], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
-			\Gamma \left( X , \mathcal{O}_{ X } \right)^*
+			\Gamma \left( X , \mathcal{O}_{ X } \right)^{\cross}
 			,\end{equation*} 
 			functorially in $X$.
 			Then, reasoning as before, one obtains
@@ -592,7 +593,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n - I$,
 			for $I$ the identity matrix.
 			It acts on $R$-schemes by associating to
-			$X \in \mathsf{Sch}_{ S }$ the multiplicative group
+			$X \in \mathsf{Sch}/S$ the multiplicative group
 			$\mathrm{GL}_n(X)$ of invertible $n \cross n$
 			matrices with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$.
 			Let's recall that, in $\mathrm{GL}_n(X)$, the product
@@ -616,7 +617,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 
 		\item The {\em group scheme of $n$th roots of unity}, denoted by $\mu_n$.
-			Is defined to be the kernel of the $n$th power morphism
+			It is defined to be the kernel of the $n$th power morphism
 			$\mathbb{G}_m \to \mathbb{G}_m$,
 			corresponding to the $R$-algebra morphism
 			$\mu\colon x \mapsto x^n$.
@@ -680,7 +681,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			of functions from $\Gamma$ to $R$.
 			A basis for $A$ is given by $\left\{ e_\sigma \right\}_{\sigma \in \Gamma}$,
 			for $e_\sigma(\gamma) = \delta_{\gamma,\sigma}$,
-			where $\delta$ is the Kronecker delta.
+			where $\delta$ is Kronecker's delta function.
 			Defining the following Hopf algebra structure
 			we see that $A$ represents an $S$-group scheme,
 			called the constant group scheme for $\Gamma$,
@@ -694,14 +695,14 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				\widetilde{\varepsilon}(e_\sigma) \coloneqq
 				\begin{cases}
 					1 & \text{if } \sigma = 1 \in \Gamma\\
-					0 & \text{otherwise}
-				\end{cases}.
+					0 & \text{otherwise}.
+				\end{cases}
 			\end{equation*}
 
 
-		\item The {\em group scheme of $p^r$-th roots of zero},
+		\item The {\em group scheme of $p^r$th roots of zero},
 			if $\mathrm{char}\, R = p$, denoted by $\alpha_{p^r}$. 
-			It is defined to be the kernel of the $p^r$-th power
+			It is defined to be the kernel of the $p^r$th power
 			morphism $\mathbb{G}_a \to \mathbb{G}_a$,
 			corresponding to the $R$-algebra morphism
 			$\alpha\colon x \mapsto x^{p^r}$.
@@ -715,7 +716,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 \begin{rem}[Base change]\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
-\item 	Let $U, T \in \mathsf{Sch}_{ S }$ be two $S$-schemes.
+\item 	Let $U, T \in \mathsf{Sch}/S$ be two $S$-schemes.
 	We use the notation $U_T$ for the base change $U \cross_{ S } T$.
 	It is important to notice that, for $V \in \mathsf{Sch}_{ T }$, we 
 	have $U_T(V) = U(V)$, where in the last expression
@@ -728,7 +729,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 	of characteristic $p$).
 	Then we will use the notation given in the examples
 	to mean the group scheme over $\mathbb{Z}$ (resp$.$ $\mathbb{F}_{p}$)
-	and take their base change when working in $\mathsf{Sch}_{ S }$
+	and take their base change when working in $\mathsf{Sch}/S$
 	for an appropriate $S$.
 \end{enumerate}
 \end{rem}
@@ -744,7 +745,7 @@ Moreover we keep the assumption, from the previous section, that $S$
 is a locally Noetherian scheme.
 
 \begin{defn}[Right action]
-	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}_{ S }$.
+	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}/S$.
 	A {\em right action} of $H$ on $X$ is a morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -754,7 +755,7 @@ is a locally Noetherian scheme.
 		X
 	\end{tikzcd}
 	\end{equation*} 
-	such that, for all $T \in \mathsf{Sch}_{ S }$, the induced map
+	such that, for all $T \in \mathsf{Sch}/S$, the induced map
 	$X(T) \cross H(T) \to  X(T)$ is a right action of the
 	group $H(T)$ on the set $X(T)$.
 	We say that the action is {\em strictly free} iff the morphism
@@ -777,14 +778,14 @@ It actually is a consequence of the following, more general result, due to Groth
 \begin{thm}[{\cite[\S 3.4]{TateMF}}]
 	Suppose that $H$, finite flat over $S$, acts strictly freely on $X$
 	of finite type over $S$ in such a way that every orbit is contained in an affine open set.
-	Then there exists $Y \in \mathsf{Sch}_{ S }$ and a morphism $u\colon X \to Y$,
+	Then there exists $Y \in \mathsf{Sch}/S$ and a morphism $u\colon X \to Y$,
 	constant on orbits, such that for every morphism $v\colon X \to Z$ constant on orbits,
 	there is a unique morphism $f\colon Y \to Z$ s.t. $v = f \circ u$.
 	We denote $Y$ by $X/H$, and notice that $u$ has the following properties:
 \begin{enumerate}
 	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
 		
-	\item For every $T \in \mathsf{Sch}_{ S }$, the following map is injective
+	\item For every $T \in \mathsf{Sch}/S$, the following map is injective
 		\begin{equation*}
 		\begin{tikzcd}
 			X(T)/H(T) \arrow[r, "", rightarrowtail] &
@@ -821,7 +822,7 @@ of normal subgroup:
 	Let $G$ be an $S$ group and $H$ be a subgroup scheme of $G$,
 	i.e. $H$ is a subscheme of $G$ and the inclusion morphism
 	is a homomorphism of group schemes.
-	We say that $H$ is a {\em normal subgroup} of $G$ iff, for all $T \in \mathsf{Sch}_{ S }$,
+	We say that $H$ is a {\em normal subgroup} of $G$ iff, for all $T \in \mathsf{Sch}/S$,
 	the subgroup $H(T)$ of $G(T)$ is a {\em normal} subgroup.
 \end{defn}
 
@@ -912,7 +913,7 @@ i.e. finite schemes over a Noetherian affine base.
 	\item We say that $f$ is unramified (resp$.$ étale) iff it is 
 		unramified (resp$.$ étale) at every point of $X$.
 
-	\item We say that $X \in \mathsf{Sch}_{ S }$ is unramified 
+	\item We say that $X \in \mathsf{Sch}/S$ is unramified 
 		(resp$.$ étale) iff its structure
 		morphism is unramified (resp$.$ étale).
 \end{enumerate}
@@ -1122,9 +1123,9 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \begin{enumerate}
 	\item $G^D$ is a finite commutative $S$-group scheme.
 	\item $( G^D )^D \simeq G$.
-	\item For all $H,G \in \mathsf{Gp}_S$ finite commutative one has
-	$\mathrm{Hom}_{\mathsf{Gp}_S} \left( G, H \right) \simeq
-	\mathrm{Hom}_{\mathsf{Gp}_S} \left( H^D, G^D \right)$.
+	\item For all $H,G \in \mathsf{Gp}/S$ finite commutative one has
+	$\mathrm{Hom}_{\mathsf{Gp}/S} \left( G, H \right) \simeq
+	\mathrm{Hom}_{\mathsf{Gp}/S} \left( H^D, G^D \right)$.
 	\item Forming $G^D$ commutes with base change.
 \end{enumerate}
 \end{thm}
@@ -1158,24 +1159,24 @@ Here the relevant notions:
 	Characters form a group in the set of morphism of $S$-schemes
 	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
 	\begin{equation*}
-		\mathrm{Hom}_{\mathsf{Gp}_S} \left( G, (\mathbb{G}_m)_S \right)
+		\mathrm{Hom}_{\mathsf{Gp}/S} \left( G, (\mathbb{G}_m)_S \right)
 		\subset
-		\mathrm{Hom}_{\mathsf{Sch}_{ S }} \left( G, (\mathbb{G}_m)_S \right)
+		\mathrm{Hom}_{\mathsf{Sch}/S} \left( G, (\mathbb{G}_m)_S \right)
 	.\end{equation*} 
 	Then one can introduce the contravariant sheaf hom functor,
-	from $\mathsf{Sch}_{ S }$ to $\mathsf{Ab}$
+	from $\mathsf{Sch}/S$ to $\mathsf{Ab}$
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathcal{H}\mathrm{om}_{\mathsf{Gp}_S} \left( G, (\mathbb{G}_m)_S \right)\colon
+		\mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, (\mathbb{G}_m)_S \right)\colon
 		T \arrow[r, "", mapsto] & 
 		\mathrm{Hom}_{\mathsf{Gp}_T} \left( G_T, (\mathbb{G}_m)_T \right)
 	.\end{tikzcd}
 	\end{equation*} 
 	Then, for a finite, commutative $S$-group $G$ we have the isomorphism
 	\begin{equation*}
-		G^D \simeq \mathcal{H}\mathrm{om}_{\mathsf{Gp}_S} \left( G, (\mathbb{G}_m)_S \right)
+		G^D \simeq \mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, (\mathbb{G}_m)_S \right)
 	.\end{equation*} 
 	This is actually one of the cases in which the above hom functor
 	is representable.
@@ -1194,7 +1195,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 	\item One can show that $\alpha_p^D \simeq \alpha_p$.
 		In fact we can view $\alpha_p^D$ as the character group
 		\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Gp}_S} \left( (\alpha_p)_S, (\mathbb{G}_m)_S \right)
+			\mathrm{Hom}_{\mathsf{Gp}/S} \left( (\alpha_p)_S, (\mathbb{G}_m)_S \right)
 		.\end{equation*}
 		To see this we can reduce to the case where 
 		$S = \mathrm{Spec}(\mathbb{F}_p)$, where
@@ -1317,7 +1318,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 
 \begin{defn}[Nilpotent Frobenius]\leavevmode\vspace{-1.2\baselineskip}\label{defn:nilpotentFrobenius}
 \begin{enumerate}
-\item We set, for any $X \in \mathsf{Sch}_{ S }$ and any integer $n \geq 0$,
+\item We set, for any $X \in \mathsf{Sch}/S$ and any integer $n \geq 0$,
 	$X^{(0)} \coloneqq X$ and $X^{(p^{n+1})} \coloneqq \left( X^{(p^{n})} \right)^{(p)}$.
 	Then we denote by $F^n_X\colon X \to X^{(p^n)}$
 	the $n$-fold composition

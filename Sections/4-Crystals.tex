@@ -547,7 +547,7 @@ This means that it might not be consistent with our previous exposition.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathrm{Cospec}(U)\colon 
-		\mathsf{Sch}_{ S }\arrow[r, "", rightarrow] &
+		\mathsf{Sch}/S\arrow[r, "", rightarrow] &
 		\mathsf{Sets} \\
 		S' \arrow[r, "", mapsto] & 
 		\left\{ y \in \Gamma(S', U_{S'}) \ \middle|\ 
@@ -726,7 +726,7 @@ or $\mathcal{O}_{ S }$-modules.
 	of vital importance).
 
 	Then, invoking \cref{rem:CospecSections}, we can construct 
-	our desired isomorphism: let $S' \in \mathsf{Sch}_{ S }$
+	our desired isomorphism: let $S' \in \mathsf{Sch}/S$
 	\begin{align*}
 		\Gamma(S', \mathrm{Cospec}(A^{\vee})) &\simeq
 		\mathrm{Hom}_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
@@ -775,7 +775,7 @@ or $\mathcal{O}_{ S }$-modules.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathbf{W}(V)\colon 
-		\mathsf{Sch}_{ S }^{op} \arrow[r, "", rightarrow] &
+		\mathsf{Sch}/S^{op} \arrow[r, "", rightarrow] &
 		\mathsf{Gp} \\
 		S' \arrow[r, "", mapsto] & 
 		\Gamma(S', V_{S'})
@@ -802,9 +802,9 @@ or $\mathcal{O}_{ S }$-modules.
 		\left(\mathbf{W}(V^\vee) , \mathcal{O}_{ S } \right) \simeq
 		\underline{\mathrm{Spec}}_S(\mathrm{Sym}(V^\vee))
 	.\end{equation*}
-	This gives a representative in $\mathsf{Sch}_{ S }$ for 
-	$\mathbf{W}(V)$, making it not only an object of $\mathsf{Gr}_S$,
-	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}_S$.
+	This gives a representative in $\mathsf{Sch}/S$ for 
+	$\mathbf{W}(V)$, making it not only an object of $\mathsf{Gr}/S$,
+	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}/S$.
 \end{enumerate}
 \end{rem}
 
@@ -920,7 +920,7 @@ Here we want to extend the theory of exponentials to $H$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
@@ -938,7 +938,7 @@ Here we want to extend the theory of exponentials to $H$.
 		\left( W, I \cdot \mathrm{Lie}(H) \right)
 		\arrow[r, "", hookrightarrow] &
 		\ker \big[ 
-		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
 		%\to
@@ -984,7 +984,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 \begin{rem}[{\cite[Chapter III, \S2.7]{Messing}}]
 	In order to study prolongations of homomorphisms it is useful to notice that
 	the above construction can be carried out in the following case.
-	Let's assume that $G \in \mathsf{Gr}_S$ is a filtering direct limit of
+	Let's assume that $G \in \mathsf{Gr}/S$ is a filtering direct limit of
 	representable subgroups $G_\alpha$.
 	Assume that $\mathrm{Inf}^1(G) = \mathrm{Inf}^1(G_\alpha)$ for some $\alpha$,
 	so that $\mathrm{Lie}(G) = \mathrm{Lie}(G_\alpha)$.
@@ -998,7 +998,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 		\left( V, I \cdot \mathrm{Lie}(G) \right)
 		\arrow[r, "", hookrightarrow] &
 		\ker \big[ 
-		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( H, G \right)
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
@@ -1028,7 +1028,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 		\left( V, I \cdot \mathrm{Lie}(G) \right)
 		\arrow[r, "", hookrightarrow] &
 		\ker \big[ 
-		\mathrm{Hom}_{ \mathsf{Gr}_S } 
+		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( H, G \right)
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
@@ -1150,7 +1150,7 @@ some meaning to our objects.
 	We say that a scheme $X'$ is a {\em thickening} of $X$ iff
 	$X$ is a closed subscheme of $X'$ and their underlying topological
 	spaces are equal.
-	More generally, given a scheme $S$ and $X, X' \in \mathsf{Sch}_{ S }$,
+	More generally, given a scheme $S$ and $X, X' \in \mathsf{Sch}/S$,
 	we say that $X'$ is a {\em thickening of $X$ over} $S$ iff
 	the closed immersion $X \hookrightarrow X'$ is a morphism over $S$.
 \end{defn}
@@ -1165,7 +1165,7 @@ some meaning to our objects.
 	\cite[\href{https://stacks.math.columbia.edu/tag/01QN}{Section 01QN}]{SP}
 	for more details.
 	More in general, to a closed immersion $X \hookrightarrow X'$ in
-	$\mathsf{Sch}_{ S }$, one can associate a quasi-coherent sheaf of ideals
+	$\mathsf{Sch}/S$, one can associate a quasi-coherent sheaf of ideals
 	$\mathcal{I}$ of $\mathcal{O}_{ X' }$.
 	Then the ideal associated to a thickening $X'$ of $X$ 
 	is {\em locally nilpotent}.
@@ -1216,7 +1216,7 @@ some meaning to our objects.
 
 \begin{defn}[Crystalline site on $X$ over $\left(S, \mathcal{I}, \gamma\right)$]
 	Let $\left(S, \mathcal{I}, \gamma\right)$ be a divided powers base scheme
-	and $X \in \mathsf{Sch}_{ S }$.
+	and $X \in \mathsf{Sch}/S$.
 	The {\em crystalline site} on $X$ over $\left(S, \mathcal{I}, \gamma\right)$,
 	denoted by $\mathsf{Crys}(X/S, \mathcal{I}, \gamma)$ or simply
 	$\mathsf{Crys}(X/S)$ if the divided powers structure of $S$ 
