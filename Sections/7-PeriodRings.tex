@@ -1,4 +1,4 @@
-\section{Comparison morphism}
+\section{Comparison morphisms}
 We introduce, for this section, the following notation:
 $K$ will denote a complete discrete valuation field, 
 with perfect residue field $k$ of characteristic $p$.
@@ -942,7 +942,7 @@ of our desired comparison morphism.
 	for certain $G \in \mathsf{BT}(O_K)$, we wish to
 	reduce its computation to that of $\mathbb{D}^*(G)(S)$.
 	In order to do so, let's recall \cref{PBCrystals}, where we
-	defined explicitly the pullback of our crystals.
+	explicitly defined the pullback of our crystals.
 	In particular consider the cartesian diagram
 	\begin{equation*}
 	\begin{tikzcd}
@@ -1412,6 +1412,17 @@ of our desired comparison morphism.
 	This allows us to see $\rho_G$ as the restriction of an isomorphism to a subspace,
 	which grants its injectivity.
 \end{proof}
+
+
+\begin{rem}[]
+	Here we remark that it is important to consider only the action of $\mathscr{G}_{K_\infty}$.
+	In fact, the $S$-module structure of $A_{\mathrm{cris}}$ is induced from
+	the map $u \mapsto \left[ \mathbf{p} \right]$ from $W[u]$ to $W(R)$.
+	Then an action on the tensor product $A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)$
+	has to be compatible with this $S$-module structure.
+	In particular, since $W \subset K$, it has to fix the element $\left[ \mathbf{p} \right]$,
+	which is not the case for $\mathscr{G}_K$.
+\end{rem}
 
 
 \noindent

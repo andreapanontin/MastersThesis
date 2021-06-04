@@ -962,28 +962,6 @@ In fact the following proposition holds.
 	\begin{equation*}
 		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
 	.\end{equation*} 
-	
-\item In case we start considering an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
-	formal Lie group $\Gamma$ over $R$, we clearly have to require that it is $p$-divisible,
-	as defined in \cref{defn:pDivisibleFormalLieGroup}.
-	Then multiplication by $p$ is an isogeny.
-	In case, moreover, $R$ is complete and has residue characteristic $p$,
-	one can define a $p$-divisible group of height $h$
-	over $R$, starting from $\Gamma$, by the inductive system
-	\begin{equation*}
-		\Gamma(p) \coloneqq \left(\Gamma_{p^\nu}, i_{p^\nu}\right)_\nu
-	.\end{equation*} 
-	In the above $\Gamma_{p^\nu}$ is the kernel of
-	the multiplication by $p^\nu$ in $\Gamma$.
-	Then one can prove that $\ker p$ is connected and,
-	since $p$ is an isogeny, it is also finite.
-	By \cref{prop:PropertiesConnectedEtale} this implies that
-	the order of $\ker p$ is a power of $p$.
-	Then flatness allows us to base change to the residue field and invoke
-	\cref{thm:FrobeniusVerschiebungRelation}, with which one can extend 
-	this result to $\ker p^v$ for all $v \geq 1$.
-	It follows that the construction of $\Gamma(p)$
-	gives rise to a connected $p$-divisible group.
 
 \item Let $G_v \coloneqq (\mu_{p^v})_R$ be the kernel of
 	multiplication by $p^v$ in $(\mathbb{G}_m)_R$.
@@ -1007,12 +985,35 @@ In fact the following proposition holds.
 	,\end{equation*}
 	generalizing to the setting of group schemes example of \cref{ex:ordinanrypDivGroup}.
 	As the one before, this $p$-divisible group is of height $1$.
+	
+\item In case we start considering an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
+	formal Lie group $\Gamma$ over $R$, we clearly have to require that it is $p$-divisible,
+	as defined in \cref{defn:pDivisibleFormalLieGroup}.
+	Then multiplication by $p$ is an isogeny.
+	In case, moreover, $R$ is complete and has residue characteristic $p$,
+	one can define a $p$-divisible group of height $h$
+	over $R$, starting from $\Gamma$, by the inductive system
+	\begin{equation*}
+		\Gamma(p) \coloneqq \left(\Gamma_{p^\nu}, i_{p^\nu}\right)_\nu
+	.\end{equation*} 
+	In the above $\Gamma_{p^\nu}$ is the kernel of
+	the multiplication by $p^\nu$ in $\Gamma$.
+	Then one can prove that $\ker p$ is connected and,
+	since $p$ is an isogeny, it is also finite.
+	By \cref{prop:PropertiesConnectedEtale} this implies that
+	the order of $\ker p$ is a power of $p$.
+	Then flatness allows us to base change to the residue field and invoke
+	\cref{thm:FrobeniusVerschiebungRelation}, with which one can extend 
+	this result to $\ker p^v$ for all $v \geq 1$.
+	It follows that the construction of $\Gamma(p)$
+	gives rise to a connected $p$-divisible group.
 \end{enumerate}
 \end{ex}
 
 
 \begin{rem}[]
-	Even though the above is just a sketch of the construction, of which more details
+	Even though the above, in \cref{ex:ConnectedpDivGroupFLG},
+	is just a sketch of the construction, of which more details
 	are available at \cite[\S6]{Shatz},
 	we felt it was useful to quote it in view of the following section.
 \end{rem}
