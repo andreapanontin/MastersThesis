@@ -780,7 +780,7 @@ It actually is a consequence of the following, more general result, due to Groth
 	of finite type over $S$ in such a way that every orbit is contained in an affine open set.
 	Then there exists $Y \in \mathsf{Sch}/S$ and a morphism $u\colon X \to Y$,
 	constant on orbits, such that for every morphism $v\colon X \to Z$ constant on orbits,
-	there is a unique morphism $f\colon Y \to Z$ s.t. $v = f \circ u$.
+	there is a unique morphism $f\colon Y \to Z$ such that $v = f \circ u$.
 	We denote $Y$ by $X/H$, and notice that $u$ has the following properties:
 \begin{enumerate}
 	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
@@ -938,7 +938,7 @@ In fact we can use this characterization in our context thanks to
 	\label{FlatMorphismEtaleViaFIbers}
 	Let $f\colon X \to S$ be a morphism of schemes.
 	Assume, moreover, that $f$ is flat, locally of finite presentation and that,
-	for all $s \in S$, the fibre $X_s \coloneqq 
+	for all $s \in S$, the fiber $X_s \coloneqq 
 	X \cross_{\mathrm{Spec}(\kappa(s))} \mathrm{Spec}(\kappa(s))$
 	is a disjoint union of finite separable extensions of $\kappa(s)$.
 	Then $f$ is étale.
@@ -949,7 +949,7 @@ In fact we can use this characterization in our context thanks to
 Finally we want to quote an important result which
 concerns finite étale group schemes over a field.
 \begin{defn}[Discrete $\mathscr{G}_k$ groups]
-	Let $k$ be a filed and $\overline{k}$ a fixed separable closure of $k$.
+	Let $k$ be a field and $\overline{k}$ a fixed separable closure of $k$.
 	Let $\mathscr{G}_k \coloneqq \mathrm{Gal}\left( \overline{k} / k \right)$ be the
 	absolute Galois group of $k$.
 	We define the category of {\em discrete $\mathscr{G}_k$ groups} as the category
@@ -980,7 +980,7 @@ concerns finite étale group schemes over a field.
 	which corresponds to showing that our algebra is a flat module over the 
 	base ring.
 	But this is the case, since as a module it is a finite product of copies
-	of the base ring, hence it is free and flat.
+	of the base ring.
 \end{ex}
 
 
@@ -1157,26 +1157,21 @@ Here the relevant notions:
 
 \begin{rem}[{\cite[\S 2.4]{Waterhouse}}, Dual as hom functor]\label{rem:DualasHomFct}
 	Characters form a group in the set of morphism of $S$-schemes
-	between $G$ and $(\mathbb{G}_m)_S$, which we will denote by
-	\begin{equation*}
-		\mathrm{Hom}_{\mathsf{Gp}/S} \left( G, (\mathbb{G}_m)_S \right)
-		\subset
-		\mathrm{Hom}_{\mathsf{Sch}/S} \left( G, (\mathbb{G}_m)_S \right)
-	.\end{equation*} 
-	Then one can introduce the contravariant sheaf hom functor,
-	from $\mathsf{Sch}/S$ to $\mathsf{Ab}$
+	between $G$ and $\mathbb{G}_{m,S}$, the base change of $\mathbb{G}_m$ to $S$
+	Then one can introduce the contravariant sheaf hom functor, also called
+	internal hom functor, from $\mathsf{Sch}/S$ to $\mathsf{Ab}$
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, (\mathbb{G}_m)_S \right)\colon
+		\mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, \mathbb{G}_{m,S} \right)\colon
 		T \arrow[r, "", mapsto] & 
-		\mathrm{Hom}_{\mathsf{Gp}_T} \left( G_T, (\mathbb{G}_m)_T \right)
+		\mathrm{Hom}_{\mathsf{Gp}/T} \left( G_T, \mathbb{G}_{m,T} \right)
 	.\end{tikzcd}
 	\end{equation*} 
 	Then, for a finite, commutative $S$-group $G$ we have the isomorphism
 	\begin{equation*}
-		G^D \simeq \mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, (\mathbb{G}_m)_S \right)
+		G^D \simeq \mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, \mathbb{G}_{m,S} \right)
 	.\end{equation*} 
 	This is actually one of the cases in which the above hom functor
 	is representable.
@@ -1195,11 +1190,11 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 	\item One can show that $\alpha_p^D \simeq \alpha_p$.
 		In fact we can view $\alpha_p^D$ as the character group
 		\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Gp}/S} \left( (\alpha_p)_S, (\mathbb{G}_m)_S \right)
+			\mathrm{Hom}_{\mathsf{Gp}/S} \left( \alpha_{p,S}, \mathbb{G}_{m,S} \right)
 		.\end{equation*}
 		To see this we can reduce to the case where 
 		$S = \mathrm{Spec}(\mathbb{F}_p)$, where
-		$\mathbb{F}_{p}$ denotes the finite field of order $p$ prime. Then
+		$\mathbb{F}_{p}$ denotes the finite field of order $p$. Then
 		the result holds in general due to compatibility of the construction of
 		dual group scheme with base change.
 		Then, for any $\mathbb{F}_{p}$-algebra $R$, we can define the exponential map
@@ -1208,7 +1203,7 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
 			\mathrm{exp}\colon \alpha_p(R) \arrow[r, "", rightarrow] &
-			(\mathbb{G}_m)_{ \mathbb{F}_{p} } \\
+			\mathbb{G}_{m,\mathbb{F}_{p}} \\
 			r \arrow[r, "", mapsto] & \mathrm{exp}(r) \coloneqq
 			1 + r + \frac{r^2}{2!} + \cdots + \frac{r^{p-1}}{\left( p-1 \right)!}
 		.\end{tikzcd}
@@ -1260,13 +1255,14 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		\mathrm{Spec}(R)
 	.\end{tikzcd}
 	\end{equation}
-	Finally we can construct the map $F_X \colon X \to X^{(p)}$ as the unique map
-	making the following diagram commute:
+	Finally we can construct the map $F_{X/R} \colon X \to X^{(p)}$,
+	which we will denote simply by $F_X$ when the base scheme is clear,
+	as the unique map making the following diagram commute:
 	\begin{equation}
 	\begin{tikzcd}[row sep=1.6em, column sep=1.8em]
 		X \arrow[rrd, "\varphi_X", rightarrow, bend left] 
 		\arrow[rdd, "", rightarrow, bend right, end anchor=north west]
-		\arrow[rd, "F_X", dashrightarrow] & & \\
+		\arrow[rd, "F_{X/R}", dashrightarrow] & & \\
 		&
 		X^{(p)} \arrow[r, "", rightarrow] 
 		\arrow[d, "", rightarrow] &
@@ -1290,7 +1286,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 
 \begin{rem}[]
 	Notice that the relative Frobenius $F_X$ is a
-	morphism of $R$-schemes, for all $X \in \mathsf{Sch}_{ R }$.
+	morphism of $R$-schemes, for all $X \in \mathsf{Sch}/R$.
 	Instead the absolute Frobenius $\varphi_X$, in general, is not.
 \end{rem}
 
@@ -1302,7 +1298,8 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		f^{(p)} \coloneqq f \cross \mathrm{id}_{  }\colon X^{(p)} \arrow[r, "", rightarrow] &
+		f^{(p)} \coloneqq f \cross \mathrm{id}_{ R }\colon 
+		X^{(p)} \arrow[r, "", rightarrow] &
 		Y^{(p)}
 	.\end{tikzcd}
 	\end{equation} 
@@ -1340,7 +1337,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 
 
 \noindent
-The following results hold for group schemes over field, hence we will replace
+The following results hold for group schemes over a field, hence we will replace
 $R$ by a field $k$ of characteristic $p > 0$.
 \begin{prop}[]\label{thm:FrobeniusChar1}
 	Let $G$ be a finite $k$-group scheme.
@@ -1362,7 +1359,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \begin{defn}[Verschiebung]
 	Let $G$ be a finite, commutative $R$-group scheme.
 	By \cref{thm:CartierDuality} $(G^{(p)})^D \simeq (G^D)^{(p)}$.
-	One defines the {\em Verschiebung} homomorphism
+	One defines the {\em Verschiebung}, german for "the shift", homomorphism
 	\begin{equation}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}

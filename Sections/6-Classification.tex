@@ -1,7 +1,7 @@
 \section{Classification of \texorpdfstring{$p$}{p}-divisible groups
 	over \texorpdfstring{$O_{ K }$}{the ring of integers of K}}
-In this section we will review the theory of classification
-of $p$-divisible groups over $O_K$, ofr Breuil and Kisin, from \cite[Appendix A]{Kisin}.
+In this section we will review the classification
+of $p$-divisible groups over $O_K$, of Breuil and Kisin, from \cite[Appendix A]{Kisin}.
 In fact we will introduce some technical lemmas and use them to
 generalize the classification of Barsotti-Tate groups over a perfect field
 of characteristic $p$
@@ -306,7 +306,7 @@ denote vectors using a boldface character.
 
 \item Using the above proposition we can recover the theory of maximal unramified
 	extensions for finite extensions $K/\mathbb{Q}_p$.
-	Let $k \coloneqq O_k/ (\pi_K)$ be its residue field.
+	Fix $K$ and let $k \coloneqq O_k/ (\pi_K)$ be its residue field.
 	In fact $O_K$ is a $p$-ring, when considered with the filtration
 	given by $\left\{ \pi_K^i \right\}_{i \geq 1}$.
 	Then there is a unique map of rings $\alpha\colon W(k) \to O_K$
@@ -351,7 +351,7 @@ its (Eisenstein) minimal polynomial.
 
 
 \begin{rem}[]
-	Let $T$ be a scheme and $G \in \mathsf{BT}(T)$.
+	Let $T$ be a scheme and $G \in \mathsf{BT}/T$.
 	If $p = 0$ on $T$ we can pull $G$ back by the Frobenius $\varphi$ on $T$.
 	Then the relative Frobenius on $G$ gives a map $G \to \varphi^*(G)$
 	hence a map of crystals
@@ -370,7 +370,7 @@ its (Eisenstein) minimal polynomial.
 \begin{ntt}[]
 	In the following we will mainly be interested in the evaluation of
 	crystals on objects.
-	In particular, given a scheme $T_0$, $G_0 \in \mathsf{BT}(T_0)$ and 
+	In particular, given a scheme $T_0$, $G_0 \in \mathsf{BT}/T_0$ and 
 	$T_0 \hookrightarrow T \in \mathsf{Crys}(T_0)$, we will be interested
 	in $\mathbb{D}^*(G_0)_{T}(T) = \mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$,
 	where $\mathbb{D}^*(G_0)_T$ is defined in \cref{CrystalAssociatedZarSheafS}
@@ -387,7 +387,7 @@ its (Eisenstein) minimal polynomial.
 
 \begin{rem}[]\label{rem:DGValuationRestriction}
 	Suppose that $T_0$ is a scheme over $W$ and that $p = 0$ on $T_0$.
-	Consider $G_0 \in \mathsf{BT}(T_0)$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
+	Consider $G_0 \in \mathsf{BT}/T_0$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
 	an object on which $p$ is locally nilpotent, and $G$ a lifting of $G_0$ to $T$.
 	By construction of $\mathbb{D}^*$ we have an isomorphism
 	\begin{equation*}
@@ -423,15 +423,15 @@ its (Eisenstein) minimal polynomial.
 
 \noindent
 We recall that elements of $\mathsf{Crys}(X/S)$ are defined by
-locally nilpotent sheaf of ideals.
+locally nilpotent sheaves of ideals.
 In what follows, though, we want to evaluate crystals on
-surjections of $p$-adically complete rings, whose kernel is endowed with divided powers
+surjections of $p$-adically complete rings, whose kernels are endowed with divided powers
 (not necessarily nilpotent).
 \begin{defn}[]\label{defn:NotNilpotentEvaluation}
 	Let $A \twoheadrightarrow A_0$ be a surjective homomorphism
 	of $p$-adically complete and separated $\mathbb{Z}_{p}$-algebras
 	whose kernel is equipped with divided powers, compatible with those on $p \mathbb{Z}_{p}$.
-	Take $G \in \mathsf{BT}(A_0)$.
+	Take $G \in \mathsf{BT}/A_0$.
 	Denote by $G_n$ the restriction of $G$ to $A_0/p^nA_0$.
 	Then we define
 	\begin{equation*}
@@ -470,7 +470,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 	in the proof of the main result of this section, \cref{prop:A6Kisin}.
 	In fact these lemmas allow, in combination with \cref{thm:EquivCatBTS},
 	to lift not only a Barsotti-Tate group along a thickening with divided
-	powers, but to also lift some additional structure, i.e.
+	powers, but also some additional structure, i.e.
 	a Frobenius morphism and a filtration, on the evaluation of $\mathbb{D}^*$.
 	It is, in fact, this extra structure that is going to grant
 	uniqueness for the lifts we are interested in.
@@ -496,7 +496,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 		.\end{tikzcd}
 		\end{equation*}
 \end{enumerate}
-	If $G \in \mathsf{BT}(A_0)$ we write $\mathrm{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
+	If $G \in \mathsf{BT}/A_0$ we write $\mathrm{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
 	for the preimage of $\left( \mathrm{Lie}(G) \right)^D$ inside $\mathbb{D}^*(G)(A_0)$.
 	Then the restriction of $\varphi\colon \mathbb{D}^*(G)(A) \to \mathbb{D}^*(G)(A)$
 	to $\mathrm{Fil}^1 \mathbb{D}^*(G)(A)$ is divisible by $p$ and the following induced map
@@ -528,7 +528,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 			\mathrm{Fil}^1A \cdot \mathbb{D}^*(\widetilde{G})(A)
 		.\end{equation*}
 		
-	\item Let $H \in \mathsf{BT}(\mathrm{Spec}(W(k))$. Denote by $H_0$ the restriction
+	\item Let $H \in \mathsf{BT}/\mathrm{Spec}(W(k)$. Denote by $H_0$ the restriction
 		of $H$ to $k$ and by $V$ the Verschiebung morphism.
 		Then $W(k) \twoheadrightarrow k$ satisfies the hypothesis of our lemma,
 		and the kernel $\mathrm{Fil}^1(W(k)) = (p)$ is equipped with divided powers.
@@ -575,7 +575,7 @@ surjections of $p$-adically complete rings, whose kernel is endowed with divided
 
 \begin{rem}[]
 	Notice that \cref{lem:A2Kisin} allows to endow,
-	for $G \in \mathsf{BT}(A_0)$ and $A \twoheadrightarrow A_0$ as in the hypothesis,
+	for $G \in \mathsf{BT}/A_0$ and $A \twoheadrightarrow A_0$ as in the hypothesis,
 	the module $\mathbb{D}^*(G)(A)$ with the structure of an object in $\mathsf{C}_A$.
 \end{rem}
 
@@ -650,7 +650,7 @@ our ideals with divided powers.
 
 \begin{rem}[]\label{rem:liftFrobeniusS}
 	The ring $S$ is equipped with an endomorphism $\varphi$ lifting that on $S/pS$.
-	It is, in fact, induced by the Frobenius on $W[u]$ which act naturally
+	It is, in fact, induced by the Frobenius on $W[u]$ which acts naturally
 	on $W$ and such that $u \mapsto u^p$.
 	In order to lift it we use the universal property of
 	the divided powers envelope.
@@ -690,13 +690,14 @@ our ideals with divided powers.
 \end{ntt}
 
 
-\begin{rem}[]\label{rem:j_iTheoremA6}
+\begin{rem}[]\label{rem:j_iTheoremA6}%tk:fixitttt
 	We will apply \cref{lem:A4Kisin} in the situation where $J$ is equipped
 	with divided powers structure and there exists a finite set of 
 	elements $x_1, \ldots, x_n \in J$ such that $J$, in the $p$-adic topology, 
 	is topologically generated by the $x_i$ and their divided powers
 	and such that $\varphi(x) = x^p$ on all $x_i$ and their divided powers.
-	Then the integers $j_i$ above are $v_p \left( (p-1)! \right) - 1$.
+	Then the integers $j_i$ of \cref{lem:A4Kisin} can
+	be taken to be $v_p \left( (p-1)! \right) - 1$.
 	In fact, since $J$ is equipped with divided powers, we have for any $x \in J$
 	\begin{equation*}
 		\varphi^i(x) =
@@ -749,7 +750,7 @@ our ideals with divided powers.
 	Let's start with $x$.
 	We want to prove that a certain power of $x^n$ of $x$
 	is in $\mathrm{Fil}^1S$, which has divided powers,
-	from which we would desume $x^{np} = p! \gamma_p(x^n) \in pS$.
+	from which we would deduce $x^{np} = p! \gamma_p(x^n) \in pS$.
 	Let's recall that we defined $\mathrm{Fil}^1S$ as the topological
 	closure of the P.D. ideal $(E(u),p) \triangleleft \mathcal{D}_{W[u]}(E(u))$,
 	i.e. the ideal topologically generated by $E(u), p$ and their divided powers.
@@ -769,8 +770,8 @@ our ideals with divided powers.
 	and $a_0 = p \cdot \alpha$, for $\alpha \in W^{\cross}$.
 	In fact this grants that $\varphi_1(a_0) = \varphi(p \alpha)/p = \varphi(\alpha)$.
 	Since $\varphi$ lifts the Frobenius on $W$, and $\alpha \in W$,
-	which itself lifts the Frobenius on $k$, we see that $\alpha$
-	is invertible in $W/pW \simeq k$, and $\varphi(\alpha)$ too,
+	which itself lifts the Frobenius on $k$, we see that the image
+	of $\alpha$ is invertible in $W/pW \simeq k$, and $\varphi(\alpha)$ too,
 	which allows us to conclude.
 \end{rem}
 
@@ -781,13 +782,13 @@ our ideals with divided powers.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		M\colon \mathsf{BT}(O_{ K }) \arrow[r, "", rightarrow] &
+		M\colon \mathsf{BT}/O_{ K } \arrow[r, "", rightarrow] &
 		\mathsf{BT}^{\varphi}_{/S} \\
 		G \arrow[r, "", mapsto] & 
 		\mathbb{D}^*(G)(S) \eqqcolon M(G)
 	.\end{tikzcd}
 	\end{equation*} 
-	If $p > 2$ this functor is an anti equivalence,
+	If $p > 2$ this functor is an anti-equivalence,
 	whereas if $p = 2$ it induces an anti-equivalence of the 
 	corresponding isogeny categories.
 \end{prop}
@@ -797,8 +798,8 @@ To do so we need to show that $M(G) = \mathbb{D}^{*}(G)(S)$
 has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$.
 It is enough to check that $S \twoheadrightarrow O_K$ satisfies
 the hypothesis of \cref{lem:A2Kisin}.
-Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$,
-which we already remarked being a surjection.
+Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$
+which is a surjection, as remarked before.
 Then, by construction, we see that $S \twoheadrightarrow O_K$
 is surjective too.
 It is also clear that both $S$ and $O_K$ are 
@@ -846,7 +847,7 @@ This difficulty is due to the fact that, in general, the maximal
 ideal of $O_K$, i.e. the kernel of $O_K \twoheadrightarrow k$, 
 does not admit divided powers.
 Then the only hope to lift the classical construction is to
-procede iteratively, reducing the above projection to a sequence of
+proceed iteratively, reducing the above projection to a sequence of
 smaller projections, whose kernels all have nilpotent divided powers structures.
 In particular those lifting steps will make use of Grothendieck-Messing
 deformation theory to lift the Barsotti-Tate group, and of the previous
@@ -855,10 +856,10 @@ associated to the $p$-divisible group via the crystal $\mathbb{D}^*(G)$.
 
 %More specifically, using the previous technical lemmas and Grothendieck-Messing deformation theory,
 %we will iteratively lift $G_1$, the Barsotti-Tate group coming from calssical Dieudonné theory,
-%to $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$ until $i = e$.
+%to $G_i \in \mathsf{BT}/O_K/\pi^iO_K$ until $i = e$.
 %Finally, thanks to completeness of $O_K$ and \cite[Lemma 2.4.4]{deJong},
 %we will carry out another inductive process of lifting
-%to define $G \in \mathsf{BT}(O_K)$.
+%to define $G \in \mathsf{BT}/O_K$.
 %The idea is that at each step we obtain a group with an isomorphism
 %\begin{equation*}
 %\begin{tikzcd}[row sep = 0ex
@@ -896,7 +897,7 @@ seeing $W = O_{K_0} \subset O_K$.
 As one can check writing the elements of $O_K$ in Teichmüller expansion
 the map $R_i \twoheadrightarrow O_K/ (\pi^i)$ is a surjection
 with kernel $pR_i$, which is equipped with divided powers by \cref{lem:PDFlatExtension}.
-Then, given a $p$-divisible group $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$,
+Then, given a $p$-divisible group $G_i \in \mathsf{BT}/O_K/(\pi^i)$,
 we can consider its evaluation $\mathbb{D}^*(G_i)(R_i)$ thanks to \cref{defn:NotNilpotentEvaluation}.
 Following the notation of \cref{lem:A2Kisin}
 we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
@@ -1000,7 +1001,7 @@ With all this in mind we can start with the lifting process.
 	compatible with Frobenius.
 	Finally, since the kernel of $R_i \twoheadrightarrow R_{i-1}$ is nilpotent,
 	we can invoke \cref{thm:EquivCatBTS} and obtain that
-	there is a unique $G_i \in \mathsf{BT}(O_K/\pi^iO_K)$
+	there is a unique $G_i \in \mathsf{BT}/O_K/(\pi^i)$
 	lifting $G_{i-1}$ and such that $(\mathrm{Lie}G_i)^D \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
 	is equal to the image of $\mathrm{Fil}^i M_i$ under the composite
 	%tk: here one should also prove that this image is locally free.
@@ -1075,7 +1076,7 @@ With all this in mind we can start with the lifting process.
 	.\end{tikzcd}
 	\end{equation*}
 	By functoriality of $\mathbb{D}^*(G_e)$ this gives rise to a compatible family $G^i$,
-	which in turn, by \cite[Lemma 2.4.4]{deJong}, defines $G(M) \in \mathsf{BT}(O_K)$
+	which in turn, by \cite[Lemma 2.4.4]{deJong}, defines $G(M) \in \mathsf{BT}/O_K$
 	such that $(\mathrm{Lie}G)^D \subset \mathbb{D}^*(G_e)(O_K)$ is
 	equal to the image of $\mathrm{Fil}^iM$ under
 	\begin{equation*}
@@ -1089,7 +1090,7 @@ With all this in mind we can start with the lifting process.
 At last we are only left to prove that the above morphisms are quasi inverses to each other.
 It is clear, by construction, that $M \simeq M(G(M))$.
 For the other direction we see, by induction on $i = 1, \ldots, e$, that uniqueness in
-\cref{PDExtendCompletion} grants that, given any $G \in \mathsf{BT}(O_K)$, 
+\cref{PDExtendCompletion} grants that, given any $G \in \mathsf{BT}/O_K$, 
 the group $G_i(M(G))$ is isomorphic to the base change of $G$ to $O_K/ (\pi^i)$.
 Analogously, for $i \in \mathbb{N}$, uniqueness in \cref{PDExtendCompletion} grants
 that $G^i(M(G))$ is isomorphic to the base change of $G$ to $O_K/ (p^i)$.
@@ -1099,13 +1100,13 @@ and the two functors are quasi-inverses to one another.
 
 
 \noindent
-Now that we have proved this theorem let's compute some important examples.
+Now that we have proved this theorem let's explicit some important examples.
 These will play an important role also in what follows.
 \begin{ex}[]\label{DieudonneModulesSimpleExamples}
 	We want to compute $M(G) \coloneqq \mathbb{D}^*(G)(S)$ for
 	$G = \mathbb{G}_m(p)$ and its dual 
 	$G^D = \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$,
-	both seen in $\mathsf{BT}(O_K)$.
+	both seen in $\mathsf{BT}/O_K$.
 	Let's denote by $\widetilde{G}$ a lift of $G$ to $S$.
 	Then, via \cref{defn:NotNilpotentEvaluation} and thanks to \cref{rem:DGValuationRestriction},
 	we obtain that $M(G) \simeq \mathbb{D}^*(\widetilde{G})(S)$.

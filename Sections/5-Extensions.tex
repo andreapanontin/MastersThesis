@@ -356,7 +356,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 
 
 \begin{defn}[Universal extension]
-	Let $S$ be a scheme, $G \in \mathsf{BT}(S)$
+	Let $S$ be a scheme, $G \in \mathsf{BT}/S$
 	and $\underline{V}(G)$ a vector $S$-group.
 	We say that an extension $\zeta \in \mathrm{E}(G, \underline{V}(G))$, given
 	by $E(G)$, is {\em universal} iff, given any extension
@@ -593,7 +593,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 
 \noindent
 Now that we have finally defined it, let's see
-a few results concerned this universal extension.
+a few results concerning this universal extension.
 
 
 \begin{lem}[{\cite[Chapter IV, lemma 1.13]{Messing}}]
@@ -662,7 +662,7 @@ for $G \in \mathsf{Gr}/S$.
 
 
 \begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]\label{prop:ExtFLG}
-	Let $G \in \mathsf{BT}(S)$ and $S$ be as before,
+	Let $G \in \mathsf{BT}/S$ and $S$ be as before,
 	then $\overline{E(G)}$ is a {\em formal Lie group}.
 \end{prop} 
 
@@ -739,7 +739,7 @@ we start by introducing the following notation.
 	locally infinitesimally liftable Barsotti-Tate groups, i.e. 
 	which can be locally lifted along finite order thickenings.
 	At the same time, in the introduction to his work, Messing acknowledges that
-	it has been shown that all objects $G_0 \in \mathsf{BT}(S_0)$ satisfy
+	it has been shown that all objects $G_0 \in \mathsf{BT}/S_0$ satisfy
 	this condition.
 	For this reason we chose to differentiate our notation from that of \cite{Messing}.
 	Still, since it is used to define our crystals, here is the precise lifting
@@ -748,7 +748,7 @@ we start by introducing the following notation.
 	We say that $G_0$ is {\em locally infinitesimally liftable} iff
 	there is an affine open cover $\left\{ U_i \right\}_{i \in I}$ of $S_0$, which depends on $G_0$, 
 	on which, for all $i$ and all finite order thickening $U_i \hookrightarrow U$,
-	there is a $G \in \mathsf{BT}(U)$ such that
+	there is a $G \in \mathsf{BT}/U$ such that
 	$\left.G\right|_{U_i} = \left.G_0\right|_{U_i}$.
 \end{rem}
 
@@ -757,7 +757,7 @@ we start by introducing the following notation.
 	Let $S = \mathrm{Spec}(A)$ such that $p^N \cdot 1_S = 0$,
 	$S_0 \coloneqq \mathbb{V}(I) \subset S$, where $I$ is
 	an ideal of $A$ with nilpotent divided powers.
-	Let $G, H \in \mathsf{BT}(S)$ and consider a homomorphism
+	Let $G, H \in \mathsf{BT}/S$ and consider a homomorphism
 	$u_0\colon G_0 \to H_0$ between the respective restrictions to $S_0$.
 	By \cref{prop:MorUnivExts} $u_0$ defines
 	a morphism of extensions $v_0 \coloneqq E(u_0)\colon E(G_0) \to E(H_0)$,
@@ -783,11 +783,11 @@ we start by introducing the following notation.
 	$v\colon E(G) \to E(H)$, which is not necessarily a morphism
 	of extensions, that satisfies the following properties.
 \begin{enumerate}
-	\item $v$ is a lifting of $v_0$.
+	\item $v$ is a lift of $v_0$.
 
 	\item Denote the inclusions by $i\colon \underline{V}(H) \to E(H)$ and by 
 		$j\colon \underline{V}(G) \to E(G)$.
-		Given $w\colon \underline{V}(G) \to \underline{V}(H)$ a lifting of $\underline{V}(u_0)$
+		Given $w\colon \underline{V}(G) \to \underline{V}(H)$ a lift of $\underline{V}(u_0)$
 		such that $d\coloneqq (i \circ w - v \circ j)\colon \underline{V}(G) \to E(H)$
 		induces the zero morphism on $S_0$, then $d$ is an exponential.
 		%(tk: the definition of exponential for BT groups is given in III 2.4,
@@ -811,7 +811,7 @@ we start by introducing the following notation.
 
 
 \begin{cor}[{\cite[Chapter IV, corollary 2.4.1]{Messing}}]\label{thm:M4.2.4.1}
-	Let $G, H, K \in \mathsf{BT}(S)$ as before and consider another
+	Let $G, H, K \in \mathsf{BT}/S$ as before and consider another
 	homomorphism $u_0'\colon H_0 \to K_0$, where $K_0$ again denotes
 	the restriction of $K$ to $S_0$.
 	Denote by $E_S(u_0)$ the morphism $v$ whose existence is granted in
@@ -848,7 +848,7 @@ we start by introducing the following notation.
 	nilpotent immersion as in the statement of \cref{thm:UniqueLiftingCrystals}.
 	Write $S_0' = \mathbb{V}(J)$ and $S_0 = \mathbb{V}(I)$
 	and assume that $S' \to S$ is a divided powers morphism.
-	Consider $G,H \in \mathsf{BT}(S)$ and $u_0\colon G_0 \to H_0$ as before.
+	Consider $G,H \in \mathsf{BT}/S$ and $u_0\colon G_0 \to H_0$ as before.
 	Then the construction of $E_S(u_0)$ is compatible with the base
 	change $S' \to S$.
 	More explicitly we have
@@ -865,7 +865,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 
 \begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]\label{CrystalLocalPB}
 	Let $S_0$ be a scheme with $p$ locally
-	nilpotent on it and $G \in \mathsf{BT}(S_0)$.
+	nilpotent on it and $G \in \mathsf{BT}/S_0$.
 	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(X)$,
 	it suffices to define them locally.
 	More specifically we are going to define their evaluation
@@ -961,26 +961,26 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	commutes up to a {\em unique natural equivalence}:
 	\begin{equation*}
 	\begin{tikzcd}
-		\mathsf{BT}(S_0)
+		\mathsf{BT}/S_0
 		\arrow[r, "\mathbb{E}", rightarrow] 
 		\arrow[d, "f^*"', rightarrow] &
 		\left\{ \text{Crystals in } \mathsf{Gr}_{S_0} \right\}
 		\arrow[d, "f^*", rightarrow] \\
-		\mathsf{BT}(T_0) \arrow[r, "\mathbb{E}", rightarrow] &
+		\mathsf{BT}/T_0 \arrow[r, "\mathbb{E}", rightarrow] &
 		\left\{ \text{Crystals in } \mathsf{Gr}_{T_0} \right\}
 	,\end{tikzcd}
 	\end{equation*}
-	where by "Crystal in $\mathsf{Gr}/S$" we mean sheaves $\mathscr{F}$ on $\mathsf{Crys}(S)$
+	where by "Crystals in $\mathsf{Gr}/S$" we mean sheaves $\mathscr{F}$ on $\mathsf{Crys}(S)$
 	which, for each $\left(U_0 \hookrightarrow U, \gamma\right) \in \mathsf{Crys}(S)$,
 	induce a sheaf $\mathscr{F}_{\left(U_0 \hookrightarrow U, \gamma\right)} \in \mathsf{Gr}/S$
-	and are special, as in \cref{defn:SpecialQCSheavesCrys}
+	and are special, as in \cref{defn:SpecialQCSheavesCrys}.
 \end{rem}
 
 
 \begin{defn}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 \item We define the functor $\overline{\mathbb{E}}$, associating to
-	any $G_0 \in \mathsf{BT}(S_0)$ a crystal in $\mathsf{Gr}_{S_0}$
+	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}_{S_0}$
 	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	\begin{equation*}
 		\overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
@@ -988,7 +988,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	.\end{equation*}
 
 \item We define the functor $\mathbb{D}$, associating to
-	any $G_0 \in \mathsf{BT}(S_0)$ a crystal in $\mathsf{Gr}_{S_0}$
+	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}_{S_0}$
 	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	\begin{equation*}
 		\mathbb{D}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
@@ -997,7 +997,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	.\end{equation*}
 
 \item We define the functor $\mathbb{D}^*$, associating to
-	any $G_0 \in \mathsf{BT}(S_0)$ a crystal in $\mathsf{Gr}_{S_0}$
+	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}_{S_0}$
 	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	\begin{equation*}
 		\mathbb{D}^*(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
@@ -1021,9 +1021,9 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 \begin{rem}[]
 	Let's summarise the above constructions.
 	Consider $S_0 \hookrightarrow S$ a nilpotent divided power immersion.
-	Assume that $G_0 \in \mathsf{BT}(S_0)$ can be lifted to $G \in \mathsf{BT}(S)$.
+	Assume that $G_0 \in \mathsf{BT}/S_0$ can be lifted to $G \in \mathsf{BT}/S$.
 	Notice that, by \cref{rem:pDivDualityBaseChange}, $G^D$ is a lift of $G_0^D$.
-	Then, up to canonical isomorphism, we have
+	Then, up to canonical isomorphisms, we have
 \begin{enumerate}
 	\item $\mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
 	\item $\overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = \overline{E(G)}$,
@@ -1046,7 +1046,7 @@ a certain filtration on its associated crystal.
 
 
 \begin{ntt}
-	Let $S$ be a scheme on which $p$ locally nilpotent, $\mathcal{I}$
+	Let $S$ be a scheme on which $p$ is locally nilpotent, $\mathcal{I}$
 	be a quasi-coherent ideal of $\mathcal{O}_{ S }$ endowed with locally nilpotent
 	divided powers.
 	Let $S_0 \coloneqq \mathbb{V}(\mathcal{I})$,
@@ -1059,7 +1059,7 @@ a certain filtration on its associated crystal.
 	since also for \cite[Chapter V]{Messing} Messing
 	introduces a new notion of liftable Barsotti-Tate groups.
 	Again, we will not follow his notation $\mathsf{BT}'(S_0)$,
-	since all $G \in \mathsf{BT}(S_0)$ can be lifted locally
+	since all $G \in \mathsf{BT}/S_0$ can be lifted locally
 	(in the Zariski topology) along $S_0 \hookrightarrow S$,
 	which allows us to carry along the following construction
 	and proofs.
@@ -1071,7 +1071,7 @@ a certain filtration on its associated crystal.
 	crystals on a specific object of $\mathsf{Crys}(S_0)$, given
 	by the closed immersion $S_0 \hookrightarrow S$
 	Hence we introduce the following notation.
-	Let $G_0 \in \mathsf{BT}(S_0)$ and $\mathscr{F}$ a crystal on $\mathsf{Crys}(S)$,
+	Let $G_0 \in \mathsf{BT}/S_0$ and $\mathscr{F}$ a crystal on $\mathsf{Crys}(S)$,
 	we denote by $\mathscr{F}_S$ the Zariski sheaf
 	$\mathscr{F}_{\left(S_0 \hookrightarrow S, \mathcal{I}\right)}$.
 	In particular, for the crystals defined in the previous section, we have
@@ -1088,7 +1088,7 @@ a certain filtration on its associated crystal.
 
 
 \begin{defn}[Admissible filtration]
-	Let $G_0 \in \mathsf{BT}(S_0)$.
+	Let $G_0 \in \mathsf{BT}/S_0$.
 	A filtration $\mathrm{Fil}^1 \subset \mathbb{D}(G_0)_S$ is said to be
 	{\em admissible} iff $\mathrm{Fil}^1$ is a locally-free vector subgroup
 	with locally free quotient which, on $S_0$, reduces to
@@ -1107,7 +1107,7 @@ a certain filtration on its associated crystal.
 \begin{defn}[]
 	Let's fix $S_0 \hookrightarrow S$ as before.
 	We define the category $\mathsf{BF}(S_0)$ whose objects
-	are pairs $(G_0, \mathrm{Fil}^1)$, where $G_0 \in \mathsf{BT}(S_0)$
+	are pairs $(G_0, \mathrm{Fil}^1)$, where $G_0 \in \mathsf{BT}/S_0$
 	and $\mathrm{Fil}^1$ is an {\em admissible} filtration on
 	$\mathbb{D}(G_0)_S$ and whose morphisms are defined to be
 	pairs $(u_0, \xi)$, where $u_0\colon G_0 \to H_0$
@@ -1146,7 +1146,7 @@ This definition allows to state the following theorem:
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathsf{BT}(S) \arrow[r, "", rightarrow] &
+		\mathsf{BT}/S \arrow[r, "", rightarrow] &
 		\mathsf{BF}(S_0) \\
 		G \arrow[r, "", mapsto] & 
 		\left(G_0, \underline{V}(G) \hookrightarrow \underline{\mathrm{Lie}}(E(G))\right)
@@ -1159,7 +1159,7 @@ This definition allows to state the following theorem:
 
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
-	\item Let $G_0$ be $\mathsf{BT}(S_0)$.
+	\item Let $G_0$ be $\mathsf{BT}/S_0$.
 		We define a Zariski sheaf of sets on $S$, denoted by $\mathscr{L}$,
 		as follows.
 		Let $U \subset S$ be an affine open subscheme of $S$.
@@ -1187,12 +1187,12 @@ This definition allows to state the following theorem:
 		these sections.
 		In particular we assume that $U$ is affine and $p$ is nilpotent on $U$.
 		Then, we define $\left.\Theta\right|_{ U }$ to be the equivalence class
-		of $\underline{V}(G)$, where $G$ is any lifting of $\left.G_0\right|_{ U_0 }$
+		of $\underline{V}(G)$, where $G$ is any lift of $\left.G_0\right|_{ U_0 }$
 		to $U$.
 		In order to check compatibility we pick $U_1$, $U_2$, $G_1$ and $G_2$
 		as above and $V \subset U_1 \cap U_2$ affine
 		with $p$ nilpotent on it.
-		Then we require that the restriction to $V$ of the two liftings,
+		Then we require that the restriction to $V$ of the two lifts,
 		which we still denote by $G_1$ and $G_2$, lie in the same equivalence class.
 		Here we can apply \cref{prop:MorUnivExts} and obtain the following
 		square
@@ -1208,9 +1208,9 @@ This definition allows to state the following theorem:
 		where $i \circ w - v \circ j$ is an exponential.
 		Since $\left.\mathbb{E}(G_0)_S\right|_{ V } = E(G_2)$,
 		this is exactly the requirement of \cref{defn:LinCompProlong} 
-		to state that the two liftings lie in the same equivalence class.
+		to state that the two lifts lie in the same equivalence class.
 
-	\item If $G$ is a global lifting of $G_0$, then we have the canonical isomorphism
+	\item If $G$ is a global lift of $G_0$, then we have the canonical isomorphism
 		$E(G) \simeq \mathbb{E}(G_0)_S$.
 		Hence $\underline{V}(G)$ gives an element $\Theta \in \Gamma(S,\mathscr{L})$,
 		i.e. a distinguished vector subgroup in the linear equivalence
@@ -1222,7 +1222,7 @@ This definition allows to state the following theorem:
 		$\mathrm{Fil}^1 \hookrightarrow \mathbb{D}(G_0)_S$.
 		In particular the knowledge of the map
 		$\underline{V}(G) \hookrightarrow \mathbb{E}(G_0)_S$, for $G$ a global
-		lifting of $G_0$, is equivalent to the knowledge of
+		lift of $G_0$, is equivalent to the knowledge of
 		$\underline{V}(G) \hookrightarrow \mathbb{D}(G_0)_S$.
 		Finally, from the definition of universal extension
 		and of the crystal $\mathbb{E}(G_0)$, we can reconstruct 
@@ -1233,7 +1233,7 @@ This definition allows to state the following theorem:
 		a Barsotti-Tate group (verification which is carried out in
 		\cite[Chapter V, theorem 1.6]{Messing}), states that from 
 		the datum of an admissible filtration of $\mathbb{D}(G_0)_S$
-		one can recover the global lifting $G$ of $G_0$.
+		one can recover the global lift $G$ of $G_0$.
 		This is indeed the main idea used to construct the quasi-inverse
 		to the functor of \cref{thm:EquivCatBTS}.
 \end{enumerate}

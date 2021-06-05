@@ -13,7 +13,7 @@ exponentials.
 \begin{defn}[Ideal with divided powers]\label{defn:dividedPowers}
 	Let $A$ be a ring, and $I \triangleleft A$ an ideal of $A$.
 	We say that $I$ is equipped with {\em divided powers} iff
-	we are given a family of mappings $\left\{ \gamma_n \right\}_{n \geq 1}$,
+	we are given a family of maps $\left\{ \gamma_n \right\}_{n \geq 1}$,
 	where $\gamma_n\colon I \to A$ for all $n \in \mathbb{N}$,
 	satisfying, for all $\lambda \in A$ and $x,y \in I$, the following conditions:
 	\begin{enumerate}
@@ -38,7 +38,7 @@ exponentials.
 	or as a {\em divided power ring}.
 	Borrowing from the literature we may use the shorter {\em P.D. ring}
 	(analogously {\em P.D. structure} or {\em P.D. ideal}), where
-	P.D. stands for puissances divisées, french for divided powers.
+	P.D. stands for "puissances divisées", french for "divided powers".
 \end{defn}
 
 
@@ -56,7 +56,7 @@ exponentials.
 
 
 \begin{rem}[]
-	We can make the following easy remarks.
+	We can make the following remarks.
 \begin{enumerate}
 \item Axiom $2$ of \cref{defn:dividedPowers}
 	implies that $\gamma_n(0) = 0$ for all $n \in \mathbb{N}$.
@@ -70,7 +70,7 @@ exponentials.
 		\prod_{k=1}^{m-1} \frac{\left( kn + n - 1 \right)!}{(kn)! (n-1)!}
 	,\end{equation*}
 	which implies that it is an integer.
-	In fact it can be interpreted as the number of partition of a set with $mn$
+	In fact it can be interpreted as the number of partitions of a set with $mn$
 	elements into $m$ subsets of $n$ elements each.
 
 \item In \cref{defn:NilpotentDividedPowers},
@@ -89,7 +89,7 @@ exponentials.
 		This is called the {\em trivial} divided powers structure.
 
 	\item If $A$ is a $\mathbb{Q}$-algebra, every ideal has a unique
-		divided powers structure, given by $\gamma_n(x) = x^n/n!$.
+		divided powers structure, given by $x^n/n! \eqqcolon \gamma_n(x)$.
 
 	\item Suppose that $\left( m-1 \right)!$ is invertible in $A$ and 
 		$I^m = (0)$.
@@ -111,7 +111,7 @@ exponentials.
 		index of $V$.
 		Then $\left( \pi \right)$ has a divided powers structure iff $e \leq p-1$.
 		In such case $\gamma$ is unique, determined by
-		$\gamma_n(x) \coloneqq x^n/n!$.
+		$x^n/n! \eqqcolon \gamma_n(x)$.
 		In fact it is known that, denoted by $\nu_p$ the valuation
 		of $\mathbb{Z}_{p}$ normalized to have value group $\mathbb{Z}$,
 		and if $n = a_0 + \cdots + a_kp^k$ is the $p$-adic expansion
@@ -120,7 +120,7 @@ exponentials.
 			\nu_p(n!) = 
 			\frac{n - s_p(n)}{p-1}
 		,\end{equation*}
-		where $s_p(n) = a_0 + \cdots a_k$.
+		where $s_p(n) = a_0 + \cdots + a_k$.
 		Then, in order for $\gamma_n$ to all have values in $(\pi)$
 		we need that $\nu(\gamma_n(x)) > 0$ for all $x \in (\pi)$.
 		By axiom $2$ of \cref{defn:dividedPowers}
@@ -177,8 +177,7 @@ exponentials.
 
 
 \noindent
-We now state a few criteria whose aim is to extend an existing divided powers structure
-to bigger ideals.
+We now state a few criteria whose aim is to extend an existing divided powers structure.
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/07H1}{Lemma 07H1}]{SP}}]
 \label{lem:PDFlatExtension}
 	Let $\left(A, I, \gamma\right)$ be a divided power ring
@@ -265,19 +264,19 @@ in the context of divided powers.
 	\item The functor $M \mapsto \Gamma_A(M)$ is compatible with:
 		\begin{enumerate}
 			\item {\em base change}: given any $A$-algebra $A'$,
-				i.e. any morphism $A \to A'$,
+				we have
 				\begin{equation*}
 					\Gamma_{A'}(M \otimes_A A') \simeq A' \otimes_A \Gamma_A(M)
 				,\end{equation*}
 
 			\item {\em filtered direct limits}: given any directed system
-				of $A$-modules $\left\{ M_\lambda \right\}_{\lambda \in \Lambda}$, then
+				of $A$-modules $\left\{ M_\lambda \right\}_{\lambda \in \Lambda}$, we have
 				\begin{equation*}
 					\Gamma_A(\varinjlim_\lambda M_\lambda) \simeq
 					\varinjlim_\lambda \Gamma_A(M_\lambda)
 				,\end{equation*}
 				
-			\item {\em direct sums}: for all $A$-modules $M,N$, we have
+			\item {\em coproducts}: given any pair of $A$-modules $M,N$, we have
 				\begin{equation*}
 					\Gamma_A(M \oplus N) \simeq
 					\Gamma_A(M) \otimes_A \Gamma_A(N)
@@ -295,7 +294,7 @@ in the context of divided powers.
 	There exists a $B$-algebra $\mathcal{D}_{B,\gamma}(J)$
 	with a divided powers ideal $\left(\overline{J}, [\ \cdot \ ]\right)$,
 	such that $J \mathcal{D}_{B, \gamma} \subset \overline{J}$,
-	$[\ \cdot \ ]$ is compatible with $\gamma$ and with the
+	$[\ \cdot \ ]$ is compatible with $\gamma$, and which satisfies the
 	following universal property:
 	for any $B$-algebra $C$ containing an ideal
 	$K$ which contains $JC$ and has a divided powers structure
@@ -330,7 +329,7 @@ in the context of divided powers.
 	Though we will not include the proof for the above theorem,
 	we think it is useful to outline the construction of the divided powers envelope
 	since it is going to be used quite prominently in the following sections.
-	One starts by taking $J_1 \coloneqq J + IB$, so that $I \subset J$.
+	One starts by replacing $J$ with $J + IB$, so that $I \subset J$.
 	Then, denoting by $\varphi\colon J \to \Gamma^1_B(J)$ the universal
 	map of \cref{thm:PDSymAlg} and by $f$ the map $A \to B$, 
 	we define the ideal $\mathcal{J} \triangleleft \Gamma_B(J)$
@@ -349,15 +348,15 @@ in the context of divided powers.
 The point of introducing all of these definitions is to allow one to define the following
 inverse maps, of which we will construct some generalizations later on.
 \begin{defn}[]\label{defn:PDExponential}
-	Let $\left(A, I, \gamma\right)$ be a nilpotent divided powers ring.
+	Let $\left(A, I, \gamma\right)$ be a nilpotent divided power ring.
 	Then we can define two maps
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\exp\colon I \arrow[r, "", rightarrow] &
-		\left( 1 + I \right)^*\\
-		\log\colon \left( 1 + I \right)^* \arrow[r, "", rightarrow] &
+		\left( 1 + I \right)^{\cross}\\
+		\log\colon \left( 1 + I \right)^{\cross} \arrow[r, "", rightarrow] &
 		I
 	,\end{tikzcd}
 	\end{equation*} 
@@ -380,7 +379,7 @@ inverse maps, of which we will construct some generalizations later on.
 	a divided power ring $\left(A, I, \gamma\right)$, to give
 	a structure of divided power ring to $A_{\mathfrak{p}}$ for all
 	$\mathfrak{p} \in \mathrm{Spec}(A) \eqqcolon S$, since localization is a flat morphism.
-	Moreover these structures are all compatible with localization, by construction.
+	Moreover the structures we defined above are all compatible with localization, by construction.
 	This pushes us to expand the notion of divided powers to the
 	sheaf $\mathcal{O}_{ S }$.
 	Actually one can be even more general, giving the following definition.
@@ -401,7 +400,8 @@ inverse maps, of which we will construct some generalizations later on.
 	of $\Gamma(U,\mathcal{I})$ in which restriction maps
 	are given by morphisms of divided power rings.
 	Then we will call one triple $\left(S, \mathcal{I}, \gamma\right)$
-	a {\em scheme with divided powers}.
+	a {\em scheme with divided powers}, or equivalently
+	a {\em divided power scheme} or a {\em P.D. scheme}.
 
 	%Moreover one generalizes the concept of morphism of divided 
 	%power rings in the following way:
@@ -445,7 +445,7 @@ inverse maps, of which we will construct some generalizations later on.
 \begin{defn}[Locally nilpotent sheaf of ideals with divided powers]
 	We say that the divided powers on the sheaf of ideals $\mathcal{I}$
 	of $\mathcal{O}_{ S }$ are {\em locally nilpotent} iff,
-	locally on $S$, they satisfy conditions in \cref{defn:NilpotentDividedPowers}.
+	locally on $S$, they satisfy the conditions in \cref{defn:NilpotentDividedPowers}.
 \end{defn}
 
 
@@ -466,7 +466,7 @@ we need the following result.
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
-			S' \otimes_A \mathcal{D}_{B,\gamma}(J) \arrow[r, "\sim", rightarrow] &
+			A' \otimes_A \mathcal{D}_{B,\gamma}(J) \arrow[r, "\sim", rightarrow] &
 			\mathcal{D}_{B',\gamma'}(J')
 		.\end{tikzcd}
 		\end{equation*} 
@@ -504,26 +504,23 @@ we need the following result.
 	More explicitly $\mathcal{D}_{X,\gamma}(Y)$ is locally 
 	given by the spectrum of the divided powers envelope
 	of $\mathcal{O}_{ Y }$ at the ideal defining $X$, compatible with $\gamma$.
-	As already remarked it is indeed thanks to \cref{prop:PDEnvScheme}
-	that we can carry out this construction.
+	As already remarked we can carry out this construction
+	thanks to \cref{prop:PDEnvScheme}.
 \end{rem}
 
 
-
+%tk: check whether you should require co-algebras to be co-commutative.
 \subsection{Cospec and Lie algebras}
 The aim of the following concepts is to give some vocabulary to
 be able to work with exponentials in more general cases than what we saw before.
 The notation of this section will follow that of \cite[Capther III]{Messing}.
 This means that it might not be consistent with our previous exposition.
-%(tk: this part of the book from Messing seems to be used only in the preliminary
-%constructions of $\exp$, hence it might very well be that it is not used afterwards
-%and that it is not really relevant for my m\'emoire.)
 
 
 \begin{defn}[Quasi-coherent (co)algebra]
 	Let $S$ be a scheme.
 \begin{enumerate}
-\item We say that $U$ is a $\mathcal{O}_{ S }$-{\em algebra}
+\item We say that $U$ is an $\mathcal{O}_{ S }$-{\em algebra}
 	iff it is an $\mathcal{O}_{ S }$-module
 	which is also endowed with an $\mathcal{O}_{ S }$-algebra structure.
 \item We say that $U$ is an $\mathcal{O}_{ S }$ {\em co-algebra}
@@ -604,9 +601,9 @@ We need some preliminary definitions first.
 
 
 \begin{ntt}[]
-	In order to keep a consistent notation with
+	In order to stay consistent with
 	\cite{Messing} we will use the following notation.
-	Let $S$ be a scheme and $U$ an $\mathcal{O}_{ S }$-module
+	Let $S$ be a scheme, $U$ an $\mathcal{O}_{ S }$-module
 	and $S'$ a scheme, with a morphism
 	$f\colon S' \to S$.
 	We denote the pullback of $U$ along $f$ by 
@@ -650,10 +647,10 @@ or $\mathcal{O}_{ S }$-modules.
 \begin{defn}[Relative spectrum and Vector bundles]
 	Let's fix a scheme $S$.
 \begin{enumerate}
-	\item Assume that $\mathscr{A}$ is a quasi-coherent $\mathcal{O}_{ S }$-algebra.
-		We define the {\em relative spectrum} of $\mathscr{A}$, denoted by
-		$\underline{\mathrm{Spec}}_S(\mathscr{A})$, as the gluing of
-		$\mathrm{Spec}(\Gamma(U, \mathscr{A}))$, where $U$ ranges
+	\item Assume that $A$ is a quasi-coherent $\mathcal{O}_{ S }$-algebra.
+		We define the {\em relative spectrum} of $A$, denoted by
+		$\underline{\mathrm{Spec}}_S(A)$, as the gluing of
+		$\mathrm{Spec}(\Gamma(U, A))$, where $U$ ranges
 		over all affine open subsets of $S$.
 
 	\item  Let $E$ be a quasi-coherent sheaf of $\mathcal{O}_{ S }$-modules.
@@ -677,21 +674,21 @@ or $\mathcal{O}_{ S }$-modules.
 		and
 		\cite[\href{https://stacks.math.columbia.edu/tag/01M1}{Section 01M1}]{SP}.
 
-	\item Let $\mathscr{A}$ be an $\mathcal{O}_{ S }$-algebra. 
+	\item Let $A$ be an $\mathcal{O}_{ S }$-algebra. 
 		Then, as proved in 
 		\cite[\href{https://stacks.math.columbia.edu/tag/01LP}{Lemma 01LP}]{SP},
-		$\underline{\mathrm{Spec}}_S(\mathscr{A})$, is canonically an $S$-scheme.
+		$\underline{\mathrm{Spec}}_S(A)$, is canonically an $S$-scheme.
 		In fact there is a morphism of schemes
 		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
-			\pi\colon \underline{\mathrm{Spec}}_S(\mathscr{A})
+			\pi\colon \underline{\mathrm{Spec}}_S(A)
 			\arrow[r, "", rightarrow] &
 			S
 		,\end{tikzcd}
 		\end{equation*} 
-		where, for all $U \subset S$ affine, $\pi^{-1}(U) \simeq \mathrm{Spec}(\mathscr{A}(U))$.
+		where, for all $U \subset S$ affine, $\pi^{-1}(U) \simeq \mathrm{Spec}(A(U))$.
 
 	\item Using notations as above, we see that $\mathbf{V}(E)$ is endowed with
 		some extra structure: it inherits the grading of $\mathrm{Sym}(E)$
@@ -724,7 +721,6 @@ or $\mathcal{O}_{ S }$-modules.
 	given following exactly the same ideas as in \cref{rem:dualHopfStructure}
 	(here again the hypothesis of local freeness and finiteness are indeed
 	of vital importance).
-
 	Then, invoking \cref{rem:CospecSections}, we can construct 
 	our desired isomorphism: let $S' \in \mathsf{Sch}/S$
 	\begin{align*}
@@ -775,7 +771,7 @@ or $\mathcal{O}_{ S }$-modules.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathbf{W}(V)\colon 
-		\mathsf{Sch}/S^{op} \arrow[r, "", rightarrow] &
+		(\mathsf{Sch}/S)^{op} \arrow[r, "", rightarrow] &
 		\mathsf{Gp} \\
 		S' \arrow[r, "", mapsto] & 
 		\Gamma(S', V_{S'})
@@ -807,7 +803,7 @@ or $\mathcal{O}_{ S }$-modules.
 	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}/S$.
 \end{enumerate}
 \end{rem}
-
+%tk: is there something about homomorphism?
 
 \begin{ntt}\label{not:fppfOsModule}
 	To be more consistent with \cite{Messing}, we will introduce a 
@@ -825,13 +821,13 @@ or $\mathcal{O}_{ S }$-modules.
 	Let $U$ be an augmented co-algebra on a scheme $S$.
 \begin{enumerate}
 \item We say that a section $x$ of $U$ is {\em primitive} iff
-	$\Delta(x) = x \otimes 1 + 1 \otimes x$;
+	$\Delta(x) = x \otimes 1 + 1 \otimes x$.
 
 \item We denote by $\mathrm{Lie}(U)$ the sheaf of $\mathcal{O}_{ S }$-modules
 	whose sections on $T \subset S$ open are given by
-	primitive sections of $U$.
+	primitive sections of $U$ on $T$.
 
-\item we denote by $\underline{\mathrm{Lie}}(U)$ the sheaf of $\underline{\mathcal{O}_{ S }}$-modules
+\item We denote by $\underline{\mathrm{Lie}}(U)$ the sheaf of $\underline{\mathcal{O}_{ S }}$-modules
 	associated to $\mathrm{Lie}(U)$ as in \cref{not:fppfOsModule}.
 \end{enumerate}
 \end{defn}
@@ -856,7 +852,7 @@ or $\mathcal{O}_{ S }$-modules.
 	of our group $X$.
 	Analogously the requirements that sections of $\underline{\mathrm{Lie}}(U)$
 	be primitive, can be seen as a formal version of Leibnitz rule,
-	so that these sections can be paired with left invariant derivations, i.e.
+	so that these sections can be paired with left invariant derivations, i.e$.$
 	elements of the tangent space at the origin.
 	All in all, the above can be expanded to obtain an isomorphism
 	\begin{equation*}
@@ -872,7 +868,6 @@ or $\mathcal{O}_{ S }$-modules.
 \subsection{Exponentials and prolongations}
 Here we generalize the concept of exponential seen in \cref{defn:PDExponential}
 to groups on $S$ and see how this construction relates to prolongations.
-Let's start with the setting of the following section.
 Let $A$ be a ring, $I \triangleleft A$ and ideal with nilpotent
 divided powers and $A_0 \coloneqq A/I$.
 Denote by $S \coloneqq \mathrm{Spec}(A)$
@@ -882,7 +877,7 @@ subscheme defined by the ideal $I$.
 
 
 \subsubsection{Exponentials}
-Consider $V$ a locally-free $A$ module of finite rank
+Consider $V$ a locally-free $A$-module of finite rank
 and $G = \mathrm{Spec}(B)$ a finite locally-free 
 group scheme over $S$.
 Consider the $S$-group $\underline{V} \cross_{ S } G$, whose ring is
@@ -890,14 +885,6 @@ $C \coloneqq \mathrm{Sym}(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
 to $\underline{V} \cross_{ S } G$ as pointed schemes (but not necessarily
 as group objects).
 Here we want to extend the theory of exponentials to $H$.
-
-
-%\begin{rem}[]
-%	(tk: reading chapter III of Messing I understood that we
-%	are mainly interested in $\mathrm{Lie}(U)$ and not in
-%	$\underline{\mathrm{Lie}}(U)$ in this section,
-%	though he is never explicit about it).
-%\end{rem}
 
 
 \begin{rem}[]
@@ -923,7 +910,7 @@ Here we want to extend the theory of exponentials to $H$.
 		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
 		\left( \underline{W_0}, H_0 \right)
 	\end{tikzcd}
 	\end{equation*} 
@@ -942,7 +929,7 @@ Here we want to extend the theory of exponentials to $H$.
 		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
 		%\to
-		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
 		\left( \underline{W_0}, H_0 \right)
 		\big]
 	\end{tikzcd}
@@ -950,13 +937,14 @@ Here we want to extend the theory of exponentials to $H$.
 	by setting, on sections,
 	$\exp (\theta) (x) \coloneqq \exp \left( \theta(x) \right)$.
 	More precisely we associate to $\theta\colon W \to I \cdot \mathrm{Lie}(H)$,
-	the map $\exp \theta\colon \Gamma(W) \to C^\vee$, given on sections by
+	the map $\exp (\theta)\colon \Gamma(W) \to C^\vee$, given on sections by
 	\begin{equation*}
-	\exp \theta (x) =
+		\exp (\theta) (x) =
 	\exp \left( \theta(x) \right) \coloneqq
 	\sum_{n\geq 0 } (\theta(x))^{[n]}
-	.\end{equation*}
-	Notice that, by \cref{thm:PDSymAlg}, $\exp \theta$
+	,\end{equation*}
+	for all sections $x$ of $W$.
+	Notice that, by \cref{thm:PDSymAlg}, $\exp (\theta)$
 	maps $\Gamma^+(W)$ in $I \cdot \mathrm{Lie}(H)$.
 	This last has nilpotent divided powers, hence for $N$ sufficiently
 	large, $(\theta(x))^{[n]} = 0$ for all $n \geq N$,
@@ -966,13 +954,13 @@ Here we want to extend the theory of exponentials to $H$.
 	$(C^\vee)^\vee \simeq C \to \mathrm{Sym}(W^\vee)$, which corresponds
 	to an $S$-group homomorphism $\underline{W} \to G$.
 	Then one can check that it actually sits in the desired kernel
-	following \cite[Chapter III, \S2.4, 2.6]{Messing}.
+	following \cite[Chapter III, \S2.4, \S2.6]{Messing}.
 \end{defn}
 
 
 
 \subsubsection{Prolongations}
-Let's now concentrate our efforts on lifting of homomorphisms.
+Let's now concentrate our efforts on lifting homomorphisms.
 Consider $S, S_0$ as before and
 $H$ an $S$-group given as a vector group,
 i.e. $H = \underline{V}$, where $V$ is a locally free $\mathcal{O}_{ S }$-module
@@ -1001,7 +989,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( H, G \right)
 		\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
 		\left( H_0, G_0 \right)
 		\big]
 	\end{tikzcd}
@@ -1016,7 +1004,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 
 \begin{defn}[Linearly compatible prolongations]\label{defn:LinCompProlong}
 	Let $u_0\colon H_0 \to G_0$ be a homomorphism of $S$-groups.
-	We say that two liftings $u', u''\colon H \to G$ of $u_0$
+	We say that two lifts $u', u''\colon H \to G$ of $u_0$
 	are {\em linearly compatible} iff their difference is in the image
 	of 
 	\begin{equation*}
@@ -1031,7 +1019,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 		\mathrm{Hom}_{ \mathsf{Gr}/S } 
 		\left( H, G \right)
 		\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ \mathsf{Gr}_{S_0} }
+		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
 		\left( H_0, G_0 \right)
 		\big]
 	.\end{tikzcd}
@@ -1040,7 +1028,7 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 
 
 \begin{rem}[]
-	The above is an equivalence relation on the set of liftings of $u_0$.
+	The above is an equivalence relation on the set of lifts of $u_0$.
 \end{rem}
 
 
@@ -1056,8 +1044,8 @@ Let's now study better this relation with the exponential map in the context of
 \end{tikzcd}
 \end{equation*} 
 a monomorphism with image $H_0 \subset G_0$.
-We want to study the set of liftings $H$ of $H_0$ to
-subgroups of $G$ that are flat over $S$, together with the structure
+We want to study the set of lifts of $H_0$ to
+subgroups $H$ of $G$ that are flat over $S$, together with the structure
 of locally-free module on $H$, lifting that of $H_0$.
 
 
@@ -1080,8 +1068,8 @@ of locally-free module on $H$, lifting that of $H_0$.
 \end{lem} 
 
 
-\begin{defn}[Congruent lifting]
-	Two lifting $u, u'\colon \underline{V} \to G$ of $u_0$ are said to
+\begin{defn}[Congruent lifts]
+	Two lifts $u, u'\colon \underline{V} \to G$ of $u_0$ are said to
 	be {\em congruent} iff the differ by an $\mathcal{O}_{ S }$-linear
 	automorphism of $\underline{V}$ reducing to the identity on $\underline{V_0}$.
 \end{defn}
@@ -1089,13 +1077,13 @@ of locally-free module on $H$, lifting that of $H_0$.
 
 \begin{rem}[]
 	By \cref{rem:EquivalentLiftingSolutions} it is clear that
-	two lifting of $u_0$ are congruent iff they define the same solution
+	two lifts of $u_0$ are congruent iff they define the same solution
 	$H$ to the problem of lifting subgroups of $G_0$ to subgroups of $G$.
 \end{rem}
 
 
 \begin{lem}[{\cite[Chapter III, lemma 2.7.6]{Messing}}]\label{lem:CongruentLinComp}
-	If $u$ and $u'$ are congruent lifting of $u_0$, then
+	If $u$ and $u'$ are congruent lifts of $u_0$, then
 	they are linearly compatible.
 \end{lem} 
 
@@ -1103,8 +1091,8 @@ of locally-free module on $H$, lifting that of $H_0$.
 \begin{rem}[]
 	Let's notice that this proposition allows to
 	transfer the equivalence relation, via the exponential map,
-	from lifting of $u_0$ to solutions of the problem of lifting
-	of the subgroup $H_0$.
+	from lifts of $u_0$ to solutions of the problem of lifting
+	the subgroup $H_0$.
 	In particular we can rephrase it in terms of subgroups
 	of $\mathrm{Lie}(G)$. More explicitly
 	let $\mathfrak{h} \subset \mathrm{Lie}(G)$ be a locally-free
@@ -1127,14 +1115,14 @@ of locally-free module on $H$, lifting that of $H_0$.
 Here we finally give the definition of crystalline site and, then, of
 crystal on such a site.
 This concept was introduced by A. Grothendieck, 
-who described his choice of terminlogy saying:
+who described his choice of terminology saying:
 «~{\em Un crystal possède deux propriétés caractéristiques : la rigidité, 
 et la faculté de croître, dans un voisinage approprié. 
 Il y a des cristaux de toute espèce de substance : des cristaux de soude, 
 de soufre, de modules, d'anneaux, de schémas relatifs, etc.}~»\footnote{A
 crystal has two characteristic properties: rigidity and ability to grow
 in appropriate neighbourhoods.
-There are crystals in every kind of substance: crystals of soda, of sulfur,
+There are crystals of every kind of substance: crystals of soda, of sulfur,
 of modules, of rings, of relative schemes, etc.}
 
 
@@ -1225,7 +1213,7 @@ some meaning to our objects.
 	divided powers thickenings $\left(U \hookrightarrow T, \delta\right)$ over $S$
 	with an open immersion $U \hookrightarrow X$ of $S$-schemes.
 	Morphisms in $\mathsf{Crys}(X/S)$, thanks to \cref{rem:EquivPDThickening},
-	are just morphism of $S$-schemes with divided powers.
+	are just morphisms of $S$-schemes with divided powers.
 	More explicitly, a morphism $f\colon \left(U \hookrightarrow T, \gamma\right)
 	\to \left(U' \hookrightarrow T', \delta\right)$ is given by a commutative
 	diagram
@@ -1370,17 +1358,17 @@ We can finally focus our attention to crystals and their pullback.
 	indexed by $\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$.
 
 	Moreover, given a sheaf of modules $\mathcal{M}$ on $\mathsf{Crys}(X)$,
-	the morphisms $\rho_u\colon u^{-1}\mathcal{M}_{T'} \to \mathcal{M}_T$,
+	the morphism $\rho_u\colon u^{-1}\mathcal{M}_{T'} \to \mathcal{M}_T$,
 	where $u\colon \left(U \hookrightarrow T, \delta\right) \to
 	\left(U' \hookrightarrow T', \delta'\right)$
-	is a morphism in $\mathsf{Crys}(X)$, induce a morphism
+	is a morphism in $\mathsf{Crys}(X)$, induces a morphism
 	\begin{equation}\label{eqn:SheafModulesMorphism}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\sigma_u\colon 
-		u^* \mathcal{F}_{T'}\arrow[r, "", rightarrow] &
-		\mathcal{F}_T
+		u^* \mathcal{M}_{T'}\arrow[r, "", rightarrow] &
+		\mathcal{M}_T
 	.\end{tikzcd}
 	\end{equation} 	
 \end{rem}
@@ -1440,8 +1428,7 @@ of inverse images of crystals.
 \end{rem}
 
 
-\begin{defn}[Pullback of crystals]\label{defn:PBCrystals}
-	tk: add reference to Messing and look it up on Berthelot.
+\begin{defn}[{\cite[Chapter III, \S3.8]{Messing}} Pullback of crystals]\label{defn:PBCrystals}
 	Let $X, Y \in \mathsf{Sch}_{  }$, $\varphi\colon X \to Y$ a morphism of schemes and
 	$\mathscr{F}$ a crystal of modules on $Y$.
 	Fix $U$ and $V$ as in the last remark and set

@@ -1,6 +1,7 @@
 \section{\texorpdfstring{$p$}{p}-divisible groups}
 The aim of this section is to introduce, from two different points of view,
-the notions of {\em $p$-divisible group} and of {\em formal Lie group},
+the notions of {\em formal Lie group}
+and of {\em $p$-divisible group},
 and to show how the two concepts are related to one another.
 Before doing so, though, we need to introduce a new notion, that
 of formal scheme.
@@ -15,7 +16,6 @@ be needed in what follows.
 This section is strongly inspired from 
 \cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP},
 which in turn bases itself on \cite[Chapter I, \S10]{EGA}.
-
 Let's start by recalling a few useful algebra definitions.
 
 
@@ -30,7 +30,7 @@ Let's start by recalling a few useful algebra definitions.
 	addition and scalar multiplication are both continuous, again with their sources
 	taken with the product topology.
 
-\item $R$ is {\em linearly topologized} iff $0$ has a fundamental system
+\item We say that $R$ is {\em linearly topologized} iff $0$ has a fundamental system
 	of neighbourhoods consisting of ideals.
 	Analogously $M$ is {\em linearly topologized} iff $0$ has a fundamental
 	system of neighbourhood consisting of submodules.
@@ -58,7 +58,8 @@ Let's start by recalling a few useful algebra definitions.
 	.\end{tikzcd}
 	\end{equation*}
 	Then we define the {\em completed tensor product} as the completion
-	of the tensor product, i.e.
+	of the tensor product with respect to the topology we
+	just defined, i.e$.$ as 
 	\begin{equation*}
 		M \widehat{\otimes}_R N = 
 		\varprojlim \frac{M \otimes_R N}{M_\mu \otimes_R N +
@@ -103,14 +104,14 @@ Let's start by recalling a few useful algebra definitions.
 	$\mathcal{F}(U)$ with the discrete topology.
 	For an arbitrary open $U = \cup_{i \in I} U_i$, where $U_i$ are all
 	quasi compact open, we endow $\mathcal{F}(U)$ with the
-	induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$.
+	induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$, via the inclusion
+	in the definition of sheaf, which is comes from the analogue exact sequence
+	to that in \cref{CharacterizationSheaves}.
 \end{defn}
 
 
 \begin{rem}[]
-	In the above one should verify good definition of the topology
-	and also should define how to endow $\mathcal{F}(U)$
-	with the induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$.
+	In the above one should verify good definition of the topology.
 	For questions of space we will leave these verifications to
 	\cite[\href{https://stacks.math.columbia.edu/tag/0AHY}{Section 0AHY}]{SP}
 	and \cite[Chapter I, \S10]{EGA}.
@@ -174,9 +175,9 @@ hence all of the verifications can be checked there.
 	to the structure sheaf $\mathcal{O}_{\mathrm{Spec}(A/I_\lambda)}$
 	of $\mathrm{Spec}(A/I_\lambda)$,
 	a pseudo-discrete sheaf, which we will denote by $\mathcal{O}_\lambda$.
-	One should also notice that, for all $I_\lambda$,
+	One should also notice that, since $A$ is admissible,
 	$\mathrm{Spec}(A/I_\lambda)$ has indeed the same topological space
-	of $\mathrm{Spf}(A)$.
+	as $\mathrm{Spf}(A)$ for all $I_\lambda$.
 	Moreover, for $I_\lambda \subset I_\mu$, one has an induced homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -251,7 +252,7 @@ let's also recall a couple of results with these objects.
 \begin{rem}[]
 	In this remark we will restrict to the affine case, because it will be
 	our main interest.
-	Given an admissible ring $A$, with fundamental system of
+	Given an admissible ring $A$, with fundamental system
 	of ideals $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$, then
 	we have
 	\begin{equation*}
@@ -271,10 +272,10 @@ let's also recall a couple of results with these objects.
 	Then, as we will remark again, we will fix $R$ a 
 	local admissible ring and $S \coloneqq \mathrm{Spec}(R)$.
 	Moreover we will mainly deal with formal affine schemes over $S$ which
-	are given by inductive limits of what \cite{Shatz} defines {\em very finite} schemes over $S$.
-	There, we read that an $S$-schemes $T$ is very finite if it satisfies:
+	are given by inductive limits of what Shatz defines {\em very finite} schemes over $S$.
+	There, we read that an $S$-schemes $T$ is very finite iff it satisfies:
 	\begin{enumerate}
-		\item $T$ is {\em finite} over $S$ (hence affine);
+		\item $T$ is {\em finite} over $S$ (hence affine) and
 		\item the $R$-module $\Gamma \left( T , \mathcal{O}_{ T } \right)$
 			is of finite length.
 	\end{enumerate}
@@ -308,7 +309,7 @@ of the series defining the group operation.
 
 Starting from this section we will define
 concepts both in terms of formal schemes, borrowing from \cite{Shatz},
-and in terms of {\em fppf} sheaves, borrowing from \cite{Messing}.
+and in terms of fppf sheaves, borrowing from \cite{Messing}.
 
 
 
@@ -360,7 +361,7 @@ One can generalize the results of \cref{thm:ConnectedEtaleSequenceGS} to this ne
 		G \arrow[r, "", rightarrow] &
 		G^{et} \arrow[r, "", rightarrow] &
 		1
-	\end{tikzcd}
+	,\end{tikzcd}
 	\end{equation*}
 	in which $G^0$ is a connected normal formal subgroup of $G$
 	and $G^{et}$ is an étale formal group.
@@ -423,7 +424,7 @@ the right one in our context.
 	.\end{equation*} 
 	One can also stress that these axioms are enough to grant
 	the existence of the inverse for any element of $\Gamma$,
-	hence they suffice to give $\Gamma$ a group scheme structure.
+	hence they suffice to give $\Gamma$ a formal group scheme structure.
 
 	Finally a note on the terminology and the axioms.
 	At first one can notice that we have never explicitly asked 
@@ -509,7 +510,7 @@ as usual with sheaves, will denote them by
 	$t \in \Gamma \left( T, X \right)$ such that
 	there is an fppf covering $\left\{ T_{ i } \to T \right\}_{ i \in I }$
 	of $T$ and, for each $i$, a closed subscheme $T_i'$ of $T_i$,
-	defined by an ideal whose $(k+1)$st power is $(0)$,
+	defined by an ideal whose $(k+1)$ power is $(0)$,
 	with the property that every element $\left.t\right|_{T_i'} \in \Gamma(T'_i, X)$
 	is already an element of $\Gamma(T_i', Y)$.
 \end{defn}
@@ -530,7 +531,8 @@ as usual with sheaves, will denote them by
 	the notation 
 	\begin{equation*}
 	\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{inf}^k(G)
-	.\end{equation*}
+	,\end{equation*}
+	where the limit is taken with respect to the obvious inclusion morphisms.
 \end{ntt} 
 
 
@@ -588,10 +590,9 @@ geometry to make sense of the definitions which are at the heart of this section
 	Then the sheaf $\mathcal{I}/\mathcal{I}^2$ is annihilated by $\mathcal{I}$,
 	hence it corresponds to a sheaf on $Z$.
 	This last sheaf, denoted with $\omega_i$, is called the {\em conormal
-	sheaf} of $Z$ in $X$, or the conormal sheaf of the immersion.
+	sheaf} of $Z$ in $X$, or the conormal sheaf of the immersion $i$.
 	In case we are given a pointed sheaf on $S$ $\left(X, e_X\right)$, we will denote 
-	the conormal sheaf of the immersion $e_X$ simply by
-	$\omega_X$.
+	the conormal sheaf of the immersion $e_X$ simply by $\omega_X$.
 \end{defn}
 %tk: I should prove that $S \hookrightarrow X$ is a closed immersion
 
@@ -618,7 +619,7 @@ geometry to make sense of the definitions which are at the heart of this section
 			\bigoplus_{n \geq 0} \mathrm{T}^n(\mathcal{F})
 		,\end{equation*}
 		where $\mathrm{T}^0(\mathcal{F)} \coloneqq \mathcal{O}_{ X }$,
-		$\mathrm{T}^0(\mathcal{F)} \coloneqq \mathcal{F}$ and,
+		$\mathrm{T}^1(\mathcal{F)} \coloneqq \mathcal{F}$ and,
 		for all $n \geq 2$,
 		\begin{equation*}
 			\mathrm{T}^n(\mathcal{F}) \coloneqq 
@@ -698,8 +699,8 @@ And now back to our interests.
 		as a sheaf in the fppf topology,
 		is representable for all $k \geq 0$;
 	\item $\omega_X \simeq
-		e_X^* \left( \Omega_{X/S} \right) \simeq
-		e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$
+		e_X^* \left( \Omega_{X/S}^1 \right)$
+		%\simeq e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$
 		is {\em locally free of finite type};
 	\item Denoting by $\mathrm{gr}^{\mathrm{inf}}(X)$ the unique graded $\mathcal{O}_{ S }$-algebra
 		such that $\mathrm{gr}^{\mathrm{inf}}_i(X) = \mathrm{gr}_i(\mathrm{Inf}^i(X))$,
@@ -714,6 +715,7 @@ And now back to our interests.
 		\end{equation*}
 		induced by the canonical mapping
 		$\omega_X \xrightarrow{\sim} \mathrm{gr}_1^{\mathrm{inf}}(X)$.
+		%tk: if you have time define the graded algebra better.
 \end{enumerate}
 \end{defn}
 
@@ -779,7 +781,7 @@ $S$ of characteristic $p$.
 \begin{enumerate}
 	\item $G$ is of $F$-torsion;
 	\item $G$ is $F$-divisible;
-	\item The $G[n]$ are finite and locally free $S$-group schemes.
+	\item the $G[n]$ are finite and locally free $S$-group schemes.
 \end{enumerate}
 \end{thm}
 
@@ -881,8 +883,8 @@ In fact the following proposition holds.
 		G_{v} \arrow[r, "i_v"', rightarrow] &
 		G_{v+1} \arrow[r, "p^v"', rightarrow] 
 		\arrow[u, "i_{v+1}", rightarrow] &
-		G_{v+1} \arrow[u, "i_{v+1}", rightarrow] &
-	.\end{tikzcd}
+		G_{v+1}. \arrow[u, "i_{v+1}", rightarrow] &
+	\end{tikzcd}
 	\end{equation*}
 	As a consequence $G_v$ is the kernel of $p^v$ on $G$,
 	hence $G$ is $p$-torsion (since it is $\varinjlim G_v$).
@@ -952,6 +954,8 @@ In fact the following proposition holds.
 	Finally $G = \varinjlim_{v \in \mathbb{N}} G_v$ since it is $p$-torsion.
 \end{rem}
 
+%tk: a motivating question. What should push us to lose representability in the first place?
+
 
 \begin{ex}\leavevmode\vspace{-.2\baselineskip}\label{ex:pDivGroups}
 \begin{enumerate}
@@ -968,7 +972,7 @@ In fact the following proposition holds.
 	We can form an inductive system from these objects, which defines
 	the $p$-divisible group
 	\begin{equation*}
-		\mathbb{G}_m(p) \coloneqq \varinjlim_{v \in \mathbb{N}}
+		\mu_{p^\infty} = \mathbb{G}_m(p) \coloneqq \varinjlim_{v \in \mathbb{N}}
 		\mu_{p^v}
 	,\end{equation*}
 	called the {\em $p$-divisible group of $\mathbb{G}_m$}.
@@ -976,8 +980,8 @@ In fact the following proposition holds.
 
 \item Denote by $\underline{\mathbb{Z}/p^v\mathbb{Z}}$ the base change to $R$\label{ex:Qp/Zp}
 	of the constant group scheme associated
-	to the group $\Gamma \coloneqq \mathbb{Z}/p^v\mathbb{Z}$, see \cref{ex:AffineGroupSchemesExamples}
-	\cref{ex:ConstantGroups}.
+	to the group $\Gamma \coloneqq \mathbb{Z}/p^v\mathbb{Z}$, see \cref{ex:ConstantGroups} of
+	\cref{ex:AffineGroupSchemesExamples}.
 	We can form an inductive system from these objects, defining the $p$-divisible group
 	\begin{equation*}
 	\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
@@ -1063,14 +1067,14 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 		In such case all the $G(i)$, for $1 \leq i \leq n$, are also finite and locally-free.
 
 	\item If $G(n)$ is finite and locally free, then
-		\begin{equation}
+		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
 			p^i\colon G(n) \arrow[r, "", rightarrow] &
 			G(n-i)
 		\end{tikzcd}
-		\end{equation} 
+		\end{equation*} 
 		is an epimorphism iff it is faithfully flat.
 \end{enumerate}
 \end{lem} 
@@ -1092,13 +1096,13 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	\item $G$ is $p$-divisible;
 	\item $G(1)$ is a finite, locally-free group scheme.
 \end{enumerate}
-	We denote by $\mathsf{BT}(S)$ the full subcategory of $\mathsf{Gr}/S$,
+	We denote by $\mathsf{BT}/S$ the full subcategory of $\mathsf{Gr}/S$,
 	whose objects are Barsotti-Tate groups over $S$.
 \end{defn}
 
 
 \begin{rem}[]
-	The category $\mathsf{BT}(S)$ is not abelian:
+	The category $\mathsf{BT}/S$ is not abelian:
 	it does not admit kernels.
 	In fact the kernel of the morphism $p\colon G \to G$
 	of multiplication by $p$ must be killed by $p$, hence cannot be
@@ -1121,7 +1125,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 
 
 \begin{defn}[Conormal sheaf of a Barsotti-Tate group]
-	Given a Barsotti-Tate group $G$ over a scheme $S$, where $p$ is locally nilpotent on $S$,
+	Given a Barsotti-Tate group $G$ over a scheme $S$, on which $p$ is locally nilpotent,
 	we define the conormal sheaf of $G$ by $\omega_G \coloneqq \omega_{\overline{G}}$
 	where, as above, $\overline{G} \coloneqq \varinjlim_k \mathrm{Inf}^k(G)$.
 \end{defn}
@@ -1143,7 +1147,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	Chapter II, \S3, theorem 2.1.7]{Messing} to show that
 	the two points of view define the same objects over $S = \mathrm{Spec}(R)$,
 	for an admissible local ring $R$.
-	Let's start by considering $G \in \mathsf{BT}(S)$.
+	Let's start by considering $G \in \mathsf{BT}/S$.
 	Let's denote by $i_{v,t}\colon G(v) \to G(v+t)$ the natural inclusion
 	morphisms.
 	By definition we have $G(v) = G(v+t)(v)$ for all $t \geq 1$.
@@ -1187,13 +1191,13 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 
 	Starting from a $p$-divisible group $\left( G_v, i_v \right)_{v \in \mathbb{N}}$,
 	instead, we set $G \coloneqq \varinjlim_{v \in \mathbb{N}} G_v$
-	and invoke \cref{CharactpDivGroups} to conclude that $G \in \mathsf{BT}(S)$.
+	and invoke \cref{CharactpDivGroups} to conclude that $G \in \mathsf{BT}/S$.
 \end{rem}
 
 \noindent
 %Before moving on to the concept of duality for $p$-divisible groups
-To end this section we'll state a result
-which relate the concepts introduced in the last couple of sections:
+To end this section we will state a result
+which relates the concepts introduced in the last couple of sections:
 that of formal Lie group and of $p$-divisible group.
 
 
@@ -1213,7 +1217,7 @@ that of formal Lie group and of $p$-divisible group.
 In this section we want to extend the concept of duality introduced in \cref{CartierDualityGroups}
 to $p$-divisible groups.
 We will do so in the setting of formal schemes,
-i.e. viewing a $p$-divisible group as an inductive systems of finite commutative group schemes.
+i.e$.$ viewing a $p$-divisible group as an inductive system of finite commutative group schemes.
 In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 
 
@@ -1271,7 +1275,7 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 
 
 \noindent
-It now makes sense to introduce one more concept which holds for $p$-divisible
+It now makes sense to introduce one more definition for $p$-divisible
 groups, that of dimension.
 \begin{rem}[]\label{rem:ConnectedComponentpDivGroup}
 	In the case of $p$-divisible groups over $R$, for each $v \in \mathbb{N}$, one obtains
@@ -1321,8 +1325,8 @@ groups, that of dimension.
 	Let $G$ be a $p$-divisible group over $R$
 	and $G^D$ its dual $p$-divisible group.
 	Denote by $n$ and $n^D$ their respective dimensions.
-	Then the height of the two $p$-divisible groups
-	coincide and moreover it satisfies
+	Then the heights of the two $p$-divisible groups
+	coincide and the common value satisfies
 	\begin{equation*}
 	h = n + n^D
 	.\end{equation*}
@@ -1331,6 +1335,12 @@ groups, that of dimension.
 
 
 \subsection{Tate Modules}
+In this section we will introduce the Tate module associated to a $p$-divisible group.
+This is one of the central objects which will play a role in the comparison morphism.
+In fact, as stated in the introduction, this object, in the context of
+abelian varieties, is the dual of the first étale cohomology group.
+
+Then, for this section, we will fix the following notation.
 Let $K/\mathbb{Q}_p$ be a finite extension and denote by $k \coloneqq O_K/\pi O_K$
 the residue field, where $\pi$ is a uniformizer of $K$.
 Let $L$ be the completion of an algebraic extension of $K$ and, as usual,
@@ -1342,7 +1352,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{defn}[]\label{defn:valuationBTGroup}
-	We define the group of points of $G$ with values in $O_K$ as
+	We define the group of points of $G$ with values in $O_L$ as
 	\begin{equation*}
 		G(O_L) \coloneqq \varprojlim_{i \in \mathbb{N}} G(O_L/\mathfrak{m}^iO_L)
 	,\end{equation*}
@@ -1402,7 +1412,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	To see how it acts, notice that
 	\begin{equation*}
 		T_p(G) = \varprojlim_{v \in \mathbb{N}} G_v(\overline{K}) =
-		\varprojlim_{v \in \mathbb{N}} \mathrm{Hom}_{ \mathsf{Sch}_{ O_K } } 
+		\varprojlim_{v \in \mathbb{N}} \mathrm{Hom}_{ \mathsf{Sch}/O_K } 
 		\left( \mathrm{Spec}(\overline{K}), G_v \right) \simeq
 		\varinjlim_{v \in \mathbb{N}} \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} }
 		\left( A_v, \overline{K} \right)
@@ -1412,16 +1422,16 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	\begin{equation*}
 		\left( g \cdot f \right)(x) = g \cdot f(x)
 	\end{equation*}
-	for all $g \in G$, $x \in A_v$ and $f \in \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} } 
+	for all $g \in \mathscr{G}_K$, $x \in A_v$ and $f \in \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} } 
 	\left( A_v, \overline{K}\right)$.
 \end{rem}
 
 
 \begin{prop}[]\label{AlternativeDefnTateModule}
-	Consider $G \in \mathsf{BT}(O_K)$.
+	Consider $G \in \mathsf{BT}/O_K$.
 	Then
 	\begin{equation*}
-		T_p(G) \simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) }
+		T_p(G) \simeq \mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} }
 		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \big)
 	,\end{equation*}
 	where $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
@@ -1436,12 +1446,12 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		T_p(G_0) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
 		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} {G_v}_{O_{\overline{K}}}(O_{\overline{K}})
 		\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathrm{Hom}_{ \mathsf{Gr}(O_{\overline{K}}) }
+		\mathrm{Hom}_{ \mathsf{Gr}/O_{\overline{K}} }
 		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, {G_v}_{O_{\overline{K}}} \right) \\
 		&\stackrel{3}{\simeq} 
-		\mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
+		\mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} } 
 		\bigg( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_{O_{\overline{K}}} \bigg) 
-		\simeq \mathrm{Hom}_{ \mathsf{BT}(O_{\overline{K}}) } 
+		\simeq \mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} } 
 		\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \right)
 	.\end{align*}
 	Let's explain why these isomorphisms hold.
@@ -1454,7 +1464,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 \end{proof}
 
 
-\begin{ntt}[]
+\begin{ntt}[Tate twist]
 	Let $M$ be a $\mathbb{Z}_{p}$-module, endowed with an action of $\mathscr{G}_K$.
 	Let $\chi\colon \mathscr{G}_K \to \mathbb{Z}_{p}^{\cross}$ denote the cyclotomic character,
 	i.e. the map such that for all $\zeta_{p^n} \in \overline{K}$ primitive $p^n$th roots of unity,
@@ -1523,7 +1533,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{prop}[]\label{TateModuleDuals}
-	Let $G \in \mathsf{BT}(O_K)$, then
+	Let $G \in \mathsf{BT}/O_K$, then
 	\begin{equation*}
 		T_p(G^D) \simeq T_p(G)^\vee(1)
 	.\end{equation*}
@@ -1533,12 +1543,12 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	\begin{align*}
 		T_p(G^D) &= \varprojlim_{v \in \mathbb{N}} G_v^D(\overline{K})
 		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
+		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
 		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m}_{\overline{K}} \right) \\
 		&\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
+		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
 		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}}\right)
-		\simeq \mathcal{H}\mathrm{om}_{ \mathsf{Gp}_{\overline{K}} }
+		\simeq \mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
 		\left( {G}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}} \right)\\
 		&\stackrel{3}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
 		\left( G(\overline{K}), \mathbb{G}_m(p)(\overline{K}) \right)
@@ -1560,7 +1570,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	Since the equivalence is given taking $\overline{K}$-points, the isomorphism follows.
 	For isomorphism $4$ notice that $\mathbb{G}_m(p)(\overline{K})$ consists of all
 	$p^n$th roots of unity in $\overline{K}$, on which $\mathscr{G}_K$ acts via the cyclotomic character.
-	As a ring this is isomorphic to $\mathbb{Z}_{p}$ (viewed in multiplicative notation),
+	As a group this is isomorphic to $\mathbb{Z}_{p}$ (viewed in multiplicative notation),
 	though the action of $\mathscr{G}_K$ differs, since
 	it is trivial on $\mathbb{Z}_{p}$ (being contained in $K$).
 	Then it is clear that $\mu_{p^\infty}(\overline{K}) \simeq \mathbb{Z}_{p}(1)$.
