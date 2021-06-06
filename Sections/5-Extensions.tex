@@ -1,6 +1,9 @@
 \section{The crystals associated to Barsotti-Tate groups}
 In this section we want to associate to certain Barsotti-Tate groups
 a few crystals.
+In particular, as hinted at in the introduction, we will give the definition
+of $\mathbb{D}^*$, the crystal whose aim is to generalize the Dieudonné module
+associated to a Brasotti-Tate group.
 In order to do so we need to discuss universal extensions, which will be the basis
 for the definitions of such crystals.
 
@@ -8,13 +11,15 @@ for the definitions of such crystals.
 
 \subsection{Universal extensions}
 Before studying the case of our interest, let's recall the necessary definitions
-and notations.
+and notations with regards to extensions in general.
 
 
 
 \subsubsection{Extensions}
 Here we will usually assume $\mathsf{C}$ to be in an abelian category on which
 we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
+Let's recall already \cref{rem:PropertiesGrS}, which states that $\mathsf{Gr}/S$
+satisfies the above requirements.
 
 
 \begin{defn}[Extension]
@@ -33,7 +38,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 	where $X \in \mathsf{C}$.
 	We might also denote the extension by $\zeta$.
 	Moreover, given two extensions $\zeta$ and $\zeta'$ of $A$ by $B$,
-	given by $X$ and $X'$, we say that a {\em morphism of extensions} of $A$ by $B$
+	respectively given by $X$ and $X'$, we say that a {\em morphism of extensions} of $A$ by $B$
 	is a morphism $f\colon X \to X'$ that makes the following diagram commute
 	\begin{equation*}
 	\begin{tikzcd}
@@ -81,7 +86,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 			X' \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			A' \arrow[r, "", rightarrow] 
-			\arrow[d, "", rightarrow] &
+			\arrow[d, "\gamma", rightarrow] &
 			0\\
 			(\zeta) &
 			0 \arrow[r, "", rightarrow] &
@@ -92,7 +97,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 		.\end{tikzcd}
 		\end{equation*}
 		The extension $X'$ of $A'$ by $B$
-		is called the {\em pullback} of $X$ via $A' \to A$.
+		is called the {\em pullback} of $X$ via $\gamma\colon A' \to A$.
 		Moreover, if we denote by $\zeta$ the extension
 		$X$ of $A$ by $B$, then we denote by $\zeta\gamma$
 		its pullback via $\gamma$.
@@ -106,7 +111,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 			(\zeta) &
 			0 \arrow[r, "", rightarrow] &
 			B \arrow[r, "", rightarrow] 
-			\arrow[d, "", rightarrow] &
+			\arrow[d, "\beta"', rightarrow] &
 			X \arrow[r, "", rightarrow] 
 			\arrow[d, "", rightarrow] &
 			A \arrow[r, "", rightarrow] 
@@ -121,7 +126,7 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 		.\end{tikzcd}
 		\end{equation*}
 		The extension $X'$ of $A$ by $B'$
-		is called the {\em pushout} of $X$ via $B \to B'$.
+		is called the {\em pushout} of $X$ via $\beta\colon B \to B'$.
 		Moreover, if we denote by $\zeta$ the extension
 		$X$ of $A$ by $B$, then we denote by $\beta\zeta$
 		its pushout via $\beta$.
@@ -264,8 +269,8 @@ we can compute the $\mathrm{Ext}^n_{\mathsf{C}}$ functors.
 For this section we fix $S$ a scheme and $G$ a finite locally-free $S$-group.
 For the first proposition it is not necessary, but for the rest of the section we will often
 assume that $p^N$ is zero on $S$.
-Here, thanks to \cref{rem:PropertiesGrS},
-we will apply the results of last section to $\mathsf{Gr}/S$.
+We recall that, thanks to \cref{rem:PropertiesGrS},
+we can apply the results of last section to $\mathsf{Gr}/S$.
 
 
 \begin{prop}[{\cite[Chapter IV, proposition 1.3]{Messing}}]\label{prop:ReprhM}
@@ -278,16 +283,16 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		\mathrm{Hom}_{ \mathsf{Gr}/S } \left( G, \underline{\mathcal{M}} \right)
 	\end{tikzcd}
 	\end{equation*} 
-	is represented by $\underline{\omega}_{G^\vee}$, where $G^\vee$ is
+	is represented by $\underline{\omega}_{G^D}$, where $G^D$ is
 	the Cartier dual of $G$.
 \end{prop}
 
 
 \begin{rem}[]\label{rem:ReprMorExt}
 	The proposition implies that there is
-	a homomorphism $\alpha\colon G \to \underline{\omega}_{G^\vee}$
+	a homomorphism $\alpha\colon G \to \underline{\omega}_{G^D}$
 	with the property that, for all $\beta\colon G \to \underline{\mathcal{M}}$,
-	there is a unique linear $u\colon \underline{\omega}_{G^\vee} \to \underline{\mathcal{M}}$
+	there is a unique linear $u\colon \underline{\omega}_{G^D} \to \underline{\mathcal{M}}$
 	such that $\beta = u \circ \alpha$.
 	Moreover, following {\cite[Chapter IV, remark 1.6]{Messing}},
 	one can check that the isomorphism
@@ -297,7 +302,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathrm{Hom}_{\mathsf{Gr}/S} \left( G, \underline{\mathcal{M}} \right)
 		\arrow[r, "\sim", rightarrow] &
-		\mathrm{Hom}_{\mathsf{Gr}/S} \left( \underline{\omega}_{G^\vee}, \underline{\mathcal{M}} \right)
+		\mathrm{Hom}_{\mathsf{Gr}/S} \left( \underline{\omega}_{G^D}, \underline{\mathcal{M}} \right)
 	\end{tikzcd}
 	\end{equation*} 
 	is functorial in $G$.
@@ -309,8 +314,8 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		G \arrow[r, "u", rightarrow] 
 		\arrow[d, "\alpha_G"', rightarrow] &
 		H \arrow[d, "\alpha_H", rightarrow] \\
-		\underline{\omega}_{G^\vee} \arrow[r, "", rightarrow] &
-		\underline{\omega}_{H^\vee}
+		\underline{\omega}_{G^D} \arrow[r, "", rightarrow] &
+		\underline{\omega}_{H^D}
 	.\end{tikzcd}
 	\end{equation}
 \end{rem}
@@ -450,8 +455,8 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 	This implies that $\partial$ is an isomorphism.
 	Clearly this argument is functorial in $\underline{\mathcal{M}}$.
 	Moreover, by \cref{prop:ReprhM}, we see that 
-	the source of $\partial$ is represented by $\underline{\omega}_{G(N)^\vee}$.
-	Let $\alpha\colon G(N) \to \underline{\omega}_{G(N)^\vee}$
+	the source of $\partial$ is represented by $\underline{\omega}_{G(N)^D}$.
+	Let $\alpha\colon G(N) \to \underline{\omega}_{G(N)^D}$
 	be as in \cref{rem:ReprMorExt} and define $\zeta \coloneqq \alpha\zeta'$,
 	as in the following commutative diagram
 	\begin{equation*}
@@ -467,7 +472,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		0\\
 		(\alpha\zeta') &
 		0 \arrow[r, "", rightarrow] &
-		\underline{\omega}_{G(N)^\vee} 
+		\underline{\omega}_{G(N)^D} 
 		\arrow[r, "", rightarrow] &
 		%\underline{\omega}_{G(N)^\vee} \coprod_{G(N)} G
 		E(G)
@@ -476,7 +481,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		0
 	,\end{tikzcd}
 	\end{equation*}
-	where we denoted by $E(G) \coloneqq \underline{\omega}_{G(N)^\vee} \amalg_{G(N)} G$.
+	where we denoted by $E(G) \coloneqq \underline{\omega}_{G(N)^D} \amalg_{G(N)} G$.
 	Then, by rigidity of extensions of $G$ by vector groups, i.e. 
 	\cref{lem:rigidityExt}, any extension $\xi$ of $G$ by a
 	vector group is uniquely determined by its
@@ -508,7 +513,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		\arrow[d, "", rightarrow] 
 		\arrow[r, "", rightarrow] &
 		\mathrm{Hom}_{\mathsf{Gr}/S} 
-		\big( \underline{\omega}_{G(N)^\vee}, \underline{\mathcal{M}} \big) 
+		\big( \underline{\omega}_{G(N)^D}, \underline{\mathcal{M}} \big) 
 		\arrow[d, "{\mathrm{Hom}_{\mathsf{Gr}/S} 
 		\left( \ \cdot \ , \alpha\right)}", rightarrow] 
 		\arrow[r, "\partial_2", rightarrow] &
@@ -558,8 +563,8 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 		G(N+i) \arrow[r, "p^i", rightarrow] 
 		\arrow[d, "\alpha_{G(N+i)}"', rightarrow] &
 		G(N) \arrow[d, "\alpha_{G(N)}", rightarrow] \\
-		\underline{\omega}_{G(N+i)^\vee} \arrow[r, "\sim", rightarrow] &
-		\underline{\omega}_{G(N)^\vee}
+		\underline{\omega}_{G(N+i)^D} \arrow[r, "\sim", rightarrow] &
+		\underline{\omega}_{G(N)^D}
 	.\end{tikzcd}
 	\end{equation*}
 	Here the fact that the bottom arrow is an isomorphism
@@ -572,7 +577,7 @@ we will apply the results of last section to $\mathsf{Gr}/S$.
 
 \begin{defn}[]
 	Given $S$ and $G$ as before, for $n$ sufficiently big, we define
-	$\underline{V}(G) \coloneqq \underline{\omega}_{G(n)^\vee}$ and
+	$\underline{V}(G) \coloneqq \underline{\omega}_{G(n)^D}$ and
 	$E(G) \coloneqq \underline{V}(G) \amalg_{G(n)} G$.
 	Then the extension
 	\begin{equation*}
@@ -625,7 +630,7 @@ a few results concerning this universal extension.
 	,\end{tikzcd}
 	\end{equation*}
 	of $G$ by the vector group
-	$\underline{V}(G) \coloneqq \underline{\omega}_{G^\vee}$.
+	$\underline{V}(G) \coloneqq \underline{\omega}_{G^D}$.
 \end{lem} 
 
 
@@ -699,7 +704,7 @@ Let's end with a couple of results, still with the same notation and hypothesis 
 \end{prop} 
 
 
-\begin{prop}[{\cite[Chapter IV, proposition 1.22]{Messing}}]
+\begin{prop}[{\cite[Chapter IV, proposition 1.22]{Messing}}]\label{SESDieudonneCrystalEvaluation}
 	The following sequence is exact
 	\begin{equation*}
 	\begin{tikzcd}
@@ -722,7 +727,7 @@ we start by introducing the following notation.
 
 
 \begin{ntt}
-	Let $S$ be a scheme and $\mathcal{I}$ be a quasi-coherent sheaf of
+	Let $S$ be a scheme and $\mathcal{I}$ a quasi-coherent sheaf of
 	ideals of $\mathcal{O}_{ S }$.
 	We write $\mathbb{V}(\mathcal{I})$ to denote the unique
 	closed subscheme of $S$ induced by the sheaf of ideals $\mathcal{I}$.
@@ -733,7 +738,7 @@ we start by introducing the following notation.
 
 
 \begin{rem}[]\label{rem:LocallyLiftableBTG}
-	This section follows strictly \cite[Chpater IV, \S2]{Messing},
+	This section follows \cite[Chpater IV, \S2]{Messing},
 	in which the author introduces a new notation.
 	He denotes by $\mathsf{BT}'(S_0)$ the subcategory of
 	locally infinitesimally liftable Barsotti-Tate groups, i.e. 
@@ -754,10 +759,10 @@ we start by introducing the following notation.
 
 
 \begin{thm}[{\cite[Chapter IV, theorem 2.2]{Messing}}]\label{thm:UniqueLiftingCrystals}
-	Let $S = \mathrm{Spec}(A)$ such that $p^N \cdot 1_S = 0$,
+	Let $S = \mathrm{Spec}(A)$ such that $p^N \cdot 1_S = 0$ and
 	$S_0 \coloneqq \mathbb{V}(I) \subset S$, where $I$ is
 	an ideal of $A$ with nilpotent divided powers.
-	Let $G, H \in \mathsf{BT}/S$ and consider a homomorphism
+	Consider $G, H \in \mathsf{BT}/S$ and a homomorphism
 	$u_0\colon G_0 \to H_0$ between the respective restrictions to $S_0$.
 	By \cref{prop:MorUnivExts} $u_0$ defines
 	a morphism of extensions $v_0 \coloneqq E(u_0)\colon E(G_0) \to E(H_0)$,
@@ -814,8 +819,8 @@ we start by introducing the following notation.
 	Let $G, H, K \in \mathsf{BT}/S$ as before and consider another
 	homomorphism $u_0'\colon H_0 \to K_0$, where $K_0$ again denotes
 	the restriction of $K$ to $S_0$.
-	Denote by $E_S(u_0)$ the morphism $v$ whose existence is granted in
-	\cref{thm:UniqueLiftingCrystals}.
+	Denote by $E_S(u_0)$ the morphism $v$ whose existence is granted
+	by \cref{thm:UniqueLiftingCrystals}.
 	Then $E_S(u'_0 \circ u_0) = E_S(u'_0) \circ E_S(u_0)$.
 \end{cor} 
 
@@ -845,8 +850,8 @@ we start by introducing the following notation.
 	,\end{tikzcd}
 	\end{equation*}
 	where $S_0 \hookrightarrow S$ and $S'_0 \hookrightarrow S'$ are
-	nilpotent immersion as in the statement of \cref{thm:UniqueLiftingCrystals}.
-	Write $S_0' = \mathbb{V}(J)$ and $S_0 = \mathbb{V}(I)$
+	nilpotent immersions as in the statement of \cref{thm:UniqueLiftingCrystals}.
+	Write $S_0' = \mathbb{V}(I')$ and $S_0 = \mathbb{V}(I)$
 	and assume that $S' \to S$ is a divided powers morphism.
 	Consider $G,H \in \mathsf{BT}/S$ and $u_0\colon G_0 \to H_0$ as before.
 	Then the construction of $E_S(u_0)$ is compatible with the base
@@ -864,8 +869,8 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 
 
 \begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]\label{CrystalLocalPB}
-	Let $S_0$ be a scheme with $p$ locally
-	nilpotent on it and $G \in \mathsf{BT}/S_0$.
+	Let $S_0$ be a scheme, on which $p$ is locally
+	nilpotent, and $G \in \mathsf{BT}/S_0$.
 	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(X)$,
 	it suffices to define them locally.
 	More specifically we are going to define their evaluation
@@ -911,7 +916,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 \begin{enumerate}
 \item In the above notation, we define the crystal $\mathbb{E}(G_0)$
 	by setting its value on $\left(U_0 \hookrightarrow U, \delta\right)$, as considered
-	before, to be $E(G)$ for any lifting of $\left.G_0\right|_{U_0}$.
+	before, to be $E(G)$ for any lift of $\left.G_0\right|_{U_0}$.
 
 \item In the same way we define, for any morphism $u_0\colon G_0 \to H_0$ of 
 	Barsotti-Tate groups on $S_0$, a morphism of associated crystals.
@@ -970,9 +975,9 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 		\left\{ \text{Crystals in } \mathsf{Gr}/T_0 \right\}
 	,\end{tikzcd}
 	\end{equation*}
-	where by "Crystals in $\mathsf{Gr}/S$" we mean sheaves $\mathscr{F}$ on $\mathsf{Crys}(S)$
+	where by "Crystals in $\mathsf{Gr}/S$" we mean sheaves $\mathbb{F}$ on $\mathsf{Crys}(S)$
 	which, for each $\left(U_0 \hookrightarrow U, \gamma\right) \in \mathsf{Crys}(S)$,
-	induce a sheaf $\mathscr{F}_{\left(U_0 \hookrightarrow U, \gamma\right)} \in \mathsf{Gr}/S$
+	induce a sheaf $\mathbb{F}_{\left(U_0 \hookrightarrow U, \gamma\right)} \in \mathsf{Gr}/S$
 	and are special, as in \cref{defn:SpecialQCSheavesCrys}.
 \end{rem}
 
@@ -980,7 +985,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 \begin{defn}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 \item We define the functor $\overline{\mathbb{E}}$, associating to
-	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}_{S_0}$
+	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}/S_0$
 	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	\begin{equation*}
 		\overline{\mathbb{E}}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
@@ -988,7 +993,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	.\end{equation*}
 
 \item We define the functor $\mathbb{D}$, associating to
-	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}_{S_0}$
+	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}/S_0$
 	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	\begin{equation*}
 		\mathbb{D}(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
@@ -997,7 +1002,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	.\end{equation*}
 
 \item We define the functor $\mathbb{D}^*$, associating to
-	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}_{S_0}$
+	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}/S_0$
 	setting, for any $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$
 	\begin{equation*}
 		\mathbb{D}^*(G_0)_{\left(U_0 \hookrightarrow U, \delta\right)} \coloneqq
@@ -1037,7 +1042,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 
 \subsection{Grothendieck-Messing deformation theory}
 In this section we present the main result of \cite[Chapter V]{Messing}.
-It is going to be of fundamental importance in the theory of
+It is going to be of fundamental importance in the theory of Breuil and Kisin of
 classification of Barsotti-Tate groups over $O_K$, the ring of integers
 of a local field.
 In particular this result will allow us to lift Barsotti-Tate groups 
@@ -1071,9 +1076,9 @@ a certain filtration on its associated crystal.
 	crystals on a specific object of $\mathsf{Crys}(S_0)$, given
 	by the closed immersion $S_0 \hookrightarrow S$
 	Hence we introduce the following notation.
-	Let $G_0 \in \mathsf{BT}/S_0$ and $\mathscr{F}$ a crystal on $\mathsf{Crys}(S)$,
-	we denote by $\mathscr{F}_S$ the Zariski sheaf
-	$\mathscr{F}_{\left(S_0 \hookrightarrow S, \mathcal{I}\right)}$.
+	Let $G_0 \in \mathsf{BT}/S_0$ and $\mathbb{F}$ a crystal on $\mathsf{Crys}(S)$,
+	we denote by $\mathbb{F}_S$ the Zariski sheaf
+	$\mathbb{F}_{\left(S_0 \hookrightarrow S, \mathcal{I}\right)}$.
 	In particular, for the crystals defined in the previous section, we have
 \begin{enumerate}
 	\item $\mathbb{E}(G_0)_S \coloneqq \mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
@@ -1106,7 +1111,7 @@ a certain filtration on its associated crystal.
 
 \begin{defn}[]
 	Let's fix $S_0 \hookrightarrow S$ as before.
-	We define the category $\mathsf{BF}(S_0)$ whose objects
+	We define the category $\mathsf{BF}/S_0$ whose objects
 	are pairs $(G_0, \mathrm{Fil}^1)$, where $G_0 \in \mathsf{BT}/S_0$
 	and $\mathrm{Fil}^1$ is an {\em admissible} filtration on
 	$\mathbb{D}(G_0)_S$ and whose morphisms are defined to be
@@ -1147,7 +1152,7 @@ This definition allows to state the following theorem:
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathsf{BT}/S \arrow[r, "", rightarrow] &
-		\mathsf{BF}(S_0) \\
+		\mathsf{BF}/S_0 \\
 		G \arrow[r, "", mapsto] & 
 		\left(G_0, \underline{V}(G) \hookrightarrow \underline{\mathrm{Lie}}(E(G))\right)
 	,\end{tikzcd}
@@ -1159,7 +1164,7 @@ This definition allows to state the following theorem:
 
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
-	\item Let $G_0$ be $\mathsf{BT}/S_0$.
+	\item Consider $G_0 \in \mathsf{BT}/S_0$.
 		We define a Zariski sheaf of sets on $S$, denoted by $\mathscr{L}$,
 		as follows.
 		Let $U \subset S$ be an affine open subscheme of $S$.
@@ -1192,7 +1197,7 @@ This definition allows to state the following theorem:
 		In order to check compatibility we pick $U_1$, $U_2$, $G_1$ and $G_2$
 		as above and $V \subset U_1 \cap U_2$ affine
 		with $p$ nilpotent on it.
-		Then we require that the restriction to $V$ of the two lifts,
+		Then we require that the restrictions of the two lifts to $V$,
 		which we still denote by $G_1$ and $G_2$, lie in the same equivalence class.
 		Here we can apply \cref{prop:MorUnivExts} and obtain the following
 		square
@@ -1231,8 +1236,8 @@ This definition allows to state the following theorem:
 		.\end{equation*}
 		Essentially the above, modulo checking that the quotient defines
 		a Barsotti-Tate group (verification which is carried out in
-		\cite[Chapter V, theorem 1.6]{Messing}), states that from 
-		the datum of an admissible filtration of $\mathbb{D}(G_0)_S$
+		\cite[Chapter V, theorem 1.6]{Messing}), states that, from 
+		the datum of an admissible filtration of $\mathbb{D}(G_0)_S$,
 		one can recover the global lift $G$ of $G_0$.
 		This is indeed the main idea used to construct the quasi-inverse
 		to the functor of \cref{thm:EquivCatBTS}.

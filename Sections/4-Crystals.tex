@@ -91,7 +91,7 @@ exponentials.
 	\item If $A$ is a $\mathbb{Q}$-algebra, every ideal has a unique
 		divided powers structure, given by $x^n/n! \eqqcolon \gamma_n(x)$.
 
-	\item Suppose that $\left( m-1 \right)!$ is invertible in $A$ and 
+	\item\label{PDEx:NilpotentIdeal} Suppose that $\left( m-1 \right)!$ is invertible in $A$ and 
 		$I^m = (0)$.
 		Then $I$ has a (not necessarily unique) divided powers structure, given by
 		\begin{equation*}
@@ -1168,8 +1168,8 @@ some meaning to our objects.
 	Let $U$ be a scheme. A {\em divided powers thickening} of $U$ 
 	is the datum of $\left(U \hookrightarrow T, \gamma\right)$,
 	where $U \hookrightarrow T$ is a thickening defined by a locally nilpotent
-	sheaf of ideals $\mathcal{I}$ on $\mathcal{O}_T$, 
-	with divided powers structure defined by $\gamma$.
+	sheaf of ideals $\mathcal{I}$ on $\mathcal{O}_T$ equipped
+	with a divided powers structure defined by $\gamma$.
 \end{defn}
 
 
@@ -1313,7 +1313,7 @@ some meaning to our objects.
 			\begin{equation*}
 			\begin{tikzcd}
 				u^{-1} v^{-1} \mathcal{F}_{T''} 
-				\arrow[r, "u^{-1}\rho_v", rightarrow] 
+				\arrow[r, "v^{-1}\rho_u", rightarrow] 
 				\arrow[d, "\rotatebox{90}{\(\sim\)}", rightarrow] &
 				v^{-1} \mathcal{F}_{T'} 
 				\arrow[d, "\rho_v", rightarrow] \\
@@ -1342,7 +1342,7 @@ some meaning to our objects.
 
 
 \subsubsection{Crystals}
-We can finally focus our attention to crystals and their pullback.
+We can finally focus our attention on crystals and their pullback.
 
 
 \begin{defn}[Sheaf of modules]
@@ -1357,8 +1357,8 @@ We can finally focus our attention to crystals and their pullback.
 	family $\left\{ M_T \right\}_{T}$ of $\mathcal{O}_{ T }$-modules $M_T$, 
 	indexed by $\left(U \hookrightarrow T, \delta\right) \in \mathsf{Crys}(X)$.
 
-	Moreover, given a sheaf of modules $\mathcal{M}$ on $\mathsf{Crys}(X)$,
-	the morphism $\rho_u\colon u^{-1}\mathcal{M}_{T'} \to \mathcal{M}_T$,
+	Moreover, given a sheaf of modules $M$ on $\mathsf{Crys}(X)$,
+	the morphism $\rho_u\colon u^{-1}M_{T'} \to M_T$,
 	where $u\colon \left(U \hookrightarrow T, \delta\right) \to
 	\left(U' \hookrightarrow T', \delta'\right)$
 	is a morphism in $\mathsf{Crys}(X)$, induces a morphism
@@ -1367,15 +1367,15 @@ We can finally focus our attention to crystals and their pullback.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\sigma_u\colon 
-		u^* \mathcal{M}_{T'}\arrow[r, "", rightarrow] &
-		\mathcal{M}_T
+		u^* M_{T'}\arrow[r, "", rightarrow] &
+		M_T
 	.\end{tikzcd}
 	\end{equation} 	
 \end{rem}
 
 
 \begin{defn}[]\label{defn:SpecialQCSheavesCrys}
-	We say that a sheaf of modules $\mathcal{M}$ is {\em special}
+	We say that a sheaf of modules $M$ is {\em special}
 	iff, for all morphisms in $\mathsf{Crys}(X)$,
 	the induced morphism in \cref{eqn:SheafModulesMorphism}
 	is an isomorphism.
@@ -1388,13 +1388,15 @@ We can finally focus our attention to crystals and their pullback.
 \begin{rem}[]\label{rem:specialSheavesIso}
 	Usually, when dealing with special sheaves of modules, we will omit the isomorphism
 	$\sigma_u$ and assume that there is a literal equality
-	$\mathcal{F}_{T'} = \mathcal{F}_T$.
+	$u^*\mathbb{F}_{T'} = \mathbb{F}_T$.
 \end{rem}
 
 
 \begin{defn}[Crystals of modules]
 	We say that a sheaf of modules on $\mathsf{Crys}(X)$ is 
 	a {\em crystal of modules} iff it is special.
+	Moreover, following notation of \cite{Messing}, we will
+	denote crystals using a blackboard bold typeface.
 \end{defn}
 
 
@@ -1417,9 +1419,9 @@ of inverse images of crystals.
 \begin{rem}[]
 	Since crystals are sheaves we can define one locally,
 	given that we satisfy the necessary compatibility conditions.
-	In particular, given a crystal of modules $\mathscr{F}$ on $\mathsf{Crys}(Y)$,
+	In particular, given a crystal of modules $\mathbb{F}$ on $\mathsf{Crys}(Y)$,
 	where $Y \in \mathsf{Sch}_{  }$, and a morphism of schemes
-	$\varphi\colon X \to Y$, we want to define a crystal $\varphi^* \mathscr{F}$
+	$\varphi\colon X \to Y$, we want to define a crystal $\varphi^* \mathbb{F}$
 	on $\mathsf{Crys}(X)$.
 	To do so we will concentrate only on objects $\left(U \hookrightarrow T, \delta\right)
 	\in \mathsf{Crys}(X)$ such that $U$ (hence also $T$)
@@ -1428,9 +1430,9 @@ of inverse images of crystals.
 \end{rem}
 
 
-\begin{defn}[{\cite[Chapter III, \S3.8]{Messing}} Pullback of crystals]\label{defn:PBCrystals}
+\begin{defn}[{\cite[Chapter III, \S3.8]{Messing}}, pullback of crystals]\label{defn:PBCrystals}
 	Let $X, Y \in \mathsf{Sch}_{  }$, $\varphi\colon X \to Y$ a morphism of schemes and
-	$\mathscr{F}$ a crystal of modules on $Y$.
+	$\mathbb{F}$ a crystal of modules on $Y$.
 	Fix $U$ and $V$ as in the last remark and set
 	$T = \mathrm{Spec}(A), U = \mathrm{Spec}(A/I)$
 	and $V = \mathrm{Spec}(B)$.
@@ -1468,10 +1470,10 @@ of inverse images of crystals.
 	\end{equation*}
 	where $\left(V \hookrightarrow W, \gamma\right)$ is an object of $\mathsf{Crys}(Y)$
 	and $\widetilde{\varphi}\colon T \to W$ is a morphism of divided powers schemes.
-	We finally define $\left( \varphi^* \mathscr{F} \right)_{\left(U \hookrightarrow T, \delta\right)}
-	\coloneqq \widetilde{\varphi}^* \mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)}$
+	We finally define $\left( \varphi^* \mathbb{F} \right)_{\left(U \hookrightarrow T, \delta\right)}
+	\coloneqq \widetilde{\varphi}^* \mathbb{F}_{\left(V \hookrightarrow W, \gamma\right)}$
 	and use \cref{rem:SheavesCrysX} to glue these sheaves
-	together and obtain $\varphi^* \mathscr{F}$ a crystal
+	together and obtain $\varphi^* \mathbb{F}$ a crystal
 	on $\mathsf{Crys}(X)$.
 \end{defn}
 
@@ -1479,7 +1481,7 @@ of inverse images of crystals.
 \begin{prop}[]
 	The construction carried out in \cref{defn:PBCrystals} is well defined.
 	More explicitly the definition of $\widetilde{\varphi}^* 
-	\mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)}$ does not depend
+	\mathbb{F}_{\left(V \hookrightarrow W, \gamma\right)}$ does not depend
 	on the chosen affine $V$ containing $\varphi(U)$.
 \end{prop}
 \begin{proof}
@@ -1490,8 +1492,8 @@ of inverse images of crystals.
 	Denote by $\widetilde{\varphi}'\colon T \to W'$ defined in the same
 	way as $\widetilde{\varphi}$, then we need to show
 	\begin{equation*}
-	\widetilde{\varphi}^* \mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)} =
-	\widetilde{\varphi}'^* \mathscr{F}_{\left(V' \hookrightarrow W', \gamma'\right)}
+	\widetilde{\varphi}^* \mathbb{F}_{\left(V \hookrightarrow W, \gamma\right)} =
+	\widetilde{\varphi}'^* \mathbb{F}_{\left(V' \hookrightarrow W', \gamma'\right)}
 	.\end{equation*}
 	Again we are working with sheaves, hence it suffices to
 	check equality locally.
@@ -1550,12 +1552,12 @@ of inverse images of crystals.
 	\end{equation*}
 	Then, by universal property of amalgamated coproduct, we obtain the existence
 	and uniqueness of the dashed arrows.
-	Now we can conclude, since $\mathscr{F}$ is a crystal and
+	Now we can conclude, since $\mathbb{F}$ is a crystal and
 	commutativity of the above diagrams implies
 	\begin{equation*}
-	\left.( \widetilde{\varphi}^* \mathscr{F}_{\left(V \hookrightarrow W, \gamma\right)})\right|_{T_0} =
-	\widetilde{\varphi}_0^* \mathscr{F}_{\left(V_0 \hookrightarrow W_0, \gamma_0 \right)} =
-	\left.( \widetilde{\varphi}'^* \mathscr{F}_{\left(V' \hookrightarrow W', \gamma'\right)})\right|_{T_0}
+	\left.( \widetilde{\varphi}^* \mathbb{F}_{\left(V \hookrightarrow W, \gamma\right)})\right|_{T_0} =
+	\widetilde{\varphi}_0^* \mathbb{F}_{\left(V_0 \hookrightarrow W_0, \gamma_0 \right)} =
+	\left.( \widetilde{\varphi}'^* \mathbb{F}_{\left(V' \hookrightarrow W', \gamma'\right)})\right|_{T_0}
 	.\end{equation*}
 	Then, by sheaf properties, the definition of $\widetilde{\varphi}^*$
 	does not depend on the chosen $V$.	

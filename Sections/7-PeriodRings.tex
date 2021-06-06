@@ -1,12 +1,15 @@
 \section{Comparison morphisms}
-We introduce, for this section, the following notation:
-$K$ will denote a complete discrete valuation field, 
-with perfect residue field $k$ of characteristic $p$.
-We will denote by $W \coloneqq W(k)$ the ring of Witt vectors with coefficients in $k$
+It is in this section where, finally, we will put all the pieces together to construct
+the comparison morphisms we hinted at in the introduction.
+To reach this goal we will still need to construct the ring $B_{\mathrm{cris}}$
+and give an introduction to the construction of period rings, carried out by Fontaine.
+
+As of notation, we will fix the following.
+We will denote, for this section, by $K$ a complete discrete valuation field, 
+with perfect residue field $k$ of characteristic $p$,
+by $W \coloneqq W(k)$ the ring of Witt vectors with coefficients in $k$
 and by $K_0 \coloneqq W[1/p]$ its field of fractions.
-We will denote by $\sigma$ the absolute Frobenius acting
-on $k, W$ and $K_0$.
-We fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
+We will fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
 we denote by $\overline{K}$ a fixed separable closure of $K$,
 and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
 Finally we will denote by $\mathscr{G}_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$ 
@@ -54,8 +57,8 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{defn}[$(F,G)$-regular algebra]
-	Let $F$ be a field and $G$ be a group.
-	Let $B$ be an $F$-algebra domain
+	Let $F$ be a field and $G$ a group.
+	Let $B$ be an integral $F$-algebra
 	equipped with an action of $G$ via automorphisms of $F$-algebras.
 	Denote by $C \coloneqq \mathrm{Frac}(B)$ and by $E \coloneqq B^{G}$.
 	Notice that $G$ acts on $C$ in a natural way.
@@ -69,7 +72,7 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]
-	Notice that for any $(F,G)$-regular algebra $E/F$ is a field extension.
+	Notice that, for any $(F,G)$-regular algebra, $E/F$ is a field extension.
 	Moreover if $B$ is already a field, than it is clearly $(F,G)$-regular.
 	Finally we will always be concerned with $G = \mathscr{G}_K$ and $F = \mathbb{Q}_p$,
 	so we will fix them and assume that $B$ is a $(\mathbb{Q}_p, \mathscr{G}_K)$-regular
@@ -127,7 +130,8 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{prop}[{\cite[Theorem 5.2.1]{Brinon}}]
-	The functor
+	Let's denote by $\mathsf{Vect}_f(E)$ the category of finite dimensional $E$-vector spaces.
+	Then, the functor
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -138,7 +142,6 @@ extends to $\mathbb{C}_K$ by continuity.
 		\mathbf{D}_B(V) \coloneqq \left( B \otimes_{\mathbb{Q}_p} V \right)^{\mathscr{G}_K}
 	,\end{tikzcd}
 	\end{equation*} 
-	where we denoted by $\mathsf{Vect}_f(E)$ the category of finite dimensional $E$-vector spaces,
 	is exact and faithful.
 	Moreover any subrepresentation and quotient of a $B$-admissible
 	representation is $B$-admissible.
@@ -149,7 +152,7 @@ extends to $\mathbb{C}_K$ by continuity.
 \subsection{Period rings}
 \begin{defn}[]
 	Let $A$ be an $\mathbb{F}_p$-algebra.
-	We can associate it the perfect $\mathbb{F}_p$ algebra
+	We can associate it the perfect $\mathbb{F}_p$-algebra
 	\begin{equation*}
 		R(A) \coloneqq \varprojlim_{x \mapsto x^p} A =
 		\left\{ \mathbf{x} = \left( \mathbf{x}_0, \mathbf{x}_1, \ldots \right) 
@@ -163,7 +166,7 @@ extends to $\mathbb{C}_K$ by continuity.
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 \item The above $\mathbb{F}_p$-algebra is perfect
-	since the $p$-th power map is clearly surjective by definition.
+	since the $p$th power map is clearly surjective by definition.
 	Moreover it is injective since any element $\mathbf{x} = \left( \mathbf{x}_n \right)$
 	satisfying $\mathbf{x}^p = 0$ has
 	$\mathbf{x}_{n-1} = \mathbf{x}_n^p = 0$ for all $n \geq 1$.
@@ -188,8 +191,8 @@ extends to $\mathbb{C}_K$ by continuity.
 	In particular, let's consider $\overline{k}$ a fixed separable closure of $k$.
 	Since $\overline{k}$ is already perfect, we obtain $R(\overline{k}) \simeq \overline{k}$.
 
-\item It can be shown that, given $F$ a field of characteristic $p$, then $R(F)$ is the largest
-	perfect subfield of $F$.
+\item Given $F$ a field of characteristic $p$, it can be shown that 
+	$R(F)$ is the largest perfect subfield of $F$.
 \end{enumerate}
 \end{rem}
 
@@ -269,7 +272,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	Let's now notice that $\mathscr{G}_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
 	acts naturally on $O_{\mathbb{C}_K}$, since it acts via isometries on
 	$\overline{K}$.
-	Acting via morphisms of rings, which commute with $x \mapsto x^p$,
+	Moreover, since it acts via morphisms of rings, which commute with $x \mapsto x^p$,
 	its action can be naturally extended to
 	$R = \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
 \end{rem}
@@ -321,8 +324,8 @@ extends to $\mathbb{C}_K$ by continuity.
 		\left( 1, \zeta_p, \zeta_{p^2}, \ldots \right) \in R
 	.\end{equation*}
 	The element $\boldsymbol\varepsilon$ depends on the chosen
-	compatible family.
-	Moreover any two such $\boldsymbol\varepsilon$
+	compatible family
+	and any two such $\boldsymbol\varepsilon$
 	are $\mathbb{Z}_{p}^{\cross}$-powers of each other.
 	Moreover we have
 	$\nu_R \left( \boldsymbol\varepsilon - 1 \right) = p/ (p - 1)$.
@@ -416,7 +419,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	expansion of $\left( \mathbf{r}_n \right)_{n \in \mathbb{N}}$
 	to be $\sum_{n \in \mathbb{N} }^{  } [\mathbf{r}_n^{p^{-n}}] p^n$.
 	Moreover, by compatibility of the elements in $\varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$
-	and multiplicativity of $\mathbf{r} \mapsto \mathbf{r}^{(n)}$
+	and multiplicativity of $\mathbf{r} \mapsto \mathbf{r}^{(n)}$,
 	we have that $\big( \mathbf{r}^{p^{-n}} \big)^{(0)} = \big( (\mathbf{r}^{p^{-n}})^{(n)} \big)^{p^n} =
 	\mathbf{r}^{(n)}$.
 	Hence we can compute $\theta$ also via
@@ -520,7 +523,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	\end{equation*} 
 	Finally we see that the action of the Frobenius on $W(R)[1/p]$
 	does not naturally extend to $B^+_{\mathrm{dR}}$.
-	In fact $\ker \theta_{\mathbf{Q}}$ is not stable under its action
+	In fact $\ker \theta_{\mathbf{Q}}$ is not stable under its action,
 	since $\varphi(\xi) = [\mathbf{p}^p] - p \notin \ker \theta_{\mathbf{Q}}$.
 \end{rem}
 
@@ -554,7 +557,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 		$t' = a t$.
 
 	\item $\mathscr{G}_K$ acts multiplicatively on $t$ via the cyclotomic character,
-		i.e. for all $g \in \mathscr{G}_K$
+		i.e. for all $g \in \mathscr{G}_K$ we have
 		\begin{equation*}
 		g(t) = \chi(g) t
 		.\end{equation*}
@@ -584,7 +587,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 \end{rem}
 
 
-\begin{prop}[{\cite[Theorem 4.4.13, example 5.1.3]{Brinon}}]
+\begin{prop}[{\cite[Theorem 4.4.13 and example 5.1.3]{Brinon}}]
 	$B_{\mathrm{dR}}$ is $\mathscr{G}_K$-regular
 	(being a field) and $B_{\mathrm{dR}}^{\mathscr{G}_K} = K$.
 \end{prop}
@@ -632,8 +635,8 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 		p^n \mathcal{D}_{W(R)}(\ker\theta) = A_{\mathrm{cris}}
 	.\end{tikzcd}
 	\end{equation*}
-	Since, moreover, $k \hookrightarrow R$ we obtain that $W \hookrightarrow W(R)$
-	and the above give a canonical $W$-algebra structure to $A_{\mathrm{cris}}$.
+	Since, moreover, $k \hookrightarrow R$ we obtain an injection $W \hookrightarrow W(R)$.
+	Composed with the above it gives a canonical $W$-algebra structure to $A_{\mathrm{cris}}$.
 	We then use this structure to define the $W$-algebra morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -672,7 +675,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 	the morphism $W[u] \to W(R) \subset A_{\mathrm{cris}}$
 	induces a morphism $\mathcal{D}_{W[u]}(E(u)) \to W(R)$.
 	Now we can see $W(R) \subset \mathcal{D}_{W(R)}(\ker\theta)$
-	which, combined with the above comments, induce the diagram
+	which, combined with the above comments, induces the diagram
 	\begin{equation*}
 	\begin{tikzcd}
 		\mathcal{D}_{W[u]}(E(u)) \arrow[r, "", rightarrow] 
@@ -819,7 +822,7 @@ a universal property.
 	Let's denote $J_D \coloneqq \ker\theta_D$.
 	We now need to notice that, given $d_1 \equiv d_2 \mod J_D$ in $D$,
 	then $d_1^p \equiv d_2^p \mod pJ_D$.
-	In fact, given $d_1 \equiv d_1 \mod J_D$ there is $\lambda \in J_D$
+	In fact, given $d_1 \equiv d_2 \mod J_D$ there is $\lambda \in J_D$
 	such that $d_2 = d_1 + \lambda$.
 	Then
 	\begin{equation*}
@@ -864,12 +867,12 @@ a universal property.
 	we obtain that the two sequences $\left\{ \zeta_m^{p^m} \right\}$ and
 	$\left\{ \xi_m^{p^m} \right\}$ converge to the same point,
 	which is then independent from the choice of lifts.
-	Let's recall that
+	Let's now recall that
 	\begin{equation*}
 	\theta([\mathbf{x}]) = \mathbf{x}^{(0)} =
 	\lim_{n \to \infty} \widehat{\mathbf{x}_n}^{p^n}
 	.\end{equation*}
-	We now want construct a family of lifts
+	We want to construct a family of lifts
 	$\xi_n$ such that $\xi_n \to \alpha([\mathbf{x}])$, in order
 	to show that $\alpha([\mathbf{x}]) = \rho(\mathbf{x})$.
 	We denote by $y_n \coloneqq \widehat{\mathbf{x}_n}^{p^n} \in O_{\mathbb{C}_K}$
@@ -935,7 +938,7 @@ of our desired comparison morphism.
 
 
 \begin{rem}[]\label{BaseChangeAcris}
-	Among other things \cref{PDExtendCompletion} states that
+	Among other things, \cref{PDExtendCompletion} states that
 	$A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$
 	is a divided power thickening.
 	Since we will need to compute $\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}})$
@@ -978,7 +981,7 @@ of our desired comparison morphism.
 	which we will denote by $\alpha$.
 	Since crystals are special sheaves on $\mathsf{Crys}(O_K)$,
 	as of \cref{defn:SpecialQCSheavesCrys},
-	we finally have $\alpha^{-1} \mathbb{D}^*(G)_{S \twoheadrightarrow O_K} =
+	we finally have $\alpha^* \mathbb{D}^*(G)_{S \twoheadrightarrow O_K} =
 	\mathbb{D}^*(G)_{U_0 \hookrightarrow U}$.
 	Now we can conclude since, taking valuations, we have
 	\begin{equation*}
@@ -1068,7 +1071,7 @@ of our desired comparison morphism.
 		\mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} } \left( T_p(G), A_{\mathrm{cris}} \right)
 	.\end{tikzcd}
 	\end{equation*} 
-	All in all the above allows us to define the following
+	All in all, the above allows us to define the following
 	homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1132,7 +1135,7 @@ of our desired comparison morphism.
 	character, we have an isomorphism of $\mathscr{G}_{K}$-modules $\mathbb{Z}_{p}(-1)
 	\simeq \mathbb{Z}_{p} t^{-1}$.
 	Let's recall that we denoted $t = \log([\boldsymbol\varepsilon]) \in A_{\mathrm{cris}}$.
-	Let's recalled, as defined in \cref{ExampleEltsTilt}, that we will use
+	Let's recall, as defined in \cref{ExampleEltsTilt}, that we will use
 	the notation $\boldsymbol\varepsilon^{(n)}$ to denote
 	our fixed $p^n$th root of unity $\zeta_{p^n} \in O_{\mathbb{C}_K}$,
 	Then $t \in T_p(G)$ corresponds, as shown in \cref{AlternativeDefnTateModule},
@@ -1182,7 +1185,7 @@ of our desired comparison morphism.
 	is étale, hence $\omega_{G^D} = 0$.
 	Considering $t$ as a morphism of Barsotti-Tate groups, \cref{prop:MorUnivExts}
 	grants the existence of a morphism of extensions which, when
-	evaluated at $O_{\mathbb{C}_K}$, gives rise to the following diagram
+	evaluated at $O_{\mathbb{C}_K}$, gives rise to the following commutative diagram
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -1284,12 +1287,8 @@ of our desired comparison morphism.
 		1 \otimes 1 \arrow[r, "", mapsto] & -t \otimes t^{-1}
 	.\end{tikzcd}
 	\end{equation*} 
-	Then here we clearly see that $t$ kills $\coker \rho_G$, since
+	Here we clearly see that $t$ kills $\coker \rho_G$, since
 	$\ima \rho_G = t \cdot (A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1})$.
-%	Moreover, since the action of
-%	$\mathscr{G}_{K_\infty}$ both sides is diagonal (especially it is trivial
-%	on $\mathbb{D}^*(\mathbb{G}_m(p))(S)$), we also see that $\rho_G$
-%	is $\mathscr{G}_{K_\infty}$-equivariant.
 
 	Let's now switch to the general case, in which $G \in \mathsf{BT}/O_K$
 	is arbitrary.
@@ -1310,7 +1309,7 @@ of our desired comparison morphism.
 		\mathbb{G}_m(p)_{O_{\overline{K}}}
 	\end{tikzcd}
 	\end{equation*} 
-	Now, by functoriality of the comparison morphism $\rho_G$ we obtain the commutative
+	Now, by functoriality of the comparison morphism $\rho_G$, we obtain the commutative
 	diagram
 	\begin{equation*}
 	\begin{tikzcd}[column sep=4.0em]
@@ -1369,8 +1368,8 @@ of our desired comparison morphism.
 	Now, since we imposed no restriction to the choice of $y \in T_p(G)^\vee$, 
 	commutativity of the square tells us that $t$ kills $\coker \rho_G$.
 
-	We are left to prove injectivity.
-	For the first notice that, thanks to classical Dieudonné theory
+	We are finally left to prove injectivity.
+	Notice that, thanks to classical Dieudonné theory,
 	$\mathbb{D}^*(G)(S)$ is a free $S$-module of rank $h$.
 	Then, inverting $t$ in $A_{\mathrm{cris}}$, i.e. extending scalars
 	to $B_{\mathrm{cris}}$, we obtain a surjective map
@@ -1410,6 +1409,7 @@ of our desired comparison morphism.
 	\end{equation*} 
 	This allows us to see $\rho_G$ as the restriction of an isomorphism to a subspace,
 	which grants its injectivity.
+	And we win.
 \end{proof}
 
 
@@ -1527,5 +1527,5 @@ improved upon.
 		B_{\mathrm{dR}} \otimes_{\mathbb{Z}_{p}} T_p(G)
 	\end{tikzcd}
 	\end{equation*} 
-	is an isomorphism compatible with the filtrations we just defined.
+	is an isomorphism compatible with the filtrations we have just defined.
 \end{rem}

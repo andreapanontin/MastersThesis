@@ -1,7 +1,7 @@
 \section{Classification of \texorpdfstring{$p$}{p}-divisible groups
 	over \texorpdfstring{$O_{ K }$}{the ring of integers of K}}
 In this section we will review the classification
-of $p$-divisible groups over $O_K$, of Breuil and Kisin, from \cite[Appendix A]{Kisin}.
+of $p$-divisible groups over $O_K$ of Breuil and Kisin, from \cite[Appendix A]{Kisin}.
 In fact we will introduce some technical lemmas and use them to
 generalize the classification of Barsotti-Tate groups over a perfect field
 of characteristic $p$
@@ -13,7 +13,7 @@ to that of Barsotti-Tate groups over the ring of integers of a local field.
 In order to work over a finite extension $K/\mathbb{Q}_p$ it is convenient to
 have some familiarity with the formalism of Witt vectors, so we will dedicate some 
 space to recall the basic definitions and results.
-As a typographical convention, in the following sections we will
+As a typographical convention, in the following sections, we will
 denote vectors using a boldface character.
 
 
@@ -21,25 +21,25 @@ denote vectors using a boldface character.
 	Consider $K/\mathbb{Q}_p$ a finite and unramified extension.
 	Denote by $k \coloneqq O_K/pO_K$ the residue field of $K$ and by $q \coloneqq \left| k \right|$
 	its cardinality.
-	Then there is multiplicative map $[\ \cdot \ ]\colon k \to O_K$,
-	called the Teichmüller lifting, with image $\mu_{q-1}(O_K)$
-	the $(q-1)$-st root of unity of $O_K$.
+	Then there is a multiplicative map $[\ \cdot \ ]\colon k \to O_K$,
+	called the Teichmüller lift, with image $\mu_{q-1}(O_K)$,
+	the $(q-1)$st root of unity of $O_K$.
 	In particular it is well known that any element $a \in O_K$
-	can be uniquely written in a Teichmüller expansion
+	can be uniquely written via a Teichmüller expansion
 	\begin{equation*}
 		a = \sum_{n \in \mathbb{N}} [c_n] p^n
 	,\end{equation*}
 	with $c_n \in k$ for all $n \in \mathbb{N}$.
 	The theory of Witt vectors allows the explicit computation of sums and
 	products between Teichmüller expansions, using only
-	algebraic operations of the sequences of elements of $k$.
+	algebraic operations on the sequences of elements of $k$.
 	Clearly its interest doesn't stop there, so we will highlight some 
 	other properties of the construction.
 
 	Moreover we wish to remark that the following constructions
 	can be carried out for any ring $A$, though the most interesting
 	results for us will be in case $A$ is a perfect $\mathbb{F}_p$-algebra,
-	i.e. an $\mathbb{F}_p$ algebra on which the map $x \mapsto x^p$
+	i.e. an $\mathbb{F}_p$-algebra on which the map $x \mapsto x^p$
 	is an automorphism.
 	The results we will introduce in this section
 	revolve around this assumption, but we will highlight when
@@ -47,12 +47,12 @@ denote vectors using a boldface character.
 \end{rem}
 
 
-\begin{defn}[Witt polynomials]%tk: widow
+\begin{defn}[Witt polynomials]
 	We define a family of polynomials $\left\{ w_n(\mathbf{x}) \right\}_{n \in \mathbb{N}} \subset
 	\mathbb{Z}[\mathbf{x}] = \mathbb{Z}[x_i]_{i \in \mathbb{N}}$ by
 	\begin{align*}
-		w_0(\mathbf{x}) \coloneqq w_0(x_0) &\coloneqq x_0 \\
-		w_1(\mathbf{x}) \coloneqq w_1(x_0, x_1) &\coloneqq x_0^p + px_1 \\
+		w_0(\mathbf{x}) \coloneqq w_0(x_0) &\coloneqq x_0, \\
+		w_1(\mathbf{x}) \coloneqq w_1(x_0, x_1) &\coloneqq x_0^p + px_1, \\
 				&\ \ \ \ \! \vdots \\
 		w_n(\mathbf{x}) \coloneqq w_n(x_0, \ldots, x_n) &\coloneqq
 		\sum_{ i=0 }^{ n } p^i x_i^{p^{n-i}} =
@@ -64,7 +64,7 @@ denote vectors using a boldface character.
 \begin{lem}[{\cite[Chapter II, \S6, theorem 6]{Serre}}]\label{thm:WittSumProdPolys}
 	For every $\phi \in \mathbb{Z}[x,y]$ there exists a unique sequence
 	$\left\{ \varphi_n \right\}_{n \in \mathbb{N}} \subset \mathbb{Z}[\mathbf{x}, \mathbf{y}]$,
-	where $\mathbf{x} = \left\{ x_n \right\}_{n \in \mathbb{N}}$
+	where $\mathbf{x} = \left\{ x_n \right\}_{n \in \mathbb{N}}$ and
 	$\mathbf{y} = \left\{ y_n \right\}_{n \in \mathbb{N}}$, such that,
 	for all $n \in \mathbb{N}$,
 	\begin{equation*}
@@ -91,7 +91,7 @@ denote vectors using a boldface character.
 
 
 \begin{thm}[{\cite[Chapter II, \S6, theorem 7]{Serre}}]
-	The laws of composition on $A^{\mathbb{N}}$ defined in \cref{not:WittSumProd}
+	The composition laws on $A^{\mathbb{N}}$ defined in \cref{not:WittSumProd}
 	make it into a commutative unitary ring.
 \end{thm}
 
@@ -145,7 +145,8 @@ denote vectors using a boldface character.
 	.\end{tikzcd}
 	\end{equation*} 
 	It can be easily shown that the first map, called {\em Verschiebung}
-	(German for {\em shift}), is additive, whereas the second, called {\em Frobenius},
+	(which we recall is the german word for {\em shift}), 
+	is additive, whereas the second, called {\em Frobenius},
 	is a ring homomorphism.
 \end{defn}
 
@@ -180,7 +181,7 @@ denote vectors using a boldface character.
 	This means that the $p$-adic topology of $W(A)$ corresponds
 	to its natural product topology.
 	This means that $W(A) \simeq \varprojlim_{n \in \mathbb{N}} W(A)/ (p^n)$.
-	Then, since $W(A)/ (p) \simeq A$, that $W(A)$ is a strict $p$-ring.
+	Then, since $W(A)/ (p) \simeq A$, this also means that $W(A)$ is a strict $p$-ring.
 \end{rem}
 
 
@@ -196,7 +197,7 @@ denote vectors using a boldface character.
 
 
 \begin{defn}[Teichmüller lift]
-	For a ring $A$, we can define the section to the reduction map
+	For a ring $A$, we can define the following section to the reduction map
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -352,7 +353,8 @@ its (Eisenstein) minimal polynomial.
 
 \begin{rem}[]
 	Let $T$ be a scheme and $G \in \mathsf{BT}/T$.
-	If $p = 0$ on $T$ we can pull $G$ back by the Frobenius $\varphi$ on $T$.
+	The formation of $\mathbb{D}(G)$ and $\mathbb{D}^*(G)$ is compatible with all base changes.
+	In particular, if $p = 0$ on $T$, we can pull $G$ back by the Frobenius $\varphi$ on $T$.
 	Then the relative Frobenius on $G$ gives a map $G \to \varphi^*(G)$
 	hence a map of crystals
 	\begin{equation*}
@@ -371,11 +373,11 @@ its (Eisenstein) minimal polynomial.
 	In the following we will mainly be interested in the evaluation of
 	crystals on objects.
 	In particular, given a scheme $T_0$, $G_0 \in \mathsf{BT}/T_0$ and 
-	$T_0 \hookrightarrow T \in \mathsf{Crys}(T_0)$, we will be interested
-	in $\mathbb{D}^*(G_0)_{T}(T) = \mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$,
+	$T_0 \hookrightarrow T \in \mathsf{Crys}(T_0)$, we will be interested in the
+	evaluation $\mathbb{D}^*(G_0)_{T}(T) = \mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$,
 	where $\mathbb{D}^*(G_0)_T$ is defined in \cref{CrystalAssociatedZarSheafS}
 	and its evaluation in \cref{rem:SheavesCrysX}.
-	Then we introduce the shorter notation
+	Hence we introduce the shorter
 	$\mathbb{D}^*(G_0)(T) \coloneqq \mathbb{D}^*(G_0)_T(T)$.
 	Moreover, if $T = \mathrm{Spec}(A)$ is affine, we introduce the notation
 	$\mathbb{D}^*(G)(A)$ for $\mathbb{D}^*(G)(T)$.
@@ -388,7 +390,7 @@ its (Eisenstein) minimal polynomial.
 \begin{rem}[]\label{rem:DGValuationRestriction}
 	Suppose that $T_0$ is a scheme over $W$ and that $p = 0$ on $T_0$.
 	Consider $G_0 \in \mathsf{BT}/T_0$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
-	an object on which $p$ is locally nilpotent, and $G$ a lifting of $G_0$ to $T$.
+	an object on which $p$ is locally nilpotent, and $G$ a lift of $G_0$ to $T$.
 	By construction of $\mathbb{D}^*$ we have an isomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -408,11 +410,12 @@ its (Eisenstein) minimal polynomial.
 	%In fact, in general, a nilpotent closed immersion $U_0 \hookrightarrow U$
 	%induces a morphism $\mathsf{Crys}(U/S) \to \mathsf{Crys}(U_0/S)$
 	%by base changing $T \to U$ an open immersion to $U_0$.
-	Moreover the $O_{ T }$-module $\mathbb{D}^*(G)(T)$ sits in an exact sequence
+	Moreover, recalling \cref{SESDieudonneCrystalEvaluation},
+	the $O_{ T }$-module $\mathbb{D}^*(G)(T)$ sits in an exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
-		\left( \mathrm{Lie}(G) \right)^D \arrow[r, "", rightarrow] &
+		\left( \mathrm{Lie}(G) \right)^\vee \arrow[r, "", rightarrow] &
 		\mathbb{D}^*(G)(T) \arrow[r, "", rightarrow] &
 		\mathrm{Lie}(G^D) \arrow[r, "", rightarrow] &
 		0
@@ -462,6 +465,8 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	doesn't suffice to define the crystal $\mathbb{D}^*(G)$.
 	Though, for our purpose, it is enough to define the valuation $\mathbb{D}^*(G)(A)$,
 	for which it suffices to have the crystal associated to $G_1$.
+	In particular we can notice that the crystal can be constructed for
+	$G \in \mathsf{BT}/A$ if $A$ is $p$-adically complete, as above.
 \end{rem}
 
 
@@ -472,19 +477,19 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	to lift not only a Barsotti-Tate group along a thickening with divided
 	powers, but also some additional structure, i.e.
 	a Frobenius morphism and a filtration, on the evaluation of $\mathbb{D}^*$.
-	It is, in fact, this extra structure that is going to grant
-	uniqueness for the lifts we are interested in.
+	It is, in fact, this extra structure that is going to 
+	be of vital importance in the proof.
 \end{rem}
 
 
 \begin{lem}[{\cite[Lemma A.2]{Kisin}}]\label{lem:A2Kisin}
-	Let $A \to A_0$ be a surjection of $p$-adically complete
+	Let $A \twoheadrightarrow A_0$ be a surjection of $p$-adically complete
 	and separated local $\mathbb{Z}_{p}$-algebras with residue field
 	$k$ and kernel $\mathrm{Fil}^1 A$ equipped with divided powers.
 	Suppose moreover that
 \begin{enumerate}
 	\item $A$ is $p$-torsion-free and it is equipped with an endomorphism
-		$\varphi\colon A \to A$ lifting the Frobenius on $A/pA$;
+		$\varphi\colon A \to A$ lifting the Frobenius endomorphism on $A/pA$;
 		
 	\item the following map, induced on the pullback, is surjective
 		\begin{equation*}
@@ -497,7 +502,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 		\end{equation*}
 \end{enumerate}
 	If $G \in \mathsf{BT}/A_0$ we write $\mathrm{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
-	for the preimage of $\left( \mathrm{Lie}(G) \right)^D$ inside $\mathbb{D}^*(G)(A_0)$.
+	for the preimage of $\left( \mathrm{Lie}(G) \right)^\vee$ inside $\mathbb{D}^*(G)(A_0)$.
 	Then the restriction of $\varphi\colon \mathbb{D}^*(G)(A) \to \mathbb{D}^*(G)(A)$
 	to $\mathrm{Fil}^1 \mathbb{D}^*(G)(A)$ is divisible by $p$ and the following induced map
 	is a surjection
@@ -515,7 +520,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 \begin{rem}[]\label{rem:A2Kisin}
 	Here are the main ingredients of the proof.
 \begin{enumerate}
-	\item Given an ideal with divided powers $I \triangleleft A$, then $\varphi(I) \subset pA$.
+	\item Given an ideal $I \triangleleft A$ with divided powers, then $\varphi(I) \subset pA$.
 		In fact 
 		\begin{equation*}
 			\varphi(x) = x^p = \gamma_p(x) \cdot p! \in pA
@@ -524,17 +529,17 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	\item Let $\widetilde{G}$ be a lift of $G$ to $A$, then we have
 		\begin{equation*}
 			\mathrm{Fil}^1(\mathbb{D}^*(\widetilde{G})(A)) =
-			( \mathrm{Lie} \widetilde{G} )^D +
+			( \mathrm{Lie} \widetilde{G} )^\vee +
 			\mathrm{Fil}^1A \cdot \mathbb{D}^*(\widetilde{G})(A)
 		.\end{equation*}
 		
-	\item Let $H \in \mathsf{BT}/\mathrm{Spec}(W(k)$. Denote by $H_0$ the restriction
+	\item Let $H \in \mathsf{BT}/\mathrm{Spec}(W(k))$. Denote by $H_0$ the restriction
 		of $H$ to $k$ and by $V$ the Verschiebung morphism.
 		Then $W(k) \twoheadrightarrow k$ satisfies the hypothesis of our lemma,
 		and the kernel $\mathrm{Fil}^1(W(k)) = (p)$ is equipped with divided powers.
 		Then, using the theory of Dieudonné modules, one can see that
 		\begin{equation*}
-			( \mathrm{Lie} H)^D + p \mathbb{D}^*(H)(W(k)) =
+			( \mathrm{Lie} H)^\vee + p \mathbb{D}^*(H)(W(k)) =
 			V \mathbb{D}^{*}(H)(W(k))
 		,\end{equation*}
 		i.e. that
@@ -591,7 +596,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 
 
 \begin{lem}[{\cite[Lemma A.4]{Kisin}}]\label{lem:A4Kisin}
-	Let $h\colon A \to B$ be a surjection of special rings with kernel $J$.
+	Let $h\colon A \twoheadrightarrow B$ be a surjection of special rings with kernel $J$.
 	Suppose that, for all $i \geq 1$, $\varphi^i(J) \subset p^{i + j_i} J$,
 	where $\left\{ j_i \right\}_{i \geq 1}$ is a sequence of integers
 	such that $\lim_{i \to \infty} j_i = \infty$.
@@ -612,7 +617,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 
 
 \begin{rem}[]
-	As before we will present only the main idea behind the proof.
+	As before we will only present the main idea behind the proof.
 	In this case, starting from any lift $\theta_0\colon M \to M'$
 	of $\theta_B$, we deform iteratively the map
 	\begin{equation*}
@@ -631,8 +636,11 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 \noindent
 In order to apply the above results to the proof of the main theorem of the section
 we still need some remarks and definitions.
-Let's start by defining the ring in which we will take
-our ideals with divided powers.
+Let's start by defining the ring which allows to overcome the problem of
+definition of divided powers on the maximal ideal of $O_K$
+for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
+
+
 \begin{defn}[]
 	Consider $W$ as a divided power ring, endowing the maximal ideal $(p)$
 	with the divided powers structure defined in \cref{PDex:DVR} of \cref{PDexamples}.
@@ -651,7 +659,7 @@ our ideals with divided powers.
 \begin{rem}[]\label{rem:liftFrobeniusS}
 	The ring $S$ is equipped with an endomorphism $\varphi$ lifting that on $S/pS$.
 	It is, in fact, induced by the Frobenius on $W[u]$ which acts naturally
-	on $W$ and such that $u \mapsto u^p$.
+	on $W$ and by $u \mapsto u^p$.
 	In order to lift it we use the universal property of
 	the divided powers envelope.
 	In particular we need to notice that this map sends $(E(u))$
@@ -742,7 +750,7 @@ our ideals with divided powers.
 \begin{enumerate}
 	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
 		and the quotient $M/\mathrm{Fil}^1 M$ is a free $O_{ K }$-module;
-	\item the map $1 \otimes \varphi_1\colon 
+	\item the map $\mathrm{id}_{ S } \otimes \varphi_1\colon 
 		\varphi^* \left( \mathrm{Fil}^1 M \right) \to M$
 		is surjective.
 \end{enumerate}
@@ -772,7 +780,7 @@ our ideals with divided powers.
 	in $S$ via successive approximations (essentially in the same
 	way one proves this for power series).
 	Let's start with $x$.
-	We want to prove that a certain power of $x^n$ of $x$
+	We want to prove that a certain power $x^n$ of $x$
 	is in $\mathrm{Fil}^1S$, which has divided powers,
 	from which we would deduce $x^{np} = p! \gamma_p(x^n) \in pS$.
 	Let's recall that we defined $\mathrm{Fil}^1S$ as the topological
@@ -783,7 +791,7 @@ our ideals with divided powers.
 	Then we can also notice that each term of $x^e$ is either divided by
 	a power of $u^{ep}/p$ or a power of $u^e$.
 	But $u^{ep}/p = p!/p \gamma_p(u^e) = (p-1)! \gamma_p(u^e)$.
-	This means that
+	Then this means that
 	\begin{equation*}
 		x^e \in \left( \gamma_p(u^e), u^e \right) \subset \mathrm{Fil}^1S
 	\end{equation*}
@@ -793,7 +801,7 @@ our ideals with divided powers.
 	But this is true, since $\varphi(p) = p$ on $W$, hence on $S$,
 	and $a_0 = p \cdot \alpha$, for $\alpha \in W^{\cross}$.
 	In fact this grants that $\varphi_1(a_0) = \varphi(p \alpha)/p = \varphi(\alpha)$.
-	Since $\varphi$ lifts the Frobenius on $W$, and $\alpha \in W$,
+	Since $\alpha \in W$ and $\varphi$ lifts the Frobenius on $W$,
 	which itself lifts the Frobenius on $k$, we see that the image
 	of $\alpha$ is invertible in $W/pW \simeq k$, and $\varphi(\alpha)$ too,
 	which allows us to conclude.
@@ -831,7 +839,7 @@ $p$-adically complete, separated, local $\mathbb{Z}_{p}$-algebras.
 Moreover, by definition, $\ker (W[u] \to O_K) = (E(u))$.
 Then, by construction of $S$ and completeness of $O_K$,
 we see that $\mathrm{Fil}^1 S$, the kernel of $S \twoheadrightarrow O_K$, 
-as seen in \cref{not:phi1S}, is the P.D. ideal topologically generated by $E(u)$ and is
+as seen in \cref{not:phi1S}, is the P.D. ideal topologically generated by $E(u)$ hence is
 equipped with divided powers.
 Moreover, by construction, it is clear that $S$ is $p$-torsion-free
 and, thanks to \cref{rem:liftFrobeniusS},
@@ -873,6 +881,7 @@ does not admit divided powers.
 Then the only hope to lift the classical construction is to
 proceed iteratively, reducing the above projection to a sequence of
 smaller projections, whose kernels all have nilpotent divided powers structures.
+And for this process the choice of the right ring, i.e$.$ $S$, will be crucial.
 In particular those lifting steps will make use of Grothendieck-Messing
 deformation theory to lift the Barsotti-Tate group, and of the previous
 technical lemmas to lift the structure of module in $\mathsf{BT}^{\varphi}_{/S}$
@@ -914,18 +923,18 @@ we have a ring homomorphism $S \to R_i$ given by the unique map associated to
 	u^{ej} / j!  \arrow[r, "", mapsto] & 0
 .\end{tikzcd}
 \end{equation*} 
-This map is compatible with $\varphi$ and by uniqueness also
+This map is compatible with $\varphi$ and, by uniqueness, also
 the induced map on $S$ is.
 Moreover also $O_K/ (\pi^i)$ is an $R_i$-algebra by $u \mapsto \pi$,
 seeing $W = O_{K_0} \subset O_K$.
-As one can check writing the elements of $O_K$ in Teichmüller expansion
+As one can check writing the elements of $O_K$ in Teichmüller expansion,
 the map $R_i \twoheadrightarrow O_K/ (\pi^i)$ is a surjection
 with kernel $pR_i$, which is equipped with divided powers by \cref{lem:PDFlatExtension}.
-Then, given a $p$-divisible group $G_i \in \mathsf{BT}/O_K/(\pi^i)$,
-we can consider its evaluation $\mathbb{D}^*(G_i)(R_i)$ thanks to \cref{defn:NotNilpotentEvaluation}.
+Then, given a $p$-divisible group $G_i \in \mathsf{BT}/ (O_K/ \pi^iO_K)$,
+we can consider its evaluation $\mathbb{D}^*(G_i)(R_i)$ by \cref{defn:NotNilpotentEvaluation}.
 Following the notation of \cref{lem:A2Kisin}
 we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
-the preimage of $\left( \mathrm{Lie}G_i \right)^D \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
+the preimage of $\left( \mathrm{Lie}G_i \right)^\vee \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
 in $\mathbb{D}^*(G_i)(R_i)$.
 
 We define the module $M_i \coloneqq M \otimes_S R_i$,
@@ -1003,13 +1012,15 @@ With all this in mind we can start with the lifting process.
 	compatible with Frobenius and filtrations, i.e. a morphism in $\mathsf{C}_{R_{i-1}}$.
 	We can notice that the kernel of $R_i \twoheadrightarrow O_K/ (\pi^{i-1})$
 	is $(p, u^{i-1})$ which is still equipped with divided powers.
-	In fact we simply put $\gamma_1(u^{i-1}) = u^{i-1}$ and
+	In fact, following \cref{PDEx:NilpotentIdeal} of \cref{PDexamples},
+	we simply put $\gamma_1(u^{i-1}) = u^{i-1}$ and
 	$\gamma_n(u^{i-1}) = 0$ for all $n \geq 2$,
-	since $u^{n(i-1)} \in (u^i)$.
+	since $u^{2(i-1)} = 0$ in $R_i$.
 	Then we are done invoking \cref{lem:PDExt2}.
 	Again, this means that we can compute $\mathbb{D}^*(G_{i-1})(R_i)$.
-	We have already seen that $M_i \in \mathsf{C}_{R_i}$, moreover \cref{lem:A2Kisin}
-	applied to the surjection $R_i \twoheadrightarrow O_k/ (\pi^{i-1})$ implies that
+	We have already seen that $M_i \in \mathsf{C}_{R_i}$.
+	Moreover \cref{lem:A2Kisin},
+	applied to the surjection $R_i \twoheadrightarrow O_k/ (\pi^{i-1})$, implies that
 	also $\mathbb{D}^*(G_{i-1})(R_i)$ is in $\mathsf{C}_{R_i}$.
 	Recalling \cref{rem:j_iTheoremA6} and that the isomorphism in \cref{eqn:PartialIsoCRi}
 	is a morphism in $\mathsf{C}_{R_{i-1}}$, 
@@ -1025,8 +1036,8 @@ With all this in mind we can start with the lifting process.
 	compatible with Frobenius.
 	Finally, since the kernel of $R_i \twoheadrightarrow R_{i-1}$ is nilpotent,
 	we can invoke \cref{thm:EquivCatBTS} and obtain that
-	there is a unique $G_i \in \mathsf{BT}/O_K/(\pi^i)$
-	lifting $G_{i-1}$ and such that $(\mathrm{Lie}G_i)^D \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
+	there is a unique $G_i \in \mathsf{BT}/ (O_K/\pi^iO_K)$
+	lifting $G_{i-1}$ and such that $(\mathrm{Lie}G_i)^\vee \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
 	is equal to the image of $\mathrm{Fil}^i M_i$ under the composite
 	%tk: here one should also prove that this image is locally free.
 	%I guess this is true, since we have the short exact sequence
@@ -1090,8 +1101,8 @@ With all this in mind we can start with the lifting process.
 	Here compatible means that the restriction of $G^i$ to $O_K/ (p^{i-1})$
 	is isomorphic to $G^{i-1}$.
 	Then, invoking again \cref{thm:EquivCatBTS}, we can construct this sequence by induction,
-	taking at each time the group $G^i$ determined by $(\mathrm{Lie} G^i)^D \subset
-	\mathbb{D}^*(G_e)(O_K/p^iO_K)$ given by the image of $\mathrm{Fil}^1 M$ under
+	taking at each time the group $G^i$ determined by $(\mathrm{Lie} G^i)^\vee \subset
+	\mathbb{D}^*(G_e)(O_K/p^iO_K)$, given by the image of $\mathrm{Fil}^1 M$ under
 	\begin{equation*}
 	\begin{tikzcd}
 		M \arrow[r, "\sim", rightarrow] &
@@ -1101,7 +1112,7 @@ With all this in mind we can start with the lifting process.
 	\end{equation*}
 	By functoriality of $\mathbb{D}^*(G_e)$ this gives rise to a compatible family $G^i$,
 	which in turn, by \cite[Lemma 2.4.4]{deJong}, defines $G(M) \in \mathsf{BT}/O_K$
-	such that $(\mathrm{Lie}G)^D \subset \mathbb{D}^*(G_e)(O_K)$ is
+	such that $(\mathrm{Lie}G)^\vee \subset \mathbb{D}^*(G_e)(O_K)$ is
 	equal to the image of $\mathrm{Fil}^iM$ under
 	\begin{equation*}
 	\begin{tikzcd}
@@ -1119,12 +1130,12 @@ the group $G_i(M(G))$ is isomorphic to the base change of $G$ to $O_K/ (\pi^i)$.
 Analogously, for $i \in \mathbb{N}$, uniqueness in \cref{PDExtendCompletion} grants
 that $G^i(M(G))$ is isomorphic to the base change of $G$ to $O_K/ (p^i)$.
 Then, invoking again \cite[Lemma 2.4.4]{deJong}, we can conclude that $G(M(G)) \simeq G$
-and the two functors are quasi-inverses to one another.
+and the two functors are quasi-inverses to each other.
 \end{proof}
 
 
 \noindent
-Now that we have proved this theorem let's explicit some important examples.
+Now that we have proved this theorem let's explicit some simple examples.
 These will play an important role also in what follows.
 \begin{ex}[]\label{DieudonneModulesSimpleExamples}
 	We want to compute $M(G) \coloneqq \mathbb{D}^*(G)(S)$ for
@@ -1155,7 +1166,7 @@ These will play an important role also in what follows.
 		( \mathrm{Lie} \widetilde{G} )^\vee +
 		\mathrm{Fil}^1S \cdot M(G)
 	.\end{equation*}
-	Then we now need to compute the conormal sheaves $\omega_G$ for $\mathbb{G}_m(p)$
+	Then we need to compute the conormal sheaves $\omega_G$ for $\mathbb{G}_m(p)$
 	and $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$.
 	Let's notice that, seeing $G = \varinjlim_{v \in \mathbb{N}} G_v$, we
 	obtain $\omega_G = \varprojlim_{v \in \mathbb{N}} \omega_{G_v}$.
@@ -1179,7 +1190,7 @@ These will play an important role also in what follows.
 			\mathbb{Z}
 		.\end{tikzcd}
 		\end{equation*} 
-		Then, denoting by $I$ the augmentation ideal of $A_v$,
+		Denoting by $I$ the augmentation ideal of $A_v$,
 		the sheaf $\omega_{G_v}$ is the $\mathcal{O}_{ \mathrm{Spec}(\mathbb{Z}) }$-module
 		$\mathcal{I}/\mathcal{I}^2$ associated to $I/I^2$.
 		We can reduce its computation to that of $I/I^2$.
