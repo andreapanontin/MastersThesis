@@ -362,7 +362,9 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 
 \begin{defn}[Universal extension]
 	Let $S$ be a scheme, $G \in \mathsf{BT}/S$
-	and $\underline{V}(G)$ a vector $S$-group.
+	and $\underline{V}(G)$ a vector $S$-group,
+	i.e. the fppf sheaf associated to a quasi-coherent
+	$\mathcal{O}_{ S }$-module $V(G)$, as in \cref{defn:fppfSheafAssociatedtoMod}.
 	We say that an extension $\zeta \in \mathrm{E}(G, \underline{V}(G))$, given
 	by $E(G)$, is {\em universal} iff, given any extension
 	\begin{equation*}
@@ -375,12 +377,11 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 		0
 	\end{tikzcd}
 	\end{equation*}
-	of $G$ by $\underline{\mathcal{M}}$, where $\mathcal{M}$ is a quasi-coherent
-	$\mathcal{O}_{ S }$-module,
+	of $G$ by a vector $S$-group $\underline{\mathcal{M}}$, again
+	where $\mathcal{M}$ is a quasi-coherent $\mathcal{O}_{ S }$-module,
 	there is a unique map $\varphi\colon \underline{V}(G) \to \underline{\mathcal{M}}$
-	such that $\varphi\zeta = \xi$, i.e.
-	the pushout of $E(G)$ by $\varphi$ is the given
-	extension $\xi$.
+	such that $\varphi\zeta = \xi$, i.e. the pushout of
+	$E(G)$ by $\varphi$ is the given extension $\xi$.
 \end{defn}
 
 
@@ -870,8 +871,8 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 
 \begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]\label{CrystalLocalPB}
 	Let $S_0$ be a scheme, on which $p$ is locally
-	nilpotent, and $G \in \mathsf{BT}/S_0$.
-	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(X)$,
+	nilpotent, and $G_0 \in \mathsf{BT}/S_0$.
+	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(S_0)$,
 	it suffices to define them locally.
 	More specifically we are going to define their evaluation
 	on objects $\left(U_0 \hookrightarrow U, \delta\right) \in \mathsf{Crys}(S_0)$

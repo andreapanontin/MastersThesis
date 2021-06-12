@@ -699,8 +699,8 @@ And now back to our interests.
 		as a sheaf in the fppf topology,
 		is representable for all $k \geq 0$;
 	\item $\omega_X \simeq
-		e_X^* \left( \Omega_{X/S}^1 \right)$
-		%\simeq e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$
+		e_X^* \big( \Omega_{X/S}^1 \big)
+		\simeq e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$, for any $k \in \mathbb{N}$,
 		is {\em locally free of finite type};
 	\item Denoting by $\mathrm{gr}^{\mathrm{inf}}(X)$ the unique graded $\mathcal{O}_{ S }$-algebra
 		such that $\mathrm{gr}^{\mathrm{inf}}_i(X) = \mathrm{gr}_i(\mathrm{Inf}^i(X))$,
@@ -1094,9 +1094,9 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \begin{enumerate}
 	\item $G$ is of $p$-torsion;
 	\item $G$ is $p$-divisible;
-	\item $G(1)$ is a finite, locally-free group scheme.
+	\item $G(1)$ is a finite, locally-free $S$-group.
 \end{enumerate}
-	We denote by $\mathsf{BT}/S$ the full subcategory of $\mathsf{Gr}/S$,
+	We denote by $\mathsf{BT}/S$ the full subcategory of $\mathsf{Gr}/S$
 	whose objects are Barsotti-Tate groups over $S$.
 \end{defn}
 
@@ -1110,12 +1110,19 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \end{rem}
 
 
-%\noindent
-%Let's define an important object for Barsotti-Tate groups,
-%which will be recalled in the following sections.
-%In order to do so, we need a result.
-%
-%
+\begin{rem}[{\cite[Chpater I, \S2.4.1]{Messing}}]
+	Let $f\colon S' \to S$ be an arbitrary morphism of schemes.
+	Consider $\mathsf{BT}/S$ as a subcategory of sheaves
+	of abelian groups on $\left( \mathsf{Sch}/S  \right)_{\mathrm{fppf}}$
+	and define, as in \cref{defn:localizationTopoi}, the pullback
+	functor between the appropriate categories of sheaves.
+	Then, for any $G \in \mathsf{BT}/S$, the pullback $f^* G$,
+	is a Barsotti-Tate group on $S'$.
+	Moreover we call {\em lift} of $G \in \mathsf{BT}/S'$ via $f$ any 
+	$H \in \mathsf{BT}/S$ such that $f^*H \simeq G$.
+\end{rem}
+
+
 \begin{lem}[{\cite[Chapter II, \S3, lemma 3.3.18]{Messing}}]
 	Let $p$ be locally nilpotent of $S$ and $G$ be a {\em Barsotti-Tate} group on $S$.
 	Then
@@ -1367,7 +1374,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	Let $G$ be a $p$-divisible group over $O_K$ as in \cref{defn:pDivGroupFormalSchemes}.
 	Then $G_v$ is finite and flat over $O_K$, for all $v \in \mathbb{N}$. 
 	In particular this means that it is proper over $O_K$, hence
-	that we can apply the valutative criterion of properness,
+	that we can apply the valuative criterion of properness,
 	see \cite[Chapter II, theorem 4.7]{Hartshorne}.
 	As a consequence we see that, for every $v \in \mathbb{N}$, we have
 	$G_v(L) \simeq G_v(O_L)$.
@@ -1385,7 +1392,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{defn}[Tate module]
-	To the Barsotti-Tate group $G$ we associate the group
+	To the Barsotti-Tate group $G \in \mathsf{BT}/O_K$ we associate the group
 	\begin{equation*}
 		T_p(G) \coloneqq \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
 	,\end{equation*}
@@ -1455,7 +1462,10 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \right)
 	.\end{align*}
 	Let's explain why these isomorphisms hold.
-	Isomorphism $1$ is just \cref{VCPBTGroups}.
+	Isomorphism $1$ is just 
+	the valuative criterion of properness,
+	(see \cite[Chapter II, theorem 4.7]{Hartshorne}),
+	as seen in \cref{VCPBTGroups}.
 	Isomorphism $2$ follows from the fact that $G_v$ is
 	a flat $\mathbb{Z}/p^v\mathbb{Z}$-module, by 
 	\cref{BTGroup,FlatnessDescentTrBTGroup,lem:equivCondTruncatedBTGroup}.
