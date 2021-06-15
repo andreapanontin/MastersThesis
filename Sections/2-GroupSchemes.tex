@@ -47,7 +47,7 @@ $p$-divisible groups.
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
          ,/tikz/column 3/.append style={anchor=base east}]
-			m\colon G \cross G \arrow[r, "", rightarrow] &
+			m\colon G \times G \arrow[r, "", rightarrow] &
 			G & \text{(multiplication)} \\
 			\mathrm{inv}\colon G \arrow[r, "", rightarrow] &
 			G & \text{(inverse)} \\
@@ -58,17 +58,17 @@ $p$-divisible groups.
 	where $\left\{ e \right\}$ is the terminal object in $\mathsf{Gp}$.
 	Let's write $\pi\colon G \to \left\{ e \right\}$
 	as the unique arrow to the terminal object of $\mathsf{Gp}$
-	and $\Delta\colon G \to G \cross G$ the diagonal morphism.
+	and $\Delta\colon G \to G \times G$ the diagonal morphism.
 	Then the group axioms are equivalent to
 	\begin{align}\label{eq:GroupAxioms}
-		m \circ (\mathrm{id}_{ G } \cross m) &= m \circ (m \cross \mathrm{id}_{ G }),\nonumber\\
-		m \circ (\mathrm{id}_{ G } \cross \mathrm{inv}) \circ \Delta &=
-		m \circ (\mathrm{inv} \cross \mathrm{id}_{ G }) \circ \Delta = \varepsilon \circ \pi,\\
-		m \circ (\varepsilon \cross \mathrm{id}_{ G }) &=
-		m \circ (\mathrm{id}_{ G } \cross \varepsilon) = \mathrm{id}_{ G }\nonumber
+		m \circ (\mathrm{id}_{ G } \times m) &= m \circ (m \times \mathrm{id}_{ G }),\nonumber\\
+		m \circ (\mathrm{id}_{ G } \times \mathrm{inv}) \circ \Delta &=
+		m \circ (\mathrm{inv} \times \mathrm{id}_{ G }) \circ \Delta = \varepsilon \circ \pi,\\
+		m \circ (\varepsilon \times \mathrm{id}_{ G }) &=
+		m \circ (\mathrm{id}_{ G } \times \varepsilon) = \mathrm{id}_{ G }\nonumber
 	.\end{align} 
 	Notice that in this last equality we implicitly use the isomorphisms
-	$\left\{ e \right\} \cross G \simeq G \simeq G \cross \left\{ e \right\}$.
+	$\left\{ e \right\} \times G \simeq G \simeq G \times \left\{ e \right\}$.
 \end{rem}
 
 
@@ -76,16 +76,16 @@ $p$-divisible groups.
 	Given a group scheme $G \in \mathsf{Sch}/S$, Yoneda's lemma allows to translate
 	the group structure of $G(T)$, for all $T \in \mathsf{Sch}/S$, into a group structure on $G$.
 	In fact, since the universal property of
-	fibered product gives $\left( G \cross_{ S } G \right)(T) = G(T) \cross G(T)$,
+	fibered product gives $\left( G \times_{ S } G \right)(T) = G(T) \times G(T)$,
 	one obtains that there exist unique maps
 	\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
          ,/tikz/column 1/.append style={anchor=base east}
          ,/tikz/column 2/.append style={anchor=base west}
          ,/tikz/column 3/.append style={anchor=base east}]
-			m\colon G \cross_{ S } G \arrow[r, "", rightarrow] &
+			m\colon G \times_{ S } G \arrow[r, "", rightarrow] &
 			G & \text{(multiplication)} \\
-			\phantom{\cross_S} \mathrm{inv}\colon G \arrow[r, "", rightarrow] &
+			\phantom{\times_S} \mathrm{inv}\colon G \arrow[r, "", rightarrow] &
 			G & \text{(inverse)} \\
 			\varepsilon \colon S \arrow[r, "", rightarrow] &
 			G & \text{(unit)} 
@@ -100,20 +100,20 @@ $p$-divisible groups.
 		\item Associativity of the product
 			\begin{equation*}
 			\begin{tikzcd}[column sep=4.5em]
-				G \cross_{ S } G \cross_{ S } G 
-				\arrow[r, "\mathrm{id}_{ G } \cross_S m", rightarrow] 
-				\arrow[d, "m \cross_S \mathrm{id}_{ G }"', rightarrow] &
-				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
-				G \cross_{ S } G \arrow[r, "m"', rightarrow] &
+				G \times_{ S } G \times_{ S } G 
+				\arrow[r, "\mathrm{id}_{ G } \times_S m", rightarrow] 
+				\arrow[d, "m \times_S \mathrm{id}_{ G }"', rightarrow] &
+				G \times_{ S } G \arrow[d, "m", rightarrow] \\
+				G \times_{ S } G \arrow[r, "m"', rightarrow] &
 				G.
 			\end{tikzcd}
 			\end{equation*} 
 		\item Inverse morphism 
 			\begin{equation*}
 			\begin{tikzcd}[column sep=2.7em]
-				G \cross_{ S } G
-				\arrow[rr, "\mathrm{id}_{ G } \cross_S \mathrm{inv}", rightarrow] & &
-				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
+				G \times_{ S } G
+				\arrow[rr, "\mathrm{id}_{ G } \times_S \mathrm{inv}", rightarrow] & &
+				G \times_{ S } G \arrow[d, "m", rightarrow] \\
 				G \arrow[u, "\Delta", rightarrow] 
 				\arrow[r, "\pi", rightarrow] &
 				S \arrow[r, "\varepsilon", rightarrow] & 
@@ -121,9 +121,9 @@ $p$-divisible groups.
 			\end{tikzcd}
 			\qquad
 			\begin{tikzcd}[column sep=2.7em]
-				G \cross_{ S } G
-				\arrow[rr, "\mathrm{inv} \cross_S \mathrm{id}_{ G }", rightarrow] & &
-				G \cross_{ S } G \arrow[d, "m", rightarrow] \\
+				G \times_{ S } G
+				\arrow[rr, "\mathrm{inv} \times_S \mathrm{id}_{ G }", rightarrow] & &
+				G \times_{ S } G \arrow[d, "m", rightarrow] \\
 				G \arrow[u, "\Delta", rightarrow] 
 				\arrow[r, "\pi", rightarrow] &
 				S \arrow[r, "\varepsilon", rightarrow] & 
@@ -132,21 +132,21 @@ $p$-divisible groups.
 			\end{equation*} 
 		\item Identity element (again, as with groups, in the following diagrams
 			we use the isomorphisms
-			$S \cross_{ S } G \simeq G \simeq G \cross_{ S } S$)
+			$S \times_{ S } G \simeq G \simeq G \times_{ S } S$)
 			\begin{equation*}
 			\begin{tikzcd}
-				G \cross_{ S } G \arrow[r, "m", rightarrow] &
+				G \times_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
-				S \cross_{ S } G \arrow[r, "\sim", rightarrow] 
-				\arrow[u, "\varepsilon \cross_S \mathrm{id}_{ G }", rightarrow] &
+				S \times_{ S } G \arrow[r, "\sim", rightarrow] 
+				\arrow[u, "\varepsilon \times_S \mathrm{id}_{ G }", rightarrow] &
 				G \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
 			\end{tikzcd}
 			\qquad
 			\begin{tikzcd}
-				G \cross_{ S } G \arrow[r, "m", rightarrow] &
+				G \times_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
-				G \cross_{ S } S \arrow[r, "\sim", rightarrow] 
-				\arrow[u, "\mathrm{id}_{ G } \cross_S \varepsilon", rightarrow] &
+				G \times_{ S } S \arrow[r, "\sim", rightarrow] 
+				\arrow[u, "\mathrm{id}_{ G } \times_S \varepsilon", rightarrow] &
 				G. \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
 			\end{tikzcd}
 			\end{equation*} 
@@ -161,9 +161,9 @@ $p$-divisible groups.
 	this is equivalent to asking that the following diagram commutes
 	\begin{equation*}
 	\begin{tikzcd}
-		G \cross_S G \arrow[rr, "{ \left(\mathrm{pr}_2, \mathrm{pr}_1\right)}", rightarrow] 
+		G \times_S G \arrow[rr, "{ \left(\mathrm{pr}_2, \mathrm{pr}_1\right)}", rightarrow] 
 		\arrow[rd, "m"', rightarrow] & &
-		G \cross_{ S } G
+		G \times_{ S } G
 		\arrow[ld, "m", rightarrow] \\
 					     &
 		G
@@ -249,7 +249,7 @@ $p$-divisible groups.
 			G \arrow[r, "\alpha", rightarrow] &
 			G'
 		\end{tikzcd} \Bigg)
-		= G \cross_{G'} 0
+		= G \times_{G'} 0
 	.\end{equation*}
 	In the case of $\mathsf{Sch}/S$ we can construct fibered products.
 	In particular we have the zero object $S$, with unique morphism
@@ -257,7 +257,7 @@ $p$-divisible groups.
 	Then the following gives rise to a kernel for $\alpha$
 	\begin{equation*}
 	\begin{tikzcd}
-		G \cross_{ G' } S \arrow[r, "i", rightarrow] &
+		G \times_{ G' } S \arrow[r, "i", rightarrow] &
 		G,
 	\end{tikzcd}
 	\end{equation*} 
@@ -302,7 +302,7 @@ will translate into properties for these new morphisms.
 
 Recall that the structural morphism $\pi\colon G \to S$ corresponds to a
 morphism $R \to A$ making $A$ into an $R$-algebra.
-Moreover the diagonal morphism $\Delta\colon G \to G \cross_{ S } G$ corresponds
+Moreover the diagonal morphism $\Delta\colon G \to G \times_{ S } G$ corresponds
 to the multiplication morphism of the $R$-algebra $A$:
 \begin{equation*}
 \begin{tikzcd}[row sep = 0ex
@@ -451,9 +451,9 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 		$[X:S] = [X:Y] [Y:S]$ as functions on $Y$.
 		
 	\item If $[X_i:S] = n_i$ for $i=1,2$, then
-		$[X_1 \cross_{ S } X_2 : S] = n_1n_2$.
+		$[X_1 \times_{ S } X_2 : S] = n_1n_2$.
 
-	\item If $[X:S] = n$, then $[X \cross_{ S } T : T] = n$
+	\item If $[X:S] = n$, then $[X \times_{ S } T : T] = n$
 		for all $T \in \mathsf{Sch}_{ T }$.
 \end{enumerate}
 \end{prop}
@@ -465,17 +465,17 @@ multiplication in an $S$-group and comultiplication in its associated Hopf algeb
 $R$, for $S = \mathrm{Spec}(R)$.
 \begin{rem}\label{rem:ExplicitComult}
 	Yoneda tells us that the multiplication map 
-	$m\colon G \cross G \to G$ can be expressed
+	$m\colon G \times G \to G$ can be expressed
 	as the product $\mathrm{pr}_1 \mathrm{pr}_2$
 	of the two projection morphisms, using the group law
-	on $G(G \cross G)$.
+	on $G(G \times G)$.
 	Then, in the case of affine schemes $S = \mathrm{Spec}(R)$
 	and $G = \mathrm{Spec}(A)$, one can translate the above to the corresponding
 	Hopf algebra morphism, using the equivalence of categories.
 	More explicitly one can describe the comultiplication map
 	$\widetilde{m}$ as the product in 
 	$\mathrm{Hom}_{R\text{-}\mathsf{Alg}} \left( A, A \otimes_R A \right)$ 
-	(which has the same group structure as $G(G \cross G)$)
+	(which has the same group structure as $G(G \times G)$)
 	of the embedding morphisms
 	\begin{equation*}
 	\begin{tikzcd}
@@ -551,17 +551,17 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				,/tikz/column 1/.append style={anchor=base east}
 				,/tikz/column 2/.append style={anchor=base west}]
 				X \arrow[r, "", mapsto] & 
-				\Gamma \left( X , \mathcal{O}_{ X } \right)^{\cross}
+				\Gamma \left( X , \mathcal{O}_{ X } \right)^{\times}
 			,\end{tikzcd}
 			\end{equation*} 
-			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)^{\cross}$ is viewed
+			in which $\Gamma \left( X , \mathcal{O}_{ X } \right)^{\times}$ is viewed
 			as a multiplicative group.
 			In fact one checks that
 			\begin{equation*}
 			\mathrm{Hom}_{\mathsf{Sch}/S} \left( X, G \right) \simeq
 			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
 			\left( R[x, x^{-1}], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
-			\Gamma \left( X , \mathcal{O}_{ X } \right)^{\cross}
+			\Gamma \left( X , \mathcal{O}_{ X } \right)^{\times}
 			,\end{equation*} 
 			functorially in $X$.
 			Then, reasoning as before, one obtains
@@ -594,7 +594,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			for $I$ the identity matrix.
 			It acts on $R$-schemes by associating to
 			$X \in \mathsf{Sch}/S$ the multiplicative group
-			$\mathrm{GL}_n(X)$ of invertible $n \cross n$
+			$\mathrm{GL}_n(X)$ of invertible $n \times n$
 			matrices with coefficients in $\Gamma \left( X , \mathcal{O}_{ X } \right)$.
 			Let's recall that, in $\mathrm{GL}_n(X)$, the product
 			$\left( x_{i,j} \right)_{i,j = 1}^n \cdot 
@@ -653,7 +653,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			\begin{equation*}
 				\left( D(X) \right)(G) \coloneqq
 				\mathrm{Hom}_{R \text{-Alg}} \left( R[X], A \right) \simeq
-				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^{\cross} \right)
+				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^{\times} \right)
 			,\end{equation*} 
 			where the last hom set has a natural structure of abelian
 			group.
@@ -717,7 +717,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 \begin{rem}[Base change]\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
 \item 	Let $U, T \in \mathsf{Sch}/S$ be two $S$-schemes.
-	We use the notation $U_T$ for the base change $U \cross_{ S } T$.
+	We use the notation $U_T$ for the base change $U \times_{ S } T$.
 	It is important to notice that, for $V \in \mathsf{Sch}_{ T }$, we 
 	have $U_T(V) = U(V)$, where in the last expression
 	we considered $V$ as an $S$ scheme, by $V \to T \to S$.
@@ -751,20 +751,20 @@ is a locally Noetherian scheme.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		a\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
+		a\colon X \times_{ S } H \arrow[r, "", rightarrow] &
 		X
 	\end{tikzcd}
 	\end{equation*} 
 	such that, for all $T \in \mathsf{Sch}/S$, the induced map
-	$X(T) \cross H(T) \to  X(T)$ is a right action of the
+	$X(T) \times H(T) \to  X(T)$ is a right action of the
 	group $H(T)$ on the set $X(T)$.
 	We say that the action is {\em strictly free} iff the morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		(\mathrm{pr}_1, a)\colon X \cross_{ S } H \arrow[r, "", rightarrow] &
-		X \cross_{ S } X
+		(\mathrm{pr}_1, a)\colon X \times_{ S } H \arrow[r, "", rightarrow] &
+		X \times_{ S } X
 	\end{tikzcd}
 	\end{equation*} 
 	is a closed immersion.
@@ -801,7 +801,7 @@ As promised we obtain the following result for group schemes.
 \begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{thm:QuotientGroupScheme}
 	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
 	subgroup scheme.
-	Define the action $a\colon G \cross_{ S } H \to G$ as the restriction of the
+	Define the action $a\colon G \times_{ S } H \to G$ as the restriction of the
 	group law $m$ on $G$.
 	Then $G/H$ is the scheme of {\em left cosets} of $H$ in $G$.
 
@@ -866,11 +866,11 @@ separable algebras, so here are a few interesting results for the latter:
 	The following are equivalent:
 \begin{enumerate}
 	\item $A \otimes_k \overline{k}$ is reduced.
-	\item $A \otimes_k \overline{k} \simeq \overline{k} \cross \cdots \cross \overline{k}$.
+	\item $A \otimes_k \overline{k} \simeq \overline{k} \times \cdots \times \overline{k}$.
 	\item The number of $k$-algebra homomorphisms $A \to  \overline{k}$
 		equals the dimension of $A$ over $k$.
 	\item $A$ is a product of separable field extensions of $k$.
-	\item $A \otimes_k k^s \simeq k^s \cross \cdots \cross k^s$.
+	\item $A \otimes_k k^s \simeq k^s \times \cdots \times k^s$.
 \end{enumerate}
 If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \begin{enumerate}[resume]
@@ -939,7 +939,7 @@ In fact we can use this characterization in our context thanks to
 	Let $f\colon X \to S$ be a morphism of schemes.
 	Assume, moreover, that $f$ is flat, locally of finite presentation and that,
 	for all $s \in S$, the fiber $X_s \coloneqq 
-	X \cross_{\mathrm{Spec}(\kappa(s))} \mathrm{Spec}(\kappa(s))$
+	X \times_{\mathrm{Spec}(\kappa(s))} \mathrm{Spec}(\kappa(s))$
 	is a disjoint union of finite separable extensions of $\kappa(s)$.
 	Then $f$ is étale.
 \end{lem} 
@@ -1248,7 +1248,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	We will denote by $X^{(p)}$ the fibered product
 	\begin{equation}
 	\begin{tikzcd}
-		X^{(p)} \coloneqq X \cross_{ R } \mathrm{Spec}(R) \arrow[r, "", rightarrow] 
+		X^{(p)} \coloneqq X \times_{ R } \mathrm{Spec}(R) \arrow[r, "", rightarrow] 
 		\arrow[d, "", rightarrow] &
 		X \arrow[d, "", rightarrow] \\
 		\mathrm{Spec}(R) \arrow[r, "\varphi_R"', rightarrow] &
@@ -1300,7 +1300,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		f^{(p)} \coloneqq f \cross \mathrm{id}_{ R }\colon 
+		f^{(p)} \coloneqq f \times \mathrm{id}_{ R }\colon 
 		X^{(p)} \arrow[r, "", rightarrow] &
 		Y^{(p)}
 	.\end{tikzcd}

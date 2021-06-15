@@ -36,9 +36,9 @@ intersections with fibered products.
 			is a covering.
 		\item Given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 			of $U$ and a morphism $V \to U$, then the fibered products
-			$\left\{ U_i \cross_{ U } V \right\}_{i \in I}$ exist
+			$\left\{ U_i \times_{ U } V \right\}_{i \in I}$ exist
 			and the set of projections
-			$\left\{ U_i \cross_{ U } V \to V \right\}_{ i \in I }$
+			$\left\{ U_i \times_{ U } V \to V \right\}_{ i \in I }$
 			is a covering of $V$.
 		\item Given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 			and, for each index $i \in I$, a covering 
@@ -55,7 +55,7 @@ intersections with fibered products.
 	From properties $2$ and $3$ above it follows that, given 
 	two coverings of the same object $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 	and $\left\{ V_{ i } \to U \right\}_{ j \in J }$, also
-	$\left\{ U_{ i } \cross_U V_j \to U \right\}_{ (i,j) \in I \cross J }$
+	$\left\{ U_{ i } \times_U V_j \to U \right\}_{ (i,j) \in I \times J }$
 	is a covering of $U$.
 \end{rem}
 
@@ -84,7 +84,7 @@ Let's now give some examples.
 		Recalling that, given two open subsets
 		$U_1 \hookrightarrow  U$ and $U_2 \hookrightarrow  U$, 
 		their fibered product is just their intersection, i.e. 
-		$U_1 \cross_{ U } U_2 = U_1 \cap U_2$,
+		$U_1 \times_{ U } U_2 = U_1 \cap U_2$,
 		one easily checks that this defines a pretopology on $\mathsf{Op}(X)$.
 
 
@@ -244,11 +244,11 @@ Then the introduction of pretopologies allows one to define sheaves on sites.
 		$a_i \in F(U_i)$.
 		Denote by 
 		\begin{equation*}
-		\mathrm{pr}^{i_1,i_2}_k\colon U_{i_1} \cross_{ U } U_{i_2} \to U_{i_k}
+		\mathrm{pr}^{i_1,i_2}_k\colon U_{i_1} \times_{ U } U_{i_2} \to U_{i_k}
 		\end{equation*} 
 		the projection on the $k$-th component.
 		Assume that $(\mathrm{pr}^{i,j}_1)^* a_i = 
-		(\mathrm{pr}^{i,j}_2)^* a_j \in F( U_i \cross_{ U } U_j )$
+		(\mathrm{pr}^{i,j}_2)^* a_j \in F( U_i \times_{ U } U_j )$
 		for all $i, j$, then there exists a unique section $a \in F(U)$
 		whose pullback to $F(U_i)$ is $a_i$ for all $i \in I$.
 \end{enumerate}
@@ -271,16 +271,16 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathrm{pr}_1^*\colon \prod_{i \in I} F(U_i) \arrow[r, "", rightarrow] &
-		\prod_{i,j \in I \cross I} F( U_i \cross_{ U } U_j )
+		\prod_{i,j \in I \times I} F( U_i \times_{ U } U_j )
 	\end{tikzcd}
 	\end{equation*} 
 	as the map sending $(a_i) \in \Pi_i F(U_i)$ to
-	$\mathrm{pr}_1^*(a_i) \in \Pi_{i,j} F( U_i \cross_{ U } U_j )$,
-	whose component in $F( U_i \cross_{ U } U_j )$ is given by $\mathrm{pr}_1^{i,j*}(a_i)$,
-	where $\mathrm{pr}^{i,j}_1\colon U_i \cross_{ U } U_j \to U_i$ is the projection on the first
+	$\mathrm{pr}_1^*(a_i) \in \Pi_{i,j} F( U_i \times_{ U } U_j )$,
+	whose component in $F( U_i \times_{ U } U_j )$ is given by $\mathrm{pr}_1^{i,j*}(a_i)$,
+	where $\mathrm{pr}^{i,j}_1\colon U_i \times_{ U } U_j \to U_i$ is the projection on the first
 	component.
 	Analogously we define a morphism $\mathrm{pr}_2^*\colon \Pi_i F(U_i) \to 
-	\Pi_{i,j} F( U_i \cross_{ U } U_j )$.
+	\Pi_{i,j} F( U_i \times_{ U } U_j )$.
 	Then the presheaf $F$ is a sheaf iff, for all $U \in \mathsf{C}$ and all coverings
 	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ in $\mathsf{C}$,
 	the following diagram is an equalizer:
@@ -291,7 +291,7 @@ Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
 		\prod_{i \in I} F(U_i) 
 		\arrow[r, "\mathrm{pr}_1^*", rightarrow, shift left = 0.5ex] 
 		\arrow[r, "\mathrm{pr}_2^*"', rightarrow, shift right = 0.5ex] &
-		\prod_{i,j \in I \cross I} F( U_i \cross_{ U } U_j )
+		\prod_{i,j \in I \times I} F( U_i \times_{ U } U_j )
 	.\end{tikzcd}
 	\end{equation*}
 \end{rem}
@@ -438,6 +438,6 @@ of fibered product in the representable case.
 		where $T/S'$ means that we view $T$ as an element of $\mathsf{Sch}/S'$
 		via $g$;
 	\item if $F'$ is representable by $X' \in \mathsf{Sch}/S'$,
-		then $j^*F'$ is representable by $X'_S \coloneqq X' \cross_{ S' } S$.
+		then $j^*F'$ is representable by $X'_S \coloneqq X' \times_{ S' } S$.
 \end{enumerate}
 \end{lem} 

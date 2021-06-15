@@ -355,8 +355,8 @@ inverse maps, of which we will construct some generalizations later on.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\exp\colon I \arrow[r, "", rightarrow] &
-		\left( 1 + I \right)^{\cross}\\
-		\log\colon \left( 1 + I \right)^{\cross} \arrow[r, "", rightarrow] &
+		\left( 1 + I \right)^{\times}\\
+		\log\colon \left( 1 + I \right)^{\times} \arrow[r, "", rightarrow] &
 		I
 	,\end{tikzcd}
 	\end{equation*} 
@@ -900,16 +900,16 @@ subscheme defined by the ideal $I$.
 Consider $V$ a locally-free $A$-module of finite rank
 and $G = \mathrm{Spec}(B)$ a finite locally-free 
 group scheme over $S$.
-Consider the $S$-group $\underline{V} \cross_{ S } G$, whose ring is
+Consider the $S$-group $\underline{V} \times_{ S } G$, whose ring is
 $C \coloneqq \mathrm{Sym}(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
-to $\underline{V} \cross_{ S } G$ as pointed schemes (but not necessarily
+to $\underline{V} \times_{ S } G$ as pointed schemes (but not necessarily
 as group objects).
 Here we want to extend the theory of exponentials to $H$.
 
 
 \begin{rem}[]
-	Since $\underline{V} \cross_{ S } G$ is isomorphic to $H$ as pointed
-	schemes, we have $\omega_H \simeq \omega_{\underline{V} \cross_S G}$, free of finite type,
+	Since $\underline{V} \times_{ S } G$ is isomorphic to $H$ as pointed
+	schemes, we have $\omega_H \simeq \omega_{\underline{V} \times_S G}$, free of finite type,
 	which implies that $\mathrm{Lie}(H)$ is also locally-free.
 \end{rem}
 
@@ -1424,7 +1424,7 @@ We can finally focus our attention on crystals and their pullback.
 	This is just a special case of a more general notion 
 	of $\mathsf{C}$-crystal, where $\mathsf{C}$ is a category fibered over $\mathsf{Sch}_{  }$.
 	In fact, given $\mathsf{C}$, one defines $\mathsf{C}$-crystals as cartesian
-	sections of the fibered category $\mathsf{C} \cross_{ \mathsf{Sch}_{  } } \mathsf{Crys}(X)$,
+	sections of the fibered category $\mathsf{C} \times_{ \mathsf{Sch}_{  } } \mathsf{Crys}(X)$,
 	where $\mathsf{Crys}(X) \to \mathsf{Sch}_{  }$ is given by
 	$\left(U \hookrightarrow T, \delta\right) \mapsto T$.
 \end{rem}
@@ -1463,20 +1463,20 @@ of inverse images of crystals.
 		A/I &
 		A \arrow[l, "", twoheadrightarrow] \\
 		B \arrow[u, "", rightarrow] &
-		B \cross_{ A/I } A
+		B \times_{ A/I } A
 		\arrow[u, "", rightarrow] 
 		\arrow[l, "", twoheadrightarrow] 
 	.\end{tikzcd}
 	\end{equation*}
 	By construction (fibered products of commutative rings
 	commute with $\mathrm{for}\colon \mathsf{CRings} \to \mathsf{Sets}$)
-	the morphism $B \cross_{ A/I } A \twoheadrightarrow B$ is surjective
-	with kernel $J \coloneqq (0) \cross I$.
+	the morphism $B \times_{ A/I } A \twoheadrightarrow B$ is surjective
+	with kernel $J \coloneqq (0) \times I$.
 	Since $I$ is nilpotent, also $J$ is.
-	Moreover one can define divided powers on $\left(B \cross_{ A/I } A, J\right)$
+	Moreover one can define divided powers on $\left(B \times_{ A/I } A, J\right)$
 	by setting $\gamma_n(0,i) \coloneqq (0,\delta_n(i))$,
-	making $B \cross_{ A/I } A \to A$ a divided power morphism.
-	Setting $W \coloneqq \mathrm{Spec}(B \cross_{ A/I } A)$ and
+	making $B \times_{ A/I } A \to A$ a divided power morphism.
+	Setting $W \coloneqq \mathrm{Spec}(B \times_{ A/I } A)$ and
 	translating everything into the category of schemes, we obtain the
 	following commutative diagram
 	\begin{equation*}
