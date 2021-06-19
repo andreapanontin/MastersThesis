@@ -10,10 +10,12 @@
 
 
 %Packages from old files
-%\usepackage{ucs}
 \usepackage[french,main=british]{babel}
+%Well, keep it. Also allows to define new operators
 \usepackage{amsmath}
+%Among them it has the blacksquare symbol
 \usepackage{amssymb}
+%Allows customization of theorem environments
 \usepackage{amsthm}
 \usepackage{centernot}
 %Needed for mathscr
@@ -30,7 +32,8 @@
 \usepackage{tikz}
 \usetikzlibrary{cd}
 \usetikzlibrary{arrows.meta}
-\usetikzlibrary{decorations.pathmorphing} %For squiggly lines
+%For squiggly lines
+\usetikzlibrary{decorations.pathmorphing} 
 % To use some colours
 \usepackage{xcolor}
 
@@ -59,13 +62,25 @@
 
 
 
-%New useful operators:
+%My operators:
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\ima}{im}
 \DeclareMathOperator{\coim}{coim}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\fct}{Fct}
 
+\DeclareMathOperator{\dd}{d}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\ob}{Ob}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\gal}{Gal}
+
+%Most probably used only in this file:
+\DeclareMathOperator{\spf}{Spf}
+\DeclareMathOperator{\cospec}{Cospec}
+\DeclareMathOperator{\lie}{Lie}
+\DeclareMathOperator{\sym}{Sym}
 
 %QED symbol
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
@@ -84,13 +99,16 @@ eprint=false
 ]{biblatex}
 \addbibresource{Bibliography.bib}
 
+%Referencing
 \usepackage{hyperref}
 \usepackage[noabbrev]{cleveref}
 
 %Theorem environments
 \newtheoremstyle{example}
-{1.0em}%〈Space above〉
-{0.7em}%〈Space below〉
+%{1.0em}%〈Space above〉
+%{0.7em}%〈Space below〉
+{}
+{}
 {}%〈Body font〉
 {}%〈Indent amount〉
 {\bfseries}%〈Theorem head font〉
@@ -99,8 +117,10 @@ eprint=false
 {\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head can be left empty, meaning ‘normal’)
 
 \newtheoremstyle{definition}
-{1.0em}
-{0.7em}
+%{1.0em}
+%{0.7em}
+{}
+{}
 {}
 {}
 {\bfseries}
@@ -130,12 +150,14 @@ eprint=false
 \numberwithin{equation}{section}
 
 
+%Cref names, otherwise it gives error when quoting multiple labels at once
 \crefname{cor}{corollary}{corollaries}
 \crefname{thm}{theorem}{theorems}
 \crefname{lem}{lemma}{lemmas}
 \crefname{rem}{remark}{remarks}
 \crefname{ntt}{notation}{notation}
 \crefname{ex}{example}{examples}
+
 
 %Mock title
 \usepackage{blindtext}
