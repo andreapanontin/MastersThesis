@@ -12,7 +12,7 @@ and by $K_0 \coloneqq W[1/p]$ its field of fractions.
 We will fix $e \coloneqq [ K : K_0 ]$ the absolute ramification index of $K$,
 we denote by $\overline{K}$ a fixed separable closure of $K$,
 and by $\mathbb{C}_K \coloneqq \widehat{\overline{K}}$ its completion.
-Finally we will denote by $\mathscr{G}_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$ 
+Finally we will denote by $\mathscr{G}_K \coloneqq \gal\left( \overline{K} / K \right)$ 
 the absolute Galois group of $K$ and notice that its action on $\overline{K}$
 extends to $\mathbb{C}_K$ by continuity.
 
@@ -269,7 +269,7 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]\label{rem:GKActionR}
-	Let's now notice that $\mathscr{G}_K \coloneqq \mathrm{Gal}\left( \overline{K} / K \right)$
+	Let's now notice that $\mathscr{G}_K \coloneqq \gal\left( \overline{K} / K \right)$
 	acts naturally on $O_{\mathbb{C}_K}$, since it acts via isometries on
 	$\overline{K}$.
 	Moreover, since it acts via morphisms of rings, which commute with $x \mapsto x^p$,
@@ -931,7 +931,7 @@ of our desired comparison morphism.
 	$G_v(\overline{K}) = G_v(O_{\mathbb{C}_K})$.
 	Then we have
 	\begin{equation*}
-		T_p(G) \simeq \mathrm{Hom}_{\mathsf{BT}/O_{\mathbb{C}_K}} 
+		T_p(G) \simeq \Hom_{\mathsf{BT}/O_{\mathbb{C}_K}} 
 		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\mathbb{C}_K}} \big)
 	.\end{equation*}
 \end{rem}
@@ -949,12 +949,12 @@ of our desired comparison morphism.
 	In particular consider the cartesian diagram
 	\begin{equation*}
 	\begin{tikzcd}
-		V \coloneqq \mathrm{Spec}(A_{\mathrm{cris}})
+		V \coloneqq \spec(A_{\mathrm{cris}})
 		\arrow[r, "", rightarrow] &
 		U \\
-		V_0 \coloneqq \mathrm{Spec}(O_{O_{\mathbb{C}_K}})
+		V_0 \coloneqq \spec(O_{O_{\mathbb{C}_K}})
 		\arrow[u, "", hookrightarrow] \arrow[r, "f", rightarrow] &
-		\mathrm{Spec}(O_K) \eqqcolon U_0
+		\spec(O_K) \eqqcolon U_0
 		\arrow[u, "", hookrightarrow]
 	.\end{tikzcd}
 	\end{equation*}
@@ -972,10 +972,10 @@ of our desired comparison morphism.
 	\begin{equation*}
 	\begin{tikzcd}
 		U \arrow[r, "\overline{\alpha}", rightarrow] &
-		\mathrm{Spec}(S) \\
-		\mathrm{Spec}(O_K)
+		\spec(S) \\
+		\spec(O_K)
 		\arrow[u, "", hookrightarrow] \arrow[r, "", equals] &
-		\mathrm{Spec}(O_K) \arrow[u, "", hookrightarrow] 
+		\spec(O_K) \arrow[u, "", hookrightarrow] 
 	\end{tikzcd}
 	\end{equation*}
 	which we will denote by $\alpha$.
@@ -1065,10 +1065,10 @@ of our desired comparison morphism.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Hom}_{\mathbb{Z}_{p}\text{-}\mathsf{Mod}}
+		\Hom_{\mathbb{Z}_{p}\text{-}\mathsf{Mod}}
 		\left( T_p(G), \mathbb{Z}_{p} \right) \otimes_{\mathbb{Z}_{p}} A_{\mathrm{cris}}
 		\arrow[r, "\sim", rightarrow] &
-		\mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} } \left( T_p(G), A_{\mathrm{cris}} \right)
+		\Hom_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} } \left( T_p(G), A_{\mathrm{cris}} \right)
 	.\end{tikzcd}
 	\end{equation*} 
 	All in all, the above allows us to define the following
@@ -1093,7 +1093,7 @@ of our desired comparison morphism.
 	for all $n \in \mathbb{N}$.
 	We define the algebraic extension $K_{\infty}/K$ as the extension given
 	by $K_\infty \coloneqq \bigcup_{n \in \mathbb{N}} K(\pi^{1/p^n})$.
-	As usual we will denote by $\mathscr{G}_{K_\infty} \coloneqq \mathrm{Gal}
+	As usual we will denote by $\mathscr{G}_{K_\infty} \coloneqq \gal
 	\left( \overline{K} / K_\infty \right)$ 
 	the absolute Galois group of $K_\infty$.
 \end{defn}
@@ -1269,7 +1269,7 @@ of our desired comparison morphism.
 	is the same as computing it at $x=0$, which is an exponential.
 	By uniqueness this grants that $v = \widetilde{v}$.
 	Then we have explicitly computed $\mathbb{E}(u_0) \coloneqq \mathbb{E}(t) = \widetilde{v}$.
-	Now, taking $\mathrm{Lie}$ of all that, we get (what else could it be)
+	Now, taking $\lie$ of all that, we get (what else could it be)
 	\begin{equation*}
 		\mathbb{D}^*(t)(A_{\mathrm{cris}})(a) = \log \left( \exp (-at) \right) = -at
 	\end{equation*}
@@ -1297,7 +1297,7 @@ of our desired comparison morphism.
 	To achieve this goal we recall that $T_p(G)^\vee = T_p(G^D)(-1) = t^{-1}T_p(G^D)$.
 	Hence, given any $y \in T_p(G)^\vee$, we obtain $ty \in T_p(G^D)$,
 	which can be interpreted as a map in 
-	$\mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} } 
+	$\Hom_{ \mathsf{BT}/O_{\overline{K}} } 
 	\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G^D_{O_{\overline{K}}}\big)$.
 	By \cref{thm:CartierDuality} this gives a morphism
 	\begin{equation*}
@@ -1318,9 +1318,9 @@ of our desired comparison morphism.
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee \\
 		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(\mathbb{G}_m(p))(S)
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", rightarrow] 
-		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", rightarrow] &
+		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", rightarrow] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1}
-		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes T_p ((ty)^D)^\vee"', rightarrow] 
+		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes T_p ((ty)^D)^\vee"', rightarrow] 
 	,\end{tikzcd}
 	\end{equation*}
 	where we recall that both $\mathbb{D}^*$ and $T_p(G)^\vee$ act contravariantly on morphisms.
@@ -1359,10 +1359,10 @@ of our desired comparison morphism.
 		\arrow[r, "\rho_G", mapsto] &
 		-t \otimes y \\
 		1 \otimes 1
-		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
+		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", mapsto] &
 		-t \otimes t^{-1}
-		\arrow[u, "\mathrm{id}_{ A_{\mathrm{cris}} } \otimes T_p((ty)^D)^\vee"', mapsto] 
+		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes T_p((ty)^D)^\vee"', mapsto] 
 	.\end{tikzcd}
 	\end{equation*}
 	Now, since we imposed no restriction to the choice of $y \in T_p(G)^\vee$, 
@@ -1522,7 +1522,7 @@ improved upon.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{id}_{ B_{\mathrm{dR}} } \otimes \rho\colon 
+		\id_{ B_{\mathrm{dR}} } \otimes \rho\colon 
 		B_{\mathrm{dR}} \otimes_W D \arrow[r, "", rightarrow] &
 		B_{\mathrm{dR}} \otimes_{\mathbb{Z}_{p}} T_p(G)
 	\end{tikzcd}

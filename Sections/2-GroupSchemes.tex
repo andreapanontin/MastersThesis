@@ -12,7 +12,7 @@ $p$-divisible groups.
 	Assume that $F$ is representable by $G \in \mathsf{Sch}/S$, i.e. 
 	functorially in $T \in \mathsf{Sch}/S$
 	\begin{equation*}
-		\iota F(T) \simeq \mathrm{Hom}_{\mathsf{Sch}/S} \left( T, G \right)
+		\iota F(T) \simeq \Hom_{\mathsf{Sch}/S} \left( T, G \right)
 	,\end{equation*} 
 	where $\iota\colon \mathsf{Gp} \to \mathsf{Sets}$ is the forgetful functor.
 	We call $G$ a {\em group scheme} over $S$
@@ -24,7 +24,7 @@ $p$-divisible groups.
 	Let's recall a standard notation: let $T \in \mathsf{Sch}/S$, one defines
 	the {\em $T$-points} of $G \in \mathsf{Sch}/S$ as
 	\begin{equation*}
-		G(T) \coloneqq \mathrm{Hom}_{\mathsf{Sch}/S} \left( T, G \right)
+		G(T) \coloneqq \Hom_{\mathsf{Sch}/S} \left( T, G \right)
 	.\end{equation*} 
 	If we view $G$, by \cref{thm:reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}/S$, instead,
 	we will use the notation
@@ -61,11 +61,11 @@ $p$-divisible groups.
 	and $\Delta\colon G \to G \times G$ the diagonal morphism.
 	Then the group axioms are equivalent to
 	\begin{align}\label{eq:GroupAxioms}
-		m \circ (\mathrm{id}_{ G } \times m) &= m \circ (m \times \mathrm{id}_{ G }),\nonumber\\
-		m \circ (\mathrm{id}_{ G } \times \mathrm{inv}) \circ \Delta &=
-		m \circ (\mathrm{inv} \times \mathrm{id}_{ G }) \circ \Delta = \varepsilon \circ \pi,\\
-		m \circ (\varepsilon \times \mathrm{id}_{ G }) &=
-		m \circ (\mathrm{id}_{ G } \times \varepsilon) = \mathrm{id}_{ G }\nonumber
+		m \circ (\id_{ G } \times m) &= m \circ (m \times \id_{ G }),\nonumber\\
+		m \circ (\id_{ G } \times \mathrm{inv}) \circ \Delta &=
+		m \circ (\mathrm{inv} \times \id_{ G }) \circ \Delta = \varepsilon \circ \pi,\\
+		m \circ (\varepsilon \times \id_{ G }) &=
+		m \circ (\id_{ G } \times \varepsilon) = \id_{ G }\nonumber
 	.\end{align} 
 	Notice that in this last equality we implicitly use the isomorphisms
 	$\left\{ e \right\} \times G \simeq G \simeq G \times \left\{ e \right\}$.
@@ -101,8 +101,8 @@ $p$-divisible groups.
 			\begin{equation*}
 			\begin{tikzcd}[column sep=4.5em]
 				G \times_{ S } G \times_{ S } G 
-				\arrow[r, "\mathrm{id}_{ G } \times_S m", rightarrow] 
-				\arrow[d, "m \times_S \mathrm{id}_{ G }"', rightarrow] &
+				\arrow[r, "\id_{ G } \times_S m", rightarrow] 
+				\arrow[d, "m \times_S \id_{ G }"', rightarrow] &
 				G \times_{ S } G \arrow[d, "m", rightarrow] \\
 				G \times_{ S } G \arrow[r, "m"', rightarrow] &
 				G.
@@ -112,7 +112,7 @@ $p$-divisible groups.
 			\begin{equation*}
 			\begin{tikzcd}[column sep=2.7em]
 				G \times_{ S } G
-				\arrow[rr, "\mathrm{id}_{ G } \times_S \mathrm{inv}", rightarrow] & &
+				\arrow[rr, "\id_{ G } \times_S \mathrm{inv}", rightarrow] & &
 				G \times_{ S } G \arrow[d, "m", rightarrow] \\
 				G \arrow[u, "\Delta", rightarrow] 
 				\arrow[r, "\pi", rightarrow] &
@@ -122,7 +122,7 @@ $p$-divisible groups.
 			\qquad
 			\begin{tikzcd}[column sep=2.7em]
 				G \times_{ S } G
-				\arrow[rr, "\mathrm{inv} \times_S \mathrm{id}_{ G }", rightarrow] & &
+				\arrow[rr, "\mathrm{inv} \times_S \id_{ G }", rightarrow] & &
 				G \times_{ S } G \arrow[d, "m", rightarrow] \\
 				G \arrow[u, "\Delta", rightarrow] 
 				\arrow[r, "\pi", rightarrow] &
@@ -138,16 +138,16 @@ $p$-divisible groups.
 				G \times_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
 				S \times_{ S } G \arrow[r, "\sim", rightarrow] 
-				\arrow[u, "\varepsilon \times_S \mathrm{id}_{ G }", rightarrow] &
-				G \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
+				\arrow[u, "\varepsilon \times_S \id_{ G }", rightarrow] &
+				G \arrow[u, "\id_{ G }"', rightarrow] 
 			\end{tikzcd}
 			\qquad
 			\begin{tikzcd}
 				G \times_{ S } G \arrow[r, "m", rightarrow] &
 				G \\
 				G \times_{ S } S \arrow[r, "\sim", rightarrow] 
-				\arrow[u, "\mathrm{id}_{ G } \times_S \varepsilon", rightarrow] &
-				G. \arrow[u, "\mathrm{id}_{ G }"', rightarrow] 
+				\arrow[u, "\id_{ G } \times_S \varepsilon", rightarrow] &
+				G. \arrow[u, "\id_{ G }"', rightarrow] 
 			\end{tikzcd}
 			\end{equation*} 
 	\end{enumerate}
@@ -287,11 +287,11 @@ affine group scheme, hence the choice to dedicate a whole section to them.
 Many of the following results, though, are still valid in a more general setting.
 
 Then, for most of the following section, then, we will fix an affine scheme
-$S = \mathrm{Spec}(R)$, and focus on affine $S$-groups.
+$S = \spec(R)$, and focus on affine $S$-groups.
 
 
 \begin{rem}[]
-If we consider $G = \mathrm{Spec}(A)$ affine, 
+If we consider $G = \spec(A)$ affine, 
 the arrow-reversing equivalence of categories between
 affine $R$-schemes and commutative $R$-algebras, 
 allows us to translate the structural morphisms
@@ -351,14 +351,14 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 	satisfying the conditions obtained by dualizing those
 	of \cref{rem:StructuralMorphisms}, more explicitly:
 	\begin{align*}
-		( \widetilde{m} \otimes_R \mathrm{id}_{ A } ) \circ \widetilde{m} &=
-		( \mathrm{id}_{ A } \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
-		( \mathrm{id}_{ A } \otimes_R \widetilde{\varepsilon} ) \circ \widetilde{m} &=
-		( \widetilde{\varepsilon} \otimes_R \mathrm{id}_{ A } ) \circ \widetilde{m} =
-		\mathrm{id}_{ A },\\
-		\widetilde{\Delta} \circ ( \mathrm{id}_{ A } \otimes_R \widetilde{\mathrm{inv}} ) 
+		( \widetilde{m} \otimes_R \id_{ A } ) \circ \widetilde{m} &=
+		( \id_{ A } \otimes_R \widetilde{m} ) \circ \widetilde{m},\\
+		( \id_{ A } \otimes_R \widetilde{\varepsilon} ) \circ \widetilde{m} &=
+		( \widetilde{\varepsilon} \otimes_R \id_{ A } ) \circ \widetilde{m} =
+		\id_{ A },\\
+		\widetilde{\Delta} \circ ( \id_{ A } \otimes_R \widetilde{\mathrm{inv}} ) 
 		\circ \widetilde{m} &=
-		\widetilde{\Delta} \circ ( \widetilde{\mathrm{inv}} \otimes_R \mathrm{id}_{ A } ) 
+		\widetilde{\Delta} \circ ( \widetilde{\mathrm{inv}} \otimes_R \id_{ A } ) 
 		\circ \widetilde{m} =
 		(R \to A) \circ \widetilde{\varepsilon}
 	.\end{align*} 
@@ -419,16 +419,16 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
 	More explicitly this means that there exists a cover of $S$ by affine open subschemes
 	on each of which the restriction of the structure morphism is of the form
-	$\mathrm{Spec}(A) \to \mathrm{Spec}(R)$, for $A$ a free $R$-module of finite rank over $R$. 
+	$\spec(A) \to \spec(R)$, for $A$ a free $R$-module of finite rank over $R$. 
 	This is going to be our main interest in what follows.
 
 	It is also true that finite flat schemes over affine schemes
 	are themselves affine. 
-	We are going to be interested in the case of $S = \mathrm{Spec}(R)$,
+	We are going to be interested in the case of $S = \spec(R)$,
 	for $R$ the ring of integers of a local field,
 	and $G$ finite flat over $S$.
 	In particular $S$ and $G$ will be Noetherian schemes
-	and $G$, being finite flat over $S$, is just $\mathrm{Spec}(A)$,
+	and $G$, being finite flat over $S$, is just $\spec(A)$,
 	for a finite projective $R$-module $A$ (see, for instance, 
 	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}).
 \end{rem}
@@ -462,19 +462,19 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 \subsection{Examples}
 In order to compute a few useful examples, let's explicit the relation between
 multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
-$R$, for $S = \mathrm{Spec}(R)$.
+$R$, for $S = \spec(R)$.
 \begin{rem}\label{rem:ExplicitComult}
 	Yoneda tells us that the multiplication map 
 	$m\colon G \times G \to G$ can be expressed
 	as the product $\mathrm{pr}_1 \mathrm{pr}_2$
 	of the two projection morphisms, using the group law
 	on $G(G \times G)$.
-	Then, in the case of affine schemes $S = \mathrm{Spec}(R)$
-	and $G = \mathrm{Spec}(A)$, one can translate the above to the corresponding
+	Then, in the case of affine schemes $S = \spec(R)$
+	and $G = \spec(A)$, one can translate the above to the corresponding
 	Hopf algebra morphism, using the equivalence of categories.
 	More explicitly one can describe the comultiplication map
 	$\widetilde{m}$ as the product in 
-	$\mathrm{Hom}_{R\text{-}\mathsf{Alg}} \left( A, A \otimes_R A \right)$ 
+	$\Hom_{R\text{-}\mathsf{Alg}} \left( A, A \otimes_R A \right)$ 
 	(which has the same group structure as $G(G \times G)$)
 	of the embedding morphisms
 	\begin{equation*}
@@ -490,12 +490,12 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 
 \begin{ex}\label{ex:AffineGroupSchemesExamples}
-	In the following examples we will denote $S \coloneqq \mathrm{Spec}(R)$
-	and $G \coloneqq \mathrm{Spec}(A)$.\nopagebreak[4]
+	In the following examples we will denote $S \coloneqq \spec(R)$
+	and $G \coloneqq \spec(A)$.\nopagebreak[4]
 	\begin{enumerate}
 		\item \label{ex:AdditiveGroupScheme}
 		The {\em additive group scheme}, given by 
-			$\mathbb{G}_a \coloneqq \mathrm{Spec}(R[x])$.
+			$\mathbb{G}_a \coloneqq \spec(R[x])$.
 			It is given on $R$-schemes by
 			\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
@@ -509,8 +509,8 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			as an additive group.
 			In fact	we know that
 			\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Sch}/S} \left( X, \mathbb{G}_a \right) \simeq
-			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
+			\Hom_{\mathsf{Sch}/S} \left( X, \mathbb{G}_a \right) \simeq
+			\Hom_{R \text{-}\mathsf{Alg}} 
 			\left( R[x], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
 			\Gamma \left( X , \mathcal{O}_{ X } \right)
 			,\end{equation*} 
@@ -518,7 +518,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			The last isomorphism is determined by 
 			$(x \mapsto a) \mapsto a$.
 			The hom set 
-			$\mathrm{Hom}_{R \text{-}\mathsf{Alg}} \left( R[x], A \right)$
+			$\Hom_{R \text{-}\mathsf{Alg}} \left( R[x], A \right)$
 			inherits the additive group structure from $A$, and the embeddings
 			of $R[x]$ in $R[x] \otimes_R R[x]$ are given by
 			\begin{equation*}
@@ -544,7 +544,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 
 		\item The {\em multiplicative group scheme} 
-			$\mathbb{G}_m \coloneqq \mathrm{Spec}(R[x,x^{-1}])$.
+			$\mathbb{G}_m \coloneqq \spec(R[x,x^{-1}])$.
 			It acts on $R$-schemes by
 			\begin{equation*}
 			\begin{tikzcd}[row sep = 0ex
@@ -558,8 +558,8 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			as a multiplicative group.
 			In fact one checks that
 			\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Sch}/S} \left( X, G \right) \simeq
-			\mathrm{Hom}_{R \text{-}\mathsf{Alg}} 
+			\Hom_{\mathsf{Sch}/S} \left( X, G \right) \simeq
+			\Hom_{R \text{-}\mathsf{Alg}} 
 			\left( R[x, x^{-1}], \Gamma \left( X , \mathcal{O}_{ X } \right) \right) \simeq
 			\Gamma \left( X , \mathcal{O}_{ X } \right)^{\times}
 			,\end{equation*} 
@@ -582,7 +582,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 
 
 		\item The {\em general linear group scheme} $\mathrm{GL}_n \coloneqq 
-			\mathrm{Spec}(R[\mathrm{x},\mathrm{y}]/J)$,
+			\spec(R[\mathrm{x},\mathrm{y}]/J)$,
 			where
 			\begin{equation*}
 				R[\mathrm{x},\mathrm{y}] \coloneqq
@@ -621,7 +621,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			$\mathbb{G}_m \to \mathbb{G}_m$,
 			corresponding to the $R$-algebra morphism
 			$\mu\colon x \mapsto x^n$.
-			Then $\mu_n$ is represented by $\mathrm{Spec}(\coker \mu)$,
+			Then $\mu_n$ is represented by $\spec(\coker \mu)$,
 			and the morphism $\mu_n \hookrightarrow \mathbb{G}_m$ is given by the projection
 			\begin{equation*}
 			\begin{tikzcd}
@@ -649,16 +649,16 @@ $R$, for $S = \mathrm{Spec}(R)$.
 				\widetilde{\mathrm{inv}}(x) = x^{-1}
 			.\end{equation*} 
 			The above can be checked directly, since we have
-			the identifications, for $G = \mathrm{Spec}(A)$:
+			the identifications, for $G = \spec(A)$:
 			\begin{equation*}
 				\left( D(X) \right)(G) \coloneqq
-				\mathrm{Hom}_{R \text{-Alg}} \left( R[X], A \right) \simeq
-				\mathrm{Hom}_{\mathsf{Ab}} \left( X, A^{\times} \right)
+				\Hom_{R \text{-Alg}} \left( R[X], A \right) \simeq
+				\Hom_{\mathsf{Ab}} \left( X, A^{\times} \right)
 			,\end{equation*} 
 			where the last hom set has a natural structure of abelian
 			group.
 			Then we define the {\em diagonalizable group scheme} $D(X)$
-			as the commutative $R$-group $\mathrm{Spec}(R[X])$.
+			as the commutative $R$-group $\spec(R[X])$.
 
 			Two important cases are $\mathbb{G}_m \simeq D(\mathbb{Z})$
 			and $\mu_n \simeq D(\mathbb{Z}/n\mathbb{Z})$.
@@ -706,7 +706,7 @@ $R$, for $S = \mathrm{Spec}(R)$.
 			morphism $\mathbb{G}_a \to \mathbb{G}_a$,
 			corresponding to the $R$-algebra morphism
 			$\alpha\colon x \mapsto x^{p^r}$.
-			Then $\alpha_{p^r}$ is represented by $\mathrm{Spec}(\coker \alpha)$.
+			Then $\alpha_{p^r}$ is represented by $\spec(\coker \alpha)$.
 			Moreover this is an additive subgroup scheme, since $\mathrm{char}\, R = p$.
 			As for $\mu_n$, it is a closed finite flat subgroup scheme of 
 			$\mathbb{G}_a$.
@@ -925,10 +925,10 @@ In fact we can use this characterization in our context thanks to
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]{SP}}]
 	\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
-	\item A scheme $X$ is étale over a field $k$ iff $X = \mathrm{Spec}(A)$
+	\item A scheme $X$ is étale over a field $k$ iff $X = \spec(A)$
 		for a {\em separable} $k$-algebra $A$.
 	\item If $f\colon X \to S$ is an étale morphism of schemes,
-		for every $s \in S$, the fiber at $s$ is given by $X_s = \mathrm{Spec}(A_s)$,
+		for every $s \in S$, the fiber at $s$ is given by $X_s = \spec(A_s)$,
 		for a separable $\kappa(s)$-algebra $A_s$.
 \end{enumerate}
 \end{lem} 
@@ -939,7 +939,7 @@ In fact we can use this characterization in our context thanks to
 	Let $f\colon X \to S$ be a morphism of schemes.
 	Assume, moreover, that $f$ is flat, locally of finite presentation and that,
 	for all $s \in S$, the fiber $X_s \coloneqq 
-	X \times_{\mathrm{Spec}(\kappa(s))} \mathrm{Spec}(\kappa(s))$
+	X \times_{\spec(\kappa(s))} \spec(\kappa(s))$
 	is a disjoint union of finite separable extensions of $\kappa(s)$.
 	Then $f$ is étale.
 \end{lem} 
@@ -950,7 +950,7 @@ Finally we want to quote an important result which
 concerns finite étale group schemes over a field.
 \begin{defn}[Discrete $\mathscr{G}_k$ groups]
 	Let $k$ be a field and $\overline{k}$ a fixed separable closure of $k$.
-	Let $\mathscr{G}_k \coloneqq \mathrm{Gal}\left( \overline{k} / k \right)$ be the
+	Let $\mathscr{G}_k \coloneqq \gal\left( \overline{k} / k \right)$ be the
 	absolute Galois group of $k$.
 	We define the category of {\em discrete $\mathscr{G}_k$ groups} as the category
 	whose objects are finite groups endowed with the discrete topology and
@@ -987,9 +987,9 @@ concerns finite étale group schemes over a field.
 
 \subsubsection{Connected-étale exact sequence}
 In the following section we will always assume that 
-$S = \mathrm{Spec}(R)$	for a henselian local ring $R$.
+$S = \spec(R)$	for a henselian local ring $R$.
 We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
-its residue field and by $s \coloneqq \mathrm{Spec}(k)$ the closed point of $R$.
+its residue field and by $s \coloneqq \spec(k)$ the closed point of $R$.
 Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
 \begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]\label{thm:ConnectedEtaleSequenceGS}
@@ -1038,8 +1038,8 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
 
 \subsection{Cartier Duality}\label{CartierDualityGroups}
-In this section we will mainly be concerned with $S = \mathrm{Spec}(R)$ affine
-and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(A)$.
+In this section we will mainly be concerned with $S = \spec(R)$ affine
+and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 
 
 \begin{rem}[]
@@ -1048,7 +1048,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}),
 	$A$ is a finite and locally free $R$-module.
 	For an $R$-module $M$ we define its dual $R$-module to be
-	$M^D \coloneqq \mathrm{Hom}_{R} \left( M, R \right)$.
+	$M^D \coloneqq \Hom_{R} \left( M, R \right)$.
 	Hence, for any locally free $R$-modules of finite rank $M$ and $N$,
 	one has the natural isomorphisms
 	\begin{equation*}%See Waterhouse
@@ -1066,7 +1066,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 \begin{rem}[Dual algebra]\label{rem:dualHopfStructure}
 	To the $R$-algebra $A$ we can associate the $R$-module 
 	\begin{equation*}
-	A^D \coloneqq \mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
+	A^D \coloneqq \Hom_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
 	.\end{equation*} 
 	In case $A$ is given with a cocommutative Hopf algebra structure, one
 	can dualize it to obtain a (cocommutative) Hopf algebra structure on $A^D$.
@@ -1090,19 +1090,19 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		(\widetilde{\Delta})^D \coloneqq \mathrm{Hom}_{ R\text{-}\mathsf{Mod} }
+		(\widetilde{\Delta})^D \coloneqq \Hom_{ R\text{-}\mathsf{Mod} }
 		( \widetilde{\Delta}, R )
-		\colon \mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right)\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A \otimes_R A, R \right)\\
+		\colon \Hom_{ R\text{-}\mathsf{Mod} } \left( A, R \right)\arrow[r, "", rightarrow] &
+		\Hom_{ R\text{-}\mathsf{Mod} } \left( A \otimes_R A, R \right)\\
 		f \arrow[r, "", mapsto] & f \circ \widetilde{\Delta}
 	,\end{tikzcd}
 	\end{equation*} 
 	where, since $A$ is a finite projective $R$-module, 
 	on the right hand side we have the isomorphism
 	\begin{equation*}
-	\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A \otimes_R A, R \right) \simeq
-	\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right) \otimes_R
-	\mathrm{Hom}_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
+	\Hom_{ R\text{-}\mathsf{Mod} } \left( A \otimes_R A, R \right) \simeq
+	\Hom_{ R\text{-}\mathsf{Mod} } \left( A, R \right) \otimes_R
+	\Hom_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
 	.\end{equation*}
 	Analogously one constructs $(\widetilde{m})^D$.
 \end{rem}
@@ -1112,7 +1112,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	Given a $S$ and $G$ as before, we define the {\em dual} of $G$ as the
 	group scheme defined by
 	\begin{equation*}
-	G^D \coloneqq \mathrm{Spec}(A^D)
+	G^D \coloneqq \spec(A^D)
 	.\end{equation*}
 \end{defn}
 
@@ -1124,8 +1124,8 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \mathrm{Spec}(
 	\item $G^D$ is a finite commutative $S$-group scheme.
 	\item $( G^D )^D \simeq G$.
 	\item For all $H,G \in \mathsf{Gp}/S$ finite commutative 
-	$\mathrm{Hom}_{\mathsf{Gp}/S} \left( G, H \right) \simeq
-	\mathrm{Hom}_{\mathsf{Gp}/S} \left( H^D, G^D \right)$.
+	$\Hom_{\mathsf{Gp}/S} \left( G, H \right) \simeq
+	\Hom_{\mathsf{Gp}/S} \left( H^D, G^D \right)$.
 	\item Forming $G^D$ commutes with base change.
 \end{enumerate}
 \end{thm}
@@ -1166,7 +1166,7 @@ Here the relevant notions:
 		,/tikz/column 2/.append style={anchor=base west}]
 		\mathcal{H}\mathrm{om}_{\mathsf{Gp}/S} \left( G, \mathbb{G}_{m,S} \right)\colon
 		T \arrow[r, "", mapsto] & 
-		\mathrm{Hom}_{\mathsf{Gp}/T} \left( G_T, \mathbb{G}_{m,T} \right)
+		\Hom_{\mathsf{Gp}/T} \left( G_T, \mathbb{G}_{m,T} \right)
 	.\end{tikzcd}
 	\end{equation*} 
 	Then, for a finite, commutative $S$-group $G$ we have the isomorphism
@@ -1190,10 +1190,10 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 	\item One can show that $\alpha_p^D \simeq \alpha_p$.
 		In fact we can view $\alpha_p^D$ as the character group
 		\begin{equation*}
-			\mathrm{Hom}_{\mathsf{Gp}/S} \left( \alpha_{p,S}, \mathbb{G}_{m,S} \right)
+			\Hom_{\mathsf{Gp}/S} \left( \alpha_{p,S}, \mathbb{G}_{m,S} \right)
 		.\end{equation*}
 		To see this we can reduce to the case where 
-		$S = \mathrm{Spec}(\mathbb{F}_p)$, where
+		$S = \spec(\mathbb{F}_p)$, where
 		$\mathbb{F}_{p}$ denotes the finite field of order $p$. Then
 		the result holds in general due to compatibility of the construction of
 		dual group scheme with base change.
@@ -1209,14 +1209,14 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 		.\end{tikzcd}
 		\end{equation*} 
 		With this notation it can be shown that, for any
-		$T \in \mathsf{Sch}_{ \mathbb{F}_{p} }$, self duality is given by
+		$T \in \mathsf{Sch}/\mathbb{F}_{p}$, self duality is given by
 		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
 			\alpha(T) \arrow[r, "\sim", rightarrow] &
-			\mathrm{Hom}_{\mathsf{Gp}_{ \mathbb{F}_{p} }}
-			\left( \alpha_p, (\mathbb{G}_m)_{\mathbb{F}_{p}} \right) \\
+			\Hom_{\mathsf{Gp}/\mathbb{F}_{p} }
+			\left( \alpha_p, \mathbb{G}_{m,\mathbb{F}_{p}} \right) \\
 			\xi \arrow[r, "", mapsto] & 
 			\left( r \mapsto \mathrm{exp}(\xi \cdot r) \right)
 		.\end{tikzcd}
@@ -1236,7 +1236,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	For any $R$-algebra $A$,
 	denote by $\varphi_A\colon A \to A$ the morphism
 	acting by $a \mapsto a^p$.
-	It induces $\mathrm{Spec}(\varphi_A)\colon \mathrm{Spec}(A) \to \mathrm{Spec}(A)$,
+	It induces $\spec(\varphi_A)\colon \spec(A) \to \spec(A)$,
 	which is the identity at the level of topological spaces.
 	This map, moreover, can be glued for any $R$-scheme $X$, giving rise to a map
 	$\varphi_X\colon X \to X$ such that
@@ -1248,11 +1248,11 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	We will denote by $X^{(p)}$ the fibered product
 	\begin{equation}
 	\begin{tikzcd}
-		X^{(p)} \coloneqq X \times_{ R } \mathrm{Spec}(R) \arrow[r, "", rightarrow] 
+		X^{(p)} \coloneqq X \times_{ R } \spec(R) \arrow[r, "", rightarrow] 
 		\arrow[d, "", rightarrow] &
 		X \arrow[d, "", rightarrow] \\
-		\mathrm{Spec}(R) \arrow[r, "\varphi_R"', rightarrow] &
-		\mathrm{Spec}(R)
+		\spec(R) \arrow[r, "\varphi_R"', rightarrow] &
+		\spec(R)
 	.\end{tikzcd}
 	\end{equation}
 	Finally we can construct the map $F_{X/R} \colon X \to X^{(p)}$,
@@ -1268,8 +1268,8 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		\arrow[d, "", rightarrow] &
 		X \arrow[d, "", rightarrow] \\
 		&
-		\mathrm{Spec}(R) \arrow[r, "\varphi_R"', rightarrow] &
-		\mathrm{Spec}(R)
+		\spec(R) \arrow[r, "\varphi_R"', rightarrow] &
+		\spec(R)
 	.\end{tikzcd}
 	\end{equation}
 \end{defn}
@@ -1300,7 +1300,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		f^{(p)} \coloneqq f \times \mathrm{id}_{ R }\colon 
+		f^{(p)} \coloneqq f \times \id_{ R }\colon 
 		X^{(p)} \arrow[r, "", rightarrow] &
 		Y^{(p)}
 	.\end{tikzcd}
@@ -1407,16 +1407,16 @@ Frobenius and Verschiebung:
 	diagram commutes
 	\begin{equation}
 	\begin{tikzcd}[column sep=1.5em]
-		G \arrow[rr, "p \cdot \mathrm{id}_{ G }", rightarrow] 
+		G \arrow[rr, "p \cdot \id_{ G }", rightarrow] 
 		\arrow[rd, "F_G"', rightarrow] & &
 		G \arrow[rd, "F_G", rightarrow] & \\
 		&
 		G^{(p)} \arrow[ru, "V_G"', rightarrow] 
-		\arrow[rr, "p \cdot \mathrm{id}_{ G^{(p)} }"', rightarrow] & &
+		\arrow[rr, "p \cdot \id_{ G^{(p)} }"', rightarrow] & &
 		G^{(p)}
 	,\end{tikzcd}
 	\end{equation}
-	where $p \cdot \mathrm{id}_{ G }$ denotes the multiplication by $p$
+	where $p \cdot \id_{ G }$ denotes the multiplication by $p$
 	on $G$.
 \end{thm}
 

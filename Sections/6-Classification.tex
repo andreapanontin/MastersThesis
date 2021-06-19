@@ -264,18 +264,18 @@ denote vectors using a boldface character.
 	then the natural "reduction" map 
 	\begin{equation*}
 	\begin{tikzcd}
-		\mathrm{Hom}_{  } \left( W(A), B \right)
+		\Hom_{  } \left( W(A), B \right)
 		\arrow[r, "\sim", rightarrow] &
-		\mathrm{Hom}_{  } \left( A, B/\mathfrak{b}_1 \right)
+		\Hom_{  } \left( A, B/\mathfrak{b}_1 \right)
 	\end{tikzcd}
 	\end{equation*}
 	is an isomorphism.
 	More generally, for any strict $p$-ring $\mathcal{B}$, the natural map
 	\begin{equation*}
 	\begin{tikzcd}
-		\mathrm{Hom}_{  } \left( \mathcal{B}, B \right)
+		\Hom_{  } \left( \mathcal{B}, B \right)
 		\arrow[r, "\sim", rightarrow] &
-		\mathrm{Hom}_{  } \left( \mathcal{B}/ (p), B/\mathfrak{b}_1 \right)
+		\Hom_{  } \left( \mathcal{B}/ (p), B/\mathfrak{b}_1 \right)
 	\end{tikzcd}
 	\end{equation*}
 	is bijective for every $p$-ring $B$.
@@ -292,7 +292,7 @@ denote vectors using a boldface character.
 	a perfect $\mathbb{F}_p$-algebra $A$.
 
 \item The inverse to the second bijection has the following form.
-	Let $h \in \mathrm{Hom}_{  } \left( \mathcal{B}/ (p), B/\mathfrak{b}_1 \right)$
+	Let $h \in \Hom_{  } \left( \mathcal{B}/ (p), B/\mathfrak{b}_1 \right)$
 	and write an element $x \in \mathcal{B}$ using its expansion via $r_{\mathcal{B}}$.
 	The induced map on $\mathcal{B}$ acts by
 	\begin{equation*}
@@ -379,7 +379,7 @@ its (Eisenstein) minimal polynomial.
 	and its evaluation in \cref{rem:SheavesCrysX}.
 	Hence we introduce the shorter
 	$\mathbb{D}^*(G_0)(T) \coloneqq \mathbb{D}^*(G_0)_T(T)$.
-	Moreover, if $T = \mathrm{Spec}(A)$ is affine, we introduce the notation
+	Moreover, if $T = \spec(A)$ is affine, we introduce the notation
 	$\mathbb{D}^*(G)(A)$ for $\mathbb{D}^*(G)(T)$.
 	Finally we can notice that, fixed $G$, the functor $\mathbb{D}^*(G)$,
 	being induced by a sheaf on $\mathsf{Crys}(T_0)$,
@@ -415,9 +415,9 @@ its (Eisenstein) minimal polynomial.
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
-		\left( \mathrm{Lie}(G) \right)^\vee \arrow[r, "", rightarrow] &
+		\left( \lie(G) \right)^\vee \arrow[r, "", rightarrow] &
 		\mathbb{D}^*(G)(T) \arrow[r, "", rightarrow] &
-		\mathrm{Lie}(G^D) \arrow[r, "", rightarrow] &
+		\lie(G^D) \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
 	\end{equation*}
@@ -494,7 +494,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	\item the following map, induced on the pullback, is surjective
 		\begin{equation*}
 		\begin{tikzcd}
-			\mathrm{id}_{ A } \otimes \varphi/p \colon
+			\id_{ A } \otimes \varphi/p \colon
 			\varphi^*(\mathrm{Fil}^1 A)
 			\arrow[r, "", twoheadrightarrow] &
 			A
@@ -502,7 +502,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 		\end{equation*}
 \end{enumerate}
 	If $G \in \mathsf{BT}/A_0$ we write $\mathrm{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
-	for the preimage of $\left( \mathrm{Lie}(G) \right)^\vee$ inside $\mathbb{D}^*(G)(A_0)$.
+	for the preimage of $\left( \lie(G) \right)^\vee$ inside $\mathbb{D}^*(G)(A_0)$.
 	Then the restriction of $\varphi\colon \mathbb{D}^*(G)(A) \to \mathbb{D}^*(G)(A)$
 	to $\mathrm{Fil}^1 \mathbb{D}^*(G)(A)$ is divisible by $p$ and the following induced map
 	is a surjection
@@ -529,17 +529,17 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	\item Let $\widetilde{G}$ be a lift of $G$ to $A$, then we have
 		\begin{equation*}
 			\mathrm{Fil}^1(\mathbb{D}^*(\widetilde{G})(A)) =
-			( \mathrm{Lie} \widetilde{G} )^\vee +
+			( \lie \widetilde{G} )^\vee +
 			\mathrm{Fil}^1A \cdot \mathbb{D}^*(\widetilde{G})(A)
 		.\end{equation*}
 		
-	\item Let $H \in \mathsf{BT}/\mathrm{Spec}(W(k))$. Denote by $H_0$ the restriction
+	\item Let $H \in \mathsf{BT}/\spec(W(k))$. Denote by $H_0$ the restriction
 		of $H$ to $k$ and by $V$ the Verschiebung morphism.
 		Then $W(k) \twoheadrightarrow k$ satisfies the hypothesis of our lemma,
 		and the kernel $\mathrm{Fil}^1(W(k)) = (p)$ is equipped with divided powers.
 		Then, using the theory of Dieudonné modules, one can see that
 		\begin{equation*}
-			( \mathrm{Lie} H)^\vee + p \mathbb{D}^*(H)(W(k)) =
+			( \lie H)^\vee + p \mathbb{D}^*(H)(W(k)) =
 			V \mathbb{D}^{*}(H)(W(k))
 		,\end{equation*}
 		i.e. that
@@ -567,7 +567,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{id}_{ A }\otimes\varphi/p\colon 
+		\id_{ A }\otimes\varphi/p\colon 
 		\varphi^*(M_1) \arrow[r, "", twoheadrightarrow] &
 		M
 	\end{tikzcd}
@@ -728,7 +728,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 		x_k^{p^i} =
 		x_k \cdot \gamma_{p^i-1}(x_k) \cdot (p^i-1)!
 	.\end{equation*}
-	Now, from condition $2$ of \cref{defn:dividedPowers}, we obtain
+	Now, from condition 2 of \cref{defn:dividedPowers}, we obtain
 	\begin{equation*}
 		\big( \varphi^i(x_k) \big)^{[m_k]} =
 		\left( x_k^{[p^i-1]} \right)^{m_k}
@@ -750,7 +750,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 \begin{enumerate}
 	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
 		and the quotient $M/\mathrm{Fil}^1 M$ is a free $O_{ K }$-module;
-	\item the map $\mathrm{id}_{ S } \otimes \varphi_1\colon 
+	\item the map $\id_{ S } \otimes \varphi_1\colon 
 		\varphi^* \left( \mathrm{Fil}^1 M \right) \to M$
 		is surjective.
 \end{enumerate}
@@ -849,7 +849,7 @@ Finally we are left to prove that the map
 \begin{tikzcd}[row sep = 0ex
 	,/tikz/column 1/.append style={anchor=base east}
 	,/tikz/column 2/.append style={anchor=base west}]
-	\mathrm{id}_{ S } \otimes \varphi/p \colon 
+	\id_{ S } \otimes \varphi/p \colon 
 	\varphi^*(\mathrm{Fil}^1 S) \arrow[r, "", twoheadrightarrow] &
 	S
 \end{tikzcd}
@@ -934,7 +934,7 @@ Then, given a $p$-divisible group $G_i \in \mathsf{BT}/ (O_K/ \pi^iO_K)$,
 we can consider its evaluation $\mathbb{D}^*(G_i)(R_i)$ by \cref{defn:NotNilpotentEvaluation}.
 Following the notation of \cref{lem:A2Kisin}
 we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
-the preimage of $\left( \mathrm{Lie}G_i \right)^\vee \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
+the preimage of $\left( \lie G_i \right)^\vee \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
 in $\mathbb{D}^*(G_i)(R_i)$.
 
 We define the module $M_i \coloneqq M \otimes_S R_i$,
@@ -950,7 +950,7 @@ Then, by right exactness of tensor product,
 \begin{tikzcd}[row sep = 0ex
 	,/tikz/column 1/.append style={anchor=base east}
 	,/tikz/column 2/.append style={anchor=base west}]
-	\mathrm{id}_{ S } \otimes \varphi_1
+	\id_{ S } \otimes \varphi_1
 	\colon 
 	\varphi^*(\mathrm{Fil}^1 M)\arrow[r, "", rightarrow] &
 	M
@@ -1037,7 +1037,7 @@ With all this in mind we can start with the lifting process.
 	Finally, since the kernel of $R_i \twoheadrightarrow R_{i-1}$ is nilpotent,
 	we can invoke \cref{thm:EquivCatBTS} and obtain that
 	there is a unique $G_i \in \mathsf{BT}/ (O_K/\pi^iO_K)$
-	lifting $G_{i-1}$ and such that $(\mathrm{Lie}G_i)^\vee \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
+	lifting $G_{i-1}$ and such that $(\lie G_i)^\vee \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
 	is equal to the image of $\mathrm{Fil}^i M_i$ under the composite
 	%tk: here one should also prove that this image is locally free.
 	%I guess this is true, since we have the short exact sequence
@@ -1101,7 +1101,7 @@ With all this in mind we can start with the lifting process.
 	Here compatible means that the restriction of $G^i$ to $O_K/ (p^{i-1})$
 	is isomorphic to $G^{i-1}$.
 	Then, invoking again \cref{thm:EquivCatBTS}, we can construct this sequence by induction,
-	taking at each time the group $G^i$ determined by $(\mathrm{Lie} G^i)^\vee \subset
+	taking at each time the group $G^i$ determined by $(\lie G^i)^\vee \subset
 	\mathbb{D}^*(G_e)(O_K/p^iO_K)$, given by the image of $\mathrm{Fil}^1 M$ under
 	\begin{equation*}
 	\begin{tikzcd}
@@ -1112,7 +1112,7 @@ With all this in mind we can start with the lifting process.
 	\end{equation*}
 	By functoriality of $\mathbb{D}^*(G_e)$ this gives rise to a compatible family $G^i$,
 	which in turn, by \cite[Lemma 2.4.4]{deJong}, defines $G(M) \in \mathsf{BT}/O_K$
-	such that $(\mathrm{Lie}G)^\vee \subset \mathbb{D}^*(G_e)(O_K)$ is
+	such that $(\lie G)^\vee \subset \mathbb{D}^*(G_e)(O_K)$ is
 	equal to the image of $\mathrm{Fil}^iM$ under
 	\begin{equation*}
 	\begin{tikzcd}
@@ -1150,20 +1150,20 @@ These will play an important role also in what follows.
 	\begin{equation}\label{eqn:MGSES}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
-		( \mathrm{Lie}\, \widetilde{G} )^\vee \arrow[r, "", rightarrow] &
+		( \lie\, \widetilde{G} )^\vee \arrow[r, "", rightarrow] &
 		M(G) \arrow[r, "", rightarrow] &
-		\mathrm{Lie}(\widetilde{G}^D) \arrow[r, "", rightarrow] &
+		\lie(\widetilde{G}^D) \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
 	\end{equation}
 	Moreover, recalling \cref{LieDualConormalSheaf}, we have
-	$(\mathrm{Lie}\, \widetilde{G})^\vee = \omega_{\widetilde{G}}$ and
-	$\mathrm{Lie}(\widetilde{G}^D) = \omega_{\widetilde{G}^D}^\vee$.
+	$(\lie\, \widetilde{G})^\vee = \omega_{\widetilde{G}}$ and
+	$\lie(\widetilde{G}^D) = \omega_{\widetilde{G}^D}^\vee$.
 	Also, when determining the filtration, it is useful to keep
 	in mind \cref{rem:A2Kisin}, where we stated that 
 	\begin{equation*}
 		\mathrm{Fil}^1 M(G) =
-		( \mathrm{Lie} \widetilde{G} )^\vee +
+		( \lie \widetilde{G} )^\vee +
 		\mathrm{Fil}^1S \cdot M(G)
 	.\end{equation*}
 	Then we need to compute the conormal sheaves $\omega_G$ for $\mathbb{G}_m(p)$
@@ -1177,7 +1177,7 @@ These will play an important role also in what follows.
 		As seen in \cref{ex:AffineGroupSchemesExamples} this is affine over
 		$\mathbb{Z}$ and it is given by
 		\begin{equation*}
-			\mu_{p^v} = \mathrm{Spec}(\mathbb{Z}[T]/ (T^{p^v} - 1)) = \mathrm{Spec}(A_v)
+			\mu_{p^v} = \spec(\mathbb{Z}[T]/ (T^{p^v} - 1)) = \spec(A_v)
 		.\end{equation*}
 		Then we recall that the closed immersion of the pointed
 		scheme $G_v$ corresponds to the augmentation morphism
@@ -1191,7 +1191,7 @@ These will play an important role also in what follows.
 		.\end{tikzcd}
 		\end{equation*} 
 		Denoting by $I$ the augmentation ideal of $A_v$,
-		the sheaf $\omega_{G_v}$ is the $\mathcal{O}_{ \mathrm{Spec}(\mathbb{Z}) }$-module
+		the sheaf $\omega_{G_v}$ is the $\mathcal{O}_{ \spec(\mathbb{Z}) }$-module
 		$\mathcal{I}/\mathcal{I}^2$ associated to $I/I^2$.
 		We can reduce its computation to that of $I/I^2$.
 		To this aim we recall \cite[\S6.1, proposition 1.8(d) and example 1.10]{Liu}
@@ -1202,8 +1202,8 @@ These will play an important role also in what follows.
 		.\end{equation*}
 		Now we can invoke 
 		\cite[\href{https://stacks.math.columbia.edu/tag/0474}{Lemma 0474}]{SP}
-		(taking $S = Z = \mathrm{Spec}(\mathbb{Z})$ and $X = G_v$),
-		since $i_v = \mathrm{Spec}(\widetilde{\varepsilon})$ admits the structure morphism
+		(taking $S = Z = \spec(\mathbb{Z})$ and $X = G_v$),
+		since $i_v = \spec(\widetilde{\varepsilon})$ admits the structure morphism
 		as a left inverse.
 		This grants that
 		\begin{equation*}
@@ -1224,8 +1224,8 @@ These will play an important role also in what follows.
 		and finally that $\omega_{G_v^D} = i^*_v \Omega_{G^D_v/\mathbb{Z}} = 0$ thanks,
 		as before, to
 		\cite[\href{https://stacks.math.columbia.edu/tag/0474}{Lemma 0474}]{SP}
-		(again, taking $S = Z = \mathrm{Spec}(\mathbb{Z}), X = G_v^D$
-		and noticing that $i_v = \mathrm{Spec}(\widetilde{\varepsilon})$ admits the structure morphism
+		(again, taking $S = Z = \spec(\mathbb{Z}), X = G_v^D$
+		and noticing that $i_v = \spec(\widetilde{\varepsilon})$ admits the structure morphism
 		as a left inverse).
 \end{enumerate}
 	Now we can base change to $S$.
@@ -1248,13 +1248,13 @@ These will play an important role also in what follows.
 	\item Let $G = \mathbb{G}_m(p)$, then filling \cref{eqn:MGSES} with
 		the terms we computed above, we obtain $M(G) \simeq S$.
 		Moreover $\mathrm{Fil}^1 M(G) = S$, since it contains
-		$(\mathrm{Lie}\, \widetilde{G})^\vee = \omega_{\widetilde{G}} = S$.
+		$(\lie\, \widetilde{G})^\vee = \omega_{\widetilde{G}} = S$.
 		Finally we also get that $\varphi_1$ has to coincide with $\varphi$,
 		being $\varphi$-semilinear and defined on $S = M(G)$.
 
 	\item Let's now consider $G^D$.
 		Again, looking at \cref{eqn:MGSES}, we obtain $M(G^D) = S$.
-		Though now $(\mathrm{Lie}\, \widetilde{G}^D)^\vee = 0$,
+		Though now $(\lie\, \widetilde{G}^D)^\vee = 0$,
 		hence $\mathrm{Fil}^1 M(G^D) = \mathrm{Fil}^1 S$.
 		And this implies also that our $\varphi$-semilinear map
 		$\varphi_1$ coincides with $\varphi/p$ on $\mathrm{Fil}^1S$.

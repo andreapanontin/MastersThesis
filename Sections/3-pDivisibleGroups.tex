@@ -93,7 +93,7 @@ Let's start by recalling a few useful algebra definitions.
 
 \begin{defn}[Associated pseudo-discrete sheaf]\label{defn:AssociatePDSheaf}
 	Let $X$ be a topological space with a basis of the topology
-	consisting of quasi compact open subsets (for example $\mathrm{Spec}(R)$
+	consisting of quasi compact open subsets (for example $\spec(R)$
 	for a ring $R$).
 	Given any sheaf $\mathcal{F}$ of rings (resp$.$ modules, groups, etc)
 	we define the {\em associated pseudo-discrete sheaf},
@@ -165,36 +165,36 @@ hence all of the verifications can be checked there.
 	neighbourhoods $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$.
 	We define
 	\begin{equation*}
-	\mathrm{Spf}(A) \coloneqq
+	\spf(A) \coloneqq
 	\left\{ \mathfrak{p} \triangleleft A \ \middle|\ \mathfrak{p}
-	\text{ is open and prime}\, \right\} \subset \mathrm{Spec}(A)
+	\text{ is open and prime}\, \right\} \subset \spec(A)
 	,\end{equation*}
-	and endow $\mathrm{Spf}(A)$ with the subset topology.
+	and endow $\spf(A)$ with the subset topology.
 	For each $\lambda \in \Lambda$, one can associate,
 	as in \cref{defn:AssociatePDSheaf},
-	to the structure sheaf $\mathcal{O}_{\mathrm{Spec}(A/I_\lambda)}$
-	of $\mathrm{Spec}(A/I_\lambda)$,
+	to the structure sheaf $\mathcal{O}_{\spec(A/I_\lambda)}$
+	of $\spec(A/I_\lambda)$,
 	a pseudo-discrete sheaf, which we will denote by $\mathcal{O}_\lambda$.
 	One should also notice that, since $A$ is admissible,
-	$\mathrm{Spec}(A/I_\lambda)$ has indeed the same topological space
-	as $\mathrm{Spf}(A)$ for all $I_\lambda$.
+	$\spec(A/I_\lambda)$ has indeed the same topological space
+	as $\spf(A)$ for all $I_\lambda$.
 	Moreover, for $I_\lambda \subset I_\mu$, one has an induced homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Spec}(A/I_\mu) \arrow[r, "", rightarrow] &
-		\mathrm{Spec}(A/I_\lambda)
+		\spec(A/I_\mu) \arrow[r, "", rightarrow] &
+		\spec(A/I_\lambda)
 	,\end{tikzcd}
 	\end{equation*} 
 	which gives rise to a compatible system.
 	Then one defines
 	\begin{equation*}
-	\mathcal{O}_{\mathrm{Spf}(A)} \coloneqq
+	\mathcal{O}_{\spf(A)} \coloneqq
 	\varprojlim_{\lambda \in \Lambda} \mathcal{O}_\lambda
 	,\end{equation*}
 	where the limit is taken in the category of sheaves of topological rings.
-	Finally one defines the pair $( \mathrm{Spf}(A) , \mathcal{O}_{ \mathrm{Spf}(A) } )$
+	Finally one defines the pair $( \spf(A) , \mathcal{O}_{ \spf(A) } )$
 	to be the {\em formal spectrum} of $A$.
 
 \item A {\em locally topologically ringed space} is said to be an 
@@ -218,8 +218,8 @@ hence all of the verifications can be checked there.
 	formal schemes is anti-equivalent to that of admissible topological rings.
 	In particular we have
 	\begin{equation*}
-	\mathrm{Hom}_{\mathsf{ltrs}} \left( \mathrm{Spf}(B), \mathrm{Spf}(A) \right) \simeq
-	\mathrm{Hom}_{ \mathrm{cont} } \left( A, B \right)
+	\Hom_{\mathsf{ltrs}} \left( \spf(B), \spf(A) \right) \simeq
+	\Hom_{ \mathrm{cont} } \left( A, B \right)
 	,\end{equation*}
 	where in the left hand side we denoted by $\mathsf{ltrs}$ the category of
 	locally topologically ringed spaces, whereas in the right hand side
@@ -256,7 +256,7 @@ let's also recall a couple of results with these objects.
 	of ideals $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$, then
 	we have
 	\begin{equation*}
-	\mathrm{Spf}(A) \simeq \varinjlim_{\lambda \in \Lambda} \mathrm{Spec}(A/I_\lambda)
+	\spf(A) \simeq \varinjlim_{\lambda \in \Lambda} \spec(A/I_\lambda)
 	\end{equation*}
 	in the category of formal schemes.
 	In fact, as can be seen in \cite[Chapter I, \S10.6]{EGA}, one can do a similar construction
@@ -270,7 +270,7 @@ let's also recall a couple of results with these objects.
 	and formal Lie groups, we will follow \cite[\S5]{Shatz} for the point
 	of view of formal schemes.
 	Then, as we will remark again, we will fix $R$ a 
-	local admissible ring and $S \coloneqq \mathrm{Spec}(R)$.
+	local admissible ring and $S \coloneqq \spec(R)$.
 	Moreover we will mainly deal with formal affine schemes over $S$ which
 	are given by inductive limits of what Shatz defines {\em very finite} schemes over $S$.
 	There, we read that an $S$-schemes $T$ is very finite iff it satisfies:
@@ -315,7 +315,7 @@ and in terms of fppf sheaves, borrowing from \cite{Messing}.
 
 \subsubsection{Formal schemes point of view}
 As anticipated in \cref{rem:VeryFiniteSchemes},
-we fix $R$ a local admissible ring, $S \coloneqq \mathrm{Spec}(R)$
+we fix $R$ a local admissible ring, $S \coloneqq \spec(R)$
 and we work only with inductive limits of {\em very finite} $S$-schemes.
 
 
@@ -331,7 +331,7 @@ and we work only with inductive limits of {\em very finite} $S$-schemes.
 
 \begin{rem}[]\label{FormalHopf}
 	As with the case of group schemes, in the affine case
-	$G = \mathrm{Spf}(\mathscr{A})$,
+	$G = \spf(\mathscr{A})$,
 	one defines, on $\mathscr{A}$, comultiplication, antipode and counit morphisms
 	with the usual properties of \cref{defn:HopfAlgebra}.
 	One should note, though, that in the category of 
@@ -384,7 +384,7 @@ the right one in our context.
 \begin{defn}[Formal Lie group]\label{defn:FormalSchemeFormalLieGroup}
 	A {\em formal Lie group} is a group object in the category of
 	formal Lie varieties.
-	More explicitly it is $\Gamma \coloneqq \mathrm{Spf}\left( \mathscr{A} \right)$,
+	More explicitly it is $\Gamma \coloneqq \spf\left( \mathscr{A} \right)$,
 	where $\mathscr{A} \coloneqq R [\![ X_1, \ldots, X_{ n } ]\!]$
 	and $n$ is its dimension. 
 \end{defn}
@@ -398,7 +398,7 @@ the right one in our context.
 	on the comultiplication morphism and its axioms, we will
 	recall them here, with names which can be found in the literature.
 	More explicitly comultiplication of the formal Lie group
-	$\mathrm{Spf}(\mathscr{A})$ is a morphism of topological rings
+	$\spf(\mathscr{A})$ is a morphism of topological rings
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -438,7 +438,7 @@ the right one in our context.
 
 
 \begin{defn}[$p$-divisible formal Lie group]\label{defn:pDivisibleFormalLieGroup}
-	We define the map multiplication by $p$ on $\Gamma \coloneqq \mathrm{Spf}(\mathscr{A})$
+	We define the map multiplication by $p$ on $\Gamma \coloneqq \spf(\mathscr{A})$
 	as the map $p\colon \Gamma \to \Gamma$
 	associated to 
 	\begin{equation*}
@@ -636,7 +636,7 @@ geometry to make sense of the definitions which are at the heart of this section
 		where $s$ is a local section of $\mathcal{F}$.
 
 	\item We define the {\em symmetric algebra} of $\mathcal{F}$,
-		denoted by $\mathrm{Sym}(\mathcal{F})$, to be the quotient 
+		denoted by $\sym(\mathcal{F})$, to be the quotient 
 		of $\mathrm{T}(\mathcal{F})$ by the two-sided ideal
 		generated by local sections of the form
 		$s \otimes t - t \otimes s$ of $\mathrm{T}^2(\mathcal{F})$,
@@ -648,10 +648,10 @@ geometry to make sense of the definitions which are at the heart of this section
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \label{rem:SheafSymExtProperties}
 \begin{enumerate}
-	\item Both $\bigwedge \mathcal{F}$ and $\mathrm{Sym}(\mathcal{F})$
+	\item Both $\bigwedge \mathcal{F}$ and $\sym(\mathcal{F})$
 		are graded $\mathcal{O}_{ X }$-algebras, whose grading is
 		inherited from $\mathrm{T}(\mathcal{F})$.
-		Moreover $\mathrm{Sym}(\mathcal{F})$ is commutative,
+		Moreover $\sym(\mathcal{F})$ is commutative,
 		whereas $\bigwedge \mathcal{F}$ is graded-commutative.
 		%tk: if you need to define it, it's like cup product.
 
@@ -666,14 +666,14 @@ geometry to make sense of the definitions which are at the heart of this section
 %			\bigwedge_{\mathcal{O}_{ X }(U)}^n (\mathcal{F}(U))
 %		.\end{tikzcd}
 %		\end{equation*} 
-%		Analogously the sheaf $\mathrm{Sym}^n(\mathcal{F})$ is the 
+%		Analogously the sheaf $\sym^n(\mathcal{F})$ is the 
 %		sheaf associated to the presheaf
 %		\begin{equation*}
 %		\begin{tikzcd}[row sep = 0ex
 %			,/tikz/column 1/.append style={anchor=base east}
 %			,/tikz/column 2/.append style={anchor=base west}]
 %			U \arrow[r, "", mapsto] &
-%			\mathrm{Sym}_{\mathcal{O}_{ X }(U)}^n (\mathcal{F}(U))
+%			\sym_{\mathcal{O}_{ X }(U)}^n (\mathcal{F}(U))
 %		.\end{tikzcd}
 %		\end{equation*} 
 %		For more details see 
@@ -683,7 +683,7 @@ geometry to make sense of the definitions which are at the heart of this section
 		If $\mathcal{F}$ is a {\em quasi-coherent} (resp$.$ {\em locally-free})
 		sheaf of $\mathcal{O}_{ X }$-modules,
 		then each of $T(\mathcal{F})$, $\bigwedge \mathcal{F}$ and
-		$\mathrm{Sym}(\mathcal{F})$ are {\em quasi-coherent} (resp$.$ {\em locally-free}),
+		$\sym(\mathcal{F})$ are {\em quasi-coherent} (resp$.$ {\em locally-free}),
 		see \cite[\href{https://stacks.math.columbia.edu/tag/01CL}{Lemma 01CL}]{SP}.
 \end{enumerate}
 \end{rem}
@@ -700,7 +700,7 @@ And now back to our interests.
 		is representable for all $k \geq 0$;
 	\item $\omega_X \simeq
 		e_X^* \big( \Omega_{X/S}^1 \big)
-		\simeq e_X^* \big( \Omega_{\mathrm{Inf}^k(X)/S} \big)$, for any $k \in \mathbb{N}$,
+		\simeq e_X^* \big( \Omega^1_{\mathrm{Inf}^k(X)/S} \big)$, for any $k \in \mathbb{N}$,
 		is {\em locally free of finite type};
 	\item Denoting by $\mathrm{gr}^{\mathrm{inf}}(X)$ the unique graded $\mathcal{O}_{ S }$-algebra
 		such that $\mathrm{gr}^{\mathrm{inf}}_i(X) = \mathrm{gr}_i(\mathrm{Inf}^i(X))$,
@@ -709,7 +709,7 @@ And now back to our interests.
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Sym}\left( \omega_X \right) \arrow[r, "\sim", rightarrow] &
+		\sym\left( \omega_X \right) \arrow[r, "\sim", rightarrow] &
 				\mathrm{gr}^{\mathrm{inf}}(X)
 		\end{tikzcd}
 		\end{equation*}
@@ -726,7 +726,7 @@ And now back to our interests.
 	In particular, following the assumptions made for the formal scheme point of view,
 	it grants that $X$ is given by
 	$R [\![ T_1, \ldots, T_n ]\!]$,
-	where $S = \mathrm{Spec}(R)$.
+	where $S = \spec(R)$.
 \end{rem}
 
 
@@ -790,7 +790,7 @@ $S$ of characteristic $p$.
 	From 
 	\cref{thm:MessingCharactLieGroup,rem:FormalLieVarietyPowerSeries,defn:FormalSchemeFormalLieGroup}
 	we see that the two definitions of formal Lie group coincide, over
-	$S = \mathrm{Spec}(R)$, where $R$ is a local admissible ring.
+	$S = \spec(R)$, where $R$ is a local admissible ring.
 	In fact from the definition as an fppf sheaf of groups,
 	we obtain that $G$ is $F$-torsion.
 	As a consequence every $G[n]$, up to base
@@ -907,7 +907,7 @@ In fact the following proposition holds.
 		G_{v+t} \arrow[uu, "i_{v+t}"', rightarrow]
 	.\end{tikzcd}
 	\end{equation}
-	In fact the big square commutes and condition $2$ of the definition
+	In fact the big square commutes and condition 2 of the definition
 	of $p$-divisible group, applied to $G_{v+t}$, implies that $p^t \circ i_{v+t}$
 	factors through the kernel of $p^v$ on $G_{v+t+1}$.
 	As seen above this is $G_v$, granting the existence of the 
@@ -920,7 +920,7 @@ In fact the following proposition holds.
 	Then, as also $i_{v,t}$ is a monomorphism, $\ker j_{t,v}$
 	coincides with the kernel of $p^t$ on $G_{v+t}$, 
 	which is $G_t$ by the above discussion.
-	Then, by property $1$ of $p$-divisible groups,
+	Then, by property 1 of $p$-divisible groups,
 	the order of $G_{v+t}$ is the product of the orders
 	of $G_v$ and $G_t$, hence the following is a
 	short exact sequence of abelian $S$-group schemes
@@ -1152,7 +1152,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \begin{rem}[Comparison of the two points of view]
 	We will follow \cite[Chapter I, \S2, remark 2.3 and 
 	Chapter II, \S3, theorem 2.1.7]{Messing} to show that
-	the two points of view define the same objects over $S = \mathrm{Spec}(R)$,
+	the two points of view define the same objects over $S = \spec(R)$,
 	for an admissible local ring $R$.
 	Let's start by considering $G \in \mathsf{BT}/S$.
 	Let's denote by $i_{v,t}\colon G(v) \to G(v+t)$ the natural inclusion
@@ -1171,7 +1171,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 		G_{v+1}
 	.\end{tikzcd}
 	\end{equation*}
-	Hence $\left( G_v, i_v \right)_{v \in \mathbb{N}}$ satisfies condition $2$
+	Hence $\left( G_v, i_v \right)_{v \in \mathbb{N}}$ satisfies condition 2
 	of \cref{defn:pDivGroupFormalSchemes}.
 	Then, since $G$ is $p$-divisible, i.e. multiplication by $p$ is an
 	epimorphism of $G$ we have that, for any $0 \leq i \leq v$,
@@ -1193,7 +1193,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	ranks in short exact sequences, see \cref{thm:QuotientGroupScheme}, we obtain
 	that the rank of the fiber of $G(n)$ at $s$
 	is $p^{nh(s)}$.
-	Hence our inductive system satisfies also $1$ 
+	Hence our inductive system satisfies also 1
 	of \cref{defn:pDivGroupFormalSchemes}.
 
 	Starting from a $p$-divisible group $\left( G_v, i_v \right)_{v \in \mathbb{N}}$,
@@ -1243,13 +1243,13 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 	Moreover we see that $\left( G_v^D, j_v^D \right)_{v \in \mathbb{N}}$
 	defines an inductive system, by construction of $j_v$ (using the universal property
 	defining it).
-	Then, still by \cref{rem:DualityOtherProperties}, we obtain that it satisfies condition
-	$1$ of \cref{defn:pDivGroupFormalSchemes}.
+	Then, still by \cref{rem:DualityOtherProperties}, we obtain that it satisfies condition 1
+	of \cref{defn:pDivGroupFormalSchemes}.
 	Moreover, since $i_{1,v}$ is injective,
 	commutativity of the lower triangle in \cref{diag:pDivCharProof}
 	shows that $j_v = \coker i_{1,v} = \coker \left( p^v\colon G_{v+1} \to G_{v+1} \right)$,
 	But then, since duality is exact, this implies that the inductive system
-	satisfies also property $2$ of \cref{defn:pDivGroupFormalSchemes},
+	satisfies also property 2 of \cref{defn:pDivGroupFormalSchemes},
 	hence it defines a $p$-divisible group.
 \end{rem}
 
@@ -1301,7 +1301,7 @@ groups, that of dimension.
 	where $i^0_v \coloneqq \left.i_v\right|_{G^0_v}$, defines a $p$-divisible group.
 	Then \cref{thm:ConnectedEtaleSeqFormalGr} gives a short exact sequence
 	in which the first term, $G^0$, is a connected $p$-divisible group.
-	By \cref{prop:equivCatConnpDivGr} we see that $G^0 = \mathrm{Spf}(\mathscr{A})$,
+	By \cref{prop:equivCatConnpDivGr} we see that $G^0 = \spf(\mathscr{A})$,
 	for $\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$ the ring of 
 	formal power series in $n$ variables.
 \end{rem}
@@ -1322,7 +1322,7 @@ groups, that of dimension.
 	.\end{tikzcd}
 	\end{equation*}
 	Thanks to \cref{rem:ConnectedComponentpDivGroup} we see that
-	$G^0 = \mathrm{Spf}(\mathscr{A})$, where
+	$G^0 = \spf(\mathscr{A})$, where
 	$\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$.
 	We define $n$ to be the {\em dimension} of the $p$-divisible group $G$.
 \end{defn}
@@ -1353,7 +1353,7 @@ the residue field, where $\pi$ is a uniformizer of $K$.
 Let $L$ be the completion of an algebraic extension of $K$ and, as usual,
 $O_L$ be the ring of integers of $L$.
 In particular let's denote by $\overline{K}$ a fixed algebraic closure
-of $K$, and by $\mathscr{G}_K = \mathrm{Gal}\left( \overline{K} / K \right)$
+of $K$, and by $\mathscr{G}_K = \gal\left( \overline{K} / K \right)$
 the absolute Galois group of $K$.
 Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
@@ -1419,17 +1419,17 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	To see how it acts, notice that
 	\begin{equation*}
 		T_p(G) = \varprojlim_{v \in \mathbb{N}} G_v(\overline{K}) =
-		\varprojlim_{v \in \mathbb{N}} \mathrm{Hom}_{ \mathsf{Sch}/O_K } 
-		\left( \mathrm{Spec}(\overline{K}), G_v \right) \simeq
-		\varinjlim_{v \in \mathbb{N}} \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} }
+		\varprojlim_{v \in \mathbb{N}} \Hom_{ \mathsf{Sch}/O_K } 
+		\left( \spec(\overline{K}), G_v \right) \simeq
+		\varinjlim_{v \in \mathbb{N}} \Hom_{ O_K\text{-}\mathsf{Alg} }
 		\left( A_v, \overline{K} \right)
 	,\end{equation*}
-	where $G_v = \mathrm{Spec}(A_v)$ is affine, being finite over $O_K$.
+	where $G_v = \spec(A_v)$ is affine, being finite over $O_K$.
 	Here it is easy to specify the action of $\mathscr{G}_K$, which on each term acts by
 	\begin{equation*}
 		\left( g \cdot f \right)(x) = g \cdot f(x)
 	\end{equation*}
-	for all $g \in \mathscr{G}_K$, $x \in A_v$ and $f \in \mathrm{Hom}_{ O_K\text{-}\mathsf{Alg} } 
+	for all $g \in \mathscr{G}_K$, $x \in A_v$ and $f \in \Hom_{ O_K\text{-}\mathsf{Alg} } 
 	\left( A_v, \overline{K}\right)$.
 \end{rem}
 
@@ -1438,7 +1438,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	Consider $G \in \mathsf{BT}/O_K$.
 	Then
 	\begin{equation*}
-		T_p(G) \simeq \mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} }
+		T_p(G) \simeq \Hom_{ \mathsf{BT}/O_{\overline{K}} }
 		\big( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \big)
 	,\end{equation*}
 	where $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
@@ -1453,12 +1453,12 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		T_p(G_0) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
 		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} {G_v}_{O_{\overline{K}}}(O_{\overline{K}})
 		\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathrm{Hom}_{ \mathsf{Gr}/O_{\overline{K}} }
+		\Hom_{ \mathsf{Gr}/O_{\overline{K}} }
 		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, {G_v}_{O_{\overline{K}}} \right) \\
 		&\stackrel{3}{\simeq} 
-		\mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} } 
+		\Hom_{ \mathsf{BT}/O_{\overline{K}} } 
 		\bigg( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_{O_{\overline{K}}} \bigg) 
-		\simeq \mathrm{Hom}_{ \mathsf{BT}/O_{\overline{K}} } 
+		\simeq \Hom_{ \mathsf{BT}/O_{\overline{K}} } 
 		\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \right)
 	.\end{align*}
 	Let's explain why these isomorphisms hold.
@@ -1490,10 +1490,10 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		g \cdot x \coloneqq \chi(g) x
 	\end{equation*}
 	for all $x \in \mathbb{Z}_{p}(1)$ and all $g \in \mathscr{G}_K$.
-	Let's now denote $\mathbb{Z}_{p}(-1) \coloneqq \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+	Let's now denote $\mathbb{Z}_{p}(-1) \coloneqq \Hom_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
 	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$, where the action is the usual action on the
 	hom group.
-	More explicitly it is given, for all $f \in \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+	More explicitly it is given, for all $f \in \Hom_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
 	\left( \mathbb{Z}_{p}(1), \mathbb{Z}_{p} \right)$ and $g \in \mathscr{G}_K$, by
 	\begin{equation*}
 		(g \cdot f)(x) \coloneqq f (g^{-1} x)
@@ -1510,7 +1510,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	\end{equation*}
 	Here by $\mathbb{Z}_{p}(1)^{\otimes n}$ we mean the $n$-fold tensor product
 	of $\mathbb{Z}_{p}(1)$ with itself.
-	Then it is clear that $\mathbb{Z}_{p}(n) = \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+	Then it is clear that $\mathbb{Z}_{p}(n) = \Hom_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
 	\left( \mathbb{Z}_{p}(-n), \mathbb{Z}_{p} \right)$ for all $n < 0$.
 	More explicitly we see that $\mathbb{Z}_{p}(n)$ coincides, as a module,
 	with $\mathbb{Z}_{p}$, but the action of $\mathscr{G}_K$ has been twisted by
@@ -1529,7 +1529,7 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	Here notice that, since $\mathbb{Z}_{p}$ is clearly free and of finite rank as
 	a $\mathbb{Z}_{p}$-module, for $n < 0$ we have
 	\begin{equation*}
-		M(n) \simeq \mathrm{Hom}_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
+		M(n) \simeq \Hom_{ \mathbb{Z}_{p}\text{-}\mathsf{Mod} }
 		\left( \mathbb{Z}_{p}(-n), M\right)
 	.\end{equation*}
 	To conclude we can give an explicit description of the twisted action on $M(n)$.
@@ -1560,12 +1560,12 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}}\right)
 		\simeq \mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
 		\left( {G}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}} \right)\\
-		&\stackrel{3}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
+		&\stackrel{3}{\simeq} \Hom_{ \mathsf{Gp} } 
 		\left( G(\overline{K}), \mathbb{G}_m(p)(\overline{K}) \right)
-		\stackrel{4}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
+		\stackrel{4}{\simeq} \Hom_{ \mathsf{Gp} } 
 		\left( G(\overline{K}), \mathbb{Z}_{p}(1) \right) 
 		\phantom{\varprojlim_{v \in \mathbb{N}}}\\
-		&\stackrel{5}{\simeq} \mathrm{Hom}_{ \mathsf{Gp} } 
+		&\stackrel{5}{\simeq} \Hom_{ \mathsf{Gp} } 
 		\left( G(\overline{K}), \mathbb{Z}_{p} \right)(1)
 		= T_p(G)^\vee(1)
 	.\end{align*}
@@ -1585,8 +1585,8 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	it is trivial on $\mathbb{Z}_{p}$ (being contained in $K$).
 	Then it is clear that $\mu_{p^\infty}(\overline{K}) \simeq \mathbb{Z}_{p}(1)$.
 	Finally isomorphism $5$ holds, since the action of $\mathscr{G}_K$ on 
-	$\mathrm{Hom}_{ \mathsf{Gp} } \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
+	$\Hom_{ \mathsf{Gp} } \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
 	is given by $(g \cdot f)(x) = gf(g^{-1}x)$ for all $g \in \mathscr{G}_K, 
-	f \in \mathrm{Hom}_{\mathsf{Gp}} \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
+	f \in \Hom_{\mathsf{Gp}} \left( G(\overline{K}), \mathbb{Z}_{p} \right)$
 	and $x \in G(\overline{K})$.
 \end{proof}

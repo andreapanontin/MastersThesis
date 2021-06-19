@@ -12,8 +12,9 @@ exponentials.
 \subsection{Divided powers}
 \begin{defn}[Ideal with divided powers]\label{defn:dividedPowers}
 	Let $A$ be a ring, and $I \triangleleft A$ an ideal of $A$.
-	We say that $I$ is equipped with {\em divided powers} iff
-	we are given a family of maps $\left\{ \gamma_n \right\}_{n \geq 1}$,
+	We say that $I$ is equipped with {\em divided powers},
+	equiv$.$ it is given a {\em divided power structure}, iff
+	it is given with a family of maps $\left\{ \gamma_n \right\}_{n \geq 1}$,
 	where $\gamma_n\colon I \to A$ for all $n \in \mathbb{N}$,
 	satisfying, for all $\lambda \in A$ and $x,y \in I$, the following conditions:
 	\begin{enumerate}
@@ -56,12 +57,12 @@ exponentials.
 
 
 \begin{rem}[]
-	We can make the following remarks.
+	Let's now notice the following immediate consequences of the definitions.
 \begin{enumerate}
-\item Axiom $2$ of \cref{defn:dividedPowers}
+\item Axiom 2 of \cref{defn:dividedPowers}
 	implies that $\gamma_n(0) = 0$ for all $n \in \mathbb{N}$.
 
-\item Via an easy induction argument, axioms $1$ and $3$ tell us that
+\item Via an easy induction argument, axioms 1 and 3 tell us that
 	$n! \gamma_n(x) = x^n$.
 
 \item Reasoning by induction one can show that
@@ -75,7 +76,7 @@ exponentials.
 
 \item In \cref{defn:NilpotentDividedPowers},
 	if we take $k = N$ and $i_1 = \cdots = i_N = 1$,
-	then, thanks to axiom $1$ of \cref{defn:dividedPowers}, the ideal $I$
+	then, thanks to axiom 1 of \cref{defn:dividedPowers}, the ideal $I$
 	is nilpotent.
 	In particular $I^N = (0)$.
 \end{enumerate}
@@ -86,14 +87,14 @@ exponentials.
 \begin{enumerate}\label{PDexamples}
 	\item Given any ring $A$, $(0)$ is an ideal with divided powers,
 		with $\gamma_n(0) = 0$ for all $n \in \mathbb{N}$.
-		This is called the {\em trivial} divided powers structure.
+		This is called the {\em trivial} divided power structure.
 
 	\item If $A$ is a $\mathbb{Q}$-algebra, every ideal has a unique
-		divided powers structure, given by $x^n/n! \eqqcolon \gamma_n(x)$.
+		divided power structure, given by $x^n/n! \eqqcolon \gamma_n(x)$.
 
 	\item\label{PDEx:NilpotentIdeal} Suppose that $\left( m-1 \right)!$ is invertible in $A$ and 
 		$I^m = (0)$.
-		Then $I$ has a (not necessarily unique) divided powers structure, given by
+		Then $I$ has a (not necessarily unique) divided power structure, given by
 		\begin{equation*}
 			x^{[n]} \coloneqq
 			\begin{cases}
@@ -102,28 +103,30 @@ exponentials.
 			\end{cases} 
 		\end{equation*}
 		In particular, whenever $I^2 = 0$, we can give $I$ a
-		divided powers structure by setting $\gamma_n(x) = 0$
+		divided power structure by setting $\gamma_n(x) = 0$
 		for all $x \in I$ and all $n \geq 2$.
 
 	\item\label{PDex:DVR} If $V$ is a discrete valuation ring of unequal characteristic $p$
 		and uniformizer $\pi$, we can write $p = u \pi^e$,
 		where $u$ an invertible element and $e$ the absolute ramification
 		index of $V$.
-		Then $\left( \pi \right)$ has a divided powers structure iff $e \leq p-1$.
+		Then $\left( \pi \right)$ has a divided power structure iff $e \leq p-1$.
 		In such case $\gamma$ is unique, determined by
 		$x^n/n! \eqqcolon \gamma_n(x)$.
 		In fact it is known that, denoted by $\nu_p$ the valuation
 		of $\mathbb{Z}_{p}$ normalized to have value group $\mathbb{Z}$,
-		and if $n = a_0 + \cdots + a_kp^k$ is the $p$-adic expansion
-		of $n \in \mathbb{N}$, then
+		then
 		\begin{equation*}
 			\nu_p(n!) = 
 			\frac{n - s_p(n)}{p-1}
 		,\end{equation*}
-		where $s_p(n) = a_0 + \cdots + a_k$.
+		where $s_p(n) \coloneqq a_0 + \cdots + a_k$ is the sum of the
+		digits of $n$ in base $p$. In other words it is the
+		sum of the coefficients of $n = a_0 + \cdots + a_kp^k$,
+		the $p$-adic expansion of $n$ in $\mathbb{Z}_{p}$.
 		Then, in order for $\gamma_n$ to all have values in $(\pi)$
 		we need that $\nu(\gamma_n(x)) > 0$ for all $x \in (\pi)$.
-		By axiom $2$ of \cref{defn:dividedPowers}
+		By axiom 2 of \cref{defn:dividedPowers}
 		it is enough to check it for $\pi$.
 		Then, assuming $\nu$ is normalized to have values in $\mathbb{Z}$,
 		we have
@@ -158,7 +161,7 @@ exponentials.
 \begin{defn}[]\label{RingExtendingDivPowers}
 	Given a divided power ring $\left(A, I, \gamma\right)$ and
 	a ring homomorphism $f\colon A \to B$, we say that
-	$\gamma$ extends to $B$ iff there exists a divided powers
+	$\gamma$ extends to $B$ iff there exists a divided power
 	structure $\overline{\gamma}$ on $IB$ such that
 	\begin{equation*}
 		f\colon \left(A, I, \gamma\right) \to \left(B, IB, \overline{\gamma}\right)
@@ -177,7 +180,7 @@ exponentials.
 
 
 \noindent
-We now state a few criteria whose aim is to extend an existing divided powers structure.
+We now state a few criteria whose aim is to extend an existing divided power structure.
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/07H1}{Lemma 07H1}]{SP}}]
 \label{lem:PDFlatExtension}
 	Let $\left(A, I, \gamma\right)$ be a divided power ring
@@ -219,7 +222,7 @@ to extend divided powers also in this case.
 		of $I$ and
 	\item each $\gamma_n$ is continuous for the $p$-adic topology and extends
 		to a continuous map $\widehat{\gamma}_n\colon \widehat{I} \to \widehat{I}$,
-		defining a divided powers structure on $\widehat{I}$.
+		defining a divided power structure on $\widehat{I}$.
 \end{enumerate}
 \end{lem} 
 
@@ -232,17 +235,17 @@ in the context of divided powers.
 
 \begin{thm}[{\cite[\S3, theorem 3.9]{Berthelot}}]\label{thm:PDSymAlg}
 	Let $M$ be an $A$-module.
-	Then there exists a divided powers algebra 
+	Then there exists a divided power algebra 
 	$\left(\Gamma_A(M), \Gamma_A^+(M), \gamma\right)$ and an $A$-linear
 	map $\varphi\colon M \to \Gamma_A^+(M)$ with the following
 	universal property:
-	given any other divided powers algebra
+	given any other divided power algebra
 	$\left(B, J, \delta\right)$ and any $A$-linear
 	map $\psi\colon M \to J$,
-	then there is a unique divided powers morphism
+	then there is a unique divided power morphism
 	$\overline{\psi}\colon \Gamma_A(M) \to B$
 	such that $\overline{\psi} \circ \varphi = \psi$.
-	Moreover the divided powers algebra $\Gamma(M)$ 
+	Moreover the divided power algebra $\Gamma(M)$ 
 	has the following properties.
 \begin{enumerate}
 	\item Denote by $x^{[1]} \coloneqq \varphi(x)$ and $x^{[n]} \coloneqq \gamma_n(\varphi(x)) \in
@@ -288,18 +291,19 @@ in the context of divided powers.
 \end{thm}
 
 
-\begin{thm}[{\cite[\S3, theorem 3.19]{Berthelot}}, divided powers envelope]\label{thm:PDEnvelope}
+\begin{thm}[{\cite[\S3, theorem 3.19]{Berthelot}}, divided power envelope]\label{thm:PDEnvelope}
 	Let $\left(A, I, \gamma\right)$ a ring with divided powers, $B$ an $A$-algebra
 	and $J \triangleleft B$ an ideal.
 	There exists a $B$-algebra $\mathcal{D}_{B,\gamma}(J)$
-	with a divided powers ideal $\left(\overline{J}, [\ \cdot \ ]\right)$,
+	with a divided power ideal $\left(\overline{J}, [\ \cdot \ ]\right)$,
 	such that $J \mathcal{D}_{B, \gamma} \subset \overline{J}$,
-	$[\ \cdot \ ]$ is compatible with $\gamma$, and which satisfies the
+	the divided power structure $[\ \cdot \ ]$ 
+	is compatible with $\gamma$, and which satisfies the
 	following universal property:
 	for any $B$-algebra $C$ containing an ideal
-	$K$ which contains $JC$ and has a divided powers structure
+	$K$ which contains $JC$ and has a divided power structure
 	$\delta$ compatible  with $\gamma$, there is a unique 
-	divided powers morphism 
+	divided power morphism 
 	$\left(\mathcal{D}_{B,\gamma}, \overline{J}, [\ \cdot \ ]\right) \to 
 	\left(C, K, \delta\right)$ making the following
 	diagram commute
@@ -327,7 +331,7 @@ in the context of divided powers.
 
 \begin{rem}[]\label{rem:PDEnvelope}
 	Though we will not include the proof for the above theorem,
-	we think it is useful to outline the construction of the divided powers envelope
+	we think it is useful to outline the construction of the divided power envelope
 	since it is going to be used quite prominently in the following sections.
 	One starts by replacing $J$ with $J + IB$, so that $I \subset J$.
 	Then, denoting by $\varphi\colon J \to \Gamma^1_B(J)$ the universal
@@ -339,7 +343,7 @@ in the context of divided powers.
 	\item $\varphi(f(y))^{[n]} - \varphi(f(\gamma_n(y)))$ for $y \in I$.
 \end{enumerate}
 	Then, after checking some compatibility conditions, one finds that
-	$\mathcal{D} \coloneqq \Gamma_B(J)/\mathcal{J}$ has an induced divided powers
+	$\mathcal{D} \coloneqq \Gamma_B(J)/\mathcal{J}$ has an induced divided power
 	structure, that it is a $B$-algebra and that it satisfies the desired universal property.
 \end{rem}
 
@@ -378,7 +382,7 @@ inverse maps, of which we will construct some generalizations later on.
 	Notice that \cref{lem:PDFlatExtension} allows one, starting from
 	a divided power ring $\left(A, I, \gamma\right)$, to give
 	a structure of divided power ring to $A_{\mathfrak{p}}$ for all
-	$\mathfrak{p} \in \mathrm{Spec}(A) \eqqcolon S$, since localization is a flat morphism.
+	$\mathfrak{p} \in \spec(A) \eqqcolon S$, since localization is a flat morphism.
 	Moreover the structures we defined above are all compatible with localization, by construction.
 	This pushes us to expand the notion of divided powers to the
 	sheaf $\mathcal{O}_{ S }$.
@@ -395,8 +399,8 @@ inverse maps, of which we will construct some generalizations later on.
 	%structure sheaf $\mathcal{O}_{ S }$ of the above mentioned scheme $S$,
 	%$I$ by a quasi-coherent sheaf of ideals $\mathcal{I}$ of $\mathcal{O}_S$ and
 	%$M$ by a quasi-coherent $\mathcal{O}_S$-module.
-	A {\em system of divided powers} on $\mathcal{I}$ is the data,
-	for all $U \subset S$ open, of a system of divided powers $\gamma(U)$ 
+	A {\em divided power structure} on $\mathcal{I}$ is the data,
+	for all $U \subset S$ open, of divided powers $\gamma(U)$ 
 	of $\Gamma(U,\mathcal{I})$ in which restriction maps
 	are given by morphisms of divided power rings.
 	Then we will call one triple $\left(S, \mathcal{I}, \gamma\right)$
@@ -426,7 +430,7 @@ inverse maps, of which we will construct some generalizations later on.
 		\left(\mathcal{O}_{ S }(f^{-1}U'), \mathcal{I}(f^{-1}U'), \gamma(f^{-1}U')\right)
 	\end{tikzcd}
 	\end{equation*} 
-	is a morphism of divided powers rings.
+	is a morphism of divided power rings.
 %	Consider now a morphism of schemes
 %	$f\colon T \to S$, where $\left(S, \mathcal{I}, \gamma\right)$ is
 %	a scheme with divided powers.
@@ -490,19 +494,19 @@ we need the following result.
 	Finally one can generalize the construction
 	of \cref{thm:PDSymAlg,thm:PDEnvelope} to the case of $\mathcal{M}$
 	an quasi-coherent $\mathcal{O}_{ S }$-algebra.
-	Indeed the divided powers algebra $\Gamma(\mathcal{M})$ is defined
+	Indeed the divided power algebra $\Gamma(\mathcal{M})$ is defined
 	as the sheaf associated to the presheaf 
 	$U \mapsto \Gamma_{\mathcal{O}_S(U)}(\mathcal{M}(U))$.
 
-	For the divided powers envelope let's consider the following situation.
+	For the divided power envelope let's consider the following situation.
 	Take a closed immersion of schemes $X \to Y$, with a morphism $Y \to S$,
 	where $S$ is equipped with a structure of divided powers via $\gamma$.
 	Then, one defines the
-	divided powers envelope $\mathcal{D}_{X,\gamma}(Y)$, to be the scheme
-	corresponding to the divided powers envelope of $X$ in $Y$,
+	divided power envelope $\mathcal{D}_{X,\gamma}(Y)$, to be the scheme
+	corresponding to the divided power envelope of $X$ in $Y$,
 	compatible with $\gamma$.
 	More explicitly $\mathcal{D}_{X,\gamma}(Y)$ is locally 
-	given by the spectrum of the divided powers envelope
+	given by the spectrum of the divided power envelope
 	of $\mathcal{O}_{ Y }$ at the ideal defining $X$, compatible with $\gamma$.
 	As already remarked we can carry out this construction
 	thanks to \cref{prop:PDEnvScheme}.
@@ -511,8 +515,9 @@ we need the following result.
 
 %tk: check whether you should require co-algebras to be co-commutative.
 \subsection{Cospec and Lie algebras}
-The aim of the following concepts is to give some vocabulary to
-be able to work with exponentials in more general cases than what we saw before.
+The aim of the following section is to give some vocabulary to
+be able to work with exponentials, in a more general context than the previous section,
+and to introduce the construction of Lie algebra.
 The notation of this section will follow that of \cite[Capther III]{Messing}.
 This means that it might not be consistent with our previous exposition.
 
@@ -528,75 +533,11 @@ This means that it might not be consistent with our previous exposition.
 	morphisms of $\mathcal{O}_S$-algebras
 	$\Delta\colon \mathcal{U} \to \mathcal{U} \otimes_{\mathcal{O}_{ S }} \mathcal{U}$
 	and $\eta\colon \mathcal{U} \to \mathcal{O}_{ S }$
-	satisfying the properties of Hopf algebra morphisms,
+	satisfying the properties of Hopf algebra structure morphisms,
 	as defined in \cref{defn:HopfAlgebra}.
 \end{enumerate}
 	If, moreover, $\mathcal{U}$ is quasi-coherent as an $\mathcal{O}_{ S }$-module,
 	we say that it is a {\em quasi-coherent} $\mathcal{O}_{ S }$ (co)-algebra.
-\end{defn}
-
-
-\begin{defn}[]
-	Let $S$ be a scheme and $\mathcal{U}$ an $\mathcal{O}_{ S }$ co-algebra.
-	We define the functor 
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Cospec}(\mathcal{U})\colon 
-		\mathsf{Sch}/S\arrow[r, "", rightarrow] &
-		\mathsf{Sets} \\
-		S' \arrow[r, "", mapsto] & 
-		\left\{ y \in \Gamma(S', \mathcal{U}_{S'}) \ \middle|\ 
-		\eta(y) = 1, \Delta(y) = y \otimes y\right\}
-	.\end{tikzcd}
-	\end{equation*} 
-\end{defn}
-
-
-\begin{rem}[{\cite[Chapter 3, \S2.1]{Messing}}]
-	The functor $\mathrm{Cospec}(\mathcal{U})$ is a sheaf for the fpqc topology
-	for all $\mathcal{O}_{ S }$ co-algebra $\mathcal{U}$.
-	As a consequence we obtain a covariant functor $\mathcal{U} \mapsto \mathrm{Cospec}(\mathcal{U})$
-	from the category of $\mathcal{O}_{ S }$ co-algebras to the category
-	of fpqc sheaves on $S$.
-	Moreover this functor is compatible with inverse images.
-\end{rem}
-
-
-\noindent
-Let's now investigate the relation between $\mathrm{Cospec}$ and $\mathrm{Spec}$.
-We need some preliminary definitions first.
-
-
-\begin{defn}[Internal hom of $\mathcal{O}_{ X }$-modules]\label{defn:iHomOXMod}
-	Let $X$ be a scheme, and $\mathcal{F}, \mathcal{G}$ be two $\mathcal{O}_{ X }$-modules.
-	We define their internal hom as
-	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex
-		,/tikz/column 1/.append style={anchor=base east}
-		,/tikz/column 2/.append style={anchor=base west}]
-		\mathcal{H}\mathrm{om}_{ \mathcal{O}_{ X }\text{-}\mathsf{Mod} }
-		\left( \mathcal{F}, \mathcal{G} \right)\colon 
-		\mathsf{Op}(X)^{op} \arrow[r, "", rightarrow] &
-		\mathcal{O}_{ X }\text{-}\mathsf{Mod} \\
-		U \arrow[r, "", mapsto] & 
-		\mathrm{Hom}_{ \left.\mathcal{O}_{ X }\right|_{U}\text{-}\mathsf{Mod} } 
-			\left( \left.\mathcal{F}\right|_{U}, \left.\mathcal{G}\right|_{U} \right)
-	,\end{tikzcd}
-	\end{equation*} 
-	This is indeed a sheaf of abelian groups, see 
-	\cite[\href{https://stacks.math.columbia.edu/tag/00AK}{Section 00AK}]{SP}.
-	Moreover it carries an $\mathcal{O}_{ X }$-module structure given as follows.
-	Fixed any $U \subset X$ open, 
-	$\varphi \in \mathrm{Hom}_{ \left.\mathcal{O}_{ X }\right|_{U}\text{-}\mathsf{Mod}} 
-	\left( \left.\mathcal{F}\right|_{U} , \left.\mathcal{G}\right|_{U} \right)$ and
-	$f \in \mathcal{O}_{ X }(U)$, we can define $f \varphi \in
-	\mathrm{Hom}_{ \left.\mathcal{O}_{ X }\right|_{U}\text{-}\mathsf{Mod}  } 
-	\left( \left.\mathcal{F}\right|_{U} , \left.\mathcal{G}\right|_{U} \right)$
-	either by precomposing $\varphi$ by multiplication
-	by $f$ on $\left.\mathcal{F}\right|_{U}$ or by postcomposing $\varphi$
-	by multiplication by $f$ on $\left.\mathcal{G}\right|_{U}$.
 \end{defn}
 
 
@@ -616,13 +557,77 @@ We need some preliminary definitions first.
 \end{ntt}
 
 
+\begin{defn}[]
+	Let $S$ be a scheme and $\mathcal{U}$ an $\mathcal{O}_{ S }$ co-algebra.
+	We define the functor 
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\cospec(\mathcal{U})\colon 
+		\mathsf{Sch}/S\arrow[r, "", rightarrow] &
+		\mathsf{Sets} \\
+		S' \arrow[r, "", mapsto] & 
+		\left\{ y \in \Gamma(S', \mathcal{U}_{S'}) \ \middle|\ 
+		\eta(y) = 1, \Delta(y) = y \otimes y\right\}
+	.\end{tikzcd}
+	\end{equation*} 
+\end{defn}
+
+
+\begin{rem}[{\cite[Chapter 3, \S2.1]{Messing}}]
+	The functor $\cospec(\mathcal{U})$ is a sheaf for the fpqc topology
+	for all $\mathcal{O}_{ S }$ co-algebra $\mathcal{U}$.
+	As a consequence we obtain a covariant functor $\mathcal{U} \mapsto \cospec(\mathcal{U})$
+	from the category of $\mathcal{O}_{ S }$ co-algebras to the category
+	of fpqc sheaves on $S$.
+	Moreover this functor is compatible with inverse images.
+\end{rem}
+
+
+\noindent
+Let's now investigate the relation between $\cospec$ and $\spec$.
+We need some preliminary definitions first.
+
+
+\begin{defn}[Internal hom of $\mathcal{O}_{ X }$-modules]\label{defn:iHomOXMod}
+	Let $X$ be a scheme, and $\mathcal{F}, \mathcal{G}$ be two $\mathcal{O}_{ X }$-modules.
+	We define their internal hom as
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\mathcal{H}\mathrm{om}_{ \mathcal{O}_{ X }\text{-}\mathsf{Mod} }
+		\left( \mathcal{F}, \mathcal{G} \right)\colon 
+		\mathsf{Op}(X)^{op} \arrow[r, "", rightarrow] &
+		\mathcal{O}_{ X }\text{-}\mathsf{Mod} \\
+		U \arrow[r, "", mapsto] & 
+		\Hom_{ \left.\mathcal{O}_{ X }\right|_{U}\text{-}\mathsf{Mod} } 
+			\left( \left.\mathcal{F}\right|_{U}, \left.\mathcal{G}\right|_{U} \right)
+	,\end{tikzcd}
+	\end{equation*} 
+	This is indeed a sheaf of abelian groups, see 
+	\cite[\href{https://stacks.math.columbia.edu/tag/00AK}{Section 00AK}]{SP}.
+	Moreover it carries an $\mathcal{O}_{ X }$-module structure given as follows.
+	Fixed any $U \subset X$ open, 
+	$\varphi \in \Hom_{ \left.\mathcal{O}_{ X }\right|_{U}\text{-}\mathsf{Mod}} 
+	\left( \left.\mathcal{F}\right|_{U} , \left.\mathcal{G}\right|_{U} \right)$ and
+	$f \in \mathcal{O}_{ X }(U)$, we can define $f \varphi \in
+	\Hom_{ \left.\mathcal{O}_{ X }\right|_{U}\text{-}\mathsf{Mod}  } 
+	\left( \left.\mathcal{F}\right|_{U} , \left.\mathcal{G}\right|_{U} \right)$
+	either by precomposing $\varphi$ by multiplication
+	by $f$ on $\left.\mathcal{F}\right|_{U}$ or by postcomposing $\varphi$
+	by multiplication by $f$ on $\left.\mathcal{G}\right|_{U}$.
+\end{defn}
+
+
 \begin{rem}[]\label{rem:CospecSections}
 	We start out giving the following useful identification.
 	Let $\mathcal{U}$ be a quasi coherent $\mathcal{O}_{ S }$ co-algebra,
 	then we have a one to one correspondence
 	\begin{equation*}
-	\Gamma(S', \mathrm{Cospec}(\mathcal{U})) \simeq
-	\mathrm{Hom}_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
+	\Gamma(S', \cospec(\mathcal{U})) \simeq
+	\Hom_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
 	\left( \mathcal{O}_{ S' }[X], \mathcal{U}_{S'} \right)
 	,\end{equation*}
 	where $(\mathcal{O}_{ S }[X])(U) \coloneqq (\mathcal{O}_{ S }(U))[X]$ 
@@ -639,7 +644,7 @@ We need some preliminary definitions first.
 
 
 \noindent
-In order to investigate more the notion of $\mathrm{Cospec}$ we need to 
+In order to investigate more the notion of $\cospec$ we need to 
 be able to construct schemes starting from quasi-coherent $\mathcal{O}_{ S }$-algebras
 or $\mathcal{O}_{ S }$-modules.
 
@@ -649,18 +654,18 @@ or $\mathcal{O}_{ S }$-modules.
 \begin{enumerate}
 	\item Assume that $\mathcal{A}$ is a quasi-coherent $\mathcal{O}_{ S }$-algebra.
 		We define the {\em relative spectrum} of $\mathcal{A}$, denoted by
-		$\underline{\mathrm{Spec}}_S(\mathcal{A})$, as the gluing of
-		$\mathrm{Spec}(\Gamma(U, \mathcal{A}))$, where $U$ ranges
+		$\underline{\spec}_S(\mathcal{A})$, as the gluing of
+		$\spec(\Gamma(U, \mathcal{A}))$, where $U$ ranges
 		over all affine open subsets of $S$.
 
 	\item  Let $\mathcal{E}$ be a quasi-coherent sheaf of $\mathcal{O}_{ S }$-modules.
-		Denote by $\mathrm{Sym}(\mathcal{E})$ the symmetric algebra associated to 
+		Denote by $\sym(\mathcal{E})$ the symmetric algebra associated to 
 		$\mathcal{E}$ (which, thanks to \cref{SheafqcSymExt} of
 		\cref{rem:SheafSymExtProperties} is quasi-coherent).
 		We define the {\em vector bundle} associated to $E$ as
 		\begin{equation*}
 			\mathbf{V}(\mathcal{E}) \coloneqq
-			\underline{\mathrm{Spec}}_S (\mathrm{Sym}(\mathcal{E}))
+			\underline{\spec}_S (\sym(\mathcal{E}))
 		.\end{equation*}
 \end{enumerate}
 \end{defn}
@@ -677,25 +682,25 @@ or $\mathcal{O}_{ S }$-modules.
 	\item Let $\mathcal{A}$ be an $\mathcal{O}_{ S }$-algebra. 
 		Then, as proved in 
 		\cite[\href{https://stacks.math.columbia.edu/tag/01LP}{Lemma 01LP}]{SP},
-		$\underline{\mathrm{Spec}}_S(\mathcal{A})$, is canonically an $S$-scheme.
+		$\underline{\spec}_S(\mathcal{A})$, is canonically an $S$-scheme.
 		In fact there is a morphism of schemes
 		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
-			\pi\colon \underline{\mathrm{Spec}}_S(\mathcal{A})
+			\pi\colon \underline{\spec}_S(\mathcal{A})
 			\arrow[r, "", rightarrow] &
 			S
 		,\end{tikzcd}
 		\end{equation*} 
-		where, for all $U \subset S$ affine, $\pi^{-1}(U) \simeq \mathrm{Spec}(\mathcal{A}(U))$.
+		where, for all $U \subset S$ affine, $\pi^{-1}(U) \simeq \spec(\mathcal{A}(U))$.
 
 	\item Using notations as above, we see that $\mathbf{V}(\mathcal{E})$ is endowed with
-		some extra structure: it inherits the grading of $\mathrm{Sym}(\mathcal{E})$
+		some extra structure: it inherits the grading of $\sym(\mathcal{E})$
 		thanks to
 		\begin{equation*}
 			\pi_* \mathcal{O}_{ \mathbf{V}(\mathcal{E}) } =
-			\bigoplus_{n \geq 0} \mathrm{Sym}^n (\mathcal{E})
+			\bigoplus_{n \geq 0} \sym^n (\mathcal{E})
 		.\end{equation*}
 		Then $\pi_* \mathcal{O}_{ \mathbf{V}(\mathcal{E}) }$ is a graded
 		$\mathcal{O}_{ S }$-algebra and $\mathcal{E}$ is just the degree $1$ part
@@ -706,8 +711,8 @@ or $\mathcal{O}_{ S }$-modules.
 
 \begin{rem}[]
 	For a finite locally free $\mathcal{O}_{ S }$-algebra $\mathcal{A}$,
-	we can see that $\mathrm{Cospec}(\mathcal{A}^{\vee})$, as an fppf sheaf, is representable 
-	by $\underline{\mathrm{Spec}}_S(\mathcal{A})$ and
+	we can see that $\cospec(\mathcal{A}^{\vee})$, as an fppf sheaf, is representable 
+	by $\underline{\spec}_S(\mathcal{A})$ and
 	the category of finite locally free $S$-schemes
 	is equivalent to the category of finite locally-free (co-commutative)
 	$\mathcal{O}_{ S }$-algebras, as shown in 
@@ -725,13 +730,13 @@ or $\mathcal{O}_{ S }$-modules.
 	Then, invoking \cref{rem:CospecSections}, we can construct 
 	our desired isomorphism: let $S' \in \mathsf{Sch}/S$
 	\begin{align*}
-		\Gamma(S', \mathrm{Cospec}(\mathcal{A}^{\vee})) &\simeq
-		\mathrm{Hom}_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
+		\Gamma(S', \cospec(\mathcal{A}^{\vee})) &\simeq
+		\Hom_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
 		\left( \mathcal{O}_{ S' }[X], \mathcal{A}^\vee_{S'} \right) \simeq
-		\mathrm{Hom}_{ \mathcal{O}_{ S' }}
+		\Hom_{ \mathcal{O}_{ S' }}
 		\left( \mathcal{A}_{S'}, \mathcal{O}_{ S' } \right) \\
 		&\simeq
-		\Gamma(S', \underline{\mathrm{Spec}}_S(\mathcal{A}))
+		\Gamma(S', \underline{\spec}_S(\mathcal{A}))
 	,\end{align*}
 	where the last isomorphism holds by 
 	\cite[\href{https://stacks.math.columbia.edu/tag/01LV}{Lemma 01LV}]{SP}.
@@ -748,8 +753,8 @@ or $\mathcal{O}_{ S }$-modules.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\varinjlim_i \mathrm{Cospec}(\mathcal{U}_i) \arrow[r, "\sim", rightarrow] &
-		\mathrm{Cospec}(\mathcal{U})
+		\varinjlim_i \cospec(\mathcal{U}_i) \arrow[r, "\sim", rightarrow] &
+		\cospec(\mathcal{U})
 	.\end{tikzcd}
 	\end{equation*} 
 	Let's now consider filtered direct limits of 
@@ -759,7 +764,7 @@ or $\mathcal{O}_{ S }$-modules.
 	Then $\varinjlim_i \mathcal{U}_i$ is a limit 
 	of finite locally-free $\mathcal{O}_{ S }$ co-algebras.
 	In particular, given a {\em Barsotti-Tate group} or a {\em formal Lie variety}
-	over $S$, one can write it as $\mathrm{Cospec}(\mathcal{U})$ for an appropriate 
+	over $S$, one can write it as $\cospec(\mathcal{U})$ for an appropriate 
 	$\mathcal{O}_{ S }$ co-algebra $\mathcal{U}$, constructed as just outlined.
 \end{rem}
 
@@ -795,9 +800,9 @@ or $\mathcal{O}_{ S }$-modules.
 	If $\mathcal{V}$ is also  locally-free and of finite rank, we have the canonical isomorphism
 	\begin{equation*}
 		\mathbf{W}(\mathcal{V}) \simeq
-		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\Hom_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
 		\left(\mathbf{W}(\mathcal{V}^\vee) , \mathcal{O}_{ S } \right) \simeq
-		\underline{\mathrm{Spec}}_S(\mathrm{Sym}(\mathcal{V}^\vee))
+		\underline{\spec}_S(\sym(\mathcal{V}^\vee))
 	.\end{equation*}
 	This gives a representative in $\mathsf{Sch}/S$ for 
 	$\mathbf{W}(\mathcal{V})$, making it not only an object of $\mathsf{Gr}/S$,
@@ -826,7 +831,7 @@ or $\mathcal{O}_{ S }$-modules.
 
 
 \begin{rem}[]
-	As a consequence we can follow \cite[]{Messing} and switch
+	As a consequence, in what follows, we can follow \cite[]{Messing} and switch
 	between morphisms of sheaves of $\mathcal{O}_{ S }$-modules and morphism
 	between the associated sheaves of $\underline{\mathcal{O}_{ S }}$-modules without problem.
 \end{rem}
@@ -838,18 +843,18 @@ or $\mathcal{O}_{ S }$-modules.
 \item We say that a section $x$ of $\mathcal{U}$ is {\em primitive} iff
 	$\Delta(x) = x \otimes 1 + 1 \otimes x$.
 
-\item We denote by $\mathrm{Lie}(\mathcal{U})$ the sheaf of $\mathcal{O}_{ S }$-modules
+\item We denote by $\lie(\mathcal{U})$ the sheaf of $\mathcal{O}_{ S }$-modules
 	whose sections on $T \subset S$ open are given by
 	primitive sections of $\mathcal{U}$ on $T$.
 
-\item We denote by $\underline{\mathrm{Lie}}(\mathcal{U})$ 
+\item We denote by $\underline{\lie}(\mathcal{U})$ 
 	the sheaf of $\underline{\mathcal{O}_{ S }}$-modules
-	associated to $\mathrm{Lie}(\mathcal{U})$ as in \cref{not:fppfOsModule}.
+	associated to $\lie(\mathcal{U})$ as in \cref{not:fppfOsModule}.
 \end{enumerate}
 	Moreover consider $G \in \mathsf{Gr}/S$ such that there exists an
-	augmented co-algebra $U$ for which $G = \mathrm{Cospec}(\mathcal{U})$ as
+	augmented co-algebra $U$ for which $G = \cospec(\mathcal{U})$ as
 	fppf sheaves (which in particular include {\em formal Lie groups} and {\em Barsott-Tate groups}).
-	Then we define $\mathrm{Lie}(G) \coloneqq \mathrm{Lie}(\mathcal{U})$.
+	Then we define $\lie(G) \coloneqq \lie(\mathcal{U})$.
 \end{defn}
 
 
@@ -857,27 +862,27 @@ or $\mathcal{O}_{ S }$-modules.
 	Let $\mathcal{U}$ be a finite and locally free $\mathcal{O}_{ S }$-module,
 	where $S$ is a scheme.
 	Then we have the following isomorphism $(\mathcal{U}^\vee)^\vee \simeq \mathcal{U}$,
-	which implies $X = \mathrm{Cospec}(\mathcal{U}) \simeq 
-	\underline{\mathrm{Spec}}_S(\mathcal{U}^\vee)$.
+	which implies $X = \cospec(\mathcal{U}) \simeq 
+	\underline{\spec}_S(\mathcal{U}^\vee)$.
 	Let's, moreover, define $\omega_X$ with respect to the section $e\colon S \to X$
 	associated to the counit $\eta\colon \mathcal{U} \to \mathcal{O}_{ S }$
 	via the identification
 	\begin{equation*}
-		\mathrm{Hom}_{ \mathcal{O}_{ S' }}
+		\Hom_{ \mathcal{O}_{ S' }}
 		\left( \mathcal{U}_{S'}, \mathcal{O}_{ S' } \right) 
 		\simeq
-		\Gamma(S', \underline{\mathrm{Spec}}_S(\mathcal{U}^\vee))
+		\Gamma(S', \underline{\spec}_S(\mathcal{U}^\vee))
 	.\end{equation*}
 	It can be viewed as the dual of the tangent space at the origin
 	of our group $X$.
-	Analogously the requirements that sections of $\underline{\mathrm{Lie}}(\mathcal{U})$
+	Analogously the requirements that sections of $\underline{\lie}(\mathcal{U})$
 	be primitive, can be seen as a formal version of Leibnitz rule,
 	so that these sections can be paired with left invariant derivations, i.e$.$
 	elements of the tangent space at the origin.
 	All in all, the above can be expanded to obtain an isomorphism
 	\begin{equation*}
-		\underline{\mathrm{Lie}}(X) =
-		\underline{\mathrm{Lie}}(\mathcal{U}) \simeq
+		\underline{\lie}(X) =
+		\underline{\lie}(\mathcal{U}) \simeq
 		\underline{\mathcal{H}\mathrm{om}}_{ \mathcal{O}_{ S } } 
 		\left(\omega_X , \mathcal{O}_{ S } \right) =
 		\underline{\omega_X}^\vee
@@ -890,18 +895,18 @@ Here we generalize the concept of exponential seen in \cref{defn:PDExponential}
 to groups on $S$ and see how this construction relates to prolongations.
 Let $A$ be a ring, $I \triangleleft A$ and ideal with nilpotent
 divided powers and $A_0 \coloneqq A/I$.
-Denote by $S \coloneqq \mathrm{Spec}(A)$
-and by $S_0 \coloneqq \mathrm{Spec}(A/I)$ its closed
+Denote by $S \coloneqq \spec(A)$
+and by $S_0 \coloneqq \spec(A/I)$ its closed
 subscheme defined by the ideal $I$.
 
 
 
 \subsubsection{Exponentials}
 Consider $V$ a locally-free $A$-module of finite rank
-and $G = \mathrm{Spec}(B)$ a finite locally-free 
+and $G = \spec(B)$ a finite locally-free 
 group scheme over $S$.
 Consider the $S$-group $\underline{V} \times_{ S } G$, whose ring is
-$C \coloneqq \mathrm{Sym}(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
+$C \coloneqq \sym(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
 to $\underline{V} \times_{ S } G$ as pointed schemes (but not necessarily
 as group objects).
 Here we want to extend the theory of exponentials to $H$.
@@ -910,7 +915,7 @@ Here we want to extend the theory of exponentials to $H$.
 \begin{rem}[]
 	Since $\underline{V} \times_{ S } G$ is isomorphic to $H$ as pointed
 	schemes, we have $\omega_H \simeq \omega_{\underline{V} \times_S G}$, free of finite type,
-	which implies that $\mathrm{Lie}(H)$ is also locally-free.
+	which implies that $\lie(H)$ is also locally-free.
 \end{rem}
 
 
@@ -927,36 +932,36 @@ Here we want to extend the theory of exponentials to $H$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\mathrm{Hom}_{ \mathsf{Gr}/S } 
+		\Hom_{ \mathsf{Gr}/S } 
 		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
+		\Hom_{ \mathsf{Gr}/S_0 }
 		\left( \underline{W_0}, H_0 \right)
 	\end{tikzcd}
 	\end{equation*} 
 	the map induced by the pullback functor on hom groups.
 	Here one can define a morphism
 	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex, column sep = 1.39em
+	\begin{tikzcd}[row sep = 0ex, column sep = 1.22em
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\exp\colon
-		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
-		\left( W, I \cdot \mathrm{Lie}(H) \right)
+		\Hom_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left( W, I \cdot \lie(H) \right)
 		\arrow[r, "", hookrightarrow] &
 		\ker \big[ 
-		\mathrm{Hom}_{ \mathsf{Gr}/S } 
+		\Hom_{ \mathsf{Gr}/S } 
 		\left( \underline{W}, H \right)
 		\arrow[r, "", rightarrow] &
 		%\to
-		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
+		\Hom_{ \mathsf{Gr}/S_0 }
 		\left( \underline{W_0}, H_0 \right)
 		\big]
 	\end{tikzcd}
 	\end{equation*} 
 	by setting, on sections,
 	$\exp (\theta) (x) \coloneqq \exp \left( \theta(x) \right)$.
-	More precisely, to $\theta\colon W \to I \cdot \mathrm{Lie}(H)$,
+	More precisely, to $\theta\colon W \to I \cdot \lie(H)$,
 	we associate the map $\exp (\theta)\colon \Gamma(W) \to C^\vee$, given on sections by
 	\begin{equation*}
 		\exp (\theta) (x) =
@@ -965,13 +970,13 @@ Here we want to extend the theory of exponentials to $H$.
 	,\end{equation*}
 	for all sections $x$ of $W$.
 	Notice that, by \cref{thm:PDSymAlg}, $\exp (\theta)$
-	maps $\Gamma^+(W)$ in $I \cdot \mathrm{Lie}(H)$.
+	maps $\Gamma^+(W)$ in $I \cdot \lie(H)$.
 	This last has nilpotent divided powers, hence for $N$ sufficiently
 	large, $(\theta(x))^{[n]} = 0$ for all $n \geq N$,
 	which implies that the above sum is actually finite
 	and the map is well defined.
 	Taking the transpose of such a map we obtain a mapping 
-	$(C^\vee)^\vee \simeq C \to \mathrm{Sym}(W^\vee)$, which corresponds
+	$(C^\vee)^\vee \simeq C \to \sym(W^\vee)$, which corresponds
 	to an $S$-group homomorphism $\underline{W} \to G$.
 	Then one can check that it actually sits in the desired kernel
 	following \cite[Chapter III, \S2.4, \S2.6]{Messing}.
@@ -995,21 +1000,21 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 	Let's assume that $G \in \mathsf{Gr}/S$ is a filtering direct limit of
 	representable subgroups $G_\alpha$.
 	Assume that $\mathrm{Inf}^1(G) = \mathrm{Inf}^1(G_\alpha)$ for some $\alpha$,
-	so that $\mathrm{Lie}(G) = \mathrm{Lie}(G_\alpha)$.
+	so that $\lie(G) = \lie(G_\alpha)$.
 	Then one can define the exponential map in this case, giving rise to
 	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex, column sep = 1.90em
+	\begin{tikzcd}[row sep = 0ex, column sep = 1.75em
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\exp\colon
-		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
-		\left( V, I \cdot \mathrm{Lie}(G) \right)
+		\Hom_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left( V, I \cdot \lie(G) \right)
 		\arrow[r, "", hookrightarrow] &
 		\ker \big[ 
-		\mathrm{Hom}_{ \mathsf{Gr}/S } 
+		\Hom_{ \mathsf{Gr}/S } 
 		\left( H, G \right)
 		\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
+		\Hom_{ \mathsf{Gr}/S_0 }
 		\left( H_0, G_0 \right)
 		\big]
 	\end{tikzcd}
@@ -1028,18 +1033,18 @@ As usual, denote by $V_0$ and $H_0$ the restriction of the above to $S_0$.
 	are {\em linearly compatible} iff their difference is in the image
 	of 
 	\begin{equation*}
-	\begin{tikzcd}[row sep = 0ex, column sep = 1.78em
+	\begin{tikzcd}[row sep = 0ex, column sep = 1.62em
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\exp\colon
-		\mathrm{Hom}_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
-		\left( V, I \cdot \mathrm{Lie}(G) \right)
+		\Hom_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
+		\left( V, I \cdot \lie(G) \right)
 		\arrow[r, "", hookrightarrow] &
 		\ker \big[ 
-		\mathrm{Hom}_{ \mathsf{Gr}/S } 
+		\Hom_{ \mathsf{Gr}/S } 
 		\left( H, G \right)
 		\arrow[r, "", rightarrow] &
-		\mathrm{Hom}_{ \mathsf{Gr}/S_0 }
+		\Hom_{ \mathsf{Gr}/S_0 }
 		\left( H_0, G_0 \right)
 		\big]
 	.\end{tikzcd}
@@ -1114,10 +1119,10 @@ of locally-free module on $H$, lifting that of $H_0$.
 	from lifts of $u_0$ to solutions of the problem of lifting
 	the subgroup $H_0$.
 	In particular we can rephrase it in terms of subgroups
-	of $\mathrm{Lie}(G)$. More explicitly
-	let $\mathfrak{h} \subset \mathrm{Lie}(G)$ be a locally-free
-	submodule of $\mathrm{Lie}(G)$ lifting
-	$\mathfrak{h}_0 \coloneqq \mathrm{Lie}(H_0)$.
+	of $\lie(G)$. More explicitly
+	let $\mathfrak{h} \subset \lie(G)$ be a locally-free
+	submodule of $\lie(G)$ lifting
+	$\mathfrak{h}_0 \coloneqq \lie(H_0)$.
 	Then the following proposition holds.
 \end{rem}
 
@@ -1126,7 +1131,7 @@ of locally-free module on $H$, lifting that of $H_0$.
 	In each linear equivalence class of solutions of
 	the problem of lifting the subgroup $H_0$
 	there is exactly one $H$ with 
-	$\mathrm{Lie}(H) = \mathfrak{h}$.
+	$\lie(H) = \mathfrak{h}$.
 \end{prop}
 
 
@@ -1184,18 +1189,18 @@ some meaning to our objects.
 \end{rem}
 
 
-\begin{defn}[Divided powers thickening]\label{defn:PDThickening}
-	Let $U$ be a scheme. A {\em divided powers thickening} of $U$ 
+\begin{defn}[Divided power thickening]\label{defn:PDThickening}
+	Let $U$ be a scheme. A {\em divided power thickening} of $U$ 
 	is the datum of $\left(U \hookrightarrow T, \gamma\right)$,
 	where $U \hookrightarrow T$ is a thickening defined by a locally nilpotent
 	sheaf of ideals $\mathcal{I}$ on $\mathcal{O}_T$ equipped
-	with a divided powers structure defined by $\gamma$.
+	with a divided power structure defined by $\gamma$.
 \end{defn}
 
 
 \begin{rem}[]\label{rem:EquivPDThickening}
 	Thanks to \cref{rem:thickeningIdeal}, the datum of a
-	divided powers thickening of $U$ is equivalent to the datum of
+	divided power thickening of $U$ is equivalent to the datum of
 	a scheme $T$ with divided powers, i.e.
 	$\left(T, \mathcal{J}, \delta\right)$, as in \cref{defn:DividedPowersSheaf},
 	in which $\mathcal{J}$ is a locally nilpotent sheaf of ideals
@@ -1205,32 +1210,32 @@ some meaning to our objects.
 
 \begin{defn}[Relative divided powers]
 	Consider a base scheme with divided powers
-	$\left(S, \mathcal{I}, \gamma\right)$, and a divided powers
+	$\left(S, \mathcal{I}, \gamma\right)$, and a divided power
 	scheme $\left(T, \mathcal{J}, \delta\right)$.
 	We call it 
 \begin{enumerate}
-	\item a {\em divided powers scheme over $\left(S, \mathcal{I}, \gamma\right)$}
-		iff it is given with a morphism of divided powers 
+	\item a {\em divided power scheme over $\left(S, \mathcal{I}, \gamma\right)$}
+		iff it is given with a morphism of divided power 
 		schemes $T \to S$;
 
-	\item a {\em divided powers thickening over $\left(S, \mathcal{I}, \gamma\right)$}
-		iff it is a divided powers thickening endowed
-		with a morphism of divided powers schemes $T \to S$.
+	\item a {\em divided power thickening over $\left(S, \mathcal{I}, \gamma\right)$}
+		iff it is a divided power thickening endowed
+		with a morphism of divided power schemes $T \to S$.
 \end{enumerate}
 	If the divided powers of $S$ are clear from context we will
-	simply write divided powers scheme (resp$.$ thickening) over $S$.
+	simply write divided power scheme (resp$.$ thickening) over $S$.
 \end{defn}
 
 
 \begin{defn}[Crystalline site on $X$ over $\left(S, \mathcal{I}, \gamma\right)$]
-	Let $\left(S, \mathcal{I}, \gamma\right)$ be a divided powers base scheme
+	Let $\left(S, \mathcal{I}, \gamma\right)$ be a divided power base scheme
 	and $X \in \mathsf{Sch}/S$.
 	The {\em crystalline site} on $X$ over $\left(S, \mathcal{I}, \gamma\right)$,
 	denoted by $\mathsf{Crys}(X/S, \mathcal{I}, \gamma)$ or simply
-	$\mathsf{Crys}(X/S)$ if the divided powers structure of $S$ 
+	$\mathsf{Crys}(X/S)$ if the divided power structure of $S$ 
 	is clear from context, is given as follows.
 	The objects of $\mathsf{Crys}(X/S)$ are
-	divided powers thickenings $\left(U \hookrightarrow T, \delta\right)$ over $S$
+	divided power thickenings $\left(U \hookrightarrow T, \delta\right)$ over $S$
 	with an open immersion $U \hookrightarrow X$ of $S$-schemes.
 	Morphisms in $\mathsf{Crys}(X/S)$, thanks to \cref{rem:EquivPDThickening},
 	are just morphisms of $S$-schemes with divided powers.
@@ -1247,7 +1252,7 @@ some meaning to our objects.
 	\end{equation}
 	such that $U \hookrightarrow U'$ is an open immersion (corresponds to
 	an inclusion of open $S$-subschemes of $X$) and
-	$\overline{f}\colon T \to T'$ is a divided powers morphism.
+	$\overline{f}\colon T \to T'$ is a divided power morphism.
 	Finally we endow this category with the pretopology induced by the
 	Zariski topology.
 	More explicitly 
@@ -1268,7 +1273,7 @@ some meaning to our objects.
 
 
 \begin{ntt}[]
-	In case we consider the base scheme $S = \mathrm{Spec}(\mathbb{Z})$
+	In case we consider the base scheme $S = \spec(\mathbb{Z})$
 	with trivial divided powers (given by the zero sheaf of ideals),
 	we obtain the category $\mathsf{Crys}(X/S)$, which
 	we simply denote by $\mathsf{Crys}(X)$ since there is no
@@ -1454,8 +1459,8 @@ of inverse images of crystals.
 	Let $X, Y \in \mathsf{Sch}_{  }$, $\varphi\colon X \to Y$ a morphism of schemes and
 	$\mathbb{F}$ a crystal of modules on $Y$.
 	Fix $U$ and $V$ as in the last remark and set
-	$T = \mathrm{Spec}(A), U = \mathrm{Spec}(A/I)$
-	and $V = \mathrm{Spec}(B)$.
+	$T = \spec(A), U = \spec(A/I)$
+	and $V = \spec(B)$.
 	Consider the following pullback of rings,
 	also known as fibered product or amalgamated product,
 	\begin{equation*}
@@ -1476,7 +1481,7 @@ of inverse images of crystals.
 	Moreover one can define divided powers on $\left(B \times_{ A/I } A, J\right)$
 	by setting $\gamma_n(0,i) \coloneqq (0,\delta_n(i))$,
 	making $B \times_{ A/I } A \to A$ a divided power morphism.
-	Setting $W \coloneqq \mathrm{Spec}(B \times_{ A/I } A)$ and
+	Setting $W \coloneqq \spec(B \times_{ A/I } A)$ and
 	translating everything into the category of schemes, we obtain the
 	following commutative diagram
 	\begin{equation*}
@@ -1489,7 +1494,7 @@ of inverse images of crystals.
 	,\end{tikzcd}
 	\end{equation*}
 	where $\left(V \hookrightarrow W, \gamma\right)$ is an object of $\mathsf{Crys}(Y)$
-	and $\widetilde{\varphi}\colon T \to W$ is a morphism of divided powers schemes.
+	and $\widetilde{\varphi}\colon T \to W$ is a morphism of divided power schemes.
 	We finally define $\left( \varphi^* \mathbb{F} \right)_{\left(U \hookrightarrow T, \delta\right)}
 	\coloneqq \widetilde{\varphi}^* \mathbb{F}_{\left(V \hookrightarrow W, \gamma\right)}$
 	and use \cref{rem:SheavesCrysX} to glue these sheaves
