@@ -1,33 +1,15 @@
 global !p
-texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
-'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
-'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
-
-texIgnoreMathZones = ['texMathText']
-
-texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
-texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
-
-ignore = texIgnoreMathZoneIds[0]
-
 def math():
-        synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
-        try:
-                first = next(
-            i for i in reversed(synstackids)
-            if i in texIgnoreMathZoneIds or i in texMathZoneIds
-        )
-                return first != ignore
-        except StopIteration:
-                return False
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+def comment():
+	return vim.eval('vimtex#syntax#in_comment()') == '1'
+def env(name):
+	[x,y] = vim.eval("vimtex#env#is_inside('" + name + "')")
+	return x != '0' and y != '0'
 endglobal
 
-snippet VFF "Vector Field" wA
-Vector Field $0
-endsnippet
-
 snippet ntt "Notation" bA
-\begin{ntt}[$1]
+\begin{ntt}`!p if len(t[1]) > 0: snip.rv = '['`$1`!p if len(t[1]) > 0: snip.rv += ']'`
 	$2
 \end{ntt}
 $0
@@ -47,11 +29,11 @@ endsnippet
 
 #context "math()"
 snippet pns "Open SubSet U" wA
-\mathcal{U$1}$0
+\mathcal{${1:U}}$0
 endsnippet
 
 snippet schc "Scheme Category" wA
-\mathsf{Sch}/S$1 
+\mathsf{Sch}/${1:S} 
 endsnippet
 
 snippet abcc "Category of abelian groups" wA
@@ -63,7 +45,7 @@ snippet gpc "Category of groups" wA
 endsnippet
 
 snippet fcc "Functor Category" wA
-\mathsf{Fct}\left($1, $2 \right) $0
+\mathsf{Fct}\left($1, $2 \right)
 endsnippet
 
 snippet fct "functor" wA
@@ -79,31 +61,33 @@ snippet op "Opposite category" i
 endsnippet
 
 snippet psh "Presheaves" wA
-\mathsf{PSh}\left( $1 \right)$0
+\mathsf{PSh}\left( $1 \right)
 endsnippet
 
 snippet rmod "Cat of modules" wA
-R$1\text{-}\mathsf{Mod}
+${1:R}\text{-}\mathsf{Mod}
 endsnippet
 
 snippet modr "Cat of modules" wA
-\mathsf{Mod}\text{-}R
+\mathsf{Mod}\text{-}${1:R}
 endsnippet
 
 snippet hom "Hom set" w
-\hom_{ $1 } \left( $2, $3 \right)
+\Hom`!p if len(t[1]) > 0: snip.rv = "_{ "`$1`!p 
+if len(t[1]) > 0 and len(t[2]) > 0: snip.rv += " }"`\left( $2, $3 \right)
 endsnippet
 
 snippet homc "Hom set of a category" wA
-\hom_{\mathsf{$1}} \left( $2, $3 \right)
+\Hom_{\mathsf{$1}} \left( $2, $3 \right)
 endsnippet
 
 snippet Homc "Hom set of a category" wA
-\hom_{\mathsf{$1}} \left( $2, $3 \right)
+\Hom_{\mathsf{$1}} \left( $2, $3 \right)
 endsnippet
 
 snippet ihom "internal Hom set" w
-\mathcal{H}\mathrm{om}_{ $1 } \left( $2, $3 \right)
+\mathcal{H}\mathrm{om}`!p if len(t[1]) > 0: snip.rv = "_{ "`$1`!p 
+if len(t[1]) > 0 and len(t[2]) > 0: snip.rv += " }"`\left( $2, $3 \right)
 endsnippet
 
 snippet prlim "projective limit" wA
@@ -113,10 +97,6 @@ endsnippet
 snippet inlim "injective limit" wA
 \varinjlim
 endsnippet
-
-#snippet tns "Tensor product" iA
-#\otimes_{$1} $0
-#endsnippet
 
 snippet obc "set of objects of a category" wA
 \ob \left(\mathsf{$1}\right)
@@ -135,15 +115,15 @@ snippet ccs "Category of Sets" iA
 endsnippet
 
 snippet cct "Category of functors from I to C" iA
-\mathsf{C}^{\mathsf{I}}
+\mathsf{C}^{\mathsf{${1:I}}}
 endsnippet
 
 snippet opc "Category of open subsets" wA
-\mathsf{Op}(X$1)
+\mathsf{Op}(${1:X})
 endsnippet
 
 snippet rmd "R-module" wA
-$R$-module
+$${1:R}$-module
 endsnippet
 
 snippet ntt "Natural transformation set" wA
@@ -151,7 +131,7 @@ snippet ntt "Natural transformation set" wA
 endsnippet
 
 snippet dsm "Direct sum" wA
-\bigoplus_{$1}
+\bigoplus_{ $1 }
 endsnippet
 
 snippet chc "Chain complex category" wA
@@ -163,11 +143,11 @@ snippet cchc "Cochain complex category" wA
 endsnippet
 
 snippet chx "Chain complex" wA
-\left( $1_{\bullet}, d^{$1} \right)
+\left( $1_{\bullet}, \dd^{$1} \right)
 endsnippet
 
 snippet cchx "Cochain complex" wA
-\left( $1^{\bullet}, d_{$1} \right)
+\left( $1^{\bullet}, \dd_{$1} \right)
 endsnippet
 
 snippet funcotr "functor misspell" wA
@@ -187,39 +167,39 @@ snippet tor "Tor" i
 endsnippet
 
 snippet shc "Sheaf category" wA
-\mathsf{Sh}\left(X$1\right)
+\mathsf{Sh}\left(${1:X}\right)
 endsnippet
 
 snippet pshc "PreSheaf category" wA
-\mathsf{Psh}\left(X$1\right)
+\mathsf{Psh}\left(${1:X}\right)
 endsnippet
 
 snippet shf "Sheaf" wA
-\mathcal{F$1}
+\mathcal{${1:F}}
 endsnippet
 
 snippet shv "Sheaf valuation" wA
-\mathcal{F$1}(U$2)
+\mathcal{${1:F}}(${2:U})
 endsnippet
 
 snippet shs "Sheaf stalk" wA
-\mathcal{F$1}_{$2}
+\mathcal{${1:F}}_{ $2}
 endsnippet
 
 snippet homs "Hom set of the category of sheaves" wA
-\hom_{\mathsf{Sh}(X$1)} \left( $2, $3 \right)
+\Hom_{\mathsf{Sh}(${1:X})} \left( $2, $3 \right)
 endsnippet
 
 snippet homp "Hom set of the category of presheaves" wA
-\hom_{\mathsf{PSh}(X$1)} \left( $2, $3 \right)
+\Hom_{\mathsf{PSh}(${1:X})} \left( $2, $3 \right)
 endsnippet
 
 snippet rnm "restriction morphism" wA
-\rho^{\mathcal{F$1}}_{\mathcal{UV$2}}
+\rho^{\mathcal{${1:F}}}_{\mathcal{${2:UV}}}
 endsnippet
 
 snippet hmg "Homology" wA
-\mathrm{H}^{n$1} \left( $2 \right)
+\mathrm{H}^{${1:n}} \left( $2 \right)
 endsnippet
 
 snippet ses "short exact sequence" w
@@ -227,11 +207,11 @@ short exact sequence
 endsnippet
 
 snippet rdf "Right derived functor" wA
-R^{n$1}F$2 \left( $3 \right)
+\operatorname{R}^{${1:n}}${2:F} \left( $3 \right)
 endsnippet
 
 snippet fbpr "Fibered product" wA
-$1 \cross_{ $2 } $3
+$1 \times_{ $2 } $3
 endsnippet
 
 snippet afs "Affine scheme" wA
@@ -251,11 +231,12 @@ snippet gbs "Global sections" wA
 endsnippet
 
 snippet cvr "Covering of X" wA
-\left\\{ $1_{ i$2 } \to $1$3 \right\\}_{ i \in I$4 }
+\left\\{ $1_{ ${2:i} } \to ${3:$1} \right\\}_{ $2 \in I$4 }
 endsnippet
 
 snippet shom "sheaf hom functor" wA
-\mathcal{H}\mathrm{om}_{$1} \left( $2, $3 \right)
+\mathcal{H}\mathrm{om}`!p if len(t[1]) > 0: snip.rv = "_{ "`$1`!p 
+if len(t[1]) > 0 and len(t[2]) > 0: snip.rv += " }"`\left( $2, $3 \right)
 endsnippet
 
 snippet fdg "Field degree" wA
@@ -267,7 +248,7 @@ snippet ggr "Galois group" wA
 endsnippet
 
 snippet ntr "Normalized trace map" wA
-T_{ $1 / $2 }
+\operatorname{T}_{ $1 / $2 }
 endsnippet
 
 snippet lrs "Locally ringed space" wA
@@ -287,7 +268,7 @@ Quasi-coherent
 endsnippet
 
 snippet crs "Crystalline site" wA
-\mathsf{Crys}(X$1)
+\mathsf{Crys}(${1:X})
 endsnippet
 
 snippet btc "BT Category" wA
@@ -307,7 +288,7 @@ B_{\mathrm{cris}}
 endsnippet
 
 snippet dgs "D star, crystal" wA
-\mathbb{D}^*($1)($2)
+\mathbb{D}^*(${1:G})(${2:S})
 endsnippet
 
 snippet cckk "O_CK, ring of integers of C_K" wA
