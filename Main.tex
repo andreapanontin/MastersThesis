@@ -11,8 +11,8 @@
 
 %Packages from old files
 \usepackage[french,main=british]{babel}
-%Well, keep it. Also allows to define new operators
-\usepackage{amsmath}
+%Needed for coloneqq, other stuff and also amsmath
+\usepackage{mathtools}
 %Among them it has the blacksquare symbol
 \usepackage{amssymb}
 %Allows customization of theorem environments
@@ -20,8 +20,6 @@
 \usepackage{centernot}
 %Needed for mathscr
 \usepackage{mathrsfs}
-%Needed for coloneqq
-\usepackage{mathtools}
 
 
 %For enumerate environments
@@ -58,8 +56,6 @@
     \setcounter{section}{0}
     \renewcommand{\thesection}{\arabic{section}}
 }%
-
-
 
 
 %My operators:
@@ -99,34 +95,32 @@ eprint=false
 ]{biblatex}
 \addbibresource{Bibliography.bib}
 
+
 %Referencing
 \usepackage{hyperref}
 \usepackage[noabbrev]{cleveref}
 
+
 %Theorem environments
 \newtheoremstyle{example}
-%{1.0em}%〈Space above〉
-%{0.7em}%〈Space below〉
-{}
-{}
+{}%{1.0em}%〈Space above〉
+{}%{0.7em}%〈Space below〉
 {}%〈Body font〉
 {}%〈Indent amount〉
 {\bfseries}%〈Theorem head font〉
-{}%〈Punctuation after theorem head〉
+{.}%〈Punctuation after theorem head〉
 {.5em}%〈Space after theorem head〉
-{\thmname{#1}\thmnumber{ #2}\thmnote{: #3.}}%〈Theorem head can be left empty, meaning ‘normal’)
+{}%Theorem head: empty = default
 
 \newtheoremstyle{definition}
-%{1.0em}
-%{0.7em}
-{}
-{}
+{}%{1.0em}
+{}%{0.7em}
 {}
 {}
 {\bfseries}
-{}
+{.\\*}
 {0.5em}
-{\thmname{#1}\thmnumber{ #2}\thmnote{: #3. \\*}}
+{\thmname{#1}\thmnumber{ #2}\thmnote{: #3}}%〈Theorem head can be left empty, meaning ‘normal’)
 
 %Theorems-propositions
 \newtheorem{thm}{Theorem}[section]
@@ -138,12 +132,12 @@ eprint=false
 \theoremstyle{example}
 \newtheorem{ex}[thm]{Example}
 \newtheorem{exr}[thm]{Exercise}
+\newtheorem{rem}[thm]{Remark}
 
 %Definitions-remarks
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{ntt}[thm]{Notation}
-\newtheorem{rem}[thm]{Remark}
 
 
 %Equation numbering
