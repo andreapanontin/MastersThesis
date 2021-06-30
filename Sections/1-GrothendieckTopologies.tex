@@ -28,9 +28,9 @@ intersections with fibered products.
 
 \begin{defn}[Sites]
 	Let $\mathsf{C}$ be a category. 
-	A {\em pretopology} on $\mathsf{C}$ is the assignment, to each object $U \in \mathsf{C}$,
+	A \emph{pretopology} on $\mathsf{C}$ is the assignment, to each object $U \in \mathsf{C}$,
 	of a collection of sets of arrows $\left\{ U_{ i } \to U \right\}_{ i \in I }$,
-	called {\em coverings} of $U$, such that the following conditions are satisfied:
+	called \emph{coverings} of $U$, such that the following conditions are satisfied:
 	\begin{enumerate}
 		\item Given an isomorphism $V \xrightarrow{\sim} U$, the set $\left\{ V \to U \right\}$
 			is a covering.
@@ -47,7 +47,7 @@ intersections with fibered products.
 			$\left\{ U_{ ij } \to U \right\}_{ i \in I, j \in J_i }$
 			is a covering of $U$.
 	\end{enumerate}
-	A category with a Grothendieck pretopology is called a {\em site}.
+	A category with a Grothendieck pretopology is called a \emph{site}.
 \end{defn}
 
 
@@ -67,7 +67,7 @@ some important pretopologies.
 \begin{defn}[Jointly surjective family of morphisms]
 	For $\mathsf{C} = \mathsf{Sets}$ or $\mathsf{C} = \mathsf{Sch}/S$, for some scheme $S$,
 	we will say that a family of morphisms
-	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ is {\em jointly surjective} iff
+	$\left\{ U_{ i } \to U \right\}_{ i \in I }$ is \emph{jointly surjective} iff
 	the set-theoretic union of the images is $U$.
 \end{defn}
 
@@ -76,7 +76,7 @@ some important pretopologies.
 Let's now give some examples.
 \begin{ex}\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
-	\item The {\em site of a topological space}.
+	\item The \emph{site of a topological space}.
 		Let $X$ be a topological space, and $\mathsf{Op}(X)$ denote the category of
 		open subsets of $X$.
 		Then, to each $U \in \mathsf{Op}(X)$, we associate it the family of all
@@ -88,14 +88,14 @@ Let's now give some examples.
 		one easily checks that this defines a pretopology on $\mathsf{Op}(X)$.
 
 
-	\item The {\em global classical topology} on $\mathsf{Top}$.
+	\item The \emph{global classical topology} on $\mathsf{Top}$.
 		Given $U \in \mathsf{Top}$, its coverings are all families of jointly surjective
 		collections of open embeddings $U_i \to U$.
 		Here open embedding means open, continuous, injective map and not
 		only the set theoretic inclusion of a subspace.
 
 
-%	\item The {\em small {\'e}tale site of a scheme}.
+%	\item The \emph{small {\'e}tale site of a scheme}.
 %		Let $X$ be a scheme and $X_{\mathrm{ét}}$ be the full subcategory
 %		of $\mathsf{Sch}_{ X }$, with objects $U \in X_{\mathrm{ét}}$ s.t.
 %		the structure morphism $U \to X$ is étale, of finite presentation.
@@ -105,22 +105,22 @@ Let's now give some examples.
 \end{enumerate}
 Let's now give a couple of examples on $\mathsf{Sch}/S$, for a fixed scheme $S$.
 \begin{enumerate}[resume]
-	\item The {\em global Zariski topology}.
+	\item The \emph{global Zariski topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
 		jointly surjective collection of 
 		open embeddings.
 		
 
-	\item The {\em global étale topology}.
+	\item The \emph{global étale topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
 		jointly surjective collection of 
 		étale maps.
 
-	\item The {\em fppf topology}.
+	\item The \emph{fppf topology}.
 		A covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is a 
 		jointly surjective collection of 
 		flat maps locally of finite presentation.
-		The acronym {\em fppf} stands for 
+		The acronym \emph{fppf} stands for 
 		"fidèlement plat et de présentation finie".
 \end{enumerate}
 \end{ex}
@@ -145,9 +145,9 @@ Let's now give a couple of examples on $\mathsf{Sch}/S$, for a fixed scheme $S$.
 
 
 \begin{defn}[fpqc morphism]
-	An {\em fpqc morphism of schemes} is a faithfully flat morphism
+	An \emph{fpqc morphism of schemes} is a faithfully flat morphism
 	that satisfies the equivalent conditions of \cref{prop:Conditionsfpqc}.
-	The acronym {\em fpqc} stands for "fidèlement plat et quasi-compact".
+	The acronym \emph{fpqc} stands for "fidèlement plat et quasi-compact".
 \end{defn}
 
 
@@ -155,9 +155,9 @@ Let's now give a couple of examples on $\mathsf{Sch}/S$, for a fixed scheme $S$.
 	It can be shown, see \cite[\S 2.3.2]{Vistoli},
 	that on $\mathsf{Sch}/S    $, the data
 	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}/S$,
-	s.t. the induced morphism $\amalg_i U_i \to U$ is {\em fpqc},
+	s.t. the induced morphism $\amalg_i U_i \to U$ is \emph{fpqc},
 	is a pretopology on $\mathsf{Sch}/S$.
-	This pretopology is called the {\em fpqc topology}.
+	This pretopology is called the \emph{fpqc topology}.
 \end{rem}
 
 
@@ -167,14 +167,14 @@ Let's now investigate the relations between different topologies:
 \begin{enumerate}
 \item Let $\mathsf{C}$ be a category and $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 	a set of arrows in $\mathsf{C}$.
-	A {\em refinement} of $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is
+	A \emph{refinement} of $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is
 	another set of arrows $\left\{ V_{ a } \to U \right\}_{ a \in A }$,
 	such that, for all $a \in A$, there is some $i \in I$ s.t.
 	$V_a \to U$ factors through $U_i \to U$.
 
 
 \item Let now $\tau$ and $\tau'$ be two pretopologies on $\mathsf{C}$.
-	We say that $\tau'$ is {\em subordinate} to $\tau$ iff
+	We say that $\tau'$ is \emph{subordinate} to $\tau$ iff
 	every covering in $\tau'$ has a refinement which is
 	a covering in $\tau$.
 \end{enumerate}
@@ -185,21 +185,21 @@ Let's now investigate the relations between different topologies:
 The topologies we just introduced are in strong relation between them.
 In fact each is subordinate to the one we defined afterwards:
 \begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/020K}{Chapter 020K}]{SP}}]
-	\leavevmode\vspace{-\baselineskip}
+	\leavevmode\vspace{-0.2\baselineskip}
 \begin{enumerate}
 \item Any Zariski covering is an étale covering, 
 	\cite[\href{https://stacks.math.columbia.edu/tag/0216}{Lemma 0216}]{SP}.
 	Hence the Zariski topology is subordinate to the étale one.
 
 
-\item Any étale covering is an {\em fppf} covering, 
+\item Any étale covering is an \emph{fppf} covering, 
 	\cite[\href{https://stacks.math.columbia.edu/tag/021N}{Lemma 021N}]{SP}.
-	Hence the étale topology is subordinate to the {\em fppf} one.
+	Hence the étale topology is subordinate to the \emph{fppf} one.
 
 
-\item Any {\em fppf} covering is an {\em fpqc} covering, 
+\item Any \emph{fppf} covering is an \emph{fpqc} covering, 
 	\cite[\href{https://stacks.math.columbia.edu/tag/022C}{Lemma 022C}]{SP}.
-	Hence the {\em fppf} topology is subordinate to the {\em fpqc} one.
+	Hence the \emph{fppf} topology is subordinate to the \emph{fpqc} one.
 \end{enumerate}
 \end{rem}
 
@@ -214,7 +214,7 @@ Then the introduction of pretopologies allows one to define sheaves on sites.
 
 \begin{defn}[Presheaves]
 	Let $\mathsf{C}$ be any category.
-	A {\em presheaf} on $\mathsf{C}$ is just a contravariant functor with
+	A \emph{presheaf} on $\mathsf{C}$ is just a contravariant functor with
 	values in sets:
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -232,13 +232,13 @@ Then the introduction of pretopologies allows one to define sheaves on sites.
 
 
 \begin{defn}[Sheaves]
-	Let $\mathsf{C}$ be a {\em site}, i.e. a category given with a pretopology.
+	Let $\mathsf{C}$ be a \emph{site}, i.e. a category given with a pretopology.
 	Let $F \in \mathsf{PSh}(\mathsf{C})$, we say that
 \begin{enumerate}
-	\item $F$ is {\em separated} iff, given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
+	\item $F$ is \emph{separated} iff, given a covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 		and two sections $a,b \in F(U)$ whose pullbacks to each $F(U_i)$ coincide,
 		then $a = b$;
-	\item $F$ is a {\em sheaf} iff it satisfies the following condition.
+	\item $F$ is a \emph{sheaf} iff it satisfies the following condition.
 		Consider any $U \in \mathsf{C}$, any covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
 		of $U$ in $\mathsf{C}$ and any family $\left\{ a_i \right\}_{i \in I}$ s.t.
 		$a_i \in F(U_i)$.
@@ -258,7 +258,7 @@ Then the introduction of pretopologies allows one to define sheaves on sites.
 
 
 \noindent
-Notice that any {\em sheaf} on $\mathsf{C}$ is also separated.
+Notice that any \emph{sheaf} on $\mathsf{C}$ is also separated.
 \begin{rem}[]\label{CharacterizationSheaves}
 	Let's give an equivalent definition of sheaf, for a presheaf
 	$F$ on a site $\mathsf{C}$.
@@ -304,15 +304,15 @@ a simple fact:
 	If $\tau'$ is subordinate to $\tau$, as pretopologies on $\mathsf{C}$,
 	then any sheaf in $\tau$ is also a sheaf in $\tau'$.
 	As a consequence, for $\mathsf{C} = \mathsf{Sch}/S$ for some scheme $S$,
-	any sheaf in {\em fpqc} is also a sheaf in {\em fppf}, étale and Zariski topologies.
+	any sheaf in \emph{fpqc} is also a sheaf in \emph{fppf}, étale and Zariski topologies.
 \end{rem}
 
 
 \noindent
 Finally we can state a very important result due to Grothendieck:
 \begin{thm}[{\cite[\S 2.3.6]{Vistoli}}, Grothendieck]\label{thm:reprFctSheaf}
-	A representable functor on $\mathsf{Sch}/S$ is a sheaf in the {\em fpqc} topology.
-	In particular it is also a sheaf in the étale and {\em fppf} topologies.
+	A representable functor on $\mathsf{Sch}/S$ is a sheaf in the \emph{fpqc} topology.
+	In particular it is also a sheaf in the étale and \emph{fppf} topologies.
 \end{thm}
 
 
@@ -328,7 +328,7 @@ of fibered product in the representable case.
 
 \begin{defn}[Topoi]
 	Let $\mathsf{C}$ be a site.
-	The associated {\em topos} to $\mathsf{C}$ is the category $\mathsf{Sh}\left(\mathsf{C}\right)$
+	The associated \emph{topos} to $\mathsf{C}$ is the category $\mathsf{Sh}\left(\mathsf{C}\right)$
 	of sheaves on $\mathsf{C}$.
 	A morphism of topoi $f$ from $\mathsf{Sh}\left(\mathsf{D}\right)$
 	to $\mathsf{Sh}\left(\mathsf{C}\right)$ is the data of a pair
@@ -353,7 +353,7 @@ of fibered product in the representable case.
 
 \begin{defn}[Category over an object]
 	Consider $\mathsf{C}$ a category and $U \in \mathsf{C}$ an object.
-	The {\em category of objects over $U$}, denoted by $\mathsf{C}/U$
+	The \emph{category of objects over $U$}, denoted by $\mathsf{C}/U$
 	or $\mathsf{C}_U$, is the category whose objects are morphisms
 	$Y \to U$ in $\mathsf{C}$ and morphisms are morphisms $Y \to Y'$
 	in $\mathsf{C}$ such that the following diagram commutes
@@ -404,14 +404,14 @@ of fibered product in the representable case.
 \begin{defn}[Localization]\label{defn:localizationTopoi}
 	Let $\mathsf{C}$ be a site and $U \in \mathsf{C}$.
 \begin{enumerate}
-	\item We call the site $\mathsf{C}/U$ the {\em localization}
+	\item We call the site $\mathsf{C}/U$ the \emph{localization}
 		of the site $\mathsf{C}$ at the object $U$.
 	\item The morphism of topoi 
 		$j_U\colon \mathsf{Sh}\left(\mathsf{C}/U\right) \to \mathsf{Sh}\left(\mathsf{C}\right)$
-		is called the {\em localization morphism}.
+		is called the \emph{localization morphism}.
 	\item The functor ${j_U}_*$ is called the direct image functor.
 	\item Taken any sheaf $F \in \mathsf{Sh}\left(\mathsf{C}\right)$,
-		its image $j_U^*$ is called the {\em restriction} of $F$ to $\mathsf{C}/U$.
+		its image $j_U^*$ is called the \emph{restriction} of $F$ to $\mathsf{C}/U$.
 \end{enumerate}
 \end{defn}
 

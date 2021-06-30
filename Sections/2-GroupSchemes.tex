@@ -1,5 +1,5 @@
 \section{Group schemes}
-In this section we introduce the notion of {\em group object}
+In this section we introduce the notion of \emph{group object}
 in a category, giving all of the definition in the context
 of group schemes, i.e. group objects over the category of (relative) schemes.
 In this context we will develop all the important tools which will play a role
@@ -15,24 +15,24 @@ $p$-divisible groups.
 		\iota F(T) \simeq \Hom_{\mathsf{Sch}/S} \left( T, G \right)
 	,\end{equation*} 
 	where $\iota\colon \mathsf{Gp} \to \mathsf{Sets}$ is the forgetful functor.
-	We call $G$ a {\em group scheme} over $S$
+	We call $G$ a \emph{group scheme} over $S$
 	or $S$-group scheme.
 \end{defn}
 
 
 \begin{rem}[$T$-points of an $S$-scheme]
 	Let's recall a standard notation: let $T \in \mathsf{Sch}/S$, one defines
-	the {\em $T$-points} of $G \in \mathsf{Sch}/S$ as
+	the \emph{$T$-points} of $G \in \mathsf{Sch}/S$ as
 	\begin{equation*}
 		G(T) \coloneqq \Hom_{\mathsf{Sch}/S} \left( T, G \right)
 	.\end{equation*} 
-	If we view $G$, by \cref{thm:reprFctSheaf}, as an {\em fppf} sheaf on $\mathsf{Sch}/S$, instead,
+	If we view $G$, by \cref{thm:reprFctSheaf}, as an \emph{fppf} sheaf on $\mathsf{Sch}/S$, instead,
 	we will use the notation
 	\begin{equation*}
 		\Gamma \left( T, G \right) \coloneqq G(T)
 	\end{equation*}
 	for the sections of $G$ on $T$.
-	If, in particular, $G$ is a {\em group scheme} then, by definition,
+	If, in particular, $G$ is a \emph{group scheme} then, by definition,
 	$G(T) = \Gamma(T,G)$ is endowed with group structure for every $T \in \mathsf{Sch}/S$.
 \end{rem}
 
@@ -155,7 +155,7 @@ $p$-divisible groups.
 
 
 \begin{defn}[Commutative $S$-group scheme]
-	We say that a group scheme $G \in \mathsf{Sch}/S$ is {\em commutative}
+	We say that a group scheme $G \in \mathsf{Sch}/S$ is \emph{commutative}
 	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}/S$.
 	Using Yoneda lemma as before,
 	this is equivalent to asking that the following diagram commutes
@@ -183,7 +183,7 @@ $p$-divisible groups.
 
 
 \begin{defn}[Morphism of group schemes]
-	Let $G, G'$ be group schemes, a {\em homomorphism of group schemes}
+	Let $G, G'$ be group schemes, a \emph{homomorphism of group schemes}
 	\begin{equation*}
 		\begin{tikzcd}
 			\alpha\colon G \arrow[r, "", rightarrow] &
@@ -226,7 +226,7 @@ $p$-divisible groups.
 \begin{defn}[Category of $S$-group schemes]\label{defn:CatOfGroupSchemes}
 	Hence, combining all of the definitions so far, 
 	one can define the subcategory $\mathsf{Gp}/S$ of $\mathsf{Sch}/S$,
-	of {\em $S$-group schemes}, or more simply {\em $S$-groups},
+	of \emph{$S$-group schemes}, or more simply \emph{$S$-groups},
 	whose objects are $S$-group schemes
 	and morphisms are homomorphisms of $S$-group schemes.
 \end{defn}
@@ -332,7 +332,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 
 
 \begin{defn}[Hopf algebras]\label{defn:HopfAlgebra}
-	An {\em Hopf algebra over $R$} is an $R$-algebra $A$,
+	An \emph{Hopf algebra over $R$} is an $R$-algebra $A$,
 	endowed with a comultiplication, a couint and an antipode map,
 	respectively:
 	\begin{equation*}
@@ -365,7 +365,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 	Moreover one defines a morphism of Hopf algebras to be an $R$-algebra
 	morphism preserving the comultiplication morphism.
 	Finally we call $I \coloneqq \ker \widetilde{\varepsilon}$ the 
-	{\em augmentation ideal} of $A$.
+	\emph{augmentation ideal} of $A$.
 \end{defn}
 
 
@@ -494,7 +494,7 @@ $R$, for $S = \spec(R)$.
 	and $G \coloneqq \spec(A)$.\nopagebreak[4]
 	\begin{enumerate}
 		\item \label{ex:AdditiveGroupScheme}
-		The {\em additive group scheme}, given by 
+		The \emph{additive group scheme}, given by 
 			$\mathbb{G}_a \coloneqq \spec(R[x])$.
 			It is given on $R$-schemes by
 			\begin{equation*}
@@ -543,7 +543,7 @@ $R$, for $S = \spec(R)$.
 			.\end{equation*} 
 
 
-		\item The {\em multiplicative group scheme} 
+		\item The \emph{multiplicative group scheme} 
 			$\mathbb{G}_m \coloneqq \spec(R[x,x^{-1}])$.
 			It acts on $R$-schemes by
 			\begin{equation*}
@@ -581,7 +581,7 @@ $R$, for $S = \spec(R)$.
 			.\end{equation*} 
 
 
-		\item The {\em general linear group scheme} $\mathrm{GL}_n \coloneqq 
+		\item The \emph{general linear group scheme} $\mathrm{GL}_n \coloneqq 
 			\spec(R[\mathrm{x},\mathrm{y}]/J)$,
 			where
 			\begin{equation*}
@@ -616,7 +616,7 @@ $R$, for $S = \spec(R)$.
 			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n = I$.
 
 
-		\item The {\em group scheme of $n$th roots of unity}, denoted by $\mu_n$.
+		\item The \emph{group scheme of $n$th roots of unity}, denoted by $\mu_n$.
 			It is defined to be the kernel of the $n$th power morphism
 			$\mathbb{G}_m \to \mathbb{G}_m$,
 			corresponding to the $R$-algebra morphism
@@ -636,7 +636,7 @@ $R$, for $S = \spec(R)$.
 			since $R[x,x^{-1}] / (x^n-1)$ is finite and flat over $R$.
 
 
-		\item The {\em diagonalizable group schemes}. Let $X$ be an ordinary
+		\item The \emph{diagonalizable group schemes}. Let $X$ be an ordinary
 			commutative group, and denote by $R[X] \coloneqq \bigoplus_{x \in X} Rx$
 			its associated group $R$-algebra.
 			This is a Hopf algebra, whose structural morphisms
@@ -657,7 +657,7 @@ $R$, for $S = \spec(R)$.
 			,\end{equation*} 
 			where the last hom set has a natural structure of abelian
 			group.
-			Then we define the {\em diagonalizable group scheme} $D(X)$
+			Then we define the \emph{diagonalizable group scheme} $D(X)$
 			as the commutative $R$-group $\spec(R[X])$.
 
 			Two important cases are $\mathbb{G}_m \simeq D(\mathbb{Z})$
@@ -672,10 +672,10 @@ $R$, for $S = \spec(R)$.
 			It is then a closed subgroup scheme of $\mathbb{G}_m^r$, for some $r$,
 			which again can be seen as the closed subgroup scheme of diagonal
 			matrices of $\mathrm{GL}_r$, explaining the name 
-			{\em diagonalizable}.
+			\emph{diagonalizable}.
 
 
-		\item The {\em constant group scheme}\label{ex:ConstantGroups}.
+		\item The \emph{constant group scheme}\label{ex:ConstantGroups}.
 			Let $R$ be a ring and $\Gamma$ an ordinary, finite commutative group.
 			We define $A$ to be the $R$-algebra $R^\Gamma$,
 			of functions from $\Gamma$ to $R$.
@@ -700,7 +700,7 @@ $R$, for $S = \spec(R)$.
 			\end{equation*}
 
 
-		\item The {\em group scheme of $p^r$th roots of zero},
+		\item The \emph{group scheme of $p^r$th roots of zero},
 			if $\mathrm{char}\, R = p$, denoted by $\alpha_{p^r}$. 
 			It is defined to be the kernel of the $p^r$th power
 			morphism $\mathbb{G}_a \to \mathbb{G}_a$,
@@ -714,7 +714,7 @@ $R$, for $S = \spec(R)$.
 \end{ex}
 
 
-\begin{rem}[Base change]\leavevmode\vspace{-\baselineskip}
+\begin{rem}[Base change]\leavevmode\vspace{-0.2\baselineskip}
 \begin{enumerate}
 \item 	Let $U, T \in \mathsf{Sch}/S$ be two $S$-schemes.
 	We use the notation $U_T$ for the base change $U \times_{ S } T$.
@@ -746,7 +746,7 @@ is a locally Noetherian scheme.
 
 \begin{defn}[Right action]
 	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}/S$.
-	A {\em right action} of $H$ on $X$ is a morphism
+	A \emph{right action} of $H$ on $X$ is a morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -758,7 +758,7 @@ is a locally Noetherian scheme.
 	such that, for all $T \in \mathsf{Sch}/S$, the induced map
 	$X(T) \times H(T) \to  X(T)$ is a right action of the
 	group $H(T)$ on the set $X(T)$.
-	We say that the action is {\em strictly free} iff the morphism
+	We say that the action is \emph{strictly free} iff the morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -803,10 +803,10 @@ As promised we obtain the following result for group schemes.
 	subgroup scheme.
 	Define the action $a\colon G \times_{ S } H \to G$ as the restriction of the
 	group law $m$ on $G$.
-	Then $G/H$ is the scheme of {\em left cosets} of $H$ in $G$.
+	Then $G/H$ is the scheme of \emph{left cosets} of $H$ in $G$.
 
 	Assume, moreover, that $G/H$ is finite and flat over $S$,
-	with order $[(G/H):S]$. We will call this the {\em index} of $H$ in $G$
+	with order $[(G/H):S]$. We will call this the \emph{index} of $H$ in $G$
 	and denote it by $[G:H]$.
 	Then $G$ is finite and flat over $S$ and we have
 	\begin{equation*}
@@ -822,14 +822,14 @@ of normal subgroup:
 	Let $G$ be an $S$ group and $H$ be a subgroup scheme of $G$,
 	i.e. $H$ is a subscheme of $G$ and the inclusion morphism
 	is a homomorphism of group schemes.
-	We say that $H$ is a {\em normal subgroup} of $G$ iff, for all $T \in \mathsf{Sch}/S$,
-	the subgroup $H(T)$ of $G(T)$ is a {\em normal} subgroup.
+	We say that $H$ is a \emph{normal subgroup} of $G$ iff, for all $T \in \mathsf{Sch}/S$,
+	the subgroup $H(T)$ of $G(T)$ is a \emph{normal} subgroup.
 \end{defn}
 
 
 \begin{rem}[Short exact sequence]
 	Assume, in the hypothesis of \cref{thm:QuotientGroupScheme}, that $H$ is
-	also {\em normal} in $G$.
+	also \emph{normal} in $G$.
 	Then the multiplication on $G$ induces a multiplication 
 	morphism on $G/H$, making it an $S$-group scheme.
 	Moreover the map $u\colon G \to G/H$ is
@@ -882,7 +882,7 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \begin{defn}[Separable algebra]
 	A $k$-algebra $A$ satisfying the equivalent conditions of
 	\cref{thm:SeparableAlgebrasCharacterization}
-	is called {\em separable}.
+	is called \emph{separable}.
 \end{defn}
 
 
@@ -902,12 +902,12 @@ i.e. finite schemes over a Noetherian affine base.
 	Let $f\colon X \to S$ be a morphism of finite type between
 	locally Noetherian schemes.
 \begin{enumerate}
-	\item We say that $f$ is {\em unramified} at $x \in X$ iff, for $s \coloneqq f(x)$,
+	\item We say that $f$ is \emph{unramified} at $x \in X$ iff, for $s \coloneqq f(x)$,
 		the image $f^{\#}_s(\mathfrak{m}_s)$ generates
 		$\mathfrak{m}_x$ in $\mathcal{O}_{ X,x }$
 		and $\kappa(x)/\kappa(s)$ is a finite and separable field extension.
 
-	\item We say that $f$ is {\em étale} at $x \in X$ iff it is
+	\item We say that $f$ is \emph{étale} at $x \in X$ iff it is
 		flat and unramified at $x$.
 
 	\item We say that $f$ is unramified (resp$.$ étale) iff it is 
@@ -926,7 +926,7 @@ In fact we can use this characterization in our context thanks to
 	\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item A scheme $X$ is étale over a field $k$ iff $X = \spec(A)$
-		for a {\em separable} $k$-algebra $A$.
+		for a \emph{separable} $k$-algebra $A$.
 	\item If $f\colon X \to S$ is an étale morphism of schemes,
 		for every $s \in S$, the fiber at $s$ is given by $X_s = \spec(A_s)$,
 		for a separable $\kappa(s)$-algebra $A_s$.
@@ -952,7 +952,7 @@ concerns finite étale group schemes over a field.
 	Let $k$ be a field and $\overline{k}$ a fixed separable closure of $k$.
 	Let $\mathscr{G}_k \coloneqq \gal\left( \overline{k} / k \right)$ be the
 	absolute Galois group of $k$.
-	We define the category of {\em discrete $\mathscr{G}_k$ groups} as the category
+	We define the category of \emph{discrete $\mathscr{G}_k$ groups} as the category
 	whose objects are finite groups endowed with the discrete topology and
 	a continuous action of $\mathscr{G}_k$ via group homomorphisms.
 	A morphism of discrete $\mathscr{G}_k$ groups is a $\mathscr{G}_k$-equivariant
@@ -1008,7 +1008,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 		1
 	,\end{tikzcd}
 	\end{equation*}
-	called the {\em connected-étale sequence} for $G$.
+	called the \emph{connected-étale sequence} for $G$.
 	In particular it can be characterized by the fact that every homomorphism
 	from $G$ to an étale $S$-group factorizes through $G \to G^{et}$,
 	and $G^0$ is the kernel of that homomorphism.
@@ -1109,7 +1109,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 
 
 \begin{defn}[Cartier dual]
-	Given a $S$ and $G$ as before, we define the {\em dual} of $G$ as the
+	Given a $S$ and $G$ as before, we define the \emph{dual} of $G$ as the
 	group scheme defined by
 	\begin{equation*}
 	G^D \coloneqq \spec(A^D)
@@ -1143,7 +1143,7 @@ One can also interpret duality from a different point of view.
 Here the relevant notions:
 \begin{defn}[Characters of $\mathrm{S}$-groups]
 	Let $G$ be an $S$-group scheme.
-	A {\em character} of $G$ is a homomorphism of $S$-groups
+	A \emph{character} of $G$ is a homomorphism of $S$-groups
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1246,7 +1246,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		as a ring homomorphism $\mathcal{O}_{X}(U) \to \mathcal{O}_{ X }(U)$.
 \end{enumerate}
 	We will denote by $X^{(p)}$ the fibered product
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}
 		X^{(p)} \coloneqq X \times_{ R } \spec(R) \arrow[r, "", rightarrow] 
 		\arrow[d, "", rightarrow] &
@@ -1254,11 +1254,11 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		\spec(R) \arrow[r, "\varphi_R"', rightarrow] &
 		\spec(R)
 	.\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 	Finally we can construct the map $F_{X/R} \colon X \to X^{(p)}$,
 	which we will denote simply by $F_X$ when the base scheme is clear,
 	as the unique map making the following diagram commute:
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep=1.6em, column sep=1.8em]
 		X \arrow[rrd, "\varphi_X", rightarrow, bend left] 
 		\arrow[rdd, "", rightarrow, bend right, end anchor=north west]
@@ -1271,7 +1271,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		\spec(R) \arrow[r, "\varphi_R"', rightarrow] &
 		\spec(R)
 	.\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 \end{defn}
 
 
@@ -1280,8 +1280,8 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 \begin{defn}[Frobenius morphism]
 	For $R$ a ring of characteristic $p$, and $X$ an $R$-scheme, we define
 \begin{enumerate}
-	\item $\varphi_X\colon X \to X$ the {\em absolute Frobenius morphism} of $X$,
-	\item $F_X \colon X \to X^{(p)}$ the {\em relative Frobenius morphism} of $X$.
+	\item $\varphi_X\colon X \to X$ the \emph{absolute Frobenius morphism} of $X$,
+	\item $F_X \colon X \to X^{(p)}$ the \emph{relative Frobenius morphism} of $X$.
 \end{enumerate}
 \end{defn}
 
@@ -1296,7 +1296,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 \begin{ntt}
 	Given a morphism of $R$-schemes $f\colon X \to Y$,
 	we define 
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
@@ -1304,7 +1304,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		X^{(p)} \arrow[r, "", rightarrow] &
 		Y^{(p)}
 	.\end{tikzcd}
-	\end{equation} 
+	\end{equation*}
 \end{ntt}
 
 
@@ -1321,7 +1321,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	$X^{(0)} \coloneqq X$ and $X^{(p^{n+1})} \coloneqq \left( X^{(p^{n})} \right)^{(p)}$.
 	Then we denote by $F^n_X\colon X \to X^{(p^n)}$
 	the $n$-fold composition
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[column sep=4.3em]
 		X \arrow[r, "F_X", rightarrow] &
 		X^{(p)} \arrow[r, "F_{X^{(p)}}", rightarrow] &
@@ -1329,10 +1329,10 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 		X^{(p^{n-1})} \arrow[r, "F_{X^{(p^{n-1})}}", rightarrow] &
 		X^{(p^n)}
 	.\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 \item Assume now that $G \coloneqq X$ is an $S$-group scheme. 
 	By \cref{lem:FrobeniusHomomorphism} $F^n_G$ is a group scheme homomorphism.
-	We say that $F_G$ is {\em nilpotent} iff there is an integer $n \geq 1$ such that
+	We say that $F_G$ is \emph{nilpotent} iff there is an integer $n \geq 1$ such that
 	$F^n_G$ is the trivial homomorphism.
 \end{enumerate}
 \end{defn}
@@ -1361,15 +1361,15 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \begin{defn}[Verschiebung]
 	Let $G$ be a finite, commutative $R$-group scheme.
 	By \cref{thm:CartierDuality} $(G^{(p)})^D \simeq (G^D)^{(p)}$.
-	One defines the {\em Verschiebung}, german for "the shift", homomorphism
-	\begin{equation}
+	One defines the \emph{Verschiebung}, german for "the shift", homomorphism
+	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		V_G \coloneqq F^D_{G^D}\colon G^{(p)} \arrow[r, "", rightarrow] &
 		G
 	\end{tikzcd}
-	\end{equation} 
+	\end{equation*} 
 	as the dual to $F_{G^D}\colon G^D \to (G^D)^{(p)} \simeq (G^{(p)})^D$,
 	recalling that $((G^{(p)})^D)^D \simeq G^{(p)}$ and $(G^D)^D \simeq G$.
 \end{defn}
@@ -1405,7 +1405,7 @@ Frobenius and Verschiebung:
 \begin{thm}[{\cite[\S11.i]{MilneAG}}]\label{thm:FrobeniusVerschiebungRelation}
 	Let $G$ be a finite commutative $k$-group scheme. Then the following
 	diagram commutes
-	\begin{equation}
+	\begin{equation*}
 	\begin{tikzcd}[column sep=1.5em]
 		G \arrow[rr, "p \cdot \id_{ G }", rightarrow] 
 		\arrow[rd, "F_G"', rightarrow] & &
@@ -1415,7 +1415,7 @@ Frobenius and Verschiebung:
 		\arrow[rr, "p \cdot \id_{ G^{(p)} }"', rightarrow] & &
 		G^{(p)}
 	,\end{tikzcd}
-	\end{equation}
+	\end{equation*}
 	where $p \cdot \id_{ G }$ denotes the multiplication by $p$
 	on $G$.
 \end{thm}

@@ -24,7 +24,7 @@ satisfies the above requirements.
 
 \begin{defn}[Extension]
 	Let $\mathsf{C}$ be an abelian category and $A,B \in \mathsf{C}$.
-	We define an {\em extension} $X$ of $A$ by $B$ to be a short exact sequence
+	We define an \emph{extension} $X$ of $A$ by $B$ to be a short exact sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		(\zeta) &
@@ -38,7 +38,7 @@ satisfies the above requirements.
 	where $X \in \mathsf{C}$.
 	We might also denote the extension by $\zeta$.
 	Moreover, given two extensions $\zeta$ and $\zeta'$ of $A$ by $B$,
-	respectively given by $X$ and $X'$, we say that a {\em morphism of extensions} of $A$ by $B$
+	respectively given by $X$ and $X'$, we say that a \emph{morphism of extensions} of $A$ by $B$
 	is a morphism $f\colon X \to X'$ that makes the following diagram commute
 	\begin{equation*}
 	\begin{tikzcd}
@@ -97,7 +97,7 @@ satisfies the above requirements.
 		.\end{tikzcd}
 		\end{equation*}
 		The extension $X'$ of $A'$ by $B$
-		is called the {\em pullback} of $X$ via $\gamma\colon A' \to A$.
+		is called the \emph{pullback} of $X$ via $\gamma\colon A' \to A$.
 		Moreover, if we denote by $\zeta$ the extension
 		$X$ of $A$ by $B$, then we denote by $\zeta\gamma$
 		its pullback via $\gamma$.
@@ -126,7 +126,7 @@ satisfies the above requirements.
 		.\end{tikzcd}
 		\end{equation*}
 		The extension $X'$ of $A$ by $B'$
-		is called the {\em pushout} of $X$ via $\beta\colon B \to B'$.
+		is called the \emph{pushout} of $X$ via $\beta\colon B \to B'$.
 		Moreover, if we denote by $\zeta$ the extension
 		$X$ of $A$ by $B$, then we denote by $\beta\zeta$
 		its pushout via $\beta$.
@@ -366,7 +366,7 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 	i.e. the fppf sheaf associated to a quasi-coherent
 	$\mathcal{O}_{ S }$-module $V(G)$, as in \cref{defn:fppfSheafAssociatedtoMod}.
 	We say that an extension $\zeta \in \mathrm{E}(G, \underline{V}(G))$, given
-	by $E(G)$, is {\em universal} iff, given any extension
+	by $E(G)$, is \emph{universal} iff, given any extension
 	\begin{equation*}
 	\begin{tikzcd}
 		(\xi) &
@@ -669,7 +669,7 @@ for $G \in \mathsf{Gr}/S$.
 
 \begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]\label{prop:ExtFLG}
 	Let $G \in \mathsf{BT}/S$ and $S$ be as before,
-	then $\overline{E(G)}$ is a {\em formal Lie group}.
+	then $\overline{E(G)}$ is a \emph{formal Lie group}.
 \end{prop} 
 
 
@@ -751,7 +751,7 @@ we start by introducing the following notation.
 	Still, since it is used to define our crystals, here is the precise lifting
 	requirements asked by Messing.
 	Let $S_0$ be a scheme with $p$ locally nilpotent on it.
-	We say that $G_0$ is {\em locally infinitesimally liftable} iff
+	We say that $G_0$ is \emph{locally infinitesimally liftable} iff
 	there is an affine open cover $\left\{ U_i \right\}_{i \in I}$ of $S_0$, which depends on $G_0$, 
 	on which, for all $i$ and all finite order thickening $U_i \hookrightarrow U$,
 	there is a $G \in \mathsf{BT}/U$ such that
@@ -913,7 +913,9 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 \end{rem}
 
 
-\begin{defn}[]\label{MessingCrystalDefinition}\leavevmode\vspace{-.2\baselineskip}
+%tk: for impagination purposes
+\newpage
+\begin{defn}[]\label{MessingCrystalDefinition}\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
 \item In the above notation, we define the crystal $\mathbb{E}(G_0)$
 	by setting its value on $\left(U_0 \hookrightarrow U, \delta\right)$, as considered
@@ -926,7 +928,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	we set $\mathbb{E}(u_0) \coloneqq E(u_0)$.
 
 \item Finally, for an arbitrary morphism of schemes $f\colon T_0 \to S_0$,
-	we can define the {\em pullback} of the crystal $\mathbb{E}(G_0)$, denoted
+	we can define the \emph{pullback} of the crystal $\mathbb{E}(G_0)$, denoted
 	by $f^* \left( \mathbb{E}(G_0) \right)$, on "sufficiently small" open
 	sets in the crystalline site of $T_0$.
 	Here we say that $V_0 \hookrightarrow V$ is sufficiently small iff
@@ -964,7 +966,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	Let's now notice that we write the above as equalities following \cref{rem:specialSheavesIso};
 	more properly these equalities should be considered as isomorphisms.
 	Then a more precise statement would be that the following diagram
-	commutes up to a {\em unique natural equivalence}:
+	commutes up to a \emph{unique natural equivalence}:
 	\begin{equation*}
 	\begin{tikzcd}
 		\mathsf{BT}/S_0
@@ -983,7 +985,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 \end{rem}
 
 
-\begin{defn}[]\leavevmode\vspace{-.2\baselineskip}
+\begin{defn}[]\leavevmode\vspace{-\baselineskip}
 \begin{enumerate}
 \item We define the functor $\overline{\mathbb{E}}$, associating to
 	any $G_0 \in \mathsf{BT}/S_0$ a crystal in $\mathsf{Gr}/S_0$
@@ -1096,7 +1098,7 @@ a certain filtration on its associated crystal.
 \begin{defn}[Admissible filtration]
 	Let $G_0 \in \mathsf{BT}/S_0$.
 	A filtration $\mathrm{Fil}^1 \subset \mathbb{D}(G_0)_S$ is said to be
-	{\em admissible} iff $\mathrm{Fil}^1$ is a locally-free vector subgroup
+	\emph{admissible} iff $\mathrm{Fil}^1$ is a locally-free vector subgroup
 	with locally free quotient which, on $S_0$, reduces to
 	(the morphisms of sheaves on $S_0$ associated to)
 	\begin{equation*}
@@ -1114,7 +1116,7 @@ a certain filtration on its associated crystal.
 	Let's fix $S_0 \hookrightarrow S$ as before.
 	We define the category $\mathsf{BF}/S_0$ whose objects
 	are pairs $(G_0, \mathrm{Fil}^1)$, where $G_0 \in \mathsf{BT}/S_0$
-	and $\mathrm{Fil}^1$ is an {\em admissible} filtration on
+	and $\mathrm{Fil}^1$ is an \emph{admissible} filtration on
 	$\mathbb{D}(G_0)_S$ and whose morphisms are defined to be
 	pairs $(u_0, \xi)$, where $u_0\colon G_0 \to H_0$
 	and $\xi$ is a morphism of filtered objects, i.e. a commutative diagram
@@ -1224,7 +1226,7 @@ This definition allows to state the following theorem:
 
 	\item Notice that, by \cref{prop:equivClassFiltration}, the datum of 
 		$V \subset \mathbb{E}(G_0)_S$ which belongs to $\Theta$ is
-		equivalent to the datum of an {\em admissible} filtration
+		equivalent to the datum of an \emph{admissible} filtration
 		$\mathrm{Fil}^1 \hookrightarrow \mathbb{D}(G_0)_S$.
 		In particular the knowledge of the map
 		$\underline{V}(G) \hookrightarrow \mathbb{E}(G_0)_S$, for $G$ a global

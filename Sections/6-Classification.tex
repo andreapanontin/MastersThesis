@@ -53,7 +53,7 @@ denote vectors using a boldface character.
 	\begin{align*}
 		w_0(\mathbf{x}) \coloneqq w_0(x_0) &\coloneqq x_0, \\
 		w_1(\mathbf{x}) \coloneqq w_1(x_0, x_1) &\coloneqq x_0^p + px_1, \\
-				&\ \ \ \ \! \vdots \\
+				& \vdotswithin{\coloneqq} \\
 		w_n(\mathbf{x}) \coloneqq w_n(x_0, \ldots, x_n) &\coloneqq
 		\sum_{ i=0 }^{ n } p^i x_i^{p^{n-i}} =
 		x_0^{p^n} + px_1^{p^{n-1}} + \cdots + p^{n-1}x_{n-1}^p + p^n x_n
@@ -97,7 +97,7 @@ denote vectors using a boldface character.
 
 
 \begin{defn}[Ring of Witt vectors]
-	We define the {\em ring of Witt vectors} with coefficients in $A$,
+	We define the \emph{ring of Witt vectors} with coefficients in $A$,
 	denoted by $W(A)$, to be the commutative unitary ring $A^{\mathbb{N}}$
 	endowed with the composition laws defined in \cref{not:WittSumProd}.
 \end{defn}
@@ -144,15 +144,15 @@ denote vectors using a boldface character.
 		(a_0^p, a_1^p, \ldots)
 	.\end{tikzcd}
 	\end{equation*} 
-	It can be easily shown that the first map, called {\em Verschiebung}
-	(which we recall is the german word for {\em shift}), 
-	is additive, whereas the second, called {\em Frobenius},
+	It can be easily shown that the first map, called \emph{Verschiebung}
+	(which we recall is the german word for \emph{shift}), 
+	is additive, whereas the second, called \emph{Frobenius},
 	is a ring homomorphism.
 \end{defn}
 
 
 \begin{defn}[(Strict) $p$-ring]
-	A ring $B$ is called {\em $p$-ring} iff it is separated and complete
+	A ring $B$ is called \emph{$p$-ring} iff it is separated and complete
 	for the topology induced by a decreasing collection of ideals
 	$\left\{ \mathfrak{b}_i \right\}_{i \geq 1}$ such that 
 	$\mathfrak{b}_n \mathfrak{b}_m \subset \mathfrak{b}_{n+m}$
@@ -160,7 +160,7 @@ denote vectors using a boldface character.
 	and $B/\mathfrak{b}_1$ is a perfect $\mathbb{F}_p$-algebra
 	(hence $p \in \mathfrak{b}_1$).
 
-	We say that $B$ is a {\em strict $p$-ring} iff it is a $p$-ring
+	We say that $B$ is a \emph{strict $p$-ring} iff it is a $p$-ring
 	and $\mathfrak{b}_i = p^iB$ for all $i \geq 1$
 	and $p\colon B \to B$ is an injective map.
 \end{defn}
@@ -209,7 +209,7 @@ denote vectors using a boldface character.
 		%tk: check how many times it writes [a]
 	,\end{tikzcd}
 	\end{equation*} 
-	where $[a]$ is called the {\em Teichmüller lift} of $a$.
+	where $[a]$ is called the \emph{Teichmüller lift} of $a$.
 \end{defn}
 
 
@@ -240,7 +240,7 @@ denote vectors using a boldface character.
 		\mathbf{x} = \sum_{n \in \mathbb{N} }^{  } [c_n] p^n
 	,\end{equation*}
 	where $c_n \in A$.
-	We will refer to this expansion as the {\em Teichmüller expansion} in the future.
+	We will refer to this expansion as the \emph{Teichmüller expansion} in the future.
 	Moreover, given $\mathbf{x} = \left( a_n \right)_{n \in \mathbb{N}}$, one can also write it as
 	\begin{equation*}
 		\mathbf{x} = \sum_{n \in \mathbb{N} }^{  } V^n([a_n])
@@ -327,7 +327,7 @@ denote vectors using a boldface character.
 	Then $K/K_0$ is a field extension of degree $e$, which is totally ramified
 	since the two fields have isomorphic residue fields.
 	Then we see that the Witt vector construction allows one to
-	construct $K_0$ the {\em maximal unramified subextension} of any
+	construct $K_0$ the \emph{maximal unramified subextension} of any
 	finite extension of $\mathbb{Q}_p$.
 
 \item We can finally notice that the isomorphism $W(k) \simeq O_{K_0}$ preserves
@@ -549,10 +549,10 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 
 
 \begin{defn}[Special ring]
-	A {\em special ring} $A$ is a $p$-adically complete, separated, $p$-torsion-free,
+	A \emph{special ring} $A$ is a $p$-adically complete, separated, $p$-torsion-free,
 	local $\mathbb{Z}_{p}$-algebra equipped with an endomorphism $\varphi$
 	lifting the Frobenius on $A/pA$.
-	Moreover we call {\em map of special rings} a morphism
+	Moreover we call \emph{map of special rings} a morphism
 	of $\mathbb{Z}_{p}$-algebras compatible with $\varphi$.
 \end{defn}
 
@@ -824,7 +824,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	whereas if $p = 2$ it induces an anti-equivalence of the 
 	corresponding isogeny categories.
 \end{prop}
-\begin{proof}\leavevmode\vspace{-.2\baselineskip}
+\begin{proof}%\leavevmode\vspace{-.2\baselineskip}
 We start by showing that this functor actually takes values in $\mathsf{BT}^{\varphi}_{/S}$.
 To do so we need to show that $M(G) = \mathbb{D}^{*}(G)(S)$
 has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$.
