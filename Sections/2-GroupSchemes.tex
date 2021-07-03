@@ -10,7 +10,7 @@ $p$-divisible groups.
 \begin{defn}[$S$-Group scheme]
 	Let $F\colon (\mathsf{Sch}/S)^{op} \to \mathsf{Gp}$ be a functor.
 	Assume that $F$ is representable by $G \in \mathsf{Sch}/S$, i.e. 
-	functorially in $T \in \mathsf{Sch}/S$
+	functorially in $T \in \mathsf{Sch}/S$ we have
 	\begin{equation*}
 		\iota F(T) \simeq \Hom_{\mathsf{Sch}/S} \left( T, G \right)
 	,\end{equation*} 
@@ -26,7 +26,7 @@ $p$-divisible groups.
 	\begin{equation*}
 		G(T) \coloneqq \Hom_{\mathsf{Sch}/S} \left( T, G \right)
 	.\end{equation*} 
-	If we view $G$, by \cref{thm:reprFctSheaf}, as an \emph{fppf} sheaf on $\mathsf{Sch}/S$, instead,
+	If we view $G$, by \cref{thm:reprFctSheaf}, as an fppf sheaf on $\mathsf{Sch}/S$, instead,
 	we will use the notation
 	\begin{equation*}
 		\Gamma \left( T, G \right) \coloneqq G(T)
@@ -95,7 +95,7 @@ $p$-divisible groups.
 	Then, again by Yoneda's lemma, also the above maps have to
 	satisfy the properties written in 
 	\cref{eq:GroupAxioms}.
-	More explicitly:
+	More explicitly.
 	\begin{enumerate}
 		\item Associativity of the product
 			\begin{equation*}
@@ -157,7 +157,7 @@ $p$-divisible groups.
 \begin{defn}[Commutative $S$-group scheme]
 	We say that a group scheme $G \in \mathsf{Sch}/S$ is \emph{commutative}
 	iff $G(T)$ is an abelian group for all $T \in \mathsf{Sch}/S$.
-	Using Yoneda lemma as before,
+	Using Yoneda's lemma as before,
 	this is equivalent to asking that the following diagram commutes
 	\begin{equation*}
 	\begin{tikzcd}
@@ -224,7 +224,7 @@ $p$-divisible groups.
 
 
 \begin{defn}[Category of $S$-group schemes]\label{defn:CatOfGroupSchemes}
-	Hence, combining all of the definitions so far, 
+	Combining all of the definitions so far, 
 	one can define the subcategory $\mathsf{Gp}/S$ of $\mathsf{Sch}/S$,
 	of \emph{$S$-group schemes}, or more simply \emph{$S$-groups},
 	whose objects are $S$-group schemes
@@ -251,10 +251,12 @@ $p$-divisible groups.
 		\end{tikzcd} \Bigg)
 		= G \times_{G'} 0
 	.\end{equation*}
-	In the case of $\mathsf{Sch}/S$ we can construct fibered products.
-	In particular we have the zero object $S$, with unique morphism
-	$S \to G'$ given by the unit morphism of $G'$.
-	Then the following gives rise to a kernel for $\alpha$
+	Notice that in $\mathsf{Gp}/S$, since \((G \times_{ S } H)(T) = G(T) \times H(T)\),
+	we can construct fibered products and they coincide with those in \(\mathsf{Sch}/S\).
+	Moreover its zero object is $S$. 
+	By definition there is a unique morphism
+	$S \to G'$, which coincides with the unit morphism of $G'$.
+	Then the following gives rise to a kernel for $\alpha$ in \(\mathsf{Gp}/S\)
 	\begin{equation*}
 	\begin{tikzcd}
 		G \times_{ G' } S \arrow[r, "i", rightarrow] &
@@ -286,7 +288,7 @@ Moreover, in the rest of the discussion, we will mostly be concerned by
 affine group scheme, hence the choice to dedicate a whole section to them.
 Many of the following results, though, are still valid in a more general setting.
 
-Then, for most of the following section, then, we will fix an affine scheme
+Then, for most of the following section we will fix an affine scheme
 $S = \spec(R)$, and focus on affine $S$-groups.
 
 
@@ -321,9 +323,10 @@ With this in mind we obtain the following $R$-algebra morphisms:
  ,/tikz/column 3/.append style={anchor=base east}]
 		\widetilde{m}\colon A \arrow[r, "", rightarrow] &
 		A \otimes_R A & \text{(comultiplication)} \\
-		\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
-		A \phantom{\otimes_R}& \text{(antipode)} \\
-		\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
+		\widetilde{\operatorname{inv}}\colon A \arrow[r, "", rightarrow] &
+		A & \text{(antipode)} \\
+		\phantom{\widetilde{\operatorname{inv}}}\widetilde{\varepsilon} \colon A
+		\arrow[r, "", rightarrow] &
 		R & \text{(counit/augmentation),}
 	\end{tikzcd}
 \end{equation*} 
@@ -332,7 +335,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 
 
 \begin{defn}[Hopf algebras]\label{defn:HopfAlgebra}
-	An \emph{Hopf algebra over $R$} is an $R$-algebra $A$,
+	A \emph{Hopf algebra over $R$} is an $R$-algebra $A$
 	endowed with a comultiplication, a couint and an antipode map,
 	respectively:
 	\begin{equation*}
@@ -344,7 +347,8 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 			A \otimes_R A \\
 			\widetilde{\mathrm{inv}}\colon A \arrow[r, "", rightarrow] &
 			A \phantom{\otimes_R} \\
-			\widetilde{\varepsilon} \colon A \arrow[r, "", rightarrow] &
+			\phantom{\widetilde{\operatorname{inv}}}\widetilde{\varepsilon} \colon A
+			\arrow[r, "", rightarrow] &
 			R,
 		\end{tikzcd}
 	\end{equation*} 
@@ -356,6 +360,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 		( \id_{ A } \otimes_R \widetilde{\varepsilon} ) \circ \widetilde{m} &=
 		( \widetilde{\varepsilon} \otimes_R \id_{ A } ) \circ \widetilde{m} =
 		\id_{ A },\\
+		\phantom{\widetilde{\operatorname{inv}}}
 		\widetilde{\Delta} \circ ( \id_{ A } \otimes_R \widetilde{\mathrm{inv}} ) 
 		\circ \widetilde{m} &=
 		\widetilde{\Delta} \circ ( \widetilde{\mathrm{inv}} \otimes_R \id_{ A } ) 
@@ -384,7 +389,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 	In fact	the multiplication morphism in a group scheme
 	corresponds to the comultiplication morphism in its 
 	associated Hopf algebra, and morphisms in the two categories are defined
-	to preserve such operation.
+	to preserve such operations.
 \end{rem}
 
 
@@ -454,7 +459,7 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 		$[X_1 \times_{ S } X_2 : S] = n_1n_2$.
 
 	\item If $[X:S] = n$, then $[X \times_{ S } T : T] = n$
-		for all $T \in \mathsf{Sch}_{ T }$.
+		for all $T \in \mathsf{Sch}/T$.
 \end{enumerate}
 \end{prop}
 
@@ -464,18 +469,19 @@ In order to compute a few useful examples, let's explicit the relation between
 multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
 $R$, for $S = \spec(R)$.
 \begin{rem}\label{rem:ExplicitComult}
+	As usual consider \(G \in \mathsf{Gp}/S\).
 	Yoneda tells us that the multiplication map 
-	$m\colon G \times G \to G$ can be expressed
+	$m\colon G \times_S G \to G$ can be expressed
 	as the product $\mathrm{pr}_1 \mathrm{pr}_2$
 	of the two projection morphisms, using the group law
-	on $G(G \times G)$.
+	on $G(G \times_S G)$.
 	Then, in the case of affine schemes $S = \spec(R)$
 	and $G = \spec(A)$, one can translate the above to the corresponding
 	Hopf algebra morphism, using the equivalence of categories.
 	More explicitly one can describe the comultiplication map
 	$\widetilde{m}$ as the product in 
 	$\Hom_{R\text{-}\mathsf{Alg}} \left( A, A \otimes_R A \right)$ 
-	(which has the same group structure as $G(G \times G)$)
+	(which has the same group structure as $G(G \times_S G)$)
 	of the embedding morphisms
 	\begin{equation*}
 	\begin{tikzcd}
@@ -519,14 +525,15 @@ $R$, for $S = \spec(R)$.
 			$(x \mapsto a) \mapsto a$.
 			The hom set 
 			$\Hom_{R \text{-}\mathsf{Alg}} \left( R[x], A \right)$
-			inherits the additive group structure from $A$, and the embeddings
+			inherits the additive group structure from $A$.
+			Moreover the embeddings
 			of $R[x]$ in $R[x] \otimes_R R[x]$ are given by
 			\begin{equation*}
 				\widetilde{\mathrm{pr}}_1(x) = x \otimes_R 1
 				\qquad \text{ and } \qquad
 				\widetilde{\mathrm{pr}}_2(x) = 1 \otimes_R x
 			.\end{equation*} 
-			Then, thanks to \cref{rem:ExplicitComult},
+			Finally, thanks to \cref{rem:ExplicitComult},
 			we deduce that
 			\begin{equation*}
 				\widetilde{m}(x) =
@@ -535,7 +542,7 @@ $R$, for $S = \spec(R)$.
 				x \otimes_R 1 + 1 \otimes_R x
 			.\end{equation*} 
 			Then, from the properties of counit and antipode
-			(see \cref{defn:HopfAlgebra}), one checks that 
+			(see \cref{defn:HopfAlgebra}), one deduces 
 			\begin{equation*}
 				\widetilde{\varepsilon}(x) = 0
 				\qquad \text{ and } \qquad
@@ -564,7 +571,7 @@ $R$, for $S = \spec(R)$.
 			\Gamma \left( X , \mathcal{O}_{ X } \right)^{\times}
 			,\end{equation*} 
 			functorially in $X$.
-			Then, reasoning as before, one obtains
+			Then, reasoning as before, we obtain
 			\begin{equation*}
 				\widetilde{m}(x) =
 				\left( \widetilde{\mathrm{pr}}_1(x) \right) \cdot
@@ -582,16 +589,16 @@ $R$, for $S = \spec(R)$.
 
 
 		\item The \emph{general linear group scheme} $\mathrm{GL}_n \coloneqq 
-			\spec(R[\mathrm{x},\mathrm{y}]/J)$,
+			\spec(R[\mathbf{x},\mathbf{y}]/J)$,
 			where
 			\begin{equation*}
-				R[\mathrm{x},\mathrm{y}] \coloneqq
+				R[\mathbf{x},\mathbf{y}] \coloneqq
 				R[x_{11}, x_{12}, \ldots, x_{nn},
 				y_{11}, \ldots, y_{nn}]
 			\end{equation*} 
 			and $J$ is the ideal generated by the $n^2$ entries of the matrix
 			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n - I$,
-			for $I$ the identity matrix.
+			where $I$ is the identity matrix.
 			It acts on $R$-schemes by associating to
 			$X \in \mathsf{Sch}/S$ the multiplicative group
 			$\mathrm{GL}_n(X)$ of invertible $n \times n$
@@ -633,23 +640,24 @@ $R$, for $S = \spec(R)$.
 			a closed subgroup scheme of $\mathbb{G}_m$.
 			We can also see that 
 			$\mu_n$ is a finite and flat $S$-group scheme, 
-			since $R[x,x^{-1}] / (x^n-1)$ is finite and flat over $R$.
+			since $R[x,x^{-1}] / (x^n-1)$ is finite and flat over $R$
+			of order \(n\).
 
 
 		\item The \emph{diagonalizable group schemes}. Let $X$ be an ordinary
 			commutative group, and denote by $R[X] \coloneqq \bigoplus_{x \in X} Rx$
 			its associated group $R$-algebra.
-			This is a Hopf algebra, whose structural morphisms
+			This is a Hopf algebra whose structural morphisms
 			are given, for every $x \in X$, by
 			\begin{equation*}
 				\widetilde{m}(x) = x \otimes x,
 				\quad
 				\widetilde{\varepsilon}(x) = 1,
-				\quad
+				\quad \text{ and } \quad
 				\widetilde{\mathrm{inv}}(x) = x^{-1}
 			.\end{equation*} 
 			The above can be checked directly, since we have
-			the identifications, for $G = \spec(A)$:
+			the identifications, for $G = \spec(A)$,
 			\begin{equation*}
 				\left( D(X) \right)(G) \coloneqq
 				\Hom_{R \text{-Alg}} \left( R[X], A \right) \simeq
@@ -663,7 +671,8 @@ $R$, for $S = \spec(R)$.
 			Two important cases are $\mathbb{G}_m \simeq D(\mathbb{Z})$
 			and $\mu_n \simeq D(\mathbb{Z}/n\mathbb{Z})$.
 			Moreover, if $X$ is finite, $R[X]$ is a free $R$-module of rank $n$,
-			making $D(X)$ commutative, finite and flat over $R$.
+			making $D(X)$ commutative, finite and flat over $R$
+			of order \(n\).
 			More generally, for $X$ finitely generated, 
 			from the structure theorem for finitely generated abelian groups, 
 			$X$ is isomorphic to a finite product of cyclic groups.
@@ -678,14 +687,11 @@ $R$, for $S = \spec(R)$.
 		\item The \emph{constant group scheme}\label{ex:ConstantGroups}.
 			Let $R$ be a ring and $\Gamma$ an ordinary, finite commutative group.
 			We define $A$ to be the $R$-algebra $R^\Gamma$,
-			of functions from $\Gamma$ to $R$.
+			of set-theoretic functions from $\Gamma$ to $R$.
 			A basis for $A$ is given by $\left\{ e_\sigma \right\}_{\sigma \in \Gamma}$,
 			for $e_\sigma(\gamma) = \delta_{\gamma,\sigma}$,
 			where $\delta$ is Kronecker's delta function.
-			Defining the following Hopf algebra structure
-			we see that $A$ represents an $S$-group scheme,
-			called the constant group scheme for $\Gamma$,
-			which we denote by $\underline{\Gamma}$.
+			Let's define on \(A\) the following Hopf algebra structure:
 			\begin{equation*}
 				\widetilde{m}(e_\rho) \coloneqq
 				\sum_{\gamma\tau = \rho}^{} e_\sigma \otimes e_\tau, 
@@ -698,6 +704,9 @@ $R$, for $S = \spec(R)$.
 					0 & \text{otherwise}.
 				\end{cases}
 			\end{equation*}
+			Then $A$ represents an $S$-group scheme,
+			called the constant group scheme for $\Gamma$,
+			which we denote by $\underline{\Gamma}$.
 
 
 		\item The \emph{group scheme of $p^r$th roots of zero},
@@ -709,7 +718,7 @@ $R$, for $S = \spec(R)$.
 			Then $\alpha_{p^r}$ is represented by $\spec(\coker \alpha)$.
 			Moreover this is an additive subgroup scheme, since $\mathrm{char}\, R = p$.
 			As for $\mu_n$, it is a closed finite flat subgroup scheme of 
-			$\mathbb{G}_a$.
+			$\mathbb{G}_a$ of order \(p^r\).
 	\end{enumerate}
 \end{ex}
 
@@ -772,7 +781,7 @@ is a locally Noetherian scheme.
 
 
 \noindent
-The next theorem will allow us to construct quotients of
+The next proposition will allow us to construct quotients of
 $S$-group schemes by finite, flat closed subgroup schemes.
 It actually is a consequence of the following, more general result, due to Grothendieck.
 \begin{thm}[{\cite[\S 3.4]{TateMF}}]
@@ -783,9 +792,9 @@ It actually is a consequence of the following, more general result, due to Groth
 	there is a unique morphism $f\colon Y \to Z$ such that $v = f \circ u$.
 	We denote $Y$ by $X/H$, and notice that $u$ has the following properties:
 \begin{enumerate}
-	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$.
+	\item $X$ is finite flat over $X/H$ and $[X:(X/H)] = [H:S]$;
 		
-	\item For every $T \in \mathsf{Sch}/S$, the following map is injective
+	\item for every $T \in \mathsf{Sch}/S$, the following map is injective
 		\begin{equation*}
 		\begin{tikzcd}
 			X(T)/H(T) \arrow[r, "", rightarrowtail] &
@@ -816,14 +825,14 @@ As promised we obtain the following result for group schemes.
 
 
 \noindent
-Finally, in order to take quotients, we need to introduce the notion
-of normal subgroup:
+Finally, in order to take quotients in \(\mathsf{Gp}/S\), we need to introduce the notion
+of normal subgroup.
 \begin{defn}[Normal subgroup]
 	Let $G$ be an $S$ group and $H$ be a subgroup scheme of $G$,
 	i.e. $H$ is a subscheme of $G$ and the inclusion morphism
 	is a homomorphism of group schemes.
-	We say that $H$ is a \emph{normal subgroup} of $G$ iff, for all $T \in \mathsf{Sch}/S$,
-	the subgroup $H(T)$ of $G(T)$ is a \emph{normal} subgroup.
+	We say that $H$ is a \emph{normal subgroup scheme} of $G$ iff, for all 
+	$T \in \mathsf{Sch}/S$, the subgroup $H(T)$ of $G(T)$ is a \emph{normal} subgroup.
 \end{defn}
 
 
@@ -846,7 +855,7 @@ of normal subgroup:
 	\end{equation*}
 	where short exactness also means that $i$ is a closed immersion
 	and $u$ is faithfully flat.
-	Here $1$ denotes the constant $S$-group scheme $1$, as
+	Here $1$ denotes the constant $S$-group scheme $\underline{1}$, as
 	seen in \cref{ex:ConstantGroups} of
 	\cref{ex:AffineGroupSchemesExamples}.
 \end{rem}
@@ -855,7 +864,7 @@ of normal subgroup:
 
 \subsubsection{Separable algebras and étale group schemes}
 The study of étale group schemes is strictly related to that of
-separable algebras, so here are a few interesting results for the latter:
+separable algebras, so here are a few interesting results for the latter.
 
 
 \begin{thm}[{\cite[\S 6.2]{Waterhouse}}]
@@ -897,7 +906,7 @@ If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \noindent
 For the following definition we will not assume maximal generality, but
 we will restrict to a case which includes the situation we will be concerned with,
-i.e. finite schemes over a Noetherian affine base.
+i.e$.$ finite flat schemes over a Noetherian affine base.
 \begin{defn}[Unramified and étale morphism of schemes]\label{defn:EtaleMorphismSheaves}
 	Let $f\colon X \to S$ be a morphism of finite type between
 	locally Noetherian schemes.
@@ -921,7 +930,7 @@ i.e. finite schemes over a Noetherian affine base.
 
 
 \noindent
-In fact we can use this characterization in our context thanks to
+In fact we can use this characterization in our context thanks to the following lemmas.
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]{SP}}]
 	\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
@@ -946,25 +955,35 @@ In fact we can use this characterization in our context thanks to
 
 
 \noindent
-Finally we want to quote an important result which
+Finally we to quote an important result which
 concerns finite étale group schemes over a field.
-\begin{defn}[Discrete $\mathscr{G}_k$ groups]
+\begin{defn}[Discrete $\mathscr{G}_k$-groups]
 	Let $k$ be a field and $\overline{k}$ a fixed separable closure of $k$.
 	Let $\mathscr{G}_k \coloneqq \gal\left( \overline{k} / k \right)$ be the
 	absolute Galois group of $k$.
-	We define the category of \emph{discrete $\mathscr{G}_k$ groups} as the category
-	whose objects are finite groups endowed with the discrete topology and
+	We define the category of \emph{abstract discrete finite $\mathscr{G}_k$-groups} as the category
+	whose objects are abstract finite groups endowed with the discrete topology and
 	a continuous action of $\mathscr{G}_k$ via group homomorphisms.
-	A morphism of discrete $\mathscr{G}_k$ groups is a $\mathscr{G}_k$-equivariant
-	group homomorphism.
+	A morphism of abstract discrete finite $\mathscr{G}_k$-groups 
+	is a $\mathscr{G}_k$-equivariant group homomorphism.
 \end{defn}
 
 
 \begin{thm}[{\cite[\S2.16]{MilneAG}}]\label{CharacterizationEtaleGroupSchemesK}
 	The functor $G \mapsto G(\overline{k})$ is an equivalence of categories
 	between the category of étale group schemes over $k$ and the
-	category of discrete $\mathscr{G}_k$ groups.
+	category of abstract discrete finite $\mathscr{G}_k$-groups.
 \end{thm}
+
+
+\begin{rem}[{\cite[\S3, example (7)]{Shatz}}]
+	We can generalize the above result to the case of a base scheme
+	\(S \coloneqq \spec(R)\), where \(R\) is a complete (or more generally
+	Hensel) Noetherian local ring with residue field \(k\).
+	In this case, again, we find an equivalence of categories,
+	this time between the category of abstract discrete finite \(\mathscr{G}_k\)-groups
+	and that of étale \(R\)-group schemes.
+\end{rem}
 
 
 \begin{ex}[]\label{EtaleConstantGroupScheme}
@@ -986,7 +1005,7 @@ concerns finite étale group schemes over a field.
 
 
 \subsubsection{Connected-étale exact sequence}
-In the following section we will always assume that 
+In the following section we will always assume 
 $S = \spec(R)$	for a henselian local ring $R$.
 We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
 its residue field and by $s \coloneqq \spec(k)$ the closed point of $R$.
@@ -994,9 +1013,9 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
 \begin{thm}[{\cite[\S 3.7]{TateMF}}, Connected-étale exact sequence]\label{thm:ConnectedEtaleSequenceGS}
 	Let $G^0$ be the connected component of the identity in $G$.
-	Then $G^0$ is the spectrum of a local $R$-algebra, with residue field $k = R/\mathfrak{m}$
+	Then $G^0$ is the spectrum of a local $R$-algebra with residue field $k = R/\mathfrak{m}$
 	and it is a flat, closed normal subgroup scheme of $G$.
-	Moreover the quotient $G^{et} \coloneqq G/G^0$,
+	Moreover the quotient $G^{\mathrm{ét}} \coloneqq G/G^0$,
 	constructed as in \cref{thm:QuotientGroupScheme},
 	is étale and gives rise to the short exact sequence
 	\begin{equation*}
@@ -1004,13 +1023,13 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 		1 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
-		G^{et} \arrow[r, "", rightarrow] &
+		G^{\mathrm{ét}} \arrow[r, "", rightarrow] &
 		1
 	,\end{tikzcd}
 	\end{equation*}
 	called the \emph{connected-étale sequence} for $G$.
 	In particular it can be characterized by the fact that every homomorphism
-	from $G$ to an étale $S$-group factorizes through $G \to G^{et}$,
+	from $G$ to an étale $S$-group factorizes through $G \to G^{\mathrm{ét}}$,
 	and $G^0$ is the kernel of that homomorphism.
 \end{thm}
 
@@ -1019,7 +1038,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
-		and $G = G^{et}$.
+		and $G = G^{\mathrm{ét}}$.
 		If, instead, $\mathrm{char}\, k = p > 0$, we have
 		$[G^0:S] = p^t$ for some $t$.
 		As a consequence, if $[G:S]$ is invertible in $S$, then
@@ -1030,8 +1049,8 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 		We say that $G$ is killed by its order.
 
 	\item If $R$ is a perfect field, then the homomorphism
-		$G \to  G^{et}$ admits a section. 
-		As a consequence $G = G^0 \rtimes G^{et}$
+		$G \to  G^{\mathrm{ét}}$ admits a section. 
+		As a consequence $G = G^0 \rtimes G^{\mathrm{ét}}$
 		can be expressed as a semidirect product.
 \end{enumerate}
 \end{prop}
@@ -1049,8 +1068,8 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 	$A$ is a finite and locally free $R$-module.
 	For an $R$-module $M$ we define its dual $R$-module to be
 	$M^D \coloneqq \Hom_{R} \left( M, R \right)$.
-	Hence, for any locally free $R$-modules of finite rank $M$ and $N$,
-	one has the natural isomorphisms
+	Hence, for any couple of locally free $R$-modules of finite 
+	rank $M$ and $N$, one has the natural isomorphisms
 	\begin{equation*}%See Waterhouse
 	\begin{tikzcd}
 		M \arrow[r, "\sim", rightarrow] &
@@ -1068,7 +1087,8 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 	\begin{equation*}
 	A^D \coloneqq \Hom_{ R\text{-}\mathsf{Mod} } \left( A, R \right)
 	.\end{equation*} 
-	In case $A$ is given with a cocommutative Hopf algebra structure, one
+	Thanks to the above remark, 
+	in case $A$ is given with a cocommutative Hopf algebra structure, one
 	can dualize it to obtain a (cocommutative) Hopf algebra structure on $A^D$.
 	In particular product and coproduct of $A$ become, respectively,
 	coproduct and product of $A^D$, as
@@ -1140,7 +1160,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 
 \noindent
 One can also interpret duality from a different point of view.
-Here the relevant notions:
+Here the relevant notions.
 \begin{defn}[Characters of $\mathrm{S}$-groups]
 	Let $G$ be an $S$-group scheme.
 	A \emph{character} of $G$ is a homomorphism of $S$-groups
@@ -1149,7 +1169,7 @@ Here the relevant notions:
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\chi\colon G \arrow[r, "", rightarrow] &
-		(\mathbb{G}_m)_S
+		\mathbb{G}_{ m,S }
 	.\end{tikzcd}
 	\end{equation*} 
 \end{defn}
@@ -1157,7 +1177,7 @@ Here the relevant notions:
 
 \begin{rem}[{\cite[\S 2.4]{Waterhouse}}, Dual as hom functor]\label{rem:DualasHomFct}
 	Characters form a group in the set of morphism of $S$-schemes
-	between $G$ and $\mathbb{G}_{m,S}$, the base change of $\mathbb{G}_m$ to $S$
+	between $G$ and $\mathbb{G}_{m,S}$, the base change of $\mathbb{G}_m$ to $S$.
 	Then one can introduce the contravariant sheaf hom functor, also called
 	internal hom functor, from $\mathsf{Sch}/S$ to $\mathsf{Ab}$
 	\begin{equation*}
@@ -1193,9 +1213,8 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 			\Hom_{\mathsf{Gp}/S} \left( \alpha_{p,S}, \mathbb{G}_{m,S} \right)
 		.\end{equation*}
 		To see this we can reduce to the case where 
-		$S = \spec(\mathbb{F}_p)$, where
-		$\mathbb{F}_{p}$ denotes the finite field of order $p$. Then
-		the result holds in general due to compatibility of the construction of
+		$S = \spec(\mathbb{F}_p)$.
+		The result holds in general due to compatibility of the construction of
 		dual group scheme with base change.
 		Then, for any $\mathbb{F}_{p}$-algebra $R$, we can define the exponential map
 		\begin{equation*}
@@ -1275,8 +1294,6 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 \end{defn}
 
 
-%tk: for impagination purposes
-\newpage
 \begin{defn}[Frobenius morphism]
 	For $R$ a ring of characteristic $p$, and $X$ an $R$-scheme, we define
 \begin{enumerate}
@@ -1380,7 +1397,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \item By Cartier duality one sees that $F^D_G = V_{G^D}$ and
 	$V^D_G = F_{G^D}$.
 \item One constructs $V^n_G$ by successive compositions as for $F^n_G$.
-	Moreover one says that $V_G$ is nilpotent iff there exists an integer $n \geq 1$
+	Then we say that $V_G$ is nilpotent iff there exists an integer $n \geq 1$
 	such that $V^n_G$ is the trivial homomorphism.
 \end{enumerate}
 \end{rem}
@@ -1401,7 +1418,7 @@ Let's briefly quote a result, which is dual to
 
 \noindent
 We will conclude this section with a famous and useful relation between
-Frobenius and Verschiebung:
+Frobenius and Verschiebung.
 \begin{thm}[{\cite[\S11.i]{MilneAG}}]\label{thm:FrobeniusVerschiebungRelation}
 	Let $G$ be a finite commutative $k$-group scheme. Then the following
 	diagram commutes

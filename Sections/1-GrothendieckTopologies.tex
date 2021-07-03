@@ -79,7 +79,7 @@ Let's now give some examples.
 	\item The \emph{site of a topological space}.
 		Let $X$ be a topological space, and $\mathsf{Op}(X)$ denote the category of
 		open subsets of $X$.
-		Then, to each $U \in \mathsf{Op}(X)$, we associate it the family of all
+		Then, to each $U \in \mathsf{Op}(X)$, we associate the family of all
 		open coverings of $U$.
 		Recalling that, given two open subsets
 		$U_1 \hookrightarrow  U$ and $U_2 \hookrightarrow  U$, 
@@ -97,7 +97,7 @@ Let's now give some examples.
 
 %	\item The \emph{small {\'e}tale site of a scheme}.
 %		Let $X$ be a scheme and $X_{\mathrm{ét}}$ be the full subcategory
-%		of $\mathsf{Sch}_{ X }$, with objects $U \in X_{\mathrm{ét}}$ s.t.
+%		of $\mathsf{Sch}_{ X }$, with objects $U \in X_{\mathrm{ét}}$ such that
 %		the structure morphism $U \to X$ is étale, of finite presentation.
 %		Then a covering of $U \in X_{\mathrm{ét}}$ is a jointly surjective
 %		collection of morphisms $U_i \to U$.
@@ -155,7 +155,7 @@ Let's now give a couple of examples on $\mathsf{Sch}/S$, for a fixed scheme $S$.
 	It can be shown, see \cite[\S 2.3.2]{Vistoli},
 	that on $\mathsf{Sch}/S    $, the data
 	of coverings $\left\{ U_{ i } \to U \right\}_{ i \in I }$, for each $U \in \mathsf{Sch}/S$,
-	s.t. the induced morphism $\amalg_i U_i \to U$ is \emph{fpqc},
+	such that the induced morphism $\amalg_i U_i \to U$ is \emph{fpqc},
 	is a pretopology on $\mathsf{Sch}/S$.
 	This pretopology is called the \emph{fpqc topology}.
 \end{rem}
@@ -169,7 +169,7 @@ Let's now investigate the relations between different topologies:
 	a set of arrows in $\mathsf{C}$.
 	A \emph{refinement} of $\left\{ U_{ i } \to U \right\}_{ i \in I }$ is
 	another set of arrows $\left\{ V_{ a } \to U \right\}_{ a \in A }$,
-	such that, for all $a \in A$, there is some $i \in I$ s.t.
+	such that, for all $a \in A$, there is some $i \in I$ such that
 	$V_a \to U$ factors through $U_i \to U$.
 
 
@@ -240,16 +240,17 @@ Then the introduction of pretopologies allows one to define sheaves on sites.
 		then $a = b$;
 	\item $F$ is a \emph{sheaf} iff it satisfies the following condition.
 		Consider any $U \in \mathsf{C}$, any covering $\left\{ U_{ i } \to U \right\}_{ i \in I }$
-		of $U$ in $\mathsf{C}$ and any family $\left\{ a_i \right\}_{i \in I}$ s.t.
-		$a_i \in F(U_i)$.
-		Denote by 
+		of $U$ in $\mathsf{C}$ and any family of sections $\left\{ a_i \right\}_{i \in I}$
+		such that $a_i \in F(U_i)$.
+		Denote
 		\begin{equation*}
 		\mathrm{pr}^{i_1,i_2}_k\colon U_{i_1} \times_{ U } U_{i_2} \to U_{i_k}
 		\end{equation*} 
-		the projection on the $k$-th component.
-		Assume that $(\mathrm{pr}^{i,j}_1)^* a_i = 
+		the projection on the $k$th component.
+		Assume that, for all \(i,j\),
+		$(\mathrm{pr}^{i,j}_1)^* a_i = 
 		(\mathrm{pr}^{i,j}_2)^* a_j \in F( U_i \times_{ U } U_j )$
-		for all $i, j$, then there exists a unique section $a \in F(U)$
+		then there exists a unique section $a \in F(U)$
 		whose pullback to $F(U_i)$ is $a_i$ for all $i \in I$.
 \end{enumerate}
 	Moreover we denote by $\mathsf{Sh}(\mathsf{C})$ the full subcategory of $\mathsf{PSh}(\mathsf{C})$
@@ -257,8 +258,11 @@ Then the introduction of pretopologies allows one to define sheaves on sites.
 \end{defn}
 
 
-\noindent
-Notice that any \emph{sheaf} on $\mathsf{C}$ is also separated.
+\begin{rem}
+	Notice that any \emph{sheaf} on $\mathsf{C}$ is also a \emph{separated presheaf}.
+\end{rem}
+
+
 \begin{rem}[]\label{CharacterizationSheaves}
 	Let's give an equivalent definition of sheaf, for a presheaf
 	$F$ on a site $\mathsf{C}$.
@@ -276,7 +280,7 @@ Notice that any \emph{sheaf} on $\mathsf{C}$ is also separated.
 	\end{equation*} 
 	as the map sending $(a_i) \in \Pi_i F(U_i)$ to
 	$\mathrm{pr}_1^*(a_i) \in \Pi_{i,j} F( U_i \times_{ U } U_j )$,
-	whose component in $F( U_i \times_{ U } U_j )$ is given by $\mathrm{pr}_1^{i,j*}(a_i)$,
+	whose component in $F( U_i \times_{ U } U_j )$ is given by $(\mathrm{pr}_1^{i,j})^*(a_i)$,
 	where $\mathrm{pr}^{i,j}_1\colon U_i \times_{ U } U_j \to U_i$ is the projection on the first
 	component.
 	Analogously we define a morphism $\mathrm{pr}_2^*\colon \Pi_i F(U_i) \to 
@@ -299,20 +303,20 @@ Notice that any \emph{sheaf} on $\mathsf{C}$ is also separated.
 
 \noindent
 Before stating the main result of this section, let's notice
-a simple fact:
+a simple fact.
 \begin{rem}[]
 	If $\tau'$ is subordinate to $\tau$, as pretopologies on $\mathsf{C}$,
 	then any sheaf in $\tau$ is also a sheaf in $\tau'$.
 	As a consequence, for $\mathsf{C} = \mathsf{Sch}/S$ for some scheme $S$,
-	any sheaf in \emph{fpqc} is also a sheaf in \emph{fppf}, étale and Zariski topologies.
+	any sheaf in fpqc is also a sheaf in fppf, étale and Zariski topologies.
 \end{rem}
 
 
 \noindent
-Finally we can state a very important result due to Grothendieck:
+Finally we can state a very important result due to Grothendieck.
 \begin{thm}[{\cite[\S 2.3.6]{Vistoli}}, Grothendieck]\label{thm:reprFctSheaf}
-	A representable functor on $\mathsf{Sch}/S$ is a sheaf in the \emph{fpqc} topology.
-	In particular it is also a sheaf in the étale and \emph{fppf} topologies.
+	A representable functor on $\mathsf{Sch}/S$ is a sheaf in the fpqc topology.
+	In particular it is also a sheaf in the étale and fppf topologies.
 \end{thm}
 
 
@@ -342,7 +346,7 @@ of fibered product in the representable case.
 	and the functor $f^*$ commutes with finite limits, i.e. it
 	is left exact.
 	Moreover, given sites $\mathsf{C}, \mathsf{D}$ and $\mathsf{E}$
-	and morphism of topoi 
+	and morphisms of topoi 
 	$f\colon \mathsf{Sh}\left(\mathsf{D}\right) \to \mathsf{Sh}\left(\mathsf{C}\right)$ and
 	$g\colon \mathsf{Sh}\left(\mathsf{E}\right) \to \mathsf{Sh}\left(\mathsf{D}\right)$,
 	we can define their composition $f \circ g$
@@ -356,7 +360,7 @@ of fibered product in the representable case.
 	The \emph{category of objects over $U$}, denoted by $\mathsf{C}/U$
 	or $\mathsf{C}_U$, is the category whose objects are morphisms
 	$Y \to U$ in $\mathsf{C}$ and morphisms are morphisms $Y \to Y'$
-	in $\mathsf{C}$ such that the following diagram commutes
+	in $\mathsf{C}$ such that the following (natural) diagram commutes
 	\begin{equation*}
 	\begin{tikzcd}[column sep=1.2em]
 		Y \arrow[rr, "", rightarrow] 
@@ -371,7 +375,7 @@ of fibered product in the representable case.
 
 \begin{rem}[]
 	If $\mathsf{C}$ is also a site we turn $\mathsf{C}/U$ into a site
-	by defining the coverings of $\mathsf{C}/U$ to be families
+	by defining the coverings of $\mathsf{C}/U$ to be the families
 	of morphisms $\left\{ V_{ i } \to V \right\}_{ i \in I }$
 	that, viewed as families in $\mathsf{C}$, are coverings for the
 	pretopology on $\mathsf{C}$.
@@ -397,7 +401,8 @@ of fibered product in the representable case.
 		\mathsf{Sh}\left(\mathsf{C}\right)
 	.\end{tikzcd}
 	\end{equation*} 
-	given by the functors $j_U^*$ and ${j_U}_*$.
+	given by the functors $j_U^*$ and ${j_U}_*$, whose lengthy definition
+	is left to \cite[\href{https://stacks.math.columbia.edu/tag/00UZ}{Chapter 00UZ}]{SP}.
 \end{lem} 
 
 
@@ -411,7 +416,7 @@ of fibered product in the representable case.
 		is called the \emph{localization morphism}.
 	\item The functor ${j_U}_*$ is called the direct image functor.
 	\item Taken any sheaf $F \in \mathsf{Sh}\left(\mathsf{C}\right)$,
-		its image $j_U^*$ is called the \emph{restriction} of $F$ to $\mathsf{C}/U$.
+		its image $j_U^*F$ is called the \emph{restriction} of $F$ to $\mathsf{C}/U$.
 \end{enumerate}
 \end{defn}
 
@@ -428,8 +433,8 @@ of fibered product in the representable case.
 
 
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/03I4}{Lemma 03I4}]{SP}}]
-	Let $g\colon S \to S'$ be a morphism in $\mathsf{Sch}_{  }$, viewed
-	as a site with the fppf topology.
+	Let $g\colon S \to S'$ be a morphism in $\mathsf{Sch}$.
+	%, viewed as a site with the fppf topology
 	Let $j\colon \mathsf{Sch}/S \to \mathsf{Sch}/S'$ be the corresponding
 	localization functor, where both categories are taken with the fppf topology.
 	Then, for $F'$ a sheaf of sets on $\mathsf{Sch}/S'$, we have
