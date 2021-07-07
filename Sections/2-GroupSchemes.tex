@@ -8,7 +8,7 @@ $p$-divisible groups.
 
 
 \begin{defn}[$S$-Group scheme]
-	Let $F\colon (\mathsf{Sch}/S)^{op} \to \mathsf{Gp}$ be a functor.
+	Let $F\colon (\mathsf{Sch}/S)^{\mathrm{op}} \to \mathsf{Gp}$ be a functor.
 	Assume that $F$ is representable by $G \in \mathsf{Sch}/S$, i.e. 
 	functorially in $T \in \mathsf{Sch}/S$ we have
 	\begin{equation*}
@@ -421,7 +421,7 @@ The following results are valid in a more general setting, so let's change
 the assumption for $S$: we will assume it is a locally Noetherian scheme.
 \begin{rem}[Finite $S$-scheme]\label{rem:finiteGSMotivation}
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
-	$\mathcal{O}_G$ is locally free of finite rank as an $\mathcal{O}_S$-module.
+	$\mathcal{O}_G$ is locally-free of finite rank as an $\mathcal{O}_S$-module.
 	More explicitly this means that there exists a cover of $S$ by affine open subschemes
 	on each of which the restriction of the structure morphism is of the form
 	$\spec(A) \to \spec(R)$, for $A$ a free $R$-module of finite rank over $R$. 
@@ -469,7 +469,7 @@ In order to compute a few useful examples, let's explicit the relation between
 multiplication in an $S$-group and comultiplication in its associated Hopf algebra over
 $R$, for $S = \spec(R)$.
 \begin{rem}\label{rem:ExplicitComult}
-	As usual consider \(G \in \mathsf{Gp}/S\).
+	As usual let \(G \in \mathsf{Gp}/S\).
 	Yoneda tells us that the multiplication map 
 	$m\colon G \times_S G \to G$ can be expressed
 	as the product $\mathrm{pr}_1 \mathrm{pr}_2$
@@ -550,7 +550,7 @@ $R$, for $S = \spec(R)$.
 			.\end{equation*} 
 
 
-		\item The \emph{multiplicative group scheme} 
+		\item The \emph{multiplicative group scheme} \label{ex:MultiplicativeGroupScheme}
 			$\mathbb{G}_m \coloneqq \spec(R[x,x^{-1}])$.
 			It acts on $R$-schemes by
 			\begin{equation*}
@@ -1015,7 +1015,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 	Let $G^0$ be the connected component of the identity in $G$.
 	Then $G^0$ is the spectrum of a local $R$-algebra with residue field $k = R/\mathfrak{m}$
 	and it is a flat, closed normal subgroup scheme of $G$.
-	Moreover the quotient $G^{\mathrm{ét}} \coloneqq G/G^0$,
+	Moreover the quotient $G^{\mathrm{\acute et}} \coloneqq G/G^0$,
 	constructed as in \cref{thm:QuotientGroupScheme},
 	is étale and gives rise to the short exact sequence
 	\begin{equation*}
@@ -1023,13 +1023,13 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 		1 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
-		G^{\mathrm{ét}} \arrow[r, "", rightarrow] &
+		G^{\mathrm{\acute et}} \arrow[r, "", rightarrow] &
 		1
 	,\end{tikzcd}
 	\end{equation*}
 	called the \emph{connected-étale sequence} for $G$.
 	In particular it can be characterized by the fact that every homomorphism
-	from $G$ to an étale $S$-group factorizes through $G \to G^{\mathrm{ét}}$,
+	from $G$ to an étale $S$-group factorizes through $G \to G^{\mathrm{\acute et}}$,
 	and $G^0$ is the kernel of that homomorphism.
 \end{thm}
 
@@ -1038,7 +1038,7 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 \leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item Assume $\mathrm{char}\, k = 0$, then $G^0 = S$
-		and $G = G^{\mathrm{ét}}$.
+		and $G = G^{\mathrm{\acute et}}$.
 		If, instead, $\mathrm{char}\, k = p > 0$, we have
 		$[G^0:S] = p^t$ for some $t$.
 		As a consequence, if $[G:S]$ is invertible in $S$, then
@@ -1049,8 +1049,8 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 		We say that $G$ is killed by its order.
 
 	\item If $R$ is a perfect field, then the homomorphism
-		$G \to  G^{\mathrm{ét}}$ admits a section. 
-		As a consequence $G = G^0 \rtimes G^{\mathrm{ét}}$
+		$G \to  G^{\mathrm{\acute et}}$ admits a section. 
+		As a consequence $G = G^0 \rtimes G^{\mathrm{\acute et}}$
 		can be expressed as a semidirect product.
 \end{enumerate}
 \end{prop}
@@ -1065,10 +1065,10 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 	In \cref{rem:finiteGSMotivation} we recalled that $A$ is a finite projective $R$-module.
 	Then, still arguing by
 	\cite[\href{https://stacks.math.columbia.edu/tag/00NX}{Lemma 00NX}]{SP}),
-	$A$ is a finite and locally free $R$-module.
+	$A$ is a finite and locally-free $R$-module.
 	For an $R$-module $M$ we define its dual $R$-module to be
 	$M^D \coloneqq \Hom_{R} \left( M, R \right)$.
-	Hence, for any couple of locally free $R$-modules of finite 
+	Hence, for any couple of locally-free $R$-modules of finite 
 	rank $M$ and $N$, one has the natural isomorphisms
 	\begin{equation*}%See Waterhouse
 	\begin{tikzcd}

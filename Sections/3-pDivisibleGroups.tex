@@ -9,7 +9,7 @@ of formal scheme.
 
 \subsection{Formal schemes}
 These definitions are meant to allow to capture infinitesimal
-information, which is not present in the construction of schemes.
+information which is not present in the construction of schemes.
 We will not have time to discuss such interpretation, and will
 only restrict to stating the definitions and results which will
 be needed in what follows.
@@ -61,7 +61,7 @@ Let's start by recalling a few useful algebra definitions.
 	of the tensor product with respect to the topology we
 	just defined, i.e$.$ as 
 	\begin{equation*}
-		M \widehat{\otimes}_R N = 
+		M \widehat{\otimes}_R N \coloneqq 
 		\varprojlim \frac{M \otimes_R N}{M_\mu \otimes_R N +
 		M \otimes_R N_\nu} =
 		\varprojlim M / M_\mu \otimes_R N / N_\nu
@@ -85,10 +85,10 @@ Let's start by recalling a few useful algebra definitions.
 
 
 \begin{defn}[Pseudo-discrete sheaves]
-	A sheaf $\mathcal{F}$ of topological rings (resp$.$ modules, groups, etc)
+	A sheaf $\mathcal{F}$ of topological rings (resp$.$ topological modules, topological groups, etc)
 	is called \emph{pseudo-discrete} iff
 	$\mathcal{F}(U)$ is endowed with the discrete topology,
-	for all $U \subset X$.
+	for all open $U \subset X$.
 \end{defn}
 
 
@@ -106,8 +106,8 @@ Let's start by recalling a few useful algebra definitions.
 	For an arbitrary open $U = \cup_{i \in I} U_i$, where $U_i$ are all
 	quasi compact open, we endow $\mathcal{F}(U)$ with the
 	induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$, via the inclusion
-	in the definition of sheaf, which is comes from the analogue exact sequence
-	to that in \cref{CharacterizationSheaves}.
+	in the definition of sheaf, which comes from the exact sequence
+	in \cref{CharacterizationSheaves}.
 \end{defn}
 
 
@@ -150,7 +150,10 @@ Let's start by recalling a few useful algebra definitions.
 		\mathcal{O}_{ X,x }
 	\end{tikzcd}
 	\end{equation*} 
-	is a local homomorphism of rings (here we forget about topology).
+	is a local homomorphism of local rings (here we forget about topology).
+	We define the category of locally topologically ringed spaces,
+	denoted by \(\mathsf{ltrs}\), as the category whose objects and morphism
+	have just been described.
 \end{defn}
 
 
@@ -168,7 +171,7 @@ hence all of the verifications can be checked there.
 	\begin{equation*}
 	\spf(\mathscr{A}) \coloneqq
 	\left\{ \mathfrak{p} \triangleleft \mathscr{A} \ \middle|\ \mathfrak{p}
-	\text{ is open and prime}\, \right\} \subset \spec(\mathscr{A})
+	\text{ is open and prime} \right\} \subset \spec(\mathscr{A})
 	,\end{equation*}
 	and endow $\spf(\mathscr{A})$ with the subset topology.
 	For each $\lambda \in \Lambda$, one can associate,
@@ -200,7 +203,7 @@ hence all of the verifications can be checked there.
 
 \item A \emph{locally topologically ringed space} is said to be an 
 	\emph{affine formal scheme} iff it is isomorphic,
-	in ltrs, to the spectrum of an admissible ring.
+	in \(\mathsf{ltrs}\), to the spectrum of an admissible ring.
 	A morphism of affine formal schemes is just a morphism of the underlying
 	locally topologically ringed spaces.
 \end{enumerate}
@@ -222,8 +225,7 @@ hence all of the verifications can be checked there.
 	\Hom_{\mathsf{ltrs}} \left( \spf(\mathscr{B}), \spf(\mathscr{A}) \right) \simeq
 	\Hom_{ \mathrm{cont} } \left( \mathscr{A}, \mathscr{B} \right)
 	,\end{equation*}
-	where in the left hand side we denoted by $\mathsf{ltrs}$ the category of
-	locally topologically ringed spaces, whereas in the right hand side
+	where in the right hand side
 	we considered only continuous morphisms of rings, i.e. morphisms
 	in the category of admissible topological rings.
 \end{rem}
@@ -251,11 +253,9 @@ hence all of the verifications can be checked there.
 To ease the transition to the study of $p$-divisible groups
 let's also recall a couple of results with these objects.
 \begin{rem}[]
-	In this remark we will restrict to the affine case, because it will be
-	our main interest.
-	Given an admissible ring $\mathscr{A}$, with fundamental system
-	of ideals $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$, then
-	we have
+	Since it will be our main interest, let's restrict to the affine case.
+	Given an admissible ring $\mathscr{A}$, with fundamental system of 
+	ideals $\left\{ I_\lambda \right\}_{\lambda \in \Lambda}$, we have
 	\begin{equation*}
 	\spf(\mathscr{A}) \simeq \varinjlim_{\lambda \in \Lambda} \spec(\mathscr{A}/I_\lambda)
 	\end{equation*}
@@ -276,7 +276,7 @@ let's also recall a couple of results with these objects.
 	are given by inductive limits of what Shatz defines \emph{very finite} schemes over $S$.
 	There, we read that an $S$-schemes $T$ is very finite iff it satisfies:
 	\begin{enumerate}
-		\item $T$ is \emph{finite} over $S$ (hence affine) and
+		\item $T$ is \emph{finite and flat} over $S$ (hence affine) and
 		\item the $\mathscr{R}$-module $\Gamma \left( T , \mathcal{O}_{ T } \right)$
 			is of finite length.
 	\end{enumerate}
@@ -360,12 +360,12 @@ One can generalize the results of \cref{thm:ConnectedEtaleSequenceGS} to this ne
 		1 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
-		G^{et} \arrow[r, "", rightarrow] &
+		G^{\mathrm{\acute et}} \arrow[r, "", rightarrow] &
 		1
 	,\end{tikzcd}
 	\end{equation*}
 	in which $G^0$ is a connected normal formal subgroup of $G$
-	and $G^{et}$ is an étale formal group.
+	and $G^{\mathrm{\acute et}}$ is an étale formal group.
 \end{thm}
 
 
@@ -386,8 +386,8 @@ the right one in our context.
 	A \emph{formal Lie group} is a group object in the category of
 	formal Lie varieties.
 	More explicitly it is $\Gamma \coloneqq \spf\left( \mathscr{A} \right)$,
-	where $\mathscr{A} \coloneqq \mathscr{R} [\![ X_1, \ldots, X_{ n } ]\!]$
-	and $n$ is its dimension. 
+	where $\mathscr{A} \coloneqq \mathscr{R} [\![ X_1, \ldots, X_{ n } ]\!]$.
+	Then $n$ is its dimension. 
 \end{defn}
 
 
@@ -423,7 +423,7 @@ the right one in our context.
 	\begin{equation*}
 		X \ast Y \coloneqq f(X,Y)
 	.\end{equation*} 
-	One can also stress that these axioms are enough to grant
+	One can also prove that these axioms are enough to grant
 	the existence of the inverse for any element of $\Gamma$,
 	hence they suffice to give $\Gamma$ a formal group scheme structure.
 
@@ -464,11 +464,11 @@ the right one in our context.
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}/S)_{\mathrm{fppf}}$.
-Also the schemes $X, Y \in \mathsf{Sch}/S$ will be viewed as, via the associated
+Also the schemes $X, Y \in \mathsf{Sch}/S$ will be viewed, via the associated
 functor of points, as sheaves on $S$ for the fppf topology.
 Recall that, for $Y \in \mathsf{Sch}/S$, sections on
 $T \in \mathsf{Sch}/S$ of $Y$ are just $T$-points and,
-as usual with sheaves, will denote them by
+as usual with sheaves, we denote them by
 \begin{equation*}
 	\Gamma \left( T, Y \right) \coloneqq Y(T)
 .\end{equation*}
@@ -485,7 +485,7 @@ as usual with sheaves, will denote them by
 \begin{rem}[]\label{rem:PropertiesGrS}
 	Since the category of commutative groups, i.e. $\mathsf{Ab}$, is
 	abelian we see that $\mathsf{Gr}/S$ inherits two important properties.
-	First of all, as is proved in 
+	First of all, as proved in 
 	\cite[\href{https://stacks.math.columbia.edu/tag/03CN}{Lemma 03CN}]{SP},
 	$\mathsf{Gr}/S$ is an abelian category.
 	Moreover, as proved in 
@@ -503,9 +503,9 @@ as usual with sheaves, will denote them by
 
 
 \begin{defn}[$k$th infinitesimal neighbourhood]\label{defn:kInfNeighbourhood}
-	Let $Y \hookrightarrow X$ be a monomorphism of fppf sheaves.
-	We define $\mathrm{Inf}_Y^k(X)$ as the subsheaf of $X$,
-	whose sections over an $S$-scheme $T$, denoted by $\Gamma ( T , \mathrm{Inf}_Y^k(X) )$,
+	Let $Y \hookrightarrow X$ be a monomorphism of fppf sheaves on \(\mathsf{Sch}/S\).
+	We define $\mathrm{Inf}_Y^k(X)$ as the subsheaf of $X$
+	whose sections over an $S$-scheme $T$
 	are given as follows.
 	The sections $\Gamma ( T , \mathrm{Inf}_Y^k(X) )$ consist of all
 	$t \in \Gamma \left( T, X \right)$ such that
@@ -527,13 +527,23 @@ as usual with sheaves, will denote them by
 \end{ntt}
 
 
+\begin{rem}[]
+	Notice that, when $G = X$ is an $S$-group, it is canonically a
+	pointed sheaf $\left(G, e_G\right)$ on $S$, with immersion $e_G\colon S \to G$
+	given by the unit section, i.e. the unique section whose image
+	is the unit of the group $G$.
+	In the following we will implicitly assume this, and write only
+	$G$ to denote the pointed sheaf $(G, e_G)$.
+\end{rem}
+
+
 \begin{ntt}\label{not:GBar}
 	For a scheme $S$ and an $S$-group $G \in \mathsf{Gr}/S$, we introduce
 	the notation 
 	\begin{equation*}
 	\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{inf}^k(G)
 	,\end{equation*}
-	where the limit is taken with respect to the obvious inclusion morphisms.
+	where the limit is taken with respect to the natural inclusion morphisms.
 \end{ntt} 
 
 
@@ -585,27 +595,17 @@ geometry to make sense of the definitions which are at the heart of this section
 
 
 \begin{defn}[Conormal sheaf of an immersion]
-	Let $i\colon Z \to X$ be a closed immersion of schemes.
+	Let $\iota\colon Z \to X$ be a closed immersion of schemes.
 	Let $\mathcal{I} \subset \mathcal{O}_X$ be the corresponding
 	quasi-coherent sheaf of ideals.
 	Then the sheaf $\mathcal{I}/\mathcal{I}^2$ is annihilated by $\mathcal{I}$,
 	hence it corresponds to a sheaf on $Z$.
-	This last sheaf, denoted with $\omega_i$, is called the \emph{conormal
-	sheaf} of $Z$ in $X$, or the conormal sheaf of the immersion $i$.
-	In case we are given a pointed sheaf on $S$ $\left(X, e_X\right)$, we will denote 
+	This last sheaf, denoted with $\omega_{ \iota }$, is called the \emph{conormal
+	sheaf} of $Z$ in $X$, or the conormal sheaf of the immersion $\iota$.
+	In case we are given $\left(X, e_X\right)$, a pointed sheaf on $S$, we will denote 
 	the conormal sheaf of the immersion $e_X$ simply by $\omega_X$.
 \end{defn}
 %tk: I should prove that $S \hookrightarrow X$ is a closed immersion
-
-
-\begin{rem}[]
-	Notice that, when $G = X$ is an $S$-group, it is canonically a
-	pointed sheaf $\left(G, e_G\right)$ on $S$, with immersion $e_G\colon S \to G$
-	given by the unit section, i.e. the unique section whose image
-	is the unit of the group $G$.
-	In the following we will implicitly assume this, and write only
-	$G$ to denote the pointed sheaf $(G, e_G)$.
-\end{rem}
 
 
 \begin{defn}[Symmetric and exterior powers]
@@ -696,13 +696,16 @@ And now back to our interests.
 	A pointed sheaf $\left(X, e_X\right)$ on $S$ is said to be
 	a \emph{formal Lie variety} iff it satisfies the following:
 \begin{enumerate}
-	\item $X$ is ind-infinitesimal and $\mathrm{Inf}^k(X)$, viewed
-		as a sheaf in the fppf topology,
-		is representable for all $k \geq 0$;
+	\item $X$ is ind-infinitesimal,
+		i.e$.$ \(X = \overline{X} = \varinjlim \operatorname{Inf}^k(X)\),
+		and $\mathrm{Inf}^k(X)$, viewed as a sheaf in
+		the fppf topology, is representable for all $k \geq 0$;
+
 	\item $\omega_X \simeq
 		e_X^* \big( \Omega_{X/S}^1 \big)
 		\simeq e_X^* \big( \Omega^1_{\mathrm{Inf}^k(X)/S} \big)$, for any $k \in \mathbb{N}$,
-		is \emph{locally free of finite type};
+		is \emph{locally-free of finite type};
+
 	\item Denoting by $\mathrm{gr}^{\mathrm{inf}}(X)$ the unique graded $\mathcal{O}_{ S }$-algebra
 		such that $\mathrm{gr}^{\mathrm{inf}}_i(X) = \mathrm{gr}_i(\mathrm{Inf}^i(X))$,
 		we have an isomorphism
@@ -764,7 +767,7 @@ of the Frobenius morphism.
 \item We denote by $G[n] \coloneqq \ker F^n_G$, the kernel of the $n$-fold composition
 	of the Frobenius morphism.
 
-\item A sheaf of groups $G$ on $S$ is said to be \emph{of $F$-torsion} iff
+\item A sheaf of groups $G$ on $S$ is said to be of \emph{$F$-torsion} iff
 	$G = \varinjlim_{n \in \mathbb{N}} G[n]$.
 
 \item A sheaf of groups $G$ on $S$ is said to be \emph{$F$-divisible} iff
@@ -782,9 +785,24 @@ $S$ of characteristic $p$.
 \begin{enumerate}
 	\item $G$ is of $F$-torsion;
 	\item $G$ is $F$-divisible;
-	\item the $G[n]$ are finite and locally free $S$-group schemes.
+	\item the $G[n]$ are finite and locally-free $S$-group schemes.
 \end{enumerate}
 \end{thm}
+
+
+\noindent
+For the following result assume that the base scheme \(S = \spec(A)\)
+is the affine scheme associated to an admissible ring with ideal of definition \(I\).
+Assume moreover that \(I/I^2\) is of finite type over \(A/I\) and
+set \(S_n \coloneqq \spec(A/I^{ n+1 })\).
+\begin{lem}[{\cite[Chapter 2, \S4, lemma 4.13]{Messing}}]
+	The natural functor associating to a formal Lie variety over \(S\)
+	a family of formal Lie varieties over \(S_n\) is an
+	\emph{equivalence of categories}.
+	In particular it induces an equivalence of categories
+	between formal Lie groups on \(S\) and the inverse limit of the categories
+	of formal Lie groups on the various \(S_n\)s.
+\end{lem}
 
 
 \begin{rem}[Comparison of the two points of view]
@@ -832,8 +850,8 @@ it also has residue characteristic $p$).
 	,\end{equation*} 
 	satisfying:
 	\begin{enumerate}
-		\item for each $v \in \mathbb{N}$, $G_v$ is a finite,
-			commutative group scheme over $\mathscr{R}$
+		\item for each $v \in \mathbb{N}$, $G_v$ is a finite, flat
+			and commutative group scheme over $\mathscr{R}$
 			of order $p^{v h}$;
 		\item for each $v \in \mathbb{N}$, there is an exact sequence
 			\begin{equation*}
@@ -863,15 +881,18 @@ it also has residue characteristic $p$).
 
 
 \noindent
-We can actually characterize these objects a bit more. 
-In fact the following proposition holds.
+As of now the reason behind the name \emph{\(p\)-divisible} is still not clear.
+The following proposition and remark will clarify it.
+%We can actually characterize these objects a bit more. 
+%In fact the following proposition holds.
 \begin{prop}\label{CharactpDivGroups}%[{\cite[\S6]{Shatz}}]
 	A $p$-divisible group over $\mathscr{R}$ is a $p$-torsion
 	commutative formal group $G$ over $\mathscr{R}$,
 	for which $p\colon G \to G$ is an \emph{isogeny}.
 \end{prop}
 \begin{proof}
-	The following diagram shows that $G_v$ is the kernel of $p^v$
+	Since, for all \(v \in \mathbb{N}\), \(i_v\) is a monomorphism,
+	the following diagram shows that $G_v$ is the kernel of $p^v$
 	on $G_{v+2}$ via the iterated immersion $i_{v+1} \circ i_v$.
 	Inductively this holds for $G_{v+t}$, where $t \geq 1$:
 	\begin{equation*}
@@ -889,7 +910,7 @@ In fact the following proposition holds.
 	\end{tikzcd}
 	\end{equation*}
 	As a consequence $G_v$ is the kernel of $p^v$ on $G$,
-	hence $G$ is $p$-torsion (since it is $\varinjlim G_v$).
+	hence $G$ is $p$-torsion (it is $\varinjlim G_v$).
 	To simplify the discussion we will introduce the notation
 	$i_{v,t} \coloneqq i_v \circ \cdots \circ i_{v+t}\colon G_v \to G_{v + t}$.
 	Then we analyze the following diagram to obtain that $p$
@@ -924,7 +945,7 @@ In fact the following proposition holds.
 	which is $G_t$ by the above discussion.
 	Then, by property 1 of $p$-divisible groups,
 	the order of $G_{v+t}$ is the product of the orders
-	of $G_v$ and $G_t$, hence the following is a
+	of $G_v$ and $G_t$. Then, by arguments of order, the following is a
 	short exact sequence of abelian $S$-group schemes
 	\begin{equation}\label{eqn:pDivGrInducedmultiplication}
 	\begin{tikzcd}
@@ -961,10 +982,10 @@ In fact the following proposition holds.
 
 \begin{ex}\leavevmode\vspace{-.2\baselineskip}\label{ex:pDivGroups}
 \begin{enumerate}
-\item In the case of ordinary abelian groups this definition would\label{ex:ordinanrypDivGroup}
-	just allow
+\item In the case of ordinary abelian groups this definition\label{ex:ordinanrypDivGroup}
+	only allows
 	$G_v = \left( \mathbb{Z}/p^v\mathbb{Z} \right)^h$, hence
-	it would just give rise to the $p$-divisible group
+	it just gives rise to the $p$-divisible group
 	\begin{equation*}
 		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
 	.\end{equation*} 
@@ -982,8 +1003,9 @@ In fact the following proposition holds.
 
 \item Denote by $\underline{\mathbb{Z}/p^v\mathbb{Z}}$ the base change to $\mathscr{R}$\label{ex:Qp/Zp}
 	of the constant group scheme associated
-	to the group $\Gamma \coloneqq \mathbb{Z}/p^v\mathbb{Z}$, see \cref{ex:ConstantGroups} of
-	\cref{ex:AffineGroupSchemesExamples}.
+	to the group $\Gamma \coloneqq \mathbb{Z}/p^v\mathbb{Z}$, see 
+	\cref{ex:AffineGroupSchemesExamples} of
+	\cref{ex:ConstantGroups}.
 	We can form an inductive system from these objects, defining the $p$-divisible group
 	\begin{equation*}
 	\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
@@ -992,7 +1014,7 @@ In fact the following proposition holds.
 	generalizing to the setting of group schemes example of \cref{ex:ordinanrypDivGroup}.
 	As the one before, this $p$-divisible group is of height $1$.
 	
-\item In case we start considering an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
+\item In case we are given an $n$-dimensional commutative\label{ex:ConnectedpDivGroupFLG}
 	formal Lie group $\Gamma$ over $\mathscr{R}$, we clearly have to require that it is $p$-divisible,
 	as defined in \cref{defn:pDivisibleFormalLieGroup}.
 	Then multiplication by $p$ is an isogeny.
@@ -1013,6 +1035,19 @@ In fact the following proposition holds.
 	this result to $\ker p^v$ for all $v \geq 1$.
 	It follows that the construction of $\Gamma(p)$
 	gives rise to a connected $p$-divisible group.
+
+\item Let \(X\) be an \emph{abelian scheme} of relative dimension \(d\)
+	over \(S\).
+	Denote by \(X(v)\) the kernel of multiplication by \(p^v\)
+	in \(X\).
+	It is known that \(X(v)\) is a finire flat and commutative
+	group scheme over \(S\) of order \(p^{ 2dv }\).
+	As a consequence the inductive system \(\left(X(v), i_v\right)\),
+	where \(i_v\) is the natural inclusion, gives rise to
+	a \(p\)-divisible group, denoted by \(X(p)\),
+	of height \(2d\).
+	We call \(X(p)\) the \(p\)-divisible group of
+	of the abelian scheme \(S\).
 \end{enumerate}
 \end{ex}
 
@@ -1027,7 +1062,7 @@ In fact the following proposition holds.
 
 
 \subsubsection{fppf sheaves point of view}
-In the following part we will always write groups over $S$, or $S$-group, to mean
+As before, in the following part we will write group over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}/S)_{\mathrm{fppf}}$.
 Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \emph{Barsotti-Tate groups}.
@@ -1048,7 +1083,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	Consider $n \geq 2$, a \emph{truncated Barsotti-Tate group} of level $n$
 	is an $S$-group $G$ such that
 \begin{enumerate}
-	\item $G$ is a finite and locally free group scheme.
+	\item $G$ is a finite and locally-free group scheme and
 	\item $G$ is killed by $p^n$ and satisfies the equivalent conditions of 
 		\cref{lem:equivCondTruncatedBTGroup}.
 \end{enumerate}
@@ -1068,7 +1103,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 		$G(1)$ is. 
 		In such case all the $G(i)$, for $1 \leq i \leq n$, are also finite and locally-free.
 
-	\item If $G(n)$ is finite and locally free, then
+	\item If $G(n)$ is finite and locally-free, then
 		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
@@ -1144,11 +1179,26 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	In the above hypothesis,
 	thanks to \cref{defn:FormalLieVarfppf}, 
 	the sheaf $\omega_G$ is
-	locally free of finite type.
+	locally-free of finite type.
 	Moreover, locally on $S$, $\omega_G = \omega_{G(m)}$ for
 	$m$ sufficiently large.
 	Finally, if $p^N$ kills $S$, we have $\omega_G = \omega_{G(N)}$.
 \end{rem}
+
+
+\noindent
+As in the section regarding formal Lie varieties,
+for the following result we will consider the base scheme \(S = \spec(A)\),
+where \(A\) is an admissible ring with ideal of definition \(I\).
+Assume moreover that \(I/I^2\) is of finite type over \(A/I\) and
+set \(S_n \coloneqq \spec(A/I^{ n+1 })\).
+\begin{lem}[{\cite[Chapter 2, \S4, lemma 4.13]{Messing}}]
+	The natural functor associating to a Barsotti-Tate group over \(S\)
+	a family of Barsotti-Tate groups over \(S_n\) is an
+	\emph{equivalence of categories}.
+	Moreover this equivalence of categories is compatible
+	with extensions.
+\end{lem}
 
 
 \begin{rem}[Comparison of the two points of view]
@@ -1176,11 +1226,11 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	Hence $\left( G_v, i_v \right)_{v \in \mathbb{N}}$ satisfies condition 2
 	of \cref{defn:pDivGroupFormalSchemes}.
 	Then, since $G$ is $p$-divisible, i.e. multiplication by $p$ is an
-	epimorphism of $G$ we have that, for any $0 \leq i \leq v$,
+	epimorphism on $G$ we have that, for any $0 \leq i \leq v$,
 	$p^{v-i}$ induces an epimorphism $G(v) \twoheadrightarrow G(i)$.
 	Combining this with the above remark we obtain the exactness of
 	\begin{equation}\label{diag:equivpDivGrDefn}
-	\begin{tikzcd}
+	\begin{tikzcd}[column sep=2.9em]
 		0 \arrow[r, "", rightarrow] &
 		G(v-i) \arrow[r, "i_{v-i,i}", rightarrow] &
 		G(v) \arrow[r, "p^{v-i}", rightarrow] &
@@ -1195,7 +1245,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 	ranks in short exact sequences, see \cref{thm:QuotientGroupScheme}, we obtain
 	that the rank of the fiber of $G(n)$ at $s$
 	is $p^{nh(s)}$.
-	Hence our inductive system satisfies also 1
+	As a consequence our inductive system satisfies also 1
 	of \cref{defn:pDivGroupFormalSchemes}.
 
 	Starting from a $p$-divisible group $\left( G_v, i_v \right)_{v \in \mathbb{N}}$,
@@ -1211,13 +1261,13 @@ that of formal Lie group and of $p$-divisible group.
 
 
 \begin{prop}[{\cite[\S2, proposition 1]{TatePC}}]\label{prop:equivCatConnpDivGr}
-	Let $R$ be a complete Noetherian local ring whose residue field $k$
+	Let $\mathscr{R}$ be a complete Noetherian local ring whose residue field $k$
 	is of characteristic $p > 0$.
 	Then the functor $\Gamma \mapsto \Gamma(p)$, constructed as in \cref{ex:ConnectedpDivGroupFLG}
 	of \cref{ex:pDivGroups},
 	is an equivalence of categories
-	between the category of $p$-divisible commutative formal Lie groups over $R$
-	and the category of connected $p$-divisible groups over $R$.
+	between the category of $p$-divisible commutative formal Lie groups over $\mathscr{R}$
+	and the category of connected $p$-divisible groups over $\mathscr{R}$.
 \end{prop}
 
 
@@ -1226,8 +1276,10 @@ that of formal Lie group and of $p$-divisible group.
 In this section we want to extend the concept of duality introduced in \cref{CartierDualityGroups}
 to $p$-divisible groups.
 We will do so in the setting of formal schemes,
-i.e$.$ viewing a $p$-divisible group as an inductive system of finite commutative group schemes.
-In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
+i.e$.$ viewing a $p$-divisible group as an inductive system of finite,
+flat and commutative group schemes.
+In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC} and,
+again, \(\mathscr{R}\) will denote an admissible local ring.
 
 
 \begin{rem}[]\label{rem:DualInductiveSystem}
@@ -1249,7 +1301,7 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 	of \cref{defn:pDivGroupFormalSchemes}.
 	Moreover, since $i_{1,v}$ is injective,
 	commutativity of the lower triangle in \cref{diag:pDivCharProof}
-	shows that $j_v = \coker i_{1,v} = \coker \left( p^v\colon G_{v+1} \to G_{v+1} \right)$,
+	shows that $j_v = \coker i_{1,v} = \coker \left( p^v\colon G_{v+1} \to G_{v+1} \right)$.
 	But then, since duality is exact, this implies that the inductive system
 	satisfies also property 2 of \cref{defn:pDivGroupFormalSchemes},
 	hence it defines a $p$-divisible group.
@@ -1257,10 +1309,11 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 
 
 \begin{defn}[Cartier dual of a $p$-divisible group]
-	Let $G \coloneqq \left( G_v, i_v \right)_{v \in \mathbb{N}}$ be a $p$-divisible group over $R$.
+	Let $G \coloneqq \left( G_v, i_v \right)_{v \in \mathbb{N}}$
+	be a $p$-divisible group over $\mathscr{R}$.
 	Let $G^D \coloneqq \left( G_v^D, j_v^D \right)_{v \in \mathbb{N}}$ be the inductive system
 	defined in \cref{rem:DualInductiveSystem}.
-	This last inductive system defines a $p$-divisible group over $R$,
+	This last inductive system defines a $p$-divisible group over $\mathscr{R}$
 	which is called the \emph{Cartier dual} of $G$.
 \end{defn}
 
@@ -1268,7 +1321,7 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 \begin{rem}[]\label{rem:pDivDualityBaseChange}
 	By \cref{thm:CartierDuality}, for finite commutative group scheme, the formation
 	of Cartier duals commutes with base change.
-	Since we see a $p$-divisible group as an inductive limit of finite commutative
+	Since we see a $p$-divisible group as an inductive limit of finite, flat and commutative
 	group schemes, this also means that taking duals of $p$-divisible groups
 	commutes with base change.
 \end{rem}
@@ -1287,14 +1340,14 @@ In fact we will follow \cite[\S6]{Shatz} and \cite[\S2.3]{TatePC}.
 It now makes sense to introduce one more definition for $p$-divisible
 groups, that of dimension.
 \begin{rem}[]\label{rem:ConnectedComponentpDivGroup}
-	In the case of $p$-divisible groups over $R$, for each $v \in \mathbb{N}$, one obtains
+	In the case of $p$-divisible groups over $\mathscr{R}$, for each $v \in \mathbb{N}$, one obtains
 	the exact connected-étale sequence
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		G^0_v \arrow[r, "", rightarrow] &
 		G_v \arrow[r, "", rightarrow] &
-		G^{et}_v \arrow[r, "", rightarrow] &
+		G^{\mathrm{\acute et}}_v \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
 	\end{equation*}
@@ -1304,38 +1357,39 @@ groups, that of dimension.
 	Then \cref{thm:ConnectedEtaleSeqFormalGr} gives a short exact sequence
 	in which the first term, $G^0$, is a connected $p$-divisible group.
 	By \cref{prop:equivCatConnpDivGr} we see that $G^0 = \spf(\mathscr{A})$,
-	for $\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$ the ring of 
+	for $\mathscr{A} = \mathscr{R} [\![ X_1, \ldots, X_{ n } ]\!]$ the ring of 
 	formal power series in $n$ variables.
 \end{rem}
 
 
 \begin{defn}[Dimension of a $p$-divisible group]
 	Let $G \coloneqq \left(G_{\nu}, i_\nu\right)_{\nu \in \mathbb{N}}$ be a $p$-divisible group
-	over $R$.
-	Consider the connected-étale sequence obtained by 
-	\cref{thm:ConnectedEtaleSeqFormalGr}.
+	over $\mathscr{R}$.
+	Consider the connected-étale sequence 
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		G^0 \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
-		G^{et} \arrow[r, "", rightarrow] &
+		G^{\mathrm{\acute et}} \arrow[r, "", rightarrow] &
 		0
-	.\end{tikzcd}
+	\end{tikzcd}
 	\end{equation*}
+	obtained by 
+	\cref{thm:ConnectedEtaleSeqFormalGr}.
 	Thanks to \cref{rem:ConnectedComponentpDivGroup} we see that
 	$G^0 = \spf(\mathscr{A})$, where
-	$\mathscr{A} = R [\![ X_1, \ldots, X_{ n } ]\!]$.
+	$\mathscr{A} = \mathscr{R} [\![ X_1, \ldots, X_{ n } ]\!]$.
 	We define $n$ to be the \emph{dimension} of the $p$-divisible group $G$.
 \end{defn}
 
 
 \begin{prop}[{\cite[\S2.3, proposition 3]{TatePC}}]
-	Let $G$ be a $p$-divisible group over $R$
+	Let $G$ be a $p$-divisible group over $\mathscr{R}$
 	and $G^D$ its dual $p$-divisible group.
 	Denote by $n$ and $n^D$ their respective dimensions.
 	Then the heights of the two $p$-divisible groups
-	coincide and the common value satisfies
+	coincide and the common value, \(h\), satisfies
 	\begin{equation*}
 	h = n + n^D
 	.\end{equation*}
@@ -1357,7 +1411,8 @@ $O_L$ be the ring of integers of $L$.
 In particular let's denote by $\overline{K}$ a fixed algebraic closure
 of $K$, and by $\mathscr{G}_K = \gal\left( \overline{K} / K \right)$
 the absolute Galois group of $K$.
-Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
+Let, finally, $G \coloneqq \left( G_{ v }, i_v \right)_{ v \in \mathbb{N}}$ 
+be a Barsotti-Tate group over $O_K$.
 
 
 \begin{defn}[]\label{defn:valuationBTGroup}
@@ -1427,7 +1482,8 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 		\left( A_v, \overline{K} \right)
 	,\end{equation*}
 	where $G_v = \spec(A_v)$ is affine, being finite over $O_K$.
-	Here it is easy to specify the action of $\mathscr{G}_K$, which on each term acts by
+	Here the action of $\mathscr{G}_K$ is the usual action on hom
+	groups, i.e$.$ it is given by
 	\begin{equation*}
 		\left( g \cdot f \right)(x) = g \cdot f(x)
 	\end{equation*}
@@ -1445,21 +1501,21 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	,\end{equation*}
 	where $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
 	\underline{\mathbb{Z}/p^n\mathbb{Z}}$, as constructed 
-	in \cref{ex:pDivGroups} \cref{ex:Qp/Zp} with $R = O_{\overline{K}}$.
+	in \cref{ex:pDivGroups} \cref{ex:Qp/Zp} with $\mathscr{R} = O_{\overline{K}}$.
 \end{prop}
 \begin{proof}
 	For this proof we will recall \cref{defn:pDivGroupFormalSchemes}
 	and write $G = \varinjlim_v G_v$.
 	The proof consists of the following isomorphisms.
 	\begin{align*}
-		T_p(G_0) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
-		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} {G_v}_{O_{\overline{K}}}(O_{\overline{K}})
+		T_p(G) &= \varprojlim_{v \in \mathbb{N}} G_v(\overline{K})
+		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}} G_{ v,O_{\overline{K}}}(O_{\overline{K}})
 		\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
 		\Hom_{ \mathsf{Gr}/O_{\overline{K}} }
-		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, {G_v}_{O_{\overline{K}}} \right) \\
+		\left( \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_{ v,O_{\overline{K}}} \right) \\
 		&\stackrel{3}{\simeq} 
 		\Hom_{ \mathsf{BT}/O_{\overline{K}} } 
-		\bigg( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_{O_{\overline{K}}} \bigg) 
+		\Big( \varinjlim_{v \in \mathbb{N}} \underline{\mathbb{Z}/p^v\mathbb{Z}}, G_{O_{\overline{K}}} \Big)
 		\simeq \Hom_{ \mathsf{BT}/O_{\overline{K}} } 
 		\left( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}}, G_{O_{\overline{K}}} \right)
 	.\end{align*}
@@ -1477,14 +1533,14 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 
 
 \begin{ntt}[Tate twist]
-	Let $M$ be a $\mathbb{Z}_{p}$-module, endowed with an action of $\mathscr{G}_K$.
+	Let us define a \(\mathscr{G}_K\)-module to be a 
+	$\mathbb{Z}_{p}$-module endowed with an action of $\mathscr{G}_K$.
 	Let $\chi\colon \mathscr{G}_K \to \mathbb{Z}_{p}^{\times}$ denote the cyclotomic character,
-	i.e. the map such that for all $\zeta_{p^n} \in \overline{K}$ primitive $p^n$th roots of unity,
-	we have
+	i.e. the map such that, for all $\zeta_{p^n} \in \overline{K}$ primitive 
+	$p^n$th roots of unity and all \(g \in \mathscr{G}_K\),
 	\begin{equation*}
 		g(\zeta_{p^n}) = \zeta_{p^n}^{\chi(g)}
-	\end{equation*}
-	for all $g \in \mathscr{G}_K$.
+	.\end{equation*}
 	We define the $\mathscr{G}_K$-module $\mathbb{Z}_{p}(1)$ to be $\mathbb{Z}_{p}$
 	on which $\mathscr{G}_K$ acts multiplicatively by $\chi$.
 	More explicitly the $\mathscr{G}_K$-action on $\mathbb{Z}_{p}(1)$ is given by
@@ -1516,13 +1572,11 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	\left( \mathbb{Z}_{p}(-n), \mathbb{Z}_{p} \right)$ for all $n < 0$.
 	More explicitly we see that $\mathbb{Z}_{p}(n)$ coincides, as a module,
 	with $\mathbb{Z}_{p}$, but the action of $\mathscr{G}_K$ has been twisted by
-	an appropriate power of the cyclotomic character.
-	More explicitly the twist is given by
+	an appropriate power of the cyclotomic character, i.e$.$
 	\begin{equation*}
 		g \cdot x = \left( \chi(g) \right)^n x
 	.\end{equation*}
-	With this notation in mind we can twist the action on any $\mathbb{Z}_{p}$-module
-	$M$ endowed with a $\mathscr{G}_K$-action.
+	With this notation in mind we can twist the action on any $\mathscr{G}_K$-module \(M\).
 	To do so we define
 	\begin{equation*}
 		M(n) \coloneqq M \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p}(n)
@@ -1555,12 +1609,12 @@ Let, finally, $G$ be a Barsotti-Tate group over $O_K$.
 	\begin{align*}
 		T_p(G^D) &= \varprojlim_{v \in \mathbb{N}} G_v^D(\overline{K})
 		\stackrel{1}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
-		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m}_{\overline{K}} \right) \\
+		\Hom_{ \mathsf{Gp}/\overline{K} }
+		\left( G_{  v,\overline{K}}, \mathbb{G}_{ m,\overline{K}} \right) \\
 		&\stackrel{2}{\simeq} \varprojlim_{v \in \mathbb{N}}
-		\mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
-		\left( {G_v}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}}\right)
-		\simeq \mathcal{H}\mathrm{om}_{ \mathsf{Gp}/\overline{K} }
+		\Hom_{ \mathsf{Gp}/\overline{K} }
+		\left( G_{ v,\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}}\right)
+		\simeq \Hom_{ \mathsf{Gp}/\overline{K} }
 		\left( {G}_{\overline{K}}, {\mathbb{G}_m(p)}_{\overline{K}} \right)\\
 		&\stackrel{3}{\simeq} \Hom_{ \mathsf{Gp} } 
 		\left( G(\overline{K}), \mathbb{G}_m(p)(\overline{K}) \right)
