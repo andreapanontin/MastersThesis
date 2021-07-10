@@ -372,7 +372,7 @@ its (Eisenstein) minimal polynomial.
 \begin{ntt}[]
 	In the following we will mainly be interested in the evaluation of
 	crystals on objects.
-	In particular, given a scheme $T_0$, $G_0 \in \mathsf{BT}/T_0$ and 
+	In particular, given schemes $T_0$, $G_0 \in \mathsf{BT}/T_0$ and 
 	$T_0 \hookrightarrow T \in \mathsf{Crys}(T_0)$, we will be interested in the
 	evaluation $\mathbb{D}^*(G_0)_{T}(T) = \mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$,
 	where $\mathbb{D}^*(G_0)_T$ is defined in \cref{CrystalAssociatedZarSheafS}
@@ -382,7 +382,7 @@ its (Eisenstein) minimal polynomial.
 	Moreover, if $T = \spec(A)$ is affine, we introduce the notation
 	$\mathbb{D}^*(G)(A)$ for $\mathbb{D}^*(G)(T)$.
 	Finally we can notice that, fixed $G$, the functor $\mathbb{D}^*(G)$,
-	being induced by a sheaf on $\mathsf{Crys}(T_0)$,
+	induced by a sheaf on $\mathsf{Crys}(T_0)$,
 	is contravariant when evaluated on schemes, but covariant on rings.
 \end{ntt}
 
@@ -445,13 +445,13 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 
 
 \begin{rem}[]\label{rem:NonNilpotentCrystalEvaluation}
-	Notice that, in the above definition, $A_n \twoheadrightarrow A_0/p^nA_0$
+	Notice that, in the above definition, $A/p^nA \twoheadrightarrow A_0/p^nA_0$
 	has kernel equipped with divided powers.
 	In fact it is the projection of the kernel of $A \twoheadrightarrow A_0/p^nA_0$, over
 	$p^nA$.
 	This ideal has divided powers since $pA$ and $\ker (A \to A_0)$ have compatible
 	divided powers.
-	Analogously we see that the kernel of $A_n \twoheadrightarrow A_0/p^mA_0$
+	Analogously we see that the kernel of $A/p^nA \twoheadrightarrow A_0/p^mA_0$
 	has divided powers for all $m \leq n$.
 	Now, combining this remark with \cref{rem:DGValuationRestriction},
 	we see that the above definition could have easily been swapped out with
@@ -466,7 +466,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	Though, for our purpose, it is enough to define the valuation $\mathbb{D}^*(G)(A)$,
 	for which it suffices to have the crystal associated to $G_1$.
 	In particular we can notice that the crystal can be constructed for
-	$G \in \mathsf{BT}/A$ if $A$ is $p$-adically complete, as above.
+	$G \in \mathsf{BT}/A_0$ if $A_0$ is $p$-adically complete, as above.
 \end{rem}
 
 
@@ -477,7 +477,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	to lift not only a Barsotti-Tate group along a thickening with divided
 	powers, but also some additional structure, i.e.
 	a Frobenius morphism and a filtration, on the evaluation of $\mathbb{D}^*$.
-	It is, in fact, this extra structure that is going to 
+	Iin fact, this extra semi-linear algebra structure is going to 
 	be of vital importance in the proof.
 \end{rem}
 
@@ -485,7 +485,7 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 \begin{lem}[{\cite[Lemma A.2]{Kisin}}]\label{lem:A2Kisin}
 	Let $A \twoheadrightarrow A_0$ be a surjection of $p$-adically complete
 	and separated local $\mathbb{Z}_{p}$-algebras with residue field
-	$k$ and kernel $\mathrm{Fil}^1 A$ equipped with divided powers.
+	$k$ and kernel $\operatorname{Fil}^1 A$ equipped with divided powers.
 	Suppose moreover that
 \begin{enumerate}
 	\item $A$ is $p$-torsion-free and it is equipped with an endomorphism
@@ -495,21 +495,21 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 		\begin{equation*}
 		\begin{tikzcd}
 			\id_{ A } \otimes \varphi/p \colon
-			\varphi^*(\mathrm{Fil}^1 A)
+			\varphi^*(\operatorname{Fil}^1 A)
 			\arrow[r, "", twoheadrightarrow] &
 			A
 		.\end{tikzcd}
 		\end{equation*}
 \end{enumerate}
-	If $G \in \mathsf{BT}/A_0$ we write $\mathrm{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
+	If $G \in \mathsf{BT}/A_0$ we write $\operatorname{Fil}^1 \mathbb{D}^*(G)(A) \subset \mathbb{D}^*(G)(A)$
 	for the preimage of $\left( \lie(G) \right)^\vee$ inside $\mathbb{D}^*(G)(A_0)$.
 	Then the restriction of $\varphi\colon \mathbb{D}^*(G)(A) \to \mathbb{D}^*(G)(A)$
-	to $\mathrm{Fil}^1 \mathbb{D}^*(G)(A)$ is divisible by $p$ and the following induced map
+	to $\operatorname{Fil}^1 \mathbb{D}^*(G)(A)$ is divisible by $p$ and the following induced map
 	is a surjection
 	\begin{equation*}
 	\begin{tikzcd}
 		1 \otimes \varphi/p \colon
-		\varphi^*\mathrm{Fil}^1 \mathbb{D}^*(G)(A)
+		\varphi^*\operatorname{Fil}^1 \mathbb{D}^*(G)(A)
 		\arrow[r, "", twoheadrightarrow] &
 		\mathbb{D}^*(G)(A)
 	.\end{tikzcd}
@@ -528,22 +528,23 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 
 	\item Let $\widetilde{G}$ be a lift of $G$ to $A$, then we have
 		\begin{equation*}
-			\mathrm{Fil}^1(\mathbb{D}^*(\widetilde{G})(A)) =
+			\operatorname{Fil}^1\mathbb{D}^*(\widetilde{G})(A) =
 			( \lie \widetilde{G} )^\vee +
-			\mathrm{Fil}^1A \cdot \mathbb{D}^*(\widetilde{G})(A)
+			\operatorname{Fil}^1A \cdot \mathbb{D}^*(\widetilde{G})(A)
 		.\end{equation*}
 		
 	\item Let $H \in \mathsf{BT}/\spec(W(k))$. Denote by $H_0$ the restriction
 		of $H$ to $k$ and by $V$ the Verschiebung morphism.
 		Then $W(k) \twoheadrightarrow k$ satisfies the hypothesis of our lemma,
-		and the kernel $\mathrm{Fil}^1(W(k)) = (p)$ is equipped with divided powers.
+		and the kernel $\operatorname{Fil}^1(W(k)) = (p)$ is equipped with divided powers
+		by \cref{PDex:DVR} of \cref{PDexamples}.
 		Then, using the theory of Dieudonné modules, one can see that
 		\begin{equation*}
 			( \lie H)^\vee + p \mathbb{D}^*(H)(W(k)) =
 			V \mathbb{D}^{*}(H)(W(k))
 		,\end{equation*}
 		i.e. that
-		$V \mathbb{D}^*(H)(W(k)) = \mathrm{Fil}^1 \mathbb{D}^*(H)(W(k))$.
+		$V \mathbb{D}^*(H)(W(k)) = \operatorname{Fil}^1 \mathbb{D}^*(H)(W(k))$.
 \end{enumerate}
 \end{rem}
 
@@ -553,7 +554,8 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	local $\mathbb{Z}_{p}$-algebra equipped with an endomorphism $\varphi$
 	lifting the Frobenius on $A/pA$.
 	Moreover we call \emph{map of special rings} a morphism
-	of $\mathbb{Z}_{p}$-algebras compatible with $\varphi$.
+	of $\mathbb{Z}_{p}$-algebras between special rings 
+	which is also compatible with $\varphi$.
 \end{defn}
 
 
@@ -651,7 +653,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	as the ideal generated by $E(u), p$ and their divided powers,
 	also called the P.D. ideal generated by $E(u)$ and $p$.
 	We denote by $S$ the $p$-adic completion of $\mathcal{D}_{W[u]}(E(u))$
-	and by $\mathrm{Fil}^1 S \subset S$ the closure of the ideal
+	and by $\operatorname{Fil}^1 S \subset S$ the closure of the ideal
 	generated by $E(u)$ and its divided powers.
 \end{defn}
 
@@ -663,7 +665,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	In order to lift it we use the universal property of
 	the divided powers envelope.
 	In particular we need to notice that this map sends $(E(u))$
-	into $\overline{J}$, which contains $p$ as stated before.
+	into $\overline{J}$ which, as stated before,contains $p$.
 	But this is clear, since $F$ sends $pW[u]$ to $pW[u]$ and, 
 	since the P.D. ideal generated by $E(u)$ in $\mathcal{D}_{W[u]}(E(u))$
 	contains divided powers, it sends $E(u)$ in the P.D. ideal
@@ -691,10 +693,11 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 
 \begin{ntt}[]\label{not:phi1S}
 	Thanks to \cref{PDExtendCompletion}, the ideal 
-	$\mathrm{Fil}^1(S)$ is equipped with divided powers.
+	$\operatorname{Fil}^1(S)$ is equipped with divided powers.
 	Then, as seen in \cref{rem:A2Kisin}, 
-	we have $\varphi( \mathrm{Fil}^1 S) \subset p S$, which
-	allows us to define $\varphi_1 \coloneqq \varphi/p$.
+	we have $\varphi( \operatorname{Fil}^1 S) \subset p S$, which
+	allows us to define $\varphi_1 \coloneqq \varphi/p\colon
+	\operatorname{Fil}^1S \to S$.
 \end{ntt}
 
 
@@ -705,14 +708,14 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	is topologically generated by the $x_i$ and their divided powers
 	and such that $\varphi(x_i) = x_i^p$ for all $i$.
 	Then the integers $j_i$ of \cref{lem:A4Kisin} can
-	be taken to be $v_p \left( (p-1)! \right) - 1$.
+	be taken to be $\nu_p \left( (p-1)! \right) - 1$.
 	Since $\varphi$ is a continuous endomorphism in the $p$-adic topology,
 	it suffices to prove the statement for elements of the type
 	\begin{equation*}
 	x \coloneqq x^{[m_1]} \cdot \cdots \cdot x_n^{[m_n]}
 	,\end{equation*}
 	for arbitrary $m_1, \ldots, m_n \in \mathbb{N}$.
-	Then we can notice that $\varphi(x_i^{[m_i]}) = \left( x_i^p \right)^{[m_i]}$
+	Here we can notice that $\varphi(x_i^{[m_i]}) = \left( x_i^p \right)^{[m_i]}$
 	for all $i$.
 	Hence
 	\begin{equation*}
@@ -721,8 +724,8 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 		\prod_{k = 1}^n 
 		\big( \varphi^i(x_k) \big)^{[m_k]}
 	.\end{equation*}
-	Let's now fix a $k$ with $m_k > 0$ and work on that.
-	Since $J$ is equipped with divided powers, we have
+	Let's now fix a $k$ with $m_k > 0$.
+	Since $J$ is equipped with divided powers we have
 	\begin{equation*}
 		\varphi^i(x_k) =
 		x_k^{p^i} =
@@ -744,14 +747,14 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 \begin{defn}[]
 	We denote by $\mathsf{BT}^{\varphi}_{/S}$ the category
 	whose objects are finite free $S$-modules $M$
-	equipped with an $S$-submodule $\mathrm{Fil}^1 M$
-	and a $\varphi$-semilinear map $\varphi_1\colon  \mathrm{Fil}^1 M \to M$
+	equipped with an $S$-submodule $\operatorname{Fil}^1 M$
+	and a $\varphi$-semilinear map $\varphi_1\colon  \operatorname{Fil}^1 M \to M$
 	such that
 \begin{enumerate}
-	\item $\mathrm{Fil}^1 S \cdot M \subset \mathrm{Fil}^1 M$
-		and the quotient $M/\mathrm{Fil}^1 M$ is a free $O_{ K }$-module;
+	\item $\operatorname{Fil}^1 S \cdot M \subset \operatorname{Fil}^1 M$
+		and the quotient $M/\operatorname{Fil}^1 M$ is a free $O_{ K }$-module;
 	\item the map $\id_{ S } \otimes \varphi_1\colon 
-		\varphi^* \left( \mathrm{Fil}^1 M \right) \to M$
+		\varphi^* \left( \operatorname{Fil}^1 M \right) \to M$
 		is surjective.
 \end{enumerate}
 \end{defn}
@@ -781,21 +784,21 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	way one proves this for power series).
 	Let's start with $x$.
 	We want to prove that a certain power $x^n$ of $x$
-	is in $\mathrm{Fil}^1S$, which has divided powers,
+	is in $\operatorname{Fil}^1S$, which has divided powers,
 	from which we would deduce $x^{np} = p! \gamma_p(x^n) \in pS$.
-	Let's recall that we defined $\mathrm{Fil}^1S$ as the topological
+	Let's recall that we defined $\operatorname{Fil}^1S$ as the topological
 	closure of the P.D. ideal $(E(u),p) \triangleleft \mathcal{D}_{W[u]}(E(u))$,
 	i.e. the ideal topologically generated by $E(u), p$ and their divided powers.
-	Notice, moreover, that $u^e \in \mathrm{Fil}^1S$, since $E(u)$ is
+	Notice, moreover, that $u^e \in \operatorname{Fil}^1S$, since $E(u)$ is
 	Eisenstein.
 	Then we can also notice that each term of $x^e$ is either divided by
 	a power of $u^{ep}/p$ or a power of $u^e$.
-	But $u^{ep}/p = p!/p \gamma_p(u^e) = (p-1)! \gamma_p(u^e)$.
+	But $u^{ep}/p = (p!/p) \gamma_p(u^e) = (p-1)! \gamma_p(u^e)$.
 	Then this means that
 	\begin{equation*}
-		x^e \in \left( \gamma_p(u^e), u^e \right) \subset \mathrm{Fil}^1S
+		x^e \in \left( \gamma_p(u^e), u^e \right) \subset \operatorname{Fil}^1S
 	\end{equation*}
-	since $\mathrm{Fil}^1S$ contains $u^e$ and its divided powers.
+	since $\operatorname{Fil}^1S$ contains $u^e$ and its divided powers.
 	With regards to $\varphi_1(a_0)$ we need to show that it 
 	is invertible modulo $p$.
 	But this is true, since $\varphi(p) = p$ on $W$, hence on $S$,
@@ -826,9 +829,9 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 \end{prop}
 \begin{proof}%\leavevmode\vspace{-.2\baselineskip}
 We start by showing that this functor actually takes values in $\mathsf{BT}^{\varphi}_{/S}$.
-To do so we need to show that $M(G) = \mathbb{D}^{*}(G)(S)$
-has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$.
-It is enough to check that $S \twoheadrightarrow O_K$ satisfies
+We need to show that $M(G) = \mathbb{D}^{*}(G)(S)$
+has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$, for which
+it is enough to check that $S \twoheadrightarrow O_K$ satisfies
 the hypothesis of \cref{lem:A2Kisin}.
 Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$
 which is a surjection, as remarked before.
@@ -838,9 +841,9 @@ It is also clear that both $S$ and $O_K$ are
 $p$-adically complete, separated, local $\mathbb{Z}_{p}$-algebras.
 Moreover, by definition, $\ker (W[u] \to O_K) = (E(u))$.
 Then, by construction of $S$ and completeness of $O_K$,
-we see that $\mathrm{Fil}^1 S$, the kernel of $S \twoheadrightarrow O_K$, 
-as seen in \cref{not:phi1S}, is the P.D. ideal topologically generated by $E(u)$ hence is
-equipped with divided powers.
+we see that $\operatorname{Fil}^1 S$, the kernel of $S \twoheadrightarrow O_K$, 
+as seen in \cref{not:phi1S}, is the P.D. ideal topologically generated by $E(u)$,
+hence it is equipped with divided powers.
 Moreover, by construction, it is clear that $S$ is $p$-torsion-free
 and, thanks to \cref{rem:liftFrobeniusS},
 that it is equipped with an endomorphism lifting the Frobenius on $S/pS$.
@@ -850,7 +853,7 @@ Finally we are left to prove that the map
 	,/tikz/column 1/.append style={anchor=base east}
 	,/tikz/column 2/.append style={anchor=base west}]
 	\id_{ S } \otimes \varphi/p \colon 
-	\varphi^*(\mathrm{Fil}^1 S) \arrow[r, "", twoheadrightarrow] &
+	\varphi^*(\operatorname{Fil}^1 S) \arrow[r, "", twoheadrightarrow] &
 	S
 \end{tikzcd}
 \end{equation*} 
@@ -933,18 +936,18 @@ with kernel $pR_i$, which is equipped with divided powers by \cref{lem:PDFlatExt
 Then, given a $p$-divisible group $G_i \in \mathsf{BT}/ (O_K/ \pi^iO_K)$,
 we can consider its evaluation $\mathbb{D}^*(G_i)(R_i)$ by \cref{defn:NotNilpotentEvaluation}.
 Following the notation of \cref{lem:A2Kisin}
-we denote by $\mathrm{Fil}^1\mathbb{D}^*(G_i)(R_i)$
+we denote by $\operatorname{Fil}^1\mathbb{D}^*(G_i)(R_i)$
 the preimage of $\left( \lie G_i \right)^\vee \subset \mathbb{D}^*(G_i)(O_K/\pi^iO_K)$
 in $\mathbb{D}^*(G_i)(R_i)$.
 
 We define the module $M_i \coloneqq M \otimes_S R_i$,
 which is a restriction of scalars of our original one and
 it is also equipped with the diagonal action of $\varphi$.
-We set $\mathrm{Fil}^1 M_i \subset M_i$
-to be the image of $\mathrm{Fil}^1 M$ in $M_i$, which is a submodule
+We set $\operatorname{Fil}^1 M_i \subset M_i$
+to be the image of $\operatorname{Fil}^1 M$ in $M_i$, which is a submodule
 by surjectivity of $S \twoheadrightarrow R_i$.
-Notice that the above corresponds to defining $\mathrm{Fil}^1 M_i \coloneqq
-\mathrm{Fil}^1 M \otimes_S R_i$.
+Notice that the above corresponds to defining $\operatorname{Fil}^1 M_i \coloneqq
+\operatorname{Fil}^1 M \otimes_S R_i$.
 Then, by right exactness of tensor product, 
 \begin{equation*}
 \begin{tikzcd}[row sep = 0ex
@@ -952,11 +955,11 @@ Then, by right exactness of tensor product,
 	,/tikz/column 2/.append style={anchor=base west}]
 	\id_{ S } \otimes \varphi_1
 	\colon 
-	\varphi^*(\mathrm{Fil}^1 M)\arrow[r, "", rightarrow] &
+	\varphi^*(\operatorname{Fil}^1 M)\arrow[r, "", rightarrow] &
 	M
 \end{tikzcd}
 \end{equation*} 
-induces a surjective map $\varphi^*(\mathrm{Fil}^1 M_i) \twoheadrightarrow M_i$
+induces a surjective map $\varphi^*(\operatorname{Fil}^1 M_i) \twoheadrightarrow M_i$
 for all $i$.
 In other words we have just seen that
 $M_i \in \mathsf{C}_{R_i}$ for all $i \in [1,e]$.
@@ -968,19 +971,19 @@ With all this in mind we can start with the lifting process.
 	Let's denote by $F\colon M_1 \to M_1$ the map induced by
 	$\varphi\colon M \to M$.
 	Then we see that both sides of the surjective map
-	$\varphi^* ( \mathrm{Fil}^1 M_1) \to M_1$ are free $W$-modules of the same (finite) rank,
+	$\varphi^* ( \operatorname{Fil}^1 M_1) \to M_1$ are free $W$-modules of the same (finite) rank,
 	as can be seen by base changing to $k$, which means that the map is an isomorphism.
 	Now we consider the composition
 	\begin{equation*}
 	\begin{tikzcd}
 		M_1 \arrow[r, "\sim", rightarrow] &
-		\varphi^* (\mathrm{Fil}^1 M) \arrow[r, "", rightarrow] &
+		\varphi^* (\operatorname{Fil}^1 M) \arrow[r, "", rightarrow] &
 		\varphi^* (M_1) \arrow[r, "\sim", rightarrow] &
 		M_1
 	,\end{tikzcd}
 	\end{equation*}
 	where the first arrow is just the inverse of the above isomorphism, the second map
-	is induced by the inclusion $\mathrm{Fil}^1 M \hookrightarrow M$ and the
+	is induced by the inclusion $\operatorname{Fil}^1 M \hookrightarrow M$ and the
 	third one is given by $a \otimes m \mapsto \varphi^{-1}(a)m$.
 	This composition gives a $\varphi^{-1}$-semilinear map $V\colon M_1 \to M_1$
 	such that $FV = VF = p$.
@@ -996,7 +999,7 @@ With all this in mind we can start with the lifting process.
 	\end{tikzcd}
 	\end{equation*} 
 	is compatible with Frobenius.
-	Moreover, thanks to \cref{rem:A2Kisin}, $\mathrm{Fil}^1 \mathbb{D}^*(G_1)(W)$
+	Moreover, thanks to \cref{rem:A2Kisin}, $\operatorname{Fil}^1 \mathbb{D}^*(G_1)(W)$
 	can be identified with $V \mathbb{D}^*(G_1)(W)$, which grants that the isomorphism
 	is also compatible with filtrations.
 
@@ -1009,7 +1012,7 @@ With all this in mind we can start with the lifting process.
 	M_{i-1}
 	\end{tikzcd}
 	\end{equation}
-	compatible with Frobenius and filtrations, i.e. a morphism in $\mathsf{C}_{R_{i-1}}$.
+	compatible with Frobenius and filtrations, i.e. an isomorphism in $\mathsf{C}_{R_{i-1}}$.
 	We can notice that the kernel of $R_i \twoheadrightarrow O_K/ (\pi^{i-1})$
 	is $(p, u^{i-1})$ which is still equipped with divided powers.
 	In fact, following \cref{PDEx:NilpotentIdeal} of \cref{PDexamples},
@@ -1038,14 +1041,14 @@ With all this in mind we can start with the lifting process.
 	we can invoke \cref{thm:EquivCatBTS} and obtain that
 	there is a unique $G_i \in \mathsf{BT}/ (O_K/\pi^iO_K)$
 	lifting $G_{i-1}$ and such that $(\lie G_i)^\vee \subset \mathbb{D}^*(G_{i-1})(O_K/\pi^i O_K)$
-	is equal to the image of $\mathrm{Fil}^i M_i$ under the composite
+	is equal to the image of $\operatorname{Fil}^i M_i$ under the composite
 	%tk: here one should also prove that this image is locally-free.
 	%I guess this is true, since we have the short exact sequence
 	%of the second rem of this section, and it should be that Lie is free
 	%(then splitting, etc).
 	\begin{equation*}
 	\begin{tikzcd}
-		\mathrm{Fil}^1 M_i \subset M_i
+		\operatorname{Fil}^1 M_i \subset M_i
 		\arrow[r, "\sim", rightarrow] &
 		\mathbb{D}^*(G_{i-1})(R_i)
 		\arrow[r, "", rightarrow] &
@@ -1073,7 +1076,7 @@ With all this in mind we can start with the lifting process.
 	%I need generators (topological) for which the Frobenius acts
 	%like the $p$-th power map. So E(u) is not good.
 	%tk: if you have time try to expand on this later.
-	Then we can apply \cref{lem:A2Kisin} and obtain that the valuation
+	Then we can apply \cref{lem:A2Kisin} and obtain that the evaluation
 	$\mathbb{D}^*(G_e)(S)$ is in $\mathsf{C}_{S}$.
 	As before, thanks to \cref{lem:A4Kisin} we lift the isomorphism 
 	\begin{equation*}
@@ -1088,21 +1091,22 @@ With all this in mind we can start with the lifting process.
 	\cref{lem:A4Kisin}, and we can argue as in \cref{rem:j_iTheoremA6}
 	since the kernel of the projection $S \twoheadrightarrow R_e$ is
 	the P.D. ideal topologically generated by $u^e$ and $p$,
-	on which the Frobenius acts as the $p$-th power map.
+	on which the Frobenius acts as the $p$th power map.
 	Now we need to lift the group $G_e$ to $O_K$ for which we assume that $p > 2$.
 	In order to do so we notice that, for all $i$,
-	$O_K/p^{i-1}O_K \twoheadrightarrow O_K/ (p^i)$ and
+	$O_K/ (p^{i-1}) \twoheadrightarrow O_K/ (p^i)$ and
 	$S \twoheadrightarrow O_K/ (p^i)$ have kernels equipped with
 	divided powers, the first being nilpotent, the second existing by compatibility
 	of divided powers on $u^e$ with those on $p$.
-	Moreover, since $O_K$ is $p$-adically complete, thanks to \cite[Lemma 2.4.4]{deJong},
+	Moreover, since $O_K$ is $p$-adically complete, thanks to \cite[Lemma 2.4.4]{deJong}
+	or to \cref{lem:BT/admissible},
 	we see that the datum of a Barsotti-Tate group on $O_K$ is equivalent to
 	the datum of a compatible sequence of Barsotti-Tate groups $G^i$ on $O_K/ (p^i)$.
 	Here compatible means that the restriction of $G^i$ to $O_K/ (p^{i-1})$
 	is isomorphic to $G^{i-1}$.
 	Then, invoking again \cref{thm:EquivCatBTS}, we can construct this sequence by induction,
 	taking at each time the group $G^i$ determined by $(\lie G^i)^\vee \subset
-	\mathbb{D}^*(G_e)(O_K/p^iO_K)$, given by the image of $\mathrm{Fil}^1 M$ under
+	\mathbb{D}^*(G_e)(O_K/p^iO_K)$, given by the image of $\operatorname{Fil}^1 M$ under
 	\begin{equation*}
 	\begin{tikzcd}
 		M \arrow[r, "\sim", rightarrow] &
@@ -1113,7 +1117,7 @@ With all this in mind we can start with the lifting process.
 	By functoriality of $\mathbb{D}^*(G_e)$ this gives rise to a compatible family $G^i$,
 	which in turn, by \cite[Lemma 2.4.4]{deJong}, defines $G(M) \in \mathsf{BT}/O_K$
 	such that $(\lie G)^\vee \subset \mathbb{D}^*(G_e)(O_K)$ is
-	equal to the image of $\mathrm{Fil}^iM$ under
+	equal to the image of $\operatorname{Fil}^iM$ under
 	\begin{equation*}
 	\begin{tikzcd}
 		M \arrow[r, "\sim", rightarrow] &
@@ -1135,8 +1139,8 @@ and the two functors are quasi-inverses to each other.
 
 
 \noindent
-Now that we have proved this theorem let's explicit some simple examples.
-These will play an important role also in what follows.
+Now that we have proved this theorem let's compute some simple examples.
+These will also play an important role in what follows.
 \begin{ex}[]\label{DieudonneModulesSimpleExamples}
 	We want to compute $M(G) \coloneqq \mathbb{D}^*(G)(S)$ for
 	$G = \mathbb{G}_m(p)$ and its dual 
@@ -1162,9 +1166,9 @@ These will play an important role also in what follows.
 	Also, when determining the filtration, it is useful to keep
 	in mind \cref{rem:A2Kisin}, where we stated that 
 	\begin{equation*}
-		\mathrm{Fil}^1 M(G) =
+		\operatorname{Fil}^1 M(G) =
 		( \lie \widetilde{G} )^\vee +
-		\mathrm{Fil}^1S \cdot M(G)
+		\operatorname{Fil}^1S \cdot M(G)
 	.\end{equation*}
 	Then we need to compute the conormal sheaves $\omega_G$ for $\mathbb{G}_m(p)$
 	and $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}$.
@@ -1234,7 +1238,7 @@ These will play an important role also in what follows.
 	Then, since the base change of an étale morphism is still étale (see for example
 	\cite[\href{https://stacks.math.columbia.edu/tag/02GO}{Lemma 02GO}]{SP}),
 	$\widetilde{G}_v^D$ is étale over $S$.
-	Then, arguing as before, $\omega_{\widetilde{G}_v^D} = 0$ for all $v$,
+	Then $\omega_{\widetilde{G}_v^D} = 0$ for all $v$,
 	hence $\omega_{\widetilde{G}^D} = 0$.
 	With regards to $\widetilde{G}_v$ the above computations carry faithfully
 	to the base change to $S$, giving us
@@ -1247,7 +1251,7 @@ These will play an important role also in what follows.
 \begin{enumerate}
 	\item Let $G = \mathbb{G}_m(p)$, then filling \cref{eqn:MGSES} with
 		the terms we computed above, we obtain $M(G) \simeq S$.
-		Moreover $\mathrm{Fil}^1 M(G) = S$, since it contains
+		Moreover $\operatorname{Fil}^1 M(G) = S$, since it contains
 		$(\lie\, \widetilde{G})^\vee = \omega_{\widetilde{G}} = S$.
 		Finally we also get that $\varphi_1$ has to coincide with $\varphi$,
 		being $\varphi$-semilinear and defined on $S = M(G)$.
@@ -1255,8 +1259,8 @@ These will play an important role also in what follows.
 	\item Let's now consider $G^D$.
 		Again, looking at \cref{eqn:MGSES}, we obtain $M(G^D) = S$.
 		Though now $(\lie\, \widetilde{G}^D)^\vee = 0$,
-		hence $\mathrm{Fil}^1 M(G^D) = \mathrm{Fil}^1 S$.
+		hence $\operatorname{Fil}^1 M(G^D) = \operatorname{Fil}^1 S$.
 		And this implies also that our $\varphi$-semilinear map
-		$\varphi_1$ coincides with $\varphi/p$ on $\mathrm{Fil}^1S$.
+		$\varphi_1$ coincides with $\varphi/p$ on $\operatorname{Fil}^1S$.
 \end{enumerate}
 \end{ex}
