@@ -4,7 +4,7 @@ the concept of Grothendieck topology on a category,
 in order to describe sheaves on such category.
 The main idea behind this construction is that one can reduce
 the definition of open coverings to a few formal axioms, translating
-inclusions with arrows in a category and
+inclusions with certain faimilies of arrows in a category and 
 intersections with fibered products.
 
 
@@ -17,11 +17,11 @@ intersections with fibered products.
 	\Hom_{\mathsf{Op}(X)} \left( U, V \right) =
 	\begin{cases}
 		\left\{ * \right\} & \text{if } U \subset V\\
-		\emptyset & \text{otherwise}
+		\emptyset & \text{otherwise}.
 	\end{cases} 
-	.\end{equation*}
+	\end{equation*}
 	This is the motivating example for the following constructions.
-	In fact arrows in $\mathsf{Op}(X)$ are inclusions and
+	In fact all arrows in $\mathsf{Op}(X)$ correspond to inclusions and
 	fibered products correspond to intersections.
 \end{rem}
 
@@ -90,7 +90,7 @@ Let's now give some examples.
 
 	\item The \emph{global classical topology} on $\mathsf{Top}$.
 		Given $U \in \mathsf{Top}$, its coverings are all families of jointly surjective
-		collections of open embeddings $U_i \to U$.
+		collections of open embeddings $U_i \hookrightarrow U$.
 		Here open embedding means open, continuous, injective map and not
 		only the set theoretic inclusion of a subspace.
 
