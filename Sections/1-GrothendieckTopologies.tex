@@ -308,7 +308,7 @@ a simple fact.
 	If $\tau'$ is subordinate to $\tau$, as pretopologies on $\mathsf{C}$,
 	then any sheaf in $\tau$ is also a sheaf in $\tau'$.
 	As a consequence, for $\mathsf{C} = \mathsf{Sch}/S$ for some scheme $S$,
-	any sheaf in fpqc is also a sheaf in fppf, étale and Zariski topologies.
+	any sheaf in the fpqc topology is also a sheaf in the fppf, étale and Zariski topologies.
 \end{rem}
 
 
@@ -359,7 +359,7 @@ of fibered product in the representable case.
 	Consider $\mathsf{C}$ a category and $U \in \mathsf{C}$ an object.
 	The \emph{category of objects over $U$}, denoted by $\mathsf{C}/U$
 	or $\mathsf{C}_U$, is the category whose objects are morphisms
-	$Y \to U$ in $\mathsf{C}$ and morphisms are morphisms $Y \to Y'$
+	$Y \to U$ in $\mathsf{C}$ and whose morphisms are morphisms $Y \to Y'$
 	in $\mathsf{C}$ such that the following (natural) diagram commutes
 	\begin{equation*}
 	\begin{tikzcd}[column sep=1.2em]
@@ -380,17 +380,18 @@ of fibered product in the representable case.
 	that, viewed as families in $\mathsf{C}$, are coverings for the
 	pretopology on $\mathsf{C}$.
 
-	Moreover there is a forgetful functor $f_U\colon \mathsf{C}/U \to \mathsf{C}$
+	Moreover there is a forgetful functor $p_U\colon \mathsf{C}/U \to \mathsf{C}$
 	that simply forgets about the morphism.
 	Finally, given a morphism $f\colon U \to V$ there is an induced
 	functor $F\colon \mathsf{C}/U \to \mathsf{C}/V$ given
-	by the composition with $f$, and $p_V = F \circ p_V$.
+	by composition with $f$.
+	Moreover we can notice that $p_U = p_V \circ F$.
 \end{rem}
 
 
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00XZ}{Section 00XZ}]{SP}}]
 	Given a site $\mathsf{C}$ and $U \in \mathsf{C}$, the forgetful functor
-	$j_U\colon \mathsf{C}/U \to \mathsf{C}$ induces a
+	$p_U\colon \mathsf{C}/U \to \mathsf{C}$ induces a
 	morphism of topoi
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -423,12 +424,11 @@ of fibered product in the representable case.
 
 \begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00XZ}{Section 00XZ}]{SP}}]
 	Let $\mathsf{C}$ and $U$ be as before.
-	For all $F \in \mathsf{Sh}\left(\mathsf{C}\right)$, the value of $j_U^*F$
-	is given by
+	For all $F \in \mathsf{Sh}\left(\mathsf{C}\right)$, the evaluation of $j_U^*F$
+	on \(X/U \coloneqq X \to U \in \mathsf{C}/U\) by
 	\begin{equation*}
 		j_U^*F(X/U) = F(X)
-	,\end{equation*}
-	where $X/U$ denotes any object $X \to U \in \mathsf{C}/U$.
+	.\end{equation*}
 \end{rem}
 
 
@@ -440,8 +440,7 @@ of fibered product in the representable case.
 	Then, for $F'$ a sheaf of sets on $\mathsf{Sch}/S'$, we have
 \begin{enumerate}
 	\item $j^* F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}/S$,
-		where $T/S'$ means that we view $T$ as an element of $\mathsf{Sch}/S'$
-		via $g$;
+		where $T/S'$ is the image of \(T/S\) after composition with \(g\).
 	\item if $F'$ is representable by $X' \in \mathsf{Sch}/S'$,
 		then $j^*F'$ is representable by $X'_S \coloneqq X' \times_{ S' } S$.
 \end{enumerate}
