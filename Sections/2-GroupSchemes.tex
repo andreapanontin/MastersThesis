@@ -1,9 +1,9 @@
 \section{Group schemes}
 In this section we introduce the notion of \emph{group object}
 in a category, giving all of the definition in the context
-of group schemes, i.e. group objects over the category of (relative) schemes.
+of group schemes, i.e. group objects in the category of (relative) schemes.
 In this context we will develop all the important tools which will play a role
-later in the dissertation, starting from their application in the definition of
+later on in the dissertation, starting from their application in the definition of
 $p$-divisible groups.
 
 
@@ -60,6 +60,7 @@ $p$-divisible groups.
 	as the unique arrow to the terminal object of $\mathsf{Gp}$
 	and $\Delta\colon G \to G \times G$ the diagonal morphism.
 	Then the group axioms are equivalent to
+	the following equalities
 	\begin{align}\label{eq:GroupAxioms}
 		m \circ (\id_{ G } \times m) &= m \circ (m \times \id_{ G }),\nonumber\\
 		m \circ (\id_{ G } \times \mathrm{inv}) \circ \Delta &=
@@ -418,7 +419,7 @@ satisfying the duals of the diagrams in \cref{rem:StructuralMorphisms}.
 
 \noindent
 The following results are valid in a more general setting, so let's change
-the assumption for $S$: we will assume it is a locally Noetherian scheme.
+the assumption for $S$: we will noly assume it is a locally Noetherian scheme.
 \begin{rem}[Finite $S$-scheme]\label{rem:finiteGSMotivation}
 	An $S$-scheme $G$ is finite and flat over $S$ iff its sheaf of regular functions
 	$\mathcal{O}_G$ is locally-free of finite rank as an $\mathcal{O}_S$-module.
@@ -440,9 +441,9 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 
 
 \begin{defn}[Order of a finite flat $S$-scheme]
-	Given a finite flat $S$-scheme $G$, the rank of $\mathcal{O}_X$ as
+	Given a finite flat $S$-scheme $G$, the rank of $\mathcal{O}_G$ as
 	an $\mathcal{O}_S$-module is a locally constant function with respect
-	to the Zariski topology, with integer values.
+	to the Zariski topology taking integer values.
 	We call such a function the order of $G$ over $S$ and denote it by $[G:S]$.
 	Moreover we will use the notation $[G:S] = n$ to state that $G$ is finite flat of
 	constant rank $n$ over $S$.
@@ -459,7 +460,7 @@ the assumption for $S$: we will assume it is a locally Noetherian scheme.
 		$[X_1 \times_{ S } X_2 : S] = n_1n_2$.
 
 	\item If $[X:S] = n$, then $[X \times_{ S } T : T] = n$
-		for all $T \in \mathsf{Sch}/T$.
+		for all $T \in \mathsf{Sch}/S$.
 \end{enumerate}
 \end{prop}
 
@@ -496,7 +497,7 @@ $R$, for $S = \spec(R)$.
 
 
 \begin{ex}\label{ex:AffineGroupSchemesExamples}
-	In the following examples we will denote $S \coloneqq \spec(R)$
+	In the following examples we will fix $S \coloneqq \spec(R)$
 	and $G \coloneqq \spec(A)$.\nopagebreak[4]
 	\begin{enumerate}
 		\item \label{ex:AdditiveGroupScheme}
@@ -619,7 +620,7 @@ $R$, for $S = \spec(R)$.
 				\quad
 				\widetilde{\mathrm{inv}}(x_{i,j})_{i,j=1}^n = (y_{i,j})_{i,j=1}^n
 			,\end{equation*} 
-			where $\left( y_{i,j} \right)_{i,j}$ satisfies 
+			where we recall that $\left( y_{i,j} \right)_{i,j}$ satisfies 
 			$\left( x_{ij} \right)_{i,j=1}^n \cdot \left( y_{ij} \right)_{i,j=1}^n = I$.
 
 
@@ -647,8 +648,15 @@ $R$, for $S = \spec(R)$.
 		\item The \emph{diagonalizable group schemes}. Let $X$ be an ordinary
 			commutative group, and denote by $R[X] \coloneqq \bigoplus_{x \in X} Rx$
 			its associated group $R$-algebra.
-			This is a Hopf algebra whose structural morphisms
-			are given, for every $x \in X$, by
+			Then, for $G = \spec(A)$, we have
+			\begin{equation*}
+				\Hom_{R \text{-Alg}} \left( R[X], A \right) \simeq
+				\Hom_{\mathsf{Ab}} \left( X, A^{\times} \right)
+			,\end{equation*} 
+			where the last hom set has a natural structure of abelian
+			group.
+			As before, we can endow \(R [ X ]\) with a Hopf algebra structure
+			given by
 			\begin{equation*}
 				\widetilde{m}(x) = x \otimes x,
 				\quad
@@ -656,16 +664,7 @@ $R$, for $S = \spec(R)$.
 				\quad \text{ and } \quad
 				\widetilde{\mathrm{inv}}(x) = x^{-1}
 			.\end{equation*} 
-			The above can be checked directly, since we have
-			the identifications, for $G = \spec(A)$,
-			\begin{equation*}
-				\left( D(X) \right)(G) \coloneqq
-				\Hom_{R \text{-Alg}} \left( R[X], A \right) \simeq
-				\Hom_{\mathsf{Ab}} \left( X, A^{\times} \right)
-			,\end{equation*} 
-			where the last hom set has a natural structure of abelian
-			group.
-			Then we define the \emph{diagonalizable group scheme} $D(X)$
+			We define the \emph{diagonalizable group scheme} $D(X)$
 			as the commutative $R$-group $\spec(R[X])$.
 
 			Two important cases are $\mathbb{G}_m \simeq D(\mathbb{Z})$
@@ -745,13 +744,22 @@ $R$, for $S = \spec(R)$.
 
 
 \subsection{Connected-étale sequence}
+There is a really important short exact sequence that can be 
+constructed starting just from the data of a finite flat
+\(R\)-group, for a Henselian ring \(R\).
+The aim of this section is to look at the construction 
+of such sequence.
+
+
+
 \subsubsection{Quotients and exactness}
-In order to construct some important short exact sequences
+In order to construct any short exact sequences
 we need to tackle the problem of the construction
 of cokernels, hence of quotient groups.
-In order to do so we have to start with the concept of group action.
-Moreover we keep the assumption, from the previous section, that $S$
-is a locally Noetherian scheme.
+For greater generality we will approach this problem
+using the language of group action.
+Moreover we keep the assumption, from the previous section, that 
+the base scheme $S$ is a locally Noetherian scheme.
 
 \begin{defn}[Right action]
 	Let $H$ be an $S$-group scheme, and take $X \in \mathsf{Sch}/S$.
@@ -808,7 +816,7 @@ It actually is a consequence of the following, more general result, due to Groth
 \noindent
 As promised we obtain the following result for group schemes.
 \begin{prop}[{\cite[\S 3.5]{TateMF}}]\label{thm:QuotientGroupScheme}
-	Let $G$ be an $S$-group scheme and $H \subset G$ a finite flat closed
+	Let $G$ be an $S$-group scheme of finite type and $H \subset G$ a finite flat closed
 	subgroup scheme.
 	Define the action $a\colon G \times_{ S } H \to G$ as the restriction of the
 	group law $m$ on $G$.
@@ -829,7 +837,7 @@ Finally, in order to take quotients in \(\mathsf{Gp}/S\), we need to introduce t
 of normal subgroup.
 \begin{defn}[Normal subgroup]
 	Let $G$ be an $S$ group and $H$ be a subgroup scheme of $G$,
-	i.e. $H$ is a subscheme of $G$ and the inclusion morphism
+	i.e$.$ $H$ is a subscheme of $G$ and the inclusion morphism
 	is a homomorphism of group schemes.
 	We say that $H$ is a \emph{normal subgroup scheme} of $G$ iff, for all 
 	$T \in \mathsf{Sch}/S$, the subgroup $H(T)$ of $G(T)$ is a \emph{normal} subgroup.
@@ -855,7 +863,8 @@ of normal subgroup.
 	\end{equation*}
 	where short exactness also means that $i$ is a closed immersion
 	and $u$ is faithfully flat.
-	Here $1$ denotes the constant $S$-group scheme $\underline{1}$, as
+	Here and in the rest of the discussion $1$ will denote
+	the constant $S$-group scheme $\underline{1}$, as
 	seen in \cref{ex:ConstantGroups} of
 	\cref{ex:AffineGroupSchemesExamples}.
 \end{rem}
@@ -863,23 +872,26 @@ of normal subgroup.
 
 
 \subsubsection{Separable algebras and étale group schemes}
-The study of étale group schemes is strictly related to that of
-separable algebras, so here are a few interesting results for the latter.
+We want to introduce the notion of étale \(S\)-group, since it will
+be one of the central players in the short exact sequence we want to construct.
+Since the study of étale group schemes is strictly related to that of
+separable algebras, we will start by analysing the latter.
 
 
 \begin{thm}[{\cite[\S 6.2]{Waterhouse}}]
 	\label{thm:SeparableAlgebrasCharacterization}
-	Let $k$ be a field and denote by $\overline{k}$ and $k^s$ respectively
+	Let $k$ be a field and denote by $k^{ \operatorname{alg} }$ and $\overline{k}$ respectively
 	an algebraic and a separable closure of $k$.
 	Let $A$ be a finite dimensional $k$-algebra.
 	The following are equivalent:
 \begin{enumerate}
-	\item $A \otimes_k \overline{k}$ is reduced;
-	\item $A \otimes_k \overline{k} \simeq \overline{k} \times \cdots \times \overline{k}$;
-	\item The number of $k$-algebra homomorphisms $A \to  \overline{k}$
+	\item $A \otimes_k k^{ \operatorname{alg} }$ is reduced;
+	\item $A \otimes_k k^{ \operatorname{alg} } \simeq 
+		k^{ \operatorname{alg} }\times \dotsb \times k^{ \operatorname{alg} }$;
+	\item The number of $k$-algebra homomorphisms $A \to  k^{ \operatorname{alg} }$
 		equals the dimension of $A$ over $k$;
 	\item $A$ is a product of separable field extensions of $k$;
-	\item $A \otimes_k k^s \simeq k^s \times \cdots \times k^s$.
+	\item $A \otimes_k \overline{k} \simeq \overline{k} \times \cdots \times \overline{k}$.
 \end{enumerate}
 If, moreover, $k$ is a perfect field, all of the above are equivalent to
 \begin{enumerate}[resume]
@@ -930,8 +942,10 @@ i.e$.$ finite flat schemes over a Noetherian affine base.
 
 
 \noindent
-In fact we can use this characterization in our context thanks to the following lemmas.
+As promised, here is the connection between the concept of separable algebra and
+that of étale morphism.
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GL}{Lemma 02GL}]{SP}}]
+	\label{lem:EtaleMorphismsSchemes}
 	\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item A scheme $X$ is étale over a field $k$ iff $X = \spec(A)$
@@ -944,7 +958,7 @@ In fact we can use this characterization in our context thanks to the following 
 
 
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/02GM}{Lemma 02GM}]{SP}}]
-	\label{FlatMorphismEtaleViaFIbers}
+	\label{FlatMorphismEtaleViaFibers}
 	Let $f\colon X \to S$ be a morphism of schemes.
 	Assume, moreover, that $f$ is flat, locally of finite presentation and that,
 	for all $s \in S$, the fiber $X_s \coloneqq 
@@ -955,7 +969,7 @@ In fact we can use this characterization in our context thanks to the following 
 
 
 \noindent
-Finally we to quote an important result which
+Finally we quote an important result which
 concerns finite étale group schemes over a field.
 \begin{defn}[Discrete $\mathscr{G}_k$-groups]
 	Let $k$ be a field and $\overline{k}$ a fixed separable closure of $k$.
@@ -979,7 +993,7 @@ concerns finite étale group schemes over a field.
 \begin{rem}[{\cite[\S3, example (7)]{Shatz}}]
 	We can generalize the above result to the case of a base scheme
 	\(S \coloneqq \spec(R)\), where \(R\) is a complete (or more generally
-	Hensel) Noetherian local ring with residue field \(k\).
+	Henselian) Noetherian local ring with residue field \(k\).
 	In this case, again, we find an equivalence of categories,
 	this time between the category of abstract discrete finite \(\mathscr{G}_k\)-groups
 	and that of étale \(R\)-group schemes.
@@ -991,10 +1005,10 @@ concerns finite étale group schemes over a field.
 	constant group schemes over fields.
 	In fact they are represented by the spectrum of a
 	finite product of copies of the base field, hence they are étale
-	by \cref{thm:SeparableAlgebrasCharacterization}.
+	by \cref{thm:SeparableAlgebrasCharacterization,lem:EtaleMorphismsSchemes}.
 	More generally, in case the base scheme is a Noetherian discrete valuation
 	ring, we can reduce to the above arguments on the two fibers 
-	thanks to \cref{FlatMorphismEtaleViaFIbers} and obtain the same result.
+	thanks to \cref{FlatMorphismEtaleViaFibers} and obtain the same result.
 	In fact we only need to show that the structure morphism is flat,
 	which corresponds to showing that our algebra is a flat module over the 
 	base ring.
@@ -1006,7 +1020,7 @@ concerns finite étale group schemes over a field.
 
 \subsubsection{Connected-étale exact sequence}
 In the following section we will always assume 
-$S = \spec(R)$	for a henselian local ring $R$.
+$S = \spec(R)$	for a Henselian local ring $R$.
 We will denote by $\mathfrak{m}$ its maximal ideal, by $k \coloneqq R/\mathfrak{m}$
 its residue field and by $s \coloneqq \spec(k)$ the closed point of $R$.
 Finally by $G$ we will denote a finite and flat $S$-group scheme.
@@ -1057,7 +1071,8 @@ Finally by $G$ we will denote a finite and flat $S$-group scheme.
 
 
 \subsection{Cartier Duality}\label{CartierDualityGroups}
-In this section we will mainly be concerned with $S = \spec(R)$ affine
+In this section we will introduce a notion of duality for finite commutative group schemes over rings.
+Hence we will restrict our attention to $S = \spec(R)$ affine
 and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 
 
@@ -1138,7 +1153,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 
 
 \begin{thm}[{\cite[\S 3.7]{Waterhouse}}, Cartier duality]\label{thm:CartierDuality}
-	Let $G$ be a finite, commutative $R$-group scheme.
+	Let $G$ be a finite, commutative $S$-group scheme.
 	Then the following facts hold true.
 \begin{enumerate}
 	\item $G^D$ is a finite commutative $S$-group scheme.
@@ -1160,7 +1175,7 @@ and $G$ finite commutative over $S$, hence affine, let's say $G = \spec(A)$.
 
 \noindent
 One can also interpret duality from a different point of view.
-Here the relevant notions.
+Here are the relevant notions.
 \begin{defn}[Characters of $\mathrm{S}$-groups]
 	Let $G$ be an $S$-group scheme.
 	A \emph{character} of $G$ is a homomorphism of $S$-groups
@@ -1170,14 +1185,16 @@ Here the relevant notions.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\chi\colon G \arrow[r, "", rightarrow] &
 		\mathbb{G}_{ m,S }
-	.\end{tikzcd}
+	,\end{tikzcd}
 	\end{equation*} 
+	where \(\mathbb{G}_{ m,S }\) denotes the base change of
+	\(\mathbb{G}_{ m }\) to \(S\).
 \end{defn}
 
 
 \begin{rem}[{\cite[\S 2.4]{Waterhouse}}, Dual as hom functor]\label{rem:DualasHomFct}
-	Characters form a group in the set of morphism of $S$-schemes
-	between $G$ and $\mathbb{G}_{m,S}$, the base change of $\mathbb{G}_m$ to $S$.
+	Characters form a group in the set of morphisms of $S$-schemes
+	between $G$ and $\mathbb{G}_{m,S}$.
 	Then one can introduce the contravariant sheaf hom functor, also called
 	internal hom functor, from $\mathsf{Sch}/S$ to $\mathsf{Ab}$
 	\begin{equation*}
@@ -1207,15 +1224,12 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 		In particular this yields that $\mu_n$ is dual to $\underline{\mathbb{Z}/n\mathbb{Z}}$
 		and viceversa.
 
-	\item One can show that $\alpha_p^D \simeq \alpha_p$.
+	\item The group \(\alpha_p\) is self dual, i.e$.$ $\alpha_p^D \simeq \alpha_p$.
 		In fact we can view $\alpha_p^D$ as the character group
 		\begin{equation*}
-			\Hom_{\mathsf{Gp}/S} \left( \alpha_{p,S}, \mathbb{G}_{m,S} \right)
+			\mathcal{H}\mathrm{om}_{\mathsf{Gp}/\mathbb{F}_{ p }}
+			\left( \alpha_{p}, \mathbb{G}_{m,\mathbb{F}_{ p }} \right)
 		.\end{equation*}
-		To see this we can reduce to the case where 
-		$S = \spec(\mathbb{F}_p)$.
-		The result holds in general due to compatibility of the construction of
-		dual group scheme with base change.
 		Then, for any $\mathbb{F}_{p}$-algebra $R$, we can define the exponential map
 		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
@@ -1233,9 +1247,9 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
-			\alpha(T) \arrow[r, "\sim", rightarrow] &
-			\Hom_{\mathsf{Gp}/\mathbb{F}_{p} }
-			\left( \alpha_p, \mathbb{G}_{m,\mathbb{F}_{p}} \right) \\
+			\alpha_p(T) \arrow[r, "\sim", rightarrow] &
+			\Hom_{\mathsf{Gp}/T}
+			\left( \alpha_{ p,T }, \mathbb{G}_{m,T} \right) \\
 			\xi \arrow[r, "", mapsto] & 
 			\left( r \mapsto \mathrm{exp}(\xi \cdot r) \right)
 		.\end{tikzcd}
@@ -1246,8 +1260,9 @@ Let's now give a few examples of dual group schemes among the ones we introduced
 
 
 \subsection{Frobenius and Verschiebung}\label{sec:FrobeniusVerschiebung}
-Let's now study a few constructions in characteristic $p$:
-let $R$ be a ring with $\mathrm{char}\, R = p$.
+In this section we want to construct two important maps, the Frobenius and Verschiebung maps,
+and present an important relation they satisfy.
+For their definition we will assume that $R$ is a ring with $\mathrm{char}\, R = p$.
 %tk: for this section please add some references (not only the course from Essen).
 
 
@@ -1348,7 +1363,7 @@ let $R$ be a ring with $\mathrm{char}\, R = p$.
 	.\end{tikzcd}
 	\end{equation*}
 \item Assume now that $G \coloneqq X$ is an $S$-group scheme. 
-	By \cref{lem:FrobeniusHomomorphism} $F^n_G$ is a group scheme homomorphism.
+	By \cref{lem:FrobeniusHomomorphism} $F^n_G$ is a homomorphism of \(S\)-group schemes.
 	We say that $F_G$ is \emph{nilpotent} iff there is an integer $n \geq 1$ such that
 	$F^n_G$ is the trivial homomorphism.
 \end{enumerate}
@@ -1378,7 +1393,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 \begin{defn}[Verschiebung]
 	Let $G$ be a finite, commutative $R$-group scheme.
 	By \cref{thm:CartierDuality} $(G^{(p)})^D \simeq (G^D)^{(p)}$.
-	One defines the \emph{Verschiebung}, german for "the shift", homomorphism
+	One defines the \emph{Verschiebung} homomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1389,6 +1404,7 @@ $R$ by a field $k$ of characteristic $p > 0$.
 	\end{equation*} 
 	as the dual to $F_{G^D}\colon G^D \to (G^D)^{(p)} \simeq (G^{(p)})^D$,
 	recalling that $((G^{(p)})^D)^D \simeq G^{(p)}$ and $(G^D)^D \simeq G$.
+	The word Verschiebung is a a german word, meaning "the shift".
 \end{defn}
 
 
