@@ -39,7 +39,8 @@ Let's start by recalling a few useful algebra definitions.
 	is an \emph{ideal of definition} iff $I$ is open and every neighbourhood
 	of $0$ contains $I^n$ for an appropriate $n \in \mathbb{N}$.
 
-\item $\mathscr{R}$ is \emph{admissible} iff it has an ideal of definition and it is \emph{complete}.
+\item $\mathscr{R}$ is \emph{admissible} iff it has an ideal of definition and it is \emph{complete},
+	i.e$.$ all Cauchy sequences admit a limit in \(\mathscr{R}\).
 \end{enumerate}
 \end{defn}
 
@@ -103,7 +104,7 @@ Let's start by recalling a few useful algebra definitions.
 	with topologies defined as follows.
 	To each $U \subset X$ open and quasi compact we endow
 	$\mathcal{F}(U)$ with the discrete topology.
-	For an arbitrary open $U = \cup_{i \in I} U_i$, where $U_i$ are all
+	For an arbitrary open $U = \bigcup_{i \in I} U_i$, where $U_i$ are all
 	quasi compact open, we endow $\mathcal{F}(U)$ with the
 	induced topology from $\Pi_{i \in I} \mathcal{F}(U_i)$, via the inclusion
 	in the definition of sheaf, which comes from the exact sequence
@@ -243,7 +244,7 @@ hence all of the verifications can be checked there.
 
 \begin{rem}[]
 	Following the construction of associated pseudo-discrete sheaf,
-	one can associate to any sheaf a formal sheaf.
+	one can associate to any scheme a formal scheme.
 	This actually gives rise to a fully faithful embedding of the category of schemes
 	in that of formal schemes.
 \end{rem}
@@ -274,7 +275,7 @@ let's also recall a couple of results with these objects.
 	local admissible ring and $S \coloneqq \spec(\mathscr{R})$.
 	Moreover we will mainly deal with formal affine schemes over $S$ which
 	are given by inductive limits of what Shatz defines \emph{very finite} schemes over $S$.
-	There, we read that an $S$-schemes $T$ is very finite iff it satisfies:
+	More explicitly he says that an $S$-schemes $T$ is very finite iff it satisfies:
 	\begin{enumerate}
 		\item $T$ is \emph{finite and flat} over $S$ (hence affine) and
 		\item the $\mathscr{R}$-module $\Gamma \left( T , \mathcal{O}_{ T } \right)$
@@ -282,7 +283,7 @@ let's also recall a couple of results with these objects.
 	\end{enumerate}
 	Specializing \cref{EquivalenceFormalAffineSchemes} to the case of
 	this family of formal affine schemes over $S$, i.e. those
-	which are given by inductive limits of \emph{very finite} $S$ schemes,
+	which are given by inductive limits of \emph{very finite} $S$-schemes,
 	we obtain an anti-equivalence of categories with the category of
 	profinite $\mathscr{R}$-algebras.
 	This is the setting in which we will state most results in the 
@@ -387,7 +388,7 @@ the right one in our context.
 	formal Lie varieties.
 	More explicitly it is $\Gamma \coloneqq \spf\left( \mathscr{A} \right)$,
 	where $\mathscr{A} \coloneqq \mathscr{R} [\![ X_1, \ldots, X_{ n } ]\!]$.
-	Then $n$ is its dimension. 
+	Moreover we say that $n$ is its dimension. 
 \end{defn}
 
 
@@ -427,7 +428,7 @@ the right one in our context.
 	the existence of the inverse for any element of $\Gamma$,
 	hence they suffice to give $\Gamma$ a formal group scheme structure.
 
-	Finally a note on the terminology and the axioms.
+	Finally a note on terminology and the axioms.
 	At first one can notice that we have never explicitly asked 
 	a formal Lie group to be commutative, but we have added the axiom here.
 	In fact, much like the choice of introducing them via the explicit description
@@ -913,7 +914,7 @@ The following proposition and remark will clarify it.
 	hence $G$ is $p$-torsion (it is $\varinjlim G_v$).
 	To simplify the discussion we will introduce the notation
 	$i_{v,t} \coloneqq i_v \circ \cdots \circ i_{v+t}\colon G_v \to G_{v + t}$.
-	Then we analyze the following diagram to obtain that $p$
+	Then we analyse the following diagram to obtain that $p$
 	is an isogeny:
 	\begin{equation}\label{diag:pDivCharProof}
 	\begin{tikzcd}[row sep=1.4em]
