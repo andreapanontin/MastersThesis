@@ -783,7 +783,7 @@ $S$ of characteristic $p$.
 \begin{enumerate}
 	\item $G$ is of $F$-torsion;
 	\item $G$ is $F$-divisible;
-	\item for all \(n\), $G[n]$ is a finite flat $S$-group scheme.
+	\item for all \(n\), $G[n]$ is a finite, locally free $S$-group scheme.
 \end{enumerate}
 \end{thm}
 
@@ -989,12 +989,12 @@ The following proposition and remark will clarify it.
 		G = \varinjlim G_v = \left( \mathbb{Q}_p / \mathbb{Z}_p \right)^h
 	.\end{equation*} 
 
-\item Let $G_v \coloneqq (\mu_{p^v})_{\mathscr{R}}$ be the kernel of
-	multiplication by $p^v$ in $(\mathbb{G}_m)_{\mathscr{R}}$.
+\item Let $G_v \coloneqq \mu_{p^v,\mathscr{R}}$ be the kernel of
+	multiplication by $p^v$ in $\mathbb{G}_{m,\mathscr{R}}$.
 	We can form an inductive system from these objects, which defines
 	the $p$-divisible group
 	\begin{equation*}
-		\mu_{p^\infty, \mathscr{R}} = \mathbb{G}_{ m, \mathscr{R} }(p) 
+		\mu_{p^\infty} = \mathbb{G}_{ m, \mathscr{R} }(p) 
 		\coloneqq \varinjlim_{v \in \mathbb{N}} G_v
 	,\end{equation*}
 	called the \emph{$p$-divisible group of $\mathbb{G}_m$}.
@@ -1021,10 +1021,10 @@ The following proposition and remark will clarify it.
 	one can define a $p$-divisible group of height $h$
 	over $\mathscr{R}$, starting from $\Gamma$, by the inductive system
 	\begin{equation*}
-		\Gamma(p) \coloneqq \left(\Gamma_{p^\nu}, i_{p^\nu}\right)_\nu
+		\Gamma(p) \coloneqq \left(\Gamma_{p^v}, i_{p^v}\right)_{ v \in \mathbb{N} }
 	.\end{equation*} 
-	In the above $\Gamma_{p^\nu}$ is the kernel of
-	the multiplication by $p^\nu$ in $\Gamma$.
+	In the above $\Gamma_{p^v}$ is the kernel of
+	the multiplication by $p^v$ in $\Gamma$.
 	Then one can prove that $\ker p$ is connected and,
 	since $p$ is an isogeny, it is also finite.
 	By \cref{prop:PropertiesConnectedEtale} this implies that
@@ -1039,23 +1039,21 @@ The following proposition and remark will clarify it.
 	over \(S\).
 	Denote by \(X(v)\) the kernel of multiplication by \(p^v\)
 	in \(X\).
-	It is known that \(X(v)\) is a finire flat and commutative
+	It is known that \(X(v)\) is a finite, flat and commutative
 	group scheme over \(S\) of order \(p^{ 2dv }\).
 	As a consequence the inductive system \(\left(X(v), i_v\right)\),
 	where \(i_v\) is the natural inclusion, gives rise to
 	a \(p\)-divisible group, denoted by \(X(p)\),
 	of height \(2d\).
-	We call \(X(p)\) the \(p\)-divisible group of
+	We call \(X(p)\) the \(p\)-divisible group
 	of the abelian scheme \(S\).
 \end{enumerate}
 \end{ex}
 
 
 \begin{rem}[]
-	Even though the above, in \cref{ex:ConnectedpDivGroupFLG},
-	is just a sketch of the construction, of which more details
-	are available at \cite[\S6]{Shatz},
-	we felt it was useful to quote it in view of the following section.
+	More details about the construction carried out
+	in \cref{ex:ConnectedpDivGroupFLG} can be found at \cite[\S6]{Shatz}.
 \end{rem}
 
 
