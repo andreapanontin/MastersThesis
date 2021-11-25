@@ -462,6 +462,8 @@ the right one in our context.
 \subsubsection{fppf sheaves point of view}
 In the following part we will always write groups over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}/S)_{\mathrm{fppf}}$.
+We will add a modifier adjective, such as \emph{flat, finite} or \emph{locally-free},
+to indicate that the \(S\)-group in question is representable.
 Also the schemes $X, Y \in \mathsf{Sch}/S$ will be viewed, via the associated
 functor of points, as sheaves on $S$ for the fppf topology.
 Recall that, for $Y \in \mathsf{Sch}/S$, sections on
@@ -789,7 +791,7 @@ $S$ of characteristic $p$.
 
 
 \noindent
-For the following result assume that the base scheme \(S = \spec(A)\)
+For the following result assume that the base scheme \(S = \spec(\mathscr{A})\)
 is the affine scheme associated to an admissible ring with ideal of definition \(I\).
 Assume moreover that \(I/I^2\) is of finite type over \(\mathscr{A}/I\) and
 set \(S_n \coloneqq \spec(\mathscr{A}/I^{ n+1 })\).
@@ -1052,8 +1054,8 @@ The following proposition and remark will clarify it.
 
 
 \begin{rem}[]
-	More details about the construction carried out
-	in \cref{ex:ConnectedpDivGroupFLG} can be found at \cite[\S6]{Shatz}.
+	More details about the construction of
+	\cref{ex:ConnectedpDivGroupFLG} can be found at \cite[\S6]{Shatz}.
 \end{rem}
 
 
@@ -1061,6 +1063,8 @@ The following proposition and remark will clarify it.
 \subsubsection{fppf sheaves point of view}
 As before, in the following part we will write group over $S$, or $S$-group, to mean
 an fppf sheaf of commutative groups on the site $(\mathsf{Sch}/S)_{\mathrm{fppf}}$.
+Again, we will add a modifier adjective, such as \emph{flat, finite} or \emph{locally-free},
+to indicate that the \(S\)-group in question is representable.
 Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \emph{Barsotti-Tate groups}.
 
@@ -1076,11 +1080,12 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \end{lem} 
 
 
+\newpage
 \begin{defn}[Truncated Barsotti-Tate group of level $n$]
 	Consider $n \geq 2$, a \emph{truncated Barsotti-Tate group} of level $n$
 	is an $S$-group $G$ such that
 \begin{enumerate}
-	\item $G$ is a finite and locally-free group scheme and
+	\item $G$ is a finite and locally-free \(S\)-group and
 	\item $G$ is killed by $p^n$ and satisfies the equivalent conditions of 
 		\cref{lem:equivCondTruncatedBTGroup}.
 \end{enumerate}
@@ -1117,7 +1122,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 \begin{defn}[$p$-torsion and $p$-divisible groups]
 	Let $S$ be a scheme and $G$ be an $S$-group.
 	Denote by $G(n)$ the kernel of the multiplication by $p^n$ on $G$.
-	The group $G$ is said to be of \emph{$p$-torsion} iff $\varinjlim_{n \in \mathbb{N}} G(n) = G$.
+	The group $G$ is said to be of \emph{$p$-torsion} iff $G = \varinjlim_{n \in \mathbb{N}} G(n)$.
 	Similarly $G$ is said to be \emph{$p$-divisible} iff $p\colon G \to G$
 	is an epimorphism.
 \end{defn}
@@ -1146,11 +1151,11 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 
 \begin{rem}[{\cite[Chpater I, \S2.4.1]{Messing}}]
 	Let $f\colon S' \to S$ be an arbitrary morphism of schemes.
-	Consider $\mathsf{BT}/S$ as a subcategory of sheaves
-	of abelian groups on $\left( \mathsf{Sch}/S  \right)_{\mathrm{fppf}}$
+	Consider $\mathsf{BT}/S$ as a subcategory of the category of
+	sheaves of abelian groups on $\left( \mathsf{Sch}/S  \right)_{\mathrm{fppf}}$
 	and define, as in \cref{defn:localizationTopoi}, the pullback
 	functor between the appropriate categories of sheaves.
-	Then, for any $G \in \mathsf{BT}/S$, the pullback $f^* G$,
+	Then, for any $G \in \mathsf{BT}/S$, the pullback $f^* G$
 	is a Barsotti-Tate group on $S'$.
 	Moreover we call \emph{lift} of $G \in \mathsf{BT}/S'$ via $f$ any 
 	$H \in \mathsf{BT}/S$ such that $f^*H \simeq G$.
@@ -1158,7 +1163,7 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 
 
 \begin{lem}[{\cite[Chapter II, \S3, lemma 3.3.18]{Messing}}]
-	Let $p$ be locally nilpotent of $S$ and $G$ be a \emph{Barsotti-Tate} group on $S$.
+	Let $p$ be locally nilpotent on $S$ and $G$ be a \emph{Barsotti-Tate} group on $S$.
 	Then
 	$\overline{G} \coloneqq \varinjlim_{k \in \mathbb{N}} \mathrm{Inf}^k(G)$
 	is a \emph{formal Lie group}.
@@ -1185,11 +1190,11 @@ Moreover, following \cite{Messing}, we will call $p$-divisible groups
 
 \noindent
 As in the section regarding formal Lie varieties,
-for the following result we will consider the base scheme \(S = \spec(A)\),
-where \(A\) is an admissible ring with ideal of definition \(I\).
-Assume moreover that \(I/I^2\) is of finite type over \(A/I\) and
-set \(S_n \coloneqq \spec(A/I^{ n+1 })\).
-\begin{lem}[{\cite[Chapter 2, \S4, lemma 4.13]{Messing}}]\label{lem:BT/admissible}
+for the following result we will consider the base scheme \(S = \spec(\mathscr{A})\),
+where \(\mathscr{A}\) is an admissible ring with ideal of definition \(I\).
+Assume moreover that \(I/I^2\) is of finite type over \(\mathscr{A}/I\) and
+set \(S_n \coloneqq \spec(\mathscr{A}/I^{ n+1 })\).
+\begin{lem}[{\cite[Chapter 2, \S4, lemma 4.16]{Messing}}]\label{lem:BT/admissible}
 	The natural functor associating to a Barsotti-Tate group over \(S\)
 	a family of Barsotti-Tate groups over \(S_n\) is an
 	\emph{equivalence of categories}.
@@ -1200,9 +1205,9 @@ set \(S_n \coloneqq \spec(A/I^{ n+1 })\).
 
 \begin{rem}[Comparison of the two points of view]
 	We will follow \cite[Chapter I, \S2, remark 2.3 and 
-	Chapter II, \S3, theorem 2.1.7]{Messing} to show that
-	the two points of view define the same objects over $S = \spec(R)$,
-	for an admissible local ring $R$.
+	Chapter II, \S2, theorem 2.1.7]{Messing} to show that
+	the two points of view define the same objects over $S = \spec(\mathscr{R})$,
+	for an admissible local ring $\mathscr{R}$.
 	Let's start by considering $G \in \mathsf{BT}/S$.
 	Let's denote by $i_{v,t}\colon G(v) \to G(v+t)$ the natural inclusion
 	morphisms.
@@ -1296,9 +1301,12 @@ again, \(\mathscr{R}\) will denote an admissible local ring.
 	defining it).
 	Then, still by \cref{rem:DualityOtherProperties}, we obtain that it satisfies condition 1
 	of \cref{defn:pDivGroupFormalSchemes}.
-	Moreover, since $i_{1,v}$ is injective,
-	commutativity of the lower triangle in \cref{diag:pDivCharProof}
-	shows that $j_v = \coker i_{1,v} = \coker \left( p^v\colon G_{v+1} \to G_{v+1} \right)$.
+	Moreover, from \cref{eqn:pDivGrInducedmultiplication}, we read that
+	\(j_v = \coker i_v\), which also implies that \(j_v\) is an epimorphism.
+	As a consequence we obtain that \(\coker i_v = \coker i_v \circ j_v =
+	\coker \left( p\colon G_{v+1} \to G_{v+1} \right)\), where the last
+	equality holds thanks to commutativity of 
+	the lower triangle in \cref{diag:pDivCharProof}.
 	But then, since duality is exact, this implies that the inductive system
 	satisfies also property 2 of \cref{defn:pDivGroupFormalSchemes},
 	hence it defines a $p$-divisible group.
@@ -1417,7 +1425,7 @@ be a Barsotti-Tate group over $O_K$.
 	\begin{equation*}
 		G(O_L) \coloneqq \varprojlim_{i \in \mathbb{N}} G(O_L/\mathfrak{m}^iO_L)
 	,\end{equation*}
-	where $\mathfrak{m}$ is the maximal ideal of $O_K$ and where
+	where $\mathfrak{m} = \pi O_K$ is the maximal ideal of $O_K$ and where
 	\begin{equation*}
 		G(O_L/\mathfrak{m}^iO_L) = \varinjlim_{v \in \mathbb{N}} G_v(O_L/\mathfrak{m}^iO_L)
 	.\end{equation*}
@@ -1498,7 +1506,7 @@ be a Barsotti-Tate group over $O_K$.
 	,\end{equation*}
 	where $\underline{\mathbb{Q}_p/\mathbb{Z}_{p}} \coloneqq \varinjlim_{v \in \mathbb{N}}
 	\underline{\mathbb{Z}/p^n\mathbb{Z}}$, as constructed 
-	in \cref{ex:pDivGroups} \cref{ex:Qp/Zp} with $\mathscr{R} = O_{\overline{K}}$.
+	in \cref{ex:Qp/Zp} of \cref{ex:pDivGroups} with $\mathscr{R} = O_{\overline{K}}$.
 \end{prop}
 \begin{proof}
 	For this proof we will recall \cref{defn:pDivGroupFormalSchemes}
