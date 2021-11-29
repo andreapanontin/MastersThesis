@@ -3,9 +3,10 @@ The aim of this section is to introduce the crystalline site on a scheme,
 on which we will define the notion of crystal.
 In order to do so we will need to develop some theory for extensions
 and prolongations, which will be studied via the exponential map.
-To introduce this map we need to define divided power structures,
-which allow to make sense of expressions like $x^n/n!$, hence of 
-exponentials.
+To define this map we need divided power structures,
+which allow to make sense of exponentials even when
+expressions like $x^n/n!$ are not defined,
+such as when \(n!\) is not invertible.
 
 
 
@@ -39,7 +40,7 @@ exponentials.
 	or as a \emph{divided power ring}.
 	Borrowing from the literature we may use the shorter \emph{P.D. ring}
 	(analogously \emph{P.D. structure} or \emph{P.D. ideal}), where
-	P.D. stands for "puissances divisées", french for "divided powers".
+	P.D. stands for "puissances divisées", French for "divided powers".
 \end{defn}
 
 
@@ -142,8 +143,8 @@ exponentials.
 
 
 \noindent
-Since divided power structures need not be unique, we are pushed to
-introduce the following definition.
+Since divided power structures need not exist, nor be unique, we are pushed to
+introduce the following definitions.
 \begin{defn}[Morphism of divided power rings]
 	A \emph{morphism of divided power rings}, denoted by
 	\begin{equation*}
@@ -212,7 +213,7 @@ Let's now state a few criteria which allow to extend an existing divided power s
 
 \noindent
 We will also need to work with $p$-adic completions, so we wish
-to extend divided powers also in this case.
+to extend divided powers in this case too.
 \newpage
 \begin{lem}[{\cite[\href{https://stacks.math.columbia.edu/tag/07KD}{Lemma 07KD}]{SP}}]
 	\label{PDExtendCompletion}
@@ -417,9 +418,17 @@ inverse maps, of which we will construct some generalizations later on.
 	be schemes with divided powers.
 	A \emph{morphism of divided power schemes}
 	\begin{equation*}
-	f\colon \left(S, \mathcal{I}, \gamma\right) \to 
-	\left(S', \mathcal{I}', \gamma'\right)
-	\end{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		f\colon \left(S, \mathcal{I}, \gamma\right) \arrow[r, "", rightarrow] &
+		\left(S', \mathcal{I}', \gamma'\right)
+	\end{tikzcd}
+	\end{equation*} 
+	%\begin{equation*}
+	%f\colon \left(S, \mathcal{I}, \gamma\right) \to 
+	%\left(S', \mathcal{I}', \gamma'\right)
+	%\end{equation*}
 	is a morphism of schemes
 	$f\colon S \to S'$ such that
 	$f^{-1}(\mathcal{I}') \mathcal{O}_S \subset \mathcal{I}$
@@ -453,7 +462,7 @@ inverse maps, of which we will construct some generalizations later on.
 \begin{defn}[Locally nilpotent sheaf of ideals with divided powers]
 	We say that the divided powers on the sheaf of ideals $\mathcal{I}$
 	of $\mathcal{O}_{ S }$ are \emph{locally nilpotent} iff,
-	locally on $S$, they satisfy the conditions in \cref{defn:NilpotentDividedPowers}.
+	locally on $S$, they satisfy conditions in \cref{defn:NilpotentDividedPowers}.
 \end{defn}
 
 
@@ -462,7 +471,7 @@ In order to generalize the other constructions of the section
 we need the following result.
 
 
-\begin{prop}[{\cite[Remark 3.20, proposition 3.21]{Berthelot}}]\label{prop:PDEnvScheme}
+\begin{prop}[{\cite[Remark 3.20 and proposition 3.21]{Berthelot}}]\label{prop:PDEnvScheme}
 	Let $\left(A, I, \gamma\right)$ be a divided power ring, $B$
 	an $A$-algebra with $J$ an ideal of $B$.
 \begin{enumerate}
@@ -892,7 +901,7 @@ or $\mathcal{O}_{ S }$-modules.
 \end{enumerate}
 	Moreover consider $G \in \mathsf{Gr}/S$ for which there exists a
 	co-algebra $\mathcal{U}$ for which $G = \cospec(\mathcal{U})$ as
-	fppf sheaves (which in particular include \emph{formal Lie groups} and \emph{Barsott-Tate groups}).
+	fppf sheaves (which in particular include \emph{formal Lie groups} and \emph{Barsotti-Tate groups}).
 	Then we define $\lie(G) \coloneqq \lie(\mathcal{U})$.
 \end{defn}
 
@@ -916,7 +925,7 @@ or $\mathcal{O}_{ S }$-modules.
 	It can be viewed as the dual of the tangent space at the origin
 	of our group $X$.
 	Analogously the requirements that sections of $\underline{\lie}(\mathcal{U})$
-	be primitive, can be seen as a formal version of Leibnitz rule,
+	be primitive, can be seen as a formal version of Leibniz rule,
 	so that these sections can be paired with left invariant derivations, i.e$.$
 	elements of the tangent space at the origin.
 	All in all, the above can be expanded to obtain an isomorphism
@@ -1188,7 +1197,7 @@ Il y a des cristaux de toute espèce de substance : des cristaux de soude,
 de soufre, de modules, d'anneaux, de schémas relatifs, etc.}~»\footnote{A
 crystal has two characteristic properties: rigidity and ability to grow
 in appropriate neighbourhoods.
-There are crystals of every kind of substance: crystals of soda, of sulfur,
+There are crystals of every kind of substance: crystals of soda, of sulphur,
 of modules, of rings, of relative schemes, etc.}
 
 
