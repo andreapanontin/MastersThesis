@@ -543,7 +543,7 @@ This means that it might not be consistent with our previous exposition.
 	which is also endowed with an $\mathcal{O}_{ S }$-algebra structure.
 
 \item We say that $\mathcal{U}$ is an $\mathcal{O}_{ S }$ \emph{co-algebra}
-	iff it is an $\mathcal{O}_{ S }$-modules, endowed with
+	iff it is an $\mathcal{O}_{ S }$-module, endowed with
 	morphisms of $\mathcal{O}_S$-modules
 	$\Delta\colon \mathcal{U} \to \mathcal{U} \otimes_{\mathcal{O}_{ S }} \mathcal{U}$
 	and $\eta\colon \mathcal{U} \to \mathcal{O}_{ S }$
@@ -572,7 +572,7 @@ This means that it might not be consistent with our previous exposition.
 	Then, if \(\mathcal{A}\) is given an \(\mathcal{O}_{ S }\)-algebra structure,
 	following \cref{rem:dualHopfStructure}, we can endow \(\mathcal{A}^\vee\)
 	with an \(\mathcal{O}_{ S }\) co-algebra structure
-	(here again the hypothesis of local freeness and finiteness are indeed
+	(here again the hypothesis of local freeness and finiteness are
 	of vital importance).
 	Vice-versa, given a finite locally-free \(\mathcal{O}_{ S }\) co-algebra
 	\(\mathcal{B}\), its dual \(\mathcal{O}_{ S }\)-module \(\mathcal{B}^\vee\)
@@ -668,11 +668,12 @@ We need some preliminary definitions first.
 	\Hom_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
 	\left( \mathcal{O}_{ S' }, \mathcal{U}_{S'} \right)
 	,\end{equation*}
-	where $\mathcal{O}_{ S }$ is given the co-algebra structure 
+	where $\mathcal{O}_{ S' }$ is given the co-algebra structure 
 	of the multiplicative group scheme, as seen in
 	\cref{ex:MultiplicativeGroupScheme} of \cref{ex:AffineGroupSchemesExamples},
-	and the right hand side denotes the morphisms of $\mathcal{O}_{ S' }$
-	co-algebras which are morphisms of \(\mathcal{O}_{ S' }\)-modules
+	and the right hand side denotes the morphisms of 
+	$\mathcal{O}_{ S' }$-co-algebras, which are
+	morphisms of \(\mathcal{O}_{ S' }\)-modules
 	preserving the morphisms $\Delta$ and \(\eta\).
 	More explicitly this identification associates
 	$\varphi\colon \mathcal{O}_{ S' } \to \mathcal{U}_{S'}$ to
@@ -770,6 +771,8 @@ or $\mathcal{O}_{ S }$-modules.
 		\Hom_{ \mathcal{O}_{ S' }}
 		\left( \mathcal{A}_{S'}, \mathcal{O}_{ S' } \right) \\
 		&\simeq
+		%\Hom_{ \mathcal{O}_{ S } }\left(\mathcal{A}, \mathcal{O}_{ S' }\right) \simeq
+		%\Hom_{ S }\left(S', \underline{\spec}_S(\mathcal{A})\right)
 		\Gamma(S', \underline{\spec}_S(\mathcal{A}))
 	,\end{align*}
 	where the last isomorphism holds by 
@@ -823,28 +826,12 @@ or $\mathcal{O}_{ S }$-modules.
 \end{defn}
 
 
-\begin{rem}[{\cite[propositiona 4.6.2 and 4.6.5]{SGA3-1}}]
-\leavevmode\vspace{-0.2\baselineskip}\label{representabilityVectSGroup}
-\begin{enumerate}
-\item[\emph{4.6.2}:]
+\begin{prop}[{\cite[proposition 4.6.2]{SGA3-1}}]
 	The functor $\mathbf{W}$ commutes with base changes,
 	so that $\mathbf{W}(\mathcal{V})_{S'} \simeq \mathbf{W}(\mathcal{V}_{S'})$,
 	where the subscript $S'$ denotes respectively the base change 
 	and the pullback along $S' \to S$.
-
-\item[\emph{4.6.5}:]
-	If $\mathcal{V}$ is also  locally-free and of finite rank, we have the canonical isomorphism
-	\begin{equation*}
-		\mathbf{W}(\mathcal{V}) \simeq
-		\Hom_{ \mathcal{O}_{ S }\text{-}\mathsf{Mod} }
-		\left(\mathbf{W}(\mathcal{V}^\vee) , \mathcal{O}_{ S } \right) \simeq
-		\underline{\spec}_S(\sym(\mathcal{V}^\vee))
-	.\end{equation*}
-	This gives a representative in $\mathsf{Sch}/S$ for 
-	$\mathbf{W}(\mathcal{V})$, making it not only an object of $\mathsf{Gr}/S$,
-	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}/S$.
-\end{enumerate}
-\end{rem}
+\end{prop}
 
 
 \begin{ntt}\label{not:fppfOsModule}
@@ -859,14 +846,45 @@ or $\mathcal{O}_{ S }$-modules.
 \end{ntt}
 
 
+\begin{prop}[{\cite[proposition 4.6.5]{SGA3-1}}]\label{representabilityVectSGroup}
+	Let \(S\) be a scheme and \(\mathcal{V}\) a locally-free 
+	\(\mathcal{O}_{ S }\)-module of finite type.
+	We have the canonical isomorphisms of functors
+	\begin{equation*}
+		\underline{\mathcal{V}} \simeq
+		\mathcal{H}\mathrm{om}_{ \underline{\mathcal{O}_{ S }}\text{-}\mathsf{Mod} }
+		\left(\mathbf{W}(\mathcal{V}^\vee) , \underline{\mathcal{O}_{ S }} \right) \simeq
+		\underline{\spec}_S(\sym(\mathcal{V}^\vee))
+	,\end{equation*}
+	where we view \(\underline{\spec}_S(\operatorname{Sym}(\mathcal{V}^\vee))\)
+	as its associated functor of points, whereas
+	we define \(S'\) points of
+	\(\mathcal{H}\mathrm{om}_{ \underline{\mathcal{O}_{ S }}\text{-}\mathsf{Mod} }
+		\left(\mathbf{W}(\mathcal{V}^\vee) , \underline{\mathcal{O}_{ S }} \right)\) 
+		%\left(\underline{\mathcal{V}^\vee} , \underline{\mathcal{O}_{ S }} \right)\)
+		to be 
+	\begin{equation*}
+		\mathcal{H}\mathrm{om}_{ \underline{\mathcal{O}_{ S }}\text{-}\mathsf{Mod} }
+		\left(\mathbf{W}(\mathcal{V}^\vee) , \underline{\mathcal{O}_{ S }} \right) (S') \coloneqq
+		%\left(\underline{\mathcal{V}^\vee} , \underline{\mathcal{O}_{ S }} \right) (S') \coloneqq
+		\Hom_{ \mathcal{O}_{ S' }\text{-}\mathsf{Mod} }
+		\left(\mathcal{V}^\vee_{ S' }, \mathcal{O}_{ S' }\right)
+	\end{equation*}
+	for all \(S' \in \mathsf{Sch}/ S \).
+	This gives a representative in $\mathsf{Sch}/S$ for 
+	$\underline{\mathcal{V}}$, making it not only an object of $\mathsf{Gr}/S$,
+	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}/S$.
+\end{prop}
+
+
 \begin{defn}[Vector \(S\)-group]\label{defn:VectorSGroup}
 	Let \(S\) be a scheme and \(\mathcal{V}\) a quasi-coherent
 	locally-free \(\mathcal{O}_{ S }\)-module of finite rank.
 	We define the \emph{vector \(S\)-group} of \(\mathcal{V}\)
-	to be \(\underline{\mathcal{V}} = \mathbf{W}(\mathcal{V})\), as of
-	\cref{defn:fppfSheafAssociatedtoMod}.
-	Thanks to \cref{representabilityVectSGroup}
-	\(\underline{\mathcal{V}} \in \mathsf{Gp}/S\), since
+	to be \(\underline{\mathcal{V}} = \mathbf{W}(\mathcal{V})\).
+	%, as of	\cref{defn:fppfSheafAssociatedtoMod}.
+	We know, thanks to \cref{representabilityVectSGroup},
+	that \(\underline{\mathcal{V}} \in \mathsf{Gp}/S\), since
 	it is represented by \(\underline{\spec}_S(\sym(\mathcal{V}^\vee))\).
 \end{defn}
 
@@ -879,7 +897,7 @@ or $\mathcal{O}_{ S }$-modules.
 
 
 \begin{rem}[]
-	As a consequence, in what follows, we can follow \cite[]{Messing} and switch
+	As a consequence, in what follows, like \cite[]{Messing} we will switch
 	between morphisms of sheaves of $\mathcal{O}_{ S }$-modules and morphism
 	between the associated sheaves of $\underline{\mathcal{O}_{ S }}$-modules without problem.
 \end{rem}
@@ -900,7 +918,7 @@ or $\mathcal{O}_{ S }$-modules.
 	associated to $\lie(\mathcal{U})$ as in \cref{not:fppfOsModule}.
 \end{enumerate}
 	Moreover consider $G \in \mathsf{Gr}/S$ for which there exists a
-	co-algebra $\mathcal{U}$ for which $G = \cospec(\mathcal{U})$ as
+	co-algebra $\mathcal{U}$ such that $G = \cospec(\mathcal{U})$ as
 	fppf sheaves (which in particular include \emph{formal Lie groups} and \emph{Barsotti-Tate groups}).
 	Then we define $\lie(G) \coloneqq \lie(\mathcal{U})$.
 \end{defn}
@@ -910,10 +928,13 @@ or $\mathcal{O}_{ S }$-modules.
 	Let $\mathcal{U}$ be a finite and locally-free $\mathcal{O}_{ S }$-module,
 	where $S$ is a scheme.
 	Then we have the following isomorphism $(\mathcal{U}^\vee)^\vee \simeq \mathcal{U}$.
-	If, moreover, \(\mathcal{U}\) is a co-commutative \(\mathcal{O}_{ S }\) co-algebra,
+	Assume, moreover, \(\mathcal{U}\) is a co-commutative and
+	augmented \(\mathcal{O}_{ S }\) co-algebra, i.e$.$
+	it is given with a counit \(\eta\colon \mathcal{U} \to \mathcal{O}_{ S }\).
+	Then, by \cref{representabilityVectSGroup},
 	we have $X = \cospec(\mathcal{U}) \simeq 
-	\underline{\spec}_S(\mathcal{U}^\vee)$.
-	Let's, moreover, define $\omega_X$ with respect to the section $e\colon S \to X$
+	\underline{\spec}_S(\mathcal{U}^\vee)$ as fppf sheaves.
+	Let's now define $\omega_X$ with respect to the section $e\colon S \to X$
 	associated to the counit $\eta\colon \mathcal{U} \to \mathcal{O}_{ S }$
 	via the identification
 	\begin{equation*}
@@ -936,6 +957,11 @@ or $\mathcal{O}_{ S }$-modules.
 		\left(\omega_X , \mathcal{O}_{ S } \right) =
 		\underline{\omega_X}^\vee
 	.\end{equation*}
+	This result can be extended to the case where \(\mathcal{U}\)
+	is a filtered direct limit of finite, locally-free and augmented co-algebras,
+	where the transition morphisms are compatible with augmentations.
+	In particular this is the case if \(\operatorname{Cospec}(\mathcal{U})\)
+	is a formal Lie variety.
 \end{rem}
 
 
@@ -951,7 +977,7 @@ subscheme defined by the ideal $I$.
 
 
 \subsubsection{Exponentials}
-For this section we will interested in $V$ a locally-free $A$-module of finite rank
+For this section we will be interested in $V$ a locally-free $A$-module of finite rank
 and $G = \spec(B)$ a finite locally-free group scheme over $S$.
 Consider the $S$-group $\underline{V} \times_{ S } G$, whose ring is
 $C \coloneqq \sym(V^\vee) \otimes_A B$ and $H$ an $S$-group isomorphic
@@ -963,8 +989,9 @@ Here we want to extend the theory of exponentials to $H$.
 \begin{rem}[]
 	Since $\underline{V} \times_{ S } G$ is isomorphic to $H$ as pointed
 	schemes, we have $\omega_H \simeq \omega_{\underline{V} \times_S G}$, 
-	locally-free of finite type,
-	which implies that $\lie(H)$ is also locally-free.
+	locally-free of finite type.
+	Thanks to \cref{LieDualConormalSheaf}
+	this implies that $\lie(H)$ is also locally-free.
 \end{rem}
 
 
@@ -1026,7 +1053,7 @@ Here we want to extend the theory of exponentials to $H$.
 	and the map is well defined.
 	Taking the transpose of such a map we obtain a mapping 
 	$(C^\vee)^\vee \simeq C \to \sym(\mathcal{W}^\vee)$, which corresponds
-	to an $S$-group homomorphism $\underline{\mathcal{W}} \to G$.
+	to an $S$-group homomorphism $\underline{\mathcal{W}} \to H$.
 	Then one can check that it actually sits in the desired kernel
 	following \cite[Chapter III, \S2.4, \S2.6]{Messing}.
 \end{defn}
@@ -1222,17 +1249,11 @@ some meaning to our objects.
 \begin{rem}[]\label{rem:thickeningIdeal}
 	For thickenings, the closed embedding $f\colon X \to X'$ gives a homeomorphism
 	of the underlying topological spaces.
-	Recall, moreover, that closed immersions $X \hookrightarrow X'$ in $\mathsf{Sch}_{  }$
-	are in one to one correspondence with quasi-coherent sheaves of ideals
-	$\mathcal{I}$ of $\mathcal{O}_{ X' }$, see
-	\cite[\href{https://stacks.math.columbia.edu/tag/01QN}{Section 01QN}]{SP}
-	for more details.
-	More in general, to a closed immersion $X \hookrightarrow X'$ in
-	$\mathsf{Sch}/S$, one can associate a quasi-coherent sheaf of ideals
+	Recall, moreover, that to a closed immersions 
+	$X \hookrightarrow X'$ in $\mathsf{Sch}/S$
+	we can associate a quasi-coherent sheaf of ideals
 	$\mathcal{I}$ of $\mathcal{O}_{ X' }$.
-	Then the ideal associated to a thickening $X'$ of $X$ 
-	is \emph{locally nilpotent}.
-	Moreover, if the ideal sheaf $\mathcal{I}$ associated to the thickening
+	If the ideal sheaf $\mathcal{I}$ associated to the thickening
 	$X \hookrightarrow X'$ is globally nilpotent, i.e. there exists $n \in \mathbb{N}$
 	such that $\mathcal{I}^{n+1} = 0$, we say that $X \hookrightarrow X'$ 
 	is a \emph{finite order thickening}.
@@ -1252,12 +1273,23 @@ some meaning to our objects.
 	Thanks to \cref{rem:thickeningIdeal}, the datum of a
 	divided power thickening of $U$ is equivalent to the datum of
 	a scheme $T$ with divided powers, i.e.
-	$\left(T, \mathcal{J}, \delta\right)$, as in \cref{defn:DividedPowersSheaf},
-	in which $\mathcal{J}$ is a locally nilpotent sheaf of ideals
-	and is associated to the closed immersion $U \hookrightarrow T$.
+	$\left(T, \mathcal{J}, \delta\right)$, as in \cref{defn:DividedPowersSheaf}.
+	If, moreover, \(U \hookrightarrow T\) is a closed immersion
+	in \(\mathsf{Sch}/ S \) and \(p\) is locally nilpotent on \(S\),
+	then $\mathcal{J}$ is a locally nilpotent sheaf of ideals.
+	Indeed reasoning in the affine case we see that \(p\),
+	being nilpotent in \(\mathcal{O}_{ S }\), is also nilpotent
+	in \(\mathcal{O}_T\).
+	Then, for each \(x \in \Gamma(T,\mathcal{J)}\),
+	we have \(x^{ p^n } = (p^n)! \gamma_{ p^n }(x) = 0\)
+	for \(n\) large enough.
 \end{rem}
 
 
+\noindent
+In case our base scheme already has divided powers, though,
+we want to consider only divided power schemes on which
+divided powers extend those on the basis.
 \begin{defn}[Relative divided powers]
 	Consider a base scheme with divided powers
 	$\left(S, \mathcal{I}, \gamma\right)$, and a divided power
@@ -1286,7 +1318,8 @@ some meaning to our objects.
 	$\mathsf{Crys}(X/S)$ if the divided power structure of $S$ 
 	is clear from context, is given as follows.
 	The objects of $\mathsf{Crys}(X/S)$ are
-	divided power thickenings $\left(U \hookrightarrow T, \delta\right)$ over $S$
+	divided power thickenings $\left(U \hookrightarrow T, \delta\right)$ over 
+	$\left(S, \mathcal{I}, \gamma\right)$
 	with an open immersion $U \hookrightarrow X$ of $S$-schemes.
 	A morphism $f\colon \left(U \hookrightarrow T, \gamma\right)
 	\to \left(U' \hookrightarrow T', \delta\right)$ in \(\mathsf{Crys}(X/S)\)
@@ -1299,7 +1332,7 @@ some meaning to our objects.
 		T'
 	,\end{tikzcd}
 	\end{equation}
-	such that $U \hookrightarrow U'$ is an open immersion (corresponds to
+	such that $f\colon U \hookrightarrow U'$ is an open immersion (corresponds to
 	an inclusion of open $S$-subschemes of $X$) and
 	$\overline{f}\colon T \to T'$ is a divided power morphism.
 	Finally we endow this category with the pretopology induced by the
@@ -1335,7 +1368,7 @@ some meaning to our objects.
 \begin{rem}[Sheaves on the crystalline site on $X$]\label{rem:SheavesCrysX}
 	Let's remark that a sheaf $\mathcal{F}$ on $\mathsf{Crys}(X)$, for every
 	object $\left(U \hookrightarrow T, \gamma\right)$, gives rise by restriction
-	to a Zariski sheaf $\mathcal{F}_T$ on the scheme $T$ by the rule
+	to a Zariski sheaf $\mathcal{F}_T$ on the scheme $T$ setting
 	\begin{equation*}
 	\mathcal{F}_T(W) \coloneqq
 	\mathcal{F}(U \cap W \hookrightarrow W, \left.\delta\right|_{W})
@@ -1365,13 +1398,15 @@ some meaning to our objects.
 		\left(U' \cap W' \hookrightarrow W', \left.\delta'\right|_{W'} \right)
 	.\end{tikzcd}
 	\end{equation*} 
-	This defines a morphism $(\left.f\right|_{f^{-1}W'})^*$
-	which, in turn, induces a map $\mathcal{F}_{T'}(W') \to \mathcal{F}_T(f^{-1}W')$
+	This defines a map 
+	$\mathcal{F}_{T'}(W') \to \mathcal{F}_T(f^{-1}W')$
+	which, in turn, induces a morphism 
+	$\mathcal{F}_{ T' } \to f_* \mathcal{F}_T$
 	and finally, by adjunction, this gives the desired morphism $c_f$.
 	Moreover we can notice that if, in \cref{diag:MorphDivPowers},
 	$\overline{f}$ is an open immersion, then
-	$c_f$ is an isomorphism, since $\mathcal{F}_{T'}$ is just the restriction
-	of $\mathcal{F}_T$ to $T'$.
+	$c_f$ is an isomorphism, since $\mathcal{F}_{T}$ is just the restriction
+	of $\mathcal{F}_{ T' }$ to $T$.
 
 	Conversely, using a standard argument for gluing of sheaves, see 
 	\cite[\href{https://stacks.math.columbia.edu/tag/07IN}{Section 07IN}]{SP},
@@ -1544,7 +1579,8 @@ of inverse images of crystals.
 		W
 	,\end{tikzcd}
 	\end{equation*}
-	where $\left(V \hookrightarrow W, \gamma\right)$ is an object of $\mathsf{Crys}(Y)$
+	where, as we've just shown,
+	$\left(V \hookrightarrow W, \gamma\right)$ is an object of $\mathsf{Crys}(Y)$
 	and $\widetilde{\varphi}\colon T \to W$ is a morphism of divided power schemes.
 	We finally define $\left( \varphi^* \mathbb{F} \right)_{\left(U \hookrightarrow T, \delta\right)}
 	\coloneqq \widetilde{\varphi}^* \mathbb{F}_{\left(V \hookrightarrow W, \gamma\right)}$
@@ -1579,7 +1615,7 @@ of inverse images of crystals.
 	again open affine.
 	Finally we define $T_0 \subset T$ the open subscheme of $T$
 	induced by the immersion $U_0 \hookrightarrow U$.
-	Repeating the construction with the amalgamated product we obtain the diagram
+	Repeating the construction with amalgamated product we obtain the diagram
 	\begin{equation*}
 	\begin{tikzcd}
 		U_0 \arrow[r, "", hookrightarrow] 

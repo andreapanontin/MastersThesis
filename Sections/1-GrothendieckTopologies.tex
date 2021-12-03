@@ -337,13 +337,13 @@ of fibered product in the representable case.
 	A morphism of topoi $f$ from $\mathsf{Sh}\left(\mathsf{D}\right)$
 	to $\mathsf{Sh}\left(\mathsf{C}\right)$ is the data of a pair
 	of functors $f_*\colon \mathsf{Sh}\left(\mathsf{D}\right) \to \mathsf{Sh}\left(\mathsf{C}\right)$
-	and $f^*\colon \mathsf{Sh}\left(\mathsf{C}\right) \to \mathsf{Sh}\left(\mathsf{D}\right)$
+	and $f^{-1}\colon \mathsf{Sh}\left(\mathsf{C}\right) \to \mathsf{Sh}\left(\mathsf{D}\right)$
 	such that, bifunctorially we have
 	\begin{equation*}
-		\Hom_{\mathsf{Sh}(\mathsf{D})} \left( f^*G, F \right) \simeq
+		\Hom_{\mathsf{Sh}(\mathsf{D})} \left( f^{-1}G, F \right) \simeq
 		\Hom_{\mathsf{Sh}(\mathsf{C})} \left( G, f_*F \right) 
 	\end{equation*}
-	and the functor $f^*$ commutes with finite limits, i.e. it
+	and the functor $f^{-1}$ commutes with finite limits, i.e. it
 	is left exact.
 	Moreover, given sites $\mathsf{C}, \mathsf{D}$ and $\mathsf{E}$
 	and morphisms of topoi 
@@ -351,7 +351,7 @@ of fibered product in the representable case.
 	$g\colon \mathsf{Sh}\left(\mathsf{E}\right) \to \mathsf{Sh}\left(\mathsf{D}\right)$,
 	we can define their composition $f \circ g$
 	as the pair of morphisms $\left( f \circ g \right)_* \coloneqq f_* \circ g_*$
-	and $\left( f \circ g \right)^* \coloneqq g^* \circ f^*$.
+	and $\left( f \circ g \right)^{-1} \coloneqq g^{-1} \circ f^{-1}$.
 \end{defn}
 
 
@@ -402,7 +402,7 @@ of fibered product in the representable case.
 		\mathsf{Sh}\left(\mathsf{C}\right)
 	.\end{tikzcd}
 	\end{equation*} 
-	given by the functors $j_U^*$ and ${j_U}_*$, whose lengthy definition
+	given by the functors $j_U^{-1}$ and ${j_U}_*$, whose lengthy definition
 	is left to \cite[\href{https://stacks.math.columbia.edu/tag/00UZ}{Chapter 00UZ}]{SP}.
 \end{lem} 
 
@@ -417,17 +417,17 @@ of fibered product in the representable case.
 		is called the \emph{localization morphism}.
 	\item The functor ${j_U}_*$ is called the direct image functor.
 	\item Taken any sheaf $F \in \mathsf{Sh}\left(\mathsf{C}\right)$,
-		its image $j_U^*F$ is called the \emph{restriction} of $F$ to $\mathsf{C}/U$.
+		its image $j_U^{-1}F$ is called the \emph{restriction} of $F$ to $\mathsf{C}/U$.
 \end{enumerate}
 \end{defn}
 
 
 \begin{rem}[{\cite[\href{https://stacks.math.columbia.edu/tag/00XZ}{Section 00XZ}]{SP}}]
 	Let $\mathsf{C}$ and $U$ be as before.
-	For all $F \in \mathsf{Sh}\left(\mathsf{C}\right)$, the evaluation of $j_U^*F$
+	For all $F \in \mathsf{Sh}\left(\mathsf{C}\right)$, the evaluation of $j_U^{-1}F$
 	on \(X/U \coloneqq X \to U \in \mathsf{C}/U\) by
 	\begin{equation*}
-		j_U^*F(X/U) = F(X)
+		j_U^{-1}F(X/U) = F(X)
 	.\end{equation*}
 \end{rem}
 
@@ -439,9 +439,9 @@ of fibered product in the representable case.
 	localization functor, where both categories are taken with the fppf topology.
 	Then, for $F'$ a sheaf of sets on $\mathsf{Sch}/S'$, we have
 \begin{enumerate}
-	\item $j^* F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}/S$,
+	\item $j^{-1} F'(T/S) = F'(T/S')$ for any $T \in \mathsf{Sch}/S$,
 		where $T/S'$ is the image of \(T/S\) after composition with \(g\).
 	\item if $F'$ is representable by $X' \in \mathsf{Sch}/S'$,
-		then $j^*F'$ is representable by $X'_S \coloneqq X' \times_{ S' } S$.
+		then $j^{-1}F'$ is representable by $X'_S \coloneqq X' \times_{ S' } S$.
 \end{enumerate}
 \end{lem} 
