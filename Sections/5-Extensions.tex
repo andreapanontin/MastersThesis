@@ -264,10 +264,17 @@ satisfies the above requirements.
 \end{thm} 
 
 
+\begin{rem}
+	The above construction can be made into a group
+	isomorphism if we endow the set \(\operatorname{E}(A,B) / \sim\)
+	with an appropriate sum, called \emph{Baer sum}.
+\end{rem}
+
+
 
 \subsubsection{Universal extensions}
 For this section we fix $S$ a scheme and $G$ a finite locally-free $S$-group.
-For the first proposition it is not necessary, but for the rest of the section we will often
+For the first proposition it is not necessary, but for the rest of the section we will
 assume that $p^N$ is zero on $S$.
 We recall that, thanks to \cref{rem:PropertiesGrS},
 we can apply the results of last section to $\mathsf{Gr}/S$.
@@ -300,9 +307,9 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\Hom_{\mathsf{Gr}/S} \left( G, \underline{\mathcal{M}} \right)
-		\arrow[r, "\sim", rightarrow] &
 		\Hom_{\mathsf{Gr}/S} \left( \underline{\omega}_{G^D}, \underline{\mathcal{M}} \right)
+		\arrow[r, "\sim", rightarrow] &
+		\Hom_{\mathsf{Gr}/S} \left( G, \underline{\mathcal{M}} \right)
 	\end{tikzcd}
 	\end{equation*} 
 	is functorial in $G$.
@@ -342,7 +349,7 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 		G \arrow[r, "f", rightarrow] 
 		\arrow[d, "p^N"', rightarrow] 
 		\arrow[rd, "0", rightarrow] &
-		\underline{\mathcal{M}} \arrow[d, "p^n", rightarrow] \\
+		\underline{\mathcal{M}} \arrow[d, "p^N", rightarrow] \\
 		G \arrow[r, "f"', rightarrow] &
 		\underline{\mathcal{M}}
 	.\end{tikzcd}
@@ -368,7 +375,7 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 	%i.e. the fppf sheaf associated to a quasi-coherent
 	%$\mathcal{O}_{ S }$-module $V(G)$, as in \cref{defn:fppfSheafAssociatedtoMod}.
 	We say that an extension $\zeta \in \mathrm{E}(G, \underline{\mathcal{V}}(G))$, given
-	by $E(G)$, is \emph{universal} iff, given any extension
+	by $\underline{E}(G)$, is \emph{universal} iff, given any extension
 	\begin{equation*}
 	\begin{tikzcd}
 		(\xi) &
@@ -383,7 +390,7 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 	where also $\mathcal{M}$ is a quasi-coherent $\mathcal{O}_{ S }$-module,
 	there is a unique map $\varphi\colon \underline{\mathcal{V}}(G) \to \underline{\mathcal{M}}$
 	such that $\varphi\zeta = \xi$, i.e. the pushout of
-	$E(G)$ by $\varphi$ is the given extension $\xi$.
+	$\underline{E}(G)$ by $\varphi$ is the given extension $\xi$.
 \end{defn}
 
 
@@ -406,7 +413,7 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G) \arrow[r, "", rightarrow] &
-		E(G) \arrow[r, "", rightarrow] &
+		\underline{E}(G) \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
@@ -478,13 +485,13 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 		\underline{\omega}_{G(N)^D} 
 		\arrow[r, "", rightarrow] &
 		%\underline{\omega}_{G(N)^\vee} \coprod_{G(N)} G
-		E(G)
+		\underline{E}(G)
 		\arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		0
 	,\end{tikzcd}
 	\end{equation*}
-	where we denoted by $E(G) \coloneqq \underline{\omega}_{G(N)^D} \amalg_{G(N)} G$.
+	where we denoted by $\underline{E}(G) \coloneqq \underline{\omega}_{G(N)^D} \amalg_{G(N)} G$.
 	Then, by rigidity of extensions of $G$ by vector groups 
 	(\cref{lem:rigidityExt}) any extension $\xi$ of $G$ by a
 	vector group is uniquely determined by its
@@ -512,7 +519,7 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 		\arrow[d, "", equals] \\
 		0 \arrow[r, "", rightarrow] &
 		\Hom_{\mathsf{Gr}/S} 
-		\left( E(G), \underline{\mathcal{M}} \right) 
+		\left( \underline{E}(G), \underline{\mathcal{M}} \right) 
 		\arrow[d, "", rightarrow] 
 		\arrow[r, "", rightarrow] &
 		\Hom_{\mathsf{Gr}/S} 
@@ -581,20 +588,20 @@ we can apply the results of last section to $\mathsf{Gr}/S$.
 \begin{defn}[]
 	Given $S$ and $G$ as before, for $n$ sufficiently big, we define
 	$\underline{\mathcal{V}}(G) \coloneqq \underline{\omega}_{G(n)^D}$ and
-	$E(G) \coloneqq \underline{\mathcal{V}}(G) \amalg_{G(n)} G$.
+	$\underline{E}(G) \coloneqq \underline{\mathcal{V}}(G) \amalg_{G(n)} G$.
 	Then the extension
 	\begin{equation*}
 	\begin{tikzcd}
 		(\zeta) &
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G) \arrow[r, "", rightarrow] &
-		E(G) \arrow[r, "", rightarrow] &
+		\underline{E}(G) \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		0
 	\end{tikzcd}
 	\end{equation*}
 	is universal.
-	Moreover $E(G)$ is an fppf sheaf of groups on $S$,
+	Moreover $\underline{E}(G)$ is an fppf sheaf of groups on $S$,
 	determined up to unique isomorphism.
 \end{defn}
 
@@ -610,7 +617,7 @@ a few results concerning this universal extension.
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G) \arrow[r, "", rightarrow] &
-		E(G) \arrow[r, "", rightarrow] &
+		\underline{E}(G) \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		0
 	\end{tikzcd}
@@ -627,7 +634,7 @@ a few results concerning this universal extension.
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G) \arrow[r, "", rightarrow] &
-		E(G) \arrow[r, "", rightarrow] &
+		\underline{E}(G) \arrow[r, "", rightarrow] &
 		G \arrow[r, "", rightarrow] &
 		0
 	,\end{tikzcd}
@@ -641,20 +648,20 @@ a few results concerning this universal extension.
 	Let $p$ be locally nilpotent on $S$ and $G,H$ be two
 	Barsotti-Tate groups on $S$, with a homomorphism $u\colon G \to H$.
 	Then there is a unique homomorphism
-	$E(u)\colon E(G) \to E(H)$ inducing the morphism of extensions
+	$\underline{E}(u)\colon \underline{E}(G) \to \underline{E}(H)$ inducing the morphism of extensions
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G) \arrow[r, "", rightarrow] 
 		\arrow[d, "\underline{\mathcal{V}}(u)", rightarrow] &
-		E(G) \arrow[r, "", rightarrow] 
-		\arrow[d, "E(u)", rightarrow] &
+		\underline{E}(G) \arrow[r, "", rightarrow] 
+		\arrow[d, "\underline{E}(u)", rightarrow] &
 		G \arrow[r, "", rightarrow] 
 		\arrow[d, "u", rightarrow] &
 		0\\
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(H) \arrow[r, "", rightarrow] &
-		E(H) \arrow[r, "", rightarrow] &
+		\underline{E}(H) \arrow[r, "", rightarrow] &
 		H \arrow[r, "", rightarrow] &
 		0
 	,\end{tikzcd}
@@ -671,23 +678,23 @@ for $G \in \mathsf{Gr}/S$.
 
 \begin{prop}[{\cite[Chapter IV, proposition 1.19]{Messing}}]\label{prop:ExtFLG}
 	Let $G \in \mathsf{BT}/S$ and $S$ be as before,
-	then $\overline{E(G)}$ is a \emph{formal Lie group}.
+	then $\overline{\underline{E}(G)}$ is a \emph{formal Lie group}.
 \end{prop} 
 
 
 \begin{defn}[]
 	Let $S$ be a scheme where $p$ is locally nilpotent and $G$
 	a Barsotti-Tate group on $S$.
-	Denote by $E(G)$ the universal extension of $G$, then we define
-	$\lie(E(G)) \coloneqq \lie(\overline{E(G)})$.
+	Denote by $\underline{E}(G)$ the universal extension of $G$, then we define
+	$\lie(\underline{E}(G)) \coloneqq \lie(\overline{\underline{E}(G)})$.
 \end{defn}
 
 
 \begin{rem}[]
-	Notice that $\lie(E(G))$ is a locally-free
+	Notice that $\lie(\underline{E}(G))$ is a locally-free
 	$\mathcal{O}_{ S }$-module of finite rank.
 	%If moreover $p^N$ kills $S$, we know that this actually coincides
-	%with $\underline{\lie}(E(G) \times_{ G } G(N))$.
+	%with $\underline{\lie}(\underline{E}(G) \times_{ G } G(N))$.
 \end{rem}
 
 
@@ -699,7 +706,7 @@ Let's end with a couple of results, still with the same notation and hypothesis 
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\overline{\underline{\mathcal{V}}(G)} \arrow[r, "", rightarrow] &
-		\overline{E(G)} \arrow[r, "", rightarrow] &
+		\overline{\underline{E}(G)} \arrow[r, "", rightarrow] &
 		\overline{G} \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
@@ -713,7 +720,7 @@ Let's end with a couple of results, still with the same notation and hypothesis 
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G) \arrow[r, "", rightarrow] &
-		\underline{\lie}(E(G)) \arrow[r, "", rightarrow] &
+		\underline{\lie}(\underline{E}(G)) \arrow[r, "", rightarrow] &
 		\underline{\lie}(G) \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
@@ -729,20 +736,10 @@ Since it will be used in what follows,
 we start by introducing the following notation.
 
 
-\begin{ntt}
-	Let $S$ be a scheme and $\mathcal{I}$ a quasi-coherent sheaf of
-	ideals of $\mathcal{O}_{ S }$.
-	We write $\mathbb{V}(\mathcal{I})$ to denote the unique
-	closed subscheme of $S$ induced by the sheaf of ideals $\mathcal{I}$.
-	Notice that, in the affine case $S = \spec(A)$,
-	the sheaf $\mathcal{I}$ corresponds to an ideal $I \triangleleft A$
-	and $\mathbb{V}(I) \simeq \spec(A/I)$.
-\end{ntt} 
-
-
 \begin{rem}[]\label{rem:LocallyLiftableBTG}
 	This section follows \cite[Chpater IV, \S2]{Messing},
 	in which the author introduces a new notation.
+	Let \(S_0\) be a scheme on which \(p\) is locally nilpotent.
 	He denotes by $\mathsf{BT}'(S_0)$ the subcategory of
 	locally infinitesimally liftable Barsotti-Tate groups, i.e$.$ 
 	which can be locally lifted along finite order thickenings.
@@ -752,7 +749,6 @@ we start by introducing the following notation.
 	For this reason we chose to differentiate our notation from that of \cite{Messing}.
 	Still, since it is used to define our crystals, here is the precise lifting
 	requirements asked by Messing.
-	Let $S_0$ be a scheme with $p$ locally nilpotent on it.
 	We say that $G_0$ is \emph{locally infinitesimally liftable} iff
 	there is an affine open cover $\left\{ U_i \right\}_{i \in I}$ of $S_0$, which depends on $G_0$, 
 	on which, for all $i$ and all finite order thickening $U_i \hookrightarrow U$,
@@ -762,42 +758,44 @@ we start by introducing the following notation.
 
 
 \begin{thm}[{\cite[Chapter IV, theorem 2.2]{Messing}}]\label{thm:UniqueLiftingCrystals}
-	Let $S = \spec(A)$ such that $p^N \cdot 1_S = 0$ and
-	$S_0 \coloneqq \mathbb{V}(I) \subset S$, where $I$ is
+	Let $S = \spec(A)$ such that $p^N \cdot 1_A = 0$ and
+	$S_0 \coloneqq \spec(A/I) \hookrightarrow S$, where $I$ is
 	an ideal of $A$ with nilpotent divided powers.
 	Consider $G, H \in \mathsf{BT}/S$ and a homomorphism
 	$u_0\colon G_0 \to H_0$ between the respective restrictions to $S_0$.
-	By \cref{prop:MorUnivExts} $u_0$ defines
-	a morphism of extensions $v_0 \coloneqq E(u_0)\colon E(G_0) \to E(H_0)$,
+	By \cref{prop:MorUnivExts}, $u_0$ induces
+	a morphism of extensions $v_0 \coloneqq \underline{E}(u_0)\colon
+	\underline{E}(G_0) \to \underline{E}(H_0)$,
 	making the diagram commute:
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(G_0) \arrow[d, "\underline{\mathcal{V}}(u_0)", rightarrow] 
 		\arrow[r, "", rightarrow] &
-		E(G_0) \arrow[d, "v_0", rightarrow]
+		\underline{E}(G_0) \arrow[d, "v_0", rightarrow]
 		\arrow[r, "", rightarrow] &
 		G_0 \arrow[d, "u_0", rightarrow]
 		\arrow[r, "", rightarrow] &
 		0 \\
 		0 \arrow[r, "", rightarrow] &
 		\underline{\mathcal{V}}(H_0) \arrow[r, "", rightarrow] &
-		E(H_0) \arrow[r, "", rightarrow] &
+		\underline{E}(H_0) \arrow[r, "", rightarrow] &
 		H_0 \arrow[r, "", rightarrow] &
 		0
 	.\end{tikzcd}
 	\end{equation*}
 	Then there is a unique morphism of $S$-groups
-	$v\colon E(G) \to E(H)$, which is not necessarily a morphism
-	of extensions, that satisfies the following properties.
+	$v\colon \underline{E}(G) \to \underline{E}(H)$, which is not necessarily a morphism
+	of extensions, but satisfies the following properties.
 \begin{enumerate}
 	\item $v$ is a lift of $v_0$.
 
-	\item Denote the inclusions by $i\colon \underline{\mathcal{V}}(H) \to E(H)$ and by 
-		$j\colon \underline{\mathcal{V}}(G) \to E(G)$.
+	\item Denote the inclusions by $i\colon \underline{\mathcal{V}}(H) \to \underline{E}(H)$ and by 
+		$j\colon \underline{\mathcal{V}}(G) \to \underline{E}(G)$.
 		Given $w\colon \underline{\mathcal{V}}(G) \to \underline{\mathcal{V}}(H)$
 		a lift of $\underline{\mathcal{V}}(u_0)$
-		such that $d\coloneqq (i \circ w - v \circ j)\colon \underline{\mathcal{V}}(G) \to E(H)$
+		such that $d\coloneqq (i \circ w - v \circ j)\colon
+		\underline{\mathcal{V}}(G) \to \underline{E}(H)$
 		induces the zero morphism on $S_0$, then $d$ is an exponential.
 		%(tk: the definition of exponential for BT groups is given in III 2.4,
 		%think about whether its better to tex it or not.)
@@ -828,22 +826,22 @@ is functorial in \(G\).
 	Let $G, H, K \in \mathsf{BT}/S$ as before and consider another
 	homomorphism $u_0'\colon H_0 \to K_0$, where $K_0$ again denotes
 	the restriction of $K$ to $S_0$.
-	Denote by $E_S(u_0)$ the morphism $v$ whose existence is granted
+	Denote by $\underline{E}_S(u_0)$ the morphism $v$ whose existence is granted
 	by \cref{thm:UniqueLiftingCrystals}.
-	Then $E_S(u'_0 \circ u_0) = E_S(u'_0) \circ E_S(u_0)$.
+	Then $\underline{E}_S(u'_0 \circ u_0) = \underline{E}_S(u'_0) \circ \underline{E}_S(u_0)$.
 \end{cor} 
 
 
 \begin{cor}[{\cite[Chapter IV, corollary 2.4.2]{Messing}}]\label{thm:M4.2.4.2}
 	If, in the above notation, $G = H$ and $u_0 = \id_{ G_0 }$,
-	then $E_S(u_0) = \id_{ G }$.
+	then $\underline{E}_S(u_0) = \id_{ G }$.
 \end{cor} 
 
 
 \begin{cor}[{\cite[Chapter IV, corollary 2.4.3]{Messing}}]\label{thm:M4.2.4.3}
 	Let $G,H, u_0$ as in \cref{thm:UniqueLiftingCrystals},
 	with $u_0$ an isomorphism.
-	Then $E_S(u_0)$ is an isomorphism too.
+	Then $\underline{E}_S(u_0)$ is an isomorphism too.
 \end{cor} 
 
 
@@ -860,16 +858,15 @@ is functorial in \(G\).
 	\end{equation*}
 	where $S_0 \hookrightarrow S$ and $S'_0 \hookrightarrow S'$ are
 	nilpotent immersions with divided powers,
-	as in the statement of \cref{thm:UniqueLiftingCrystals}.
-	Write $S_0' = \mathbb{V}(I')$ and $S_0 = \mathbb{V}(I)$
+	as in the statement of \cref{thm:UniqueLiftingCrystals},
 	and assume that $S' \to S$ is a divided powers morphism.
 	Consider $G,H \in \mathsf{BT}/S$ and $u_0\colon G_0 \to H_0$ as before.
-	Then the construction of $E_S(u_0)$ is compatible with the base
+	Then the construction of $\underline{E}_S(u_0)$ is compatible with the base
 	change $S' \to S$.
 	More explicitly we have
 	\begin{equation*}
-		E_{S'}(u_{0_{S'_0}}) =
-		\left( E_S(u_0) \right)_{S'} = v_{S'}
+		\underline{E}_{S'}(u_{0_{S'_0}}) =
+		\left( \underline{E}_S(u_0) \right)_{S'} = v_{S'}
 	.\end{equation*}
 \end{cor} 
 
@@ -880,7 +877,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 
 \begin{rem}[{\cite[Chapter IV, \S2.5]{Messing}}]\label{CrystalLocalPB}
 	Let $S_0$ be a scheme, on which $p$ is locally
-	nilpotent, and $G_0 \in \mathsf{BT}/S_0$.
+	nilpotent, and consider $G_0 \in \mathsf{BT}/S_0$.
 	Let's start by recalling that, since crystals are sheaves on $\mathsf{Crys}(S_0)$,
 	it suffices to define them locally.
 	More specifically we are going to define their evaluation
@@ -890,7 +887,7 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 
 	Moreover, by \cref{thm:M4.2.4.1,thm:M4.2.4.2,thm:M4.2.4.3},
 	we can see that, fixing one such object of $\mathsf{Crys}(S_0)$,
-	$E(G)$ is independent of the chosen lift of $\left.G_0\right|_{U_0}$.
+	$\underline{E}(G)$ is independent of the chosen lift of $\left.G_0\right|_{U_0}$.
 	Also, given 
 	$f\colon \left(V_0 \hookrightarrow V, \delta\right) \to 
 	\left(U_0 \hookrightarrow U, \gamma\right)$,
@@ -915,8 +912,8 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\overline{f}^* \left( E(G_U) \right) \arrow[r, "\sim", rightarrow] &
-		E(G_V)
+		\overline{f}^* \left( \underline{E}(G_U) \right) \arrow[r, "\sim", rightarrow] &
+		\underline{E}(G_V)
 	.\end{tikzcd}
 	\end{equation*} 
 \end{rem}
@@ -926,14 +923,15 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 \begin{enumerate}
 \item In the above notation, we define the crystal $\mathbb{E}(G_0)$
 	by setting its value on $\left(U_0 \hookrightarrow U, \delta\right)$, as considered
-	before, to be $E(G)$ for any lift of $\left.G_0\right|_{U_0}$.
+	before, to be $\underline{E}(G)$ for any lift of $\left.G_0\right|_{U_0}$.
+	This sheaf is indeed a crystal thanks to \cref{CrystalLocalPB}.
 
 \item In the same way we define, for any morphism $u_0\colon G_0 \to H_0$ of 
 	Barsotti-Tate groups on $S_0$, a morphism 
 	between the associated crystals.
 	In particular, on "sufficiently
 	small" open subsets $U_0 \hookrightarrow U$ as before,
-	we set $\mathbb{E}(u_0) \coloneqq E(u_0)$.
+	we set $\mathbb{E}(u_0) \coloneqq \underline{E}(u_0)$.
 
 \item Finally, for an arbitrary morphism of schemes $f\colon T_0 \to S_0$,
 	we can define the \emph{pullback} of the crystal $\mathbb{E}(G_0)$, denoted
@@ -941,8 +939,11 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	sets in the crystalline site of $T_0$.
 	Here we say that $V_0 \hookrightarrow V$ is sufficiently small iff
 \begin{enumerate}
-	\item $f(V_0) \subset U_0$ and $\left.G_0\right|_{U_0}$ can be lifted to infinitesimal
-		neighbourhoods,
+	\item $f(V_0) \subset U_0$, where \(U_0 \subset S_0\),
+		as before, is affine with \(p\) nilpotent on \(U_0\),
+
+	\item $\left.G_0\right|_{U_0}$ can be lifted to infinitesimal
+		neighbourhoods and finally
 
 	\item $V_0$ is affine.
 \end{enumerate}
@@ -959,15 +960,16 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 		U \coloneqq U_0 \amalg_{V_0} V \\
 		V_0 \arrow[u, "f", rightarrow] 
 		\arrow[r, "", hookrightarrow] &
-		V \arrow[u, "", rightarrow, end anchor={[xshift=1.84ex,yshift=0.29ex]south west},
+		V \arrow[u, "\overline{f}"', rightarrow, end anchor={[xshift=1.84ex,yshift=0.29ex]south west},
 		start anchor={[xshift=0.38ex]}] 
 	.\end{tikzcd}
 	\end{equation*}
-	Then, as seen in \cref{CrystalLocalPB}, for a lifting $G_U$ 
+	Then, as seen in \cref{CrystalLocalPB}, for a lift $G_U$ 
 	of $\left.G_0\right|_{U_0}$ to $U$, we have
 	\begin{equation*}
-		\overline{f}^* \left( E(G_U) \right) =
-		E(G_V) = \mathbb{E} \left( f^* (G_0) \right)_{V_0 \hookrightarrow V}
+		f^* \left( \mathbb{E}(G_0 \right)_{ U_0 \hookrightarrow U } =
+		\overline{f}^* \left( \underline{E}(G_U) \right) =
+		\underline{E}(G_V) = \mathbb{E} \left( f^* (G_0) \right)_{V_0 \hookrightarrow V}
 	.\end{equation*}
 	As a consequence $f^* \left( \mathbb{E}(G_0) \right) =
 	\mathbb{E}\left( f^*(G_0) \right)$.
@@ -1041,11 +1043,11 @@ Thanks to the above results we are ready to define the crystals we hinted at abo
 	Notice that, by \cref{rem:pDivDualityBaseChange}, $G^D$ is a lift of $G_0^D$.
 	Then, up to canonical isomorphisms, we have
 \begin{enumerate}
-	\item $\mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
-	\item $\overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = \overline{E(G)}$,
+	\item $\mathbb{E}(G_0)_{S_0 \hookrightarrow S} = \underline{E}(G)$,
+	\item $\overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = \overline{\underline{E}(G)}$,
 	\item $\mathbb{D}(G_0)_{S_0 \hookrightarrow S} = 
-		\lie(E(G))$,
-	\item $\mathbb{D}^*(G_0)_{S_0 \hookrightarrow S} = \lie(E(G^D))$.
+		\lie(\underline{E}(G))$,
+	\item $\mathbb{D}^*(G_0)_{S_0 \hookrightarrow S} = \lie(\underline{E}(G^D))$.
 \end{enumerate}
 \end{rem}
 
@@ -1065,7 +1067,7 @@ a certain filtration on its associated crystal.
 	Let $S$ be a scheme on which $p$ is locally nilpotent, $\mathcal{I}$
 	be a quasi-coherent sheaf of ideals on $\mathcal{O}_{ S }$ endowed
 	with locally nilpotent divided powers.
-	Let $S_0 \coloneqq \mathbb{V}(\mathcal{I})$,
+	Let $S_0 \coloneqq \underline{\spec}_S(\mathcal{O}_{ S }/\mathcal{I})$,
 	so that $S_0 \hookrightarrow S$ is an object of the crystalline site of $S_0$.
 \end{ntt} 
 
@@ -1077,7 +1079,7 @@ a certain filtration on its associated crystal.
 	Again, we will not follow his notation $\mathsf{BT}'(S_0)$,
 	since all $G \in \mathsf{BT}/S_0$ can be lifted locally
 	(in the Zariski topology) along $S_0 \hookrightarrow S$,
-	which allows us to carry along the following construction
+	which allows us to carry on the following construction
 	and proofs.
 \end{rem}
 
@@ -1087,18 +1089,20 @@ a certain filtration on its associated crystal.
 	crystals on a specific object of $\mathsf{Crys}(S_0)$, given
 	by the closed immersion $S_0 \hookrightarrow S$
 	Hence we introduce the following notation.
-	Let $G_0 \in \mathsf{BT}/S_0$ and $\mathbb{F}$ a crystal on $\mathsf{Crys}(S)$,
+	Let $\mathbb{F}$ a crystal on $\mathsf{Crys}(S_0)$,
 	we denote by $\mathbb{F}_S$ the Zariski sheaf
 	$\mathbb{F}_{\left(S_0 \hookrightarrow S, \mathcal{I}\right)}$.
-	In particular, for the crystals defined in the previous section, we have
+	In particular, for the crystals defined in the previous section, 
+	if we fix \(G \in \mathsf{BT}/S\), or equivalently \(G_0 \in \mathsf{BT}/S_0\)
+	for which \(G\) is a lift to \(S\), then we have
 \begin{enumerate}
-	\item $\mathbb{E}(G_0)_S \coloneqq \mathbb{E}(G_0)_{S_0 \hookrightarrow S} = E(G)$,
+	\item $\mathbb{E}(G_0)_S \coloneqq \mathbb{E}(G_0)_{S_0 \hookrightarrow S} = \underline{E}(G)$,
 	\item $\overline{\mathbb{E}}(G_0)_S \coloneqq \overline{\mathbb{E}}(G_0)_{S_0 \hookrightarrow S} = 
-		\overline{E(G)}$,
+		\overline{\underline{E}(G)}$,
 	\item $\mathbb{D}(G_0)_S \coloneqq \mathbb{D}(G_0)_{S_0 \hookrightarrow S} = 
-		\lie(E(G))$.
+		\lie(\underline{E}(G))$.
 	\item $\mathbb{D}^*(G_0)_S \coloneqq \mathbb{D}^*(G_0)_{S_0 \hookrightarrow S} = 
-		\lie(E(G^D))$.
+		\lie(\underline{E}(G^D))$.
 \end{enumerate}
 \end{ntt}
 
@@ -1108,13 +1112,12 @@ a certain filtration on its associated crystal.
 	A filtration $\operatorname{Fil}^1 \subset \mathbb{D}(G_0)_S$ is said to be
 	\emph{admissible} iff $\operatorname{Fil}^1$ is a locally-free vector subgroup
 	with locally-free quotient which, on $S_0$, reduces to
-	(the morphisms of sheaves on $S_0$ associated to)
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
-		\underline{\mathcal{V}}(G_0) \arrow[r, "", hookrightarrow] &
-		\underline{\lie}(E(G_0))
+		\mathcal{V}(G_0) \arrow[r, "", hookrightarrow] &
+		\lie(\underline{E}(G_0))
 	.\end{tikzcd}
 	\end{equation*} 
 \end{defn}
@@ -1141,15 +1144,14 @@ a certain filtration on its associated crystal.
 	which, on $S_0$, reduces to
 	\begin{equation*}
 	\begin{tikzcd}
-		\underline{\mathcal{V}}(G_0) \arrow[r, "", hookrightarrow] 
-		\arrow[d, "\underline{\mathcal{V}}(u_0)_{S_0}", rightarrow] &
-		\underline{\lie}(E(G_0))
-		\arrow[d, "\underline{\lie}(E(u_0))", rightarrow] \\
-		\underline{\mathcal{V}}(H_0) \arrow[r, "", hookrightarrow] &
-		\underline{\lie}(E(H_0))
+		\mathcal{V}(G_0) \arrow[r, "", hookrightarrow] 
+		\arrow[d, "\mathcal{V}(u_0)", rightarrow] &
+		\lie(\underline{E}(G_0))
+		\arrow[d, "\lie(\underline{E}(u_0))", rightarrow] \\
+		\mathcal{V}(H_0) \arrow[r, "", hookrightarrow] &
+		\lie(\underline{E}(H_0))
 	\end{tikzcd}
 	\end{equation*}
-	(or, more precisely, to the associated Zariski sheaves on $S_0$).
 \end{defn}
 
 
@@ -1165,11 +1167,11 @@ This definition allows to state the following theorem:
 		\mathsf{BT}/S \arrow[r, "", rightarrow] &
 		\mathsf{BF}/S_0 \\
 		G \arrow[r, "", mapsto] & 
-		\left(G_0, \underline{\mathcal{V}}(G) \hookrightarrow \underline{\lie}(E(G))\right)
+		\left(G_0, \mathcal{V}(G) \hookrightarrow \lie(\underline{E}(G))\right)
 	,\end{tikzcd}
 	\end{equation*} 
 	where we denoted by $G_0$ the restriction of $G$ to $S_0$
-	and we recall that $\mathbb{D}(G_0)_S = \lie(E(G))$.
+	and we recall that $\mathbb{D}(G_0)_S = \lie(\underline{E}(G))$.
 \end{thm}
 
 
@@ -1179,14 +1181,15 @@ This definition allows to state the following theorem:
 		We define a Zariski sheaf of sets on $S$, denoted by $\mathscr{L}$,
 		as follows.
 		Let $U \subset S$ be an affine open subscheme of $S$.
-		We define $\Gamma(U,\mathscr{L})$ to be the set of all linearly compatible prolongations,
+		We define $\Gamma(U,\mathscr{L})$ to be the set of all 
+		equivalence classes of linearly compatible prolongations,
 		as in \cref{defn:LinCompProlong}, of
 		\begin{equation*}
 		\begin{tikzcd}[row sep = 0ex
 			,/tikz/column 1/.append style={anchor=base east}
 			,/tikz/column 2/.append style={anchor=base west}]
 			\left.\underline{\mathcal{V}}(G_0)\right|_{U_0} \arrow[r, "", hookrightarrow] &
-			\left.E(G_0)\right|_{U_0}
+			\left.\underline{E}(G_0)\right|_{U_0}
 		\end{tikzcd}
 		\end{equation*} 
 		to a vector subgroup $\underline{\mathcal{V}}' \hookrightarrow 
@@ -1226,7 +1229,7 @@ This definition allows to state the following theorem:
 		to state that the two lifts lie in the same equivalence class.
 
 	\item If $G$ is a global lift of $G_0$, then we have the canonical isomorphism
-		$E(G) \simeq \mathbb{E}(G_0)_S$.
+		$\underline{E}(G) \simeq \mathbb{E}(G_0)_S$.
 		Hence $\underline{\mathcal{V}}(G)$ gives an element $\Theta \in \Gamma(S,\mathscr{L})$,
 		i.e. a distinguished vector subgroup in the linear equivalence
 		class of prolongations of $\underline{\mathcal{V}}(G_0)$.
