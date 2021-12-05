@@ -1207,24 +1207,21 @@ This definition allows to state the following theorem:
 		Then, we define $\left.\Theta\right|_{ U }$ to be the equivalence class
 		of $\underline{\mathcal{V}}(G)$, where $G$ is any lift of $\left.G_0\right|_{ U_0 }$
 		to $U$.
-		In order to check compatibility we pick $U_1$, $U_2$, $G_1$ and $G_2$
-		as above and $V \subset U_1 \cap U_2$ affine
-		with $p$ nilpotent on it.
-		Then we require that the restrictions of the two lifts to $V$,
-		which we still denote by $G_1$ and $G_2$, lie in the same equivalence class.
-		Here we can apply \cref{prop:MorUnivExts} and obtain the following
-		square
+		Indeed, if we denote by \(G_1\)	and \(G_2\) any two lifts of
+		\(\left.G_0\right|_{ U_0 }\) to \(U\), thanks to 
+		\cref{thm:UniqueLiftingCrystals},
+		we obtain the following diagram
 		\begin{equation*}
 		\begin{tikzcd}
 			\underline{\mathcal{V}}(G_1) \arrow[r, "j", hookrightarrow] 
 			\arrow[d, "w", rightarrow] &
-			E(G_1) \arrow[d, "v", rightarrow] \\
-			\underline{\mathcal{V}}(G_1) \arrow[r, "i", hookrightarrow] &
-			E(G_2)
+			\underline{E}(G_1) \arrow[d, "v", rightarrow] \\
+			\underline{\mathcal{V}}(G_2) \arrow[r, "i", hookrightarrow] &
+			\underline{E}(G_2)
 		,\end{tikzcd}
 		\end{equation*}
 		where $i \circ w - v \circ j$ is an exponential.
-		Since $\left.\mathbb{E}(G_0)_S\right|_{ V } = E(G_2)$,
+		Since $\left.\mathbb{E}(G_0)_S\right|_{ V } = \underline{E}(G_2)$,
 		this is exactly the requirement of \cref{defn:LinCompProlong} 
 		to state that the two lifts lie in the same equivalence class.
 
