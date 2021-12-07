@@ -367,7 +367,7 @@ its (Eisenstein) minimal polynomial.
 		\mathbb{D}^*(G)
 	,\end{tikzcd}
 	\end{equation*}
-	where the first is an isomorphism since, as seen above, the formation of
+	where the first is an isomorphism since, as recalled above, the formation of
 	$\mathbb{D}^*(G)$ commutes with base change.
 \end{rem}
 
@@ -375,7 +375,7 @@ its (Eisenstein) minimal polynomial.
 \begin{ntt}[]
 	In the following we will mainly be interested in the evaluation of
 	crystals on objects.
-	In particular, given schemes $T_0$, $G_0 \in \mathsf{BT}/T_0$ and 
+	In particular, given a scheme $T_0$, $G_0 \in \mathsf{BT}/T_0$ and 
 	$T_0 \hookrightarrow T \in \mathsf{Crys}(T_0)$, we will be interested in the
 	evaluation $\mathbb{D}^*(G_0)_{T}(T) = \mathbb{D}^*(G_0)_{T_0 \hookrightarrow T}(T)$,
 	where $\mathbb{D}^*(G_0)_T$ is defined in \cref{CrystalAssociatedZarSheafS}
@@ -392,8 +392,9 @@ its (Eisenstein) minimal polynomial.
 
 \begin{rem}[]\label{rem:DGValuationRestriction}
 	Suppose that $T_0$ is a scheme over $W$ and that $p = 0$ on $T_0$.
-	Consider $G_0 \in \mathsf{BT}/T_0$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$
-	an object on which $p$ is locally nilpotent, and $G$ a lift of $G_0$ to $T$.
+	Consider $G_0 \in \mathsf{BT}/T_0$ and $T_0 \hookrightarrow T \in \mathsf{Crys}(T_0/W)$,
+	where we recall that we required $p$ to be locally nilpotent on \(T\),
+	and $G$ a lift of $G_0$ to $T$.
 	By construction of $\mathbb{D}^*$ we have an isomorphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -466,16 +467,19 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 	Moreover we can notice that, in case $p$ is not nilpotent
 	on $A_0$, the theory of Messing (see \cref{MessingCrystalDefinition}),
 	doesn't suffice to define the crystal $\mathbb{D}^*(G)$.
-	Though, for our purpose, it is enough to define the valuation $\mathbb{D}^*(G)(A)$,
-	for which it suffices to have the crystal associated to $G_1$.
-	In particular we can notice that the crystal can be constructed for
-	$G \in \mathsf{BT}/A_0$ if $A_0$ is $p$-adically complete, as above.
+	Though, for our purpose, it is enough to define the evaluation $\mathbb{D}^*(G)(A)$,
+	for which it suffices to consider the crystal associated to $G_1 \in \mathsf{BT}/ (A_0/pA_0)$.
+	To sum up, even though we cannot construct the crystal
+	\(\mathbb{D}^*(G)\), its evaluation \(\mathbb{D}^*(G)(A)\)
+	can be defined for any $G \in \mathsf{BT}/A_0$ and any surjection
+	$A \twoheadrightarrow A_0$ as above.
 \end{rem}
 
 
 \begin{rem}[]
 	We will now introduce some technical lemmas, which will play a crucial role
-	in the proof of the main result of this section, \cref{prop:A6Kisin}.
+	in the proof of \cref{prop:A6Kisin},
+	the main result of this section.
 	In fact these lemmas allow, in combination with \cref{thm:EquivCatBTS},
 	to lift not only a Barsotti-Tate group along a thickening with divided
 	powers, but also some additional structure, i.e.
@@ -624,17 +628,22 @@ surjections of $p$-adically complete rings, whose kernels are endowed with divid
 \begin{rem}[]
 	As before we will only present the main idea behind the proof.
 	In this case, starting from any lift $\theta_0\colon M \to M'$
-	of $\theta_B$, we deform iteratively the map
+	of $\theta_B$, we construct a succession of morphisms \(\theta_i\).
+	They can be constructed in such a way that the following diagram commutes for all \(i\)
 	\begin{equation*}
 	\begin{tikzcd}[column sep=4.8em]
-		\varphi^*(M_1) \arrow[r, "\varphi^*(\left.\theta_i\right|_{ M_1 })", rightarrow] &
-		\varphi^*(M_1') \arrow[r, "1 \otimes \varphi/p", rightarrow] &
-		M'
+		\varphi^*(M_1) \arrow[r, "\varphi^*(\left.\theta_i\right|_{ M_1 })", rightarrow] 
+		\arrow[d, "", rightarrow] &
+		\varphi^*(M_1') \arrow[d, "1 \otimes \varphi/p", rightarrow] \\
+		M \arrow[r, "\theta_{ i+1 }", rightarrow] &
+		M'.
 	\end{tikzcd}
 	\end{equation*}
-	obtaining a succession of maps $\theta_i$ whose successive difference
-	has image lying in $p^{j_i}M'$.
-	The fact that $j_i \to \infty$ allows to obtain a well defined limit.
+	As a consequence \(\theta_i \circ (\varphi/p) (x) = (\varphi/p) \circ \theta_{ i-1 } (x)\)
+	for all \(x \in M_1\).
+	By surjectivity of \(\id_{ A } \otimes \varphi/p\) this
+	tells us that \(\left( \theta_i - \theta_{ i-1 } \right)(M) \subset p^{ j_i }M\).
+	Finally, the fact that $j_i \to \infty$ allows to obtain a well defined limit.
 \end{rem}
 
 
@@ -663,16 +672,16 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 
 \begin{rem}[]\label{rem:liftFrobeniusS}
 	The ring $S$ is equipped with an endomorphism $\varphi$ lifting that on $S/pS$.
-	It is, in fact, induced by the Frobenius on $W[u]$ which acts naturally
+	It is, in fact, induced by the Frobenius \(F\) on $W[u]$ which acts naturally
 	on $W$ and by $u \mapsto u^p$.
 	In order to lift it we use the universal property of
 	the divided powers envelope.
-	In particular we need to notice that this map sends $(E(u))$
-	into $\overline{J}$ which, as stated before,contains $p$.
+	In particular we need to notice that \(F\) sends $(E(u))$
+	into $\overline{J}$ which, as stated before, contains $p$.
 	But this is clear, since $F$ sends $pW[u]$ to $pW[u]$ and, 
 	since the P.D. ideal generated by $E(u)$ in $\mathcal{D}_{W[u]}(E(u))$
 	contains divided powers, it sends $E(u)$ in the P.D. ideal
-	generated by $E(u)$ and $p$.
+	generated by $E(u)$ and $p$, i.e$.$ \(\overline{J}\).
 	Then, by universal property of divided powers envelope, we obtain the desired 
 	lift $\varphi$ as the unique map making the following diagram commute
 	\begin{equation*}
@@ -706,7 +715,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 
 \begin{rem}[]\label{rem:j_iTheoremA6}
 	We will apply \cref{lem:A4Kisin} in the situation where $J$ is equipped
-	with divided power structure and there exists a finite set of 
+	with a divided power structure and there exists a finite set of 
 	elements $x_1, \ldots, x_n \in J$ such that $J$, in the $p$-adic topology, 
 	is topologically generated by the $x_i$ and their divided powers
 	and such that $\varphi(x_i) = x_i^p$ for all $i$.
@@ -742,7 +751,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	.\end{equation*}
 	Since $x_k$ and all its divided powers are in $J$,
 	we see that $(\varphi^i(x_k))^{[m_k]} \in p^{\nu_p((p^i-1)!)}J$.
-	As a consequence this claim holds for any 
+	From the  previous discussion, this claim holds for any 
 	$x = x_1^{[m_1]} \cdot \cdots \cdot x_k^{[m_k]}$, hence for all $x \in J$.
 \end{rem}
 
@@ -757,7 +766,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	\item $\operatorname{Fil}^1 S \cdot M \subset \operatorname{Fil}^1 M$
 		and the quotient $M/\operatorname{Fil}^1 M$ is a free $O_{ K }$-module;
 	\item the map $\id_{ S } \otimes \varphi_1\colon 
-		\varphi^* \left( \operatorname{Fil}^1 M \right) \to M$
+		\varphi^* \left( \operatorname{Fil}^1 M \right) \twoheadrightarrow M$
 		is surjective.
 \end{enumerate}
 \end{defn}
@@ -775,8 +784,8 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 	More explicitly we need to show that the element
 	\begin{equation*}
 		\varphi_1(E(u)) =
-		\underbrace{\frac{ u^{ep} }{ p } + \varphi_1(a_{e-1}) u^{(e-1)p} +
-		\cdots + \varphi_1(a_1)u^p}_{x} + \varphi_1(a_0)
+		\underbrace{\frac{ u^{ep} }{ p } + F(a_{e-1}) u^{(e-1)p} +
+		\cdots + F(a_1)u^p}_{x} + F(a_0)
 	\end{equation*}
 	is invertible in $S$.
 	To do so it suffices to show that $\varphi_1(a_1) \in S^{\times}$ and
@@ -834,7 +843,7 @@ for a ramified extension, see \cref{PDex:DVR} of \cref{PDexamples}.
 We start by showing that this functor actually takes values in $\mathsf{BT}^{\varphi}_{/S}$.
 We need to show that $M(G) = \mathbb{D}^{*}(G)(S)$
 has a structure of object in $\mathsf{BT}^{\varphi}_{/S}$, for which
-it is enough to check that $S \twoheadrightarrow O_K$ satisfies
+it is enough to check that $S \to O_K$ satisfies
 the hypothesis of \cref{lem:A2Kisin}.
 Notice that the map $S \to O_K$ is induced by $W[u] \twoheadrightarrow O_K$
 which is a surjection, as remarked before.
@@ -925,9 +934,8 @@ we have a ring homomorphism $S \to R_i$ given by the unique map associated to
 	,/tikz/column 2/.append style={anchor=base west}]
 	W[u] \arrow[r, "", rightarrow] &
 	R_i \\
-	u \arrow[r, "", mapsto] & u \\
-	u^{ej} / j!  \arrow[r, "", mapsto] & 0
-.\end{tikzcd}
+	u \arrow[r, "", mapsto] & u.
+\end{tikzcd}
 \end{equation*} 
 This map is compatible with $\varphi$ and, by uniqueness, also
 the induced map on $S$ is.
@@ -958,7 +966,8 @@ Then, by right exactness of tensor product,
 	,/tikz/column 2/.append style={anchor=base west}]
 	\id_{ S } \otimes \varphi_1
 	\colon 
-	\varphi^*(\operatorname{Fil}^1 M)\arrow[r, "", rightarrow] &
+	\varphi^*(\operatorname{Fil}^1 M)
+	\arrow[r, "", twoheadrightarrow] &
 	M
 \end{tikzcd}
 \end{equation*} 
@@ -974,13 +983,14 @@ With all this in mind we can start with the lifting process.
 	Let's denote by $F\colon M_1 \to M_1$ the map induced by
 	$\varphi\colon M \to M$.
 	Then we see that both sides of the surjective map
-	$\varphi^* ( \operatorname{Fil}^1 M_1) \to M_1$ are free $W$-modules of the same (finite) rank,
+	$\varphi^* ( \operatorname{Fil}^1 M_1) \twoheadrightarrow M_1$
+	are free $W$-modules of the same (finite) rank,
 	as can be seen by base changing to $k$, which means that the map is an isomorphism.
 	Now we consider the composition
 	\begin{equation*}
 	\begin{tikzcd}
 		M_1 \arrow[r, "\sim", rightarrow] &
-		\varphi^* (\operatorname{Fil}^1 M) \arrow[r, "", rightarrow] &
+		\varphi^* (\operatorname{Fil}^1 M_1) \arrow[r, "", rightarrow] &
 		\varphi^* (M_1) \arrow[r, "\sim", rightarrow] &
 		M_1
 	,\end{tikzcd}
@@ -1218,7 +1228,7 @@ These will also play an important role in what follows.
 		\mathbb{Z}/ (p^v) \frac{ \mathrm{d}T }{ T }
 		.\end{equation*}
 		
-	\item Let's now analyze $G^D = \varinjlim \underline{\mathbb{Z}/p^v\mathbb{Z}}$, where
+	\item Let's now analyse $G^D = \varinjlim \underline{\mathbb{Z}/p^v\mathbb{Z}}$, where
 		we will denote $G_v^D = \underline{\mathbb{Z}/p^v\mathbb{Z}}$.
 		We can use \cref{FlatMorphismEtaleViaFibers} (as we did in
 		\cref{EtaleConstantGroupScheme}) to obtain that this is an étale
