@@ -154,6 +154,25 @@ eprint=false
 \crefname{ex}{example}{examples}
 
 
+%Paired delimiters (thanks to mathtools)
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+%\DeclarePairedDelimiter\Set{\{}{\}}
+% just to make sure it exists
+\providecommand\given{}
+% can be useful to refer to this outside \Set
+\newcommand\SetSymbol[1][]{%
+    \nonscript\:#1\vert
+    \allowbreak
+    \nonscript\:
+    \mathopen{}
+}
+
+\DeclarePairedDelimiterX\Set[1]\{\}{%
+    \renewcommand\given{\SetSymbol[\delimsize]}
+    #1
+}
+
+
 %Mock title
 \usepackage{blindtext}
 \title{Crystalline comparison theorem for $p$-divisible groups}
