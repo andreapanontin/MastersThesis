@@ -1130,7 +1130,7 @@ of our desired comparison morphism and related ones.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\rho_G\colon A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S) 
-		\arrow[r, "", rightarrow] &
+		\arrow[r, "", rightarrowtail] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} T_p(G)^\vee
 	\end{tikzcd}
 	\end{equation*} 
@@ -1183,7 +1183,7 @@ of our desired comparison morphism and related ones.
 	Starting from the construction of \cref{UniversalExtensionConstruction} 
 	one can compute the universal extension of $G$ and $G^D$.
 	Recalling the computations of \cref{DieudonneModulesSimpleExamples}
-	we can show that they are given by
+	and \cref{lem:BT/admissible} it can shown that they are given by
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -1349,7 +1349,7 @@ of our desired comparison morphism and related ones.
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee \\
 		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(\mathbb{G}_m(p))(S)
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", rightarrow] 
-		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", rightarrow] &
+		\arrow[u, "\mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", rightarrow] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1}
 		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes T_p ((ty)^D)^\vee"', rightarrow] 
 	,\end{tikzcd}
@@ -1386,18 +1386,21 @@ of our desired comparison morphism and related ones.
 	Then, in the above square, we see that
 	\begin{equation*}
 	\begin{tikzcd}[column sep=4em]
-		1 \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})(1) 
+		\mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})(1) 
 		\arrow[r, "\rho_G", mapsto] &
 		-t \otimes y \\
 		1 \otimes 1
-		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes \mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
+		\arrow[u, "\mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", mapsto] &
 		-t \otimes t^{-1}
 		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes T_p((ty)^D)^\vee"', mapsto] 
 	.\end{tikzcd}
 	\end{equation*}
 	Now, since we imposed no restriction to the choice of $y \in T_p(G)^\vee$, 
-	commutativity of the square tells us that $t$ kills $\coker \rho_G$.
+	commutativity of the square tells us that \(t \cdot 
+	\left( A_{ \mathrm{cris} } \otimes_{ \mathbb{Z}_{p} }  (T_p(G))^\vee \right)
+	\subset \ima \rho_G\), i.e$.$ that
+	$t$ kills $\coker \rho_G$.
 
 	We are finally left to prove injectivity.
 	Notice that, thanks to classical Dieudonné theory,
@@ -1477,13 +1480,13 @@ the desired isomorphism.
 	This result actually extends previously known 
 	results in the context of classical Dieudonné theory.
 	In fact, given $G \in \mathsf{BT}/O_K$, let's denote by $G_k$
-	its base change to $k = O_K / \mathfrak{m}$ the residue field of $O_K$.
+	its base change to $k = O_K / \mathfrak{m}_K$ the residue field of $O_K$.
 	Then, denoted by $\mathbb{D}^*(G_k)$ the Dieudonné module associated to
 	$G_k$, we have the isomorphism of modules
 	\begin{equation*}
 		\mathbb{D}^*(G)(S) \simeq S \otimes_W \mathbb{D}^*(G_k)
 	.\end{equation*}
-	Though here we have not defined a natural filtration.
+	Though here we don't have a natural filtration.
 	As a consequence it will not be of concern when looking at the classical
 	comparison morphism.
 \end{rem}
@@ -1498,7 +1501,7 @@ the desired isomorphism.
 		,/tikz/column 2/.append style={anchor=base west}]
 		\rho_G\colon 
 		A_{\mathrm{cris}} \otimes_W \mathbb{D}^*(G_k)
-		\arrow[r, "", rightarrow] &
+		\arrow[r, "", rightarrowtail] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee
 	\end{tikzcd}
 	\end{equation*} 
@@ -1509,7 +1512,7 @@ the desired isomorphism.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\rho\colon B_{\mathrm{cris}} \otimes_W \mathbb{D}^*(G_k)
-		\arrow[r, "", rightarrow] &
+		\arrow[r, "\sim", rightarrow] &
 		B_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee
 	\end{tikzcd}
 	\end{equation*} 
@@ -1528,14 +1531,17 @@ the desired isomorphism.
 	hence it inherits a filtration from that on $\mathbb{D}^*(G)(S)$, via
 	\begin{equation*}
 	\operatorname{Fil}^1 D_K \coloneqq 
-	\operatorname{Fil}^1 / \left( \operatorname{Fil}^1S \otimes_W \mathbb{D}^*(G_k) \right)
-	.\end{equation*}
+	\operatorname{Fil}^1 \mathbb{D}^*(G)(S) / 
+	\left( \operatorname{Fil}^1S \otimes_W \mathbb{D}^*(G_k) \right)
+	,\end{equation*}
+	where \(\operatorname{Fil}^1 \mathbb{D}^*(G)(S)\)
+	is defined as in \cref{lem:A2Kisin}.
 	And now this induces the usual filtration on the scalar extension
 	$B_{\mathrm{dR}} \otimes_{W} D_K$, via 
 	\begin{align*}
 		\operatorname{Fil}^i \left( B_{\mathrm{dR}} \otimes_{W} D_K \right) &=
 		\sum_{j \in \mathbb{Z} }^{  } \ima \left( 
-		\operatorname{Fil}^j B_{\mathrm{dR}} \otimes_{W} \operatorname{Fil}^{i-j} D_K \right) \\
+		\operatorname{Fil}^{ i-j } B_{\mathrm{dR}} \otimes_{W} \operatorname{Fil}^{j} D_K \right) \\
 		&=
 		\operatorname{Fil}^{i-1} B_{\mathrm{dR}} \otimes_{W} \operatorname{Fil}^1 D_K +
 		\operatorname{Fil}^{i} B_{\mathrm{dR}} \otimes_{W} D_K
