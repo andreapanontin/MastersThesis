@@ -626,7 +626,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 	and induces a surjective ring homomorphism $A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$.
 	Also, by {\cite[Proposition 9.1.3]{Brinon}}, we see that the important
 	element $t = \log ([\boldsymbol\varepsilon])$ is in $A_{\mathrm{cris}}$
-	and that \(\ker A_{ \mathrm{cris} \twoheadrightarrow O_{\mathbb{C}_K}}\)
+	and that \(\ker A_{ \mathrm{cris} }\twoheadrightarrow O_{\mathbb{C}_K}\)
 	is endowed with divided powers.
 \end{rem}
 
@@ -753,11 +753,24 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 
 
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
-\begin{enumerate}
+\begin{enumerate}\label{PropertiesBcris}
 \item With some computations (see \cite[Proposition 9.1.3]{Brinon})
 	one can show that $t^{p-1} \in p A_{\mathrm{cris}}$, hence that 
 	inverting $t$ makes $p$ a unit.
 	Then $B_{\mathrm{cris}} = B_{\mathrm{cris}}^+[1/t] = A_{\mathrm{cris}}[1/t]$.
+
+
+\item\label{GoodDefinitionExpAcris} From the above we obtain that \(\nu_p(t) \geq 1/(p-1)\).
+	Then, since \(n!\gamma_n(t) = t^n\) for all \(n\),
+	we can give an estimate to the \(p\)-adic valuation of
+	its divided powers. Indeed we obtain
+	\begin{equation*}
+		\nu_p(\gamma_n(t)) = \nu_p(t^n) -\nu_p(n!) \geq
+		\frac{ n - (n - s_p(n) ) }{ p - 1 } = \frac{ s_p(n) }{ p-1 }
+	,\end{equation*}
+	which implies that \(\gamma_n(t)\) \(p\)-adically
+	converges to \(0\).
+
 
 \item As for $B_{\mathrm{dR}}$, set theoretically the definition of $B_{\mathrm{cris}}^+$ and
 	of $B_{\mathrm{cris}}$ only depends on $\mathbb{C}_{K}$.
@@ -1141,19 +1154,38 @@ of our desired comparison morphism and related ones.
 \begin{proof}
 	The idea of the proof, as carried out in \cite[\S6]{Faltings},
 	is to first concentrate on the particular case of $G = \mathbb{G}_m(p)$
-	and then reduce, using functoriality of $\rho_G$, the general case to this one.
+	and then to reduce, using functoriality of $\rho_G$, the general case to this one.
 	Here, though, we will not be concerned with filtrations nor with Frobenius.
 
 	Let's start by tackling functoriality and $\mathscr{G}_{K_\infty}$-equivariance.
 	Both of them can be explicitly checked in the construction of 
 	\cref{constr:ComparisonMorphism}.
 	In fact each step is clearly functorial
-	and, upon inspecting the various action at each step, it turns out
+	and, upon inspecting the various actions at each step, it turns out
 	that each is also $\mathscr{G}_{K_\infty}$-equivariant.
 
 	Let's now concentrate on the particular case, so let's fix $G = \mathbb{G}_m(p)$.
 	We need to explicitly compute the morphism $\rho_G$, using Messing's theory,
 	in order to prove that $t$ kills $\coker \rho_G$.
+	To achieve this result, let's recall that, since \(O_K\) is an
+	admissible ring with ideal of definition \((p)\),
+	we can invoke \cref{lem:BT/admissible} and consider a Barsotti-Tate group
+	\(G \in \mathsf{BT}/O_K\) as a family \(\left\{ G_{ n } \right\}_{ n \in \mathbb{N} }\)	
+	of Barsotti-Tate groups such that \(G_n \in \mathsf{BT}/ (O_K/ p^n O_K)\).
+	Since this equivalence is compatible with extensions
+	it will allow us to construct universal extensions and morphisms
+	between them using Messing's theory.
+	Indeed in the following, when invoking results from
+	\cref{sec:CrystalsAssociatedToBTGroups},
+	we will implicitly carry out the computations on the various \(G_n\)s.
+	Since the construction of the universal extension 
+	commutes with base change, by \cref{UnivExtensionCommutesWBaseChange},
+	we obtain a compatible system as in \cref{lem:BT/admissible},
+	hence a universal extension for our starting groups.
+	Moreover the same applies to morphisms between extensions
+	by \cref{thm:M4.2.4.4}.
+
+	It's now time to start with the explicit computations.
 	Recall that $T_p(G) = \mathbb{Z}_{p}(1)$, hence that $T_p(G)^\vee = \mathbb{Z}_{p}(-1)$.
 	Now, since $\mathscr{G}_{K}$ acts on $t \in A_{\mathrm{cris}}$ via the cyclotomic
 	character, we have an isomorphism of $\mathscr{G}_{K}$-modules $\mathbb{Z}_{p}(-1)
@@ -1179,11 +1211,11 @@ of our desired comparison morphism and related ones.
 	\end{equation*} 
 	where $\mu_{ p^\infty }(O_{\mathbb{C}_K}) = \mathbb{G}_m(p)(O_{\mathbb{C}_K})$ 
 	is the multiplicative group
-	of all $p^n$ roots of unity in $O_{\mathbb{C}_K}$.
+	of all $p$-power roots of unity in $O_{\mathbb{C}_K}$.
 	Starting from the construction of \cref{UniversalExtensionConstruction} 
 	one can compute the universal extension of $G$ and $G^D$.
 	Recalling the computations of \cref{DieudonneModulesSimpleExamples}
-	and \cref{lem:BT/admissible} it can shown that they are given by
+	we obtain the universal extension
 	\begin{equation*}
 	\begin{tikzcd}
 		0 \arrow[r, "", rightarrow] &
@@ -1214,7 +1246,6 @@ of our desired comparison morphism and related ones.
 	evaluated at $O_{\mathbb{C}_K}$, gives rise to the following commutative diagram
 	\begin{equation*}
 	\begin{tikzcd}
-		0 \arrow[r, "", rightarrow] &
 		O_{\mathbb{C}_K} 
 		\arrow[d, "0", rightarrow] 
 		\arrow[r, "", rightarrow] &
@@ -1222,16 +1253,11 @@ of our desired comparison morphism and related ones.
 		\arrow[d, "v_0", rightarrow] 
 		\arrow[r, "", rightarrow] &
 		\mathbb{Q}_p/\mathbb{Z}_{p}
-		\arrow[d, "u_0", rightarrow] 
-		\arrow[r, "", rightarrow] &
-		0 \\
-		1 \arrow[r, "", rightarrow] &
+		\arrow[d, "u_0", rightarrow] \\
 		1 \arrow[r, "", rightarrow] &
 		\mu_{p^\infty}(O_{\mathbb{C}_K})
 		\arrow[r, "", rightarrow] &
 		\mu_{p^\infty}(O_{\mathbb{C}_K})
-		\arrow[r, "", rightarrow] &
-		1
 	.\end{tikzcd}
 	\end{equation*}
 	Here it is clear that the map $v_0$, making the diagram commute, is defined by
@@ -1245,15 +1271,16 @@ of our desired comparison morphism and related ones.
 	.\end{tikzcd}
 	\end{equation*} 
 	Henceforth we will denote by $\boldsymbol\varepsilon^x \coloneqq u_0(x)$,
-	for $x \in \mathbb{Q}_p/\mathbb{Z}_{p}$.
+	for $x \in \mathbb{Q}_p/\mathbb{Z}_{p}$ and \(\boldsymbol\varepsilon\)
+	our fixed system of compatible \(p^n\)th roots of unity.
 	In particular, if we write $x = a/p^m$, for $a \in \mathbb{Z}_{p}$ and $-m = \nu_p(x)$,
 	we can explicitly compute $\boldsymbol\varepsilon^x \coloneqq 
 	\left( \boldsymbol\varepsilon^{(m)} \right)^a$.
 	Let's recall that, as seen in \cref{PDThickeningAcris}, we have a surjective homomorphism 
 	\(A_{ \mathrm{cris} } \twoheadrightarrow O_{\mathbb{C}_K}\)
 	whose kernel is endowed with divided powers.
-	Then \cref{thm:UniqueLiftingCrystals}, thanks to \cref{rem:NonNilpotentCrystalEvaluation}
-	and the fact that $A_{\mathrm{cris}}$ is $p$-adically complete,
+	Then \cref{thm:UniqueLiftingCrystals}, thanks to
+	the fact that also $A_{\mathrm{cris}}$ is $p$-adically complete,
 	grants that $v_0$ can be uniquely
 	lifted to a morphism
 	\begin{equation*}
@@ -1265,9 +1292,10 @@ of our desired comparison morphism and related ones.
 		A_{\mathrm{cris}}^{\times}
 	\end{tikzcd}
 	\end{equation*} 
-	such that $\left.-v\right|_{ \underline{\mathcal{V}}(\mathbb{G}_m(p)_{A_{\mathrm{cris}}}) }$
+	such that $\left.-v\right|_{ 
+	\underline{\mathcal{V}}(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}}_{A_{\mathrm{cris}}}) }$ 
 	is an exponential (notice that, following the notation of \cref{thm:UniqueLiftingCrystals},
-	$j = 0$ in our case).
+	$i = 0$ in our case).
 	Moreover we can define a morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1278,7 +1306,7 @@ of our desired comparison morphism and related ones.
 		\arrow[r, "", rightarrow] &
 		A_{\mathrm{cris}}^{\times} \\
 		(a,x) \arrow[r, "", mapsto] & 
-		\exp(-at)\left[ \alpha(x) \right]
+		\exp(-at) \cdot \alpha(x)
 	,\end{tikzcd}
 	\end{equation*} 
 	where, writing as before $x = a/p^m$ with $-m = \nu_p(x)$,
@@ -1287,9 +1315,10 @@ of our desired comparison morphism and related ones.
 	R = \varprojlim O_{\mathbb{C}_K}
 	.\end{equation*}
 	Here it is important to notice that $A_{\mathrm{cris}}$ is complete
-	with respect to the $p$-adic topology and that $\ker\theta$
-	is equipped with divided powers, hence that the above map is well defined.
-	Then, since $t \in \ker \theta$, ideal with divided powers, we also obtain that
+	with respect to the $p$-adic topology which, 
+	thanks to \cref{GoodDefinitionExpAcris} of \cref{PropertiesBcris},
+	implies that the above map is well defined.
+	Moreover, since $t \in \ker \theta$, ideal with divided powers, we obtain that
 	$\exp(-at) \in 1 + \ker\theta$.
 	As a consequence we obtain that $\theta(\widetilde{v}(a,x)) = \boldsymbol\varepsilon^x$,
 	i.e. that $\widetilde{v}$ lifts $v_0$.
@@ -1304,18 +1333,35 @@ of our desired comparison morphism and related ones.
 	\end{equation*}
 	for all $a \in A_{\mathrm{cris}}$.
 	And this is exactly the required explicit construction of $\rho_G$.
-	In fact we recall that, as computed in \cref{DieudonneModulesSimpleExamples},
-	\(\mathbb{D}^*(\mathbb{G}_m(p))(S) \simeq S\).
-	Then the morphism \(\rho_G\) acts by
+	In fact, looking at the construction of \cref{constr:ComparisonMorphism},
+	we see that the morphism \(\rho_G\) acts as
+	\begin{equation*}
+	\begin{tikzcd}[row sep = 0ex
+		,/tikz/column 1/.append style={anchor=base east}
+		,/tikz/column 2/.append style={anchor=base west}]
+		\rho_G\colon A_{ \mathrm{cris} } \otimes_S \mathbb{D}^*(G)(S)
+		\arrow[r, "", rightarrow] &
+		\Hom_{ \mathbb{Z}_{p} }\left( T_p(G), A_{ \mathrm{cris} } \right) \\
+		b \otimes a \arrow[r, "", mapsto] & 
+		\left( f \mapsto \mathbb{D}^*(f)(A_{ \mathrm{cris} })(b \otimes a) \right)
+	.\end{tikzcd}
+	\end{equation*} 
+	Moreover, in our case, \(T_p(G)^\vee \simeq \mathbb{Z}_{p} \cdot t^{-1}\),
+	where the isomorphism sends \(x \mapsto x(t) \cdot t^{-1}\),
+	where \(t\) is the generator of \(T_p(G)\).
+	Finally we recall that, as computed in \cref{DieudonneModulesSimpleExamples},
+	\(\mathbb{D}^*(\mathbb{G}_m(p))(S) \simeq S \frac{ \mathrm{d} T }{ T }\).
+	Putting it all together, the morphism \(\rho_G\) acts by
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\rho_G\colon 
-		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(\mathbb{G}_m(p))(S)
+		A_{\mathrm{cris}} \otimes_S S \frac{ \mathrm{d} T }{ T }
 		\arrow[r, "", rightarrow] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1} \\
-		a \otimes b \arrow[r, "", mapsto] & -ab \cdot t \otimes t^{-1}
+		a \otimes \frac{ \mathrm{d} T }{ T } \arrow[r, "", mapsto] & 
+		-a \cdot t \otimes t^{-1}
 	.\end{tikzcd}
 	\end{equation*} 
 	Here we clearly see that $t$ kills $\coker \rho_G$, since
@@ -1325,7 +1371,7 @@ of our desired comparison morphism and related ones.
 	is arbitrary.
 	We want to explicitly construct a morphism $G_{O_{\overline{K}}} \to \mathbb{G}_m(p)$
 	which will allow us to reduce the study of $\rho_G$ to the above case.
-	To achieve this goal we recall that $T_p(G)^\vee = T_p(G^D)(-1) = t^{-1}T_p(G^D)$.
+	To achieve this goal we recall that $T_p(G)^\vee = T_p(G^D)(-1) = T_p(G^D)t^{-1}$.
 	Hence, given any $y \in T_p(G)^\vee$, we obtain $ty \in T_p(G^D)$,
 	which can be interpreted as a map in 
 	$\Hom_{ \mathsf{BT}/O_{\overline{K}} } 
@@ -1371,7 +1417,7 @@ of our desired comparison morphism and related ones.
 	.\end{tikzcd}
 	\end{equation*} 
 	Here, as computed before, we have $T_p ( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}} ) =
-	\mathbb{Z}_{p}$ and $T_p(G^D) = T_p(G)^\vee(1)$.
+	\mathbb{Z}_{p}$ and $T_p(G^D) = T_p(G)^\vee \cdot t$.
 	Combined with the above this determines the morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
@@ -1396,7 +1442,7 @@ of our desired comparison morphism and related ones.
 		\arrow[u, "\id_{ A_{\mathrm{cris}} } \otimes T_p((ty)^D)^\vee"', mapsto] 
 	.\end{tikzcd}
 	\end{equation*}
-	Now, since we imposed no restriction to the choice of $y \in T_p(G)^\vee$, 
+	Now, since we imposed no restriction on the choice of $y \in T_p(G)^\vee$, 
 	commutativity of the square tells us that \(t \cdot 
 	\left( A_{ \mathrm{cris} } \otimes_{ \mathbb{Z}_{p} }  (T_p(G))^\vee \right)
 	\subset \ima \rho_G\), i.e$.$ that
@@ -1459,7 +1505,7 @@ of our desired comparison morphism and related ones.
 
 
 \noindent
-Inverting t, i.e$.$ base changing to $B_{\mathrm{cris}}$, the above result gives rise to
+Localizing at \(t\), i.e$.$ base changing to $B_{\mathrm{cris}}$, the above result gives rise to
 the desired isomorphism.
 \begin{thm}[]
 	The base change to $B_{\mathrm{cris}}$ of the morphism
