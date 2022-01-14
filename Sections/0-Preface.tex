@@ -35,18 +35,20 @@ with the period ring $B_{\mathrm{cris}}$.
 To achieve this goal we will introduce the basic language of group schemes, which
 will allow the definition of $p$-divisible groups, also called Barsotti-Tate groups.
 The notion of sheaves on sites will be also discussed in order to give some
-extra tools to work with Barsotti-Tate groups and Dieudonné modules.
+extra tools to work with Barsotti-Tate groups.
 We will define the concept of divided powers with the aim
-of defining exponentials, hence the crystalline site and crystals on this site.
-We will then introduce the theory of universal extensions which allows
-to define some crystals associated to Barsotti-Tate groups,
+of defining exponentials, with which we will introduce
+the crystalline site and crystals on this site.
+We will then approach the theory of universal extensions which allows
+to associate some crystals to Barsotti-Tate groups,
 which provide a generalization of the construction of the Dieudonné module.
 These, together with the theory of deformation of Grothendieck-Messing,
 will be used to introduce a classification
 of $p$-divisible groups over $O_K$ due to Kisin and Breuil.
 Then, after spending some time to introduce the most relevant period rings
 for the aim of this work, we will use the above-mentioned results
-to construct and study the desired comparison isomorphism.
+to construct and study the desired comparison morphism,
+finally proving that it is indeed an isomorphism.
 
 
 
@@ -60,9 +62,23 @@ In particular Giacomo and Stevell, who were always there to give a hand, and
 Debam and Marco, whose presence coloured study with \emph{playful cleverness}.
 I need to thank my supervisor, whose guidance was crucial in unravelling
 the not insignificant amount of information concerning this work and my future studies.
-Last, but not least, I thank Federica who, in this isolated period,
+Last, but most definitely not least, I thank Federica who, in this isolated period,
 was able to remind me that there is more than just mathematics to life.
+
+
+
+\section*{Web version}
+This version of my Master's thesis is distributed on the web via github and gitlab.
+I have tagged it as v1.1, meaning that it is the first revision of this document since
+my defence.
+I am not planning to update this document any further, but I might still make some corrections.
+In particular, if you find any errors or typos, please send an email to
+\href{mailto:apanontin@tutanota.com}{apanontin@tutanota.com}.
+Moreover you can check at \url{https://github.com/andreapanontin/MastersThesis} or, equivalently,
+at \url{https://gitlab.com/andreapanontin/MastersThesis}
+if there is an updated version.
 \newpage
+
 
 
 \section*{Notation and conventions}
@@ -79,17 +95,17 @@ we will denote by $f^{\#}\colon \mathcal{O}_{ Y } \to f_*\mathcal{O}_{ X }$ the
 associated morphism between structure sheaves and, given $y \coloneqq f(x)$,
 by $f_y^{\#}\colon \mathcal{O}_{ Y,y } \to \mathcal{O}_{ X,x }$ the induced morphism
 at the level of stalks.
-Moreover we denote by $\mathfrak{m}_x$ the maximal ideal of the local ring
+Moreover we will denote by $\mathfrak{m}_x$ the maximal ideal of the local ring
 $\mathcal{O}_{ X,x }$ and by $\kappa(x) \coloneqq \mathcal{O}_{ X,x }/\mathfrak{m}_x$
 the residue field at $x$.
 Finally we will say that a topological space is quasi compact
 iff every open cover admits a finite subcover, whereas
-we will call it compact if it is also Hausdorff.
+we will call it compact iff it is also Hausdorff.
 
 With respect to category theory:
 we will not worry about universes. More precisely we will
 tacitly assume a universe $\mathbb{U}$ has been chosen
-and we restrict to categories whose objects lie in $\mathbb{U}$.
+and we will restrict to categories whose objects lie in $\mathbb{U}$.
 We will denote categories using a sans serif font and, given a category \(\mathsf{C}\),
 we will denote by \(\mathsf{C}^{\mathrm{op}}\) its opposite category.
 In particular we will use the following notations:
@@ -101,16 +117,3 @@ and $\mathsf{Sets}$ for that of sets.
 Moreover, by \emph{ring} or \emph{algebra}, we will mean one which is commutative and with unity.
 Finally we will often use the shorter $X \in \mathsf{C}$ to mean that $X$ is an object
 of the category $\mathsf{C}$, i.e. that $X \in \ob \left(\mathsf{C}\right)$.
-
-
-
-\section*{Web version}
-This version of my Master's thesis is distributed on the web via github and gitlab.
-I have tagged it as v1.1, meaning that it is the first revision of this document since
-my defence.
-I am not planning to update this document any further, but I might still make some corrections.
-In particular, if you find any errors or typos, please send an email to
-\href{mailto:apanontin@tutanota.com}{apanontin@tutanota.com}.
-Moreover you can check at \url{https://github.com/andreapanontin/MastersThesis} or, equivalently,
-at \url{https://gitlab.com/andreapanontin/MastersThesis}
-if there is an updated version.
