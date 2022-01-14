@@ -109,8 +109,8 @@ such as when \(n!\) is not invertible.
 
 	\item\label{PDex:DVR} If $V$ is a discrete valuation ring of unequal characteristic $p$
 		and uniformizer $\pi$, we can write $p = u \pi^e$,
-		where $u$ an invertible element and $e$ the absolute ramification
-		index of $V$.
+		where $u$ is an invertible element and $e$ is the 
+		absolute ramification index of $V$.
 		Then $\left( \pi \right)$ has a divided power structure iff $e \leq p-1$.
 		In such case, since \(V\) is an integral domain, 
 		$\gamma$ is unique, determined by $x^n/n! \eqqcolon \gamma_n(x)$.
@@ -427,7 +427,7 @@ so we decided to include it even though no further use of it is made in this doc
 
 
 \begin{thm}[{\cite[\S3, theorem 3.19]{Berthelot}}, divided power envelope]\label{thm:PDEnvelope}
-	Let $\left(A, I, \gamma\right)$ a ring with divided powers, $B$ an $A$-algebra
+	Let $\left(A, I, \gamma\right)$ be a ring with divided powers, $B$ an $A$-algebra
 	and $J \triangleleft B$ an ideal.
 	There exists a $B$-algebra $\mathcal{D}_{B,\gamma}(J)$
 	with a divided power ideal $\left(\overline{J}, [\ \cdot \ ]\right)$,
@@ -477,7 +477,7 @@ so we decided to include it even though no further use of it is made in this doc
 	\item $\varphi(x) - x$ for all $x \in J$ and
 	\item $\varphi(f(y))^{[n]} - \varphi(f(\gamma_n(y)))$ for $y \in I$.
 \end{enumerate}
-	Then, after checking some compatibility conditions, one finds that
+	After checking some compatibility conditions, one finds that
 	$\mathcal{D}_{ B, \gamma } \coloneqq \Gamma_B(J)/\mathcal{J}$ has an induced divided power
 	structure on the ideal \(\overline{J}\), induced by \(\Gamma^+_B(J)\) on the quotient,
 	which satisfies the desired universal property.
@@ -505,8 +505,8 @@ inverse maps, of which we will construct some generalizations later on.
 	and $\log (1+x) \coloneqq \sum_{n\geq 1} 
 	(-1)^{n-1} \left( n-1 \right)! \gamma_n(x)$.
 	Let's notice that these maps are well defined.
-	In fact we assumed $I$ with nilpotent divided powers,
-	hence $\gamma_n = 0$ for $n$ big enough, which implies that
+	In fact we assumed that divided powers on $I$ are nilpoten,
+	hence that $\gamma_n = 0$ for $n$ big enough, which implies that
 	these are actually finite sums.
 	Then, as outlined in \cite[Chapter III, \S1.6]{Messing},
 	one checks that these maps are inverses to each other
