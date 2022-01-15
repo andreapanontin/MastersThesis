@@ -549,7 +549,6 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 \end{defn}
 
 
-\newpage
 \begin{rem}[{\cite[pp. 60--62]{Brinon}}]\leavevmode\vspace{-0.2\baselineskip}
 \begin{enumerate}
 	\item The element $[\boldsymbol\varepsilon] - 1 $ lies in
@@ -961,52 +960,27 @@ of our desired comparison morphism and related ones.
 
 
 \begin{rem}[]\label{BaseChangeAcris}
-	Among other things, \cref{PDExtendCompletion} states that
+	\Cref{PDExtendCompletion} states that
 	$A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$
 	is a divided power thickening.
-	Since we will need to compute $\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}})$
-	for certain $G \in \mathsf{BT}/O_K$, we wish to
+	We will then need to compute, for all \(G \in \mathsf{BT}/O_K\),
+	the evaluation $\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}})$.
+	Having already computed it, we wish to
 	reduce its computation to that of $\mathbb{D}^*(G)(S)$.
-	In order to do so, let's recall \cref{PBCrystals}, where we
-	explicitly defined the pullback of our crystals.
-	In particular consider the cartesian diagram
+	Indeed, as seen in \cref{AcrisAlgebraStructures}, the \(S\)-algebra
+	structure of \(A_{ \mathrm{cris} }\) is a divided power morphism
+	which makes the following diagram commute.
 	\begin{equation*}
 	\begin{tikzcd}
-		V \coloneqq \spec(A_{\mathrm{cris}})
-		\arrow[r, "", rightarrow] &
-		U \\
-		V_0 \coloneqq \spec(O_{\mathbb{C}_K})
-		\arrow[u, "", hookrightarrow] \arrow[r, "f", rightarrow] &
-		\spec(O_K) \eqqcolon U_0
-		\arrow[u, "", hookrightarrow]
+		O_K \arrow[d, "", rightarrow] &
+		S \arrow[l, "", twoheadrightarrow] 
+		\arrow[d, "", rightarrow] \\
+		O_{\mathbb{C}_K} &
+		A_{ \mathrm{cris} } \arrow[l, "", twoheadrightarrow] 
 	.\end{tikzcd}
 	\end{equation*}
-	In this context we have $f^*G = G_{O_{\mathbb{C}_K}}$.
-	Then stability under base change means 
-	\begin{equation*}
-	f^* \mathbb{D}^*(G)_{U_0 \hookrightarrow U} \simeq
-	\mathbb{D}^*(G_{O_{\mathbb{C}_K}})_{V_0 \hookrightarrow V}
-	\end{equation*}
-	as Zariski sheaves.
-	Moreover, since both $A_{\mathrm{cris}}$ and $O_K$ are endowed
-	with a morphism from $S$ (hence with an $S$-module structure),
-	from the universal property of pushouts, we obtain
-	a morphism in $\mathsf{Crys}(O_K)$
-	\begin{equation*}
-	\begin{tikzcd}
-		U \arrow[r, "\overline{\alpha}", rightarrow] &
-		\spec(S) \\
-		\spec(O_K)
-		\arrow[u, "", hookrightarrow] \arrow[r, "", equals] &
-		\spec(O_K) \arrow[u, "", hookrightarrow] 
-	\end{tikzcd}
-	\end{equation*}
-	which we will denote by $\alpha$.
-	Since crystals are special sheaves on $\mathsf{Crys}(O_K)$,
-	as of \cref{defn:SpecialQCSheavesCrys},
-	we finally have $\alpha^* \mathbb{D}^*(G)_{S \twoheadrightarrow O_K} =
-	\mathbb{D}^*(G)_{U_0 \hookrightarrow U}$.
-	Now we can conclude since, taking evaluations, we have
+	Then, calling \(f \coloneqq \spec(O_K \to O_{\mathbb{C}_K})\),
+	we can invoke \cref{rem:RigidityEvaluationCrystals} and obtain that
 	\begin{equation*}
 	\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}}) \simeq
 	f^* \mathbb{D}^*(G)(S) = A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
@@ -1417,7 +1391,7 @@ of our desired comparison morphism and related ones.
 	.\end{tikzcd}
 	\end{equation*} 
 	Here, as computed before, we have $T_p ( \underline{\mathbb{Q}_p/\mathbb{Z}_{p}} ) =
-	\mathbb{Z}_{p}$ and $T_p(G^D) = T_p(G)^\vee \cdot t$.
+	\mathbb{Z}_{p}$ and $T_p(G^D) = T_p(G)^\vee t$.
 	Combined with the above this determines the morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
