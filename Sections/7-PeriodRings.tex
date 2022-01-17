@@ -155,7 +155,7 @@ extends to $\mathbb{C}_K$ by continuity.
 \subsection{Period rings}
 \begin{defn}[]
 	Let $A$ be an $\mathbb{F}_p$-algebra.
-	We can associate it the perfect $\mathbb{F}_p$-algebra
+	We can associate to it the perfect $\mathbb{F}_p$-algebra
 	\begin{equation*}
 		R(A) \coloneqq \varprojlim_{x \mapsto x^p} A =
 		\left\{ \mathbf{x} = \left( \mathbf{x}_0, \mathbf{x}_1, \ldots \right) 
@@ -190,7 +190,7 @@ extends to $\mathbb{C}_K$ by continuity.
 
 \item If $A$ is already perfect, then $R(A) \simeq A$.
 	In particular the inverse map of the above projection is given by
-	$a \mapsto \left( a^{1/p^n} \right)$.
+	$a \mapsto \left( a^{1/p^n} \right)_{ n }$.
 	In particular, let's consider $\overline{k}$ a fixed separable closure of $k$.
 	Since $\overline{k}$ is already perfect, we obtain $R(\overline{k}) \simeq \overline{k}$.
 
@@ -207,7 +207,7 @@ extends to $\mathbb{C}_K$ by continuity.
 		R(O_{\overline{K}}/pO_{\overline{K}})
 	.\end{equation*}
 	It is a perfect $\mathbb{F}_p$-algebra and also canonically an
-	algebra over $\overline{k}$, since $O_{\mathbb{C}_K}$ is.
+	algebra over $\overline{k}$, since $O_{\mathbb{C}_K}/p O_{\mathbb{C}_K}$ is.
 \end{ntt}
 
 
@@ -246,7 +246,8 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]\label{tiltingOperations}
-	If we endow $\varprojlim_{x \mapsto x^p} O$ with the ring structure
+	Above \(\varprojlim_{ x \mapsto x^p } O\) was taken in \(\mathsf{Sets}\).
+	Though we can endow $\varprojlim_{x \mapsto x^p} O$ with the ring structure
 	given, for any $\mathbf{x} \coloneqq \left( \mathbf{x}^{(n)} \right)$ and 
 	$\mathbf{y} \coloneqq \left( \mathbf{y}^{(n)} \right)$, 
 	by
@@ -256,15 +257,15 @@ extends to $\mathbb{C}_K$ by continuity.
 		\left( \mathbf{x} + \mathbf{y} \right)^{(n)} \coloneqq
 		\lim_{m \to \infty} \big( \mathbf{x}^{(n+m)} +
 		\mathbf{y}^{(n+m)}\big)^{p^m}
-	,\end{equation*}
-	then the above bijection is an isomorphism of rings.
+	.\end{equation*}
+	With this extra structure the above bijection is an isomorphism of rings.
 \end{rem}
 
 
 \begin{ntt}[]\label{not:tiltingElts}
 	In view of the above isomorphism we might see an element $\mathbf{x} \in R$
 	either as an element 
-	$\left( \mathbf{x}_n \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}/ (p)$
+	$\left( \mathbf{x}_n \right) \in \varprojlim_{\varphi} O_{\mathbb{C}_K}/p O_{\mathbb{C}_K}$
 	or as an element
 	$\left( \mathbf{x}^{(n)} \right) \in \varprojlim_{x \mapsto x^p} O_{\mathbb{C}_K}$.
 	We will use high and low indices accordingly.
@@ -373,13 +374,13 @@ extends to $\mathbb{C}_K$ by continuity.
 		,/tikz/column 1/.append style={anchor=base east}
 		,/tikz/column 2/.append style={anchor=base west}]
 		\theta_n\colon R \arrow[r, "", rightarrow] &
-		O_{\mathbb{C}_K} \\
+		O_{\mathbb{C}_K}/p O_{\mathbb{C}_K} \\
 		\left( \mathbf{x}_m \right)_{m \in \mathbb{N}} \arrow[r, "", mapsto] & 
 		\mathbf{x}_n
 	.\end{tikzcd}
 	\end{equation*} 
-	Let's give $R$ a $\overline{k}$-algebra structure
-	via the $k$-embedding
+	Let's recall the $\overline{k}$-algebra structure
+	of \(R\). It is given by the $k$-embedding
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -425,7 +426,7 @@ extends to $\mathbb{C}_K$ by continuity.
 	and multiplicativity of $\mathbf{r} \mapsto \mathbf{r}^{(n)}$,
 	we have that $\big( \mathbf{r}^{p^{-n}} \big)^{(0)} = \big( (\mathbf{r}^{p^{-n}})^{(n)} \big)^{p^n} =
 	\mathbf{r}^{(n)}$.
-	Hence we can compute $\theta$ also via
+	Hence we can also compute $\theta$ via
 	\begin{equation*}
 	\begin{tikzcd}
 		\theta\colon 
@@ -455,9 +456,9 @@ extends to $\mathbb{C}_K$ by continuity.
 \end{rem}
 
 
-\begin{lem}[{\cite[Lemma 4.4.1]{Brinon}}]
+\begin{lem}[{\cite[Lemma 4.4.1]{Brinon}}]\label{PropertiesTheta}
 	The map $\theta\colon W(R) \twoheadrightarrow O_{\mathbb{C}_K}$ is a
-	$\mathscr{G}_K$-equivariant surjective ring homomorphism.
+	surjective $\mathscr{G}_K$-equivariant ring homomorphism.
 \end{lem} 
 
 
@@ -502,14 +503,14 @@ extends to $\mathbb{C}_K$ by continuity.
 
 
 \begin{rem}[]\label{kerQGKStable}
-	As a consequence of the above we see that $W(R)[1/p]$
+	As a consequence we see that $W(R)[1/p]$
 	injects into its $\ker \theta_{\mathbf{Q}}$-completion
 	\begin{equation*}
 	B^+_{\mathrm{dR}} \coloneqq \varprojlim_{j \geq 1}
 	\frac{ W(R)[1/p] }{ \left( \ker \theta_{\mathbf{Q}} \right)^j }
 	.\end{equation*}
-	Recall that $\mathscr{G}_K$ acts component-wise on the ring of Witt vectors,
-	so $\ker \theta_{\mathbf{Q}}$ is stable under the action of $\mathscr{G}_K$
+	Since \(\theta_{ \mathbf{Q} }\) is a $\mathscr{G}_K$-equivariant morphism,
+	$\ker \theta_{\mathbf{Q}}$ is stable under the action of $\mathscr{G}_K$
 	and the transition maps of the above projective limit are $\mathscr{G}_K$-equivariant.
 	As a consequence $B^+_{\mathrm{dR}}$ inherits a natural action of $\mathscr{G}_K$
 	which is compatible with that on its subring $W(R)[1/p]$.
@@ -555,11 +556,13 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 		$\ker \theta$, hence the element $\log ([\boldsymbol\varepsilon])$
 		is well defined in $B_{\mathrm{dR}}^+$.
 
-	\item One can show, via careful topological arguments, that,
-		since any two different choices of $\boldsymbol\varepsilon$
-		are related by $\boldsymbol\varepsilon' = \boldsymbol\varepsilon^a$
-		for $a \in \mathbb{Z}_{p}^{\times}$, then
-		$t' = a t$.
+	\item Recall that, as stated in \cref{ExampleEltsTilt},
+		for any two choices \(\boldsymbol\varepsilon\) and
+		\(\boldsymbol\varepsilon'\) there is an \(a \in \mathbb{Z}_{p}^\times\)
+		such that \(\boldsymbol\varepsilon' = \boldsymbol\varepsilon^a\).
+		Let's denote by \(t' \coloneqq \log ([\boldsymbol\varepsilon'])\).
+		Then it can be shown, via careful topological arguments, 
+		that $t' = a t$.
 
 	\item $\mathscr{G}_K$ acts multiplicatively on $t$ via the cyclotomic character,
 		i.e. for all $g \in \mathscr{G}_K$ we have
@@ -619,7 +622,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 	\text{ for the $p$-adic topology}\right\}
 	.\end{equation*}
 	In particular this grants that $A_{\mathrm{cris}}$ is a domain,
-	hence it is a flat \(\mathbb{Z}_{p}\)-module.
+	hence that it is a flat \(\mathbb{Z}_{p}\)-module.
 	Moreover the composite $A_{\mathrm{cris}} \hookrightarrow B_{\mathrm{dR}}^+ 
 	\twoheadrightarrow \mathbb{C}_K$ lands in $O_{\mathbb{C}_K}$
 	and induces a surjective ring homomorphism $A_{\mathrm{cris}} \twoheadrightarrow O_{\mathbb{C}_K}$.
@@ -632,7 +635,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 
 \begin{rem}[]
 	As seen in \cref{GKActionWR}, $\mathscr{G}_K$ acts on $W(R)$ sending $pW(R)$ to $pW(R)$
-	and, as seen in \cref{kerQGKStable}, $\ker\theta$ to $\ker\theta$.
+	and, thanks to \cref{PropertiesTheta}, $\ker\theta$ to $\ker\theta$.
 	Then by universal property of divided powers envelope the action extends to
 	$\mathcal{D}_{W(R)}(\ker\theta)$.
 	More explicitly any $g \in \mathscr{G}_K$ induces the unique dashed arrow
@@ -673,7 +676,8 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 
 \begin{rem}[]\label{AcrisAlgebraStructures}
 	We can give to $A_{\mathrm{cris}}$ the structure of $W$-algebra and then also
-	of $S$-algebra.
+	of $S$-algebra, where we recall that \(W \coloneqq W(k)\)
+	and that \(S\) was defined in \cref{defn:S}.
 	The construction goes as follows.
 	We have the injections
 	\begin{equation*}
@@ -686,7 +690,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 	\end{equation*}
 	Since, moreover, $k \hookrightarrow R$ we obtain an injection $W \hookrightarrow W(R)$.
 	Composed with the above it gives a canonical $W$-algebra structure to $A_{\mathrm{cris}}$.
-	We then use this structure to define the $W$-algebra morphism
+	With this structure we define the $W$-algebra morphism
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -704,27 +708,30 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 	In fact the image of $\alpha$ lies in $W(R) \subset A_{\mathrm{cris}}$, hence we can check it
 	here, since Frobenius of $A_{\mathrm{cris}}$ extends that of $W(R)$.
 	Then, by definition we have the following square
+	(which clearly commutes)
 	\begin{equation*}
 	\begin{tikzcd}
 		\sum_{n \in \mathbb{N} }^{  } a_n u^n
 		\arrow[r, "\alpha", mapsto] \arrow[d, "\varphi"', mapsto] &
 		\sum_{n \in \mathbb{N} }^{  } a_n \left[ \boldsymbol\pi \right]^n
 		\arrow[d, "\varphi", mapsto] \\
-		\sum_{n \in \mathbb{N} }^{  } a_n^p u^{np}
+		\sum_{n \in \mathbb{N} }^{  } F(a_n) u^{np}
 		\arrow[r, "\alpha"', mapsto] &
-		\sum_{n \in \mathbb{N} }^{  } a_n^p \left[ \boldsymbol\pi \right]^{np}
+		\sum_{n \in \mathbb{N} }^{  } F(a_n) \left[ \boldsymbol\pi \right]^{np}
 	,\end{tikzcd}
 	\end{equation*}
-	which commutes since the Frobenius on $W(R)$ is a ring homomorphism.
+	where \(F\) denotes the Frobenius on Witt vectors.
+	Recall that, as introduced in \cref{Sec:ClassificationBT/OK},
+	we will denote by \(E(u) \in W[u]\) 
+	the minimal polynomial of \(\pi\).
 	Now we notice that $\alpha(E(u)) \in \ker\theta$
 	by definition of $\theta$.
 	In fact $\alpha(E(u)) = E(\left[ \boldsymbol\pi \right])$
 	and $\theta([\boldsymbol\pi]) = \pi$ imply that $\theta(\alpha(E(u))) = E(\pi) = 0$.
-	This implies that, by universal property of divided powers envelope,
-	the morphism $W[u] \to W(R) \subset A_{\mathrm{cris}}$
-	induces a morphism $\mathcal{D}_{W[u]}(E(u)) \to W(R)$.
-	Now we can see $W(R) \subset \mathcal{D}_{W(R)}(\ker\theta)$
-	which, combined with the above comments, induces the diagram
+	Then, by universal property of divided powers envelope,
+	the morphism $W[u] \to \mathcal{D}_{ W(R) }(\ker \theta) \subset A_{\mathrm{cris}}$
+	induces a morphism $\mathcal{D}_{W[u]}(E(u)) \to \mathcal{D}_{ W(R) }(\ker \theta)$.
+	This induces the following diagram
 	\begin{equation*}
 	\begin{tikzcd}
 		\mathcal{D}_{W[u]}(E(u)) \arrow[r, "", rightarrow] 
@@ -768,7 +775,7 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 		\frac{ n - (n - s_p(n) ) }{ p - 1 } = \frac{ s_p(n) }{ p-1 }
 	,\end{equation*}
 	which implies that \(\gamma_n(t)\) \(p\)-adically
-	converges to \(0\).
+	go to \(0\).
 
 
 \item As for $B_{\mathrm{dR}}$, set theoretically the definition of $B_{\mathrm{cris}}^+$ and
@@ -781,7 +788,9 @@ so we want to find a uniformizer which behaves well under the action of $\mathsc
 
 \begin{prop}[{\cite[Proposition 9.1.6]{Brinon}}]
 	$B_{\mathrm{cris}}$ is $\mathscr{G}_K$-regular
-	and $B_{\mathrm{cris}}^{\mathscr{G}_K} = K_0$.
+	and $B_{\mathrm{cris}}^{\mathscr{G}_K} = K_0$,
+	where we recall that \(K_0\) denotes the maximal
+	unramified subextension of \(K/\mathbb{Q}_p\).
 \end{prop}
 
 
@@ -791,13 +800,13 @@ a universal property.
 \begin{defn}[Formal divided power thickening]
 	Let $A$ be a ring, with a principal ideal $\mathfrak{p}$
 	equipped with divided powers and $V$ be an $A$-algebra.
-	A \emph{$\mathfrak{p}$-adic divided power thickening of $V$}
+	A \emph{$\mathfrak{p}$-adic divided power \(A\)-thickening of $V$}
 	is a surjective homomorphism of $A$-algebras
 	$\theta\colon D \to V$ such that $\ker \theta$ has a divided power structure
 	compatible with those on $\mathfrak{p}$, similarly to \cref{defn:PDThickening}.
-	Morphisms between divided power thickening are divided power morphisms
+	Morphisms between divided power \(A\)-thickenings are divided power morphisms
 	making the obvious diagram commute.
-	If the category of $\mathfrak{p}$-adic divided power $A$-thickening of $V$,
+	If the category of $\mathfrak{p}$-adic divided power $A$-thickenings of $V$,
 	whose objects and morphisms have just been defined, admits an initial object
 	we call it the \emph{universal $\mathfrak{p}$-adic divided power $A$-thickening of $V$}.
 	
@@ -805,7 +814,7 @@ a universal property.
 	we define \emph{formal $\mathfrak{p}$-adic divided power $A$-thickenings of $V$} to be
 	$\mathfrak{p}$-adic divided power $A$-thickenings of $V$ which are separated and complete
 	with respect to the $\mathfrak{p}$-adic topology.
-	An initial object in the category of formal $\mathfrak{p}$-adic divided power $A$-thickening
+	An initial object in the category of formal $\mathfrak{p}$-adic divided power $A$-thickenings
 	of $V$ is called universal as before.
 \end{defn}
 
@@ -820,7 +829,7 @@ a universal property.
 	formal $p$-adic divided power $W$-thickening of $O_{\mathbb{C}_K}$.
 	In fact $\ker (A_{\mathrm{cris}} \to O_{\mathbb{C}_K})$
 	is the $p$-adic completion of the P.D. ideal generated by $\ker \theta$
-	in $\mathcal{D}_{W(R)}(\ker\theta)$.
+	and \(p\) in $\mathcal{D}_{W(R)}(\ker\theta)$.
 	The latter is equipped with divided powers by construction, whereas
 	the former is equipped with divided powers by \cref{PDExtendCompletion}.
 	We then need to show universality.
@@ -885,7 +894,7 @@ a universal property.
 	$\xi_m^{p^m} \equiv \zeta_{m}^{p^m} \mod p^m J_D$ by the above.
 	This means that the sequence $\left\{ \xi_m^{p^m} - \zeta_m^{p^m} \right\}$
 	is Cauchy, moreover it clearly converges to zero.
-	Then, being $D$ a topological ring (hence sum is continuous),
+	Then, being $D$ a separated topological ring (hence sum is continuous),
 	we obtain that the two sequences $\left\{ \zeta_m^{p^m} \right\}$ and
 	$\left\{ \xi_m^{p^m} \right\}$ converge to the same point,
 	which is then independent from the choice of lifts.
@@ -941,7 +950,7 @@ a universal property.
 
 \subsection{Comparison morphisms}
 This last section will be dedicated to constructing and studying a few properties
-of our desired comparison morphism and related ones.
+of our desired comparison morphism and some related ones.
 
 
 \begin{rem}[]\label{elementsTateModule}
@@ -966,10 +975,11 @@ of our desired comparison morphism and related ones.
 	We will then need to compute, for all \(G \in \mathsf{BT}/O_K\),
 	the evaluation $\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}})$.
 	Having already computed it, we wish to
-	reduce its computation to that of $\mathbb{D}^*(G)(S)$.
+	reduce its computation to that of $\mathbb{D}^*(G)(S)$,
+	where we recalled that \(S\) was defined in \cref{defn:S}.
 	Indeed, as seen in \cref{AcrisAlgebraStructures}, the \(S\)-algebra
 	structure of \(A_{ \mathrm{cris} }\) is a divided power morphism
-	which makes the following diagram commute.
+	which makes the following diagram commute
 	\begin{equation*}
 	\begin{tikzcd}
 		O_K \arrow[d, "", rightarrow] &
@@ -1028,10 +1038,10 @@ of our desired comparison morphism and related ones.
 		\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(A_{\mathrm{cris}})
 	.\end{tikzcd}
 	\end{equation*} 
-	We use \cref{BaseChangeAcris} to compute those crystals
-	in terms of the modules $M(G) = \mathbb{D}^*(G)(S)$ of \cref{prop:A6Kisin}.
+	We use \cref{BaseChangeAcris} to reduce these evaluations
+	to the modules $M(G) = \mathbb{D}^*(G)(S)$ of \cref{prop:A6Kisin}.
 	In particular, from \cref{DieudonneModulesSimpleExamples}, we get
-	$\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(S) = S$.
+	$\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(S) = S \frac{ \mathrm{d}T }{ T }$.
 	Then we have
 	\begin{equation*}
 	\mathbb{D}^*(\underline{\mathbb{Q}_p/\mathbb{Z}_{p}})(A_{\mathrm{cris}})
@@ -1040,8 +1050,8 @@ of our desired comparison morphism and related ones.
 	\mathbb{D}^*(G_{O_{\mathbb{C}_K}})(A_{\mathrm{cris}}) \simeq
 	A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
 	.\end{equation*}
-	Recalling that $A_{\mathrm{cris}}$ has an $S$-algebra structure,
-	defined in \cref{AcrisAlgebraStructures}, we obtain a pairing
+	Recalling that $A_{\mathrm{cris}}$ has an $\mathbb{Z}_{p}$-algebra structure
+	we obtain a pairing
 	\begin{equation*}
 	\begin{tikzcd}[row sep = 0ex
 		,/tikz/column 1/.append style={anchor=base east}
@@ -1280,7 +1290,7 @@ of our desired comparison morphism and related ones.
 		\arrow[r, "", rightarrow] &
 		A_{\mathrm{cris}}^{\times} \\
 		(a,x) \arrow[r, "", mapsto] & 
-		\exp(-at) \cdot \alpha(x)
+		\exp(-at) \cdot [\alpha(x)]
 	,\end{tikzcd}
 	\end{equation*} 
 	where, writing as before $x = a/p^m$ with $-m = \nu_p(x)$,
@@ -1316,8 +1326,8 @@ of our desired comparison morphism and related ones.
 		\rho_G\colon A_{ \mathrm{cris} } \otimes_S \mathbb{D}^*(G)(S)
 		\arrow[r, "", rightarrow] &
 		\Hom_{ \mathbb{Z}_{p} }\left( T_p(G), A_{ \mathrm{cris} } \right) \\
-		b \otimes a \arrow[r, "", mapsto] & 
-		\left( f \mapsto \mathbb{D}^*(f)(A_{ \mathrm{cris} })(b \otimes a) \right)
+		a \otimes b \arrow[r, "", mapsto] & 
+		\left( f \mapsto \mathbb{D}^*(f)(A_{ \mathrm{cris} })(a \otimes b) \right)
 	.\end{tikzcd}
 	\end{equation*} 
 	Moreover, in our case, \(T_p(G)^\vee \simeq \mathbb{Z}_{p} \cdot t^{-1}\),
@@ -1343,7 +1353,7 @@ of our desired comparison morphism and related ones.
 
 	Let's now switch to the general case, in which $G \in \mathsf{BT}/O_K$
 	is arbitrary.
-	We want to explicitly construct a morphism $G_{O_{\overline{K}}} \to \mathbb{G}_m(p)$
+	We want to explicitly construct morphisms $G_{O_{\overline{K}}} \to \mathbb{G}_m(p)$
 	which will allow us to reduce the study of $\rho_G$ to the above case.
 	To achieve this goal we recall that $T_p(G)^\vee = T_p(G^D)(-1) = T_p(G^D)t^{-1}$.
 	Hence, given any $y \in T_p(G)^\vee$, we obtain $ty \in T_p(G^D)$,
@@ -1367,7 +1377,7 @@ of our desired comparison morphism and related ones.
 		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(G)(S)
 		\arrow[r, "\rho_G", rightarrow] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \left( T_p(G) \right)^\vee \\
-		A_{\mathrm{cris}} \otimes_S \mathbb{D}^*(\mathbb{G}_m(p))(S)
+		A_{\mathrm{cris}} \otimes_S S \frac{ \mathrm{d}T }{ T }
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", rightarrow] 
 		\arrow[u, "\mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", rightarrow] &
 		A_{\mathrm{cris}} \otimes_{\mathbb{Z}_{p}} \mathbb{Z}_{p} t^{-1}
@@ -1409,7 +1419,7 @@ of our desired comparison morphism and related ones.
 		\mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})(1) 
 		\arrow[r, "\rho_G", mapsto] &
 		-t \otimes y \\
-		1 \otimes 1
+		1 \otimes \frac{ \mathrm{d}T }{ T }
 		\arrow[u, "\mathbb{D}^*((ty)^D)(A_{\mathrm{cris}})", mapsto] 
 		\arrow[r, "\rho_{\mathbb{G}_m(p)}", mapsto] &
 		-t \otimes t^{-1}
