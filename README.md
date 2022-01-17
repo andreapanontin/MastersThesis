@@ -12,3 +12,5 @@ Using crystalline techniques, this allows to relate the p-adic Tate module of a 
 its Breuil-Kisin module by a period isomorphism, which in this case is nothing but the
 crystalline comparison isomorphism between the dual of the étale cohomology and that
 of the crystalline cohomology of the special fiber.
+
+I've added the pdf output to the latest release, in case you want to read it.
