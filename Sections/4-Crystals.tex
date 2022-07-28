@@ -168,8 +168,15 @@ introduce the following definitions.
 	$\gamma$ extends to $B$ iff there exists a divided power
 	structure $\overline{\gamma}$ on $IB$ such that
 	\begin{equation*}
-		f\colon \left(A, I, \gamma\right) \to \left(B, IB, \overline{\gamma}\right)
-	\end{equation*}
+	\begin{tikzcd}[row sep = 0ex
+			,/tikz/column 1/.append style={anchor=base east}
+			,/tikz/column 2/.append style={anchor=base west}]
+			f\colon 
+			\left(A, I, \gamma\right)
+			\arrow[r, "", rightarrow] &
+			\left(B, IB, \overline{\gamma}\right)
+	\end{tikzcd}
+	\end{equation*} 
 	is a morphism of divided power rings.
 \end{defn}
 
@@ -505,7 +512,7 @@ inverse maps, of which we will construct some generalizations later on.
 	and $\log (1+x) \coloneqq \sum_{n\geq 1} 
 	(-1)^{n-1} \left( n-1 \right)! \gamma_n(x)$.
 	Let's notice that these maps are well defined.
-	In fact we assumed that divided powers on $I$ are nilpoten,
+	In fact we assumed that divided powers on $I$ are nilpotent,
 	hence that $\gamma_n = 0$ for $n$ big enough, which implies that
 	these are actually finite sums.
 	Then, as outlined in \cite[Chapter III, \S1.6]{Messing},
