@@ -10,9 +10,9 @@ pages:
   stage: deploy
   script:
     - mkdir public  # create a folder called public
-    - cp Main.pdf public/Crystalline_comparison_theorem_for_p-divisible_groups.pdf
+    - mv Main.pdf public/Crystalline_comparison_theorem_for_p-divisible_groups.pdf
   artifacts:
     paths: 
       - public  # instruct GitLab to keep the public folder
   only: 
-    - master  # deploy the pdf only for commits made to the master branch
+    - main  # deploy the pdf only for commits made to the master branch
