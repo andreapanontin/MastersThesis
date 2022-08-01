@@ -13,4 +13,5 @@ its Breuil-Kisin module by a period isomorphism, which in this case is nothing b
 crystalline comparison isomorphism between the dual of the étale cohomology and that
 of the crystalline cohomology of the special fiber.
 
-I've added the pdf output to the latest release, in case you want to read it.
+You can download the output pdf for the two versions I tagged in the appropriate [section](https://gitlab.com/andreapanontin/MastersThesis/-/releases).
+You can also download the output of the last commit [here](https://andreapanontin.gitlab.io/MastersThesis/Crystalline_comparison_theorem_for_p-divisible_groups.pdf).
