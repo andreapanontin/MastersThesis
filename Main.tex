@@ -52,14 +52,15 @@
 \def\frontmatter{%
     \pagenumbering{roman}
     \setcounter{page}{1}
-    \renewcommand{\thesection}{\roman{section}}
+    \renewcommand{\thesection}{\roman{section}.}
 }%
 
 \def\mainmatter{%
     \pagenumbering{arabic}
     \setcounter{page}{1}
     \setcounter{section}{0}
-    \renewcommand{\thesection}{\arabic{section}}
+    \renewcommand{\thesection}{\arabic{section}.}
+    \renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
 }%
 
 
@@ -85,8 +86,6 @@
 
 %QED symbol
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
-
-
 %Bibliography
 \usepackage{csquotes}
 \usepackage[
@@ -98,11 +97,12 @@ url=false,
 isbn=false,
 eprint=false
 ]{biblatex}
+
 \addbibresource{Bibliography.bib}
 
 
 %Referencing
-\usepackage{hyperref}
+\usepackage[bookmarksnumbered=true]{hyperref}
 \hypersetup{
  urlbordercolor=black,
  pdfborderstyle={/S/U/W 1},
@@ -135,6 +135,7 @@ eprint=false
 
 %Theorems-propositions
 \newtheorem{thm}{Theorem}[section]
+\renewcommand{\thethm}{\arabic{section}.\arabic{thm}}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
