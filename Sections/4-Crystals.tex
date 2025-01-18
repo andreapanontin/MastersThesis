@@ -1011,7 +1011,8 @@ or $\mathcal{O}_{ S }$-modules.
 	for all \(S' \in \mathsf{Sch}/ S \).
 	This gives a representative in $\mathsf{Sch}/S$ for 
 	$\underline{\mathcal{V}}$, making it not only an object of $\mathsf{Gr}/S$,
-	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}/S$.
+	as defined in \cref{not:GrS}, but also of $\mathsf{Gp}/S$
+	of \cref{defn:CatOfGroupSchemes}.
 \end{prop}
 
 
@@ -1068,16 +1069,17 @@ or $\mathcal{O}_{ S }$-modules.
 	Then we have the following isomorphism $(\mathcal{U}^\vee)^\vee \simeq \mathcal{U}$.
 	Assume, moreover, \(\mathcal{U}\) is a co-commutative and
 	augmented \(\mathcal{O}_{ S }\) co-algebra, i.e$.$
-	it is given with a counit \(\eta\colon \mathcal{U} \to \mathcal{O}_{ S }\).
+	it is given with a co-algebra map
+	\(\varepsilon\colon \mathcal{O}_{ S } \to \mathcal{U}\).
 	Then, by \cref{representabilityVectSGroup},
 	we have $X = \cospec(\mathcal{U}) \simeq 
 	\underline{\spec}_S(\mathcal{U}^\vee)$ as fppf sheaves.
 	Let's now define $\omega_X$ with respect to the section $e\colon S \to X$
-	associated to the counit $\eta\colon \mathcal{U} \to \mathcal{O}_{ S }$
+	associated to $\varepsilon\colon \mathcal{O}_{ S } \to \mathcal{U}$
 	via the identification
 	\begin{equation*}
 		\Hom_{ \mathcal{O}_{ S }}
-		\left( \mathcal{U}_{S}, \mathcal{O}_{ S } \right) 
+		\left( \mathcal{O}_{ S }, \mathcal{U} \right) 
 		\simeq
 		\Gamma(S, \underline{\spec}_S(\mathcal{U}^\vee))
 	.\end{equation*}
