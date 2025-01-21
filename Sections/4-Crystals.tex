@@ -735,6 +735,12 @@ This means that it might not be consistent with our previous exposition.
 \end{ntt}
 
 
+\noindent
+For the next definition we need to notice that
+\(\mathcal{U}_{ S' }\) is a \(\mathcal{O}_{ S' }\) co-algebra
+as soon as \(\mathcal{U}\) is a \(\mathcal{O}_{ S }\) co-algebra.
+This follows immediately from the fact that
+\(f^*\) commutes with tensor products.
 \begin{defn}[]
 	Let $S$ be a scheme and $\mathcal{U}$ a co-commutative
 	$\mathcal{O}_{ S }$ co-algebra.
@@ -1042,8 +1048,15 @@ or $\mathcal{O}_{ S }$-modules.
 \end{rem}
 
 
-\begin{defn}[]
-	Let $\mathcal{U}$ be a co-commutative \(\mathcal{O}_{ S }\) co-algebra.
+\begin{defn}[\(\lie(\mathcal{U})\)]
+	Let $\mathcal{U}$ be an augmented \(\mathcal{O}_{ S }\) co-algebra,
+	that is a co-algebra \(\mathcal{U}\) with a co-algebra
+	map \(\varepsilon\colon \mathcal{O}_{ S } \to \mathcal{U}\).
+	In particular, it allows us to write \(1_{ \mathcal{U} } \coloneqq
+	\varepsilon(1_{ \mathcal{O}_{ X } })\).
+	In what follows, we will usually just write \(1\) for
+	\(1_{ \mathcal{U} }\), but this abuse of notation
+	should lead to no confusion.
 \begin{enumerate}
 \item We say that a section $x$ of $\mathcal{U}$ is \emph{primitive} iff
 	$\Delta(x) = x \otimes 1 + 1 \otimes x$.
@@ -1215,7 +1228,7 @@ As usual, denote by $\mathcal{V}_0$ and $H_0$ the restriction of the above to $S
 	the above construction can be carried out in the following case.
 	Let's assume that $G \in \mathsf{Gr}/S$ is a filtering direct limit of
 	representable subgroups $G_\alpha$.
-	Assume that $\mathrm{Inf}^1(G) = \mathrm{Inf}^1(G_\alpha)$ for some $\alpha$,
+	Assume that $\Inf^1(G) = \Inf^1(G_\alpha)$ for some $\alpha$,
 	so that $\lie(G) = \lie(G_\alpha)$.
 	Then one can define the exponential map in this case, giving rise to
 	\begin{equation*}
