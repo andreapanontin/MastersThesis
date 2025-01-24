@@ -719,7 +719,7 @@ This means that it might not be consistent with our previous exposition.
 \end{rem}
 
 
-\begin{ntt}[]
+\begin{ntt}[Base change]
 	In order to stay consistent with
 	\cite{Messing} we will use the following notation.
 	Let $S$ be a scheme, $\mathcal{U}$ an $\mathcal{O}_{ S }$-module
@@ -741,7 +741,7 @@ For the next definition we need to notice that
 as soon as \(\mathcal{U}\) is a \(\mathcal{O}_{ S }\) co-algebra.
 This follows immediately from the fact that
 \(f^*\) commutes with tensor products.
-\begin{defn}[]
+\begin{defn}[Cospec functor]
 	Let $S$ be a scheme and $\mathcal{U}$ a co-commutative
 	$\mathcal{O}_{ S }$ co-algebra.
 	We define the functor 
@@ -804,6 +804,49 @@ We need some preliminary definitions first.
 \end{defn}
 
 
+\begin{ntt}[Dual of an \(\mathcal{O}_{ X }\)-module]
+	Let \(X\) be a scheme and \(\mathcal{F}\) an \(\mathcal{O}_{ X }\)-module.
+	We denote by \(\mathcal{F}^\vee\) the \emph{dual of \(\mathcal{F}\)},
+	i.e. the \(\mathcal{O}_{ X }\)-module
+	\begin{equation*}
+		\mathcal{F}^\vee \coloneqq
+		\mathcal{H}\mathrm{om}_{ \mathcal{O}_{ X }\text{-}\mathsf{Mod}}
+		( \mathcal{F}, \mathcal{O}_{ X } )
+	.\end{equation*}
+\end{ntt}
+
+
+\begin{rem}[Duals and base change]\label{rem:dualsAndBaseChange}
+	Taking duals of finitely presented quasi-coherent sheaves
+	commutes with flat base change.
+	Let us expand on what we mean.
+	Let \(f\colon X' \to X\) be a \emph{flat} morphism of schemes
+	and \(\mathcal{F}\) a quasi-coherent \(\mathcal{O}_{ X }\)-module of
+	\emph{finite presentation}.
+	Then, according to 
+	\cite[\href{https://stacks.math.columbia.edu/tag/0C6I}{Lemma 0C6I}]{SP},
+	we have the following isomorphism
+	\begin{equation*}
+		f^* \mathcal{H}\mathrm{om}_{ \mathcal{O}_{ X }\text{-}\mathsf{Mod}}
+	( \mathcal{F},  \mathcal{O}_{ X } ) \simeq
+		\mathcal{H}\mathrm{om}_{ \mathcal{O}_{ X' }\text{-}\mathsf{Mod}}
+	( f^*\mathcal{F},  \mathcal{O}_{ X' } )	
+	.\end{equation*}
+	Translated in Messing's notation, the above equation states
+	\begin{equation*}
+		(\mathcal{F}^\vee)_{ X' } \simeq (\mathcal{F}_{ X' })^\vee
+	.\end{equation*}
+	Clearly flatness is a crucial assumption, as can be seen
+	by looking at the dual of \(\mathbb{Z}/2\spec \mathbb{Z}\)
+	as a \(\mathbb{Z}\)-module
+	and base change along \(\mathbb{Z} \twoheadrightarrow \mathbb{F}_2\).
+	Hence, in \cref{rem:represCospec}, 
+	we only prove that \(\cospec(\mathcal{U})\) is representable
+	on the small fppf site.
+	The result would not hold in \(\mathsf{Sch}/S\).
+\end{rem}
+
+
 \begin{rem}[]\label{rem:CospecSections}
 	We start out giving the following useful identification.
 	Let $\mathcal{U}$ be a quasi-coherent $\mathcal{O}_{ S }$ co-algebra,
@@ -855,6 +898,7 @@ or $\mathcal{O}_{ S }$-modules.
 \end{defn}
 
 
+\newpage
 \begin{rem}[]\leavevmode\vspace{-.2\baselineskip}
 \begin{enumerate}
 	\item Notice that the constructions outlined above can actually be carried out,
@@ -894,7 +938,7 @@ or $\mathcal{O}_{ S }$-modules.
 \end{rem}
 
 
-\begin{rem}[]
+\begin{rem}\label{rem:represCospec}
 	For a finite locally-free $\mathcal{O}_{ S }$-algebra $\mathcal{A}$,
 	we can see that $\cospec(\mathcal{A}^{\vee})$, as an fppf sheaf, is representable 
 	by $\underline{\spec}_S(\mathcal{A})$ and
@@ -908,6 +952,7 @@ or $\mathcal{O}_{ S }$-modules.
 	as seen in \cref{rem:(co)algDuality}.
 	Then, invoking \cref{rem:CospecSections}, we can construct 
 	our desired isomorphism: let $S' \in \mathsf{Sch}/S$
+	be a flat scheme over \(S\)
 	\begin{align*}
 		\Gamma(S', \cospec(\mathcal{A}^{\vee})) &\simeq
 		\Hom_{ \mathcal{O}_{ S' }\text{-}\mathsf{co}\text{-}\mathsf{alg}} 
@@ -919,7 +964,9 @@ or $\mathcal{O}_{ S }$-modules.
 		%\Hom_{ S }\left(S', \underline{\spec}_S(\mathcal{A})\right)
 		\Gamma(S', \underline{\spec}_S(\mathcal{A}))
 	,\end{align*}
-	where the last isomorphism holds by 
+	where for the first isomorphism we implicitly used
+	\cref{rem:dualsAndBaseChange},
+	whereas the last isomorphism holds by 
 	\cite[\href{https://stacks.math.columbia.edu/tag/01LV}{Lemma 01LV}]{SP}.
 	In fact we can conclude thanks to functoriality of the above isomorphisms.
 \end{rem}
@@ -1044,7 +1091,8 @@ or $\mathcal{O}_{ S }$-modules.
 \begin{rem}[]
 	As a consequence, in what follows, like \cite[]{Messing} we will switch
 	between morphisms of sheaves of $\mathcal{O}_{ S }$-modules and morphism
-	between the associated sheaves of $\underline{\mathcal{O}_{ S }}$-modules without problem.
+	between the associated sheaves of $\underline{\mathcal{O}_{ S }}$-modules
+	without thinking about it twice.
 \end{rem}
 
 
@@ -1055,7 +1103,7 @@ or $\mathcal{O}_{ S }$-modules.
 	In particular, it allows us to write \(1_{ \mathcal{U} } \coloneqq
 	\varepsilon(1_{ \mathcal{O}_{ X } })\).
 	In what follows, we will usually just write \(1\) for
-	\(1_{ \mathcal{U} }\), but this abuse of notation
+	\(1_{ \mathcal{U} }\). This abuse of notation
 	should lead to no confusion.
 \begin{enumerate}
 \item We say that a section $x$ of $\mathcal{U}$ is \emph{primitive} iff
@@ -1070,7 +1118,7 @@ or $\mathcal{O}_{ S }$-modules.
 	associated to $\lie(\mathcal{U})$ as in \cref{not:fppfOsModule}.
 \end{enumerate}
 	Moreover consider $G \in \mathsf{Gr}/S$ for which there exists a
-	co-algebra $\mathcal{U}$ such that $G = \cospec(\mathcal{U})$ as
+	pointed co-algebra $\mathcal{U}$ such that $G = \cospec(\mathcal{U})$ as
 	fppf sheaves (which in particular include \emph{formal Lie groups} and \emph{Barsotti-Tate groups}).
 	Then we define $\lie(G) \coloneqq \lie(\mathcal{U})$.
 \end{defn}
